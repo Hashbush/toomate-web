@@ -19,6 +19,12 @@
       .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
       .border { border-color: #cbd5e1 !important; }
     }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0.25rem 0;
+      max-width: 100%;
+    }
   </style>
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
@@ -62,34 +68,104 @@
 
     <!-- RESUMEN CLAVE -->
     <section class="mb-10 bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-6">
-      <h2 class="text-lg font-bold text-emerald-950 flex items-center gap-2 mb-3">
+      <h2 class="text-lg font-bold text-emerald-950 flex items-center gap-2 mb-4">
         <i data-lucide="compass" class="w-5 h-5 text-emerald-600"></i>
         Definiciones y Teoremas Fundamentales
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
-        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
-          <p class="font-bold text-slate-800 mb-1">Condición de Continuidad en $x = x_0$:</p>
-          <div class="text-slate-700">$$\exists f(x_0), \quad \exists \lim_{x \to x_0} f(x), \quad \lim_{x \to x_0} f(x) = f(x_0)$$</div>
-          <p class="text-xs text-slate-500 mt-1">En funciones a trozos: $\lim_{x \to x_0^-} f(x) = \lim_{x \to x_0^+} f(x) = f(x_0)$.</p>
+        
+        <!-- CARD 1: CONDICION DE CONTINUIDAD -->
+        <div class="bg-white/90 p-4 rounded-xl border border-emerald-100 shadow-sm overflow-hidden flex flex-col justify-between">
+          <div>
+            <p class="font-bold text-slate-800 text-sm mb-2 flex items-center gap-1.5">
+              <i data-lucide="activity" class="w-4 h-4 text-emerald-600"></i>
+              Condición de Continuidad en $x = x_0$
+            </p>
+            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-xs text-center space-y-1 font-mono text-slate-800">
+              <div>1) $\exists f(x_0)$ &nbsp;|&nbsp; 2) $\exists \lim_{x \to x_0} f(x)$</div>
+              <div class="text-emerald-700 font-bold">3) $\lim_{x \to x_0} f(x) = f(x_0)$</div>
+            </div>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2.5 pt-2 border-t border-slate-100">
+            En funciones a trozos: $\lim_{x \to x_0^-} f(x) = \lim_{x \to x_0^+} f(x) = f(x_0)$.
+          </p>
         </div>
-        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
-          <p class="font-bold text-slate-800 mb-1">Tipos de Asíntotas:</p>
-          <div class="text-slate-700">$$\text{AV: } \lim_{x \to a} f(x) = \pm\infty \implies x = a$$
-          $$\text{AH: } \lim_{x \to \pm\infty} f(x) = k \implies y = k$$
-          $$\text{AO: } y = m x + n, \quad m = \lim_{x \to \pm\infty} \frac{f(x)}{x}$$</div>
-          <p class="text-xs text-slate-500 mt-1">Si existe asíntota horizontal hacia $+\infty$, no hay oblicua en ese sentido.</p>
+
+        <!-- CARD 2: TIPOS DE ASINTOTAS -->
+        <div class="bg-white/90 p-4 rounded-xl border border-emerald-100 shadow-sm overflow-hidden flex flex-col justify-between">
+          <div>
+            <p class="font-bold text-slate-800 text-sm mb-2 flex items-center gap-1.5">
+              <i data-lucide="trending-up" class="w-4 h-4 text-emerald-600"></i>
+              Tipos de Asíntotas
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-700">
+              <li class="flex items-start gap-1.5">
+                <strong class="text-emerald-800 w-24 shrink-0">Vertical (AV):</strong>
+                <span>$\lim_{x \to a} f(x) = \pm\infty \implies \mathbf{x = a}$</span>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <strong class="text-emerald-800 w-24 shrink-0">Horizontal (AH):</strong>
+                <span>$\lim_{x \to \pm\infty} f(x) = k \implies \mathbf{y = k}$</span>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <strong class="text-emerald-800 w-24 shrink-0">Oblicua (AO):</strong>
+                <span>$y = mx + n$ ($m = \lim \frac{f(x)}{x}, \; n = \lim (f(x)-mx)$)</span>
+              </li>
+            </ul>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2.5 pt-2 border-t border-slate-100">
+            Si existe asíntota horizontal hacia $+\infty$, no puede haber oblicua en ese mismo sentido.
+          </p>
         </div>
-        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
-          <p class="font-bold text-slate-800 mb-1">Resolución de Indeterminaciones:</p>
-          <div class="text-slate-700">$$\frac{0}{0}: \text{Factorizar o conjugado} \qquad \frac{\infty}{\infty}: \text{Grados del polinomio}$$
-          $$1^\infty: \lim (1 + 1/g)^g = e^{\lim g(f - 1)} \qquad \infty - \infty: \text{m.c.m. o conjugado}$$</div>
-          <p class="text-xs text-slate-500 mt-1">Regla de L'Hôpital para $\frac{0}{0}$ y $\frac{\infty}{\infty}$ con derivadas.</p>
+
+        <!-- CARD 3: RESOLUCION DE INDETERMINACIONES -->
+        <div class="bg-white/90 p-4 rounded-xl border border-emerald-100 shadow-sm overflow-hidden flex flex-col justify-between">
+          <div>
+            <p class="font-bold text-slate-800 text-sm mb-2 flex items-center gap-1.5">
+              <i data-lucide="calculator" class="w-4 h-4 text-emerald-600"></i>
+              Resolución de Indeterminaciones
+            </p>
+            <div class="space-y-1.5 text-xs text-slate-700">
+              <div class="flex items-center gap-2">
+                <span class="font-mono font-bold text-emerald-700 w-12 text-center bg-emerald-50 py-0.5 rounded border border-emerald-200 shrink-0">$\frac{0}{0}$</span>
+                <span>Factorizar polinomios o multiplicar por el conjugado.</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono font-bold text-emerald-700 w-12 text-center bg-emerald-50 py-0.5 rounded border border-emerald-200 shrink-0">$\frac{\infty}{\infty}$</span>
+                <span>Comparar grados de polinomios o regla de L'Hôpital.</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono font-bold text-emerald-700 w-12 text-center bg-emerald-50 py-0.5 rounded border border-emerald-200 shrink-0">$1^\infty$</span>
+                <span>Aplicar fórmula: $\lim (1 + 1/g)^g = e^{\lim g(f - 1)}$.</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono font-bold text-emerald-700 w-12 text-center bg-emerald-50 py-0.5 rounded border border-emerald-200 shrink-0">$\infty - \infty$</span>
+                <span>Operar con el m.c.m. o multiplicar por el conjugado.</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2.5 pt-2 border-t border-slate-100">
+            Regla de L'Hôpital disponible para $\frac{0}{0}$ y $\frac{\infty}{\infty}$ derivando numerador y denominador.
+          </p>
         </div>
-        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
-          <p class="font-bold text-slate-800 mb-1">Teorema de Bolzano:</p>
-          <div class="text-slate-700">$$f \text{ continua en } [a, b] \text{ y } f(a) \cdot f(b) < 0 \implies \exists c \in (a, b) / f(c) = 0$$</div>
-          <p class="text-xs text-slate-500 mt-1">Fundamental en la EvAU de Cantabria para demostrar corte con el eje OX o igualdad de beneficios.</p>
+
+        <!-- CARD 4: TEOREMA DE BOLZANO -->
+        <div class="bg-white/90 p-4 rounded-xl border border-emerald-100 shadow-sm overflow-hidden flex flex-col justify-between">
+          <div>
+            <p class="font-bold text-slate-800 text-sm mb-2 flex items-center gap-1.5">
+              <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+              Teorema de Bolzano
+            </p>
+            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-xs space-y-1.5 mb-2">
+              <p class="text-slate-700"><strong>1. Hipótesis:</strong> $f(x)$ continua en $[a, b]$ y $f(a) \cdot f(b) < 0$.</p>
+              <p class="text-emerald-800 font-semibold"><strong>2. Tesis:</strong> $\exists c \in (a, b)$ tal que $f(c) = 0$.</p>
+            </div>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2.5 pt-2 border-t border-slate-100">
+            Imprescindible en la EvAU de Cantabria para demostrar cortes con el eje OX o que dos funciones coinciden.
+          </p>
         </div>
+
       </div>
     </section>
 

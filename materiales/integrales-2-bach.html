@@ -17,6 +17,12 @@
       .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
       .border { border-color: #cbd5e1 !important; }
     }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0.25rem 0;
+      max-width: 100%;
+    }
   </style>
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
@@ -60,12 +66,14 @@
       <div class="space-y-3 text-xs text-slate-700">
         <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
           <strong class="text-rose-700 block text-sm mb-1">A) Inmediatas y Cuasi-inmediatas:</strong>
-          $$\int [f(x)]^n f'(x) \, dx = \frac{[f(x)]^{n+1}}{n+1} + C \quad (n \neq -1), \qquad \int \frac{f'(x)}{f(x)} \, dx = \ln|f(x)| + C$$
+          $$\int [f(x)]^n f'(x) \, dx = \frac{[f(x)]^{n+1}}{n+1} + C \quad (n \neq -1)$$
+          $$\int \frac{f'(x)}{f(x)} \, dx = \ln|f(x)| + C$$
         </div>
         <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
           <strong class="text-rose-700 block text-sm mb-1">B) Integración por Partes:</strong>
-          Regla mnemotécnica: <em>"Un Día Vi Una Vaca Vestida De Uniforme"</em>
-          $$\int u \, dv = u \cdot v - \int v \, du \qquad \text{Prioridad para } u \text{ (ALPES): Arco, Log, Polinomio, Exp, Sen/Cos}$$
+          <p class="text-slate-600 mb-1">Regla mnemotécnica: <em>"Un Día Vi Una Vaca Vestida De Uniforme"</em></p>
+          $$\int u \, dv = u \cdot v - \int v \, du$$
+          <p class="text-[11px] text-slate-500 mt-1"><strong>Prioridad para elegir $u$ (regla ALPES):</strong> <b>A</b>rcotangente/seno, <b>L</b>ogaritmo, <b>P</b>olinomio, <b>E</b>xponencial, <b>S</b>eno/Coseno.</p>
         </div>
         <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
           <strong class="text-rose-700 block text-sm mb-1">C) Integrales Racionales (Descomposición en Fracciones Simples):</strong>
