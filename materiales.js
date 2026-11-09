@@ -145,6 +145,32 @@ const materiales = [
       "Evaluación de la función objetivo para hallar el óptimo"
     ]
   },
+  {
+    id: "lim-ccss-2b",
+    asignatura: "matematicas",
+    titulo: "2º Bach CCSS: Límites, Continuidad y Asíntotas en Funciones a Trozos",
+    curso: "2-bach",
+    cursoTexto: "2º Bach CCSS / EvAU Cantabria",
+    categoria: "analisis",
+    descripcion: "Cálculo de límites e indeterminaciones, continuidad en puntos de empalme, determinación de parámetros a y b, asíntotas completas, Teorema de Bolzano y modelos económicos.",
+    tags: ["EvAU Cantabria", "Límites & Continuidad", "Boletín 22 Ejercicios", "Matemáticas CCSS"],
+    paginas: "16 págs + Boletín",
+    colorBadge: "bg-emerald-100 text-emerald-800 border-emerald-200",
+    pdfUrl: "materiales/limites-continuidad-2-bach-ccss.html",
+    ejerciciosUrl: "materiales/ejercicios-limites-continuidad-2-bach-ccss.html",
+    videoUrl: "https://www.youtube.com/results?search_query=toomates+limites+continuidad+2+bachillerato+ccss",
+    formulasClave: [
+      "\\lim_{x \\to x_0^-} f(x) = \\lim_{x \\to x_0^+} f(x) = f(x_0)",
+      "\\text{Asíntota Horizontal: } \\lim_{x \\to \\pm\\infty} f(x) = k",
+      "\\text{Teorema de Bolzano: } f(a) \\cdot f(b) < 0 \\implies \\exists c / f(c) = 0"
+    ],
+    puntosContenido: [
+      "Resolución sistemática de indeterminaciones (0/0, inf/inf, 1^inf y L'Hôpital)",
+      "Cálculo de parámetros a y b para continuidad en funciones a trozos",
+      "Asíntotas horizontales, verticales y oblicuas con posición de la curva",
+      "Boletín de 22 ejercicios de examen EvAU con soluciones paso a paso desplegables"
+    ]
+  },
 
   // ==========================================================================
   // MATEMÁTICAS - 1º BACHILLERATO (CIENCIAS Y CCSS)
