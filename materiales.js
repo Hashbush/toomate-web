@@ -171,6 +171,33 @@ const materiales = [
       "Boletín de 22 ejercicios de examen EvAU con soluciones paso a paso desplegables"
     ]
   },
+  {
+    id: "inf-ccss-2b",
+    asignatura: "matematicas",
+    titulo: "2º Bach CCSS: Inferencia Estadística e Intervalos de Confianza",
+    curso: "2-bach",
+    cursoTexto: "2º Bach CCSS / EvAU Cantabria",
+    categoria: "estadistica",
+    descripcion: "Muestreo aleatorio y estratificado, Teorema Central del Límite, intervalos de confianza para la media y proporción, cálculo de valores críticos, error máximo admisible y tamaño muestral mínimo.",
+    tags: ["EvAU Cantabria", "Estadística & Inferencia", "Boletín 22 Ejercicios", "Matemáticas CCSS"],
+    paginas: "15 págs + Boletín",
+    colorBadge: "bg-teal-100 text-teal-800 border-teal-200",
+    pdfUrl: "materiales/inferencia-estadistica-2-bach-ccss.html",
+    ejerciciosUrl: "materiales/ejercicios-inferencia-estadistica-2-bach-ccss.html",
+    videoUrl: "https://www.youtube.com/results?search_query=toomates+inferencia+estadistica+intervalos+confianza+2+bachillerato+ccss",
+    formulasClave: [
+      "IC_\\mu = \\left(\\bar{x} - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}, \\; \\bar{x} + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}\\right)",
+      "IC_p = \\left(\\hat{p} - z_{\\alpha/2}\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}, \\; \\hat{p} + z_{\\alpha/2}\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\\right)",
+      "n \\ge \\left(\\frac{z_{\\alpha/2} \\cdot \\sigma}{E}\\right)^2 \\quad \\text{y} \\quad n \\ge \\frac{z_{\\alpha/2}^2 \\cdot \\hat{p}(1-\\hat{p})}{E^2}"
+    ],
+    puntosContenido: [
+      "Muestreo aleatorio simple, sistemático y estratificado proporcional",
+      "Distribución de la media y proporción muestral por el Teorema Central del Límite",
+      "Cálculo de intervalos de confianza para media y proporción con valor crítico z",
+      "Determinación del tamaño muestral mínimo n y resolución de problemas inversos EBAU",
+      "Boletín de 22 ejercicios graduados con soluciones detalladas paso a paso"
+    ]
+  },
 
   // ==========================================================================
   // MATEMÁTICAS - 1º BACHILLERATO (CIENCIAS Y CCSS)

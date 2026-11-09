@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22 Ejercicios de Inferencia Estadística e Intervalos de Confianza - 2º Bach CCSS | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 10.5pt; }
+      .page-break { page-break-before: always; }
+      details { break-inside: avoid; }
+      details[open] summary ~ * { display: block !important; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+    details summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <!-- BARRA SUPERIOR DE ACCIONES -->
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-emerald-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="inferencia-estadistica-2-bach-ccss.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-emerald-600 bg-white border border-slate-200 px-3.5 py-2 rounded-xl transition shadow-sm">
+        <i data-lucide="book-open" class="w-4 h-4 text-emerald-600"></i>
+        <span>Ver Teoría y Fórmulas</span>
+      </a>
+      <button id="btnToggleAll" onclick="toggleTodasLasSoluciones()" class="inline-flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-semibold text-sm px-4 py-2 rounded-xl transition shadow-sm">
+        <i data-lucide="eye" class="w-4 h-4 text-emerald-600"></i>
+        <span id="btnToggleText">Desplegar todas las soluciones</span>
+      </button>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Imprimir / PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <!-- ENCABEZADO -->
+    <header class="border-b-2 border-emerald-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+            Matemáticas CCSS II &bull; 2º Bachillerato EBAU / PAU Cantabria
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Boletín de 22 Ejercicios: Inferencia Estadística e Intervalos de Confianza
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Muestreo, Media y Proporción Muestral, Intervalos de Confianza, Error Máximo y Tamaño de Muestra con soluciones completas paso a paso</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="space-y-8">
+
+      <!-- ========================================== -->
+      <!-- NIVEL 1: CONCEPTOS BÁSICOS Y MUESTREO (1 - 6) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-emerald-100">
+          <span class="bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-lg">Nivel 1</span>
+          <h2 class="text-lg font-bold text-slate-900">Muestreo, Distribuciones Muestrales y Cálculo Básico</h2>
+        </div>
+        <div class="space-y-4">
+
+          <!-- Ejercicio 1 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                1. Muestreo estratificado con afijación proporcional
+              </h3>
+              <span class="text-xs bg-slate-200 text-slate-700 font-semibold px-2 py-0.5 rounded">Muestreo</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              Un instituto de secundaria de Cantabria tiene matriculados $800$ estudiantes repartidos en cuatro cursos: 
+              $240$ en 1º de ESO, $200$ en 2º de ESO, $180$ en 3º de ESO y $180$ en 4º de ESO. Se desea seleccionar una muestra de $120$ alumnos mediante muestreo estratificado con afijación proporcional. ¿Cuántos estudiantes deben elegirse de cada uno de los cursos?
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>Paso 1:</strong> Calculamos la fracción o razón de muestreo común $f = \frac{n}{N}$:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$f = \frac{n}{N} = \frac{120}{800} = 0.15 \quad (15\%)$$
+                </div>
+                <p><strong>Paso 2:</strong> Multiplicamos el número de alumnos de cada estrato $N_i$ por $f$:</p>
+                <ul class="list-disc list-inside space-y-1">
+                  <li><strong>1º ESO:</strong> $n_1 = 240 \times 0.15 = \mathbf{36 \text{ alumnos}}$</li>
+                  <li><strong>2º ESO:</strong> $n_2 = 200 \times 0.15 = \mathbf{30 \text{ alumnos}}$</li>
+                  <li><strong>3º ESO:</strong> $n_3 = 180 \times 0.15 = \mathbf{27 \text{ alumnos}}$</li>
+                  <li><strong>4º ESO:</strong> $n_4 = 180 \times 0.15 = \mathbf{27 \text{ alumnos}}$</li>
+                </ul>
+                <p><strong>Comprobación:</strong> $36 + 30 + 27 + 27 = 120$ alumnos.</p>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 2 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                2. Distribución muestral de la media y probabilidad
+              </h3>
+              <span class="text-xs bg-slate-200 text-slate-700 font-semibold px-2 py-0.5 rounded">Distribución Muestral</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              La estatura de los jóvenes de 18 años sigue una distribución normal de media $\mu = 174$ cm y desviación típica $\sigma = 8$ cm. Se extrae una muestra aleatoria simple de $16$ jóvenes.
+              <br>a) ¿Qué distribución sigue la estatura media $\bar{X}$ de la muestra?
+              <br>b) ¿Cuál es la probabilidad de que la media muestral sea superior a $177$ cm?
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Distribución de $\bar{X}$:</strong></p>
+                <p>Como la población original es normal, la media muestral sigue una distribución normal:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$\bar{X} \sim N\left(\mu, \; \frac{\sigma}{\sqrt{n}}\right) = N\left(174, \; \frac{8}{\sqrt{16}}\right) = N(174, \; 2)$$
+                </div>
+                <p><strong>b) Probabilidad $P(\bar{X} > 177)$:</strong></p>
+                <p>Tipificamos utilizando $Z = \frac{\bar{X} - \mu}{\sigma_{\bar{x}}} = \frac{\bar{X} - 174}{2}$:</p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$P(\bar{X} > 177) = P\left(Z > \frac{177 - 174}{2}\right) = P(Z > 1.5)$$
+                </div>
+                <p>Usando la tabla de la normal estándar $N(0,1)$:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$P(Z > 1.5) = 1 - P(Z \le 1.5) = 1 - 0.9332 = \mathbf{0.0668 \quad (6.68\%)}$$
+                </div>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 3 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                3. Distribución muestral de la proporción
+              </h3>
+              <span class="text-xs bg-slate-200 text-slate-700 font-semibold px-2 py-0.5 rounded">Proporción Muestral</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              Se sabe que el $20\%$ de los clientes de una gran superficie comercial paga mediante su teléfono móvil. Se toma una muestra aleatoria de $100$ clientes.
+              <br>a) Justificar la aproximación a la normal e indicar la distribución de la proporción muestral $\hat{P}$.
+              <br>b) Calcular la probabilidad de que en la muestra la proporción de pagos con móvil sea superior al $26\%$.
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Justificación y distribución de $\hat{P}$:</strong></p>
+                <p>Comprobamos las condiciones: $n \cdot p = 100 \cdot 0.20 = 20 \ge 5$ y $n \cdot (1-p) = 100 \cdot 0.80 = 80 \ge 5$. Por el TCL:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}} = \sqrt{\frac{0.20 \cdot 0.80}{100}} = \sqrt{0.0016} = 0.04 \implies \mathbf{\hat{P} \sim N(0.20, \; 0.04)}$$
+                </div>
+                <p><strong>b) Cálculo de $P(\hat{P} > 0.26)$:</strong></p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$P(\hat{P} > 0.26) = P\left(Z > \frac{0.26 - 0.20}{0.04}\right) = P\left(Z > \frac{0.06}{0.04}\right) = P(Z > 1.5)$$
+                </div>
+                <p>Buscando en la tabla $N(0,1)$:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$P(Z > 1.5) = 1 - P(Z \le 1.5) = 1 - 0.9332 = \mathbf{0.0668 \quad (6.68\%)}$$
+                </div>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 4 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                4. Obtención rigurosa de valores críticos $z_{\alpha/2}$
+              </h3>
+              <span class="text-xs bg-slate-200 text-slate-700 font-semibold px-2 py-0.5 rounded">Valores Críticos</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              Calcular razonadamente, mediante el uso de la tabla de la distribución normal estándar $N(0, 1)$, el valor crítico $z_{\alpha/2}$ correspondiente a los siguientes niveles de confianza:
+              <br>a) $92\%$ de confianza.
+              <br>b) $96\%$ de confianza.
+              <br>c) $98\%$ de confianza.
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p>Para cada caso calculamos $P(Z \le z_{\alpha/2}) = 1 - \frac{\alpha}{2}$ y buscamos en la tabla $N(0,1)$:</p>
+                <ul class="list-disc list-inside space-y-2">
+                  <li>
+                    <strong>a) 92%:</strong> $1 - \alpha = 0.92 \implies \alpha = 0.08 \implies \frac{\alpha}{2} = 0.04$.
+                    <br>$P(Z \le z_{\alpha/2}) = 1 - 0.04 = 0.9600$. Buscando en la tabla $0.9599 \approx 0.9600 \implies \mathbf{z_{\alpha/2} = 1.75}$.
+                  </li>
+                  <li>
+                    <strong>b) 96%:</strong> $1 - \alpha = 0.96 \implies \alpha = 0.04 \implies \frac{\alpha}{2} = 0.02$.
+                    <br>$P(Z \le z_{\alpha/2}) = 1 - 0.02 = 0.9800$. En la tabla $0.9798$ ($z=2.05$) y $0.9803$ ($z=2.06$). Interpolando: $\mathbf{z_{\alpha/2} = 2.055}$ (o $2.05$).
+                  </li>
+                  <li>
+                    <strong>c) 98%:</strong> $1 - \alpha = 0.98 \implies \alpha = 0.02 \implies \frac{\alpha}{2} = 0.01$.
+                    <br>$P(Z \le z_{\alpha/2}) = 1 - 0.01 = 0.9900$. En la tabla el valor más próximo a $0.9900$ es $0.9901 \implies \mathbf{z_{\alpha/2} = 2.33}$.
+                  </li>
+                </ul>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 5 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                5. Intervalo de confianza directo para la media
+              </h3>
+              <span class="text-xs bg-slate-200 text-slate-700 font-semibold px-2 py-0.5 rounded">Media Poblacional</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              El tiempo (en minutos) necesario para resolver un examen psicotécnico sigue una distribución normal con desviación típica $\sigma = 12$ minutos. Se selecciona una muestra aleatoria de $36$ opositores, obteniéndose un tiempo medio de resolución de $45$ minutos.
+              Hallar el intervalo de confianza al $95\%$ para el tiempo medio poblacional $\mu$.
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>Datos:</strong> $\bar{x} = 45$, $\sigma = 12$, $n = 36$.</p>
+                <p>Para un nivel de confianza del $95\%$ ($1-\alpha = 0.95$), el valor crítico es $z_{\alpha/2} = 1.96$.</p>
+                <p>Calculamos el error máximo admisible $E$:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$E = z_{\alpha/2} \frac{\sigma}{\sqrt{n}} = 1.96 \cdot \frac{12}{\sqrt{36}} = 1.96 \cdot \frac{12}{6} = 1.96 \cdot 2 = 3.92 \text{ min}$$
+                </div>
+                <p>Construimos el intervalo de confianza:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs font-bold">
+                  $$IC = (\bar{x} - E, \; \bar{x} + E) = (45 - 3.92, \; 45 + 3.92) = \mathbf{(41.08, \; 48.92) \text{ minutos}}$$
+                </div>
+                <p class="text-xs text-slate-500"><strong>Interpretación:</strong> Con una confianza del $95\%$, el tiempo medio real que tardan los opositores se sitúa entre $41.08$ y $48.92$ minutos.</p>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 6 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                6. Intervalo de confianza directo para una proporción
+              </h3>
+              <span class="text-xs bg-slate-200 text-slate-700 font-semibold px-2 py-0.5 rounded">Proporción Poblacional</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              En una encuesta realizada a $400$ vecinos de Torrelavega sobre un proyecto de peatonalización, $240$ se mostraron favorables.
+              Construir un intervalo de confianza al $99\%$ para la proporción poblacional de vecinos a favor del proyecto.
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>Paso 1: Proporción muestral:</strong></p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$\hat{p} = \frac{240}{400} = 0.60 \implies \hat{q} = 1 - \hat{p} = 0.40$$
+                </div>
+                <p><strong>Paso 2: Valor crítico al 99%:</strong> $1-\alpha = 0.99 \implies z_{\alpha/2} = 2.575$.</p>
+                <p><strong>Paso 3: Error máximo admisible $E$:</strong></p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$E = z_{\alpha/2} \sqrt{\frac{\hat{p}\hat{q}}{n}} = 2.575 \sqrt{\frac{0.60 \cdot 0.40}{400}} = 2.575 \sqrt{\frac{0.24}{400}} = 2.575 \sqrt{0.0006} \approx 2.575 \cdot 0.02449 = 0.0631$$
+                </div>
+                <p><strong>Paso 4: Intervalo:</strong></p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs font-bold">
+                  $$IC = (0.60 - 0.0631, \; 0.60 + 0.0631) = \mathbf{(0.5369, \; 0.6631)} \iff \mathbf{[53.69\%, \; 66.31\%]}$$
+                </div>
+              </div>
+            </details>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- NIVEL 2: ERROR MÁXIMO Y TAMAÑO MUESTRAL (7 - 12) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-emerald-100">
+          <span class="bg-teal-600 text-white text-xs font-bold px-2.5 py-1 rounded-lg">Nivel 2</span>
+          <h2 class="text-lg font-bold text-slate-900">Error Máximo, Tamaño de Muestra e Intervalos Inversos</h2>
+        </div>
+        <div class="space-y-4">
+
+          <!-- Ejercicio 7 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                7. Comparación de errores máximos según el nivel de confianza
+              </h3>
+              <span class="text-xs bg-slate-200 text-slate-700 font-semibold px-2 py-0.5 rounded">Error Máximo</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              El peso de los paquetes de fruta envasada sigue una distribución normal con desviación típica $\sigma = 5$ gramos. Para estimar el peso medio se toma una muestra de $100$ paquetes, obteniéndose $\bar{x} = 502$ g.
+              <br>a) Calcular el error máximo admisible al $90\%$ y al $99\%$ de confianza.
+              <br>b) ¿Cuál de las dos estimaciones ofrece mayor precisión? Justificar la respuesta.
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Cálculo de los errores:</strong></p>
+                <ul class="list-disc list-inside space-y-1">
+                  <li>Al 90% ($z = 1.645$): $E_{90} = 1.645 \cdot \frac{5}{\sqrt{100}} = 1.645 \cdot 0.5 = \mathbf{0.8225 \text{ gramos}}$.</li>
+                  <li>Al 99% ($z = 2.575$): $E_{99} = 2.575 \cdot \frac{5}{\sqrt{100}} = 2.575 \cdot 0.5 = \mathbf{1.2875 \text{ gramos}}$.</li>
+                </ul>
+                <p><strong>b) Justificación de la precisión:</strong></p>
+                <p>La estimación al <strong>90% de confianza</strong> es más <em>precisa</em> porque el error cometido es menor ($0.8225 < 1.2875$), lo que da lugar a un intervalo más estrecho. Sin embargo, ofrece menor seguridad o certeza ($90\%$ frente al $99\%$).</p>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 8 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                8. Tamaño muestral mínimo para la media poblacional
+              </h3>
+              <span class="text-xs bg-slate-200 text-slate-700 font-semibold px-2 py-0.5 rounded">Tamaño Muestral</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              Para estimar los ingresos diarios medios de una cadena de restaurantes se sabe que la desviación típica histórica es $\sigma = 150$ €. ¿Qué tamaño muestral mínimo debe elegirse para que, con un nivel de confianza del $95\%$, el error cometido al estimar la media no supere los $25$ €?
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>Datos:</strong> $\sigma = 150$, $E = 25$, confianza $95\% \implies z_{\alpha/2} = 1.96$.</p>
+                <p>Partimos de la condición $E \ge z_{\alpha/2} \frac{\sigma}{\sqrt{n}}$ y despejamos $n$:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$n \ge \left(\frac{z_{\alpha/2} \cdot \sigma}{E}\right)^2 = \left(\frac{1.96 \cdot 150}{25}\right)^2 = (1.96 \cdot 6)^2 = (11.76)^2 = 138.298$$
+                </div>
+                <p>Al requerir un error menor o igual a $25$ €, redondeamos siempre al entero superior inmediato:</p>
+                <p class="font-bold text-emerald-800 text-sm">$$\mathbf{n \ge 139 \text{ días (o restaurantes)}}$$</p>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 9 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                9. Tamaño muestral para la proporción a partir de sondeo piloto
+              </h3>
+              <span class="text-xs bg-slate-200 text-slate-700 font-semibold px-2 py-0.5 rounded">Tamaño Muestral</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              Un estudio de mercado piloto indica que el $35\%$ de los consumidores adquiere productos ecológicos. ¿A cuántos consumidores se debe entrevistar como mínimo para estimar la proporción real con un margen de error no superior al $3\%$ ($0.03$) y un nivel de confianza del $95\%$?
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>Datos:</strong> $\hat{p} = 0.35$, $1 - \hat{p} = 0.65$, $E = 0.03$, $z_{\alpha/2} = 1.96$.</p>
+                <p>Despejamos $n$ en la fórmula del error:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$n \ge \frac{z_{\alpha/2}^2 \cdot \hat{p}(1-\hat{p})}{E^2} = \frac{(1.96)^2 \cdot 0.35 \cdot 0.65}{(0.03)^2} = \frac{3.8416 \cdot 0.2275}{0.0009} = \frac{0.873964}{0.0009} \approx 971.07$$
+                </div>
+                <p>Redondeando al entero superior:</p>
+                <p class="font-bold text-emerald-800 text-sm">$$\mathbf{n \ge 972 \text{ consumidores}}$$</p>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 10 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                10. Tamaño muestral para proporción en el caso más desfavorable
+              </h3>
+              <span class="text-xs bg-slate-200 text-slate-700 font-semibold px-2 py-0.5 rounded">Peor Caso</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              Se quiere llevar a cabo un sondeo sobre la opinión ciudadana ante un nuevo impuesto local. No se dispone de ningún dato previo sobre la proporción real a favor. Con un nivel de confianza del $99\%$ y deseando que el error máximo no exceda del $4\%$ ($0.04$), ¿cuántas personas es preciso consultar?
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>Caso más desfavorable:</strong> Al no tener estimación preliminar, se asume $p = 0.5$, pues maximiza el producto $p(1-p) = 0.5 \cdot 0.5 = 0.25$, asegurando el tamaño muestral más conservador.</p>
+                <p>Al 99%, $z_{\alpha/2} = 2.575$. Error $E = 0.04$:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$n \ge \frac{(2.575)^2 \cdot 0.25}{(0.04)^2} = \frac{6.630625 \cdot 0.25}{0.0016} = \frac{1.657656}{0.0016} \approx 1036.04$$
+                </div>
+                <p class="font-bold text-emerald-800 text-sm">$$\mathbf{n \ge 1037 \text{ personas}}$$</p>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 11 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                11. Deducción inversa: media, error y nivel de confianza
+              </h3>
+              <span class="text-xs bg-slate-200 text-slate-700 font-semibold px-2 py-0.5 rounded">Problema Inverso</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              A partir de una muestra de $64$ entregas a domicilio y conociendo que la desviación típica del tiempo de reparto es $\sigma = 6$ minutos, se obtuvo el intervalo de confianza $(18.2, \; 21.8)$ minutos.
+              <br>a) Calcular la media muestral $\bar{x}$ y el error máximo admisible $E$.
+              <br>b) Determinar el nivel de confianza con el que se construyó dicho intervalo.
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Media muestral y error:</strong></p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$\bar{x} = \frac{18.2 + 21.8}{2} = \mathbf{20 \text{ minutos}}$$
+                  $$E = \frac{21.8 - 18.2}{2} = \frac{3.6}{2} = \mathbf{1.8 \text{ minutos}}$$
+                </div>
+                <p><strong>b) Nivel de confianza:</strong></p>
+                <p>Sabemos que $E = z_{\alpha/2} \frac{\sigma}{\sqrt{n}}$:</p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$1.8 = z_{\alpha/2} \frac{6}{\sqrt{64}} = z_{\alpha/2} \frac{6}{8} = 0.75 \cdot z_{\alpha/2} \implies z_{\alpha/2} = \frac{1.8}{0.75} = \mathbf{2.4}$$
+                </div>
+                <p>Buscamos $2.40$ en la tabla de la normal estándar $N(0,1)$:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$P(Z \le 2.40) = 0.9918 = 1 - \frac{\alpha}{2} \implies \frac{\alpha}{2} = 0.0082 \implies \alpha = 0.0164$$
+                  $$1 - \alpha = 1 - 0.0164 = 0.9836 \implies \mathbf{98.36\% \text{ de confianza}}$$
+                </div>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 12 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                12. Deducción inversa para proporción y tamaño de muestra
+              </h3>
+              <span class="text-xs bg-slate-200 text-slate-700 font-semibold px-2 py-0.5 rounded">Problema Inverso</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              En una encuesta sociológica se publica que el intervalo de confianza para la proporción de ciudadanos que leen habitualmente prensa digital es $(0.418, \; 0.482)$, habiéndose utilizado un nivel de confianza del $95\%$.
+              <br>a) ¿Cuál fue la proporción muestral $\hat{p}$ obtenida en el estudio?
+              <br>b) ¿Cuántas personas fueron encuestadas en dicha muestra?
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Proporción muestral y error:</strong></p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$\hat{p} = \frac{0.418 + 0.482}{2} = \mathbf{0.45 \quad (45\%)}$$
+                  $$E = \frac{0.482 - 0.418}{2} = \mathbf{0.032}$$
+                </div>
+                <p><strong>b) Tamaño de la muestra $n$:</strong></p>
+                <p>Con $1-\alpha = 0.95 \implies z_{\alpha/2} = 1.96$:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$E = z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \implies 0.032 = 1.96 \sqrt{\frac{0.45 \cdot 0.55}{n}}$$
+                  $$0.032^2 = (1.96)^2 \cdot \frac{0.2475}{n} \implies 0.001024 = \frac{0.950796}{n}$$
+                  $$n = \frac{0.950796}{0.001024} \approx 928.51 \implies \mathbf{n = 929 \text{ personas}}$$
+                </div>
+              </div>
+            </details>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- NIVEL 3: TIPO EBAU / PAU CANTABRIA (13 - 18) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-emerald-100">
+          <span class="bg-amber-600 text-white text-xs font-bold px-2.5 py-1 rounded-lg">Nivel 3</span>
+          <h2 class="text-lg font-bold text-slate-900">Problemas Típicos de EBAU / PAU Cantabria</h2>
+        </div>
+        <div class="space-y-4">
+
+          <!-- Ejercicio 13 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                13. EBAU Cantabria: Vida útil de bombillas LED y reducción de error
+              </h3>
+              <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2 py-0.5 rounded">EBAU Cantabria</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              La vida útil (en horas) de un modelo de lámpara LED se distribuye según una normal con $\sigma = 300$ horas. Se selecciona una muestra aleatoria de $100$ lámparas, obteniéndose una vida media de $5200$ horas.
+              <br>a) Calcular el intervalo de confianza al $98\%$ para la vida útil media de las lámparas.
+              <br>b) ¿Cuántas lámparas habría que examinar para reducir el error de estimación a la mitad, manteniendo el mismo nivel de confianza?
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Intervalo al 98%:</strong></p>
+                <p>Para $1-\alpha = 0.98 \implies \frac{\alpha}{2} = 0.01 \implies 1 - \frac{\alpha}{2} = 0.9900 \implies z_{\alpha/2} = 2.33$.</p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$E = 2.33 \frac{300}{\sqrt{100}} = 2.33 \cdot 30 = 69.9 \text{ horas}$$
+                </div>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs font-bold">
+                  $$IC = (5200 - 69.9, \; 5200 + 69.9) = \mathbf{(5130.1, \; 5269.9) \text{ horas}}$$
+                </div>
+                <p><strong>b) Tamaño muestral para reducir el error a la mitad:</strong></p>
+                <p>Como $E \propto \frac{1}{\sqrt{n}}$, para dividir el error por $2$ hay que multiplicar el tamaño muestral por $2^2 = 4$:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$n' = 4 \cdot n = 4 \cdot 100 = \mathbf{400 \text{ lámparas}}$$
+                </div>
+                <p class="text-xs text-slate-500">Comprobación con fórmula: $n' = \left(\frac{2.33 \cdot 300}{34.95}\right)^2 = 20^2 = 400$.</p>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 14 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                14. EBAU Cantabria: Tiempo de espera en Urgencias de Valdecilla
+              </h3>
+              <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2 py-0.5 rounded">EBAU Cantabria</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              En el servicio de Urgencias del Hospital Marqués de Valdecilla, el tiempo de espera hasta ser atendido sigue una distribución normal con desviación típica $\sigma = 15$ minutos. En una muestra de $36$ pacientes se registró un tiempo medio de espera de $48$ minutos.
+              <br>a) Calcular el intervalo de confianza al $95\%$ para el tiempo medio de espera.
+              <br>b) Si se duplica el tamaño de la muestra ($n = 72$), ¿se reduce el error a la mitad? Justificar la respuesta numéricamente.
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Intervalo al 95%:</strong></p>
+                <p>Con $1-\alpha = 0.95 \implies z_{\alpha/2} = 1.96$.</p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$E = 1.96 \cdot \frac{15}{\sqrt{36}} = 1.96 \cdot 2.5 = 4.9 \text{ minutos}$$
+                </div>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs font-bold">
+                  $$IC = (48 - 4.9, \; 48 + 4.9) = \mathbf{(43.1, \; 52.9) \text{ minutos}}$$
+                </div>
+                <p><strong>b) Discusión sobre duplicar la muestra:</strong></p>
+                <p><strong>No</strong> se reduce a la mitad. Al duplicar la muestra a $n = 72$, el nuevo error es:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$E' = 1.96 \cdot \frac{15}{\sqrt{72}} \approx 1.96 \cdot \frac{15}{8.485} \approx 3.465 \text{ minutos}$$
+                </div>
+                <p>El error se divide por $\sqrt{2} \approx 1.414$, resultando $4.9 / 1.414 = 3.465$ min (una reducción de aproximadamente el $29.3\%$, no del $50\%$). Para reducirlo a la mitad se necesitaría cuadruplicar la muestra ($n = 144$).</p>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 15 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                15. EBAU Cantabria: Comercio online en pequeños negocios rurales
+              </h3>
+              <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2 py-0.5 rounded">EBAU Cantabria</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              En una muestra de $250$ pequeños comercios de los valles pasiegos y comarcas rurales de Cantabria, se detectó que $60$ disponen de tienda online propia.
+              <br>a) Calcular el intervalo de confianza al $90\%$ para la proporción de comercios con venta online.
+              <br>b) Si la Cámara de Comercio desea una estimación con un error inferior al $2\%$ ($0.02$) al $95\%$ de confianza, usando el resultado de esta muestra como proporción preliminar, ¿a cuántos comercios deberá encuestar?
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Intervalo al 90%:</strong></p>
+                <p>Proporción muestral: $\hat{p} = \frac{60}{250} = 0.24 \implies 1-\hat{p} = 0.76$. Al 90%: $z_{\alpha/2} = 1.645$.</p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$E = 1.645 \sqrt{\frac{0.24 \cdot 0.76}{250}} = 1.645 \sqrt{0.0007296} \approx 1.645 \cdot 0.027011 = 0.0444$$
+                </div>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs font-bold">
+                  $$IC = (0.24 - 0.0444, \; 0.24 + 0.0444) = \mathbf{(0.1956, \; 0.2844)} \iff \mathbf{[19.56\%, \; 28.44\%]}$$
+                </div>
+                <p><strong>b) Tamaño de muestra al 95% con error $\le 0.02$:</strong></p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$n \ge \frac{(1.96)^2 \cdot 0.24 \cdot 0.76}{(0.02)^2} = \frac{3.8416 \cdot 0.1824}{0.0004} = \frac{0.700708}{0.0004} \approx 1751.77$$
+                </div>
+                <p class="font-bold text-emerald-800">$$\mathbf{n \ge 1752 \text{ comercios}}$$</p>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 16 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                16. EBAU Cantabria: Paquetes de harina con parámetros desconocidos
+              </h3>
+              <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2 py-0.5 rounded">EBAU Cantabria</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              El peso de los paquetes de harina empaquetados por una fábrica sigue una distribución normal $N(\mu, 20)$. A partir de una muestra aleatoria de $64$ paquetes, se obtuvo el intervalo de confianza $(995.1, \; 1004.9)$ gramos.
+              <br>a) ¿Cuál fue el peso medio muestral $\bar{x}$ obtenido?
+              <br>b) ¿Con qué nivel de confianza se calculó el intervalo?
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Peso medio muestral $\bar{x}$:</strong></p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$\bar{x} = \frac{995.1 + 1004.9}{2} = \mathbf{1000 \text{ gramos}}$$
+                </div>
+                <p><strong>b) Nivel de confianza:</strong></p>
+                <p>El error cometido es el semiancho del intervalo:</p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$E = \frac{1004.9 - 995.1}{2} = \frac{9.8}{2} = 4.9 \text{ gramos}$$
+                </div>
+                <p>Sustituyendo en $E = z_{\alpha/2} \frac{\sigma}{\sqrt{n}}$ con $\sigma = 20$ y $n = 64$:</p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$4.9 = z_{\alpha/2} \frac{20}{\sqrt{64}} = z_{\alpha/2} \frac{20}{8} = 2.5 \cdot z_{\alpha/2} \implies z_{\alpha/2} = \frac{4.9}{2.5} = \mathbf{1.96}$$
+                </div>
+                <p>El valor crítico $z_{\alpha/2} = 1.96$ corresponde exactamente a $P(Z \le 1.96) = 0.9750$, lo que deja un $\alpha/2 = 0.025 \implies \alpha = 0.05$:</p>
+                <p class="font-bold text-emerald-800">$$\mathbf{\text{Nivel de confianza } 1 - \alpha = 0.95 \implies 95\%}$$</p>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 17 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                17. EBAU Cantabria: Cuestión teórica de razonamiento
+              </h3>
+              <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2 py-0.5 rounded">Teoría y Razonamiento</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              Indicar razonadamente si cada una de las siguientes afirmaciones es Verdadera o Falsa:
+              <br>a) "Si se aumenta el nivel de confianza, la amplitud del intervalo de confianza disminuye."
+              <br>b) "Para una misma confianza y desviación típica, si se multiplica por $9$ el tamaño muestral, el error máximo admisible se reduce a la tercera parte."
+              <br>c) "El valor del parámetro desconocido $\mu$ está garantizado que pertenece al intervalo de confianza calculado para una muestra concreta con probabilidad del $100\%$."
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <ul class="list-disc list-inside space-y-2">
+                  <li>
+                    <strong>a) FALSA:</strong> Al aumentar el nivel de confianza ($1-\alpha$), el valor crítico $z_{\alpha/2}$ se hace mayor. Por tanto, el error $E = z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$ aumenta y la amplitud del intervalo ($2E$) <strong>aumenta</strong> (el intervalo se ensancha).
+                  </li>
+                  <li>
+                    <strong>b) VERDADERA:</strong> El error es inversamente proporcional a $\sqrt{n}$. Si sustituimos $n' = 9n$, tenemos $E' = z_{\alpha/2}\frac{\sigma}{\sqrt{9n}} = \frac{1}{3}\left(z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right) = \frac{E}{3}$.
+                  </li>
+                  <li>
+                    <strong>c) FALSA:</strong> Una vez calculados los extremos numéricos del intervalo, la media real $\mu$ está o no está dentro de él. Lo que afirma el nivel de confianza (p. ej. $95\%$) es que, si repitiéramos el muestreo muchas veces, el $95\%$ de los intervalos construidos contendrían al parámetro $\mu$, existiendo un $5\%$ de probabilidad de error.
+                  </li>
+                </ul>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 18 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                18. EBAU Cantabria: Gasto mensual en alimentación a partir de datos brutos
+              </h3>
+              <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2 py-0.5 rounded">EBAU Cantabria</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              En un estudio sobre el gasto mensual en alimentación de las familias de Santander, se sabe que la desviación típica poblacional es $\sigma = 120$ €. En una muestra aleatoria de $64$ familias, la suma total de sus gastos mensuales fue de $38400$ €.
+              <br>a) Estimar mediante un intervalo de confianza al $95\%$ el gasto medio mensual de las familias de la ciudad.
+              <br>b) ¿Cuántas familias deberían seleccionarse para que, con un $99\%$ de confianza, el error máximo no supere los $20$ €?
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Intervalo de confianza al 95%:</strong></p>
+                <p>Media muestral: $\bar{x} = \frac{\sum x_i}{n} = \frac{38400}{64} = 600$ €.</p>
+                <p>Al 95%, $z_{\alpha/2} = 1.96$:</p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$E = 1.96 \cdot \frac{120}{\sqrt{64}} = 1.96 \cdot \frac{120}{8} = 1.96 \cdot 15 = 29.4 \text{ €}$$
+                </div>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs font-bold">
+                  $$IC = (600 - 29.4, \; 600 + 29.4) = \mathbf{(570.6, \; 629.4) \text{ €}}$$
+                </div>
+                <p><strong>b) Tamaño muestral para $E \le 20$ € al 99%:</strong></p>
+                <p>Al 99%, $z_{\alpha/2} = 2.575$:</p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$n \ge \left(\frac{2.575 \cdot 120}{20}\right)^2 = (2.575 \cdot 6)^2 = (15.45)^2 = 238.7025$$
+                </div>
+                <p class="font-bold text-emerald-800">$$\mathbf{n \ge 239 \text{ familias}}$$</p>
+              </div>
+            </details>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- NIVEL 4: CONTEXTO ECONÓMICO Y SOCIAL (19 - 22) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-emerald-100">
+          <span class="bg-indigo-600 text-white text-xs font-bold px-2.5 py-1 rounded-lg">Nivel 4</span>
+          <h2 class="text-lg font-bold text-slate-900">Aplicaciones Reales: Control de Calidad, Finanzas y Sociología</h2>
+        </div>
+        <div class="space-y-4">
+
+          <!-- Ejercicio 19 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                19. Control de calidad: peso de latas de anchoas de Santoña
+              </h3>
+              <span class="text-xs bg-indigo-100 text-indigo-800 font-semibold px-2 py-0.5 rounded">Control de Calidad</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              Una fábrica conservera de Santoña envasa latas de anchoas en aceite. La desviación típica del peso neto es de $\sigma = 3$ gramos. En una auditoría de calidad se toma una muestra de $36$ latas, obteniéndose un peso neto medio de $118.8$ gramos.
+              <br>a) Calcular el intervalo de confianza al $95\%$ para el peso medio de las latas producidas.
+              <br>b) Si la etiqueta comercial anuncia un peso neto de $120$ gramos, ¿puede admitirse que la producción cumple con la especificación de la etiqueta con una confianza del $95\%$?
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Intervalo al 95%:</strong></p>
+                <p>Con $n = 36$, $\bar{x} = 118.8$ g, $\sigma = 3$ g, $z_{\alpha/2} = 1.96$:</p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$E = 1.96 \cdot \frac{3}{\sqrt{36}} = 1.96 \cdot 0.5 = 0.98 \text{ gramos}$$
+                </div>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs font-bold">
+                  $$IC = (118.8 - 0.98, \; 118.8 + 0.98) = \mathbf{(117.82, \; 119.78) \text{ gramos}}$$
+                </div>
+                <p><strong>b) Decisión sobre la etiqueta:</strong></p>
+                <p><strong>No puede admitirse.</strong> El valor anunciado en la etiqueta ($120$ g) queda fuera y por encima del intervalo de confianza calculado ($119.78 < 120$). Con un $95\%$ de confianza, la media real de llenado de la fábrica es inferior a la prometida en el envase.</p>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 20 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                20. Viabilidad de lanzamiento de una app turística en Cantabria
+              </h3>
+              <span class="text-xs bg-indigo-100 text-indigo-800 font-semibold px-2 py-0.5 rounded">Decisión Empresarial</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              Una empresa tecnológica diseña una app turística sobre rutas costeras y ecoturismo en Cantabria. En un sondeo a $600$ turistas, $150$ declaran que pagarían la suscripción prémium de la aplicación.
+              <br>a) Obtener un intervalo de confianza al $95\%$ para la proporción poblacional de turistas dispuestos a pagar.
+              <br>b) El plan de negocio establece que solo es viable lanzar el proyecto si al menos el $28\%$ de los turistas paga la suscripción. ¿Recomendarías lanzar la app a la vista del estudio con un $95\%$ de certeza?
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Intervalo al 95%:</strong></p>
+                <p>Proporción muestral: $\hat{p} = \frac{150}{600} = 0.25 \implies 1-\hat{p} = 0.75$. Al 95%: $z_{\alpha/2} = 1.96$.</p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$E = 1.96 \sqrt{\frac{0.25 \cdot 0.75}{600}} = 1.96 \sqrt{\frac{0.1875}{600}} = 1.96 \sqrt{0.0003125} \approx 1.96 \cdot 0.017678 = 0.0346$$
+                </div>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs font-bold">
+                  $$IC = (0.25 - 0.0346, \; 0.25 + 0.0346) = \mathbf{(0.2154, \; 0.2846)} \iff \mathbf{[21.54\%, \; 28.46\%]}$$
+                </div>
+                <p><strong>b) Recomendación de negocio:</strong></p>
+                <p>El intervalo comprende valores desde $21.54\%$ hasta $28.46\%$. Aunque el extremo superior alcanza ligeramente el $28.46\%$, la inmensa mayoría del intervalo está por debajo del $28\%$ (y el valor central estimado es solo del $25\%$). Por tanto, <strong>no se puede garantizar la viabilidad</strong> con un $95\%$ de confianza; sería prudente no acometer la inversión o mejorar la propuesta de valor.</p>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 21 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                21. Análisis financiero: rentabilidad anual de fondos de inversión
+              </h3>
+              <span class="text-xs bg-indigo-100 text-indigo-800 font-semibold px-2 py-0.5 rounded">Finanzas</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              La rentabilidad anual de una categoría de fondos de renta variable mixta tiene una desviación típica conocida $\sigma = 1.4\%$. Una muestra aleatoria de $49$ fondos arroja una rentabilidad media del $6.4\%$.
+              <br>a) Construir los intervalos de confianza para la rentabilidad media al $90\%$ y al $99\%$, y comparar sus longitudes.
+              <br>b) ¿Cuántos fondos habría que analizar para lograr un margen de error de solo $0.2\%$ al $95\%$ de confianza?
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Intervalos y longitudes:</strong></p>
+                <ul class="list-disc list-inside space-y-1">
+                  <li>
+                    <strong>Al 90% ($z = 1.645$):</strong> $E = 1.645 \cdot \frac{1.4}{\sqrt{49}} = 1.645 \cdot 0.2 = 0.329\%$.
+                    <br>$IC_{90} = (6.4 - 0.329, \; 6.4 + 0.329) = \mathbf{(6.071\%, \; 6.729\%)}$.
+                    <br>Longitud: $L_{90} = 2 \cdot 0.329 = \mathbf{0.658\%}$.
+                  </li>
+                  <li>
+                    <strong>Al 99% ($z = 2.575$):</strong> $E = 2.575 \cdot 0.2 = 0.515\%$.
+                    <br>$IC_{99} = (6.4 - 0.515, \; 6.4 + 0.515) = \mathbf{(5.885\%, \; 6.915\%)}$.
+                    <br>Longitud: $L_{99} = 2 \cdot 0.515 = \mathbf{1.030\%}$.
+                  </li>
+                </ul>
+                <p>El intervalo al $99\%$ es un $56.5\%$ más ancho que el del $90\%$, reflejando el coste de exigir mayor nivel de certeza.</p>
+                <p><strong>b) Muestra para $E \le 0.2\%$ al 95%:</strong></p>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs">
+                  $$n \ge \left(\frac{1.96 \cdot 1.4}{0.2}\right)^2 = (1.96 \cdot 7)^2 = (13.72)^2 = 188.238 \implies \mathbf{n \ge 189 \text{ fondos}}$$
+                </div>
+              </div>
+            </details>
+          </article>
+
+          <!-- Ejercicio 22 -->
+          <article class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 transition">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-bold text-slate-900 text-sm sm:text-base">
+                22. Sondeo electoral: estimación de mayoría absoluta
+              </h3>
+              <span class="text-xs bg-indigo-100 text-indigo-800 font-semibold px-2 py-0.5 rounded">Sociología Electoral</span>
+            </div>
+            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed mb-3">
+              En una encuesta electoral previa a unos comicios municipales, se entrevistó a $800$ votantes, de los cuales $424$ manifestaron su voto por el partido gobernante.
+              <br>a) Calcular el intervalo de confianza al $95\%$ para la proporción de voto del partido.
+              <br>b) ¿Permite este resultado asegurar que el partido alcanzará la mayoría absoluta (más del $50\%$ de los sufragios) con un $95\%$ de confianza? Razonar la conclusión.
+            </p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1.5 select-none pt-2 border-t border-slate-200">
+                <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-open:rotate-90"></i>
+                <span>Ver solución detallada</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                <p><strong>a) Intervalo de confianza al 95%:</strong></p>
+                <p>Proporción en la muestra: $\hat{p} = \frac{424}{800} = 0.53 \implies 1-\hat{p} = 0.47$. Al 95%: $z_{\alpha/2} = 1.96$.</p>
+                <div class="p-2 bg-slate-50 rounded font-mono text-center text-xs">
+                  $$E = 1.96 \sqrt{\frac{0.53 \cdot 0.47}{800}} = 1.96 \sqrt{\frac{0.2491}{800}} = 1.96 \sqrt{0.000311375} \approx 1.96 \cdot 0.017646 = 0.0346$$
+                </div>
+                <div class="p-2 bg-emerald-50 rounded font-mono text-center text-xs font-bold">
+                  $$IC = (0.53 - 0.0346, \; 0.53 + 0.0346) = \mathbf{(0.4954, \; 0.5646)} \iff \mathbf{[49.54\%, \; 56.46\%]}$$
+                </div>
+                <p><strong>b) Discusión sobre la mayoría absoluta:</strong></p>
+                <p><strong>No se puede asegurar la mayoría absoluta.</strong> Aunque la proporción estimada en la muestra es del $53\%$, el intervalo de confianza al $95\%$ contiene valores inferiores al $50\%$ (concretamente el intervalo comienza en el $49.54\%$). Existe, por tanto, una probabilidad no despreciable de que el apoyo real en la población quede por debajo del $50\%$.</p>
+              </div>
+            </details>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PIE DE PÁGINA -->
+    <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-slate-500">
+        Toomate.es &bull; Matemáticas CCSS II &bull; 2º Bachillerato EBAU &bull; 22 Ejercicios Resueltos
+      </div>
+      <a href="inferencia-estadistica-2-bach-ccss.html" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-semibold text-sm">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Repasar Teoría y Fórmulas</span>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    let todasAbiertas = false;
+    function toggleTodasLasSoluciones() {
+      todasAbiertas = !todasAbiertas;
+      document.querySelectorAll(".exercise-details").forEach(d => d.open = todasAbiertas);
+      document.getElementById("btnToggleText").textContent = todasAbiertas ? "Plegar todas las soluciones" : "Desplegar todas las soluciones";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>
