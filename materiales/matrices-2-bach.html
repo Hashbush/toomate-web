@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matrices y Determinantes - 2º Bachillerato | Toomate.es</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- KaTeX para fórmulas matemáticas perfectas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR (NO IMPRIMIBLE) -->
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-rose-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-matrices-2-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- DOCUMENTO DIDÁCTICO -->
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <!-- CABECERA DEL DOCUMENTO -->
+    <header class="border-b-2 border-rose-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-rose-50 border border-rose-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-rose-600">Toomate.es &bull; Material Didáctico Oficial</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Matrices y Determinantes</h1>
+          <p class="text-xs sm:text-sm text-slate-500">2º de Bachillerato &bull; Preparación para Examen y EvAU</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Nivel:</strong> Bachillerato (Ciencias y Sociales)</p>
+        <p><strong class="text-slate-700">Bloque:</strong> Álgebra Lineal</p>
+        <p><strong class="text-slate-700">Contenido:</strong> Teoría + Ejercicios Resueltos</p>
+      </div>
+    </header>
+
+    <!-- INTRODUCCIÓN PEDAGÓGICA -->
+    <div class="bg-rose-50/60 border border-rose-200 rounded-2xl p-5 mb-8">
+      <h3 class="text-sm font-bold text-rose-900 flex items-center gap-2">
+        <i data-lucide="lightbulb" class="w-4 h-4 text-rose-600"></i>
+        Consejo del Profe Tomate para la EvAU:
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-700 mt-1.5 leading-relaxed">
+        El bloque de matrices casi siempre aporta entre <strong>2 y 2,5 puntos</strong> en tu examen de selectividad. La clave para sacar la máxima puntuación es <em>justificar las propiedades</em> (no operar a lo loco) y dominar el despeje de ecuaciones matriciales sin caer en el error de "dividir" matrices.
+      </p>
+    </div>
+
+    <!-- SECCIÓN 1: RESUMEN TEÓRICO ESENCIAL -->
+    <section class="space-y-6">
+      <div class="flex items-center gap-2 border-b border-slate-200 pb-2">
+        <span class="w-7 h-7 rounded-lg bg-slate-900 text-white font-bold text-sm flex items-center justify-center">1</span>
+        <h2 class="text-xl font-bold text-slate-900">Conceptos y Operaciones Clave</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        
+        <!-- Tarjeta 1: Producto de Matrices -->
+        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+          <h4 class="font-bold text-slate-900 mb-1">Producto de Matrices</h4>
+          <p class="text-slate-600 mb-2">Para multiplicar $A_{m \times n} \cdot B_{p \times q}$ es imprescindible que el número de columnas de $A$ sea igual al de filas de $B$ ($n = p$).</p>
+          <div class="p-2 bg-white rounded-lg border border-slate-200 text-center font-mono text-xs">
+            $A \cdot B \neq B \cdot A$ (¡No es conmutativo!)
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: Matriz Traspuesta -->
+        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+          <h4 class="font-bold text-slate-900 mb-1">Matriz Traspuesta $(A^t)$</h4>
+          <p class="text-slate-600 mb-2">Se intercambian filas por columnas. Propiedad que más preguntan:</p>
+          <div class="p-2 bg-white rounded-lg border border-slate-200 text-center font-mono text-xs">
+            $(A \cdot B)^t = B^t \cdot A^t$ (cambia el orden)
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Matriz Inversa -->
+        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+          <h4 class="font-bold text-slate-900 mb-1">Cálculo de la Matriz Inversa</h4>
+          <p class="text-slate-600 mb-2">Una matriz $A$ tiene inversa si y solo si es cuadrada y su determinante no es nulo ($|A| \neq 0$).</p>
+          <div class="p-2 bg-white rounded-lg border border-slate-200 text-center font-mono text-xs">
+            $$A^{-1} = \frac{1}{|A|} (\text{Adj}(A))^t$$
+          </div>
+        </div>
+
+        <!-- Tarjeta 4: Determinantes -->
+        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+          <h4 class="font-bold text-slate-900 mb-1">Propiedades de Oro en EvAU</h4>
+          <p class="text-slate-600 mb-2">Si $A$ es una matriz cuadrada de orden $n$:</p>
+          <div class="p-2 bg-white rounded-lg border border-slate-200 space-y-1 font-mono text-xs text-center">
+            <p>$|A \cdot B| = |A| \cdot |B|$</p>
+            <p>$|k \cdot A| = k^n \cdot |A| \quad (\text{¡Ojo con el orden } n!)$</p>
+            <p>$|A^{-1}| = \frac{1}{|A|}$</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: LAS 3 TRAMPAS TÍPICAS DE EXAMEN -->
+    <section class="mt-10 space-y-4">
+      <div class="flex items-center gap-2 border-b border-slate-200 pb-2">
+        <span class="w-7 h-7 rounded-lg bg-rose-600 text-white font-bold text-sm flex items-center justify-center">!</span>
+        <h2 class="text-xl font-bold text-slate-900">Las 3 Trampas Típicas que Quitan Puntos</h2>
+      </div>
+
+      <div class="space-y-3 text-xs sm:text-sm">
+        <div class="p-4 rounded-xl border border-red-200 bg-red-50/50 flex items-start gap-3">
+          <span class="text-red-600 font-bold text-base mt-0.5">&times;</span>
+          <div>
+            <strong class="text-red-900 font-semibold block">Error 1: "Dividir" matrices para despejar</strong>
+            <p class="text-slate-700">En matrices <strong>NO existe la división</strong>. Para resolver $A \cdot X = B$, debes multiplicar por $A^{-1}$ por la <em>izquierda</em>:
+            $$A^{-1} \cdot A \cdot X = A^{-1} \cdot B \implies I \cdot X = A^{-1} \cdot B \implies X = A^{-1} \cdot B$$
+            Si multiplicas por la derecha ($X = B \cdot A^{-1}$), estará <strong>mal</strong> porque el producto no es conmutativo.</p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-red-200 bg-red-50/50 flex items-start gap-3">
+          <span class="text-red-600 font-bold text-base mt-0.5">&times;</span>
+          <div>
+            <strong class="text-red-900 font-semibold block">Error 2: El binomio al cuadrado con matrices</strong>
+            <p class="text-slate-700">$(A + B)^2 \neq A^2 + 2AB + B^2$. Lo correcto al desarrollar término a término es:
+            $$(A + B)^2 = (A + B)(A + B) = A^2 + AB + BA + B^2$$
+            Solo sería $2AB$ en el caso especial de que $A$ y $B$ conmuten ($AB = BA$).</p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-red-200 bg-red-50/50 flex items-start gap-3">
+          <span class="text-red-600 font-bold text-base mt-0.5">&times;</span>
+          <div>
+            <strong class="text-red-900 font-semibold block">Error 3: Olvidar elevar la constante en el determinante $|k \cdot A|$</strong>
+            <p class="text-slate-700">Si $A$ es de orden $3 \times 3$, sacar un $2$ fuera del determinante multiplica cada fila por $2$:
+            $$|2A| = 2^3 \cdot |A| = 8 \cdot |A| \quad (\text{¡No } 2 \cdot |A|!)$$</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SALTO DE PÁGINA PARA IMPRESIÓN -->
+    <div class="page-break my-10"></div>
+
+    <!-- SECCIÓN 3: BOLETÍN DE EJERCICIOS RESUELTOS PASO A PASO -->
+    <section class="space-y-8">
+      <div class="flex items-center gap-2 border-b border-slate-200 pb-2">
+        <span class="w-7 h-7 rounded-lg bg-brand-600 text-white font-bold text-sm flex items-center justify-center">2</span>
+        <h2 class="text-xl font-bold text-slate-900">Ejercicios de Examen con Solución Detallada</h2>
+      </div>
+
+      <!-- EJERCICIO 1: ECUACIÓN MATRICIAL -->
+      <article class="border border-slate-200 rounded-2xl p-6 bg-slate-50/30">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold px-2.5 py-1 rounded bg-blue-100 text-blue-800">Ejercicio 1 &bull; EvAU</span>
+          <span class="text-xs text-slate-500 font-medium">Ecuaciones Matriciales</span>
+        </div>
+        
+        <p class="text-sm font-semibold text-slate-900">
+          Dadas las matrices $A = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$ y $B = \begin{pmatrix} 3 & -1 \\ 0 & 2 \end{pmatrix}$, resuelve la ecuación matricial:
+          $$A \cdot X - B = 2X$$
+        </p>
+
+        <!-- SOLUCIÓN PASO A PASO -->
+        <div class="mt-4 pt-4 border-t border-slate-200 text-xs sm:text-sm text-slate-700 space-y-3">
+          <p><strong class="text-slate-900 font-semibold">Paso 1: Despejar la incógnita $X$ teóricamente:</strong></p>
+          <p>Agrupamos los términos con $X$ al mismo lado. Recuerda que $2X = (2I) \cdot X$:</p>
+          <div class="bg-white p-3 rounded-xl border border-slate-200 font-mono text-center">
+            $$A \cdot X - 2X = B \implies (A - 2I) \cdot X = B$$
+          </div>
+          <p>Llamamos $M = A - 2I$. Para despejar $X$, multiplicamos por $M^{-1}$ por la izquierda:</p>
+          <div class="bg-white p-3 rounded-xl border border-slate-200 font-mono text-center">
+            $$M^{-1} \cdot M \cdot X = M^{-1} \cdot B \implies X = (A - 2I)^{-1} \cdot B$$
+          </div>
+
+          <p><strong class="text-slate-900 font-semibold">Paso 2: Calcular la matriz $M = A - 2I$:</strong></p>
+          <div class="bg-white p-3 rounded-xl border border-slate-200 text-center">
+            $$M = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix} - 2\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 1-2 & 2-0 \\ 0-0 & 1-2 \end{pmatrix} = \begin{pmatrix} -1 & 2 \\ 0 & -1 \end{pmatrix}$$
+          </div>
+
+          <p><strong class="text-slate-900 font-semibold">Paso 3: Calcular la inversa $M^{-1}$:</strong></p>
+          <p>1. Determinante: $|M| = (-1)(-1) - (2)(0) = 1 \neq 0 \implies$ Existe inversa.</p>
+          <p>2. Matriz de adjuntos y traspuesta: $(\text{Adj}(M))^t = \begin{pmatrix} -1 & -2 \\ 0 & -1 \end{pmatrix}$.</p>
+          <p>3. Inversa: $M^{-1} = \frac{1}{1} \begin{pmatrix} -1 & -2 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} -1 & -2 \\ 0 & -1 \end{pmatrix}$.</p>
+
+          <p><strong class="text-slate-900 font-semibold">Paso 4: Multiplicar $X = M^{-1} \cdot B$:</strong></p>
+          <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-xl text-center font-bold text-emerald-900">
+            $$X = \begin{pmatrix} -1 & -2 \\ 0 & -1 \end{pmatrix} \begin{pmatrix} 3 & -1 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} (-3 + 0) & (1 - 4) \\ (0 + 0) & (0 - 2) \end{pmatrix} = \begin{pmatrix} -3 & -3 \\ 0 & -2 \end{pmatrix}$$
+          </div>
+        </div>
+      </article>
+
+      <!-- EJERCICIO 2: DISCUSIÓN DE INVERSA CON PARÁMETRO -->
+      <article class="border border-slate-200 rounded-2xl p-6 bg-slate-50/30">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-bold px-2.5 py-1 rounded bg-rose-100 text-rose-800">Ejercicio 2 &bull; EvAU Clásico</span>
+          <span class="text-xs text-slate-500 font-medium">Inversa con Parámetro</span>
+        </div>
+        
+        <p class="text-sm font-semibold text-slate-900">
+          Considera la matriz dependiente del parámetro real $k$:
+          $$A = \begin{pmatrix} 1 & 0 & k \\ 0 & 1 & 1 \\ k & 0 & 4 \end{pmatrix}$$
+          a) Determina para qué valores de $k$ existe la matriz inversa $A^{-1}$.<br>
+          b) Para $k = 0$, calcula explícitamente $A^{-1}$.
+        </p>
+
+        <!-- SOLUCIÓN PASO A PASO -->
+        <div class="mt-4 pt-4 border-t border-slate-200 text-xs sm:text-sm text-slate-700 space-y-3">
+          <p><strong class="text-slate-900 font-semibold">Solución apartado a):</strong></p>
+          <p>Una matriz cuadrada posee inversa si y solo si su determinante es distinto de cero ($|A| \neq 0$). Desarrollamos el determinante por la primera columna (o por Sarrus):</p>
+          <div class="bg-white p-3 rounded-xl border border-slate-200 text-center font-mono">
+            $$|A| = 1 \cdot (4 - 0) - 0 + k \cdot (0 - k) = 4 - k^2$$
+          </div>
+          <p>Igualamos a cero para encontrar los valores críticos:</p>
+          <div class="bg-white p-3 rounded-xl border border-slate-200 text-center font-mono">
+            $$4 - k^2 = 0 \implies k^2 = 4 \implies k = 2 \quad \text{o} \quad k = -2$$
+          </div>
+          <div class="p-3 bg-slate-100 rounded-xl">
+            <strong>Conclusión:</strong> La matriz $A$ tiene inversa para cualquier valor de $k \in \mathbb{R} \setminus \{-2, 2\}$. Para $k = 2$ y $k = -2$, la matriz es singular (no tiene inversa).
+          </div>
+
+          <p class="pt-2"><strong class="text-slate-900 font-semibold">Solución apartado b) para $k = 0$:</strong></p>
+          <p>Para $k = 0$, la matriz es $A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 4 \end{pmatrix}$, y su determinante vale $|A| = 4 - 0^2 = 4$.</p>
+          <p>Calculamos la matriz de adjuntos $\text{Adj}(A)$:</p>
+          <div class="bg-white p-3 rounded-xl border border-slate-200 text-center">
+            $$\text{Adj}(A) = \begin{pmatrix} 4 & 0 & 0 \\ 0 & 4 & 0 \\ 0 & -1 & 1 \end{pmatrix} \implies (\text{Adj}(A))^t = \begin{pmatrix} 4 & 0 & 0 \\ 0 & 4 & -1 \\ 0 & 0 & 1 \end{pmatrix}$$
+          </div>
+          <p>Aplicando la fórmula $A^{-1} = \frac{1}{|A|} (\text{Adj}(A))^t$:</p>
+          <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-xl text-center font-bold text-emerald-900">
+            $$A^{-1} = \frac{1}{4} \begin{pmatrix} 4 & 0 & 0 \\ 0 & 4 & -1 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & -1/4 \\ 0 & 0 & 1/4 \end{pmatrix}$$
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- SECCIÓN 4: CHULETA DE BOLSILLO IMPRIMIBLE -->
+    <div class="page-break my-10"></div>
+    <section class="border-2 border-dashed border-rose-300 rounded-2xl p-6 bg-rose-50/30">
+      <div class="text-center mb-4">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-rose-600 bg-white px-3 py-1 rounded-full border border-rose-200">Chuleta Oficial de Examen</span>
+        <h3 class="text-lg font-bold text-slate-900 mt-1">Formulario Rápido de Matrices & Determinantes</h3>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+          <p class="font-bold text-slate-900">Propiedades de Traspuesta:</p>
+          <p>$(A^t)^t = A$</p>
+          <p>$(A + B)^t = A^t + B^t$</p>
+          <p>$(A \cdot B)^t = B^t \cdot A^t$</p>
+          <p>$(k \cdot A)^t = k \cdot A^t$</p>
+        </div>
+
+        <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+          <p class="font-bold text-slate-900">Propiedades de Determinantes:</p>
+          <p>$|A^t| = |A|$</p>
+          <p>$|A \cdot B| = |A| \cdot |B|$</p>
+          <p>$|A^{-1}| = \frac{1}{|A|}$</p>
+          <p>$|k \cdot A_{n \times n}| = k^n \cdot |A|$</p>
+        </div>
+
+        <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1 sm:col-span-2">
+          <p class="font-bold text-slate-900">Despeje de Ecuaciones Matriciales:</p>
+          <p>&bull; $A \cdot X = B \implies X = A^{-1} \cdot B$ (Inversa por la <em>izquierda</em>)</p>
+          <p>&bull; $X \cdot A = B \implies X = B \cdot A^{-1}$ (Inversa por la <em>derecha</em>)</p>
+          <p>&bull; $A \cdot X \cdot B = C \implies X = A^{-1} \cdot C \cdot B^{-1}$</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-4 text-[11px] text-slate-500">
+        Material gratuito para alumnos de Toomate.es &bull; Prohibida su venta comercial.
+      </div>
+    </section>
+
+    <!-- PIE DEL DOCUMENTO -->
+    <footer class="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-2">
+      <div class="flex items-center gap-2">
+        <img src="../logo-tomate.jpg" alt="Logo" class="w-5 h-5 rounded-md">
+        <span>Toomate.es &bull; Academia de Estudios y Recursos Didácticos</span>
+      </div>
+      <span>Página 1 de 1 &bull; Documento descargable</span>
+    </footer>
+
+  </main>
+
+  <script>
+    // Inicializar KaTeX en todo el documento
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

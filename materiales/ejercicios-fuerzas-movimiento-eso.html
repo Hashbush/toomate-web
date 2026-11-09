@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22 Ejercicios de Cinemática y Fuerzas - 3º y 4º ESO | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 10.5pt; }
+      .page-break { page-break-before: always; }
+      details { break-inside: avoid; }
+      details[open] summary ~ * { display: block !important; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+    details summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-sky-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="fuerzas-movimiento-eso.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-sky-600 bg-white border border-slate-200 px-3.5 py-2 rounded-xl transition shadow-sm">
+        <i data-lucide="book-open" class="w-4 h-4 text-sky-600"></i>
+        <span>Ver Teoría y Fórmulas</span>
+      </a>
+      <button id="btnToggleAll" onclick="toggleTodasLasSoluciones()" class="inline-flex items-center gap-2 bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-300 font-semibold text-sm px-4 py-2 rounded-xl transition shadow-sm">
+        <i data-lucide="eye" class="w-4 h-4 text-sky-600"></i>
+        <span id="btnToggleText">Desplegar todas las soluciones</span>
+      </button>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Imprimir / PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-sky-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-sky-50 border border-sky-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-200">
+            Física y Química &bull; 3º y 4º ESO LOMLOE
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Boletín de 22 Ejercicios Resueltos: Movimiento y Fuerzas
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">MRU, MRUA, caída libre, Ley de Hooke y Leyes de Newton con soluciones paso a paso</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="space-y-8">
+
+      <!-- ========================================== -->
+      <!-- NIVEL 1: BÁSICO (1 - 8) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-sky-200">
+          <span class="w-3 h-3 rounded-full bg-sky-500"></span>
+          <h2 class="text-lg font-bold text-sky-950">Nivel 1 &bull; Básico: Unidades, MRU, Ley de Hooke y 2ª Ley de Newton (Ejercicios 1 a 8)</h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Ejercicio 1 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 1 &bull; Conversión de velocidades y MRU directo</h3>
+            <p class="text-sm text-slate-700 mb-3">Un tren viaja a una velocidad constante de $90\text{ km/h}$. Expresa su velocidad en unidades del S.I. ($\text{m/s}$) y calcula qué distancia recorre en $40\text{ segundos}$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Factor de conversión:</strong> $90\text{ km/h} = \frac{90}{3{,}6}\text{ m/s} = 25\text{ m/s}$.</p>
+                <p><strong>2. Distancia en MRU:</strong> $s = v \cdot t = 25\text{ m/s} \cdot 40\text{ s} = 1000\text{ m} = 1\text{ km}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 2 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 2 &bull; Aceleración media en un automóvil</h3>
+            <p class="text-sm text-slate-700 mb-3">Un coche acelera uniformemente pasando de $0$ a $108\text{ km/h}$ en $6\text{ segundos}$. Calcula su aceleración en $\text{m/s}^2$ y el espacio recorrido en ese tiempo.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Conversión:</strong> $108\text{ km/h} = 30\text{ m/s}$, $v_0 = 0$.</p>
+                <p><strong>2. Aceleración:</strong> $a = \frac{v - v_0}{t} = \frac{30 - 0}{6} = 5\text{ m/s}^2$.</p>
+                <p><strong>3. Espacio recorrido:</strong> $s = v_0 t + \frac{1}{2} a t^2 = 0 + \frac{1}{2}(5)(6^2) = \frac{5 \cdot 36}{2} = 90\text{ m}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 3 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 3 &bull; Diferencia entre masa y peso en la Tierra y la Luna</h3>
+            <p class="text-sm text-slate-700 mb-3">Un astronauta tiene una masa de $80\text{ kg}$. Calcula su masa y su peso: a) en la Tierra ($g_T = 9{,}8\text{ m/s}^2$), b) en la Luna ($g_L = 1{,}62\text{ m/s}^2$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p>La masa es la cantidad de materia e invariante: $m = 80\text{ kg}$ en ambos astros.</p>
+                <p><strong>a) En la Tierra:</strong> $P_T = m \cdot g_T = 80 \cdot 9{,}8 = 784\text{ N}$.</p>
+                <p><strong>b) En la Luna:</strong> $P_L = m \cdot g_L = 80 \cdot 1{,}62 = 129{,}6\text{ N}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 4 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 4 &bull; Constante de un muelle (Ley de Hooke)</h3>
+            <p class="text-sm text-slate-700 mb-3">Un muelle de longitud en reposo $l_0 = 15\text{ cm}$ mide $21\text{ cm}$ cuando se le aplica una fuerza de tracción de $12\text{ N}$. Calcula la constante elástica $k$ y la longitud si se aplica una fuerza de $20\text{ N}$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Alargamiento inicial:</strong> $\Delta x_1 = 21 - 15 = 6\text{ cm} = 0{,}06\text{ m}$.</p>
+                <p><strong>2. Constante elástica:</strong> $F_1 = k \cdot \Delta x_1 \implies k = \frac{12\text{ N}}{0{,}06\text{ m}} = 200\text{ N/m}$.</p>
+                <p><strong>3. Con $F_2 = 20\text{ N}$:</strong> $\Delta x_2 = \frac{F_2}{k} = \frac{20}{200} = 0{,}10\text{ m} = 10\text{ cm}$.</p>
+                <p>Longitud total: $l = l_0 + \Delta x_2 = 15 + 10 = 25\text{ cm}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 5 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 5 &bull; Segunda Ley de Newton básica</h3>
+            <p class="text-sm text-slate-700 mb-3">Sobre un patinete de masa conjunta con el piloto $m = 60\text{ kg}$ se aplica una fuerza impulsora de $150\text{ N}$. Si la fuerza de rozamiento con el suelo es de $30\text{ N}$, calcula la aceleración del patinete.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p>Fuerza resultante: $F_R = F_{\text{motor}} - F_r = 150 - 30 = 120\text{ N}$.</p>
+                <p>Aceleración: $a = \frac{F_R}{m} = \frac{120\text{ N}}{60\text{ kg}} = 2\text{ m/s}^2$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 6 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 6 &bull; Composición de fuerzas perpendiculares</h3>
+            <p class="text-sm text-slate-700 mb-3">Dos personas tiran de un trineo de $20\text{ kg}$ mediante dos cuerdas horizontales perpendiculares entre sí, ejerciendo fuerzas de $F_1 = 30\text{ N}$ y $F_2 = 40\text{ N}$. Halla la fuerza resultante y la aceleración (sin rozamiento).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p>Fuerza resultante por Pitágoras: $F_R = \sqrt{F_1^2 + F_2^2} = \sqrt{30^2 + 40^2} = \sqrt{900 + 1600} = \sqrt{2500} = 50\text{ N}$.</p>
+                <p>Aceleración: $a = \frac{F_R}{m} = \frac{50\text{ N}}{20\text{ kg}} = 2{,}5\text{ m/s}^2$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 7 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 7 &bull; Caída libre desde el reposo</h3>
+            <p class="text-sm text-slate-700 mb-3">Se deja caer una piedra desde lo alto de una torre de $45\text{ m}$ de altura ($g = 9{,}8\text{ m/s}^2$). ¿Cuánto tiempo tarda en llegar al suelo y con qué velocidad impacta?</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Tiempo de caída:</strong> $h = \frac{1}{2} g t^2 \implies t = \sqrt{\frac{2h}{g}} = \sqrt{\frac{2 \cdot 45}{9{,}8}} = \sqrt{\frac{90}{9{,}8}} = \sqrt{9{,}18} \approx 3{,}03\text{ s}$.</p>
+                <p><strong>2. Velocidad de impacto:</strong> $v = g \cdot t = 9{,}8 \cdot 3{,}03 \approx 29{,}7\text{ m/s} \approx 107\text{ km/h}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 8 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 8 &bull; Frenada de emergencia</h3>
+            <p class="text-sm text-slate-700 mb-3">Un ciclomotor circula a $54\text{ km/h}$ y frena uniformemente con una deceleración de $3\text{ m/s}^2$. ¿Cuántos segundos tarda en detenerse y qué distancia recorre durante la frenada?</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Conversión:</strong> $v_0 = 54 / 3{,}6 = 15\text{ m/s}$. Parado: $v = 0$. $a = -3\text{ m/s}^2$.</p>
+                <p><strong>2. Tiempo:</strong> $v = v_0 + a t \implies 0 = 15 - 3t \implies t = \frac{15}{3} = 5\text{ s}$.</p>
+                <p><strong>3. Distancia:</strong> $s = v_0 t + \frac{1}{2} a t^2 = 15(5) - \frac{1}{2}(3)(25) = 75 - 37{,}5 = 37{,}5\text{ m}$.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- NIVEL 2: INTERMEDIO (9 - 16) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-sky-200">
+          <span class="w-3 h-3 rounded-full bg-sky-600"></span>
+          <h2 class="text-lg font-bold text-sky-950">Nivel 2 &bull; Intermedio: Encuentros, Lanzamiento Vertical y Rozamiento (Ejercicios 9 a 16)</h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Ejercicio 9 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 9 &bull; Problema de encuentro frontal en MRU</h3>
+            <p class="text-sm text-slate-700 mb-3">Dos ciudades $A$ y $B$ están separadas por $120\text{ km}$. A las 10:00 h sale de $A$ un coche hacia $B$ a $80\text{ km/h}$. A la misma hora sale de $B$ una moto hacia $A$ a $40\text{ km/h}$. ¿A qué hora y a qué distancia de la ciudad $A$ se cruzan?</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p>Tomando origen en la ciudad $A$ ($s_A = 0$):</p>
+                <p>Ecuación del coche: $s_A(t) = 0 + 80 \cdot t$.</p>
+                <p>Ecuación de la moto: $s_B(t) = 120 - 40 \cdot t$ (viaja en sentido contrario hacia $A$).</p>
+                <p>Encuentro ($s_A = s_B$): $80 t = 120 - 40 t \implies 120 t = 120 \implies t = 1\text{ hora}$.</p>
+                <p>Se cruzan a las <strong>11:00 h</strong> a una distancia de $s = 80 \cdot 1 = 80\text{ km}$ de la ciudad $A$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 10 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 10 &bull; Persecución en línea recta</h3>
+            <p class="text-sm text-slate-700 mb-3">Un ladrón escapa a pie a una velocidad constante de $4\text{ m/s}$. Cuando lleva $60\text{ m}$ de ventaja, un policía comienza a perseguirle a $7\text{ m/s}$. ¿Cuánto tiempo tarda el policía en alcanzarlo y qué distancia recorre el agente?</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p>Origen en la posición del policía:</p>
+                <p>$s_{\text{ladrón}} = 60 + 4 t$, \quad $s_{\text{policía}} = 7 t$.</p>
+                <p>Alcance: $7 t = 60 + 4 t \implies 3 t = 60 \implies t = 20\text{ s}$.</p>
+                <p>Distancia recorrida por el policía: $s = 7 \cdot 20 = 140\text{ m}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 11 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 11 &bull; Lanzamiento vertical hacia arriba</h3>
+            <p class="text-sm text-slate-700 mb-3">Lanzamos una pelota verticalmente hacia arriba con una velocidad de $19{,}6\text{ m/s}$ ($g = 9{,}8\text{ m/s}^2$). Calcula: a) el tiempo en alcanzar la altura máxima, b) la altura máxima alcanzada, c) el tiempo total hasta volver a la mano.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Tiempo en la cúspide ($v = 0$):</strong> $0 = v_0 - g t \implies t_{\text{subida}} = \frac{19{,}6}{9{,}8} = 2\text{ s}$.</p>
+                <p><strong>b) Altura máxima:</strong> $h_{\text{máx}} = v_0 t - \frac{1}{2} g t^2 = 19{,}6(2) - \frac{1}{2}(9{,}8)(4) = 39{,}2 - 19{,}6 = 19{,}6\text{ m}$.</p>
+                <p><strong>c) Tiempo total:</strong> Por simetría de la caída libre sin rozamiento con el aire, el tiempo de bajada es igual al de subida $\implies t_{\text{total}} = 2 \cdot 2 = 4\text{ s}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 12 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 12 &bull; Muelle con masa suspendida</h3>
+            <p class="text-sm text-slate-700 mb-3">Al colgar una masa de $500\text{ g}$ de un muelle vertical, este se estira $4\text{ cm}$. Calcula la constante $k$ del muelle. ¿Qué masa debemos colgar para que el alargamiento sea de $7\text{ cm}$? ($g = 9{,}8\text{ m/s}^2$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p>En equilibrio: $P = F_e \implies m g = k \cdot \Delta x$.</p>
+                <p>$\Delta x_1 = 0{,}04\text{ m}$, $m_1 = 0{,}5\text{ kg} \implies k = \frac{0{,}5 \cdot 9{,}8}{0{,}04} = \frac{4{,}9}{0{,}04} = 122{,}5\text{ N/m}$.</p>
+                <p>Para $\Delta x_2 = 0{,}07\text{ m}$: $P_2 = k \cdot \Delta x_2 = 122{,}5 \cdot 0{,}07 = 8{,}575\text{ N}$.</p>
+                <p>Masa: $m_2 = \frac{8{,}575}{9{,}8} = 0{,}875\text{ kg} = 875\text{ g}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 13 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 13 &bull; Coeficiente de rozamiento dinámico</h3>
+            <p class="text-sm text-slate-700 mb-3">Para mover una caja de $25\text{ kg}$ sobre un suelo horizontal a velocidad constante se necesita empujar con una fuerza horizontal continua de $49\text{ N}$. Halla el coeficiente de rozamiento dinámico $\mu$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p>Velocidad constante $\implies a = 0 \implies \sum F = 0 \implies F = F_r = 49\text{ N}$.</p>
+                <p>En el suelo horizontal: $N = P = m g = 25 \cdot 9{,}8 = 245\text{ N}$.</p>
+                <p>Como $F_r = \mu \cdot N \implies \mu = \frac{F_r}{N} = \frac{49}{245} = 0{,}2$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 14 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 14 &bull; Aceleración con fuerza superior al rozamiento</h3>
+            <p class="text-sm text-slate-700 mb-3">Tomando la caja del ejercicio anterior ($m = 25\text{ kg}$ y $\mu = 0{,}2$), se empuja ahora con una fuerza de $99\text{ N}$. Calcula la aceleración que adquiere y la velocidad tras $4\text{ segundos}$ partiendo del reposo.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p>Fuerza neta: $F_{\text{neta}} = F - F_r = 99 - 49 = 50\text{ N}$.</p>
+                <p>Aceleración: $a = \frac{50\text{ N}}{25\text{ kg}} = 2\text{ m/s}^2$.</p>
+                <p>Velocidad tras $4\text{ s}$: $v = v_0 + a t = 0 + 2 \cdot 4 = 8\text{ m/s}$ ($28{,}8\text{ km/h}$).</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 15 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 15 &bull; Profundidad de un pozo escuchando el eco</h3>
+            <p class="text-sm text-slate-700 mb-3">Dejamos caer una piedra a un pozo y oímos el chasquido del impacto contra el agua exactamente a los $3\text{ segundos}$. Si despreciamos el tiempo que tarda el sonido en subir, ¿cuál es la profundidad del pozo? ($g = 9{,}8\text{ m/s}^2$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p>Al despreciar el tiempo del sonido, todo el tiempo corresponde a la caída libre ($v_0 = 0$):</p>
+                $$h = \frac{1}{2} g t^2 = \frac{1}{2} \cdot 9{,}8 \cdot 3^2 = 4{,}9 \cdot 9 = 44{,}1\text{ metros}.$$
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 16 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 16 &bull; Gráfica espacio-tiempo en 3 tramos</h3>
+            <p class="text-sm text-slate-700 mb-3">Un peatón camina hacia adelante $30\text{ m}$ en $10\text{ s}$, se detiene durante $5\text{ s}$ en un semáforo, y luego retrocede $10\text{ m}$ en $5\text{ s}$. Calcula la velocidad en cada tramo y el desplazamiento total.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p><strong>Tramo 1 (0 a 10 s):</strong> $v_1 = \frac{\Delta s_1}{\Delta t_1} = \frac{30}{10} = 3\text{ m/s}$.</p>
+                <p><strong>Tramo 2 (10 a 15 s):</strong> En reposo $\implies v_2 = 0\text{ m/s}$.</p>
+                <p><strong>Tramo 3 (15 a 20 s):</strong> Retrocede $\implies v_3 = \frac{-10}{5} = -2\text{ m/s}$.</p>
+                <p><strong>Desplazamiento total:</strong> $\Delta s = 30 + 0 - 10 = 20\text{ m}$ (se encuentra a $20\text{ m}$ del punto de partida).</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- NIVEL 3: AVANZADO ESO (17 - 22) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-sky-200">
+          <span class="w-3 h-3 rounded-full bg-sky-700"></span>
+          <h2 class="text-lg font-bold text-sky-950">Nivel 3 &bull; Avanzado: Encuentros MRU-MRUA, Dos Cuerpos en Contacto y Planos Inclinados (Ejercicios 17 a 22)</h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Ejercicio 17 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 17 &bull; Encuentro mixto: semáforo con aceleración frente a velocidad constante</h3>
+            <p class="text-sm text-slate-700 mb-3">Un coche parado en un semáforo arranca con aceleración constante de $2\text{ m/s}^2$ justo en el instante en que un camión le adelanta a velocidad constante de $14\text{ m/s}$. ¿Cuánto tiempo tarda el coche en alcanzar al camión y a qué distancia del semáforo?</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p>Origen en el semáforo ($s_0 = 0$):</p>
+                <p>Coche (MRUA desde reposo): $s_{\text{coche}} = \frac{1}{2} a t^2 = \frac{1}{2}(2)t^2 = t^2$.</p>
+                <p>Camión (MRU): $s_{\text{camión}} = v \cdot t = 14 t$.</p>
+                <p>Encuentro ($s_{\text{coche}} = s_{\text{camión}}$): $t^2 = 14 t \implies t(t - 14) = 0$.</p>
+                <p>Descartando $t = 0$, el alcance se produce a los <strong>$t = 14\text{ segundos}$</strong>.</p>
+                <p>Distancia recorrida: $s = 14 \cdot 14 = 196\text{ metros}$. En ese momento el coche viaja a $v = 2 \cdot 14 = 28\text{ m/s}$ ($100{,}8\text{ km/h}$).</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 18 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 18 &bull; Dos bloques en contacto empujados sobre una mesa lisa</h3>
+            <p class="text-sm text-slate-700 mb-3">Dos cajas $A$ ($m_A = 4\text{ kg}$) y $B$ ($m_B = 2\text{ kg}$) están en contacto sobre una superficie horizontal sin rozamiento. Empujamos a la caja $A$ con una fuerza horizontal de $18\text{ N}$. Calcula la aceleración del sistema y la fuerza de contacto que $A$ ejerce sobre $B$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Aceleración conjunta:</strong>
+                  $$F = (m_A + m_B) a \implies a = \frac{18\text{ N}}{4 + 2\text{ kg}} = \frac{18}{6} = 3\text{ m/s}^2.$$</p>
+                <p><strong>2. Fuerza de contacto $F_{AB}$ sobre B:</strong></p>
+                <p>La única fuerza horizontal que empuja a la caja $B$ es la fuerza de contacto que le transmite $A$:</p>
+                $$F_{AB} = m_B \cdot a = 2\text{ kg} \cdot 3\text{ m/s}^2 = 6\text{ N}.$$
+                <p>(Comprobación sobre $A$: $F - F_{BA} = 18 - 6 = 12\text{ N} = 4\text{ kg} \cdot 3\text{ m/s}^2$).</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 19 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 19 &bull; Lanzamiento hacia arriba desde una terraza</h3>
+            <p class="text-sm text-slate-700 mb-3">Desde la azotea de un edificio de $25\text{ m}$ de altura se lanza verticalmente hacia arriba una piedra con una velocidad de $20\text{ m/s}$. Halla el tiempo que tarda en chocar contra el suelo de la calle ($g = 9{,}8\text{ m/s}^2$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p>Origen en el suelo de la calle ($y = 0$). Posición inicial $y_0 = 25\text{ m}$, $v_0 = +20\text{ m/s}$, $a = -9{,}8\text{ m/s}^2$:</p>
+                $$y(t) = 25 + 20 t - 4{,}9 t^2$$
+                <p>Impacto en el suelo ($y = 0$): $4{,}9 t^2 - 20 t - 25 = 0$.</p>
+                $$t = \frac{20 \pm \sqrt{(-20)^2 - 4(4{,}9)(-25)}}{2 \cdot 4{,}9} = \frac{20 \pm \sqrt{400 + 490}}{9{,}8} = \frac{20 \pm \sqrt{890}}{9{,}8} = \frac{20 \pm 29{,}83}{9{,}8}.$$
+                <p>Tomando la raíz positiva físicamente válida: $t = \frac{49{,}83}{9{,}8} \approx 5{,}08\text{ segundos}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 20 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 20 &bull; Plano inclinado básico sin rozamiento en 4º ESO</h3>
+            <p class="text-sm text-slate-700 mb-3">Un patinador de masa $m = 50\text{ kg}$ se desliza por una rampa lisa con un ángulo de inclinación $\alpha = 30^\circ$. Calcula la fuerza que lo acelera por la rampa, la aceleración que adquiere y la fuerza normal ejercida por el plano ($g = 9{,}8\text{ m/s}^2$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p>Peso total: $P = m g = 50 \cdot 9{,}8 = 490\text{ N}$.</p>
+                <p><strong>1. Fuerza impulsora paralela:</strong> $P_x = P \sin 30^\circ = 490 \cdot 0{,}5 = 245\text{ N}$.</p>
+                <p><strong>2. Aceleración:</strong> $a = \frac{P_x}{m} = g \sin 30^\circ = 9{,}8 \cdot 0{,}5 = 4{,}9\text{ m/s}^2$. (¡Independiente de la masa!).</p>
+                <p><strong>3. Fuerza normal:</strong> $N = P_y = P \cos 30^\circ = 490 \cdot 0{,}866 \approx 424{,}3\text{ N}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 21 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 21 &bull; Determinación de masa desconocida con muelle</h3>
+            <p class="text-sm text-slate-700 mb-3">Un muelle vertical se alarga $3\text{ cm}$ al colgar una pesa de calibración de $150\text{ g}$. Al cambiar la pesa por un cuerpo de masa desconocida $M$, el muelle se alarga $8\text{ cm}$. Halla la masa $M$ y la constante del muelle.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Constante $k$:</strong> $m_1 = 0{,}15\text{ kg}$, $\Delta x_1 = 0{,}03\text{ m}$.</p>
+                $$k = \frac{m_1 g}{\Delta x_1} = \frac{0{,}15 \cdot 9{,}8}{0{,}03} = 49\text{ N/m}.$$</p>
+                <p><strong>2. Masa desconocida:</strong> Como el alargamiento es directamente proporcional a la fuerza (y a la masa):</p>
+                $$\frac{M}{m_1} = \frac{\Delta x_2}{\Delta x_1} \implies M = 150\text{ g} \cdot \frac{8\text{ cm}}{3\text{ cm}} = 400\text{ g} = 0{,}4\text{ kg}.$$
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 22 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 22 &bull; Análisis completo de una gráfica velocidad-tiempo</h3>
+            <p class="text-sm text-slate-700 mb-3">Un móvil se desplaza en línea recta según la siguiente gráfica $v-t$: tramo A (de $0$ a $4\text{ s}$) pasa de $0$ a $20\text{ m/s}$; tramo B (de $4$ a $10\text{ s}$) mantiene $20\text{ m/s}$; tramo C (de $10$ a $14\text{ s}$) frena hasta pararse ($v = 0$). Halla la aceleración en cada tramo y el espacio total recorrido mediante el área bajo la curva.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-sky-700 hover:text-sky-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-sky-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Aceleraciones:</strong></p>
+                <p>Tramo A: $a_A = \frac{20 - 0}{4} = 5\text{ m/s}^2$ (MRUA).</p>
+                <p>Tramo B: $a_B = \frac{20 - 20}{6} = 0\text{ m/s}^2$ (MRU).</p>
+                <p>Tramo C: $a_C = \frac{0 - 20}{4} = -5\text{ m/s}^2$ (MRUA con frenado).</p>
+                <p><strong>2. Espacio total (Área del trapecio o suma de figuras):</strong></p>
+                <p>Área triángulo A: $\frac{\text{base} \cdot \text{altura}}{2} = \frac{4 \cdot 20}{2} = 40\text{ m}$.</p>
+                <p>Área rectángulo B: $\text{base} \cdot \text{altura} = 6 \cdot 20 = 120\text{ m}$.</p>
+                <p>Área triángulo C: $\frac{\text{base} \cdot \text{altura}}{2} = \frac{4 \cdot 20}{2} = 40\text{ m}$.</p>
+                <p><strong>Espacio total recorrido:</strong> $s_{\text{total}} = 40 + 120 + 40 = 200\text{ metros}$.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-slate-500">
+        Toomate.es &bull; Física y Química 3º y 4º ESO &bull; 22 Ejercicios Resueltos
+      </div>
+      <a href="fuerzas-movimiento-eso.html" class="inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 font-semibold text-sm">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Repasar Teoría y Fórmulas</span>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    let todasAbiertas = false;
+    function toggleTodasLasSoluciones() {
+      todasAbiertas = !todasAbiertas;
+      document.querySelectorAll(".exercise-details").forEach(d => d.open = todasAbiertas);
+      document.getElementById("btnToggleText").textContent = todasAbiertas ? "Plegar todas las soluciones" : "Desplegar todas las soluciones";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termoquímica y Espontaneidad - 2º Bachillerato EvAU | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-emerald-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-termoquimica-2-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-emerald-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+            Química EvAU &bull; 2º Bachillerato LOMLOE Cantabria
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Termoquímica: Ley de Hess, Entropía y Gibbs
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Entalpías de formación y enlace, Ley de Hess y criterio termodinámico de espontaneidad</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- RESUMEN CLAVE -->
+    <section class="mb-10 bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-6">
+      <h2 class="text-lg font-bold text-emerald-950 flex items-center gap-2 mb-3">
+        <i data-lucide="flame" class="w-5 h-5 text-emerald-600"></i>
+        Fórmulas Fundamentales de Termoquímica
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Entalpía de reacción desde $\Delta H_f^\circ$:</p>
+          <div class="text-slate-700">$$\Delta H_r^\circ = \sum n_p \Delta H_f^\circ(\text{prod}) - \sum n_r \Delta H_f^\circ(\text{react})$$</div>
+          <p class="text-xs text-slate-500 mt-1">Para elementos puros en estado estándar: $\Delta H_f^\circ = 0$.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Entalpía por Energías de Enlace:</p>
+          <div class="text-slate-700">$$\Delta H_r^\circ = \sum E_{\text{enlaces rotos (react)}} - \sum E_{\text{enlaces formados (prod)}}$$</div>
+          <p class="text-xs text-slate-500 mt-1">Romper enlaces requiere energía ($>0$); formar enlaces libera energía ($<0$).</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Entropía estándar de reacción:</p>
+          <div class="text-slate-700">$$\Delta S_r^\circ = \sum n_p S^\circ(\text{prod}) - \sum n_r S^\circ(\text{react})$$</div>
+          <p class="text-xs text-slate-500 mt-1">Unidades: $\text{J}/(\text{mol}\cdot\text{K})$. ¡Atención a no mezclar J con kJ!</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Criterio de Gibbs y Espontaneidad:</p>
+          <div class="text-slate-700">$$\Delta G^\circ = \Delta H^\circ - T \Delta S^\circ; \quad \Delta G < 0 \iff \text{Espontánea}$$</div>
+          <p class="text-xs text-slate-500 mt-1">Temperatura de equilibrio (inversión de espontaneidad): $T_{\text{eq}} = \frac{\Delta H^\circ}{\Delta S^\circ}$.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 1: LEY DE HESS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        1. Ley de Hess y Combinación de Ecuaciones Termoquímicas
+      </h2>
+      <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+        <p>
+          La entalpía es una <strong>función de estado</strong>: su variación neta sólo depende de los estados inicial y final, y no del camino intermedio seguido.
+        </p>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <h4 class="font-bold text-slate-900 mb-2">Reglas operativas de la Ley de Hess:</h4>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>Si se invierte el sentido de una ecuación, el signo de su $\Delta H^\circ$ cambia.</li>
+            <li>Si los coeficientes de una ecuación se multiplican o dividen por un factor $n$, su $\Delta H^\circ$ se multiplica o divide por ese mismo factor $n$.</li>
+            <li>Al sumar varias reacciones intermedias miembro a miembro, la entalpía global es la suma algebraica directa de las entalpías individuales: $\Delta H_{\text{global}}^\circ = \sum \Delta H_i^\circ$.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: CRITERIO DE ESPONTANEIDAD -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        2. Tabla de Espontaneidad según los Signos de $\Delta H$ y $\Delta S$
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-slate-200 text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-slate-100 text-slate-900 font-bold">
+              <th class="p-3 border border-slate-200">$\Delta H$</th>
+              <th class="p-3 border border-slate-200">$\Delta S$</th>
+              <th class="p-3 border border-slate-200">$\Delta G = \Delta H - T \Delta S$</th>
+              <th class="p-3 border border-slate-200">Espontaneidad</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr>
+              <td class="p-3 font-semibold text-emerald-700">$< 0$ (Exotérmica)</td>
+              <td class="p-3 font-semibold text-emerald-700">$> 0$ (Aumenta desorden)</td>
+              <td class="p-3 text-emerald-700 font-bold">Siempre $< 0$</td>
+              <td class="p-3 font-bold text-emerald-600">Espontánea a cualquier temperatura</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-rose-700">$> 0$ (Endotérmica)</td>
+              <td class="p-3 font-semibold text-rose-700">$< 0$ (Disminuye desorden)</td>
+              <td class="p-3 text-rose-700 font-bold">Siempre $> 0$</td>
+              <td class="p-3 font-bold text-rose-600">No espontánea a ninguna temperatura</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-emerald-700">$< 0$ (Exotérmica)</td>
+              <td class="p-3 font-semibold text-rose-700">$< 0$ (Disminuye desorden)</td>
+              <td class="p-3">$< 0$ a bajas $T$</td>
+              <td class="p-3 font-semibold text-amber-700">Espontánea sólo a bajas temperaturas ($T < \frac{\Delta H}{\Delta S}$)</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-rose-700">$> 0$ (Endotérmica)</td>
+              <td class="p-3 font-semibold text-emerald-700">$> 0$ (Aumenta desorden)</td>
+              <td class="p-3">$< 0$ a altas $T$</td>
+              <td class="p-3 font-semibold text-amber-700">Espontánea sólo a altas temperaturas ($T > \frac{\Delta H}{\Delta S}$)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FOOTER NAV -->
+    <div class="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-slate-500">
+        Toomate.es &bull; Química 2º Bachillerato EvAU LOMLOE
+      </div>
+      <a href="ejercicios-termoquimica-2-bach.html" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md transition">
+        <span>Ir al Boletín de 22 Ejercicios Resueltos</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programación Lineal - 2º Bachillerato CCSS | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-emerald-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-programacion-lineal-2-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-emerald-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Toomate.es &bull; Material Didáctico Oficial</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Programación Lineal</h1>
+          <p class="text-xs sm:text-sm text-slate-500">2º Bachillerato Ciencias Sociales &bull; Optimización y Región Factible</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Nivel:</strong> 2º Bachillerato CCSS</p>
+        <p><strong class="text-slate-700">Bloque:</strong> Álgebra y Modelización</p>
+        <p><strong class="text-slate-700">EvAU Cantabria:</strong> Ejercicio Clave 2,5 Pts</p>
+      </div>
+    </header>
+
+    <div class="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-5 mb-8">
+      <h3 class="text-sm font-bold text-emerald-900 flex items-center gap-2">
+        <i data-lucide="target" class="w-4 h-4 text-emerald-600"></i>
+        El Secreto del Éxito en Programación Lineal
+      </h3>
+      <p class="text-xs sm:text-sm text-emerald-950 mt-1 leading-relaxed">
+        El 90% de las notas perdidas en EvAU se deben a no justificar adecuadamente la no negatividad ($x \ge 0, y \ge 0$) o no comprobar los vértices con orden. Siguiendo este protocolo metódico de 4 pasos, el ejercicio de 2,5 puntos se resuelve con precisión quirúrgica.
+      </p>
+    </div>
+
+    <!-- SECCIÓN 1: PROTOCOLO EN 4 PASOS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white inline-flex items-center justify-center text-xs font-bold">1</span>
+        El Protocolo Maestro en 4 Pasos
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-emerald-800 text-sm">Paso 1: Variables y Función Objetivo</h4>
+          <p class="text-xs text-slate-600">
+            Define con claridad qué representan $x$ e $y$ con sus unidades. Escribe la función a maximizar (beneficios, ingresos) o minimizar (costes, tiempo):
+          </p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center text-xs font-bold">
+            $$\text{Optimizar } Z(x, y) = a \cdot x + b \cdot y$$
+          </div>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-emerald-800 text-sm">Paso 2: Sistema de Restricciones</h4>
+          <p class="text-xs text-slate-600">
+            Traduce las condiciones del enunciado en desigualdades lineales. ¡No olvides las condiciones de no negatividad!
+          </p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center text-xs font-bold">
+            $$\begin{cases} a_1 x + b_1 y \le c_1 \\ a_2 x + b_2 y \ge c_2 \\ x \ge 0, \quad y \ge 0 \end{cases}$$
+          </div>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-emerald-800 text-sm">Paso 3: Región Factible y Vértices</h4>
+          <p class="text-xs text-slate-600">
+            Representa las rectas asociadas igualando a cero. Elige un punto de prueba como $(0,0)$ para sombrear el semiplano correcto. Calcula las coordenadas exactas de los vértices resolviendo los sistemas $2 \times 2$.
+          </p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-emerald-800 text-sm">Paso 4: Evaluación y Conclusión</h4>
+          <p class="text-xs text-slate-600">
+            Sustituye cada vértice en $Z(x, y)$ en una tabla ordenada. Identifica el máximo o mínimo y redacta la respuesta en el contexto del problema (ej. "Se deben fabricar 40 unidades de A y 20 de B...").
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: TEOREMA FUNDAMENTAL -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white inline-flex items-center justify-center text-xs font-bold">2</span>
+        Tipos de Regiones Factibles y Existencia de Solución
+      </h2>
+
+      <div class="space-y-4 text-xs sm:text-sm">
+        <div class="p-4 bg-emerald-50/50 border border-emerald-200 rounded-2xl">
+          <h4 class="font-bold text-emerald-900 mb-1">1. Región Factible Acotada (Polígono Cerrado)</h4>
+          <p class="text-slate-700">
+            La región está delimitada por todos sus lados. <strong>Siempre existen tanto un máximo absoluto como un mínimo absoluto</strong>, y se alcanzan obligatoriamente en al menos uno de los vértices de la región.
+          </p>
+        </div>
+
+        <div class="p-4 bg-amber-50/50 border border-amber-200 rounded-2xl">
+          <h4 class="font-bold text-amber-900 mb-1">2. Región Factible No Acotada (Abierta hacia el infinito)</h4>
+          <p class="text-slate-700">
+            La región no tiene límite en alguna dirección. Puede existir mínimo pero no máximo (o viceversa). Para justificar formalmente en EvAU se debe trazar la recta de nivel $Z = k$ y su vector de crecimiento $\vec{v} = (a, b)$.
+          </p>
+        </div>
+
+        <div class="p-4 bg-rose-50/50 border border-rose-200 rounded-2xl">
+          <h4 class="font-bold text-rose-900 mb-1">3. Soluciones Múltiples (Infinitas Soluciones)</h4>
+          <p class="text-slate-700">
+            Ocurre cuando la recta de la función objetivo es paralela a uno de los lados de la región factible. El valor óptimo se alcanza en dos vértices consecutivos y en <strong>todos los puntos del segmento</strong> que los une.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUCO EVAU -->
+    <div class="p-5 bg-emerald-50 border-l-4 border-emerald-600 rounded-r-2xl">
+      <h4 class="text-sm font-bold text-emerald-900 flex items-center gap-2">
+        <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+        Consejo de Redacción EvAU Cantabria
+      </h4>
+      <p class="text-xs sm:text-sm text-emerald-950 mt-1 leading-relaxed">
+        Nunca dejes el resultado sólo como un punto matemático $(x, y) = (15, 30)$. Los correctores de EvAU exigen siempre una frase final con las unidades reales: <em>"La empresa debe producir 15 lámparas del modelo clásico y 30 del modelo moderno para alcanzar un beneficio máximo de 4.250 euros."</em>
+      </p>
+    </div>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

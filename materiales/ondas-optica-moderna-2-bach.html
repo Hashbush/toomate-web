@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ondas, Óptica y Física Moderna - 2º Bachillerato EvAU | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-indigo-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-ondas-optica-moderna-2-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-indigo-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Toomate.es &bull; Material Didáctico Oficial</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Ondas, Óptica y Física Cuántica</h1>
+          <p class="text-xs sm:text-sm text-slate-500">2º de Bachillerato &bull; Física EvAU Cantabria &bull; Efecto Fotoeléctrico y Lentes</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Nivel:</strong> 2º Bachillerato (Física)</p>
+        <p><strong class="text-slate-700">Bloques:</strong> Ondas, Óptica y Moderna</p>
+        <p><strong class="text-slate-700">EvAU Cantabria:</strong> 2,5 Puntos Fijos</p>
+      </div>
+    </header>
+
+    <div class="bg-indigo-50/70 border border-indigo-200 rounded-2xl p-5 mb-8">
+      <h3 class="text-sm font-bold text-indigo-900 flex items-center gap-2">
+        <i data-lucide="atom" class="w-4 h-4 text-indigo-600"></i>
+        De la Luz Clásica al Cuanto de Energía
+      </h3>
+      <p class="text-xs sm:text-sm text-indigo-950 mt-1 leading-relaxed">
+        Este bloque recorre la evolución histórica de la física: desde la propagación de ondas mecánicas y el trazado de rayos en lentes delgadas, hasta la revolución cuántica de Einstein, Planck y De Broglie que reveló la naturaleza dual onda-corpúsculo de la materia.
+      </p>
+    </div>
+
+    <!-- 1: ONDAS ARMÓNICAS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white inline-flex items-center justify-center text-xs font-bold">1</span>
+        Ecuación de la Onda Armónica Unidimensional
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-indigo-800">Ecuación General de Propagación</h4>
+          <p class="text-slate-600">Para una onda que se propaga hacia la derecha ($+x$):</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$y(x, t) = A \sin(\omega t - k x + \varphi_0)$$
+          </div>
+          <p class="text-[11px] text-slate-500">Si se propaga hacia la izquierda ($-x$), el signo de $k x$ es positivo ($+$).</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-indigo-800">Relaciones Fundamentales de Onda</h4>
+          <p class="text-slate-600">Velocidad de propagación y número de onda:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$v = \frac{\lambda}{T} = \lambda \cdot f = \frac{\omega}{k}, \quad k = \frac{2\pi}{\lambda}, \quad \omega = 2\pi f$$
+          </div>
+          <p class="text-[11px] text-slate-500">Diferencia de fase entre dos puntos: $\Delta\varphi = k \cdot \Delta x = \frac{2\pi}{\lambda} \Delta x$.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2: ÓPTICA GEOMÉTRICA Y LENTES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white inline-flex items-center justify-center text-xs font-bold">2</span>
+        Óptica Geométrica: Ley de Snell y Lentes Delgadas
+      </h2>
+
+      <div class="space-y-4 text-xs sm:text-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+            <h4 class="font-bold text-indigo-800">Refracción y Ángulo Límite (Snell)</h4>
+            <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+              $$n_1 \sin \theta_1 = n_2 \sin \theta_2$$
+              $$\sin \theta_{\text{límite}} = \frac{n_2}{n_1} \quad (n_1 > n_2)$$
+            </div>
+            <p class="text-[11px] text-slate-600">Para ángulos de incidencia $\theta_1 > \theta_{\text{límite}}$ se produce reflexión total interna (fibra óptica).</p>
+          </div>
+
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+            <h4 class="font-bold text-indigo-800">Fórmula de las Lentes Delgadas</h4>
+            <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+              $$\frac{1}{s'} - \frac{1}{s} = \frac{1}{f'} = P \quad (\text{Dioptrías})$$
+              $$m = \frac{y'}{y} = \frac{s'}{s} \quad (\text{Aumento Lateral})$$
+            </div>
+            <p class="text-[11px] text-slate-600">Criterio DIN: la luz viaja de izquierda a derecha; $s < 0$. Si $f' > 0$ es convergente; si $f' < 0$ es divergente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3: FÍSICA CUÁNTICA Y MODERNA -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white inline-flex items-center justify-center text-xs font-bold">3</span>
+        Efecto Fotoeléctrico y Longitud de Onda de De Broglie
+      </h2>
+
+      <div class="p-5 bg-indigo-50/50 border border-indigo-200 rounded-2xl space-y-3 text-xs sm:text-sm">
+        <h4 class="font-bold text-indigo-900">Ecuación del Efecto Fotoeléctrico de Einstein</h4>
+        <p class="text-slate-700">
+          La energía del fotón incidente ($h f$) se emplea en vencer el trabajo de extracción ($W_0$) y el resto se convierte en energía cinética máxima del fotoelectrón:
+        </p>
+        <div class="p-3 bg-white rounded-xl border border-indigo-300 font-mono text-center font-bold text-indigo-950 text-base">
+          $$E_{\text{fotón}} = W_0 + E_{c,\text{max}} \implies h f = h f_0 + e V_0 = h f_0 + \frac{1}{2} m v^2$$
+        </div>
+        <p class="text-slate-600 text-xs">
+          Donde $f_0 = \frac{W_0}{h}$ es la frecuencia umbral por debajo de la cual no se emiten electrones (sea cual sea la intensidad lumínica), y $V_0$ es el potencial de frenado. Constante de Planck: $h = 6{,}63 \cdot 10^{-34}\text{ J}\cdot\text{s}$.
+        </p>
+
+        <div class="p-3 bg-white rounded-xl border border-indigo-200 text-center font-mono text-xs font-bold text-indigo-900">
+          $$\text{Hipótesis de De Broglie: } \lambda = \frac{h}{p} = \frac{h}{m v}$$
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

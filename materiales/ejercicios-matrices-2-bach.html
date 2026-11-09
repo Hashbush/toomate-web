@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletín Interactivo de Ejercicios: Matrices y Determinantes | Toomate.es</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- KaTeX para fórmulas matemáticas perfectas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary .arrow-icon { transform: rotate(180deg); }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 10pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+      details { border: 1px solid #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR (NO IMPRIMIBLE) -->
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex flex-wrap items-center justify-between gap-3">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-rose-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex flex-wrap items-center gap-2.5">
+      <!-- BOTÓN PARA ABRIR/CERRAR TODAS LAS SOLUCIONES -->
+      <button onclick="toggleTodasLasSoluciones()" id="btnToggleAll" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-brand-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="eye" class="w-4 h-4 text-brand-600"></i>
+        <span id="txtToggleAll">Desplegar todas las soluciones</span>
+      </button>
+
+      <a href="matrices-2-bach.html" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-blue-600 bg-white border border-slate-200 px-3 py-2 rounded-xl transition">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Teoría & Resumen</span>
+      </a>
+
+      <button onclick="window.print()" class="inline-flex items-center gap-1.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- DOCUMENTO PRINCIPAL -->
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-6 sm:p-12">
+    
+    <!-- CABECERA DE LA COLECCIÓN -->
+    <header class="border-b-2 border-brand-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-rose-50 border border-rose-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600">Toomate.es &bull; Cuaderno Interactivo</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Boletín Graduado de Matrices</h1>
+          <p class="text-xs sm:text-sm text-slate-500">22 Ejercicios con Solución Desplegable Paso a Paso &bull; 2º Bachillerato</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Modalidad:</strong> Autoaprendizaje interactivo</p>
+        <p><strong class="text-slate-700">Soluciones:</strong> Pestaña oculta individual</p>
+        <p><strong class="text-slate-700">Examen:</strong> Preparación EvAU</p>
+      </div>
+    </header>
+
+    <!-- GUÍA DE USO INTERACTIVA -->
+    <div class="bg-gradient-to-r from-rose-50 to-amber-50 border border-rose-200/80 rounded-2xl p-4 mb-8 text-xs sm:text-sm flex items-start gap-3">
+      <div class="w-8 h-8 rounded-xl bg-brand-600 text-white flex items-center justify-center shrink-0 mt-0.5">
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+      </div>
+      <div>
+        <strong class="text-slate-900 block font-bold">¿Cómo utilizar este boletín?</strong>
+        <p class="text-slate-600 mt-0.5 leading-relaxed">
+          Intenta resolver cada problema primero en tu cuaderno. Cuando termines o si te quedas atascado, pulsa en la pestaña <strong>«Ver Solución Paso a Paso ▾»</strong> situada al pie de cada ejercicio para desplegar todo el razonamiento, operaciones y el resultado final.
+        </p>
+      </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- BLOQUE 1: NIVEL BÁSICO (AFIANZAMIENTO) -->
+    <!-- ======================================================== -->
+    <section id="nivel-1" class="space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div class="flex items-center gap-2">
+          <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white font-bold text-sm flex items-center justify-center">1</span>
+          <h2 class="text-xl font-bold text-slate-900">Nivel 1: Básico &bull; Operaciones y Determinantes</h2>
+        </div>
+        <span class="text-xs font-semibold px-2.5 py-1 rounded bg-emerald-100 text-emerald-800">Afianzamiento</span>
+      </div>
+
+      <!-- EJERCICIOS PROPUESTOS NIVEL 1 CON DESPLEGABLES -->
+      <div class="space-y-4 text-xs sm:text-sm">
+        
+        <!-- EJERCICIO 1 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 1</span>
+            <span class="text-[11px] text-slate-400 font-medium">Dimensiones de matrices</span>
+          </div>
+          <p class="text-slate-700">
+            Dadas las matrices $A_{2 \times 3}$, $B_{3 \times 4}$ y $C_{4 \times 2}$, determina cuáles de los siguientes productos son posibles y cuál es la dimensión de la matriz resultante:<br>
+            <strong>a)</strong> $A \cdot B$ &nbsp;&bull;&nbsp; <strong>b)</strong> $B \cdot A$ &nbsp;&bull;&nbsp; <strong>c)</strong> $(A \cdot B) \cdot C$ &nbsp;&bull;&nbsp; <strong>d)</strong> $C \cdot A$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700">
+              <p><strong>Criterio:</strong> Para multiplicar $M_{m \times n} \cdot P_{p \times q}$ debe cumplirse $n = p$, y el resultado tiene orden $m \times q$.</p>
+              <p>&bull; <strong>a) $A_{2 \times 3} \cdot B_{3 \times 4}$:</strong> Es posible (columnas de $A$ = filas de $B$ = 3). Dimensión: $\mathbf{2 \times 4}$.</p>
+              <p>&bull; <strong>b) $B_{3 \times 4} \cdot A_{2 \times 3}$:</strong> <strong>NO es posible</strong> (4 columnas $\neq$ 2 filas).</p>
+              <p>&bull; <strong>c) $(A \cdot B)_{2 \times 4} \cdot C_{4 \times 2}$:</strong> Es posible ($4 = 4$). Dimensión resultante: $\mathbf{2 \times 2}$.</p>
+              <p>&bull; <strong>d) $C_{4 \times 2} \cdot A_{2 \times 3}$:</strong> Es posible ($2 = 2$). Dimensión resultante: $\mathbf{4 \times 3}$.</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 2 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 2</span>
+            <span class="text-[11px] text-slate-400 font-medium">Combinación lineal y traspuesta</span>
+          </div>
+          <p class="text-slate-700">
+            Sean las matrices $A = \begin{pmatrix} 2 & -1 \\ 3 & 0 \end{pmatrix}$ y $B = \begin{pmatrix} 1 & 4 \\ -2 & 5 \end{pmatrix}$. Calcula la matriz resultante $M = 3A - 2B^t$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>1. Traspuesta de $B$: &nbsp; $B^t = \begin{pmatrix} 1 & -2 \\ 4 & 5 \end{pmatrix}$</p>
+              <p>2. Multiplicamos por los escalares:</p>
+              <p>$$3A = \begin{pmatrix} 6 & -3 \\ 9 & 0 \end{pmatrix}, \quad 2B^t = \begin{pmatrix} 2 & -4 \\ 8 & 10 \end{pmatrix}$$</p>
+              <p>3. Restamos término a término:</p>
+              <p class="font-bold text-emerald-800">$$M = 3A - 2B^t = \begin{pmatrix} 6 - 2 & -3 - (-4) \\ 9 - 8 & 0 - 10 \end{pmatrix} = \begin{pmatrix} 4 & 1 \\ 1 & -10 \end{pmatrix}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 3 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 3</span>
+            <span class="text-[11px] text-slate-400 font-medium">Determinantes 3x3 por Sarrus</span>
+          </div>
+          <p class="text-slate-700">
+            Calcula mediante la regla de Sarrus los siguientes determinantes:<br>
+            <strong>a)</strong> $|M_1| = \begin{vmatrix} 2 & 1 & 0 \\ -1 & 3 & 2 \\ 4 & -2 & 1 \end{vmatrix}$ &nbsp;&bull;&nbsp; <strong>b)</strong> $|M_2| = \begin{vmatrix} 1 & 3 & -1 \\ 0 & 2 & 4 \\ 2 & 1 & 0 \end{vmatrix}$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p><strong>Para $|M_1|$:</strong></p>
+              <p>Diagonal principal y paralelas: $2 \cdot 3 \cdot 1 + 1 \cdot 2 \cdot 4 + 0 \cdot (-1) \cdot (-2) = 6 + 8 + 0 = 14$</p>
+              <p>Diagonal secundaria y paralelas: $0 \cdot 3 \cdot 4 + 1 \cdot (-1) \cdot 1 + 2 \cdot 2 \cdot (-2) = 0 - 1 - 8 = -9$</p>
+              <p class="font-bold text-emerald-800">$$|M_1| = 14 - (-9) = 14 + 9 = 23$$</p>
+              <p><strong>Para $|M_2|$:</strong></p>
+              <p>$$|M_2| = (1 \cdot 2 \cdot 0 + 3 \cdot 4 \cdot 2 + (-1) \cdot 0 \cdot 1) - ((-1) \cdot 2 \cdot 2 + 1 \cdot 4 \cdot 1 + 3 \cdot 0 \cdot 0)$$</p>
+              <p class="font-bold text-emerald-800">$$|M_2| = (0 + 24 + 0) - (-4 + 4 + 0) = 24 - 0 = 24$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 4 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 4</span>
+            <span class="text-[11px] text-slate-400 font-medium">Existencia y cálculo de inversa 2x2</span>
+          </div>
+          <p class="text-slate-700">
+            Halla, en caso de que existan, las matrices inversas de:<br>
+            <strong>a)</strong> $A = \begin{pmatrix} 3 & 5 \\ 1 & 2 \end{pmatrix}$ &nbsp;&bull;&nbsp; <strong>b)</strong> $B = \begin{pmatrix} 2 & 6 \\ 1 & 3 \end{pmatrix}$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p><strong>Apartado a):</strong></p>
+              <p>1. Determinante: $|A| = 3(2) - 5(1) = 6 - 5 = 1 \neq 0 \implies$ Sí tiene inversa.</p>
+              <p>2. En matrices $2 \times 2$, $A^{-1} = \frac{1}{|A|}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$:</p>
+              <div class="bg-white p-2 rounded-lg border border-slate-200 font-mono font-bold text-emerald-800 text-center">
+                $$A^{-1} = \frac{1}{1} \begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix} = \begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix}$$
+              </div>
+              <p><strong>Apartado b):</strong></p>
+              <p>Determinante: $|B| = 2(3) - 6(1) = 6 - 6 = 0$. Como el determinante es cero, la matriz $B$ es <strong>singular</strong> y <strong>NO existe $B^{-1}$</strong>.</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 5 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 5</span>
+            <span class="text-[11px] text-slate-400 font-medium">Demostración teórica</span>
+          </div>
+          <p class="text-slate-700">
+            Demuestra algebraicamente que para cualquier matriz cuadrada $A$, la matriz $S = A + A^t$ es siempre simétrica, y la matriz $T = A - A^t$ es antisimétrica.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p><strong>1. Demostración para $S$ (Simétrica si $S^t = S$):</strong></p>
+              <p>Aplicamos las propiedades de la traspuesta: $(X + Y)^t = X^t + Y^t$ y $(X^t)^t = X$:</p>
+              <p class="font-mono">$$S^t = (A + A^t)^t = A^t + (A^t)^t = A^t + A$$</p>
+              <p>Como la suma de matrices sí es conmutativa: $A^t + A = A + A^t = S$. Por tanto, <strong>$S^t = S$ (es simétrica)</strong>. Q.E.D.</p>
+              <p class="pt-2"><strong>2. Demostración para $T$ (Antisimétrica si $T^t = -T$):</strong></p>
+              <p class="font-mono">$$T^t = (A - A^t)^t = A^t - (A^t)^t = A^t - A = -(A - A^t) = -T$$</p>
+              <p>Por tanto, <strong>$T^t = -T$ (es antisimétrica)</strong>. Q.E.D.</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 6 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 6</span>
+            <span class="text-[11px] text-slate-400 font-medium">Ecuación matricial lineal</span>
+          </div>
+          <p class="text-slate-700">
+            Encuentra la matriz incógnita $X$ que satisface la igualdad: &nbsp; $2X + \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = \begin{pmatrix} 5 & 0 \\ -1 & 2 \end{pmatrix}$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>Despejamos $2X$ restando la matriz del primer miembro:</p>
+              <p>$$2X = \begin{pmatrix} 5 & 0 \\ -1 & 2 \end{pmatrix} - \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = \begin{pmatrix} 5 - 1 & 0 - 2 \\ -1 - 3 & 2 - 4 \end{pmatrix} = \begin{pmatrix} 4 & -2 \\ -4 & -2 \end{pmatrix}$$</p>
+              <p>Multiplicamos por el escalar $\frac{1}{2}$:</p>
+              <p class="font-bold text-emerald-800">$$X = \frac{1}{2}\begin{pmatrix} 4 & -2 \\ -4 & -2 \end{pmatrix} = \begin{pmatrix} 2 & -1 \\ -2 & -1 \end{pmatrix}$$</p>
+            </div>
+          </details>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SALTO DE PÁGINA PARA IMPRESIÓN -->
+    <div class="page-break my-10"></div>
+
+    <!-- ======================================================== -->
+    <!-- BLOQUE 2: NIVEL INTERMEDIO (POTENCIAS, RANGOS E INVERSAS) -->
+    <!-- ======================================================== -->
+    <section id="nivel-2" class="space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div class="flex items-center gap-2">
+          <span class="w-7 h-7 rounded-lg bg-blue-600 text-white font-bold text-sm flex items-center justify-center">2</span>
+          <h2 class="text-xl font-bold text-slate-900">Nivel 2: Intermedio &bull; Potencias, Rangos e Inversas $3 \times 3$</h2>
+        </div>
+        <span class="text-xs font-semibold px-2.5 py-1 rounded bg-blue-100 text-blue-800">Consolidación</span>
+      </div>
+
+      <!-- EJERCICIOS PROPUESTOS NIVEL 2 CON DESPLEGABLES -->
+      <div class="space-y-4 text-xs sm:text-sm">
+
+        <!-- EJERCICIO 7 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 7</span>
+            <span class="text-[11px] text-slate-400 font-medium">Potencias cíclicas periódicas</span>
+          </div>
+          <p class="text-slate-700">
+            Dada la matriz $A = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$, calcula $A^2, A^3, A^4$. A partir del ciclo obtenido, deduce razonadamente el valor exacto de la potencia $A^{2027}$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>$$A^2 = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} = -I$$</p>
+              <p>$$A^3 = A^2 \cdot A = (-I) \cdot A = -A = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$$</p>
+              <p>$$A^4 = (A^2)^2 = (-I)^2 = I \quad (\text{¡Hemos llegado a la identidad! Ciclo de periodo 4})$$</p>
+              <p class="font-sans text-slate-800">Dividimos el exponente $2027$ entre el periodo $4$:</p>
+              <p>$$2027 = 4 \cdot 506 + 3 \quad (\text{Cociente } 506, \text{ Resto } 3)$$</p>
+              <p class="font-bold text-emerald-800 font-sans">
+                $$A^{2027} = (A^4)^{506} \cdot A^3 = I^{506} \cdot A^3 = A^3 = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$$
+              </p>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 8 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 8</span>
+            <span class="text-[11px] text-slate-400 font-medium">Inversa 3x3 por el método de los adjuntos</span>
+          </div>
+          <p class="text-slate-700">
+            Calcula la matriz inversa de $A = \begin{pmatrix} 1 & 0 & 2 \\ 2 & -1 & 1 \\ 0 & 1 & 1 \end{pmatrix}$ aplicando la fórmula $A^{-1} = \frac{1}{|A|}(\text{Adj}(A))^t$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p><strong>Paso 1: Determinante $|A|$:</strong></p>
+              <p class="font-mono">$$|A| = 1(-1 - 1) - 0 + 2(2 - 0) = -2 + 4 = 2 \neq 0 \implies \text{Existe } A^{-1}$$</p>
+              <p><strong>Paso 2: Matriz de Adjuntos $\text{Adj}(A)$:</strong></p>
+              <p class="font-mono">
+                $A_{11} = +(-2)$, &nbsp; $A_{12} = -(2)$, &nbsp; $A_{13} = +(2)$<br>
+                $A_{21} = -(-2) = 2$, &nbsp; $A_{22} = +(1)$, &nbsp; $A_{23} = -(1) = -1$<br>
+                $A_{31} = +(2)$, &nbsp; $A_{32} = -(-3) = 3$, &nbsp; $A_{33} = +(-1)$
+              </p>
+              <p class="font-mono">$$\text{Adj}(A) = \begin{pmatrix} -2 & -2 & 2 \\ 2 & 1 & -1 \\ 2 & 3 & -1 \end{pmatrix} \implies (\text{Adj}(A))^t = \begin{pmatrix} -2 & 2 & 2 \\ -2 & 1 & 3 \\ 2 & -1 & -1 \end{pmatrix}$$</p>
+              <p><strong>Paso 3: Matriz Inversa $A^{-1} = \frac{1}{2}(\text{Adj}(A))^t$:</strong></p>
+              <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-lg text-center font-mono font-bold text-emerald-900">
+                $$A^{-1} = \frac{1}{2} \begin{pmatrix} -2 & 2 & 2 \\ -2 & 1 & 3 \\ 2 & -1 & -1 \end{pmatrix} = \begin{pmatrix} -1 & 1 & 1 \\ -1 & 1/2 & 3/2 \\ 1 & -1/2 & -1/2 \end{pmatrix}$$
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 9 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 9</span>
+            <span class="text-[11px] text-slate-400 font-medium">Rango mediante menores orlados</span>
+          </div>
+          <p class="text-slate-700">
+            Calcula el rango de la matriz $M = \begin{pmatrix} 1 & -1 & 2 & 0 \\ 2 & 1 & 1 & 3 \\ 0 & -3 & 3 & -3 \end{pmatrix}$ encontrando el menor no nulo de mayor orden.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>1. Menor de orden 2: $\begin{vmatrix} 1 & -1 \\ 2 & 1 \end{vmatrix} = 1 - (-2) = 3 \neq 0 \implies \text{Rg}(M) \ge 2$.</p>
+              <p>2. Orlamos con la 3ª fila y las columnas restantes:</p>
+              <p class="font-mono">&bull; Columnas 1, 2 y 3: $\begin{vmatrix} 1 & -1 & 2 \\ 2 & 1 & 1 \\ 0 & -3 & 3 \end{vmatrix} = 1(3+3) - (-1)(6-0) + 2(-6-0) = 6 + 6 - 12 = 0$.</p>
+              <p class="font-mono">&bull; Columnas 1, 2 y 4: $\begin{vmatrix} 1 & -1 & 0 \\ 2 & 1 & 3 \\ 0 & -3 & -3 \end{vmatrix} = 1(-3+9) - (-1)(-6-0) + 0 = 6 - 6 = 0$.</p>
+              <p class="font-semibold text-emerald-800">Conclusión: Como todos los menores orlados de orden 3 son nulos, $\mathbf{\text{Rg}(M) = 2}$. (Fila 3 = $2 \cdot F_1 - F_2$).</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 10 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 10</span>
+            <span class="text-[11px] text-slate-400 font-medium">Propiedades formales de determinantes</span>
+          </div>
+          <p class="text-slate-700">
+            Sabiendo que $A$ y $B$ son matrices cuadradas de orden 3 tales que $|A| = -2$ y $|B| = 5$, calcula razonadamente:<br>
+            <strong>a)</strong> $|A \cdot B|$ &nbsp;&bull;&nbsp; <strong>b)</strong> $|3A|$ &nbsp;&bull;&nbsp; <strong>c)</strong> $|A^{-1}|$ &nbsp;&bull;&nbsp; <strong>d)</strong> $|A^t \cdot B^2|$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>&bull; <strong>a)</strong> $|A \cdot B| = |A| \cdot |B| = (-2) \cdot 5 = \mathbf{-10}$</p>
+              <p>&bull; <strong>b)</strong> $|3A| = 3^n \cdot |A| = 3^3 \cdot (-2) = 27 \cdot (-2) = \mathbf{-54}$ (¡por ser de orden 3!)</p>
+              <p>&bull; <strong>c)</strong> $|A^{-1}| = \frac{1}{|A|} = \frac{1}{-2} = \mathbf{-0,5}$</p>
+              <p>&bull; <strong>d)</strong> $|A^t \cdot B^2| = |A^t| \cdot |B^2| = |A| \cdot (|B|)^2 = (-2) \cdot (5)^2 = (-2) \cdot 25 = \mathbf{-50}$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 11 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 11</span>
+            <span class="text-[11px] text-slate-400 font-medium">Discusión de rango con parámetro</span>
+          </div>
+          <p class="text-slate-700">
+            Estudia el rango de la matriz $A = \begin{pmatrix} 1 & 1 & a \\ 1 & a & 1 \\ a & 1 & 1 \end{pmatrix}$ en función de los valores del parámetro real $a$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>1. Calculamos el determinante $|A|$:</p>
+              <p class="font-mono">$$|A| = a + a + a - a^3 - 1 - 1 = -a^3 + 3a - 2 = -(a - 1)^2(a + 2)$$</p>
+              <p>2. Igualamos a cero: $-(a-1)^2(a+2) = 0 \implies a = 1 \text{ (doble)}, \quad a = -2$.</p>
+              <p class="p-2 bg-white rounded-lg border border-slate-200">
+                <strong>&bull; Caso 1 ($a \neq 1$ y $a \neq -2$):</strong> $|A| \neq 0 \implies \mathbf{\text{Rg}(A) = 3}$.<br>
+                <strong>&bull; Caso 2 ($a = 1$):</strong> Las 3 filas son idénticas $(1, 1, 1) \implies \mathbf{\text{Rg}(A) = 1}$.<br>
+                <strong>&bull; Caso 3 ($a = -2$):</strong> $|A| = 0$, pero el menor $\begin{vmatrix} 1 & 1 \\ 1 & -2 \end{vmatrix} = -3 \neq 0 \implies \mathbf{\text{Rg}(A) = 2}$.
+              </p>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 12 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 12</span>
+            <span class="text-[11px] text-slate-400 font-medium">Matriz Nilpotente y Binomio de Newton</span>
+          </div>
+          <p class="text-slate-700">
+            Dada la matriz $N = \begin{pmatrix} 0 & 1 & 2 \\ 0 & 0 & -1 \\ 0 & 0 & 0 \end{pmatrix}$, comprueba que $N^3 = O$ (matriz nula). Utiliza este resultado para calcular $(I + N)^5$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>$$N^2 = \begin{pmatrix} 0 & 0 & -1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}, \quad N^3 = N^2 \cdot N = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix} = O$$</p>
+              <p class="font-sans text-slate-800">Como $I$ y $N$ conmutan ($I \cdot N = N \cdot I$), aplicamos el binomio de Newton:</p>
+              <p>$$(I + N)^5 = I^5 + 5I^4N + 10I^3N^2 + 10I^2N^3 + 5IN^4 + N^5$$</p>
+              <p class="font-sans text-slate-800">Como $N^3 = N^4 = N^5 = O$, todos los términos a partir de grado 3 se anulan:</p>
+              <p class="font-bold text-emerald-800">
+                $$(I + N)^5 = I + 5N + 10N^2 = \begin{pmatrix} 1 & 5 & 0 \\ 0 & 1 & -5 \\ 0 & 0 & 1 \end{pmatrix}$$
+              </p>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 13 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 13</span>
+            <span class="text-[11px] text-slate-400 font-medium">Propiedades de filas combinadas</span>
+          </div>
+          <p class="text-slate-700">
+            Sabiendo que $\begin{vmatrix} a & b & c \\ d & e & f \\ g & h & i \end{vmatrix} = 7$, calcula el valor del determinante: &nbsp; $\begin{vmatrix} 2a & 2b & 2c \\ d-a & e-b & f-c \\ 3g & 3h & 3i \end{vmatrix}$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>1. Sacamos el factor 2 de la primera fila y el factor 3 de la tercera fila:</p>
+              <p class="font-mono">$$2 \cdot 3 \cdot \begin{vmatrix} a & b & c \\ d-a & e-b & f-c \\ g & h & i \end{vmatrix} = 6 \cdot \begin{vmatrix} a & b & c \\ d-a & e-b & f-c \\ g & h & i \end{vmatrix}$$</p>
+              <p>2. A la fila 2 le sumamos la fila 1 ($F_2 \to F_2 + F_1$); por las propiedades de los determinantes, esta operación no altera el valor:</p>
+              <p class="font-mono">$$6 \cdot \begin{vmatrix} a & b & c \\ (d-a)+a & (e-b)+b & (f-c)+c \\ g & h & i \end{vmatrix} = 6 \cdot \begin{vmatrix} a & b & c \\ d & e & f \\ g & h & i \end{vmatrix}$$</p>
+              <p class="font-bold text-emerald-800">$$Resultado = 6 \cdot 7 = 42$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 14 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 14</span>
+            <span class="text-[11px] text-slate-400 font-medium">Inversa mediante relación polinómica</span>
+          </div>
+          <p class="text-slate-700">
+            Si la matriz cuadrada $A$ satisface la ecuación $A^2 - 3A + 2I = O$, demuestra algebraicamente que $A$ tiene inversa y expresa $A^{-1}$ en función de $A$ e $I$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>Aislamos el término con la matriz identidad $I$:</p>
+              <p class="font-mono">$$A^2 - 3A = -2I \implies 3A - A^2 = 2I$$</p>
+              <p>Sacamos factor común la matriz $A$ por la izquierda:</p>
+              <p class="font-mono">$$A \cdot (3I - A) = 2I \implies A \cdot \left[ \frac{1}{2}(3I - A) \right] = I$$</p>
+              <p class="font-semibold text-emerald-800">
+                Por definición de inversa ($A \cdot B = I \implies B = A^{-1}$), queda demostrado que $A$ es invertible y:
+                $$\mathbf{A^{-1} = \frac{1}{2}(3I - A)}$$
+              </p>
+            </div>
+          </details>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SALTO DE PÁGINA PARA IMPRESIÓN -->
+    <div class="page-break my-10"></div>
+
+    <!-- ======================================================== -->
+    <!-- BLOQUE 3: NIVEL AVANZADO (ECUACIONES MATRICIALES EvAU) -->
+    <!-- ======================================================== -->
+    <section id="nivel-3" class="space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+        <div class="flex items-center gap-2">
+          <span class="w-7 h-7 rounded-lg bg-rose-600 text-white font-bold text-sm flex items-center justify-center">3</span>
+          <h2 class="text-xl font-bold text-slate-900">Nivel 3: Avanzado &bull; Ecuaciones Matriciales y Problemas EvAU</h2>
+        </div>
+        <span class="text-xs font-semibold px-2.5 py-1 rounded bg-rose-100 text-rose-800">Top Selectividad</span>
+      </div>
+
+      <!-- EJERCICIOS PROPUESTOS NIVEL 3 CON DESPLEGABLES -->
+      <div class="space-y-4 text-xs sm:text-sm">
+
+        <!-- EJERCICIO 15 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 15 (Madrid - EvAU)</span>
+            <span class="text-[11px] text-slate-400 font-medium">Factor común por la izquierda</span>
+          </div>
+          <p class="text-slate-700">
+            Dadas las matrices $A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ y $B = \begin{pmatrix} 1 & -1 \\ 0 & 2 \end{pmatrix}$, resuelve la ecuación matricial: &nbsp; $X \cdot A + X = B$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>1. Sacamos factor común $X$ por la izquierda: Recuerda que $X = X \cdot I$:</p>
+              <p class="font-mono">$$X \cdot (A + I) = B$$</p>
+              <p>2. Multiplicamos por $(A + I)^{-1}$ por la <strong>derecha</strong>:</p>
+              <p class="font-mono">$$X = B \cdot (A + I)^{-1}$$</p>
+              <p>3. Calculamos $A + I = \begin{pmatrix} 3 & 1 \\ 1 & 2 \end{pmatrix} \implies |A + I| = 6 - 1 = 5 \neq 0$.</p>
+              <p class="font-mono">$$(A + I)^{-1} = \frac{1}{5}\begin{pmatrix} 2 & -1 \\ -1 & 3 \end{pmatrix}$$</p>
+              <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-lg text-center font-mono font-bold text-emerald-900">
+                $$X = \begin{pmatrix} 1 & -1 \\ 0 & 2 \end{pmatrix} \cdot \frac{1}{5}\begin{pmatrix} 2 & -1 \\ -1 & 3 \end{pmatrix} = \frac{1}{5}\begin{pmatrix} 3 & -4 \\ -2 & 6 \end{pmatrix}$$
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 16 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 16 (Andalucía - EvAU)</span>
+            <span class="text-[11px] text-slate-400 font-medium">Inversa con parámetro y sistema</span>
+          </div>
+          <p class="text-slate-700">
+            Considera la matriz $A = \begin{pmatrix} 1 & 0 & k \\ k & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}$.<br>
+            <strong>a)</strong> Halla los valores de $k$ para los que $A$ no tiene inversa.<br>
+            <strong>b)</strong> Para $k = 2$, resuelve la ecuación $A \cdot X = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p><strong>Apartado a):</strong> Calculamos el determinante $|A|$:</p>
+              <p class="font-mono">$$|A| = 1(1) - 0 + k(k - 0) = 1 + k^2$$</p>
+              <p>Para que no tenga inversa, debería ocurrir $1 + k^2 = 0 \implies k^2 = -1$ (no tiene solución real). Por tanto, <strong>$A$ tiene inversa para cualquier valor real de $k$</strong> ($|A| \ge 1 > 0$).</p>
+              <p class="pt-2"><strong>Apartado b) para $k = 2$:</strong> El sistema es:</p>
+              <p class="font-mono">$$\begin{cases} x + 2z = 1 \\ 2x + y = 0 \implies y = -2x \\ y + z = 1 \implies -2x + z = 1 \end{cases}$$</p>
+              <p>De $x + 2z = 1 \implies x = 1 - 2z$. Sustituyendo: $-2(1 - 2z) + z = 1 \implies -2 + 4z + z = 1 \implies 5z = 3 \implies z = 3/5$.</p>
+              <p class="font-mono">$$x = 1 - 2(3/5) = -1/5, \quad y = -2(-1/5) = 2/5$$</p>
+              <div class="p-2 bg-emerald-50 border border-emerald-200 rounded-lg text-center font-mono font-bold text-emerald-900">
+                $$X = \begin{pmatrix} -1/5 \\ 2/5 \\ 3/5 \end{pmatrix}$$
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 17 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 17 (Comunidad Valenciana - EvAU)</span>
+            <span class="text-[11px] text-slate-400 font-medium">Ecuación con traspuesta e identidad</span>
+          </div>
+          <p class="text-slate-700">
+            Despeja y calcula la matriz $X$ en la ecuación $A^t \cdot X - B = I$, donde $A = \begin{pmatrix} 1 & 2 \\ 0 & -1 \end{pmatrix}$ y $B = \begin{pmatrix} 3 & 1 \\ -1 & 2 \end{pmatrix}$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>1. Despeje formal: $A^t \cdot X = B + I \implies \mathbf{X = (A^t)^{-1} \cdot (B + I)}$</p>
+              <p>2. $A^t = \begin{pmatrix} 1 & 0 \\ 2 & -1 \end{pmatrix}$, con $|A^t| = -1$.</p>
+              <p>3. $(A^t)^{-1} = \frac{1}{-1}\begin{pmatrix} -1 & 0 \\ -2 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 2 & -1 \end{pmatrix}$. (¡Es involutiva!)</p>
+              <p>4. $B + I = \begin{pmatrix} 3 & 1 \\ -1 & 2 \end{pmatrix} + \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 4 & 1 \\ -1 & 3 \end{pmatrix}$.</p>
+              <p class="font-bold text-emerald-800">
+                $$X = \begin{pmatrix} 1 & 0 \\ 2 & -1 \end{pmatrix}\begin{pmatrix} 4 & 1 \\ -1 & 3 \end{pmatrix} = \begin{pmatrix} 4 & 1 \\ 8 - (-1) & 2 - 3 \end{pmatrix} = \begin{pmatrix} 4 & 1 \\ 9 & -1 \end{pmatrix}$$
+              </p>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 18 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 18 (Castilla y León - EvAU)</span>
+            <span class="text-[11px] text-slate-400 font-medium">Ecuación 3x3</span>
+          </div>
+          <p class="text-slate-700">
+            Dadas $A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 1 & 0 & 1 \end{pmatrix}$ y $B = \begin{pmatrix} 2 & 0 & 1 \\ 1 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$, resuelve la ecuación: &nbsp; $A \cdot X + B = 2B$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>1. $A \cdot X = 2B - B \implies A \cdot X = B \implies \mathbf{X = A^{-1} \cdot B}$</p>
+              <p>2. Determinante $|A| = 1 \cdot 2 \cdot 1 = 2 \neq 0$.</p>
+              <p>3. Inversa de $A$: &nbsp; $A^{-1} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1/2 & 0 \\ -1 & 0 & 1 \end{pmatrix}$</p>
+              <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-lg text-center font-bold text-emerald-900">
+                $$X = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1/2 & 0 \\ -1 & 0 & 1 \end{pmatrix} \begin{pmatrix} 2 & 0 & 1 \\ 1 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} 2 & 0 & 1 \\ 1/2 & 1/2 & 0 \\ -2 & 0 & 0 \end{pmatrix}$$
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 19 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 19 (Cataluña - EvAU)</span>
+            <span class="text-[11px] text-slate-400 font-medium">Potencia general y ecuación</span>
+          </div>
+          <p class="text-slate-700">
+            Sea la matriz $A = \begin{pmatrix} 1 & 0 \\ 3 & 1 \end{pmatrix}$. Calcula $A^n$. A continuación, encuentra una matriz $X$ tal que $A^{10} \cdot X = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>1. Calculamos las primeras potencias:</p>
+              <p>$$A^2 = \begin{pmatrix} 1 & 0 \\ 6 & 1 \end{pmatrix}, \quad A^3 = \begin{pmatrix} 1 & 0 \\ 9 & 1 \end{pmatrix} \implies \mathbf{A^n = \begin{pmatrix} 1 & 0 \\ 3n & 1 \end{pmatrix}}$$</p>
+              <p>2. Para $n = 10$, $A^{10} = \begin{pmatrix} 1 & 0 \\ 30 & 1 \end{pmatrix}$, con inversa $(A^{10})^{-1} = \begin{pmatrix} 1 & 0 \\ -30 & 1 \end{pmatrix}$.</p>
+              <p>3. Despejamos $X = (A^{10})^{-1} \cdot \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$:</p>
+              <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-lg text-center font-bold text-emerald-900">
+                $$X = \begin{pmatrix} 1 & 0 \\ -30 & 1 \end{pmatrix}\begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 2 \\ -30 & -59 \end{pmatrix}$$
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 20 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 20 (Galicia - EvAU)</span>
+            <span class="text-[11px] text-slate-400 font-medium">Matrices involutivas cuadráticas</span>
+          </div>
+          <p class="text-slate-700">
+            Halla todas las matrices de la forma $A = \begin{pmatrix} a & 0 \\ b & c \end{pmatrix}$ que verifican la igualdad $A^2 = I$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>Calculamos $A^2$ e igualamos a la matriz identidad $I$:</p>
+              <p class="font-mono">$$A^2 = \begin{pmatrix} a & 0 \\ b & c \end{pmatrix}\begin{pmatrix} a & 0 \\ b & c \end{pmatrix} = \begin{pmatrix} a^2 & 0 \\ ab + bc & c^2 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$$</p>
+              <p>Igualando término a término obtenemos el sistema:</p>
+              <p class="font-mono">1) $a^2 = 1 \implies a = \pm 1$<br>2) $c^2 = 1 \implies c = \pm 1$<br>3) $b(a + c) = 0$</p>
+              <p><strong>Soluciones posibles:</strong></p>
+              <ul class="list-disc list-inside space-y-1 font-mono text-emerald-900 font-medium">
+                <li>Si $a = 1, c = 1 \implies b(2) = 0 \implies b = 0 \implies A = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I$</li>
+                <li>Si $a = -1, c = -1 \implies b(-2) = 0 \implies b = 0 \implies A = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} = -I$</li>
+                <li>Si $a = 1, c = -1 \implies b(0) = 0$ (cierto para todo $b \in \mathbb{R}$) $\implies A = \begin{pmatrix} 1 & 0 \\ b & -1 \end{pmatrix}$</li>
+                <li>Si $a = -1, c = 1 \implies b(0) = 0$ (cierto para todo $b \in \mathbb{R}$) $\implies A = \begin{pmatrix} -1 & 0 \\ b & 1 \end{pmatrix}$</li>
+              </ul>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 21 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 21 (Murcia - EvAU)</span>
+            <span class="text-[11px] text-slate-400 font-medium">Determinante de potencia</span>
+          </div>
+          <p class="text-slate-700">
+            Se considera la matriz $M(a) = \begin{pmatrix} a & 1 & 1 \\ 1 & a & 1 \\ 1 & 1 & a \end{pmatrix}$. Determina para qué valores del parámetro real $a$ se anula el determinante de $(M(a))^3$.
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>Por la propiedad del determinante del producto: $|M^3| = |M \cdot M \cdot M| = (|M|)^3$.</p>
+              <p>Por tanto, el determinante de la potencia se anula si y solo si se anula el determinante de la matriz base:</p>
+              <p class="font-mono">$$|M(a)|^3 = 0 \iff |M(a)| = 0$$</p>
+              <p>Calculamos $|M(a)|$ por Sarrus:</p>
+              <p class="font-mono">$$|M(a)| = a^3 + 1 + 1 - (a + a + a) = a^3 - 3a + 2 = (a - 1)^2(a + 2)$$</p>
+              <p class="font-bold text-emerald-800">
+                El determinante se anula para $\mathbf{a = 1}$ (raíz doble) y para $\mathbf{a = -2}$.
+              </p>
+            </div>
+          </details>
+        </article>
+
+        <!-- EJERCICIO 22 -->
+        <article class="p-5 rounded-2xl border border-slate-200 bg-white shadow-2xs hover:border-slate-300 transition">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-900 text-sm">Ejercicio 22 (País Vasco - EvAU)</span>
+            <span class="text-[11px] text-slate-400 font-medium">Sistema de dos ecuaciones matriciales</span>
+          </div>
+          <p class="text-slate-700">
+            Resuelve el siguiente sistema matricial para las incógnitas $X$ e $Y$:
+            $$\begin{cases} 2X + Y = \begin{pmatrix} 1 & 0 \\ 2 & -1 \end{pmatrix} \\ X - Y = \begin{pmatrix} 2 & 3 \\ -2 & 4 \end{pmatrix} \end{cases}$$
+          </p>
+
+          <details class="exercise-details group mt-4 pt-3 border-t border-slate-100">
+            <summary class="cursor-pointer text-xs font-bold text-brand-700 hover:text-brand-800 flex items-center justify-between select-none py-2 px-3.5 bg-rose-50/70 hover:bg-rose-100/70 rounded-xl border border-rose-200/60 transition">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-600"></i>
+                <span>Ver Solución Paso a Paso</span>
+              </span>
+              <span class="arrow-icon transition-transform duration-200 text-slate-400 font-bold">&darr;</span>
+            </summary>
+            <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>1. Aplicamos el método de reducción sumando ambas ecuaciones miembro a miembro:</p>
+              <p class="font-mono">
+                $$(2X + Y) + (X - Y) = \begin{pmatrix} 1 & 0 \\ 2 & -1 \end{pmatrix} + \begin{pmatrix} 2 & 3 \\ -2 & 4 \end{pmatrix}$$
+                $$3X = \begin{pmatrix} 3 & 3 \\ 0 & 3 \end{pmatrix} \implies \mathbf{X = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}}$$
+              </p>
+              <p>2. De la segunda ecuación despejamos $Y = X - \begin{pmatrix} 2 & 3 \\ -2 & 4 \end{pmatrix}$:</p>
+              <p class="font-mono">
+                $$Y = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} - \begin{pmatrix} 2 & 3 \\ -2 & 4 \end{pmatrix} = \begin{pmatrix} 1 - 2 & 1 - 3 \\ 0 - (-2) & 1 - 4 \end{pmatrix} \implies \mathbf{Y = \begin{pmatrix} -1 & -2 \\ 2 & -3 \end{pmatrix}}$$
+              </p>
+            </div>
+          </details>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PIE DEL DOCUMENTO -->
+    <footer class="mt-12 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-2">
+      <div class="flex items-center gap-2">
+        <img src="../logo-tomate.jpg" alt="Logo" class="w-5 h-5 rounded-md">
+        <span>Toomate.es &bull; Boletín Interactivo para Alumnos y Profesores</span>
+      </div>
+      <span>Documento Oficial &bull; ¡Muchas Mates! 🍅</span>
+    </footer>
+
+  </main>
+
+  <script>
+    // Función para desplegar o replegar todas las soluciones a la vez
+    let todasAbiertas = false;
+    function toggleTodasLasSoluciones() {
+      const allDetails = document.querySelectorAll('.exercise-details');
+      todasAbiertas = !todasAbiertas;
+      
+      allDetails.forEach(d => {
+        d.open = todasAbiertas;
+      });
+
+      const txt = document.getElementById('txtToggleAll');
+      if (todasAbiertas) {
+        txt.textContent = 'Ocultar todas las soluciones';
+      } else {
+        txt.textContent = 'Desplegar todas las soluciones';
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22 Ejercicios de Formulación y Nomenclatura IUPAC | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 10.5pt; }
+      .page-break { page-break-before: always; }
+      details { break-inside: avoid; }
+      details[open] summary ~ * { display: block !important; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+    details summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-teal-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="formulacion-nomenclatura.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-teal-600 bg-white border border-slate-200 px-3.5 py-2 rounded-xl transition shadow-sm">
+        <i data-lucide="book-open" class="w-4 h-4 text-teal-600"></i>
+        <span>Ver Teoría y Fórmulas</span>
+      </a>
+      <button id="btnToggleAll" onclick="toggleTodasLasSoluciones()" class="inline-flex items-center gap-2 bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-300 font-semibold text-sm px-4 py-2 rounded-xl transition shadow-sm">
+        <i data-lucide="eye" class="w-4 h-4 text-teal-600"></i>
+        <span id="btnToggleText">Desplegar todas las soluciones</span>
+      </button>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Imprimir / PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-teal-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-teal-50 border border-teal-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-200">
+            Química General &bull; 3º ESO a 2º Bachillerato IUPAC
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Boletín de 22 Ejercicios: Formulación Inorgánica y Orgánica IUPAC
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Binarios, ternarios, oxoácidos, oxisales, hidrocarburos y grupos funcionales con soluciones paso a paso</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="space-y-8">
+
+      <!-- ========================================== -->
+      <!-- NIVEL 1: BÁSICO (1 - 8) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-teal-200">
+          <span class="w-3 h-3 rounded-full bg-teal-500"></span>
+          <h2 class="text-lg font-bold text-teal-950">Nivel 1 &bull; Básico: Binarios, Óxidos, Hidruros, Hidróxidos y Sales Simples (Ejercicios 1 a 8)</h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Ejercicio 1 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 1 &bull; Óxidos metálicos y no metálicos</h3>
+            <p class="text-sm text-slate-700 mb-3">Nombra según la IUPAC (prefijos multiplicadores y número de oxidación): $\text{Fe}_2\text{O}_3$, $\text{SO}_3$, $\text{CO}$, $\text{Al}_2\text{O}_3$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>• $\text{Fe}_2\text{O}_3$: Trióxido de dihierro / Óxido de hierro(III).</p>
+                <p>• $\text{SO}_3$: Trióxido de azufre / Óxido de azufre(VI).</p>
+                <p>• $\text{CO}$: Monóxido de carbono / Óxido de carbono(II).</p>
+                <p>• $\text{Al}_2\text{O}_3$: Trióxido de dialuminio / Óxido de aluminio (¡sin número romano porque el aluminio solo tiene valencia $+3$!).</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 2 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 2 &bull; Formulación de óxidos</h3>
+            <p class="text-sm text-slate-700 mb-3">Escribe la fórmula química de: a) Heptóxido de dicloro, b) Óxido de plomo(IV), c) Óxido de calcio, d) Dióxido de nitrógeno.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a)</strong> $\text{Cl}_2\text{O}_7$.</p>
+                <p><strong>b)</strong> $\text{Pb}^{4+} + 2\text{ O}^{2-} \implies \text{PbO}_2$.</p>
+                <p><strong>c)</strong> $\text{Ca}^{2+} + \text{O}^{2-} \implies \text{CaO}$.</p>
+                <p><strong>d)</strong> $\text{NO}_2$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 3 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 3 &bull; Hidruros metálicos y no metálicos</h3>
+            <p class="text-sm text-slate-700 mb-3">Formula o nombra los siguientes hidruros:<br>
+            a) $\text{NaH}$, b) $\text{CaH}_2$, c) $\text{NH}_3$, d) Sulfuro de hidrógeno (gas) y ácido sulfhídrico (en disolución acuosa).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{NaH}$:</strong> Hidruro de sodio.</p>
+                <p><strong>b) $\text{CaH}_2$:</strong> Dihidruro de calcio / Hidruro de calcio.</p>
+                <p><strong>c) $\text{NH}_3$:</strong> Amoníaco (nombre común aceptado IUPAC) o trihidruro de nitrógeno / azano.</p>
+                <p><strong>d)</strong> Gas: $\text{H}_2\text{S}(g)$ (sulfuro de hidrógeno). Disolución: $\text{H}_2\text{S}(aq)$ (ácido sulfhídrico).</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 4 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 4 &bull; Hidróxidos metálicos</h3>
+            <p class="text-sm text-slate-700 mb-3">Formula los siguientes hidróxidos: a) Hidróxido de potasio, b) Hidróxido de hierro(II), c) Hidróxido de aluminio. Nombra: d) $\text{Cu(OH)}_2$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a)</strong> $\text{KOH}$.</p>
+                <p><strong>b)</strong> $\text{Fe(OH)}_2$.</p>
+                <p><strong>c)</strong> $\text{Al(OH)}_3$.</p>
+                <p><strong>d) $\text{Cu(OH)}_2$:</strong> Dihidróxido de cobre / Hidróxido de cobre(II).</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 5 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 5 &bull; Sales binarias neutras</h3>
+            <p class="text-sm text-slate-700 mb-3">Nombra o formula las siguientes sales binarias:<br>
+            a) $\text{NaCl}$, b) $\text{FeCl}_3$, c) $\text{Cu}_2\text{S}$, d) Yoduro de plomo(II), e) Difluoruro de magnesio.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{NaCl}$:</strong> Cloruro de sodio.</p>
+                <p><strong>b) $\text{FeCl}_3$:</strong> Tricloruro de hierro / Cloruro de hierro(III).</p>
+                <p><strong>c) $\text{Cu}_2\text{S}$:</strong> Sulfuro de dicobre / Sulfuro de cobre(I).</p>
+                <p><strong>d) Yoduro de plomo(II):</strong> $\text{PbI}_2$.</p>
+                <p><strong>e) Difluoruro de magnesio:</strong> $\text{MgF}_2$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 6 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 6 &bull; Alcanos ramificados</h3>
+            <p class="text-sm text-slate-700 mb-3">Escribe la fórmula semidesarrollada de: a) 2,2,4-trimetilpentano (isooctano), b) 3-etil-2-metilhexano. Nombra: c) $\text{CH}_3-\text{CH(CH}_3)-\text{CH}_2-\text{CH}_3$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a)</strong> $\text{CH}_3-\text{C(CH}_3)_2-\text{CH}_2-\text{CH(CH}_3)-\text{CH}_3$.</p>
+                <p><strong>b)</strong> $\text{CH}_3-\text{CH(CH}_3)-\text{CH(CH}_2\text{CH}_3)-\text{CH}_2-\text{CH}_2-\text{CH}_3$.</p>
+                <p><strong>c)</strong> Cadena principal de 4 carbonos numerada desde la izquierda: <strong>2-metilbutano</strong> (o isopentano).</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 7 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 7 &bull; Alquenos y alquinos</h3>
+            <p class="text-sm text-slate-700 mb-3">Nombra o formula:<br>
+            a) $\text{CH}_2=\text{CH}-\text{CH}=\text{CH}_2$<br>
+            b) $\text{CH}\equiv\text{C}-\text{CH}_2-\text{CH}_3$<br>
+            c) 3-metil-1-buteno<br>
+            d) 2-pentino</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a)</strong> <strong>1,3-butadieno</strong>.</p>
+                <p><strong>b)</strong> <strong>1-butino</strong>.</p>
+                <p><strong>c)</strong> $\text{CH}_2=\text{CH}-\text{CH(CH}_3)-\text{CH}_3$.</p>
+                <p><strong>d)</strong> $\text{CH}_3-\text{C}\equiv\text{C}-\text{CH}_2-\text{CH}_3$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 8 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 8 &bull; Hidrocarburos aromáticos</h3>
+            <p class="text-sm text-slate-700 mb-3">Dibuja la estructura y nombra: a) Benceno con un metilo, b) 1,4-dimetilbenceno (para-xileno), c) Hidroxibenceno (fenol).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a)</strong> $\text{C}_6\text{H}_5-\text{CH}_3$: <strong>Metilbenceno</strong> (o tolueno).</p>
+                <p><strong>b)</strong> Anillo bencénico con dos metilos en posiciones opuestas 1 y 4: <strong>1,4-dimetilbenceno</strong> (o p-xileno).</p>
+                <p><strong>c)</strong> $\text{C}_6\text{H}_5-\text{OH}$: <strong>Fenol</strong> (o hidroxibenceno).</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- NIVEL 2: INTERMEDIO (9 - 16) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-teal-200">
+          <span class="w-3 h-3 rounded-full bg-teal-600"></span>
+          <h2 class="text-lg font-bold text-teal-950">Nivel 2 &bull; Intermedio: Oxoácidos, Oxisales, Peróxidos y Familias Oxigenadas (Ejercicios 9 a 16)</h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Ejercicio 9 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 9 &bull; Oxoácidos inorgánicos fundamentales</h3>
+            <p class="text-sm text-slate-700 mb-3">Formula o nombra los siguientes oxoácidos habituales:<br>
+            a) $\text{H}_2\text{SO}_4$, b) $\text{HNO}_3$, c) $\text{HClO}_4$, d) Ácido carbónico, e) Ácido fosfórico (ortofosfórico).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{H}_2\text{SO}_4$:</strong> Ácido sulfúrico (tetraoxosulfato(VI) de hidrógeno).</p>
+                <p><strong>b) $\text{HNO}_3$:</strong> Ácido nítrico (trioxonitrato(V) de hidrógeno).</p>
+                <p><strong>c) $\text{HClO}_4$:</strong> Ácido perclórico (tetraoxoclorato(VII) de hidrógeno).</p>
+                <p><strong>d) Ácido carbónico:</strong> $\text{H}_2\text{CO}_3$.</p>
+                <p><strong>e) Ácido fosfórico:</strong> $\text{P}_2\text{O}_5 + 3\text{ H}_2\text{O} \to \text{H}_6\text{P}_2\text{O}_8 \implies \mathbf{\text{H}_3\text{PO}_4}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 10 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 10 &bull; Oxisales neutras</h3>
+            <p class="text-sm text-slate-700 mb-3">Nombra o formula las siguientes sales oxoácidas neutras:<br>
+            a) $\text{CaCO}_3$, b) $\text{KNO}_3$, c) $\text{Fe}_2(\text{SO}_4)_3$, d) Permanganato de potasio, e) Hipoclorito de sodio.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{CaCO}_3$:</strong> Carbonato de calcio.</p>
+                <p><strong>b) $\text{KNO}_3$:</strong> Nitrato de potasio.</p>
+                <p><strong>c) $\text{Fe}_2(\text{SO}_4)_3$:</strong> Sulfato de hierro(III) / Tris(tetraoxosulfato) de dihierro.</p>
+                <p><strong>d) Permanganato de potasio:</strong> $\text{KMnO}_4$.</p>
+                <p><strong>e) Hipoclorito de sodio (lejía doméstica):</strong> $\text{NaClO}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 11 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 11 &bull; Sales ácidas (con hidrógenos sustituibles)</h3>
+            <p class="text-sm text-slate-700 mb-3">Formula o nombra: a) Bicarbonato de sodio (hidrogenocarbonato de sodio), b) $\text{NaHSO}_4$, c) Dihidrogenofosfato de potasio.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Bicarbonato de sodio:</strong> $\text{NaHCO}_3$.</p>
+                <p><strong>b) $\text{NaHSO}_4$:</strong> Hidrogenosulfato de sodio (o bisulfato de sodio).</p>
+                <p><strong>c) Dihidrogenofosfato de potasio:</strong> $\text{KH}_2\text{PO}_4$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 12 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 12 &bull; Peróxidos (grupo peroxo $\text{O}_2^{2-}$)</h3>
+            <p class="text-sm text-slate-700 mb-3">Formula o nombra: a) $\text{H}_2\text{O}_2$, b) $\text{Na}_2\text{O}_2$, c) Peróxido de bario.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>En los peróxidos el oxígeno tiene estado de oxidación $-1$ formando el dímero $(\text{O}-\text{O})^{2-}$ que no se simplifica:</p>
+                <p><strong>a) $\text{H}_2\text{O}_2$:</strong> Peróxido de hidrógeno (agua oxigenada) / Dióxido de dihidrógeno.</p>
+                <p><strong>b) $\text{Na}_2\text{O}_2$:</strong> Peróxido de sodio / Dióxido de disodio.</p>
+                <p><strong>c) Peróxido de bario:</strong> $\text{Ba}^{2+} + \text{O}_2^{2-} \implies \mathbf{\text{BaO}_2}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 13 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 13 &bull; Alcoholes y polioles orgánicos</h3>
+            <p class="text-sm text-slate-700 mb-3">Nombra o formula: a) $\text{CH}_3-\text{CH}_2-\text{CH}_2\text{OH}$, b) 2-propanol, c) 1,2-etanodiol (etilenglicol), d) 1,2,3-propanotriol (glicerina).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a)</strong> <strong>1-propanol</strong>.</p>
+                <p><strong>b)</strong> $\text{CH}_3-\text{CH(OH)}-\text{CH}_3$.</p>
+                <p><strong>c)</strong> $\text{HO}-\text{CH}_2-\text{CH}_2-\text{OH}$.</p>
+                <p><strong>d)</strong> $\text{HO}-\text{CH}_2-\text{CH(OH)}-\text{CH}_2-\text{OH}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 14 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 14 &bull; Aldehídos y Cetonas</h3>
+            <p class="text-sm text-slate-700 mb-3">Nombra o formula:<br>
+            a) $\text{HCHO}$, b) $\text{CH}_3-\text{CHO}$, c) $\text{CH}_3-\text{CO}-\text{CH}_3$, d) Butanodial, e) 3-pentanona.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{HCHO}$:</strong> Metanal (formaldehído).</p>
+                <p><strong>b) $\text{CH}_3-\text{CHO}$:</strong> Etanal (acetaldehído).</p>
+                <p><strong>c) $\text{CH}_3-\text{CO}-\text{CH}_3$:</strong> Propanona (acetona).</p>
+                <p><strong>d) Butanodial:</strong> $\text{OHC}-\text{CH}_2-\text{CH}_2-\text{CHO}$.</p>
+                <p><strong>e) 3-pentanona:</strong> $\text{CH}_3-\text{CH}_2-\text{CO}-\text{CH}_2-\text{CH}_3$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 15 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 15 &bull; Ácidos carboxílicos</h3>
+            <p class="text-sm text-slate-700 mb-3">Nombra o formula: a) $\text{HCOOH}$, b) $\text{CH}_3\text{COOH}$, c) $\text{HOOC}-\text{COOH}$, d) Ácido benzoico, e) Ácido butanoico.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{HCOOH}$:</strong> Ácido metanoico (ácido fórmico).</p>
+                <p><strong>b) $\text{CH}_3\text{COOH}$:</strong> Ácido etanoico (ácido acético).</p>
+                <p><strong>c) $\text{HOOC}-\text{COOH}$:</strong> Ácido etanodioico (ácido oxálico).</p>
+                <p><strong>d) Ácido benzoico:</strong> $\text{C}_6\text{H}_5-\text{COOH}$.</p>
+                <p><strong>e) Ácido butanoico:</strong> $\text{CH}_3-\text{CH}_2-\text{CH}_2-\text{COOH}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 16 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 16 &bull; Ésteres orgánicos</h3>
+            <p class="text-sm text-slate-700 mb-3">Nombra o formula: a) $\text{CH}_3\text{COOCH}_2\text{CH}_3$, b) $\text{HCOOCH}_3$, c) Benzoato de metilo, d) Propanoato de sodio.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{CH}_3\text{COOCH}_2\text{CH}_3$:</strong> Etanoato de etilo (acetato de etilo).</p>
+                <p><strong>b) $\text{HCOOCH}_3$:</strong> Metanoato de metilo (formiato de metilo).</p>
+                <p><strong>c) Benzoato de metilo:</strong> $\text{C}_6\text{H}_5-\text{COO}-\text{CH}_3$.</p>
+                <p><strong>d) Propanoato de sodio:</strong> $\text{CH}_3-\text{CH}_2-\text{COO}^- \text{Na}^+$.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- NIVEL 3: AVANZADO / EvAU (17 - 22) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-teal-200">
+          <span class="w-3 h-3 rounded-full bg-teal-700"></span>
+          <h2 class="text-lg font-bold text-teal-950">Nivel 3 &bull; Avanzado: Polifuncionales, Nitrogenados, Oxoácidos Especiales y Test EvAU (Ejercicios 17 a 22)</h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Ejercicio 17 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 17 &bull; Compuestos orgánicos polifuncionales (Prioridades)</h3>
+            <p class="text-sm text-slate-700 mb-3">Nombra según la IUPAC aplicando la jerarquía de grupos funcionales:<br>
+            a) $\text{CH}_3-\text{CH(OH)}-\text{COOH}$<br>
+            b) $\text{CH}_3-\text{CO}-\text{CH}_2-\text{CHO}$<br>
+            c) $\text{CH}_2=\text{CH}-\text{CH}_2-\text{OH}$<br>
+            d) $\text{Cl}-\text{CH}_2-\text{CH}_2-\text{CO}-\text{CH}_3$</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a)</strong> Prioridad: Ácido sobre alcohol (el $-\text{OH}$ actúa como sustituyente hidroxi): <strong>Ácido 2-hidroxipropanoico</strong> (ácido láctico).</p>
+                <p><strong>b)</strong> Prioridad: Aldehído sobre cetona (el carbonilo de la cetona se nombra como prefijo oxo): <strong>3-oxobutanal</strong>.</p>
+                <p><strong>c)</strong> Prioridad: Alcohol sobre alqueno: <strong>2-propen-1-ol</strong> (alcohol alílico).</p>
+                <p><strong>d)</strong> Prioridad: Cetona sobre halógeno (cadena numerada desde el carbonilo): <strong>4-cloro-2-butanona</strong>.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 18 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 18 &bull; Aminas, amidas y nitrilos</h3>
+            <p class="text-sm text-slate-700 mb-3">Nombra o formula:<br>
+            a) $\text{CH}_3-\text{CH}_2-\text{NH}_2$<br>
+            b) $\text{CH}_3-\text{CONH}_2$<br>
+            c) $\text{CH}_3-\text{CN}$<br>
+            d) Trietilamina<br>
+            e) N-metilpropanamida</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{CH}_3\text{CH}_2\text{NH}_2$:</strong> Etanamina (etilamina).</p>
+                <p><strong>b) $\text{CH}_3\text{CONH}_2$:</strong> Etanamida (acetamida).</p>
+                <p><strong>c) $\text{CH}_3\text{CN}$:</strong> Etanonitrilo (acetonitrilo).</p>
+                <p><strong>d) Trietilamina:</strong> $(\text{CH}_3\text{CH}_2)_3\text{N}$.</p>
+                <p><strong>e) N-metilpropanamida:</strong> $\text{CH}_3-\text{CH}_2-\text{CO}-\text{NH}-\text{CH}_3$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 19 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 19 &bull; Oxoácidos y sales con condensación (Dicromatos y Pirofosfatos)</h3>
+            <p class="text-sm text-slate-700 mb-3">Formula o nombra: a) $\text{K}_2\text{Cr}_2\text{O}_7$, b) Ácido difosfórico (pirofosfórico), c) $\text{K}_2\text{CrO}_4$, d) Ácido dicrómico.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{K}_2\text{Cr}_2\text{O}_7$:</strong> Dicromato de potasio / Heptaoxodicromato(VI) de potasio.</p>
+                <p><strong>b) Ácido difosfórico:</strong> Condensación de dos moléculas de ortofosfórico con pérdida de agua: $2\text{ H}_3\text{PO}_4 - \text{H}_2\text{O} = \mathbf{\text{H}_4\text{P}_2\text{O}_7}$.</p>
+                <p><strong>c) $\text{K}_2\text{CrO}_4$:</strong> Cromato de potasio / Tetraoxocromato(VI) de potasio.</p>
+                <p><strong>d) Ácido dicrómico:</strong> $2\text{ CrO}_3 + \text{H}_2\text{O} = \mathbf{\text{H}_2\text{Cr}_2\text{O}_7}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 20 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 20 &bull; Iones poliatómicos más frecuentes</h3>
+            <p class="text-sm text-slate-700 mb-3">Escribe la fórmula y carga de: a) Ion amonio, b) Ion sulfato, c) Ion permanganato, d) Ion oxonio (hidronio), e) Ion nitrato.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Ion amonio:</strong> $\text{NH}_4^+$.</p>
+                <p><strong>b) Ion sulfato:</strong> $\text{SO}_4^{2-}$.</p>
+                <p><strong>c) Ion permanganato:</strong> $\text{MnO}_4^-$.</p>
+                <p><strong>d) Ion oxonio (hidronio):</strong> $\text{H}_3\text{O}^+$.</p>
+                <p><strong>e) Ion nitrato:</strong> $\text{NO}_3^-$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 21 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 21 &bull; Batería de formulación directa EvAU (Parte A)</h3>
+            <p class="text-sm text-slate-700 mb-3">Formula los siguientes 5 compuestos habituales de examen:<br>
+            1. Ácido hipocloroso.<br>
+            2. Hidróxido de magnesio.<br>
+            3. Sulfuro de plomo(IV).<br>
+            4. 2-clorobutano.<br>
+            5. Ácido 3-butenoico.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>1. $\text{HClO}$.</p>
+                <p>2. $\text{Mg(OH)}_2$.</p>
+                <p>3. $\text{PbS}_2$.</p>
+                <p>4. $\text{CH}_3-\text{CH(Cl)}-\text{CH}_2-\text{CH}_3$.</p>
+                <p>5. $\text{CH}_2=\text{CH}-\text{CH}_2-\text{COOH}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 22 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 22 &bull; Batería de nomenclatura directa EvAU (Parte B)</h3>
+            <p class="text-sm text-slate-700 mb-3">Nombra según la IUPAC los siguientes 5 compuestos:<br>
+            1. $\text{Li}_2\text{O}$<br>
+            2. $\text{H}_2\text{SO}_3$<br>
+            3. $\text{AgNO}_3$<br>
+            4. $\text{CH}_3-\text{CH}_2-\text{O}-\text{CH}_3$<br>
+            5. $\text{CH}_3-\text{CH(CH}_3)-\text{CH}_2\text{OH}$</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-teal-700 hover:text-teal-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>1. $\text{Li}_2\text{O}$: Óxido de dilitio / Óxido de litio.</p>
+                <p>2. $\text{H}_2\text{SO}_3$: Ácido sulfuroso / Trioxosulfato(IV) de hidrógeno.</p>
+                <p>3. $\text{AgNO}_3$: Nitrato de plata / Trioxonitrato(V) de plata.</p>
+                <p>4. $\text{CH}_3-\text{CH}_2-\text{O}-\text{CH}_3$: Metoxietano (etil metil éter).</p>
+                <p>5. $\text{CH}_3-\text{CH(CH}_3)-\text{CH}_2\text{OH}$: 2-metil-1-propanol (isobutanol).</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-slate-500">
+        Toomate.es &bull; Formulación IUPAC &bull; 22 Ejercicios Resueltos
+      </div>
+      <a href="formulacion-nomenclatura.html" class="inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 font-semibold text-sm">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Repasar Teoría y Fórmulas</span>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    let todasAbiertas = false;
+    function toggleTodasLasSoluciones() {
+      todasAbiertas = !todasAbiertas;
+      document.querySelectorAll(".exercise-details").forEach(d => d.open = todasAbiertas);
+      document.getElementById("btnToggleText").textContent = todasAbiertas ? "Plegar todas las soluciones" : "Desplegar todas las soluciones";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

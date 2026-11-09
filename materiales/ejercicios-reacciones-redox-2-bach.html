@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22 Ejercicios de Reacciones Redox y Pilas - 2º Bachillerato | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 10.5pt; }
+      .page-break { page-break-before: always; }
+      details { break-inside: avoid; }
+      details[open] summary ~ * { display: block !important; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+    details summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-emerald-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="reacciones-redox-2-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-emerald-600 bg-white border border-slate-200 px-3.5 py-2 rounded-xl transition shadow-sm">
+        <i data-lucide="book-open" class="w-4 h-4 text-emerald-600"></i>
+        <span>Ver Teoría y Fórmulas</span>
+      </a>
+      <button id="btnToggleAll" onclick="toggleTodasLasSoluciones()" class="inline-flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-semibold text-sm px-4 py-2 rounded-xl transition shadow-sm">
+        <i data-lucide="eye" class="w-4 h-4 text-emerald-600"></i>
+        <span id="btnToggleText">Desplegar todas las soluciones</span>
+      </button>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Imprimir / PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-emerald-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+            Química EvAU &bull; 2º Bachillerato LOMLOE Cantabria
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Boletín de 22 Ejercicios Resueltos: Reacciones Redox y Pilas
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Método ion-electrón, fem de pilas, leyes de Faraday y valoraciones redox con soluciones completas</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="space-y-8">
+
+      <!-- ========================================== -->
+      <!-- NIVEL 1: BÁSICO (1 - 8) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-emerald-200">
+          <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+          <h2 class="text-lg font-bold text-emerald-950">Nivel 1 &bull; Básico: Números de Oxidación, Oxidante/Reductor y Faraday Directo (Ejercicios 1 a 8)</h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Ejercicio 1 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 1 &bull; Asignación de números de oxidación</h3>
+            <p class="text-sm text-slate-700 mb-3">Determina el número de oxidación del elemento subrayado en cada una de las siguientes especies químicas:<br>
+            a) $\text{K}\underline{\text{Mn}}\text{O}_4$<br>
+            b) $\text{K}_2\underline{\text{Cr}}_2\text{O}_7$<br>
+            c) $\text{H}\underline{\text{N}}\text{O}_3$<br>
+            d) $\text{H}_2\underline{\text{O}}_2$<br>
+            e) $\underline{\text{Cl}}\text{O}_3^-$</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a)</strong> $\text{K}(+1) + \text{Mn} + 4 \cdot \text{O}(-2) = 0 \implies \text{Mn} = +7$.</p>
+                <p><strong>b)</strong> $2 \cdot \text{K}(+1) + 2 \cdot \text{Cr} + 7 \cdot \text{O}(-2) = 0 \implies 2 + 2\text{Cr} - 14 = 0 \implies \text{Cr} = +6$.</p>
+                <p><strong>c)</strong> $\text{H}(+1) + \text{N} + 3 \cdot \text{O}(-2) = 0 \implies \text{N} = +5$.</p>
+                <p><strong>d)</strong> Peróxido de hidrógeno: $2 \cdot \text{H}(+1) + 2 \cdot \text{O} = 0 \implies \text{O} = -1$.</p>
+                <p><strong>e)</strong> Ion clorato: $\text{Cl} + 3 \cdot \text{O}(-2) = -1 \implies \text{Cl} - 6 = -1 \implies \text{Cl} = +5$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 2 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 2 &bull; Identificación de agente oxidante y reductor</h3>
+            <p class="text-sm text-slate-700 mb-3">En la reacción $\text{Zn}(s) + 2\text{ HCl}(aq) \to \text{ZnCl}_2(aq) + \text{H}_2(g)$, identifica qué especie se oxida, cuál se reduce, cuál actúa como agente oxidante y cuál como reductor.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>El cinc pasa de $\text{Zn}^0$ a $\text{Zn}^{2+}$: pierde $2e^- \implies$ se <strong>oxida</strong>. Es el <strong>agente reductor</strong>.</p>
+                <p>El hidrógeno pasa de $\text{H}^+(+1)$ a $\text{H}_2^0(0)$: gana electrones $\implies$ se <strong>reduce</strong>. El ion $\text{H}^+$ (ácido clorhídrico) es el <strong>agente oxidante</strong>.</p>
+                <p>El ion cloruro ($\text{Cl}^-$) no cambia su estado de oxidación ($-1$ en ambos lados): es un ion espectador.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 3 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 3 &bull; Cálculo de potencial estándar de una celda galvánica</h3>
+            <p class="text-sm text-slate-700 mb-3">Dados los potenciales estándar de reducción: $E^\circ(\text{Cu}^{2+}/\text{Cu}) = +0{,}34\text{ V}$ y $E^\circ(\text{Zn}^{2+}/\text{Zn}) = -0{,}76\text{ V}$. Calcula la fem estándar $E_{\text{pila}}^\circ$ de la pila Daniell formada por ambos electrodos e indica qué electrodo es el cátodo y cuál el ánodo.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>El par con mayor potencial de reducción se reduce espontáneamente (actúa como cátodo):</p>
+                <p><strong>Cátodo (Reducción, polo $+$):</strong> $\text{Cu}^{2+} + 2e^- \to \text{Cu} \quad (E^\circ = +0{,}34\text{ V})$.</p>
+                <p><strong>Ánodo (Oxidación, polo $-$):</strong> $\text{Zn} \to \text{Zn}^{2+} + 2e^- \quad (E^\circ = -0{,}76\text{ V})$.</p>
+                $$E_{\text{pila}}^\circ = E_{\text{cátodo}}^\circ - E_{\text{ánodo}}^\circ = +0{,}34 - (-0{,}76) = +1{,}10\text{ Voltios}.$$</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 4 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 4 &bull; Predicción de ataque de metales por ácidos</h3>
+            <p class="text-sm text-slate-700 mb-3">Justifica razonadamente si el hierro metálico reaccionará espontáneamente con una disolución de ácido clorhídrico $1\text{ M}$ para desprender hidrógeno gas. Datos: $E^\circ(\text{Fe}^{2+}/\text{Fe}) = -0{,}44\text{ V}$, $E^\circ(\text{H}^+/\text{H}_2) = 0{,}00\text{ V}$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Reacción propuesta: $\text{Fe}(s) + 2\text{ H}^+(aq) \to \text{Fe}^{2+}(aq) + \text{H}_2(g)$.</p>
+                <p>Reducción (Cátodo): $2\text{ H}^+ + 2e^- \to \text{H}_2 \quad (E^\circ = 0{,}00\text{ V})$.</p>
+                <p>Oxidación (Ánodo): $\text{Fe} \to \text{Fe}^{2+} + 2e^- \quad (E^\circ = -0{,}44\text{ V})$.</p>
+                $$E^\circ = E_{\text{cátodo}}^\circ - E_{\text{ánodo}}^\circ = 0{,}00 - (-0{,}44) = +0{,}44\text{ V}.$$
+                <p>Al ser $E^\circ > 0$ ($\Delta G^\circ < 0$), la reacción es <strong>espontánea</strong>: el hierro se disuelve desprendiendo burbujas de gas hidrógeno.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 5 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 5 &bull; Masa de cobre depositada por electrólisis (Ley de Faraday)</h3>
+            <p class="text-sm text-slate-700 mb-3">Se hace pasar una corriente continua constante de $2{,}5\text{ A}$ durante $40\text{ minutos}$ a través de una disolución acuosa de sulfato de cobre(II) ($\text{CuSO}_4$). Calcula los culombios que circulan y la masa de cobre metálico que se deposita en el cátodo ($M(\text{Cu}) = 63{,}55\text{ g/mol}$, $F = 96485\text{ C/mol}$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Carga eléctrica:</strong> $t = 40 \times 60 = 2400\text{ s}$.</p>
+                $$Q = I \cdot t = 2{,}5\text{ A} \cdot 2400\text{ s} = 6000\text{ Culombios}.$$</p>
+                <p><strong>2. Masa depositada en la reducción $\text{Cu}^{2+} + 2e^- \to \text{Cu}$ ($n = 2$):</strong>
+                  $$m = \frac{M \cdot Q}{n \cdot F} = \frac{63{,}55\text{ g/mol} \cdot 6000\text{ C}}{2 \cdot 96485\text{ C/mol}} = \frac{381300}{192970} \approx 1{,}976\text{ gramos de Cu}.$$</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 6 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 6 &bull; Conservación de disoluciones metálicas</h3>
+            <p class="text-sm text-slate-700 mb-3">¿Se puede almacenar una disolución acuosa de sulfato de níquel(II) $\text{NiSO}_4$ en un recipiente de aluminio? Justifica la respuesta con los potenciales estándar: $E^\circ(\text{Ni}^{2+}/\text{Ni}) = -0{,}25\text{ V}$, $E^\circ(\text{Al}^{3+}/\text{Al}) = -1{,}66\text{ V}$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Si el recipiente reacciona, el aluminio se oxida a $\text{Al}^{3+}$ y el $\text{Ni}^{2+}$ se reduce a níquel metálico:</p>
+                $$2\text{ Al}(s) + 3\text{ Ni}^{2+}(aq) \to 2\text{ Al}^{3+}(aq) + 3\text{ Ni}(s)$$
+                $$E^\circ = E_{\text{cátodo (Ni)}^\circ - E_{\text{ánodo (Al)}^\circ = -0{,}25 - (-1{,}66) = +1{,}41\text{ V}.$$
+                <p>Como $E^\circ > 0$, la reacción es <strong>altamente espontánea</strong>: el aluminio se oxidaría disolviéndose y perforando el recipiente. Por tanto, <strong>NO se puede almacenar</strong>.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 7 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 7 &bull; Ajuste de semirreacciones simples</h3>
+            <p class="text-sm text-slate-700 mb-3">Ajusta en medio ácido las siguientes semirreacciones indicando los electrones transferidos:<br>
+            a) $\text{MnO}_4^- \to \text{Mn}^{2+}$<br>
+            b) $\text{Cr}_2\text{O}_7^{2-} \to 2\text{ Cr}^{3+}$</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Permanganato:</strong> $\text{MnO}_4^- + 8\text{ H}^+ + 5e^- \to \text{Mn}^{2+} + 4\text{ H}_2\text{O}$. (Gana $5e^-$, reducción).</p>
+                <p><strong>b) Dicromato:</strong> $\text{Cr}_2\text{O}_7^{2-} + 14\text{ H}^+ + 6e^- \to 2\text{ Cr}^{3+} + 7\text{ H}_2\text{O}$. (Gana $6e^-$, reducción).</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 8 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 8 &bull; Notación estándar de celdas galvánicas</h3>
+            <p class="text-sm text-slate-700 mb-3">Escribe la notación de la pila y calcula la fem de la celda galvánica constituida por un electrodo de plata sumergido en $\text{AgNO}_3(1\text{M})$ y un electrodo de cinc sumergido en $\text{ZnSO}_4(1\text{M})$. Datos: $E^\circ(\text{Ag}^+/\text{Ag}) = +0{,}80\text{ V}$, $E^\circ(\text{Zn}^{2+}/\text{Zn}) = -0{,}76\text{ V}$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>El par con menor potencial se oxida (Ánodo, Cinc) y el de mayor potencial se reduce (Cátodo, Plata):</p>
+                $$\text{Zn}(s) \mid \text{Zn}^{2+}(1\text{M}) \parallel \text{Ag}^+(1\text{M}) \mid \text{Ag}(s)$$
+                $$E_{\text{pila}}^\circ = E_{\text{cátodo}}^\circ - E_{\text{ánodo}}^\circ = +0{,}80 - (-0{,}76) = +1{,}56\text{ V}.$$</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- NIVEL 2: INTERMEDIO (9 - 16) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-emerald-200">
+          <span class="w-3 h-3 rounded-full bg-emerald-600"></span>
+          <h2 class="text-lg font-bold text-emerald-950">Nivel 2 &bull; Intermedio: Ajuste en Medio Ácido/Básico, Estequiometría y Electrólisis (Ejercicios 9 a 16)</h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Ejercicio 9 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 9 &bull; Ajuste en medio ácido: Permanganato con Sulfato de Hierro(II)</h3>
+            <p class="text-sm text-slate-700 mb-3">Ajusta por el método del ion-electrón (ecuaciones iónica y molecular) la reacción:<br>
+            $\text{KMnO}_4 + \text{FeSO}_4 + \text{H}_2\text{SO}_4 \to \text{MnSO}_4 + \text{Fe}_2(\text{SO}_4)_3 + \text{K}_2\text{SO}_4 + \text{H}_2\text{O}$</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>1. Semirreacción de reducción: $\text{MnO}_4^- + 8\text{ H}^+ + 5e^- \to \text{Mn}^{2+} + 4\text{ H}_2\text{O}$.</p>
+                <p>2. Semirreacción de oxidación: $\text{Fe}^{2+} \to \text{Fe}^{3+} + 1e^-$.</p>
+                <p>Multiplicando la oxidación por $5$ y sumando:</p>
+                $$\text{MnO}_4^- + 5\text{ Fe}^{2+} + 8\text{ H}^+ \to \text{Mn}^{2+} + 5\text{ Fe}^{3+} + 4\text{ H}_2\text{O}$$
+                <p>Para ajustar coeficientes enteros en la molecular con $\text{Fe}_2(\text{SO}_4)_3$, multiplicamos todo por $2$:</p>
+                $$2\text{ MnO}_4^- + 10\text{ Fe}^{2+} + 16\text{ H}^+ \to 2\text{ Mn}^{2+} + 10\text{ Fe}^{3+} + 8\text{ H}_2\text{O}$$
+                <p><strong>Ecuación molecular completa:</strong></p>
+                $$2\text{ KMnO}_4 + 10\text{ FeSO}_4 + 8\text{ H}_2\text{SO}_4 \to 2\text{ MnSO}_4 + 5\text{ Fe}_2(\text{SO}_4)_3 + \text{K}_2\text{SO}_4 + 8\text{ H}_2\text{O}.$$
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 10 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 10 &bull; Ajuste en medio básico: Hipoclorito con Cromo(III)</h3>
+            <p class="text-sm text-slate-700 mb-3">Ajusta en disolución básica la siguiente reacción iónica: $\text{Cr(OH)}_3(s) + \text{ClO}^-(aq) \to \text{CrO}_4^{2-}(aq) + \text{Cl}^-(aq)$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>Semirreacción de oxidación:</strong></p>
+                $$\text{Cr(OH)}_3 + 5\text{ OH}^- \to \text{CrO}_4^{2-} + 4\text{ H}_2\text{O} + 3e^-$$
+                <p><strong>Semirreacción de reducción:</strong></p>
+                $$\text{ClO}^- + \text{H}_2\text{O} + 2e^- \to \text{Cl}^- + 2\text{ OH}^-$$
+                <p>Multiplicamos la oxidación por $2$ y la reducción por $3$ para igualar $6e^-$:</p>
+                $$2\text{ Cr(OH)}_3 + 10\text{ OH}^- + 3\text{ ClO}^- + 3\text{ H}_2\text{O} \to 2\text{ CrO}_4^{2-} + 8\text{ H}_2\text{O} + 3\text{ Cl}^- + 6\text{ OH}^-$$
+                <p>Simplificando $\text{OH}^-$ y $\text{H}_2\text{O}$ en ambos miembros:</p>
+                $$2\text{ Cr(OH)}_3(s) + 3\text{ ClO}^-(aq) + 4\text{ OH}^-(aq) \to 2\text{ CrO}_4^{2-}(aq) + 3\text{ Cl}^-(aq) + 5\text{ H}_2\text{O}(l).$$
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 11 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 11 &bull; Valoración redox de una muestra mineral de hierro</h3>
+            <p class="text-sm text-slate-700 mb-3">Una muestra de $1{,}20\text{ g}$ de mineral de hierro se disuelve en medio ácido transformando todo el hierro en $\text{Fe}^{2+}$. Para su completa valoración se consumen $28{,}5\text{ mL}$ de una disolución de $\text{KMnO}_4$ $0{,}025\text{ M}$. Calcula el porcentaje en masa de hierro puro en el mineral ($M(\text{Fe}) = 55{,}85\text{ g/mol}$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Por la estequiometría de la reacción ajustada ($\text{MnO}_4^- + 5\text{ Fe}^{2+} \dots$):</p>
+                $$\text{Moles de } \text{MnO}_4^- = 0{,}0285\text{ L} \times 0{,}025\text{ mol/L} = 7{,}125 \times 10^{-4}\text{ moles}.$$
+                $$\text{Moles de } \text{Fe}^{2+} = 5 \times (7{,}125 \times 10^{-4}) = 3{,}5625 \times 10^{-3}\text{ moles}.$$
+                $$\text{Masa de Fe} = 3{,}5625 \times 10^{-3}\text{ mol} \times 55{,}85\text{ g/mol} \approx 0{,}1990\text{ g}.$$
+                <p>Riqueza en hierro: $\frac{0{,}1990\text{ g}}{1{,}20\text{ g}} \times 100 = \mathbf{16{,}58\%}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 12 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 12 &bull; Relación entre $E^\circ$ y $\Delta G^\circ$ en una pila</h3>
+            <p class="text-sm text-slate-700 mb-3">Para la pila $\text{Al}(s) \mid \text{Al}^{3+}(1\text{M}) \parallel \text{Cu}^{2+}(1\text{M}) \mid \text{Cu}(s)$ con $E^\circ(\text{Al}^{3+}/\text{Al}) = -1{,}66\text{ V}$ y $E^\circ(\text{Cu}^{2+}/\text{Cu}) = +0{,}34\text{ V}$, calcula la fem estándar $E_{\text{pila}}^\circ$ y la variación de energía libre estándar $\Delta G^\circ$ a $298\text{ K}$ ($F = 96485\text{ C/mol}$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Reacción global: $2\text{ Al}(s) + 3\text{ Cu}^{2+}(aq) \to 2\text{ Al}^{3+}(aq) + 3\text{ Cu}(s)$.</p>
+                <p>Número de electrones transferidos: $n = 6\text{ moles } e^-$.</p>
+                $$E_{\text{pila}}^\circ = +0{,}34 - (-1{,}66) = +2{,}00\text{ V}.$$
+                $$\Delta G^\circ = -n F E^\circ = -6 \cdot 96485\text{ C/mol} \cdot 2{,}00\text{ V} = -1157820\text{ J/mol} \approx -1157{,}8\text{ kJ/mol}.$$</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 13 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 13 &bull; Electrólisis del agua: volúmenes de gases</h3>
+            <p class="text-sm text-slate-700 mb-3">Se electroliza agua acidulada haciendo circular una corriente de $3\text{ A}$ durante $1\text{ hora}$. Calcula los volúmenes de $\text{H}_2(g)$ y $\text{O}_2(g)$ producidos medidos a $25^\circ\text{C}$ y $1\text{ atm}$ ($F = 96485\text{ C/mol}$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Carga total: $Q = 3\text{ A} \times 3600\text{ s} = 10800\text{ C}$.</p>
+                <p>Moles de electrones: $n_e = \frac{10800}{96485} \approx 0{,}1119\text{ mol } e^-$.</p>
+                <p>En el cátodo ($2\text{ H}^+ + 2e^- \to \text{H}_2$): $n(\text{H}_2) = \frac{n_e}{2} = 0{,}05597\text{ mol}$.</p>
+                <p>En el ánodo ($2\text{ H}_2\text{O} \to \text{O}_2 + 4\text{ H}^+ + 4e^-$): $n(\text{O}_2) = \frac{n_e}{4} = 0{,}02798\text{ mol}$.</p>
+                <p>Volúmenes ($P V = n R T$):</p>
+                $$V(\text{H}_2) = \frac{0{,}05597 \cdot 0{,}082 \cdot 298}{1} \approx 1{,}368\text{ Litros}.$$
+                $$V(\text{O}_2) = \frac{1{,}368}{2} \approx 0{,}684\text{ Litros}.$$
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 14 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 14 &bull; Plateado galvánico de un objeto</h3>
+            <p class="text-sm text-slate-700 mb-3">Para bañar en plata un objeto de superficie total $150\text{ cm}^2$ con una capa uniforme de $0{,}02\text{ mm}$ de espesor, se realiza una electrólisis en un baño de $\text{AgNO}_3$ con una corriente de $1{,}5\text{ A}$. Calcula el tiempo en minutos necesario ($\rho_{\text{Ag}} = 10{,}5\text{ g/cm}^3$, $M(\text{Ag}) = 107{,}87\text{ g/mol}$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Espesor en cm: $e = 0{,}02\text{ mm} = 0{,}002\text{ cm}$.</p>
+                <p>Volumen de plata: $V = 150\text{ cm}^2 \times 0{,}002\text{ cm} = 0{,}30\text{ cm}^3$.</p>
+                <p>Masa de plata necesaria: $m = 0{,}30\text{ cm}^3 \times 10{,}5\text{ g/cm}^3 = 3{,}15\text{ g}$.</p>
+                <p>Por la Ley de Faraday ($\text{Ag}^+ + 1e^- \to \text{Ag}$, $n=1$):</p>
+                $$t = \frac{m \cdot n \cdot F}{M \cdot I} = \frac{3{,}15 \cdot 1 \cdot 96485}{107{,}87 \cdot 1{,}5} = \frac{303927{,}75}{161{,}805} \approx 1878\text{ s} \approx \mathbf{31{,}3\text{ minutos}}.$$
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 15 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 15 &bull; Reacción de dismutación del cloro</h3>
+            <p class="text-sm text-slate-700 mb-3">En medio básico caliente, el cloro molecular $\text{Cl}_2$ dismuta produciendo cloruro ($\text{Cl}^-$) y clorato ($\text{ClO}_3^-$). Ajusta por el método del ion-electrón la reacción: $\text{Cl}_2 + \text{OH}^- \to \text{Cl}^- + \text{ClO}_3^- + \text{H}_2\text{O}$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Reducción: $\text{Cl}_2 + 2e^- \to 2\text{ Cl}^-$.</p>
+                <p>Oxidación: $\text{Cl}_2 + 12\text{ OH}^- \to 2\text{ ClO}_3^- + 6\text{ H}_2\text{O} + 10e^-$.</p>
+                <p>Multiplicando la reducción por $5$ y sumando:</p>
+                $$5\text{ Cl}_2 + \text{Cl}_2 + 12\text{ OH}^- \to 10\text{ Cl}^- + 2\text{ ClO}_3^- + 6\text{ H}_2\text{O}$$
+                $$6\text{ Cl}_2 + 12\text{ OH}^- \to 10\text{ Cl}^- + 2\text{ ClO}_3^- + 6\text{ H}_2\text{O}$$
+                <p>Dividiendo todos los coeficientes entre $2$:</p>
+                $$3\text{ Cl}_2(g) + 6\text{ OH}^-(aq) \to 5\text{ Cl}^-(aq) + \text{ClO}_3^-(aq) + 3\text{ H}_2\text{O}(l).$$
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 16 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 16 &bull; Dos cubas electrolíticas conectadas en serie</h3>
+            <p class="text-sm text-slate-700 mb-3">Se conectan en serie dos cubas electrolíticas: la primera contiene $\text{AgNO}_3$ y la segunda $\text{CuSO}_4$. Si en la primera cuba se depositan $2{,}16\text{ g}$ de plata, ¿cuántos gramos de cobre se habrán depositado en la segunda durante ese mismo tiempo? ($M(\text{Ag}) = 107{,}87$, $M(\text{Cu}) = 63{,}55\text{ g/mol}$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Al estar en serie, la carga eléctrica $Q$ (y por tanto los moles de electrones) que atraviesa ambas cubas es exactamente la misma:</p>
+                $$n_e = \frac{m_{\text{Ag}} \cdot n_{\text{Ag}}}{M_{\text{Ag}}} = \frac{2{,}16\text{ g} \cdot 1}{107{,}87\text{ g/mol}} \approx 0{,}02002\text{ moles de } e^-.$$
+                <p>Para el cobre ($\text{Cu}^{2+} + 2e^- \to \text{Cu}$, $n=2$):</p>
+                $$m_{\text{Cu}} = \frac{n_e}{2} \times M_{\text{Cu}} = \frac{0{,}02002}{2} \times 63{,}55 \approx 0{,}01001 \times 63{,}55 \approx \mathbf{0{,}636\text{ gramos}}.$$
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- NIVEL 3: AVANZADO / EvAU (17 - 22) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-emerald-200">
+          <span class="w-3 h-3 rounded-full bg-emerald-700"></span>
+          <h2 class="text-lg font-bold text-emerald-950">Nivel 3 &bull; Avanzado / EvAU: Problemas de Examen Cantabria, Nernst y Corrosión (Ejercicios 17 a 22)</h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Ejercicio 17 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 17 &bull; Problema EvAU Completo: Disolución de Cobre en Ácido Nítrico</h3>
+            <p class="text-sm text-slate-700 mb-3">El cobre metálico reacciona con ácido nítrico concentrado produciendo nitrato de cobre(II), dióxido de nitrógeno gas y agua:<br>
+            a) Ajusta la ecuación iónica y molecular por el método del ion-electrón.<br>
+            b) Si se tratan $12{,}7\text{ g}$ de cobre con exceso de ácido nítrico, calcula el volumen de $\text{NO}_2$ desprendido a $20^\circ\text{C}$ y $750\text{ mmHg}$ ($M(\text{Cu}) = 63{,}55\text{ g/mol}$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Ajuste:</strong></p>
+                <p>Oxidación: $\text{Cu} \to \text{Cu}^{2+} + 2e^-$.</p>
+                <p>Reducción: $\text{NO}_3^- + 2\text{ H}^+ + 1e^- \to \text{NO}_2 + \text{H}_2\text{O}$ (multiplicada por 2).</p>
+                <p>Iónica: $\text{Cu} + 2\text{ NO}_3^- + 4\text{ H}^+ \to \text{Cu}^{2+} + 2\text{ NO}_2 + 2\text{ H}_2\text{O}$.</p>
+                <p>Molecular (añadiendo dos iones nitrato espectadores a la izquierda para formar el contraión del cobre):</p>
+                $$\text{Cu} + 4\text{ HNO}_3 \to \text{Cu(NO}_3)_2 + 2\text{ NO}_2 + 2\text{ H}_2\text{O}.$$
+                <p><strong>b) Cálculo del volumen de gas:</strong></p>
+                <p>Moles de Cu: $n_{\text{Cu}} = \frac{12{,}7}{63{,}55} = 0{,}20\text{ moles}$.</p>
+                <p>Moles de $\text{NO}_2$: $n_{\text{NO}_2} = 2 \times 0{,}20 = 0{,}40\text{ moles}$.</p>
+                <p>Presión: $P = \frac{750}{760} = 0{,}9868\text{ atm}$; $T = 20 + 273{,}15 = 293{,}15\text{ K}$.</p>
+                $$V = \frac{n R T}{P} = \frac{0{,}40 \cdot 0{,}082 \cdot 293{,}15}{0{,}9868} \approx \mathbf{9{,}74\text{ Litros}}.$$
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 18 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 18 &bull; Valoración de agua oxigenada y riqueza en volúmenes</h3>
+            <p class="text-sm text-slate-700 mb-3">Se toman $10\text{ mL}$ de agua comercial de peróxido de hidrógeno ($\text{H}_2\text{O}_2$) y se valoran en medio ácido con una disolución de $\text{KMnO}_4$ $0{,}10\text{ M}$, necesitándose $16\text{ mL}$ para alcanzar el punto final rosa pálido persistente. Halla la molaridad de $\text{H}_2\text{O}_2$ y la concentración comercial en "volúmenes de oxígeno" (litros de $\text{O}_2$ en c.n. que desprende 1 litro de disolución).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Reacción ajustada: $2\text{ MnO}_4^- + 5\text{ H}_2\text{O}_2 + 6\text{ H}^+ \to 2\text{ Mn}^{2+} + 5\text{ O}_2 + 8\text{ H}_2\text{O}$.</p>
+                <p>Moles de $\text{MnO}_4^-$ gastados: $n = 0{,}016\text{ L} \times 0{,}10\text{ M} = 1{,}6 \times 10^{-3}\text{ moles}$.</p>
+                <p>Moles de $\text{H}_2\text{O}_2$ en $10\text{ mL}$: $n_{\text{H}_2\text{O}_2} = \frac{5}{2} \times 1{,}6 \times 10^{-3} = 4 \times 10^{-3}\text{ moles}$.</p>
+                <p>Molaridad: $M = \frac{4 \times 10^{-3}\text{ mol}}{0{,}010\text{ L}} = \mathbf{0{,}40\text{ M}}$.</p>
+                <p>Descomposición: $\text{H}_2\text{O}_2 \to \text{H}_2\text{O} + \frac{1}{2}\text{O}_2$.</p>
+                <p>1 litro de disolución contiene $0{,}40\text{ moles}$ de $\text{H}_2\text{O}_2$, que liberan $0{,}20\text{ moles}$ de $\text{O}_2$.</p>
+                <p>En c.n. ($22{,}4\text{ L/mol}$): $V_{\text{O}_2} = 0{,}20 \times 22{,}4 = \mathbf{4{,}48\text{ volúmenes}}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 19 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 19 &bull; Ecuación de Nernst en condiciones no estándar</h3>
+            <p class="text-sm text-slate-700 mb-3">Calcula el potencial $E$ a $25^\circ\text{C}$ de la pila Daniell: $\text{Zn}(s) \mid \text{Zn}^{2+}(0{,}01\text{M}) \parallel \text{Cu}^{2+}(1{,}0\text{M}) \mid \text{Cu}(s)$ sabiendo que $E^\circ = 1{,}10\text{ V}$. Utiliza la forma simplificada de Nernst: $E = E^\circ - \frac{0{,}0592}{n}\log Q$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Reacción: $\text{Zn}(s) + \text{Cu}^{2+}(aq) \rightleftharpoons \text{Zn}^{2+}(aq) + \text{Cu}(s) \quad (n = 2)$.</p>
+                <p>Cociente de reacción $Q = \frac{[\text{Zn}^{2+}]}{[\text{Cu}^{2+}]} = \frac{0{,}01}{1{,}0} = 10^{-2}$.</p>
+                $$E = 1{,}10 - \frac{0{,}0592}{2}\log(10^{-2}) = 1{,}10 - 0{,}0296 \cdot (-2) = 1{,}10 + 0{,}0592 \approx \mathbf{1{,}159\text{ V}}.$$
+                <p>Al haber mayor concentración de reactivo y menor de producto, el potencial generado aumenta respecto al valor estándar.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 20 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 20 &bull; Ánodo de sacrificio y protección catódica</h3>
+            <p class="text-sm text-slate-700 mb-3">Para proteger el casco de acero de un barco contra la corrosión marina se conectan bloques metálicos de sacrificio. Entre los siguientes metales, razona cuál es el adecuado y cuál aceleraría la corrosión: Magnesio ($E^\circ(\text{Mg}^{2+}/\text{Mg}) = -2{,}37\text{ V}$), Cobre ($E^\circ(\text{Cu}^{2+}/\text{Cu}) = +0{,}34\text{ V}$), sabiendo que $E^\circ(\text{Fe}^{2+}/\text{Fe}) = -0{,}44\text{ V}$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Para proteger al hierro haciéndolo actuar como cátodo (reducción), el metal de sacrificio debe tener un potencial de reducción <strong>más negativo</strong> que el hierro para oxidarse preferentemente en su lugar (actuar como ánodo):</p>
+                <p><strong>Magnesio ($-2{,}37\text{ V} < -0{,}44\text{ V}$):</strong> Se oxida preferentemente a $\text{Mg}^{2+}$ suministrando electrones al hierro. Es el <strong>ánodo de sacrificio idóneo</strong>.</p>
+                <p><strong>Cobre ($+0{,}34\text{ V} > -0{,}44\text{ V}$):</strong> El hierro se oxidaría aún más rápido para ceder electrones al cobre. Acelera catastróficamente la corrosión.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 21 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 21 &bull; Cálculo de la constante de equilibrio a partir de $E^\circ$</h3>
+            <p class="text-sm text-slate-700 mb-3">Calcula la constante de equilibrio $K_c$ a $25^\circ\text{C}$ para la reacción $\text{Sn}(s) + 2\text{ Ag}^+(aq) \rightleftharpoons \text{Sn}^{2+}(aq) + 2\text{ Ag}(s)$, sabiendo que $E^\circ(\text{Sn}^{2+}/\text{Sn}) = -0{,}14\text{ V}$ y $E^\circ(\text{Ag}^+/\text{Ag}) = +0{,}80\text{ V}$ ($\ln K = \frac{n F E^\circ}{R T} \implies \log K = \frac{n E^\circ}{0{,}0592}$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Fem de la celda: $E^\circ = E_{\text{cátodo}}^\circ - E_{\text{ánodo}}^\circ = +0{,}80 - (-0{,}14) = +0{,}94\text{ V}$.</p>
+                <p>Número de electrones: $n = 2$.</p>
+                $$\log K = \frac{2 \cdot 0{,}94}{0{,}0592} = \frac{1{,}88}{0{,}0592} \approx 31{,}757$$
+                $$K = 10^{31{,}757} \approx \mathbf{5{,}7 \times 10^{31}}.$$
+                <p>Un valor colosal que indica que la reacción es totalmente cuantitativa hacia los productos.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 22 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 22 &bull; Pila de combustible de hidrógeno</h3>
+            <p class="text-sm text-slate-700 mb-3">En una pila de combustible de hidrógeno, el $\text{H}_2$ y el $\text{O}_2$ se combinan electroquímicamente para producir agua líquida: $2\text{ H}_2(g) + \text{O}_2(g) \to 2\text{ H}_2\text{O}(l)$, generando una fem teórica $E^\circ = 1{,}23\text{ V}$. Si $\Delta H^\circ = -571{,}6\text{ kJ}$ para esta reacción, calcula el trabajo eléctrico máximo disponible ($\Delta G^\circ$) y el rendimiento termodinámico teórico $\eta = \frac{|\Delta G^\circ|}{|\Delta H^\circ|}$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Número de electrones transferidos: $n = 4\text{ moles } e^-$.</p>
+                $$\Delta G^\circ = -n F E^\circ = -4 \cdot 96485\text{ C/mol} \cdot 1{,}23\text{ V} = -474706\text{ J} \approx -474{,}7\text{ kJ}.$$
+                <p>Rendimiento termodinámico máximo:</p>
+                $$\eta = \frac{|\Delta G^\circ|}{|\Delta H^\circ|} = \frac{474{,}7\text{ kJ}}{571{,}6\text{ kJ}} \approx 0{,}8304 = \mathbf{83{,}0\%}.$$
+                <p>Muy superior al rendimiento del límite de Carnot de los motores de combustión térmica interna tradicionales ($\approx 30-40\%$).</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-slate-500">
+        Toomate.es &bull; Química 2º Bachillerato EvAU &bull; 22 Ejercicios Resueltos
+      </div>
+      <a href="reacciones-redox-2-bach.html" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-semibold text-sm">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Repasar Teoría y Fórmulas</span>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    let todasAbiertas = false;
+    function toggleTodasLasSoluciones() {
+      todasAbiertas = !todasAbiertas;
+      document.querySelectorAll(".exercise-details").forEach(d => d.open = todasAbiertas);
+      document.getElementById("btnToggleText").textContent = todasAbiertas ? "Plegar todas las soluciones" : "Desplegar todas las soluciones";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

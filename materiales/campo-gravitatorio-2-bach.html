@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campo Gravitatorio (2º Bachillerato Física EvAU) | Toomate.es</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- KaTeX para fórmulas matemáticas perfectas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR (NO IMPRIMIBLE) -->
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-sky-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-campo-gravitatorio-2-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-sky-700 hover:text-sky-800 bg-sky-50 hover:bg-sky-100 border border-sky-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4 text-sky-600"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- DOCUMENTO DIDÁCTICO -->
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <!-- CABECERA DEL DOCUMENTO -->
+    <header class="border-b-2 border-sky-600 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-sky-50 border border-sky-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Física EvAU Cantabria &bull; 2º Bachillerato</span>
+          <h1 class="font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight">Campo Gravitatorio y Satélites</h1>
+          <p class="text-xs text-slate-500 mt-0.5">Ley de Newton, campo vectorial, potencial, velocidad orbital, energía mecánica y escape</p>
+        </div>
+      </div>
+      <div class="text-right flex sm:flex-col items-center sm:items-end justify-between">
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-sky-100 text-sky-800 border border-sky-200">
+          Física EvAU
+        </span>
+        <span class="text-xs text-slate-400 mt-1">Toomate.es &bull; Cantabria</span>
+      </div>
+    </header>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="mb-8 p-5 bg-sky-50/70 rounded-2xl border border-sky-100 text-sm text-sky-950 leading-relaxed">
+      <div class="flex items-start gap-3">
+        <i data-lucide="orbit" class="w-5 h-5 text-sky-600 shrink-0 mt-0.5"></i>
+        <div>
+          <p class="font-bold text-sky-900 mb-1">Tema estrella en las Pruebas de Acceso a la Universidad (EvAU):</p>
+          <p>
+            El campo gravitatorio es un campo de fuerzas central y conservativo. En este tema aprenderás a calcular la intensidad de campo $\vec{g}$ y el potencial $V$ creados por distribuciones de masas, la velocidad orbital y el periodo de satélites artificiales (geoestacionarios), la energía de enlace orbital y la velocidad de escape necesaria para abandonar la atracción de un planeta.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 1: LEY DE GRAVITACIÓN Y CAMPO -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-sky-600 pl-3 mb-4">
+        1. Ley de Gravitación Universal e Intensidad de Campo
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm">
+          <span class="text-xs font-bold text-sky-600 uppercase">Fuerza Gravitatoria (Vectorial)</span>
+          <div class="my-3 py-2 bg-slate-50 rounded text-center text-slate-900 font-bold text-sm">
+            $$\vec{F}_g = -G \frac{M \cdot m}{r^2} \vec{u}_r$$
+          </div>
+          <p class="text-xs text-slate-500">$G = 6.674 \times 10^{-11}\text{ N}\cdot\text{m}^2/\text{kg}^2$. Siempre atractiva.</p>
+        </div>
+
+        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm">
+          <span class="text-xs font-bold text-sky-600 uppercase">Intensidad de Campo Gravitatorio</span>
+          <div class="my-3 py-2 bg-slate-50 rounded text-center text-slate-900 font-bold text-sm">
+            $$\vec{g} = \frac{\vec{F}_g}{m} = -G \frac{M}{r^2} \vec{u}_r \implies g = G \frac{M}{r^2}$$
+          </div>
+          <p class="text-xs text-slate-500">Aceleración que experimenta una masa testigo unidad ($1\text{ kg}$).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: ENERGÍA POTENCIAL Y POTENCIAL -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-sky-600 pl-3 mb-4">
+        2. Energía Potencial Gravitatoria y Potencial Gravitatorio
+      </h2>
+      <p class="text-sm text-slate-600 mb-3 leading-relaxed">
+        Tomando el origen de energía potencial en el infinito ($E_p(\infty) = 0$), la energía potencial y el potencial son magnitudes <strong>siempre negativas</strong> en cualquier punto del espacio:
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div class="p-4 bg-sky-50 border border-sky-200 rounded-xl text-center">
+          <h4 class="font-bold text-sky-900 text-sm mb-1">Energía Potencial ($E_p$)</h4>
+          <div class="bg-white py-2 rounded border border-sky-100 font-bold text-sm text-sky-950 my-2">
+            $$E_p = -G \frac{M \cdot m}{r} \quad (\text{Julios, J})$$
+          </div>
+          <p class="text-xs text-slate-600">Magnitud escalar asociada al sistema de masas.</p>
+        </div>
+
+        <div class="p-4 bg-sky-50 border border-sky-200 rounded-xl text-center">
+          <h4 class="font-bold text-sky-900 text-sm mb-1">Potencial Gravitatorio ($V$)</h4>
+          <div class="bg-white py-2 rounded border border-sky-100 font-bold text-sm text-sky-950 my-2">
+            $$V = \frac{E_p}{m} = -G \frac{M}{r} \quad (\text{J/kg})$$
+          </div>
+          <p class="text-xs text-slate-600">Característica propia del punto del campo.</p>
+        </div>
+      </div>
+
+      <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700">
+        <strong>Trabajo del campo gravitatorio:</strong> $W_{A \to B} = -\Delta E_p = E_p(A) - E_p(B) = -m \Delta V = m(V_A - V_B)$.
+        <br>Al ser un campo conservativo, el trabajo no depende de la trayectoria seguida, solo de los puntos inicial y final.
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: SATÉLITES Y MECÁNICA ORBITAL -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-sky-600 pl-3 mb-4">
+        3. Mecánica de Satélites en Órbitas Circulares
+      </h2>
+
+      <div class="space-y-3">
+        <div class="p-4 bg-white border border-slate-200 rounded-xl shadow-2xs">
+          <h4 class="font-bold text-sm text-slate-900 mb-1">A) Velocidad Orbital ($v_{\text{orb}}$)</h4>
+          <p class="text-xs text-slate-600 mb-2">La fuerza gravitatoria actúa como fuerza centrípeta responsable del giro ($F_g = F_c$):</p>
+          <div class="bg-slate-50 p-2 rounded text-center text-xs font-mono text-slate-900">
+            $$G \frac{M \cdot m}{r^2} = m \frac{v^2}{r} \implies \mathbf{v_{\text{orb}} = \sqrt{\frac{G M}{r}}}$$
+          </div>
+          <p class="text-[11px] text-slate-500 mt-1"><em>¡Curiosidad EvAU! La velocidad no depende de la masa del satélite, solo de la masa central $M$ y del radio de la órbita $r = R_T + h$.</em></p>
+        </div>
+
+        <div class="p-4 bg-white border border-slate-200 rounded-xl shadow-2xs">
+          <h4 class="font-bold text-sm text-slate-900 mb-1">B) Periodo Orbital y 3ª Ley de Kepler</h4>
+          <p class="text-xs text-slate-600 mb-2">Como el movimiento es circular uniforme ($v = \frac{2\pi r}{T}$):</p>
+          <div class="bg-slate-50 p-2 rounded text-center text-xs font-mono text-slate-900">
+            $$T = \frac{2\pi r}{v_{\text{orb}}} = \frac{2\pi r}{\sqrt{GM/r}} \implies \mathbf{T^2 = \frac{4\pi^2}{GM} r^3} \quad (\text{3ª Ley de Kepler})$$
+          </div>
+        </div>
+
+        <div class="p-4 bg-white border border-slate-200 rounded-xl shadow-2xs">
+          <h4 class="font-bold text-sm text-slate-900 mb-1">C) Energía Mecánica del Satélite y Velocidad de Escape</h4>
+          <p class="text-xs text-slate-600 mb-2">Energía cinética $E_c = \frac{1}{2}m v_{\text{orb}}^2 = \frac{1}{2} G \frac{Mm}{r}$. Por tanto:</p>
+          <div class="bg-slate-50 p-2 rounded text-center text-xs font-mono text-slate-900">
+            $$E_m = E_c + E_p = \frac{1}{2} G\frac{Mm}{r} - G\frac{Mm}{r} = \mathbf{-\frac{1}{2} G\frac{Mm}{r}} = \frac{1}{2} E_p$$
+          </div>
+          <p class="text-xs text-slate-600 mt-2"><strong>Velocidad de escape ($v_{\text{esc}}$):</strong> Velocidad mínima para llegar al infinito con energía total cero ($E_m \ge 0$):</p>
+          <div class="bg-sky-50 border border-sky-200 p-2 rounded text-center text-xs font-mono text-sky-950 mt-1">
+            $$\frac{1}{2} m v_{\text{esc}}^2 - G\frac{Mm}{r} = 0 \implies \mathbf{v_{\text{esc}} = \sqrt{\frac{2GM}{r}} = \sqrt{2} \cdot v_{\text{orb}}}$$
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+      <div>&copy; Toomate.es &bull; Material Didáctico Libre bajo licencia educativa CC</div>
+      <div class="flex items-center gap-2">
+        <a href="ejercicios-campo-gravitatorio-2-bach.html" class="text-sky-600 hover:underline font-semibold flex items-center gap-1">
+          Ir al Boletín de 22 Ejercicios con Soluciones <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Script para KaTeX y Lucide -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>

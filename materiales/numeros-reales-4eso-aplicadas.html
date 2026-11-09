@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 1: Números Reales y Matemática Financiera (4º ESO Aplicadas) | Toomate.es</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- KaTeX para fórmulas matemáticas perfectas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR (NO IMPRIMIBLE) -->
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-amber-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-numeros-reales-4eso-aplicadas.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-800 hover:text-amber-900 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4 text-amber-600"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- DOCUMENTO DIDÁCTICO -->
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <!-- CABECERA DEL DOCUMENTO -->
+    <header class="border-b-2 border-amber-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Currículo Cantabria (LOMLOE) &bull; Matemáticas A</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Tema 1: Números Reales & Finanzas</h1>
+          <p class="text-xs sm:text-sm text-slate-500">4º ESO Aplicadas (Porcentajes, Notación Científica e Interés Bancario)</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Materia:</strong> Matemáticas A (Aplicadas)</p>
+        <p><strong class="text-slate-700">Enfoque:</strong> Práctico & Financiero</p>
+        <p><strong class="text-slate-700">Decreto:</strong> D. 73/2022 Cantabria</p>
+      </div>
+    </header>
+
+    <!-- INTRODUCCIÓN PEDAGÓGICA -->
+    <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-5 mb-8">
+      <h3 class="text-sm font-bold text-amber-900 flex items-center gap-2">
+        <i data-lucide="piggy-bank" class="w-4 h-4 text-amber-600"></i>
+        El Enfoque Aplicado de 4º ESO:
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-700 mt-1.5 leading-relaxed">
+        En Matemáticas A nos centramos en las <strong>matemáticas para la vida diaria y el mundo laboral</strong>: cómo entender una nómina o factura con IVA, cómo calcular rebajas reales sin que te engañen con porcentajes encadenados y cómo funciona el interés simple y compuesto en una cuenta de ahorros o préstamo bancario.
+      </p>
+    </div>
+
+    <!-- SECCIÓN 1: PORCENTAJES Y VARIACIONES PERCENTUALES -->
+    <section class="space-y-6">
+      <div class="flex items-center gap-2 border-b border-slate-200 pb-2">
+        <span class="w-7 h-7 rounded-lg bg-slate-900 text-white font-bold text-sm flex items-center justify-center">1</span>
+        <h2 class="text-xl font-bold text-slate-900">Porcentajes y el Índice de Variación ($I_v$)</h2>
+      </div>
+
+      <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+        La forma más rápida y profesional de calcular aumentos y rebajas es multiplicar directamente por el <strong>índice de variación</strong>:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        
+        <div class="p-4 rounded-xl border border-emerald-200 bg-emerald-50/40">
+          <h4 class="font-bold text-emerald-900 mb-1">Aumentos Porcentuales (Ej: IVA, subidas)</h4>
+          <p class="text-slate-600 mb-2">Si un precio sube un $r\%$, el índice de variación es $I_v = 1 + \frac{r}{100}$:</p>
+          <div class="p-2.5 bg-white rounded-lg border border-emerald-200 font-mono text-xs">
+            $$\text{Subir un } 21\% \implies I_v = 1 + 0,21 = 1,21$$
+            $$\text{Precio Final} = \text{Precio Inicial} \cdot 1,21$$
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-rose-200 bg-rose-50/40">
+          <h4 class="font-bold text-rose-900 mb-1">Disminuciones Porcentuales (Ej: Rebajas, descuentos)</h4>
+          <p class="text-slate-600 mb-2">Si un precio baja un $r\%$, el índice de variación es $I_v = 1 - \frac{r}{100}$:</p>
+          <div class="p-2.5 bg-white rounded-lg border border-rose-200 font-mono text-xs">
+            $$\text{Descuento del } 30\% \implies I_v = 1 - 0,30 = 0,70$$
+            $$\text{Precio Final} = \text{Precio Inicial} \cdot 0,70$$
+          </div>
+        </div>
+
+      </div>
+
+      <div class="p-4 rounded-xl border border-amber-200 bg-amber-50/40 text-xs sm:text-sm">
+        <strong class="text-amber-950 font-bold block mb-1">Porcentajes Encadenados: ¡La trampa del comercio!</strong>
+        <p class="text-slate-700">
+          Si un artículo sube un $20\%$ y luego se rebaja un $20\%$, <strong>¡NO se queda con el precio original!</strong><br>
+          Se multiplican los índices de variación consecutivos: $I_{total} = 1,20 \cdot 0,80 = 0,96 \implies$ En realidad el producto se ha abaratado un $4\%$.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: MATEMÁTICA FINANCIERA (INTERÉS SIMPLE Y COMPUESTO) -->
+    <section class="mt-10 space-y-6">
+      <div class="flex items-center gap-2 border-b border-slate-200 pb-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-600 text-white font-bold text-sm flex items-center justify-center">2</span>
+        <h2 class="text-xl font-bold text-slate-900">Interés Simple vs Interés Compuesto</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        
+        <!-- Interés Simple -->
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white">
+          <h4 class="font-bold text-slate-900 mb-2 flex items-center gap-1.5">
+            <i data-lucide="coins" class="w-4 h-4 text-amber-600"></i>
+            Interés Simple
+          </h4>
+          <p class="text-slate-600 mb-3 text-xs">Los intereses generados no se acumulan al capital; se cobran año tras año y no producen nuevos intereses:</p>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 font-mono text-center text-xs space-y-1">
+            $$I = \frac{C \cdot r \cdot t}{100}$$
+            $$\text{Capital Final } (C_f) = C + I$$
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2">$C$: capital inicial, $r$: rédito o tipo de interés anual (\%), $t$: tiempo en años.</p>
+        </div>
+
+        <!-- Interés Compuesto -->
+        <div class="p-5 rounded-2xl border border-slate-200 bg-white">
+          <h4 class="font-bold text-slate-900 mb-2 flex items-center gap-1.5">
+            <i data-lucide="trending-up" class="w-4 h-4 text-emerald-600"></i>
+            Interés Compuesto (Capitalización)
+          </h4>
+          <p class="text-slate-600 mb-3 text-xs">Al final de cada periodo los intereses se suman al capital y producen nuevos intereses en el siguiente año:</p>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 font-mono text-center text-xs">
+            $$C_f = C_i \cdot \left( 1 + \frac{r}{100} \right)^t$$
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2">Es el interés real que usan los bancos, hipotecas e inversiones a largo plazo.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: NOTACIÓN CIENTÍFICA Y ESTIMACIONES -->
+    <section class="mt-10 space-y-6">
+      <div class="flex items-center gap-2 border-b border-slate-200 pb-2">
+        <span class="w-7 h-7 rounded-lg bg-slate-900 text-white font-bold text-sm flex items-center justify-center">3</span>
+        <h2 class="text-xl font-bold text-slate-900">Notación Científica y Control de Errores</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+          <h4 class="font-bold text-slate-900 mb-1">Formato Estándar</h4>
+          <p class="text-slate-600 text-xs mb-2">Un número entre 1 y 9 (con decimales) multiplicado por una potencia de 10 ($a \cdot 10^k$ con $1 \le a < 10$):</p>
+          <ul class="font-mono text-xs space-y-1 text-slate-700">
+            <li>Distancia Sol-Tierra: $150.000.000\text{ km} = 1,5 \cdot 10^8\text{ km}$</li>
+            <li>Tamaño virus: $0,00000002\text{ m} = 2 \cdot 10^{-8}\text{ m}$</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+          <h4 class="font-bold text-slate-900 mb-1">Cálculo de Errores en Mediciones</h4>
+          <p class="text-slate-600 text-xs mb-2">Para evaluar la calidad de una aproximación:</p>
+          <ul class="font-mono text-xs space-y-1 text-slate-700">
+            <li><strong>Error Absoluto:</strong> $E_a = |V_{real} - V_{aprox}|$</li>
+            <li><strong>Error Relativo:</strong> $E_r = \frac{E_a}{V_{real}} \cdot 100\%$</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIE DEL DOCUMENTO -->
+    <footer class="mt-12 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-2">
+      <div class="flex items-center gap-2">
+        <img src="../logo-tomate.jpg" alt="Logo" class="w-5 h-5 rounded-md">
+        <span>Toomate.es &bull; Matemáticas 4º ESO Aplicadas (Cantabria)</span>
+      </div>
+      <span>Documento Oficial de Teoría &bull; ¡Muchas Mates! 🍅</span>
+    </footer>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

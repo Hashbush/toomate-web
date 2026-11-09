@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Química Orgánica e Isomería - 2º Bachillerato EvAU | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-teal-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-quimica-organica-2-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-teal-600 hover:text-teal-700 bg-teal-50 hover:bg-teal-100 border border-teal-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-teal-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-teal-50 border border-teal-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-200">
+            Química EvAU &bull; 2º Bachillerato LOMLOE Cantabria
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Química Orgánica: Isomería y Reacciones
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Isomería estructural y estereoisomería, Markovnikov, Saytzeff, esterificación y polímeros</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- RESUMEN CLAVE -->
+    <section class="mb-10 bg-gradient-to-br from-teal-50 to-emerald-50 border border-teal-200 rounded-2xl p-6">
+      <h2 class="text-lg font-bold text-teal-950 flex items-center gap-2 mb-3">
+        <i data-lucide="dna" class="w-5 h-5 text-teal-600"></i>
+        Reglas y Conceptos Clave de EvAU
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="bg-white/80 p-3.5 rounded-xl border border-teal-100">
+          <p class="font-bold text-slate-800 mb-1">Regla de Markovnikov (Adición electrofílica):</p>
+          <div class="text-slate-700">"En la adición de $\text{HX}$ o $\text{H}_2\text{O}$ a un alqueno asimétrico, el hidrógeno se une al carbono del doble enlace que ya tiene más átomos de hidrógeno."</div>
+          <p class="text-xs text-slate-500 mt-1">Genera el carbocatión intermedio más estable (terciario > secundario > primario).</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-teal-100">
+          <p class="font-bold text-slate-800 mb-1">Regla de Saytzeff (Eliminación):</p>
+          <div class="text-slate-700">"En la deshidratación de alcoholes ($\text{H}_2\text{SO}_4$) o deshidrohalogenación de haluros ($\text{KOH}$ alcohólico), el protón se elimina preferentemente del carbono adyacente menos hidrogenado."</div>
+          <p class="text-xs text-slate-500 mt-1">Produce como producto mayoritario el alqueno más sustituido y más estable termodinámicamente.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-teal-100">
+          <p class="font-bold text-slate-800 mb-1">Quiralidad y Carbono Asimétrico ($C^*$):</p>
+          <div class="text-slate-700">Carbono $sp^3$ unido a cuatro sustituyentes diferentes entre sí ($-\text{R}_1 \ne -\text{R}_2 \ne -\text{R}_3 \ne -\text{R}_4$).</div>
+          <p class="text-xs text-slate-500 mt-1">Da lugar a dos enantiómeros (imágenes especulares no superponibles) con actividad óptica dextrógira ($+$) o levógira ($-$).</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-teal-100">
+          <p class="font-bold text-slate-800 mb-1">Esterificación y Condensación:</p>
+          <div class="text-slate-700">$$\text{Ácido carboxílico} + \text{Alcohol} \xrightarrow{\text{H}^+} \text{Éster} + \text{H}_2\text{O}$$</div>
+          <p class="text-xs text-slate-500 mt-1">Reacción reversible de gran relevancia bioquímica e industrial.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 1: MAPA DE ISOMERIA -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-teal-500 pl-3 mb-4">
+        1. Clasificación Completa de la Isomería
+      </h2>
+      <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <h4 class="font-bold text-teal-800 mb-2">A. Isomería Estructural (o Plana)</h4>
+            <p class="text-xs text-slate-600 mb-2">Misma fórmula molecular, diferente conectividad entre átomos:</p>
+            <ul class="list-disc pl-5 text-xs space-y-1.5">
+              <li><strong>De cadena:</strong> Butano ($\text{CH}_3-\text{CH}_2-\text{CH}_2-\text{CH}_3$) y 2-metilpropano.</li>
+              <li><strong>De posición:</strong> 1-propanol y 2-propanol; o 1-buteno y 2-buteno.</li>
+              <li><strong>De función:</strong> Alcohol / éter (etanol y dimetiléter); o aldehído / cetona (propanal y propanona); o ácido carboxílico / éster.</li>
+            </ul>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <h4 class="font-bold text-teal-800 mb-2">B. Estereoisomería (Espacial)</h4>
+            <p class="text-xs text-slate-600 mb-2">Misma conectividad, distinta disposición espacial tridimensional:</p>
+            <ul class="list-disc pl-5 text-xs space-y-1.5">
+              <li><strong>Geométrica (cis/trans o Z/E):</strong> Impedimento de libre rotación en dobles enlaces $\text{C}=\text{C}$ con dos sustituyentes distintos en cada carbono. Ej: cis-2-buteno y trans-2-buteno.</li>
+              <li><strong>Óptica (Enantiómeros):</strong> Presencia de carbonos asimétricos esterogénicos ($C^*$). Desvían el plano de la luz polarizada. Una mezcla equimolecular $50:50$ es ópticamente inactiva (mezcla racémica).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: GRANDES REACCIONES ORGANICAS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-teal-500 pl-3 mb-4">
+        2. Principales Tipos de Reacciones Orgánicas en EvAU
+      </h2>
+      <div class="space-y-3 text-sm text-slate-700 leading-relaxed">
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>Sustitución ($S_N$ o radicalaria):</strong> Un átomo o grupo es reemplazado por otro. Ejemplo: halogenación de alcanos por luz ultravioleta, o síntesis de alcoholes a partir de haluros con $\text{NaOH}$ acuoso ($\text{R}-\text{Cl} + \text{OH}^- \to \text{R}-\text{OH} + \text{Cl}^-$).</li>
+          <li><strong>Adición:</strong> Ruptura de un enlace múltiple ($\pi$) para incorporar nuevos átomos. Sigue la regla de Markovnikov.</li>
+          <li><strong>Eliminación:</strong> Formación de un enlace múltiple con desprendimiento de una molécula pequeña ($\text{H}_2\text{O}$ o $\text{HX}$). Sigue la regla de Saytzeff.</li>
+          <li><strong>Oxidación / Reducción:</strong>
+            $$\text{Alcohol } 1^\circ \xrightarrow{[\text{O}]} \text{Aldehído} \xrightarrow{[\text{O}]} \text{Ácido carboxílico}$$
+            $$\text{Alcohol } 2^\circ \xrightarrow{[\text{O}]} \text{Cetona} \xrightarrow{[\text{O}]} \text{No reacciona}$$
+            $$\text{Alcohol } 3^\circ \xrightarrow{[\text{O}]} \text{Resistente a la oxidación}$$
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FOOTER NAV -->
+    <div class="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-slate-500">
+        Toomate.es &bull; Química 2º Bachillerato EvAU LOMLOE
+      </div>
+      <a href="ejercicios-quimica-organica-2-bach.html" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md transition">
+        <span>Ir al Boletín de 22 Ejercicios Resueltos</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

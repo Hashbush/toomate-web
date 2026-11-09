@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletín de Ejercicios: Campo Magnético e Inducción | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary .arrow-icon { transform: rotate(180deg); }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 10pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+      details { border: 1px solid #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex flex-wrap items-center justify-between gap-3">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-cyan-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex flex-wrap items-center gap-2.5">
+      <button onclick="toggleTodasLasSoluciones()" id="btnToggleAll" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-cyan-700 bg-cyan-50 hover:bg-cyan-100 border border-cyan-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="eye" class="w-4 h-4 text-cyan-600"></i>
+        <span id="txtToggleAll">Desplegar todas las soluciones</span>
+      </button>
+
+      <a href="campo-magnetico-2-bach.html" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-cyan-600 bg-white border border-slate-200 px-3 py-2 rounded-xl transition">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Teoría & Resumen</span>
+      </a>
+
+      <button onclick="window.print()" class="inline-flex items-center gap-1.5 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-6 sm:p-12">
+    
+    <header class="border-b-2 border-cyan-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-cyan-50 border border-cyan-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-600">Toomate.es &bull; Cuaderno Interactivo</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Boletín de Campo Magnético e Inducción</h1>
+          <p class="text-xs sm:text-sm text-slate-500">22 Ejercicios Resueltos Paso a Paso &bull; 2º Bachillerato Física EvAU</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Páginas:</strong> 22 Problemas Oficiales</p>
+        <p><strong class="text-slate-700">Constantes:</strong> $\mu_0 = 4\pi\cdot 10^{-7}\text{ T}\cdot\text{m/A}$</p>
+        <p><strong class="text-slate-700">Enfoque:</strong> Preparación EvAU Cantabria</p>
+      </div>
+    </header>
+
+    <!-- BLOQUE 1: BÁSICO (1-8) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 1 &bull; Básico</span>
+        <h2 class="text-lg font-bold text-slate-800">Fuerza de Lorentz, Trayectorias y Fuentes de Campo</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 1 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">1</span>
+            Fuerza de Lorentz directa sobre un protón
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un protón ($q = +1{,}6 \cdot 10^{-19}\text{ C}$) penetra perpendicularmente en un campo magnético uniforme $B = 0{,}5\text{ T}$ con una velocidad de $2 \cdot 10^6\text{ m/s}$. Calcula el módulo de la fuerza magnética que experimenta.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>Al ser $\vec{v} \perp \vec{B}$, $\alpha = 90^\circ$ y $\sin 90^\circ = 1$:</p>
+              <p>$$F = q v B = (1{,}6 \cdot 10^{-19}\text{ C})(2 \cdot 10^6\text{ m/s})(0{,}5\text{ T}) = 1{,}6 \cdot 10^{-13}\text{ N}$$</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: $F = 1{,}6 \cdot 10^{-13}\text{ N}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 2 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">2</span>
+            Radio de la órbita de un electrón
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Halla el radio de la circunferencia que describe un electrón ($m = 9{,}1 \cdot 10^{-31}\text{ kg}$, $e = 1{,}6 \cdot 10^{-19}\text{ C}$) que se mueve a $10^7\text{ m/s}$ en un campo perpendicular $B = 0{,}02\text{ T}$.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Igualamos fuerza centrípeta y magnética: $m \frac{v^2}{R} = q v B \implies R = \frac{m v}{q B}$.</p>
+              <p>$$R = \frac{(9{,}1 \cdot 10^{-31})(10^7)}{(1{,}6 \cdot 10^{-19})(0{,}02)} = \frac{9{,}1 \cdot 10^{-24}}{3{,}2 \cdot 10^{-21}} \approx 2{,}84 \cdot 10^{-3}\text{ m} = 2{,}84\text{ mm}$$</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: $R \approx 2{,}84\text{ mm}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 3 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">3</span>
+            Periodo del ciclotrón e independencia de la velocidad
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Calcula el periodo $T$ de revolución del electrón del ejercicio anterior y comprueba si varía al duplicar su velocidad.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Periodo: $T = \frac{2\pi R}{v} = \frac{2\pi m}{q B}$.</p>
+              <p>$$T = \frac{2\pi (9{,}1 \cdot 10^{-31})}{(1{,}6 \cdot 10^{-19})(0{,}02)} = \frac{5{,}718 \cdot 10^{-30}}{3{,}2 \cdot 10^{-21}} \approx 1{,}79 \cdot 10^{-9}\text{ s} = 1{,}79\text{ ns}$$</p>
+              <p>2. Al no intervenir $v$ en la expresión $T = \frac{2\pi m}{qB}$, <strong>el periodo permanece rigurosamente constante</strong> si se duplica la velocidad (al aumentar la velocidad el radio crece en la misma proporción, tardando el mismo tiempo en completar la vuelta).</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: $T \approx 1{,}79\text{ ns}$ (independiente de la velocidad).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 4 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">4</span>
+            Fuerza de Laplace sobre un conductor rectilíneo
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un hilo conductor recto de $40\text{ cm}$ de longitud por el que circula una corriente de $5\text{ A}$ se encuentra inmerso en un campo magnético uniforme $B = 0{,}2\text{ T}$ formando un ángulo de $30^\circ$ con las líneas de campo. Calcula la fuerza magnética sobre el conductor.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Ley de Laplace: $F = I L B \sin \alpha$.</p>
+              <p>2. Sustituyendo en el S.I.: $L = 0{,}40\text{ m}$, $I = 5\text{ A}$, $B = 0{,}2\text{ T}$, $\sin 30^\circ = 0{,}5$:</p>
+              <p>$$F = (5\text{ A})(0{,}40\text{ m})(0{,}2\text{ T})(0{,}5) = 0{,}20\text{ N}$$</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: $F = 0{,}20\text{ N}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 5 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">5</span>
+            Campo creado por un hilo rectilíneo infinito
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Calcula la intensidad del campo magnético a una distancia de $5\text{ cm}$ de un hilo rectilíneo infinitamente largo por el que circula una corriente de $10\text{ A}$. ($\mu_0 = 4\pi \cdot 10^{-7}\text{ T}\cdot\text{m/A}$).
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Ley de Biot y Savart para hilo infinito: $B = \frac{\mu_0 I}{2\pi d}$.</p>
+              <p>2. Distancia: $d = 0{,}05\text{ m}$:</p>
+              <p>$$B = \frac{(4\pi \cdot 10^{-7})(10)}{2\pi (0{,}05)} = \frac{2 \cdot 10^{-6}}{0{,}05} = 4 \cdot 10^{-5}\text{ T} = 40\,\mu\text{T}$$</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: $B = 4 \cdot 10^{-5}\text{ T}$ ($40\,\mu\text{T}$, comparable al campo magnético terrestre).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 6 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">6</span>
+            Campo en el interior de un solenoide
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un solenoide de $25\text{ cm}$ de longitud está formado por $500$ espiras apretadas de hilo de cobre y transporta una corriente de $2\text{ A}$. Halla el campo magnético en su interior.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Densidad de espiras: $n = \frac{N}{L} = \frac{500}{0{,}25\text{ m}} = 2.000\text{ espiras/m}$.</p>
+              <p>2. Campo en el solenoide: $B = \mu_0 n I = (4\pi \cdot 10^{-7})(2.000)(2) = 16\pi \cdot 10^{-4} \approx 5{,}03 \cdot 10^{-3}\text{ T} \approx 5{,}03\text{ mT}$.</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: $B \approx 5{,}03 \cdot 10^{-3}\text{ T}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 7 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">7</span>
+            Cálculo del flujo magnético a través de una espira
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una espira circular de radio $R = 10\text{ cm}$ se encuentra en un campo magnético uniforme $B = 0{,}4\text{ T}$. Calcula el flujo magnético que la atraviesa cuando el vector normal a la espira forma un ángulo de: a) $0^\circ$; b) $60^\circ$; c) $90^\circ$ con el campo magnético.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>Superficie: $S = \pi R^2 = \pi (0{,}10)^2 = 0{,}01\pi \approx 0{,}0314\text{ m}^2$.</p>
+              <p>Fórmula: $\Phi = B S \cos \theta$.</p>
+              <p>a) $\theta = 0^\circ \implies \cos 0^\circ = 1 \implies \Phi = 0{,}4(0{,}01\pi)(1) = 0{,}004\pi \approx 0{,}0126\text{ Wb}$.</p>
+              <p>b) $\theta = 60^\circ \implies \cos 60^\circ = 0{,}5 \implies \Phi = 0{,}004\pi(0{,}5) = 0{,}002\pi \approx 0{,}0063\text{ Wb}$.</p>
+              <p>c) $\theta = 90^\circ \implies \cos 90^\circ = 0 \implies \Phi = 0\text{ Wb}$ (las líneas son paralelas al plano de la espira y no la atraviesan).</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: a) $0{,}0126\text{ Wb}$; b) $0{,}0063\text{ Wb}$; c) $0\text{ Wb}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 8 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">8</span>
+            F.e.m. inducida media por variación de flujo
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una bobina de 100 espiras está atravesada por un flujo magnético inicial de $0{,}05\text{ Wb}$. Si el campo magnético se anula en un intervalo de tiempo de $0{,}1\text{ segundos}$, halla la fuerza electromotriz media inducida en la bobina.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Variación de flujo: $\Delta \Phi = \Phi_{\text{final}} - \Phi_{\text{inicial}} = 0 - 0{,}05 = -0{,}05\text{ Wb}$.</p>
+              <p>2. Aplicando la Ley de Faraday-Henry: $\varepsilon_m = -N \frac{\Delta \Phi}{\Delta t}$:</p>
+              <p>$$\varepsilon_m = -100 \frac{-0{,}05\text{ Wb}}{0{,}1\text{ s}} = +100(0{,}5) = 50\text{ Voltios}$$</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: $\varepsilon_m = 50\text{ V}$.
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: INTERMEDIO (9-16) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 2 &bull; Intermedio</span>
+        <h2 class="text-lg font-bold text-slate-800">Campos Cruzados, Fuerza entre Corrientes y Varilla Móvil</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 9 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">9</span>
+            Selector de velocidades (Campos eléctrico y magnético cruzados)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            En un selector de velocidades de Thomson, un haz de iones atraviesa una región con un campo eléctrico $E = 10^5\text{ V/m}$ perpendicular a un campo magnético $B = 0{,}2\text{ T}$. ¿Qué velocidad deben tener los iones para atravesar la región en línea recta sin desviarse?
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Para que no haya desviación, la fuerza eléctrica y la fuerza magnética deben anularse mutuamente en módulo y dirección con sentidos opuestos: $F_e = F_m \implies q E = q v B$.</p>
+              <p>2. Despejamos la velocidad requerida: $v = \frac{E}{B}$:</p>
+              <p>$$v = \frac{10^5\text{ V/m}}{0{,}2\text{ T}} = 5 \cdot 10^5\text{ m/s}$$</p>
+              <p>Nota: Esta velocidad seleccionada es independiente de la masa y de la carga de la partícula.</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: $v = 5 \cdot 10^5\text{ m/s}$ ($500\text{ km/s}$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 10 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">10</span>
+            Fuerza mutua entre dos conductores rectilíneos paralelos
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Dos cables rectilíneos muy largos y paralelos están separados $20\text{ cm}$ en el vacío y transportan corrientes en el mismo sentido de $8\text{ A}$ y $12\text{ A}$ respectivamente. Calcula la fuerza por unidad de longitud entre ellos e indica si se atraen o se repelen.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Expresión de la fuerza por unidad de longitud: $\frac{F}{L} = \frac{\mu_0 I_1 I_2}{2\pi d}$.</p>
+              <p>2. Sustituyendo: $d = 0{,}20\text{ m}$:</p>
+              <p>$$\frac{F}{L} = \frac{(4\pi \cdot 10^{-7})(8)(12)}{2\pi (0{,}20)} = \frac{2 \cdot 10^{-7} \cdot 96}{0{,}20} = 9{,}6 \cdot 10^{-5}\text{ N/m}$$</p>
+              <p>3. Como las corrientes van en el <strong>mismo sentido</strong>, la fuerza es de <strong>atracción</strong> (definición histórica del Amperio).</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: Fuerza de atracción de $9{,}6 \cdot 10^{-5}\text{ N/m}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 11 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">11</span>
+            Punto de campo magnético nulo entre dos hilos
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Por dos conductores paralelos separados $30\text{ cm}$ circulan corrientes de $2\text{ A}$ y $4\text{ A}$ en sentidos opuestos. Halla la posición donde el campo magnético total se anula.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Al ser sentidos contrarios, entre los hilos los campos se suman. El punto nulo debe estar en el exterior, más cerca del conductor de menor intensidad ($I_1 = 2\text{ A}$), a distancia $x$ de él y $(0{,}30 + x)$ del otro.</p>
+              <p>2. Igualdad de campos: $\frac{\mu_0 I_1}{2\pi x} = \frac{\mu_0 I_2}{2\pi (0{,}30 + x)} \implies \frac{2}{x} = \frac{4}{0{,}30 + x}$.</p>
+              <p>3. $2(0{,}30 + x) = 4x \implies 0{,}60 + 2x = 4x \implies 2x = 0{,}60 \implies x = 0{,}30\text{ m} = 30\text{ cm}$.</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: A $30\text{ cm}$ del cable de $2\text{ A}$ (en el lado opuesto al cable de $4\text{ A}$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 12 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">12</span>
+            F.e.m. en una varilla conductora móvil sobre raíles
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una varilla metálica de $20\text{ cm}$ de longitud se desplaza a una velocidad constante $v = 4\text{ m/s}$ sobre dos raíles paralelos conectados a una resistencia $R = 2\,\Omega$ en un campo magnético uniforme perpendicular al plano de los raíles $B = 0{,}5\text{ T}$. Calcula: a) La f.e.m. inducida; b) La corriente inducida; c) La fuerza mecánica externa necesaria para mantener constante la velocidad.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>a) F.e.m. cinética de movimiento: $\varepsilon = B L v = (0{,}5\text{ T})(0{,}20\text{ m})(4\text{ m/s}) = 0{,}40\text{ Voltios}$.</p>
+              <p>b) Corriente inducida: $I = \frac{\varepsilon}{R} = \frac{0{,}40\text{ V}}{2\,\Omega} = 0{,}20\text{ A}$.</p>
+              <p>c) Por la Ley de Lenz, la corriente experimenta una fuerza magnética de frenado: $F_m = I L B = (0{,}20)(0{,}20)(0{,}5) = 0{,}02\text{ N}$.</p>
+              <p>Para velocidad constante, la fuerza exterior debe ser igual y opuesta: $F_{\text{ext}} = 0{,}02\text{ N}$.</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: a) $\varepsilon = 0{,}40\text{ V}$; b) $I = 0{,}20\text{ A}$; c) $F_{\text{ext}} = 0{,}02\text{ N}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 13 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">13</span>
+            F.e.m. instantánea con campo dependiente del tiempo
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una espira circular de área $S = 50\text{ cm}^2$ está situada perpendicularmente a un campo magnético que varía en el tiempo según la ley $B(t) = 2t^3 - 4t + 1$ (en Teslas y segundos). Halla la f.e.m. inducida instantánea en el instante $t = 2\text{ s}$.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Flujo: $\Phi(t) = B(t) \cdot S = (2t^3 - 4t + 1)(50 \cdot 10^{-4}\text{ m}^2) = 0{,}005(2t^3 - 4t + 1)$.</p>
+              <p>2. Ley de Faraday diferencial: $\varepsilon(t) = -\frac{d\Phi}{dt} = -S \frac{dB}{dt}$.</p>
+              <p>Derivada: $\frac{dB}{dt} = 6t^2 - 4$.</p>
+              <p>3. Evaluamos en $t = 2\text{ s}$: $\frac{dB}{dt}(2) = 6(2^2) - 4 = 24 - 4 = 20\text{ T/s}$.</p>
+              <p>$$\varepsilon(2) = -(0{,}005\text{ m}^2)(20\text{ T/s}) = -0{,}10\text{ Voltios}$$</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: $\varepsilon = -0{,}10\text{ V}$ (el signo menos indica el sentido de oposición según Lenz).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 14 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">14</span>
+            Generador de corriente alterna (Alternador)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una bobina plana formada por 200 espiras cuadradas de $10\text{ cm}$ de lado gira a una velocidad constante de 50 revoluciones por segundo ($50\text{ Hz}$) en un campo magnético uniforme $B = 0{,}2\text{ T}$. Escribe la ecuación temporal de la f.e.m. alterna generada y calcula su valor pico o amplitud máxima.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Datos: $N = 200$, $S = 0{,}10 \times 0{,}10 = 0{,}01\text{ m}^2$, $B = 0{,}2\text{ T}$.</p>
+              <p>Frecuencia angular: $\omega = 2\pi f = 2\pi(50) = 100\pi\text{ rad/s} \approx 314{,}16\text{ rad/s}$.</p>
+              <p>2. Flujo magnético instantáneo: $\Phi(t) = N B S \cos(\omega t)$.</p>
+              <p>3. F.e.m. inducida: $\varepsilon(t) = -\frac{d\Phi}{dt} = N B S \omega \sin(\omega t) = \varepsilon_0 \sin(\omega t)$.</p>
+              <p>4. Amplitud máxima pico: $\varepsilon_0 = 200(0{,}2)(0{,}01)(100\pi) = 40\pi \approx 125{,}66\text{ V}$.</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: $\varepsilon(t) = 125{,}66 \sin(100\pi t)\text{ V}$, con amplitud pico $\varepsilon_0 \approx 125{,}7\text{ V}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 15 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">15</span>
+            Sentido de la corriente inducida (Ley de Lenz)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            El polo Norte de un imán recto se acerca frontalmente a una espira circular fija. Explica razonadamente el sentido de la corriente inducida observada desde la posición del imán y la fuerza mutua que se genera entre el imán y la espira.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Al acercar el polo Norte, el flujo magnético hacia la espira aumenta ($\Delta\Phi > 0$).</p>
+              <p>2. Según la Ley de Lenz, la corriente inducida debe generar un campo magnético propio opuesto que intente repeler el acercamiento.</p>
+              <p>3. Por tanto, la cara de la espira enfrentada al imán debe comportarse como un <strong>Polo Norte</strong>.</p>
+              <p>4. Por la regla de la mano derecha, un polo Norte corresponde a una corriente en <strong>sentido antihorario</strong>.</p>
+              <p>5. Se genera una fuerza electrodinámica de <strong>repulsión</strong> que frena el movimiento del imán (conservación de la energía).</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: Sentido antihorario y fuerza de repulsión mutua.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 16 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">16</span>
+            Espectrómetro de masas (Separación de isótopos)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Dos iones monovalentes positivos de Litio ($^6\text{Li}^+$ de masa $6\text{ u}$ y $^7\text{Li}^+$ de masa $7\text{ u}$) se aceleran desde el reposo con el mismo potencial de $1.000\text{ V}$ y penetran en una cámara con campo $B = 0{,}1\text{ T}$ perpendicular. Calcula la distancia que separa los puntos donde impactan tras describir una semicircunferencia. ($1\text{ u} = 1{,}66 \cdot 10^{-27}\text{ kg}$).
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Radio en función del potencial acelerador $V_0$: $q V_0 = \frac{1}{2}mv^2 \implies v = \sqrt{\frac{2qV_0}{m}}$.</p>
+              <p>$$R = \frac{mv}{qB} = \frac{m}{qB} \sqrt{\frac{2qV_0}{m}} = \frac{1}{B} \sqrt{\frac{2mV_0}{q}}$$</p>
+              <p>2. Para $^6\text{Li}$ ($m_1 = 6 \cdot 1{,}66 \cdot 10^{-27} = 9{,}96 \cdot 10^{-27}\text{ kg}$):</p>
+              <p>$$R_1 = \frac{1}{0{,}1} \sqrt{\frac{2(9{,}96 \cdot 10^{-27})(1000)}{1{,}6 \cdot 10^{-19}}} = 10 \sqrt{1{,}245 \cdot 10^{-4}} \approx 0{,}1116\text{ m} = 11{,}16\text{ cm}$$</p>
+              <p>3. Para $^7\text{Li}$ ($m_2 = 7 \cdot 1{,}66 \cdot 10^{-27} = 11{,}62 \cdot 10^{-27}\text{ kg}$):</p>
+              <p>$$R_2 = 10 \sqrt{\frac{2(11{,}62 \cdot 10^{-27})(1000)}{1{,}6 \cdot 10^{-19}}} = 10 \sqrt{1{,}4525 \cdot 10^{-4}} \approx 0{,}1205\text{ m} = 12{,}05\text{ cm}$$</p>
+              <p>4. La distancia de separación en el detector tras media vuelta es la diferencia de diámetros:</p>
+              <p>$$\Delta x = 2R_2 - 2R_1 = 2(0{,}1205 - 0{,}1116) = 2(0{,}0089) = 0{,}0178\text{ m} = 1{,}78\text{ cm}$$</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: Impactan a una distancia de $1{,}78\text{ cm}$ entre sí.
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- BLOQUE 3: AVANZADO / EvAU (17-22) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 3 &bull; Avanzado / EvAU</span>
+        <h2 class="text-lg font-bold text-slate-800">Trayectorias Helicoidales, Flujo en Cuadrados y EvAU</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 17 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">17</span>
+            Trayectoria helicoidal y paso de hélice
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un protón ingresa en un campo magnético uniforme $B = 0{,}1\text{ T}\,\vec{k}$ con velocidad $\vec{v} = (3 \cdot 10^5\,\vec{i} + 4 \cdot 10^5\,\vec{k})\text{ m/s}$. Describe el tipo de trayectoria que sigue y calcula el radio de la hélice y la distancia que avanza en cada vuelta (paso de hélice).
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Descomposición de la velocidad:</p>
+              <p>&bull; $v_\perp = 3 \cdot 10^5\text{ m/s}$ (perpendicular a $\vec{B}$, origina el movimiento circular).</p>
+              <p>&bull; $v_\parallel = 4 \cdot 10^5\text{ m/s}$ (paralela a $\vec{B}$, no experimenta fuerza y mantiene un M.R.U.).</p>
+              <p>La trayectoria resultante es una <strong>hélice cilíndrica</strong> a lo largo del eje $Z$.</p>
+              <p>2. Radio de la hélice: $R = \frac{m v_\perp}{q B} = \frac{(1{,}67 \cdot 10^{-27})(3 \cdot 10^5)}{(1{,}6 \cdot 10^{-19})(0{,}1)} \approx 0{,}0313\text{ m} = 3{,}13\text{ cm}$.</p>
+              <p>3. Periodo de una vuelta: $T = \frac{2\pi m}{q B} = \frac{2\pi (1{,}67 \cdot 10^{-27})}{1{,}6 \cdot 10^{-20}} \approx 6{,}56 \cdot 10^{-7}\text{ s}$.</p>
+              <p>4. Paso de hélice: $p = v_\parallel \cdot T = (4 \cdot 10^5\text{ m/s})(6{,}56 \cdot 10^{-7}\text{ s}) \approx 0{,}262\text{ m} = 26{,}2\text{ cm}$.</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: Trayectoria helicoidal de radio $R \approx 3{,}13\text{ cm}$ y paso de hélice $p \approx 26{,}2\text{ cm}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 18 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">18</span>
+            Espira rectangular que entra en una zona de campo magnético
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una espira cuadrada de lado $L = 10\text{ cm}$ y resistencia $R = 0{,}5\,\Omega$ entra a velocidad constante $v = 2\text{ m/s}$ perpendicularmente a una región con campo uniforme $B = 0{,}8\text{ T}$. Calcula la f.e.m. inducida y la fuerza externa requerida durante el proceso de entrada.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Mientras entra (tiempo $\Delta t = L/v = 0{,}10/2 = 0{,}05\text{ s}$), el área sumergida aumenta a ritmo constante: $S(t) = L \cdot (vt) = L v t$.</p>
+              <p>2. F.e.m. inducida: $\varepsilon = -\frac{d\Phi}{dt} = -B \frac{dS}{dt} = -B L v = -(0{,}8)(0{,}10)(2) = -0{,}16\text{ V}$.</p>
+              <p>3. Corriente inducida: $I = \frac{|\varepsilon|}{R} = \frac{0{,}16}{0{,}5} = 0{,}32\text{ A}$.</p>
+              <p>4. Fuerza magnética de frenado sobre el lado frontal: $F_m = I L B = (0{,}32)(0{,}10)(0{,}8) = 0{,}0256\text{ N}$.</p>
+              <p>La fuerza exterior para empujarla a velocidad constante debe ser igual a $0{,}0256\text{ N}$.</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: $\varepsilon = 0{,}16\text{ V}$, corriente $I = 0{,}32\text{ A}$ y fuerza exterior $F = 0{,}0256\text{ N}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 19 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">19</span>
+            Dos espiras circulares perpendiculares concéntricas
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Dos espiras circulares del mismo radio $R = 5\text{ cm}$ tienen el mismo centro y están dispuestas en planos perpendiculares entre sí (una en el plano $XY$ y otra en el plano $XZ$). Circulan corrientes $I_1 = 3\text{ A}$ e $I_2 = 4\text{ A}$ respectivamente. Halla el módulo del vector campo magnético total en el centro común.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Campo en el centro de una espira: $B = \frac{\mu_0 I}{2R}$.</p>
+              <p>&bull; Espira en $XY$: su vector campo es perpendicular al plano, luego va según el eje $Z$: $\vec{B}_1 = \frac{\mu_0 (3)}{2(0{,}05)}\,\vec{k} = 30\mu_0\,\vec{k}$.</p>
+              <p>&bull; Espira en $XZ$: su vector campo va según el eje $Y$: $\vec{B}_2 = \frac{\mu_0 (4)}{2(0{,}05)}\,\vec{j} = 40\mu_0\,\vec{j}$.</p>
+              <p>2. Al ser los vectores perpendiculares entre sí, el módulo total es:</p>
+              <p>$$B_{\text{total}} = \sqrt{B_1^2 + B_2^2} = \mu_0 \sqrt{30^2 + 40^2} = 50 \mu_0 = 50(4\pi \cdot 10^{-7}) = 2\pi \cdot 10^{-5}\text{ T} \approx 6{,}28 \cdot 10^{-5}\text{ T}$$</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: $B_{\text{total}} = 2\pi \cdot 10^{-5}\text{ T} \approx 62{,}8\,\mu\text{T}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 20 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">20</span>
+            Transformador eléctrico ideal
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            El primario de un transformador ideal conectado a la red eléctrica de $230\text{ V}$ consta de 800 espiras. Se desea obtener en el secundario una tensión de $11{,}5\text{ V}$ para alimentar un dispositivo de $46\text{ W}$ de potencia. Calcula: a) El número de espiras del secundario; b) La intensidad en el secundario; c) La intensidad que absorbe del primario.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>a) Relación de transformación: $\frac{V_p}{V_s} = \frac{N_p}{N_s} \implies N_s = N_p \frac{V_s}{V_p} = 800 \frac{11{,}5}{230} = 800 \cdot 0{,}05 = 40$ espiras.</p>
+              <p>b) Intensidad en el secundario: $P = V_s \cdot I_s \implies I_s = \frac{46\text{ W}}{11{,}5\text{ V}} = 4\text{ A}$.</p>
+              <p>c) Por ser transformador ideal, no hay pérdidas de energía ($P_p = P_s$):</p>
+              <p>$$V_p \cdot I_p = P \implies I_p = \frac{46\text{ W}}{230\text{ V}} = 0{,}20\text{ A}$$</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: a) $N_s = 40$ espiras; b) $I_s = 4\text{ A}$; c) $I_p = 0{,}20\text{ A}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 21 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">21</span>
+            Balanza de corriente magnética
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            En un extremo del brazo de una balanza cuelga una espira rectangular de ancho $L = 5\text{ cm}$. El lado inferior está sumergido perpendicularmente en un campo magnético uniforme horizontal $B = 0{,}4\text{ T}$. Cuando circula una corriente $I$ por la espira, se deben añadir $4\text{ g}$ en el otro platillo para restablecer el equilibrio horizontal. Halla el valor de la intensidad $I$. ($g = 9{,}8\text{ m/s}^2$).
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. La fuerza magnética hacia abajo sobre el conductor inferior de longitud $L$ equilibra el peso añadido en el otro brazo: $F_m = m g$.</p>
+              <p>2. Expresión de Laplace: $F_m = I L B$.</p>
+              <p>3. Igualamos y despejamos $I$:</p>
+              <p>$$I L B = m g \implies I = \frac{m g}{L B} = \frac{(0{,}004\text{ kg})(9{,}8\text{ m/s}^2)}{(0{,}05\text{ m})(0{,}4\text{ T})} = \frac{0{,}0392}{0{,}02} = 1{,}96\text{ A}$$</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: La intensidad de corriente es $I = 1{,}96\text{ A}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 22 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">22</span>
+            Problema EvAU Cantabria: Hilo infinito y espira coplanaria
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Por un hilo recto indefinido circula una corriente $I_1 = 20\text{ A}$. Paralela al hilo y en su mismo plano se encuentra una espira rectangular de dimensiones $a = 20\text{ cm}$ (longitud paralela) y $b = 10\text{ cm}$ (anchura perpendicular) por la que circula una corriente $I_2 = 5\text{ A}$ en sentido horario. Si el lado más próximo de la espira dista $d = 2\text{ cm}$ del hilo, calcula la fuerza neta que el hilo ejerce sobre la espira e indica si es atractiva o repulsiva.
+          </p>
+          <details class="exercise-details group border border-cyan-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-cyan-50 hover:bg-cyan-100 cursor-pointer text-xs font-bold text-cyan-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-cyan-100">
+              <p>1. Sobre los dos lados perpendiculares al hilo, las fuerzas magnéticas son de igual módulo y sentidos opuestos, por lo que se anulan mutuamente.</p>
+              <p>2. Sobre el lado paralelo más cercano ($d_1 = 0{,}02\text{ m}$): la corriente va en el mismo sentido que el hilo $\implies$ Fuerza atractiva hacia el hilo:</p>
+              <p>$$F_1 = \frac{\mu_0 I_1 I_2 a}{2\pi d_1} = \frac{(4\pi \cdot 10^{-7})(20)(5)(0{,}20)}{2\pi (0{,}02)} = \frac{4 \cdot 10^{-6}}{0{,}02} = 2 \cdot 10^{-4}\text{ N} \quad (\text{atracción})$$</p>
+              <p>3. Sobre el lado paralelo más lejano ($d_2 = 0{,}02 + 0{,}10 = 0{,}12\text{ m}$): la corriente va en sentido opuesto $\implies$ Fuerza repulsiva:</p>
+              <p>$$F_2 = \frac{\mu_0 I_1 I_2 a}{2\pi d_2} = \frac{(4\pi \cdot 10^{-7})(20)(5)(0{,}20)}{2\pi (0{,}12)} = \frac{4 \cdot 10^{-6}}{0{,}12} \approx 0{,}333 \cdot 10^{-4}\text{ N} \quad (\text{repulsión})$$</p>
+              <p>4. Fuerza neta resultante:</p>
+              <p>$$F_{\text{neta}} = F_1 - F_2 = 2 \cdot 10^{-4} - 0{,}333 \cdot 10^{-4} \approx 1{,}67 \cdot 10^{-4}\text{ N} \quad (\text{atractiva hacia el hilo})$$</p>
+              <div class="p-2 bg-cyan-50 text-cyan-900 font-bold rounded mt-2">
+                Resultado: Fuerza neta de atracción hacia el hilo de $1{,}67 \cdot 10^{-4}\text{ N}$.
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+
+    let todasAbiertas = false;
+    function toggleTodasLasSoluciones() {
+      const allDetails = document.querySelectorAll('.exercise-details');
+      const btnText = document.getElementById('txtToggleAll');
+      todasAbiertas = !todasAbiertas;
+      allDetails.forEach(d => d.open = todasAbiertas);
+      if (btnText) {
+        btnText.textContent = todasAbiertas ? "Ocultar todas las soluciones" : "Desplegar todas las soluciones";
+      }
+    }
+  </script>
+</body>
+</html>

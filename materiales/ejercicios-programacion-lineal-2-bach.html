@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletín de Ejercicios: Programación Lineal | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary .arrow-icon { transform: rotate(180deg); }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 10pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+      details { border: 1px solid #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex flex-wrap items-center justify-between gap-3">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-emerald-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex flex-wrap items-center gap-2.5">
+      <button onclick="toggleTodasLasSoluciones()" id="btnToggleAll" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="eye" class="w-4 h-4 text-emerald-600"></i>
+        <span id="txtToggleAll">Desplegar todas las soluciones</span>
+      </button>
+
+      <a href="programacion-lineal-2-bach.html" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-emerald-600 bg-white border border-slate-200 px-3 py-2 rounded-xl transition">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Teoría & Resumen</span>
+      </a>
+
+      <button onclick="window.print()" class="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-6 sm:p-12">
+    
+    <header class="border-b-2 border-emerald-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Toomate.es &bull; Cuaderno Interactivo</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Boletín de Programación Lineal</h1>
+          <p class="text-xs sm:text-sm text-slate-500">22 Ejercicios Resueltos Paso a Paso &bull; 2º Bachillerato CCSS EvAU</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Páginas:</strong> 22 Problemas Oficiales</p>
+        <p><strong class="text-slate-700">Modalidad:</strong> Soluciones desplegables</p>
+        <p><strong class="text-slate-700">Ponderación:</strong> 2,5 Puntos EvAU</p>
+      </div>
+    </header>
+
+    <!-- BLOQUE 1: BÁSICO (1-8) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 1 &bull; Básico</span>
+        <h2 class="text-lg font-bold text-slate-800">Semiplanos, Regiones Factibles y Evaluación de Vértices</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 1 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">1</span>
+            Representación de un semiplano y punto de prueba
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Determina qué semiplano representa la inecuación lineal $2x + y \le 6$ utilizando el origen de coordenadas $(0,0)$ como punto de prueba.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Representamos la recta frontera $2x + y = 6$. Puntos de corte con los ejes: $(0, 6)$ y $(3, 0)$.</p>
+              <p>2. Probamos el punto $(0, 0)$: $2(0) + 0 = 0 \le 6$ (Verdadero).</p>
+              <p>3. El semiplano solución contiene al origen $(0, 0)$ y a la propia recta (por ser desigualdad no estricta $\le$).</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: La región sombreada es la zona inferior/izquierda que incluye al punto $(0,0)$ y la recta frontera.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 2 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">2</span>
+            Intersección de dos semiplanos
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Halla el vértice donde se cortan las rectas delimitadoras del sistema $\begin{cases} x + y \ge 4 \\ 2x - y \le 2 \end{cases}$ y comprueba si el punto $P(3, 2)$ satisface ambas inecuaciones.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Vértice: resolvemos el sistema de ecuaciones asociado:</p>
+              <p>Sumando ambas ecuaciones: $(x + y) + (2x - y) = 4 + 2 \implies 3x = 6 \implies x = 2$.</p>
+              <p>Sustituyendo $x=2$: $2 + y = 4 \implies y = 2$. Vértice común $V(2, 2)$.</p>
+              <p>2. Comprobación para $P(3, 2)$:</p>
+              <p>&bull; $3 + 2 = 5 \ge 4$ (Cumple).</p>
+              <p>&bull; $2(3) - 2 = 4 \le 2$ (Falso, $4 > 2$).</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Vértice $V(2, 2)$. El punto $P(3, 2)$ NO pertenece a la región factible porque no cumple la segunda inecuación.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 3 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">3</span>
+            Vértices de una región acotada en el primer cuadrante
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Halla los vértices de la región factible delimitada por:
+            $$\begin{cases} x + 2y \le 8 \\ 3x + y \le 9 \\ x \ge 0, \quad y \ge 0 \end{cases}$$
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Origen: $(0, 0)$ cumple todas las restricciones $\implies A(0, 0)$.</p>
+              <p>2. Eje $OY$ ($x=0$): $x=0 \implies 2y \le 8 \implies y = 4 \implies B(0, 4)$.</p>
+              <p>3. Eje $OX$ ($y=0$): $y=0 \implies 3x \le 9 \implies x = 3 \implies D(3, 0)$.</p>
+              <p>4. Corte entre $x + 2y = 8$ y $3x + y = 9$:</p>
+              <p>De la primera $x = 8 - 2y$. Sustituimos: $3(8 - 2y) + y = 9 \implies 24 - 6y + y = 9 \implies -5y = -15 \implies y = 3$.</p>
+              <p>Entonces $x = 8 - 2(3) = 2 \implies C(2, 3)$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Los cuatro vértices son $A(0, 0)$, $B(0, 4)$, $C(2, 3)$ y $D(3, 0)$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 4 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">4</span>
+            Maximización por evaluación de vértices
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            En la región con vértices $A(0,0)$, $B(0,4)$, $C(2,3)$ y $D(3,0)$ del ejercicio anterior, maximiza la función objetivo $Z(x, y) = 4x + 5y$.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>Evaluamos $Z(x, y) = 4x + 5y$ en cada vértice:</p>
+              <p>&bull; $Z(A) = Z(0, 0) = 4(0) + 5(0) = 0$.</p>
+              <p>&bull; $Z(B) = Z(0, 4) = 4(0) + 5(4) = 20$.</p>
+              <p>&bull; $Z(C) = Z(2, 3) = 4(2) + 5(3) = 8 + 15 = 23$.</p>
+              <p>&bull; $Z(D) = Z(3, 0) = 4(3) + 5(0) = 12$.</p>
+              <p>El valor máximo es $23$, alcanzado en el vértice $C(2, 3)$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: El máximo absoluto es $Z = 23$ en el punto $(x=2, y=3)$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 5 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">5</span>
+            Minimización directa de una función de costes
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Minimiza los costes $C(x, y) = 50x + 80y$ sobre la región triangular con vértices $A(2, 5)$, $B(6, 1)$ y $C(1, 8)$.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>Evaluamos los costes en los tres vértices:</p>
+              <p>&bull; $C(A) = C(2, 5) = 50(2) + 80(5) = 100 + 400 = 500$ €.</p>
+              <p>&bull; $C(B) = C(6, 1) = 50(6) + 80(1) = 300 + 80 = 380$ €.</p>
+              <p>&bull; $C(C) = C(1, 8) = 50(1) + 80(8) = 50 + 640 = 690$ €.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: El coste mínimo es de $380$ €, obtenido en el punto $B(6, 1)$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 6 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">6</span>
+            Rectas de nivel y vector de crecimiento
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Para la función objetivo $Z = 3x + 2y$, determina la ecuación de la recta de nivel que pasa por el origen ($Z = 0$), su pendiente y las coordenadas de un vector director en el sentido de máximo crecimiento.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Recta de nivel en el origen: $3x + 2y = 0 \iff y = -\frac{3}{2}x$.</p>
+              <p>2. Pendiente: $m = -3/2 = -1{,}5$.</p>
+              <p>3. Vector gradiente (dirección y sentido de mayor crecimiento): $\nabla Z = (a, b) = (3, 2)$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Recta $3x + 2y = 0$, pendiente $m = -1{,}5$, vector de crecimiento $\vec{g} = (3, 2)$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 7 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">7</span>
+            Traducción de restricciones textuales a inecuaciones
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Escribe algebraicamente las siguientes restricciones para dos productos $x$ e $y$:
+            a) "Se deben fabricar al menos 10 unidades de $x$".
+            b) "La producción de $y$ no puede superar el triple de la de $x$".
+            c) "Entre ambos productos no se pueden fabricar más de 100 unidades".
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>a) "Al menos 10 de $x$": $x \ge 10$.</p>
+              <p>b) "No puede superar el triple de $x$": $y \le 3x \iff 3x - y \ge 0$.</p>
+              <p>c) "Entre ambos no más de 100": $x + y \le 100$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $x \ge 10$, $y \le 3x$ y $x + y \le 100$ (junto con $y \ge 0$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 8 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">8</span>
+            Planteamiento completo de un taller de carpintería
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un artesano fabrica mesas ($x$) y estanterías ($y$). Una mesa requiere 2 h de corte y 1 h de lijado, dejando 40 € de beneficio. Una estantería requiere 1 h de corte y 3 h de lijado, dejando 50 € de beneficio. Dispone semanalmente de un máximo de 40 h de corte y 60 h de lijado. Escribe la función objetivo y el sistema de restricciones.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Función objetivo: Maximizar el beneficio $B(x, y) = 40x + 50y$.</p>
+              <p>2. Restricción de horas de corte: $2x + y \le 40$.</p>
+              <p>3. Restricción de horas de lijado: $x + 3y \le 60$.</p>
+              <p>4. No negatividad: $x \ge 0, \quad y \ge 0$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Maximizar $B = 40x + 50y$ sujeto a $\begin{cases} 2x + y \le 40 \\ x + 3y \le 60 \\ x \ge 0, \; y \ge 0 \end{cases}$.
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: INTERMEDIO (9-16) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 2 &bull; Intermedio</span>
+        <h2 class="text-lg font-bold text-slate-800">Problemas Clásicos de Optimización Comercial y Logística</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 9 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">9</span>
+            Resolución completa del taller de carpintería
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Resuelve el problema del ejercicio 8: halla la región factible, calcula sus vértices y determina cuántas mesas y estanterías debe fabricar para que el beneficio sea máximo.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Vértices de la región factible:</p>
+              <p>&bull; $A(0, 0)$ origen.</p>
+              <p>&bull; $B(0, 20)$ corte de $x+3y=60$ con eje $OY$.</p>
+              <p>&bull; $D(20, 0)$ corte de $2x+y=40$ con eje $OX$.</p>
+              <p>&bull; $C$: intersección de $2x+y=40$ y $x+3y=60$. Multiplicamos la segunda por 2 y restamos: $5y = 80 \implies y = 16$. Sustituyendo: $x = 60 - 3(16) = 12 \implies C(12, 16)$.</p>
+              <p>2. Evaluación de beneficios $B(x, y) = 40x + 50y$:</p>
+              <p>&bull; $B(A) = 0$ €.</p>
+              <p>&bull; $B(B) = 40(0) + 50(20) = 1.000$ €.</p>
+              <p>&bull; $B(C) = 40(12) + 50(16) = 480 + 800 = 1.280$ €.</p>
+              <p>&bull; $B(D) = 40(20) + 50(0) = 800$ €.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Debe fabricar 12 mesas y 16 estanterías para un beneficio máximo de 1.280 euros.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 10 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">10</span>
+            Problema clásico de nutrición (Minimizar costes)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un nutricionista prepara una mezcla con dos alimentos $P_1$ y $P_2$. Cada kg de $P_1$ cuesta 4 € y aporta 2 unidades de vitaminas y 3 de minerales. Cada kg de $P_2$ cuesta 6 € y aporta 4 de vitaminas y 2 de minerales. La mezcla debe contener al menos 16 unidades de vitaminas y 18 de minerales. Minimiza el coste de la mezcla.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Función de coste: Minimizar $C(x, y) = 4x + 6y$.</p>
+              <p>2. Restricciones: $2x + 4y \ge 16 \iff x + 2y \ge 8$, y $3x + 2y \ge 18$, con $x \ge 0, y \ge 0$.</p>
+              <p>3. Vértices de la región no acotada:</p>
+              <p>&bull; $A(0, 9)$ corte de $3x+2y=18$ con eje $OY$.</p>
+              <p>&bull; $B$: intersección de $x + 2y = 8$ y $3x + 2y = 18$. Restando: $2x = 10 \implies x = 5 \implies y = 1{,}5 \implies B(5, 1{,}5)$.</p>
+              <p>&bull; $C(8, 0)$ corte de $x+2y=8$ con eje $OX$.</p>
+              <p>4. Evaluación de costes:</p>
+              <p>&bull; $C(A) = 4(0) + 6(9) = 54$ €.</p>
+              <p>&bull; $C(B) = 4(5) + 6(1{,}5) = 20 + 9 = 29$ €.</p>
+              <p>&bull; $C(C) = 4(8) + 6(0) = 32$ €.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: El coste mínimo es de 29 € utilizando 5 kg del alimento $P_1$ y 1,5 kg de $P_2$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 11 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">11</span>
+            Soluciones múltiples o infinitas soluciones óptimas
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            En la región delimitada por $\begin{cases} 2x + y \le 10 \\ x + y \le 7 \\ x \ge 0, y \ge 0 \end{cases}$, maximiza la función $Z(x, y) = 6x + 3y$. Explica qué ocurre con la solución.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Vértices: $A(0,0)$, $B(0,7)$, corte $C(3, 4)$ y $D(5, 0)$.</p>
+              <p>2. Evaluamos $Z = 6x + 3y$:</p>
+              <p>&bull; $Z(A) = 0$.</p>
+              <p>&bull; $Z(B) = 6(0) + 3(7) = 21$.</p>
+              <p>&bull; $Z(C) = 6(3) + 3(4) = 18 + 12 = 30$.</p>
+              <p>&bull; $Z(D) = 6(5) + 3(0) = 30$.</p>
+              <p>3. Observación fundamental: Los vértices adyacentes $C(3,4)$ y $D(5,0)$ alcanzan el mismo valor máximo ($Z = 30$). Esto sucede porque $Z = 3(2x + y)$ es exactamente paralela al lado $2x + y = 10$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Existen infinitas soluciones óptimas. Cualquier punto del segmento que une $(3,4)$ con $(5,0)$ proporciona el valor máximo $Z = 30$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 12 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">12</span>
+            Región factible no acotada sin máximo
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Dada la región no acotada $\begin{cases} x + y \ge 5 \\ x \ge 1, \quad y \ge 0 \end{cases}$:
+            a) Halla el mínimo de $Z = 2x + 3y$.
+            b) Demuestra razonadamente si existe o no un valor máximo para $Z$.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Vértices de la región abierta: $A(1, 4)$ y $B(5, 0)$.</p>
+              <p>2. Evaluamos el mínimo:</p>
+              <p>&bull; $Z(A) = 2(1) + 3(4) = 14$.</p>
+              <p>&bull; $Z(B) = 2(5) + 3(0) = 10$.</p>
+              <p>El valor mínimo es $Z = 10$ en el punto $(5, 0)$.</p>
+              <p>3. Existencia de máximo: Al ser la región no acotada hacia el infinito positivo en $x$ e $y$, podemos tomar por ejemplo puntos como $(1000, 0)$ que pertenecen a la región y dan $Z = 2000$. Cuando $x \to \infty$, $Z \to \infty$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: El mínimo es $Z=10$ en $(5,0)$. NO existe máximo absoluto (la función no está acotada superiormente).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 13 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">13</span>
+            Problema de flota de camiones de transporte
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una agencia de transportes debe enviar al menos 1.200 pasajeros y 90 toneladas de equipaje. Dispone de camiones tipo $A$ (capacidad 40 pasajeros, 6 t equipaje, coste 300 €) y tipo $B$ (capacidad 50 pasajeros, 3 t equipaje, coste 250 €). Minimiza el coste del alquiler.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Variables: $x =$ camiones tipo $A$, $y =$ camiones tipo $B$.</p>
+              <p>Coste: $C = 300x + 250y$.</p>
+              <p>2. Restricciones:</p>
+              <p>&bull; Pasajeros: $40x + 50y \ge 1200 \iff 4x + 5y \ge 120$.</p>
+              <p>&bull; Equipaje: $6x + 3y \ge 90 \iff 2x + y \ge 30$.</p>
+              <p>&bull; $x \ge 0, y \ge 0$.</p>
+              <p>3. Vértices:</p>
+              <p>&bull; $A(0, 30)$ coste $= 250(30) = 7.500$ €.</p>
+              <p>&bull; $B$: intersección de $4x+5y=120$ y $2x+y=30 \implies y = 30-2x \implies 4x + 5(30-2x) = 120 \implies -6x = -30 \implies x = 5 \implies y = 20$. Vértice $B(5, 20)$ con coste $= 300(5) + 250(20) = 1.500 + 5.000 = 6.500$ €.</p>
+              <p>&bull; $C(30, 0)$ coste $= 300(30) = 9.000$ €.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Coste mínimo de 6.500 € empleando 5 camiones tipo $A$ y 20 tipo $B$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 14 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">14</span>
+            Restricción con proporción relativa ("al menos el doble")
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una fábrica produce $x$ ordenadores de sobremesa e $y$ portátiles. Por exigencias del mercado, la cantidad de portátiles debe ser al menos el doble que la de sobremesa ($y \ge 2x$) y la producción total no puede superar las 60 unidades. Además, se fabrican al menos 10 ordenadores de sobremesa. Maximiza el beneficio $B = 100x + 150y$.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Restricciones: $x \ge 10$, $y \ge 2x$, $x + y \le 60$.</p>
+              <p>2. Vértices del triángulo factible:</p>
+              <p>&bull; $A$: corte de $x=10$ y $y=2x \implies A(10, 20)$.</p>
+              <p>&bull; $B$: corte de $x=10$ y $x+y=60 \implies B(10, 50)$.</p>
+              <p>&bull; $C$: corte de $y=2x$ y $x+y=60 \implies 3x = 60 \implies x = 20 \implies C(20, 40)$.</p>
+              <p>3. Evaluación de beneficios $B = 100x + 150y$:</p>
+              <p>&bull; $B(A) = 100(10) + 150(20) = 1.000 + 3.000 = 4.000$ €.</p>
+              <p>&bull; $B(B) = 100(10) + 150(50) = 1.000 + 7.500 = 8.500$ €.</p>
+              <p>&bull; $B(C) = 100(20) + 150(40) = 2.000 + 6.000 = 8.000$ €.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Beneficio máximo de 8.500 € fabricando 10 sobremesas y 50 portátiles.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 15 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">15</span>
+            Análisis de variación en la función objetivo
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            En el problema anterior, si el beneficio por portátil sube a 200 € ($B = 100x + 200y$), ¿cambia la solución óptima?
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>Reevaluamos los vértices con la nueva función $B' = 100x + 200y$:</p>
+              <p>&bull; $B'(A) = 100(10) + 200(20) = 5.000$ €.</p>
+              <p>&bull; $B'(B) = 100(10) + 200(50) = 1.000 + 10.000 = 11.000$ €.</p>
+              <p>&bull; $B'(C) = 100(20) + 200(40) = 2.000 + 8.000 = 10.000$ €.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: La solución óptima no cambia de vértice: sigue siendo $B(10, 50)$, alcanzando ahora un beneficio de 11.000 euros.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 16 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">16</span>
+            Inversión financiera con límites de diversificación
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un inversor dispone de 100.000 € para repartir entre bonos del Estado ($x$, rentabilidad 4%) y un fondo indexado ($y$, rentabilidad 9%). Desea invertir al menos 20.000 € en bonos y no más de 60.000 € en el fondo indexado. Maximiza el rendimiento anual.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. En miles de euros: $x + y \le 100$, $x \ge 20$, $0 \le y \le 60$.</p>
+              <p>2. Función de rendimiento: $R = 0{,}04x + 0{,}09y$.</p>
+              <p>3. Vértices: $(20, 0)$, $(100, 0)$, $(40, 60)$ y $(20, 60)$.</p>
+              <p>4. Evaluamos:</p>
+              <p>&bull; $R(20, 0) = 0{,}8$ mil €.</p>
+              <p>&bull; $R(100, 0) = 4$ mil €.</p>
+              <p>&bull; $R(40, 60) = 0{,}04(40) + 0{,}09(60) = 1{,}6 + 5{,}4 = 7$ mil €.</p>
+              <p>&bull; $R(20, 60) = 0{,}04(20) + 0{,}09(60) = 0{,}8 + 5{,}4 = 6{,}2$ mil €.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Debe destinar 40.000 € a bonos y 60.000 € al fondo indexado para un rendimiento máximo de 7.000 euros.
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- BLOQUE 3: AVANZADO / EvAU (17-22) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 3 &bull; Avanzado / EvAU</span>
+        <h2 class="text-lg font-bold text-slate-800">Modelos Oficiales de Examen EvAU Cantabria</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 17 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">17</span>
+            Problema tipo EvAU: Fábrica de conservas de anchoas
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una conservera de Santoña elabora latas de anchoas en aceite de oliva ($x$) y en mantequilla ecológica ($y$). La lata de oliva aporta un beneficio neto de 2 € y la de mantequilla 3 €. Por disponibilidad de pescado se pueden enlatar como máximo 500 latas al día en total. Las normas sanitarias exigen producir al menos 100 latas de oliva y que el número de latas de mantequilla no supere al doble de las de oliva. Halla la producción óptima para maximizar ganancias.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Función objetivo: Maximizar $B = 2x + 3y$.</p>
+              <p>2. Restricciones: $x + y \le 500$, $x \ge 100$, $y \le 2x$, $y \ge 0$.</p>
+              <p>3. Vértices de la región:</p>
+              <p>&bull; $A(100, 0)$</p>
+              <p>&bull; $B(500, 0)$</p>
+              <p>&bull; $C$: corte de $x+y=500$ y $y=2x \implies 3x = 500 \implies x = 166{,}67$, pero en vértice exacto fraccionario: $(500/3, 1000/3) \approx (166{,}67, 333{,}33)$.</p>
+              <p>&bull; $D$: corte de $x=100$ y $y=2x \implies D(100, 200)$.</p>
+              <p>4. Evaluamos en los vértices:</p>
+              <p>&bull; $B(A) = 200$ €.</p>
+              <p>&bull; $B(B) = 1.000$ €.</p>
+              <p>&bull; $B(D) = 2(100) + 3(200) = 800$ €.</p>
+              <p>&bull; $B(C) = 2(500/3) + 3(1000/3) = 4000/3 \approx 1.333{,}33$ €.</p>
+              <p>5. Aproximación a latas enteras factibles: probando $(166, 332)$ da $B = 2(166)+3(332) = 1.328$ €; con $(167, 333)$ suma 500 y $333 \le 2(167) = 334$, dando $B = 2(167)+3(333) = 334 + 999 = 1.333$ €.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Óptimo teórico en $(500/3, 1000/3)$ con $1.333{,}33$ €. En unidades enteras: 167 latas de oliva y 333 de mantequilla para $1.333$ € de ganancia.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 18 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">18</span>
+            Campaña de marketing digital y televisión
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una agencia dispone de 18.000 € para publicidad. Un spot televisivo ($x$) cuesta 3.000 € y llega a 50.000 espectadores. Un anuncio en redes ($y$) cuesta 1.000 € y llega a 20.000 personas. Se deben contratar al menos 2 anuncios en televisión y un mínimo de 6 en redes. Halla el número de inserciones para maximizar el alcance de audiencia.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Maximizar audiencia: $A(x, y) = 50x + 20y$ (en miles de personas).</p>
+              <p>2. Restricciones: $3x + y \le 18$, $x \ge 2$, $y \ge 6$.</p>
+              <p>3. Vértices del triángulo:</p>
+              <p>&bull; $V_1(2, 6)$ coste $= 3(2) + 6 = 12 \le 18$. Audiencia $= 50(2) + 20(6) = 220$ mil.</p>
+              <p>&bull; $V_2(2, 12)$ con $x=2$ y $3(2)+y=18 \implies y = 12$. Audiencia $= 50(2) + 20(12) = 340$ mil.</p>
+              <p>&bull; $V_3(4, 6)$ con $y=6$ y $3x+6=18 \implies 3x = 12 \implies x = 4$. Audiencia $= 50(4) + 20(6) = 200 + 120 = 320$ mil.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: La máxima audiencia (340.000 personas) se logra emitiendo 2 spots de televisión y 12 anuncios en redes.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 19 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">19</span>
+            Región factible pentagonal (5 restricciones simultáneas)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Determina los 5 vértices de la región definida por $\begin{cases} x \ge 1, \quad y \ge 1 \\ x + y \le 8 \\ y - x \le 2 \\ x - y \le 4 \end{cases}$ y maximiza $Z = 5x + 3y$.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Hallamos las intersecciones de las rectas frontera:</p>
+              <p>&bull; $A(1, 1)$.</p>
+              <p>&bull; $B(5, 1)$ corte de $y=1$ con $x - y = 4$.</p>
+              <p>&bull; $C(6, 2)$ corte de $x - y = 4$ con $x + y = 8$.</p>
+              <p>&bull; $D(3, 5)$ corte de $x + y = 8$ con $y - x = 2$.</p>
+              <p>&bull; $E(1, 3)$ corte de $x = 1$ con $y - x = 2$.</p>
+              <p>2. Evaluamos $Z = 5x + 3y$:</p>
+              <p>&bull; $Z(A) = 8$.</p>
+              <p>&bull; $Z(B) = 5(5) + 3(1) = 28$.</p>
+              <p>&bull; $Z(C) = 5(6) + 3(2) = 36$.</p>
+              <p>&bull; $Z(D) = 5(3) + 3(5) = 30$.</p>
+              <p>&bull; $Z(E) = 5(1) + 3(3) = 14$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: El valor máximo es $Z = 36$, alcanzado en el vértice $C(6, 2)$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 20 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">20</span>
+            Problema con solución entera discreta
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un artesano fabrica dos tipos de guitarras: flamencas ($x$) y acústicas ($y$). El modelo matemático continuo arroja como vértice óptimo $V(7{,}4; \; 4{,}8)$ con un beneficio teórico de $4.850$ €. Explica razonadamente el procedimiento para encontrar la solución óptima real sabiendo que sólo se pueden producir instrumentos enteros.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. No es correcto redondear ciegamente porque el punto redondeado podría caer fuera de la región factible.</p>
+              <p>2. Se identifican los puntos enteros en el entorno de $(7{,}4; 4{,}8)$: $(7, 4)$, $(7, 5)$, $(8, 4)$ y $(8, 5)$.</p>
+              <p>3. Se comprueba cuáles de ellos satisfacen estrictamente todas las restricciones del enunciado.</p>
+              <p>4. Se evalúa la función objetivo en los candidatos enteros válidos y se elige el que proporcione el mayor beneficio.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Se evalúan los puntos de coordenadas enteras circundantes que pertenezcan a la región factible, seleccionando el de mayor valor de $Z$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 21 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">21</span>
+            Optimización con función objetivo de coeficientes negativos
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            En la región definida por $\begin{cases} x + 2y \ge 4 \\ 2x + y \le 8 \\ x \ge 0, y \ge 0 \end{cases}$, halla el punto que maximiza $Z = -2x + 5y$ y el que lo minimiza.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Vértices de la región:</p>
+              <p>&bull; $A(0, 2)$ corte de $x+2y=4$ con eje $OY$.</p>
+              <p>&bull; $B(0, 8)$ corte de $2x+y=8$ con eje $OY$.</p>
+              <p>&bull; $C(4, 0)$ corte común de ambas rectas en el eje $OX$ (pues $4+0=4$ y $2(4)+0=8$).</p>
+              <p>2. Evaluamos $Z = -2x + 5y$:</p>
+              <p>&bull; $Z(A) = -2(0) + 5(2) = 10$.</p>
+              <p>&bull; $Z(B) = -2(0) + 5(8) = 40$.</p>
+              <p>&bull; $Z(C) = -2(4) + 5(0) = -8$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Máximo absoluto $Z = 40$ en $(0, 8)$ y mínimo absoluto $Z = -8$ en $(4, 0)$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 22 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">22</span>
+            Problema EvAU de transporte de energía solar y eólica
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una central eléctrica distribuye energía procedente de un parque solar ($x$) y un parque eólico ($y$). La red de distribución soporta hasta 800 MWh diarios. Por estabilidad de red se deben suministrar al menos 200 MWh de energía solar y la energía eólica debe ser al menos la tercera parte de la solar. La ganancia neta es de 50 €/MWh solar y 70 €/MWh eólico. Determina la combinación que optimiza los ingresos.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Función objetivo: Maximizar $I = 50x + 70y$.</p>
+              <p>2. Restricciones: $x + y \le 800$, $x \ge 200$, $y \ge \frac{1}{3}x \iff x - 3y \le 0$.</p>
+              <p>3. Vértices:</p>
+              <p>&bull; $A$: corte de $x=200$ y $y = x/3 \implies A(200, 200/3) \approx (200, 66{,}67)$.</p>
+              <p>&bull; $B$: corte de $x=200$ y $x+y=800 \implies B(200, 600)$.</p>
+              <p>&bull; $C$: corte de $x+y=800$ y $x = 3y \implies 4y = 800 \implies y = 200 \implies C(600, 200)$.</p>
+              <p>4. Evaluamos ingresos:</p>
+              <p>&bull; $I(A) = 50(200) + 70(200/3) = 10.000 + 4.666{,}67 = 14.666{,}67$ €.</p>
+              <p>&bull; $I(B) = 50(200) + 70(600) = 10.000 + 42.000 = 52.000$ €.</p>
+              <p>&bull; $I(C) = 50(600) + 70(200) = 30.000 + 14.000 = 44.000$ €.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Ingreso máximo de 52.000 € diarios distribuyendo 200 MWh solares y 600 MWh eólicos.
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+
+    let todasAbiertas = false;
+    function toggleTodasLasSoluciones() {
+      const allDetails = document.querySelectorAll('.exercise-details');
+      const btnText = document.getElementById('txtToggleAll');
+      todasAbiertas = !todasAbiertas;
+      allDetails.forEach(d => d.open = todasAbiertas);
+      if (btnText) {
+        btnText.textContent = todasAbiertas ? "Ocultar todas las soluciones" : "Desplegar todas las soluciones";
+      }
+    }
+  </script>
+</body>
+</html>

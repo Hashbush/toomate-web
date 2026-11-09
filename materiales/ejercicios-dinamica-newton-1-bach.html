@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22 Ejercicios de Dinámica de Newton y Fuerzas - 1º Bachillerato | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 10.5pt; }
+      .page-break { page-break-before: always; }
+      details { break-inside: avoid; }
+      details[open] summary ~ * { display: block !important; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+    details summary::-webkit-details-marker { display: none; }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-emerald-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="dinamica-newton-1-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-emerald-600 bg-white border border-slate-200 px-3.5 py-2 rounded-xl transition shadow-sm">
+        <i data-lucide="book-open" class="w-4 h-4 text-emerald-600"></i>
+        <span>Ver Teoría y Fórmulas</span>
+      </a>
+      <button id="btnToggleAll" onclick="toggleTodasLasSoluciones()" class="inline-flex items-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-semibold text-sm px-4 py-2 rounded-xl transition shadow-sm">
+        <i data-lucide="eye" class="w-4 h-4 text-emerald-600"></i>
+        <span id="btnToggleText">Desplegar todas las soluciones</span>
+      </button>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Imprimir / PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-emerald-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+            Física y Química &bull; 1º Bachillerato LOMLOE
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Boletín de 22 Ejercicios Resueltos: Dinámica y Newton
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Graduados de básico a examen de 1º Bachillerato, con desarrollo paso a paso</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="space-y-8">
+
+      <!-- ========================================== -->
+      <!-- NIVEL 1: CONCEPTOS BÁSICOS (1 - 8) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-emerald-200">
+          <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+          <h2 class="text-lg font-bold text-emerald-950">Nivel 1 &bull; Básico: 2ª Ley de Newton, Peso, Normal y Rozamiento Directo (Ejercicios 1 a 8)</h2>
+        </div>
+        
+        <div class="space-y-4">
+          <!-- Ejercicio 1 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 1 &bull; Fuerza constante sobre superficie horizontal lisa</h3>
+            <p class="text-sm text-slate-700 mb-3">Un cuerpo de masa $m = 6\text{ kg}$ reposa sobre un plano horizontal sin rozamiento ($\mu = 0$). Se le aplica una fuerza horizontal constante de $F = 18\text{ N}$. Calcula la aceleración que adquiere y la velocidad tras recorrer $12\text{ m}$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Aceleración:</strong> Aplicando $\sum F_x = m \cdot a \implies a = \frac{F}{m} = \frac{18\text{ N}}{6\text{ kg}} = 3\text{ m/s}^2$.</p>
+                <p><strong>2. Cinemática:</strong> Parte del reposo ($v_0 = 0$). Con la ecuación sin tiempo: $v^2 = v_0^2 + 2 a \Delta x = 0 + 2 \cdot (3) \cdot (12) = 72 \implies v = \sqrt{72} \approx 8{,}49\text{ m/s}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 2 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 2 &bull; Peso aparente en un ascensor</h3>
+            <p class="text-sm text-slate-700 mb-3">Una persona de $70\text{ kg}$ sube a una báscula dentro de un ascensor ($g = 9{,}8\text{ m/s}^2$). ¿Qué marca la báscula (fuerza normal $N$) cuando: a) el ascensor sube acelerando a $2\text{ m/s}^2$, b) baja acelerando a $2\text{ m/s}^2$, c) baja a velocidad constante de $3\text{ m/s}$?</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>La báscula mide la normal $N$. Eje vertical positivo hacia arriba:</p>
+                <p><strong>a) Sube acelerando ($a = +2\text{ m/s}^2$):</strong> $N - P = m a \implies N = m(g + a) = 70 \cdot (9{,}8 + 2) = 70 \cdot 11{,}8 = 826\text{ N}$ (sensación de pesadez).</p>
+                <p><strong>b) Baja acelerando ($a = -2\text{ m/s}^2$):</strong> $N - P = m(-a) \implies N = m(g - a) = 70 \cdot (9{,}8 - 2) = 70 \cdot 7{,}8 = 546\text{ N}$.</p>
+                <p><strong>c) Velocidad constante ($a = 0$):</strong> $N = P = m g = 70 \cdot 9{,}8 = 686\text{ N}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 3 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 3 &bull; Rozamiento cinético horizontal</h3>
+            <p class="text-sm text-slate-700 mb-3">Un bloque de masa $m = 10\text{ kg}$ se desliza sobre una superficie horizontal con coeficiente cinético $\mu = 0{,}25$. Se le aplica una fuerza horizontal $F = 40\text{ N}$. Calcula la normal $N$, la fuerza de rozamiento $F_r$ y la aceleración ($g = 9{,}8\text{ m/s}^2$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Eje $Y$:</strong> No hay movimiento vertical $\implies N = P = m g = 10 \cdot 9{,}8 = 98\text{ N}$.</p>
+                <p><strong>2. Fuerza de rozamiento:</strong> $F_r = \mu \cdot N = 0{,}25 \cdot 98 = 24{,}5\text{ N}$.</p>
+                <p><strong>3. Eje $X$:</strong> Como $F = 40\text{ N} > F_r = 24{,}5\text{ N}$, hay aceleración:
+                  $$F - F_r = m \cdot a \implies a = \frac{40 - 24{,}5}{10} = \frac{15{,}5}{10} = 1{,}55\text{ m/s}^2.$$</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 4 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 4 &bull; Tracción con ángulo oblicuo</h3>
+            <p class="text-sm text-slate-700 mb-3">Tiramos de una caja de $15\text{ kg}$ con una fuerza $F = 50\text{ N}$ que forma un ángulo de $30^\circ$ sobre la horizontal. Si el coeficiente de rozamiento es $\mu = 0{,}15$, calcula la normal y la aceleración ($g = 9{,}8\text{ m/s}^2$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Descomposición de la fuerza:</strong> $F_x = 50 \cos 30^\circ = 43{,}30\text{ N}$, $F_y = 50 \sin 30^\circ = 25\text{ N}$.</p>
+                <p><strong>2. Eje vertical ($Y$):</strong> $N + F_y - P = 0 \implies N = m g - F_y = 15 \cdot 9{,}8 - 25 = 147 - 25 = 122\text{ N}$.</p>
+                <p><strong>3. Rozamiento:</strong> $F_r = \mu \cdot N = 0{,}15 \cdot 122 = 18{,}3\text{ N}$.</p>
+                <p><strong>4. Eje horizontal ($X$):</strong> $F_x - F_r = m a \implies a = \frac{43{,}30 - 18{,}3}{15} = \frac{25}{15} \approx 1{,}67\text{ m/s}^2$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 5 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 5 &bull; Rozamiento estático y ángulo límite de deslizamiento</h3>
+            <p class="text-sm text-slate-700 mb-3">Un ladrillo descansa sobre una tabla que se va inclinando progresivamente. El bloque comienza a deslizar justo cuando el ángulo alcanza $\alpha = 28^\circ$. Demuestra que $\mu_e = \tan\alpha$ y calcula el valor de $\mu_e$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>En el límite del deslizamiento inminente ($a = 0$):</p>
+                <p>Eje $X$ (paralelo): $P_x - F_{r,\text{máx}} = 0 \implies m g \sin\alpha = \mu_e N$.</p>
+                <p>Eje $Y$ (perpendicular): $N - P_y = 0 \implies N = m g \cos\alpha$.</p>
+                <p>Dividiendo ambas ecuaciones: $\frac{m g \sin\alpha}{m g \cos\alpha} = \frac{\mu_e N}{N} \implies \mu_e = \tan\alpha$.</p>
+                <p>Para $\alpha = 28^\circ$: $\mu_e = \tan(28^\circ) \approx 0{,}532$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 6 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 6 &bull; Fuerza centrípeta en una curva plana</h3>
+            <p class="text-sm text-slate-700 mb-3">Un coche de $1200\text{ kg}$ toma una curva horizontal sin peralte de radio $R = 80\text{ m}$. El coeficiente de rozamiento estático entre neumáticos y asfalto es $\mu_e = 0{,}6$. ¿Cuál es la velocidad máxima sin derrapar?</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>La única fuerza horizontal hacia el centro de la curva es el rozamiento estático: $F_c = F_r \le \mu_e N$.</p>
+                <p>En el plano horizontal, $N = m g$. Para la velocidad máxima:
+                  $$m \frac{v_{\text{máx}}^2}{R} = \mu_e m g \implies v_{\text{máx}} = \sqrt{\mu_e g R} = \sqrt{0{,}6 \cdot 9{,}8 \cdot 80} = \sqrt{470{,}4} \approx 21{,}69\text{ m/s} \approx 78{,}1\text{ km/h}.$$</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 7 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 7 &bull; Momento lineal e impulso unidimensional</h3>
+            <p class="text-sm text-slate-700 mb-3">Un jugador de fútbol golpea un balón parado de $m = 450\text{ g}$ comunicándole una velocidad de $24\text{ m/s}$. El contacto con la bota dura $\Delta t = 0{,}02\text{ s}$. Calcula el impulso $\vec{I}$ y la fuerza media ejercida.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Variación de momento lineal (Impulso):</strong>
+                  $$I = \Delta p = m (v - v_0) = 0{,}45\text{ kg} \cdot (24 - 0)\text{ m/s} = 10{,}8\text{ N}\cdot\text{s}.$$</p>
+                <p><strong>2. Fuerza media:</strong>
+                  $$F_m = \frac{I}{\Delta t} = \frac{10{,}8\text{ N}\cdot\text{s}}{0{,}02\text{ s}} = 540\text{ N}.$$</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 8 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 8 &bull; Retroceso y 3ª Ley de Newton</h3>
+            <p class="text-sm text-slate-700 mb-3">Un fusil de masa $M = 3{,}5\text{ kg}$ dispara un proyectil de $m = 15\text{ g}$ que sale por la boca del cañón a una velocidad horizontal de $700\text{ m/s}$. Calcula la velocidad de retroceso del fusil.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Sistema fusil + bala inicialmente en reposo ($p_{\text{inicial}} = 0$). Como no hay fuerzas horizontales externas:</p>
+                $$p_{\text{final}} = M v_R + m v_b = 0 \implies v_R = -\frac{m v_b}{M} = -\frac{0{,}015\text{ kg} \cdot 700\text{ m/s}}{3{,}5\text{ kg}} = -3\text{ m/s}.$$
+                <p>El fusil retrocede a $3\text{ m/s}$ en sentido opuesto al proyectil.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- NIVEL 2: INTERMEDIO (9 - 16) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-emerald-200">
+          <span class="w-3 h-3 rounded-full bg-emerald-600"></span>
+          <h2 class="text-lg font-bold text-emerald-950">Nivel 2 &bull; Intermedio: Planos Inclinados, Máquinas de Atwood y Choques (Ejercicios 9 a 16)</h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Ejercicio 9 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 9 &bull; Descenso por plano inclinado con rozamiento</h3>
+            <p class="text-sm text-slate-700 mb-3">Un bloque de $m = 4\text{ kg}$ se suelta desde la parte superior de un plano inclinado $\alpha = 30^\circ$ con $\mu = 0{,}2$. Calcula la aceleración de bajada y el tiempo que tarda en descender una longitud de $6\text{ m}$ ($g = 9{,}8\text{ m/s}^2$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Fuerzas:</strong> $P_x = m g \sin 30^\circ$, $P_y = m g \cos 30^\circ$, $N = P_y = m g \cos 30^\circ$.</p>
+                <p><strong>2. Rozamiento:</strong> $F_r = \mu N = \mu m g \cos 30^\circ$.</p>
+                <p><strong>3. Ecuación dinámica de bajada:</strong>
+                  $$P_x - F_r = m a \implies m g \sin 30^\circ - \mu m g \cos 30^\circ = m a$$
+                  $$a = g(\sin 30^\circ - \mu \cos 30^\circ) = 9{,}8 \cdot (0{,}5 - 0{,}2 \cdot 0{,}866) = 9{,}8 \cdot (0{,}5 - 0{,}1732) = 9{,}8 \cdot 0{,}3268 \approx 3{,}20\text{ m/s}^2.$$</p>
+                <p><strong>4. Tiempo:</strong> $\Delta x = \frac{1}{2} a t^2 \implies t = \sqrt{\frac{2 \Delta x}{a}} = \sqrt{\frac{12}{3{,}20}} = \sqrt{3{,}75} \approx 1{,}94\text{ s}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 10 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 10 &bull; Máquina de Atwood simple</h3>
+            <p class="text-sm text-slate-700 mb-3">Dos masas $m_1 = 5\text{ kg}$ y $m_2 = 3\text{ kg}$ cuelgan verticalmente de los extremos de una cuerda que pasa por una polea ideal sin rozamiento. Halla la aceleración del sistema y la tensión $T$ de la cuerda ($g = 9{,}8\text{ m/s}^2$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Como $m_1 > m_2$, la masa 1 baja y la masa 2 sube con idéntica aceleración $a$:</p>
+                <p>Cuerpo 1: $m_1 g - T = m_1 a$</p>
+                <p>Cuerpo 2: $T - m_2 g = m_2 a$</p>
+                <p>Sumando ambas ecuaciones miembro a miembro:
+                  $$(m_1 - m_2)g = (m_1 + m_2)a \implies a = \frac{m_1 - m_2}{m_1 + m_2}g = \frac{5 - 3}{5 + 3} \cdot 9{,}8 = \frac{2}{8} \cdot 9{,}8 = 2{,}45\text{ m/s}^2.$$</p>
+                <p>Sustituyendo en el cuerpo 2: $T = m_2 (g + a) = 3 \cdot (9{,}8 + 2{,}45) = 3 \cdot 12{,}25 = 36{,}75\text{ N}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 11 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 11 &bull; Masa sobre mesa con cuerpo colgante</h3>
+            <p class="text-sm text-slate-700 mb-3">Un cuerpo $A$ de $m_A = 6\text{ kg}$ está sobre una mesa horizontal con rozamiento $\mu = 0{,}2$. Se une mediante una cuerda y polea a un cuerpo colgante $B$ de $m_B = 4\text{ kg}$. Halla la aceleración y la tensión.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Fuerzas sobre A:</strong> $N_A = m_A g = 6 \cdot 9{,}8 = 58{,}8\text{ N} \implies F_r = \mu N_A = 0{,}2 \cdot 58{,}8 = 11{,}76\text{ N}$.</p>
+                <p>Ecuación de A: $T - F_r = m_A a \implies T - 11{,}76 = 6 a$.</p>
+                <p><strong>2. Fuerzas sobre B (cuelga):</strong> $m_B g - T = m_B a \implies 4 \cdot 9{,}8 - T = 4 a \implies 39{,}2 - T = 4 a$.</p>
+                <p><strong>3. Sumando ambas:</strong>
+                  $$39{,}2 - 11{,}76 = (6 + 4)a \implies 27{,}44 = 10 a \implies a = 2{,}744\text{ m/s}^2.$$</p>
+                <p><strong>4. Tensión:</strong> $T = 11{,}76 + 6(2{,}744) = 11{,}76 + 16{,}464 = 28{,}22\text{ N}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 12 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 12 &bull; Tiro hacia arriba por plano inclinado</h3>
+            <p class="text-sm text-slate-700 mb-3">Lanzamos un objeto de $2\text{ kg}$ hacia arriba por un plano con $\alpha = 30^\circ$ y $\mu = 0{,}25$ a una velocidad inicial $v_0 = 10\text{ m/s}$. Calcula la aceleración de frenada y la distancia que recorre hasta pararse.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Al subir, tanto $P_x$ como $F_r$ apuntan hacia abajo del plano (frenando el objeto):</p>
+                $$-P_x - F_r = m a \implies -m g \sin 30^\circ - \mu m g \cos 30^\circ = m a$$
+                $$a = -g(\sin 30^\circ + \mu \cos 30^\circ) = -9{,}8(0{,}5 + 0{,}25 \cdot 0{,}866) = -9{,}8(0{,}5 + 0{,}2165) \approx -7{,}02\text{ m/s}^2.$$
+                <p>Distancia hasta detenerse ($v = 0$):
+                  $$v^2 = v_0^2 + 2 a \Delta x \implies 0 = 10^2 + 2(-7{,}02)\Delta x \implies \Delta x = \frac{100}{14{,}04} \approx 7{,}12\text{ m}.$$</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 13 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 13 &bull; Peralte ideal en curva de autopista</h3>
+            <p class="text-sm text-slate-700 mb-3">Una curva de autopista tiene un radio de curvatura $R = 250\text{ m}$ y está diseñada para una velocidad de $108\text{ km/h}$ sin necesidad de rozamiento. Calcula el ángulo de peralte $\theta$ necesario ($g = 9{,}8\text{ m/s}^2$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Convertimos velocidad: $v = 108 / 3{,}6 = 30\text{ m/s}$.</p>
+                <p>Sin rozamiento, la componente horizontal de la normal proporciona la fuerza centrípeta y la vertical equilibra el peso:</p>
+                <p>$N \sin\theta = m \frac{v^2}{R}$, y $N \cos\theta = m g$.</p>
+                <p>Dividiendo: $\tan\theta = \frac{v^2}{g R} = \frac{30^2}{9{,}8 \cdot 250} = \frac{900}{2450} \approx 0{,}3673 \implies \theta = \arctan(0{,}3673) \approx 20{,}17^\circ$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 14 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 14 &bull; Choque frontal completamente inelástico</h3>
+            <p class="text-sm text-slate-700 mb-3">Un vagón de mercancías de masa $M_1 = 12000\text{ kg}$ que se mueve a $v_1 = 5\text{ m/s}$ choca contra otro vagón estacionario de $M_2 = 18000\text{ kg}$ acoplándose de inmediato. Calcula la velocidad común tras el acople y la energía cinética disipada.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Conservación del momento lineal:</strong>
+                  $$M_1 v_1 + 0 = (M_1 + M_2) v' \implies v' = \frac{12000 \cdot 5}{12000 + 18000} = \frac{60000}{30000} = 2\text{ m/s}.$$</p>
+                <p><strong>2. Energía disipada:</strong></p>
+                <p>$E_{c,\text{ini}} = \frac{1}{2} M_1 v_1^2 = \frac{1}{2}(12000)(25) = 150000\text{ J}$.</p>
+                <p>$E_{c,\text{fin}} = \frac{1}{2}(M_1 + M_2)(v')^2 = \frac{1}{2}(30000)(4) = 60000\text{ J}$.</p>
+                <p>$\Delta E_c = 150000 - 60000 = 90000\text{ J}$ (el $60\%$ de la energía se disipó en calor y deformación).</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 15 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 15 &bull; Péndulo cónico: tensión y período</h3>
+            <p class="text-sm text-slate-700 mb-3">Una esfera de $m = 0{,}5\text{ kg}$ gira en un plano horizontal sujeta a un hilo de longitud $L = 1\text{ m}$ que forma un ángulo $\theta = 30^\circ$ con la vertical. Calcula la tensión del hilo y el periodo de giro ($g = 9{,}8\text{ m/s}^2$).</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Eje vertical:</strong> $T \cos 30^\circ = m g \implies T = \frac{0{,}5 \cdot 9{,}8}{\cos 30^\circ} = \frac{4{,}9}{0{,}866} \approx 5{,}66\text{ N}$.</p>
+                <p><strong>2. Eje horizontal (centrípeta):</strong> $T \sin 30^\circ = m \omega^2 R$. Como el radio es $R = L \sin 30^\circ = 0{,}5\text{ m}$:</p>
+                <p>$5{,}66 \cdot 0{,}5 = 0{,}5 \cdot \omega^2 \cdot 0{,}5 \implies \omega^2 = \frac{5{,}66}{0{,}5} = 11{,}32 \implies \omega = 3{,}36\text{ rad/s}$.</p>
+                <p><strong>3. Periodo:</strong> $T_{\text{periodo}} = \frac{2\pi}{\omega} = \frac{2\pi}{3{,}36} \approx 1{,}87\text{ s}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 16 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 16 &bull; Choque elástico unidimensional entre dos masas</h3>
+            <p class="text-sm text-slate-700 mb-3">Una masa $m_1 = 2\text{ kg}$ con velocidad $v_1 = 4\text{ m/s}$ choca elásticamente de frente con otra masa $m_2 = 1\text{ kg}$ que se encuentra en reposo. Deduce las velocidades $v_1'$ y $v_2'$ posteriores al choque.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Aplicando las fórmulas estándar de choque elástico unidimensional con $v_2 = 0$:</p>
+                $$v_1' = \frac{m_1 - m_2}{m_1 + m_2} v_1 = \frac{2 - 1}{2 + 1} \cdot 4 = \frac{1}{3} \cdot 4 = \frac{4}{3} \approx 1{,}33\text{ m/s}.$$
+                $$v_2' = \frac{2 m_1}{m_1 + m_2} v_1 = \frac{2 \cdot 2}{2 + 1} \cdot 4 = \frac{4}{3} \cdot 4 = \frac{16}{3} \approx 5{,}33\text{ m/s}.$$
+                <p>Comprobación de conservación de energía: $E_{c,\text{ini}} = \frac{1}{2}(2)(16) = 16\text{ J}$.</p>
+                <p>$E_{c,\text{fin}} = \frac{1}{2}(2)(1{,}333^2) + \frac{1}{2}(1)(5{,}333^2) = 1{,}778 + 14{,}222 = 16{,}00\text{ J}$ (exacto).</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- NIVEL 3: AVANZADO / EXAMEN (17 - 22) -->
+      <!-- ========================================== -->
+      <div>
+        <div class="flex items-center gap-2 mb-4 pb-2 border-b border-emerald-200">
+          <span class="w-3 h-3 rounded-full bg-emerald-700"></span>
+          <h2 class="text-lg font-bold text-emerald-950">Nivel 3 &bull; Avanzado: Sistemas Complejos, Bloque sobre Bloque y Peralte con Rozamiento (Ejercicios 17 a 22)</h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Ejercicio 17 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 17 &bull; Masa en plano inclinado unida a masa colgante</h3>
+            <p class="text-sm text-slate-700 mb-3">Un bloque $A$ de $m_A = 5\text{ kg}$ está sobre un plano con $\alpha = 30^\circ$ y $\mu = 0{,}2$. Se une por una cuerda que pasa por la cúspide a un bloque colgante $B$ de $m_B = 4\text{ kg}$. Determina si el sistema se mueve y calcula su aceleración y la tensión.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Análisis de tendencia de movimiento:</strong></p>
+                <p>Fuerza hacia el lado de B: $P_B = m_B g = 4 \cdot 9{,}8 = 39{,}2\text{ N}$.</p>
+                <p>Componente del peso de A por el plano: $P_{Ax} = m_A g \sin 30^\circ = 5 \cdot 9{,}8 \cdot 0{,}5 = 24{,}5\text{ N}$.</p>
+                <p>Como $P_B > P_{Ax}$, el cuerpo A tiende a subir y el cuerpo B a bajar $\implies$ el rozamiento sobre A se opone apuntando hacia abajo del plano.</p>
+                <p>Normal de A: $N_A = m_A g \cos 30^\circ = 5 \cdot 9{,}8 \cdot 0{,}866 = 42{,}44\text{ N} \implies F_r = 0{,}2 \cdot 42{,}44 = 8{,}49\text{ N}$.</p>
+                <p>Como $P_B - P_{Ax} = 39{,}2 - 24{,}5 = 14{,}7\text{ N} > F_r = 8{,}49\text{ N}$, ¡el sistema acelera!</p>
+                <p><strong>2. Ecuación dinámica global:</strong>
+                  $$P_B - P_{Ax} - F_r = (m_A + m_B) a \implies 39{,}2 - 24{,}5 - 8{,}49 = (5 + 4) a$$
+                  $$6{,}21 = 9 a \implies a = \frac{6{,}21}{9} = 0{,}69\text{ m/s}^2.$$</p>
+                <p><strong>3. Tensión:</strong> $P_B - T = m_B a \implies T = 4(9{,}8 - 0{,}69) = 4(9{,}11) = 36{,}44\text{ N}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 18 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 18 &bull; Doble plano inclinado</h3>
+            <p class="text-sm text-slate-700 mb-3">Dos masas $m_1 = 8\text{ kg}$ y $m_2 = 4\text{ kg}$ descansan sobre dos planos inclinados opuestos con ángulos $\alpha_1 = 45^\circ$ y $\alpha_2 = 30^\circ$. Si no hay rozamiento ($\mu = 0$) y la polea es ideal, calcula la aceleración y la tensión.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Componente paralela en 1: $P_{1x} = 8 \cdot 9{,}8 \cdot \sin 45^\circ = 78{,}4 \cdot 0{,}7071 = 55{,}44\text{ N}$.</p>
+                <p>Componente paralela en 2: $P_{2x} = 4 \cdot 9{,}8 \cdot \sin 30^\circ = 39{,}2 \cdot 0{,}5 = 19{,}60\text{ N}$.</p>
+                <p>Como $P_{1x} > P_{2x}$, la masa 1 desciende y la masa 2 asciende:</p>
+                $$P_{1x} - P_{2x} = (m_1 + m_2) a \implies 55{,}44 - 19{,}60 = (8 + 4) a \implies 35{,}84 = 12 a \implies a = 2{,}99\text{ m/s}^2.$$
+                <p>Tensión: $T - P_{2x} = m_2 a \implies T = 19{,}60 + 4(2{,}99) = 19{,}60 + 11{,}96 = 31{,}56\text{ N}$.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 19 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 19 &bull; Peralte con rozamiento: velocidad máxima segura</h3>
+            <p class="text-sm text-slate-700 mb-3">Una curva de radio $R = 100\text{ m}$ tiene un peralte $\theta = 15^\circ$ y el asfalto mojado tiene un coeficiente $\mu = 0{,}2$. Calcula la velocidad máxima que puede alcanzar un coche sin salirse hacia el exterior.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>A velocidad máxima inminente, el coche tiende a derrapar hacia arriba del peralte, por lo que $F_r$ apunta hacia el interior y abajo del plano.</p>
+                <p>Eje vertical: $N \cos\theta - F_r \sin\theta - m g = 0 \implies N(\cos\theta - \mu \sin\theta) = m g$.</p>
+                <p>Eje horizontal: $N \sin\theta + F_r \cos\theta = m \frac{v_{\text{máx}}^2}{R} \implies N(\sin\theta + \mu \cos\theta) = m \frac{v_{\text{máx}}^2}{R}$.</p>
+                <p>Dividiendo ambas ecuaciones:
+                  $$\frac{v_{\text{máx}}^2}{g R} = \frac{\sin\theta + \mu \cos\theta}{\cos\theta - \mu \sin\theta} = \frac{\tan\theta + \mu}{1 - \mu \tan\theta}$$
+                  $$\tan(15^\circ) \approx 0{,}2679 \implies \frac{0{,}2679 + 0{,}2}{1 - 0{,}2 \cdot 0{,}2679} = \frac{0{,}4679}{0{,}9464} \approx 0{,}4944$$
+                  $$v_{\text{máx}} = \sqrt{0{,}4944 \cdot 9{,}8 \cdot 100} = \sqrt{484{,}5} \approx 22{,}0\text{ m/s} \approx 79{,}2\text{ km/h}.$$</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 20 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 20 &bull; Péndulo balístico</h3>
+            <p class="text-sm text-slate-700 mb-3">Una bala de $m = 10\text{ g}$ con velocidad horizontal desconocida $v_0$ impacta y queda incrustada en un bloque de madera suspendido de masa $M = 1{,}99\text{ kg}$. El conjunto se eleva hasta una altura máxima de $h = 5\text{ cm}$. Calcula la velocidad inicial $v_0$ de la bala.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Ascenso del bloque (conservación de energía mecánica):</strong>
+                  $$\frac{1}{2}(m + M)V^2 = (m + M)gh \implies V = \sqrt{2gh} = \sqrt{2 \cdot 9{,}8 \cdot 0{,}05} = \sqrt{0{,}98} \approx 0{,}9899\text{ m/s}.$$</p>
+                <p><strong>2. Impacto (conservación del momento lineal):</strong>
+                  $$m v_0 = (m + M)V \implies v_0 = \frac{m + M}{m}V = \frac{0{,}01 + 1{,}99}{0{,}01} \cdot 0{,}9899 = 200 \cdot 0{,}9899 \approx 198\text{ m/s}.$$</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 21 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 21 &bull; Bloque sobre bloque y fuerza máxima sin deslizamiento relativo</h3>
+            <p class="text-sm text-slate-700 mb-3">Un bloque pequeño de $m_1 = 2\text{ kg}$ descansa sobre otro bloque de $m_2 = 6\text{ kg}$, el cual está apoyado sobre un suelo horizontal liso ($\mu_{\text{suelo}} = 0$). Entre ambos bloques el coeficiente estático es $\mu = 0{,}3$. Se tira del bloque inferior con una fuerza horizontal $F$. ¿Cuál es el valor máximo de $F$ para que el bloque superior no deslice?</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Aceleración máxima que puede soportar $m_1$:</strong></p>
+                <p>La única fuerza horizontal que acelera al bloque superior $m_1$ es el rozamiento con el inferior: $F_{r,\text{máx}} = \mu m_1 g$.</p>
+                <p>Por la 2ª ley: $F_{r,\text{máx}} = m_1 a_{\text{máx}} \implies a_{\text{máx}} = \mu g = 0{,}3 \cdot 9{,}8 = 2{,}94\text{ m/s}^2$.</p>
+                <p><strong>2. Fuerza total aplicada al conjunto de masa $(m_1 + m_2)$:</strong></p>
+                <p>Para acelerar ambos cuerpos juntos a $a_{\text{máx}}$ sin rozamiento con el suelo:
+                  $$F_{\text{máx}} = (m_1 + m_2) a_{\text{máx}} = (2 + 6)\text{ kg} \cdot 2{,}94\text{ m/s}^2 = 8 \cdot 2{,}94 = 23{,}52\text{ N}.$$</p>
+                <p>Si $F > 23{,}52\text{ N}$, el bloque inferior se acelerará más rápido y el bloque superior deslizará hacia atrás.</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Ejercicio 22 -->
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Ejercicio 22 &bull; Choque bidimensional oblicuo con conservación vectorial</h3>
+            <p class="text-sm text-slate-700 mb-3">Una bola de billar $A$ de masa $m$ que se mueve a $v_A = 2\text{ m/s}$ en la dirección del eje $+X$ choca con otra bola idéntica $B$ en reposo. Tras el choque, la bola $A$ se desvía un ángulo de $30^\circ$ sobre el eje $X$ con velocidad $v_A' = \sqrt{3}\text{ m/s}$. Halla la velocidad y el ángulo de salida de la bola $B$.</p>
+            <details class="exercise-details group">
+              <summary class="cursor-pointer text-xs font-bold text-emerald-700 hover:text-emerald-800 select-none flex items-center gap-1.5 py-1">
+                <span class="inline-block transition-transform duration-200 group-open:rotate-90">▸</span>
+                <span>[✓ Ver Solución Paso a Paso]</span>
+              </summary>
+              <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Como las masas son idénticas, se simplifican en la conservación vectorial del momento: $\vec{v}_A = \vec{v}_A' + \vec{v}_B'$.</p>
+                <p><strong>Eje X:</strong> $v_A = v_A' \cos 30^\circ + v_{Bx}' \implies 2 = \sqrt{3} \cdot \frac{\sqrt{3}}{2} + v_{Bx}' = \frac{3}{2} + v_{Bx}' \implies v_{Bx}' = 2 - 1{,}5 = 0{,}5\text{ m/s}$.</p>
+                <p><strong>Eje Y:</strong> $0 = v_A' \sin 30^\circ + v_{By}' \implies 0 = \sqrt{3} \cdot 0{,}5 + v_{By}' \implies v_{By}' = -\frac{\sqrt{3}}{2} \approx -0{,}866\text{ m/s}$.</p>
+                <p><strong>Módulo y ángulo de la bola B:</strong></p>
+                $$v_B' = \sqrt{(0{,}5)^2 + (-0{,}866)^2} = \sqrt{0{,}25 + 0{,}75} = \sqrt{1} = 1\text{ m/s}.$$
+                $$\tan\theta_B = \frac{-0{,}866}{0{,}5} = -\sqrt{3} \implies \theta_B = -60^\circ \text{ (por debajo del eje X)}.$$
+                <p>Nótese que el ángulo entre ambas trayectorias tras el impacto es $30^\circ - (-60^\circ) = 90^\circ$, característico de choques elásticos entre masas iguales.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-slate-500">
+        Toomate.es &bull; Física y Química 1º Bachillerato &bull; 22 Ejercicios Resueltos
+      </div>
+      <a href="dinamica-newton-1-bach.html" class="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-semibold text-sm">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Repasar Teoría y Fórmulas</span>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    let todasAbiertas = false;
+    function toggleTodasLasSoluciones() {
+      todasAbiertas = !todasAbiertas;
+      document.querySelectorAll(".exercise-details").forEach(d => d.open = todasAbiertas);
+      document.getElementById("btnToggleText").textContent = todasAbiertas ? "Plegar todas las soluciones" : "Desplegar todas las soluciones";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

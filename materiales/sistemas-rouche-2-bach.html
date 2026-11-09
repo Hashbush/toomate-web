@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemas de Ecuaciones Lineales & Teorema de Rouché-Fröbenius | Toomate.es</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- KaTeX para fórmulas matemáticas perfectas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR (NO IMPRIMIBLE) -->
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-rose-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-rouche-2-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4 text-blue-600"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- DOCUMENTO DIDÁCTICO -->
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <!-- CABECERA DEL DOCUMENTO -->
+    <header class="border-b-2 border-blue-600 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Toomate.es &bull; Material Didáctico Oficial</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Sistemas de Ecuaciones Lineales</h1>
+          <p class="text-xs sm:text-sm text-slate-500">Teorema de Rouché-Fröbenius, Regla de Cramer y Discusión con Parámetros</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Curso:</strong> 2º de Bachillerato</p>
+        <p><strong class="text-slate-700">Bloque:</strong> Álgebra Lineal</p>
+        <p><strong class="text-slate-700">Examen:</strong> EvAU / PAU (Pregunta fija 2,5 pts)</p>
+      </div>
+    </header>
+
+    <!-- INTRODUCCIÓN PEDAGÓGICA -->
+    <div class="bg-blue-50/70 border border-blue-200 rounded-2xl p-5 mb-8">
+      <h3 class="text-sm font-bold text-blue-900 flex items-center gap-2">
+        <i data-lucide="target" class="w-4 h-4 text-blue-600"></i>
+        La "Pregunta Estrella" de la Selectividad:
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-700 mt-1.5 leading-relaxed">
+        Prácticamente el <strong>100% de los exámenes de EvAU</strong> incluyen un ejercicio de este tema: te dan un sistema de 3 ecuaciones con un parámetro ($k$, $m$ o $a$) y te piden:
+        <strong>1)</strong> Discutir el sistema según los valores del parámetro, y <strong>2)</strong> Resolverlo para algún caso compatible. Sigue la metodología de esta ficha y tendrás los 2,5 puntos asegurados.
+      </p>
+    </div>
+
+    <!-- SECCIÓN 1: EL TEOREMA DE ROUCHÉ-FRÖBENIUS -->
+    <section class="space-y-6">
+      <div class="flex items-center gap-2 border-b border-slate-200 pb-2">
+        <span class="w-7 h-7 rounded-lg bg-slate-900 text-white font-bold text-sm flex items-center justify-center">1</span>
+        <h2 class="text-xl font-bold text-slate-900">El Teorema de Rouché-Fröbenius (Esquema Maestro)</h2>
+      </div>
+
+      <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+        Sea un sistema de $m$ ecuaciones con $n$ incógnitas escrito en forma matricial $A \cdot X = B$, donde $A$ es la matriz de coeficientes y $A^*$ (o $A|B$) es la matriz ampliada con la columna de términos independientes:
+      </p>
+
+      <!-- TABLA DE CLASIFICACIÓN ROUCHÉ -->
+      <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-xs text-xs sm:text-sm">
+        <table class="w-full text-left border-collapse">
+          <thead class="bg-slate-900 text-white text-xs">
+            <tr>
+              <th class="p-3.5">Condición de Rangos</th>
+              <th class="p-3.5">Tipo de Sistema</th>
+              <th class="p-3.5">Número de Soluciones</th>
+              <th class="p-3.5">Interpretación Geométrica ($3 \times 3$)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-700 bg-white">
+            <tr class="hover:bg-slate-50 transition">
+              <td class="p-3.5 font-bold font-mono text-emerald-700">$\text{Rg}(A) = \text{Rg}(A^*) = n$</td>
+              <td class="p-3.5"><span class="px-2 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">S.C.D.</span> (Compatible Determinado)</td>
+              <td class="p-3.5 font-semibold text-slate-900">Solución Única $(x_0, y_0, z_0)$</td>
+              <td class="p-3.5 text-xs text-slate-500">Los 3 planos se cortan en un <strong>único punto</strong> común.</td>
+            </tr>
+            <tr class="hover:bg-slate-50 transition">
+              <td class="p-3.5 font-bold font-mono text-blue-700">$\text{Rg}(A) = \text{Rg}(A^*) = r < n$</td>
+              <td class="p-3.5"><span class="px-2 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-800">S.C.I.</span> (Compatible Indeterminado)</td>
+              <td class="p-3.5 font-semibold text-slate-900">Infinitas Soluciones (dependen de $n - r$ parámetros $\lambda$)</td>
+              <td class="p-3.5 text-xs text-slate-500">Si $r=2$, los planos se cortan en una <strong>recta común</strong>.</td>
+            </tr>
+            <tr class="hover:bg-slate-50 transition">
+              <td class="p-3.5 font-bold font-mono text-rose-700">$\text{Rg}(A) \neq \text{Rg}(A^*)$</td>
+              <td class="p-3.5"><span class="px-2 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-800">S.I.</span> (Sistema Incompatible)</td>
+              <td class="p-3.5 font-semibold text-rose-600">No Tiene Solución</td>
+              <td class="p-3.5 text-xs text-slate-500">Los 3 planos no tienen ningún punto común (se cortan 2 a 2 en tejado o son paralelos).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CASO PARTICULAR: SISTEMAS HOMOGÉNEOS -->
+      <div class="p-5 rounded-2xl bg-amber-50/60 border border-amber-200 text-xs sm:text-sm">
+        <div class="flex items-center gap-2 text-amber-900 font-bold mb-1">
+          <i data-lucide="alert-circle" class="w-4 h-4 text-amber-600"></i>
+          <span>Caso Especial: Sistemas Homogéneos (Términos independientes nulos: $B = \vec{0}$)</span>
+        </div>
+        <p class="text-slate-700 leading-relaxed">
+          Como la columna de términos independientes solo tiene ceros, la matriz ampliada nunca aumenta el rango: $\text{Rg}(A^*) = \text{Rg}(A)$ siempre.
+          Por tanto:
+        </p>
+        <ul class="mt-2 space-y-1.5 list-disc list-inside text-slate-700 font-medium">
+          <li><strong>¡Un sistema homogéneo NUNCA es incompatible!</strong> Siempre tiene como mínimo la <em>solución trivial</em> $(x=0, y=0, z=0)$.</li>
+          <li>Si $|A| \neq 0 \implies \text{Rg}(A)=n \implies \text{S.C.D.}$ (la <strong>única</strong> solución es la trivial $x=y=z=0$).</li>
+          <li>Si $|A| = 0 \implies \text{Rg}(A) < n \implies \text{S.C.I.}$ (tiene <strong>soluciones distintas de la trivial</strong>).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: HERRAMIENTAS DE RESOLUCIÓN -->
+    <section class="mt-10 space-y-6">
+      <div class="flex items-center gap-2 border-b border-slate-200 pb-2">
+        <span class="w-7 h-7 rounded-lg bg-slate-900 text-white font-bold text-sm flex items-center justify-center">2</span>
+        <h2 class="text-xl font-bold text-slate-900">Métodos de Resolución: Cramer y Parámetros</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        
+        <!-- Tarjeta: Regla de Cramer -->
+        <div class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50">
+          <h4 class="font-bold text-slate-900 mb-2 flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+            Regla de Cramer (Para S.C.D.)
+          </h4>
+          <p class="text-slate-600 mb-3">Aplicable cuando el número de ecuaciones coincide con las incógnitas y $|A| \neq 0$:</p>
+          <div class="bg-white p-3 rounded-xl border border-slate-200 text-center font-mono space-y-1">
+            $$x = \frac{|A_x|}{|A|}, \quad y = \frac{|A_y|}{|A|}, \quad z = \frac{|A_z|}{|A|}$$
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2">Donde $|A_x|$ es el determinante cambiando la columna de las $x$ por la de términos independientes.</p>
+        </div>
+
+        <!-- Tarjeta: Resolución de S.C.I. -->
+        <div class="p-5 rounded-2xl border border-slate-200 bg-slate-50/50">
+          <h4 class="font-bold text-slate-900 mb-2 flex items-center gap-1.5">
+            <i data-lucide="sliders" class="w-4 h-4 text-blue-600"></i>
+            Cómo Resolver un S.C.I. con Parámetros
+          </h4>
+          <p class="text-slate-600 mb-2">Si $\text{Rg}(A)=2$ con 3 incógnitas ($x, y, z$):</p>
+          <ol class="list-decimal list-inside space-y-1 text-slate-700 text-xs">
+            <li>Elegimos un menor no nulo de orden 2 (las ecuaciones e incógnitas principales).</li>
+            <li>La incógnita sobrante pasa al otro lado como parámetro: $z = \lambda \in \mathbb{R}$.</li>
+            <li>Resolvemos el sistema $2 \times 2$ resultante (por Cramer o reducción).</li>
+            <li>Escribimos la solución expresando $(x, y, z)$ en función de $\lambda$.</li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: ERRORES FRECUENTES QUE QUITAN PUNTOS -->
+    <section class="mt-10 space-y-4">
+      <div class="flex items-center gap-2 border-b border-slate-200 pb-2">
+        <span class="w-7 h-7 rounded-lg bg-rose-600 text-white font-bold text-sm flex items-center justify-center">!</span>
+        <h2 class="text-xl font-bold text-slate-900">Las 3 Advertencias Clave del Profe Tomate</h2>
+      </div>
+
+      <div class="space-y-3 text-xs sm:text-sm">
+        <div class="p-4 rounded-xl border border-red-200 bg-red-50/50 flex items-start gap-3">
+          <span class="text-red-600 font-bold text-base">&times;</span>
+          <div>
+            <strong class="text-red-900 font-semibold block">Error 1: No citar explícitamente el Teorema</strong>
+            <p class="text-slate-700">En los criterios de corrección de EvAU penalizan si no escribes la frase: <em>"Por el Teorema de Rouché-Fröbenius, dado que $\text{Rg}(A) = \text{Rg}(A^*) = \dots$, el sistema es..."</em>. No des la conclusión por supuesta.</p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-red-200 bg-red-50/50 flex items-start gap-3">
+          <span class="text-red-600 font-bold text-base">&times;</span>
+          <div>
+            <strong class="text-red-900 font-semibold block">Error 2: Olvidar comprobar el rango de $A^*$ en los casos críticos</strong>
+            <p class="text-slate-700">Cuando $|A| = 0$, sabes que $\text{Rg}(A) < 3$, pero <strong>no sabes si el sistema es S.C.I. o S.I.</strong> hasta que no orlas la matriz con los términos independientes para calcular el rango de $A^*$.</p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-red-200 bg-red-50/50 flex items-start gap-3">
+          <span class="text-red-600 font-bold text-base">&times;</span>
+          <div>
+            <strong class="text-red-900 font-semibold block">Error 3: Dejar el S.C.I. sin indicar que $\lambda \in \mathbb{R}$</strong>
+            <p class="text-slate-700">Al dar la solución de un S.C.I., debes escribir siempre al final: <em>"con $\lambda \in \mathbb{R}$"</em> para indicar que el parámetro puede tomar cualquier valor real.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SALTO DE PÁGINA PARA IMPRESIÓN -->
+    <div class="page-break my-10"></div>
+
+    <!-- SECCIÓN 4: EJERCICIO COMPLETO DE SELECTIVIDAD PASO A PASO -->
+    <section class="space-y-8">
+      <div class="flex items-center gap-2 border-b border-slate-200 pb-2">
+        <span class="w-7 h-7 rounded-lg bg-blue-600 text-white font-bold text-sm flex items-center justify-center">3</span>
+        <h2 class="text-xl font-bold text-slate-900">Problema Modelo de EvAU Completo y Resuelto</h2>
+      </div>
+
+      <!-- PROBLEMA RESUELTO MODELO -->
+      <article class="border border-slate-200 rounded-2xl p-6 sm:p-8 bg-slate-50/30">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-bold px-3 py-1 rounded-full bg-blue-100 text-blue-800 border border-blue-200">EvAU Oficial &bull; 2,5 Puntos</span>
+          <span class="text-xs text-slate-500 font-semibold">Discusión y Resolución</span>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 mb-6">
+          <p class="text-sm font-bold text-slate-900">Enunciado:</p>
+          <p class="text-sm text-slate-800 mt-2">
+            Dado el siguiente sistema de ecuaciones lineales dependiente del parámetro real $m$:
+          </p>
+          <div class="my-3 text-center text-sm font-mono">
+            $$\begin{cases} mx + y + z = 1 \\ x + my + z = m \\ x + y + mz = m^2 \end{cases}$$
+          </div>
+          <p class="text-xs sm:text-sm text-slate-700">
+            <strong>a)</strong> Discute el sistema en función de los valores del parámetro $m$. (1,5 puntos)<br>
+            <strong>b)</strong> Resuelve el sistema para $m = 2$. (0,5 puntos)<br>
+            <strong>c)</strong> Resuelve el sistema para $m = 1$, si es posible. (0,5 puntos)
+          </p>
+        </div>
+
+        <!-- RESOLUCIÓN DETALLADA -->
+        <div class="space-y-6 text-xs sm:text-sm text-slate-700">
+          
+          <!-- APARTADO A -->
+          <div>
+            <h4 class="font-bold text-slate-900 text-base mb-2 border-l-4 border-blue-600 pl-3">
+              Apartado a): Discusión según el parámetro $m$
+            </h4>
+            <p>Escribimos la matriz de coeficientes $A$ y la matriz ampliada $A^*$:</p>
+            <div class="bg-white p-3 rounded-xl border border-slate-200 text-center my-2">
+              $$A = \begin{pmatrix} m & 1 & 1 \\ 1 & m & 1 \\ 1 & 1 & m \end{pmatrix}, \quad A^* = \begin{pmatrix} m & 1 & 1 & 1 \\ 1 & m & 1 & m \\ 1 & 1 & m & m^2 \end{pmatrix}$$
+            </div>
+            
+            <p><strong>Paso 1:</strong> Calculamos el determinante de la matriz de coeficientes $|A|$:</p>
+            <div class="bg-white p-3 rounded-xl border border-slate-200 text-center my-2 font-mono">
+              $$|A| = m^3 + 1 + 1 - (m + m + m) = m^3 - 3m + 2$$
+            </div>
+            <p>Buscamos las raíces de $m^3 - 3m + 2 = 0$ aplicando la regla de Ruffini (probando divisores de 2: $\pm 1, \pm 2$):</p>
+            <div class="bg-white p-3 rounded-xl border border-slate-200 text-center my-2 font-mono">
+              $$(m - 1)^2 (m + 2) = 0 \implies m = 1 \quad (\text{raíz doble}), \quad m = -2$$
+            </div>
+
+            <div class="space-y-3 mt-4">
+              <!-- Caso 1 -->
+              <div class="p-3.5 bg-emerald-50/70 border border-emerald-200 rounded-xl">
+                <strong class="text-emerald-900 font-bold block mb-1">Caso 1: Si $m \neq 1$ y $m \neq -2$ (Caso General)</strong>
+                <p>Como $|A| \neq 0$, el rango de $A$ es máximo: $\text{Rg}(A) = 3$. Como $A^*$ tiene 3 filas, su rango no puede ser mayor: $\text{Rg}(A^*) = 3$.</p>
+                <p class="mt-1 font-semibold text-emerald-950">
+                  $\text{Rg}(A) = \text{Rg}(A^*) = 3 = n$ (número de incógnitas) $\implies$ <strong>Por el Teorema de Rouché-Fröbenius, el sistema es Compatible Determinado (S.C.D.)</strong> con solución única.
+                </p>
+              </div>
+
+              <!-- Caso 2 -->
+              <div class="p-3.5 bg-blue-50/70 border border-blue-200 rounded-xl">
+                <strong class="text-blue-900 font-bold block mb-1">Caso 2: Si $m = 1$</strong>
+                <p>Sustituimos $m = 1$ en la matriz ampliada:</p>
+                <div class="bg-white p-2 rounded-lg border border-slate-200 text-center my-2">
+                  $$A^* = \begin{pmatrix} 1 & 1 & 1 & 1 \\ 1 & 1 & 1 & 1 \\ 1 & 1 & 1 & 1 \end{pmatrix}$$
+                </div>
+                <p>Las tres filas son idénticas. Tomando cualquier elemento no nulo, como $|1| = 1 \neq 0$, tenemos:</p>
+                <p class="mt-1 font-semibold text-blue-950">
+                  $\text{Rg}(A) = \text{Rg}(A^*) = 1 < 3 = n \implies$ <strong>Por Rouché-Fröbenius, el sistema es Compatible Indeterminado (S.C.I.)</strong> con infinitas soluciones dependientes de $3 - 1 = 2$ parámetros.
+                </p>
+              </div>
+
+              <!-- Caso 3 -->
+              <div class="p-3.5 bg-rose-50/70 border border-rose-200 rounded-xl">
+                <strong class="text-rose-900 font-bold block mb-1">Caso 3: Si $m = -2$</strong>
+                <p>Sustituimos $m = -2$ en la matriz ampliada:</p>
+                <div class="bg-white p-2 rounded-lg border border-slate-200 text-center my-2">
+                  $$A^* = \begin{pmatrix} -2 & 1 & 1 & 1 \\ 1 & -2 & 1 & -2 \\ 1 & 1 & -2 & 4 \end{pmatrix}$$
+                </div>
+                <p>En $A$, como $|A| = 0$, buscamos un menor de orden 2 no nulo: $\begin{vmatrix} -2 & 1 \\ 1 & -2 \end{vmatrix} = 4 - 1 = 3 \neq 0 \implies \text{Rg}(A) = 2$.</p>
+                <p>Orlamos este menor con la columna de términos independientes para ver el rango de $A^*$:</p>
+                <div class="bg-white p-2 rounded-lg border border-slate-200 text-center my-2 font-mono">
+                  $$\begin{vmatrix} -2 & 1 & 1 \\ 1 & -2 & -2 \\ 1 & 1 & 4 \end{vmatrix} = 16 - 2 + 1 - (-2 + 4 + 4) = 15 - 6 = 9 \neq 0 \implies \text{Rg}(A^*) = 3$$
+                </div>
+                <p class="mt-1 font-semibold text-rose-950">
+                  $\text{Rg}(A) = 2 \neq \text{Rg}(A^*) = 3 \implies$ <strong>Por Rouché-Fröbenius, el sistema es Incompatible (S.I.)</strong> y no tiene solución.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- APARTADO B -->
+          <div class="pt-4 border-t border-slate-200">
+            <h4 class="font-bold text-slate-900 text-base mb-2 border-l-4 border-emerald-600 pl-3">
+              Apartado b): Resolución para $m = 2$ (S.C.D. mediante Regla de Cramer)
+            </h4>
+            <p>Para $m = 2$, el determinante vale $|A| = 2^3 - 3(2) + 2 = 8 - 6 + 2 = 4 \neq 0$. El sistema es S.C.D.</p>
+            <p>Calculamos cada incógnita aplicando la Regla de Cramer:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 my-3 text-center">
+              <div class="bg-white p-2.5 rounded-xl border border-slate-200">
+                $$x = \frac{\begin{vmatrix} 1 & 1 & 1 \\ 2 & 2 & 1 \\ 4 & 1 & 2 \end{vmatrix}}{4} = \frac{-1}{4}$$
+              </div>
+              <div class="bg-white p-2.5 rounded-xl border border-slate-200">
+                $$y = \frac{\begin{vmatrix} 2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 4 & 2 \end{vmatrix}}{4} = \frac{3}{4}$$
+              </div>
+              <div class="bg-white p-2.5 rounded-xl border border-slate-200">
+                $$z = \frac{\begin{vmatrix} 2 & 1 & 1 \\ 1 & 2 & 2 \\ 1 & 1 & 4 \end{vmatrix}}{4} = \frac{7}{4}$$
+              </div>
+            </div>
+            <div class="p-3 bg-emerald-100/70 text-emerald-950 rounded-xl font-bold text-center">
+              Solución para $m = 2$: &nbsp; $(x, y, z) = \left( -\frac{1}{4}, \frac{3}{4}, \frac{7}{4} \right)$
+            </div>
+          </div>
+
+          <!-- APARTADO C -->
+          <div class="pt-4 border-t border-slate-200">
+            <h4 class="font-bold text-slate-900 text-base mb-2 border-l-4 border-blue-600 pl-3">
+              Apartado c): Resolución para $m = 1$ (S.C.I. con 2 Parámetros)
+            </h4>
+            <p>Para $m = 1$, las tres ecuaciones quedan reducidas a una sola ecuación:</p>
+            <div class="bg-white p-3 rounded-xl border border-slate-200 text-center font-mono my-2">
+              $$x + y + z = 1$$
+            </div>
+            <p>Tomamos $y = \lambda$ y $z = \mu$ como parámetros libres ($\lambda, \mu \in \mathbb{R}$) y despejamos $x$:</p>
+            <div class="p-3 bg-blue-100/70 text-blue-950 rounded-xl font-bold text-center">
+              Solución general: &nbsp; $\begin{cases} x = 1 - \lambda - \mu \\ y = \lambda \\ z = \mu \end{cases} \quad \text{con } \lambda, \mu \in \mathbb{R}$
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+    </section>
+
+    <!-- SECCIÓN 5: CHULETA RESUMEN RECORTABLE -->
+    <div class="page-break my-10"></div>
+    <section class="border-2 border-dashed border-blue-300 rounded-2xl p-6 bg-blue-50/30">
+      <div class="text-center mb-4">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-white px-3 py-1 rounded-full border border-blue-200">Formulario Resumen Toomate</span>
+        <h3 class="text-lg font-bold text-slate-900 mt-1">Chuleta Rápida de Sistemas & Rouché</h3>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+          <p class="font-bold text-slate-900">Pasos para Discutir un Parámetro:</p>
+          <p>1. Calcular determinante $|A|$.</p>
+          <p>2. Resolver ecuación $|A| = 0$ (raíces críticas).</p>
+          <p>3. <strong>Caso General:</strong> Para valores distintos $\implies \text{S.C.D.}$</p>
+          <p>4. <strong>Casos Particulares:</strong> Sustituir cada raíz y estudiar $\text{Rg}(A)$ y $\text{Rg}(A^*)$.</p>
+        </div>
+
+        <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1">
+          <p class="font-bold text-slate-900">Resumen Rouché-Fröbenius ($n$ incógnitas):</p>
+          <p>&bull; $\text{Rg}(A) = \text{Rg}(A^*) = n \implies$ <strong>S.C.D.</strong></p>
+          <p>&bull; $\text{Rg}(A) = \text{Rg}(A^*) = r < n \implies$ <strong>S.C.I.</strong></p>
+          <p>&bull; $\text{Rg}(A) \neq \text{Rg}(A^*) \implies$ <strong>S.I.</strong> (No solución)</p>
+          <p>&bull; Homogéneos ($B=0$): ¡Siempre compatibles!</p>
+        </div>
+
+        <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1 sm:col-span-2">
+          <p class="font-bold text-slate-900">Geometría de 3 Planos en el Espacio:</p>
+          <p>&bull; <strong>S.C.D.:</strong> 3 planos secantes en un punto.</p>
+          <p>&bull; <strong>S.C.I. ($r=2$):</strong> 3 planos que se cortan en una recta común (haz de planos).</p>
+          <p>&bull; <strong>S.I. ($r=2, \text{Rg}(A^*)=3$):</strong> Planos que se cortan dos a dos sin punto común (prisma / tejado).</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-4 text-[11px] text-slate-500">
+        Toomate.es &bull; Portal didáctico libre para estudiantes y profesores &bull; ¡Muchas Mates! 🍅
+      </div>
+    </section>
+
+    <!-- PIE DEL DOCUMENTO -->
+    <footer class="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-2">
+      <div class="flex items-center gap-2">
+        <img src="../logo-tomate.jpg" alt="Logo" class="w-5 h-5 rounded-md">
+        <span>Toomate.es &bull; Academia de Estudios y Recursos Didácticos</span>
+      </div>
+      <span>Documento oficial de estudio &bull; 2º de Bachillerato</span>
+    </footer>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+      if (window.lucide) lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

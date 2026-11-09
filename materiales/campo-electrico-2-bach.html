@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campo Eléctrico - 2º Bachillerato EvAU | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-amber-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-campo-electrico-2-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-600 hover:text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-amber-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Toomate.es &bull; Material Didáctico Oficial</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Campo Eléctrico y Ley de Coulomb</h1>
+          <p class="text-xs sm:text-sm text-slate-500">2º de Bachillerato &bull; Física EvAU Cantabria &bull; Electrostática</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Nivel:</strong> 2º Bachillerato (Física)</p>
+        <p><strong class="text-slate-700">Bloque:</strong> Interacción Electromagnética</p>
+        <p><strong class="text-slate-700">Ponderación EvAU:</strong> 2,0 - 2,5 Puntos</p>
+      </div>
+    </header>
+
+    <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-5 mb-8">
+      <h3 class="text-sm font-bold text-amber-900 flex items-center gap-2">
+        <i data-lucide="zap" class="w-4 h-4 text-amber-600"></i>
+        La Interacción Electrostática
+      </h3>
+      <p class="text-xs sm:text-sm text-amber-950 mt-1 leading-relaxed">
+        El campo eléctrico describe cómo las cargas eléctricas estáticas perturban el espacio que las rodea. A diferencia de la gravedad (siempre atractiva), la fuerza electrostática puede ser atractiva o repulsiva según el signo de las cargas, y su constante en el vacío es colosal: $K = 9 \times 10^9 \text{ N}\cdot\text{m}^2/\text{C}^2$.
+      </p>
+    </div>
+
+    <!-- 1: LEY DE COULOMB Y VECTOR CAMPO -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-600 text-white inline-flex items-center justify-center text-xs font-bold">1</span>
+        Ley de Coulomb e Intensidad del Campo Eléctrico $\vec{E}$
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-amber-800">Ley de Coulomb (Fuerza Electrostática)</h4>
+          <p class="text-slate-600">Fuerza mutua entre dos cargas puntuales $q_1$ y $q_2$ separadas una distancia $r$:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$\vec{F} = K \frac{q_1 q_2}{r^2} \vec{u}_r \quad (\text{en Newtons, N})$$
+          </div>
+          <p class="text-[11px] text-slate-500">Signos iguales se repelen; signos opuestos se atraen. $K = \frac{1}{4\pi\varepsilon_0} = 9 \cdot 10^9\text{ N}\cdot\text{m}^2/\text{C}^2$.</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-amber-800">Intensidad de Campo Eléctrico $\vec{E}$</h4>
+          <p class="text-slate-600">Fuerza por unidad de carga testigo positiva (+1 C):</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$\vec{E} = \frac{\vec{F}}{q'} = K \frac{Q}{r^2} \vec{u}_r \quad (\text{en N/C o V/m})$$
+          </div>
+          <p class="text-[11px] text-slate-500">Si $Q > 0$, $\vec{E}$ es saliente (radial). Si $Q < 0$, $\vec{E}$ es entrante.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2: POTENCIAL Y TRABAJO -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-600 text-white inline-flex items-center justify-center text-xs font-bold">2</span>
+        Potencial Eléctrico $V$ y Trabajo $W_{A \to B}$
+      </h2>
+
+      <div class="p-4 bg-amber-50/50 border border-amber-200 rounded-2xl space-y-3 text-xs sm:text-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-3 bg-white rounded-xl border border-amber-200 text-center">
+            <span class="font-bold text-amber-900 text-xs block mb-1">Energía Potencial Electrostática</span>
+            $$E_p = K \frac{Q q}{r} \quad (\text{en Julios, J})$$
+          </div>
+          <div class="p-3 bg-white rounded-xl border border-amber-200 text-center">
+            <span class="font-bold text-amber-900 text-xs block mb-1">Potencial Eléctrico (Magnitud Escalar)</span>
+            $$V = K \frac{Q}{r} \quad (\text{en Voltios, V})$$
+          </div>
+        </div>
+        <p class="text-slate-700">
+          <strong>Trabajo del campo eléctrico:</strong> Al ser un campo conservativo, el trabajo para trasladar una carga $q$ desde un punto $A$ hasta un punto $B$ depende exclusivamente de la diferencia de potencial:
+        </p>
+        <div class="p-3 bg-white rounded-xl border border-amber-300 font-mono text-center font-bold text-amber-950">
+          $$W_{A \to B} = -\Delta E_p = -(E_{p,B} - E_{p,A}) = q(V_A - V_B)$$
+        </div>
+        <p class="text-[11px] text-slate-600">
+          Si $W > 0$, el proceso es espontáneo (lo realiza el campo). Si $W < 0$, se requiere una fuerza externa en contra del campo.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3: CAMPO UNIFORME Y TEOREMA DE GAUSS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-600 text-white inline-flex items-center justify-center text-xs font-bold">3</span>
+        Campo Uniforme (Condensador) y Teorema de Gauss
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-amber-800">Placas Paralelas / Condensador</h4>
+          <p class="text-slate-600">Entre dos placas planas cargadas con densidades $\pm\sigma$, el campo es constante:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$E = \frac{\Delta V}{d} \iff V_A - V_B = E \cdot d$$
+          </div>
+          <p class="text-[11px] text-slate-500">Aceleración de una partícula cargada: $a = \frac{q E}{m}$.</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-amber-800">Teorema de Gauss</h4>
+          <p class="text-slate-600">El flujo eléctrico total a través de cualquier superficie cerrada es proporcional a la carga interior:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$\Phi = \oint \vec{E} \cdot d\vec{S} = \frac{Q_{\text{interior}}}{\varepsilon_0}$$
+          </div>
+          <p class="text-[11px] text-slate-500">En el interior de un conductor en equilibrio electrostático, siempre $E = 0$.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

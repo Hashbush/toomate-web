@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Derivadas y Optimización - 1º y 2º Bachillerato | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-rose-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-derivadas-optimizacion-1-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-rose-600 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-rose-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-rose-50 border border-rose-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-rose-600">Toomate.es &bull; Material Didáctico Oficial</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Cálculo Diferencial: Derivadas y Optimización</h1>
+          <p class="text-xs sm:text-sm text-slate-500">1º y 2º de Bachillerato &bull; Matemáticas I, II y Aplicadas a las CCSS</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Nivel:</strong> Bachillerato (Ciencias y Sociales)</p>
+        <p><strong class="text-slate-700">Bloque:</strong> Análisis Matemático</p>
+        <p><strong class="text-slate-700">Ponderación EvAU:</strong> 2,5 Puntos Habituales</p>
+      </div>
+    </header>
+
+    <div class="bg-rose-50/70 border border-rose-200 rounded-2xl p-5 mb-8">
+      <h3 class="text-sm font-bold text-rose-900 flex items-center gap-2">
+        <i data-lucide="trending-up" class="w-4 h-4 text-rose-600"></i>
+        La Potencia del Cálculo Diferencial
+      </h3>
+      <p class="text-xs sm:text-sm text-rose-950 mt-1 leading-relaxed">
+        La derivada es la herramienta matemática por excelencia para modelar el cambio. Permite conocer la velocidad instantánea de un proceso físico, hallar la recta tangente a una curva, clasificar el crecimiento de cualquier función y encontrar la configuración geométrica o económica que maximiza beneficios o minimiza costes.
+      </p>
+    </div>
+
+    <!-- 1: TABLA Y REGLAS DE DERIVACIÓN -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-rose-600 text-white inline-flex items-center justify-center text-xs font-bold">1</span>
+        Reglas de Derivación y Regla de la Cadena
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-rose-800">Reglas Operacionales</h4>
+          <p>&bull; <strong>Suma / Resta:</strong> $(u \pm v)' = u' \pm v'$</p>
+          <p>&bull; <strong>Producto:</strong> $(u \cdot v)' = u' v + u v'$</p>
+          <p>&bull; <strong>Cociente:</strong> $\left(\frac{u}{v}\right)' = \frac{u' v - u v'}{v^2}$</p>
+          <p>&bull; <strong>Regla de la Cadena:</strong> $[f(g(x))]' = f'(g(x)) \cdot g'(x)$</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-rose-800">Derivadas Compuestas Fundamentales</h4>
+          <p>&bull; <strong>Potencia:</strong> $[u^n]' = n \cdot u^{n-1} \cdot u'$</p>
+          <p>&bull; <strong>Exponencial:</strong> $[e^u]' = e^u \cdot u'$</p>
+          <p>&bull; <strong>Logaritmo:</strong> $[\ln u]' = \frac{u'}{u}$</p>
+          <p>&bull; <strong>Trigonométricas:</strong> $[\sin u]' = \cos u \cdot u'$, $[\cos u]' = -\sin u \cdot u'$</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2: RECTA TANGENTE Y NORMAL -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-rose-600 text-white inline-flex items-center justify-center text-xs font-bold">2</span>
+        Recta Tangente y Recta Normal en un Punto $x_0$
+      </h2>
+
+      <div class="p-5 bg-purple-50/50 border border-purple-200 rounded-2xl mb-4">
+        <p class="text-xs sm:text-sm text-slate-700 mb-3">
+          El valor de la derivada $f'(x_0)$ coincide exactamente con la pendiente $m$ de la recta tangente a la curva $y = f(x)$ en el punto de abscisa $x_0$:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+          <div class="p-3 bg-white border border-purple-200 rounded-xl font-mono text-sm font-bold text-purple-900">
+            $$\text{Recta Tangente: } y - f(x_0) = f'(x_0)(x - x_0)$$
+          </div>
+          <div class="p-3 bg-white border border-purple-200 rounded-xl font-mono text-sm font-bold text-purple-900">
+            $$\text{Recta Normal: } y - f(x_0) = -\frac{1}{f'(x_0)}(x - x_0)$$
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3: CRECIMIENTO Y EXTREMOS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-rose-600 text-white inline-flex items-center justify-center text-xs font-bold">3</span>
+        Estudio de Crecimiento y Extremos Relativos
+      </h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs sm:text-sm text-left border border-slate-200 rounded-xl overflow-hidden">
+          <thead class="bg-rose-100/70 text-rose-900 font-bold">
+            <tr>
+              <th class="p-3 border-b">Signo de la Derivada</th>
+              <th class="p-3 border-b">Comportamiento de la Función</th>
+              <th class="p-3 border-b">Conclusión / Criterio</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 bg-white">
+            <tr>
+              <td class="p-3 font-mono font-bold text-emerald-700">$f'(x) > 0$</td>
+              <td class="p-3">Función estrictamente creciente ($\nearrow$)</td>
+              <td class="p-3">La gráfica asciende de izquierda a derecha</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-bold text-rose-700">$f'(x) < 0$</td>
+              <td class="p-3">Función estrictamente decreciente ($\searrow$)</td>
+              <td class="p-3">La gráfica desciende de izquierda a derecha</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-bold text-blue-700">$f'(x_0) = 0$ y $f''(x_0) < 0$</td>
+              <td class="p-3">Pasa de crecer a decrecer ($\cap$)</td>
+              <td class="p-3 font-semibold text-rose-700">Máximo Relativo en $x_0$</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-bold text-blue-700">$f'(x_0) = 0$ y $f''(x_0) > 0$</td>
+              <td class="p-3">Pasa de decrecer a crecer ($\cup$)</td>
+              <td class="p-3 font-semibold text-emerald-700">Mínimo Relativo en $x_0$</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4: PROTOCOLO DE OPTIMIZACIÓN -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-rose-600 text-white inline-flex items-center justify-center text-xs font-bold">4</span>
+        Protocolo Maestro de Problemas de Optimización
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs">
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <span class="font-bold text-rose-700">1. Dibujo y Variables</span>
+          <p class="text-slate-600 mt-1">Nombra las magnitudes ($x$, $y$) e identifica la magnitud a maximizar o minimizar.</p>
+        </div>
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <span class="font-bold text-rose-700">2. Ecuación de Ligadura</span>
+          <p class="text-slate-600 mt-1">Usa la condición fija dada para despejar una variable en función de la otra ($y = g(x)$).</p>
+        </div>
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <span class="font-bold text-rose-700">3. Función de 1 Variable</span>
+          <p class="text-slate-600 mt-1">Sustituye en la función objetivo para obtener $f(x)$, deriva e iguala a cero: $f'(x) = 0$.</p>
+        </div>
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <span class="font-bold text-rose-700">4. Justificación $f''(x)$</span>
+          <p class="text-slate-600 mt-1">Calcula $f''(x)$ para demostrar rigurosamente que es un máximo ($< 0$) o mínimo ($> 0$).</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

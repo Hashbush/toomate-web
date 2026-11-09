@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Probabilidad y Distribución Normal - 2º Bachillerato | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-amber-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-probabilidad-normal-2-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-600 hover:text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-amber-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Toomate.es &bull; Material Didáctico Oficial</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Probabilidad y Distribución Normal</h1>
+          <p class="text-xs sm:text-sm text-slate-500">2º de Bachillerato &bull; Matemáticas II y CCSS &bull; Preparación EvAU</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Nivel:</strong> 2º Bachillerato (Ciencias y CCSS)</p>
+        <p><strong class="text-slate-700">Bloque:</strong> Probabilidad y Estadística</p>
+        <p><strong class="text-slate-700">EvAU Cantabria:</strong> 2,5 Puntos Fijos</p>
+      </div>
+    </header>
+
+    <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-5 mb-8">
+      <h3 class="text-sm font-bold text-amber-900 flex items-center gap-2">
+        <i data-lucide="sparkles" class="w-4 h-4 text-amber-600"></i>
+        Esencia del Bloque
+      </h3>
+      <p class="text-xs sm:text-sm text-amber-950 mt-1 leading-relaxed">
+        El bloque de probabilidad es uno de los más agradecidos de la EvAU si se estructura bien. Todo ejercicio se reduce a dos fases: representar la información (mediante árbol o tabla $2 \times 2$) y aplicar la regla adecuada (Unión, Probabilidad Total, Bayes o Tipificación Normal).
+      </p>
+    </div>
+
+    <!-- SECCIÓN 1: REGLAS FUNDAMENTALES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-600 text-white inline-flex items-center justify-center text-xs font-bold">1</span>
+        Axiomas y Leyes de Morgan
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs sm:text-sm">
+          <p><strong>Unión de Sucesos:</strong></p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center">
+            $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+          </div>
+          <p><strong>Sucesos Incompatibles:</strong> $A \cap B = \emptyset \implies P(A \cap B) = 0 \implies P(A \cup B) = P(A) + P(B)$.</p>
+          <p><strong>Suceso Contrario:</strong> $P(\bar{A}) = 1 - P(A)$.</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs sm:text-sm">
+          <p><strong>Leyes de De Morgan (¡Clave en EvAU!):</strong></p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center">
+            $$P(\bar{A} \cap \bar{B}) = P(\overline{A \cup B}) = 1 - P(A \cup B)$$
+            $$P(\bar{A} \cup \bar{B}) = P(\overline{A \cap B}) = 1 - P(A \cap B)$$
+          </div>
+          <p><strong>Diferencia:</strong> $P(A \setminus B) = P(A \cap \bar{B}) = P(A) - P(A \cap B)$.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: CONDICIONADA, TOTAL Y BAYES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-600 text-white inline-flex items-center justify-center text-xs font-bold">2</span>
+        Probabilidad Condicionada, Probabilidad Total y Bayes
+      </h2>
+
+      <div class="space-y-4">
+        <div class="p-4 bg-amber-50/50 border border-amber-200 rounded-2xl">
+          <h4 class="font-bold text-amber-900 text-sm mb-1">Probabilidad Condicionada e Independencia</h4>
+          <p class="text-xs sm:text-sm text-slate-700 mb-2">
+            La probabilidad de que ocurra $A$ sabiendo que ya ocurrió $B$ se define como:
+          </p>
+          <div class="p-2 bg-white rounded border border-amber-200 font-mono text-center text-sm font-bold text-amber-950">
+            $$P(A|B) = \frac{P(A \cap B)}{P(B)} \iff P(A \cap B) = P(B) \cdot P(A|B)$$
+          </div>
+          <p class="text-xs text-slate-600 mt-2">
+            Dos sucesos son <strong>independientes</strong> si el resultado de uno no afecta al otro:
+            $$A \text{ y } B \text{ independientes} \iff P(A|B) = P(A) \iff P(A \cap B) = P(A) \cdot P(B)$$
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+            <h5 class="font-bold text-slate-800 text-xs mb-1 uppercase tracking-wider text-amber-700">Teorema de la Probabilidad Total</h5>
+            <p class="text-xs text-slate-600 mb-2">Para una partición del espacio muestral $A_1, A_2, \dots, A_n$:</p>
+            <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center text-xs">
+              $$P(B) = \sum_{i=1}^n P(A_i) \cdot P(B|A_i)$$
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Es la suma de todos los caminos del árbol que terminan en $B$.</p>
+          </div>
+
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+            <h5 class="font-bold text-slate-800 text-xs mb-1 uppercase tracking-wider text-amber-700">Teorema de Bayes</h5>
+            <p class="text-xs text-slate-600 mb-2">Calcula la probabilidad a posteriori (hacia atrás en el árbol):</p>
+            <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center text-xs">
+              $$P(A_k|B) = \frac{P(A_k) \cdot P(B|A_k)}{P(B)}$$
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">El numerador es el camino favorable y el denominador es la suma total calculada con el teorema anterior.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: DISTRIBUCIÓN NORMAL Y TIPIFICACIÓN -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-600 text-white inline-flex items-center justify-center text-xs font-bold">3</span>
+        Distribución Normal y Manejo de la Tabla $N(0, 1)$
+      </h2>
+
+      <div class="p-5 bg-blue-50/50 border border-blue-200 rounded-2xl mb-4">
+        <h4 class="font-bold text-blue-900 text-sm mb-2">Fórmula de Tipificación</h4>
+        <p class="text-xs sm:text-sm text-slate-700 mb-2">
+          Cualquier variable aleatoria con distribución normal $X \sim N(\mu, \sigma)$ se transforma en la normal estándar $Z \sim N(0, 1)$ mediante el cambio de variable:
+        </p>
+        <div class="p-3 bg-white border border-blue-200 rounded-xl font-mono text-center text-base font-bold text-blue-900">
+          $$Z = \frac{X - \mu}{\sigma}$$
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <p class="font-bold text-slate-800">Reglas para buscar en la tabla $\Phi(z) = P(Z \le z)$:</p>
+          <ul class="list-disc list-inside space-y-1 text-slate-600">
+            <li>$P(Z \le 1{,}45) = \Phi(1{,}45)$ (directo en la tabla).</li>
+            <li>$P(Z \ge 1{,}45) = 1 - P(Z \le 1{,}45) = 1 - \Phi(1{,}45)$.</li>
+            <li>$P(Z \le -1{,}45) = P(Z \ge 1{,}45) = 1 - \Phi(1{,}45)$ (por simetría).</li>
+            <li>$P(a \le Z \le b) = \Phi(b) - \Phi(a)$.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <p class="font-bold text-slate-800">Aproximación de Binomial a Normal:</p>
+          <p class="text-slate-600 text-xs">
+            Si $X \sim B(n, p)$ con $n \cdot p \ge 5$ y $n(1-p) \ge 5$, se aproxima por:
+          </p>
+          <div class="p-2 bg-white rounded border border-slate-200 text-center font-mono text-xs font-bold">
+            $$X \approx N(\mu = np, \; \sigma = \sqrt{np(1-p)})$$
+          </div>
+          <p class="text-[11px] text-amber-700 font-semibold">Corrección de Yates: $P(X = k) = P(k - 0{,}5 \le X \le k + 0{,}5)$.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

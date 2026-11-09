@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinámica de Newton, Rozamiento y Conservación - 1º Bachillerato | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-emerald-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-dinamica-newton-1-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-emerald-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+            Física y Química &bull; 1º Bachillerato LOMLOE
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Dinámica de Newton, Fuerzas y Principios de Conservación
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Leyes del movimiento, rozamiento, planos inclinados, poleas y momento lineal</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- RESUMEN CLAVE -->
+    <section class="mb-10 bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-6">
+      <h2 class="text-lg font-bold text-emerald-950 flex items-center gap-2 mb-3">
+        <i data-lucide="compass" class="w-5 h-5 text-emerald-600"></i>
+        Principios y Fórmulas Fundamentales
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">2ª Ley de Newton & Rozamiento:</p>
+          <div class="text-slate-700">$$\sum \vec{F} = m \cdot \vec{a}, \quad F_{r} \le \mu_e N, \quad F_{r,\text{din}} = \mu_c N$$</div>
+          <p class="text-xs text-slate-500 mt-1">La fuerza de rozamiento se opone siempre al deslizamiento relativo entre superficies.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Plano Inclinado con ángulo $\alpha$:</p>
+          <div class="text-slate-700">$$P_x = m g \sin\alpha, \quad P_y = m g \cos\alpha, \quad N = P_y = m g \cos\alpha$$</div>
+          <p class="text-xs text-slate-500 mt-1">En el eje perpendicular no hay movimiento ($a_y = 0 \implies \sum F_y = 0$).</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Dinámica Circular (Fuerza Centrípeta):</p>
+          <div class="text-slate-700">$$F_c = m \, a_n = m \frac{v^2}{R} = m \omega^2 R$$</div>
+          <p class="text-xs text-slate-500 mt-1">No es una fuerza adicional misteriosa: es la resultante de las fuerzas reales hacia el centro.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Momento Lineal e Impulso:</p>
+          <div class="text-slate-700">$$\vec{p} = m \vec{v}, \quad \vec{I} = \int \vec{F} dt = \Delta \vec{p}; \quad \sum \vec{F}_{\text{ext}} = 0 \implies \vec{p} = \text{cte}$$</div>
+          <p class="text-xs text-slate-500 mt-1">Conservación en choques y explosiones aisladas: $\sum m_i \vec{v}_i = \sum m_i \vec{v}_i'$.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 1: LEYES DE NEWTON Y DIAGRAMA DE CUERPO LIBRE -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        1. Las Tres Leyes de Newton y Metodología Infalible
+      </h2>
+      <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+        <p>
+          Para resolver cualquier problema de dinámica en 1º de Bachillerato sin cometer errores algebraicos o de signos, debe seguirse rigurosamente este protocolo de cuatro pasos:
+        </p>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li><strong>Aislar el cuerpo (o cada cuerpo por separado)</strong> mediante un diagrama de cuerpo libre (DCL), dibujando exclusivamente las fuerzas reales ejercidas <em>sobre</em> el objeto: Peso ($\vec{P}$), Normal ($\vec{N}$), Tensión ($\vec{T}$), Fuerza de rozamiento ($\vec{F}_r$) y Fuerzas aplicadas ($\vec{F}$).</li>
+          <li><strong>Elegir los ejes coordenados convenientes:</strong> Tomar el eje $X$ en la dirección paralela al posible movimiento (con sentido positivo en la dirección que acelera el sistema) y el eje $Y$ perpendicular a él.</li>
+          <li><strong>Descomponer todas las fuerzas oblicuas:</strong> En planos inclinados con ángulo $\alpha$, descomponer el peso en $P_x = P \sin\alpha$ y $P_y = P \cos\alpha$.</li>
+          <li><strong>Aplicar las ecuaciones de Newton por componentes:</strong>
+            $$\sum F_x = m \cdot a, \qquad \sum F_y = 0 \implies N = \sum F_{y,\text{opuestas}}$$
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: SISTEMAS LIGADOS Y POLEAS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        2. Sistemas de Cuerpos Ligados (Máquinas de Atwood y Poleas)
+      </h2>
+      <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+        <p>
+          Cuando dos masas $m_1$ y $m_2$ están unidas por una cuerda inextensible y de masa despreciable que pasa por una polea ideal (sin rozamiento ni inercia):
+        </p>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <ul class="list-disc pl-5 space-y-2">
+            <li><strong>Módulo de la aceleración:</strong> Es idéntico para ambos cuerpos ($|a_1| = |a_2| = a$).</li>
+            <li><strong>Tensión de la cuerda:</strong> La tensión $T$ es idéntica en ambos extremos si la polea es ideal.</li>
+            <li><strong>Ecuación global por sumatorio:</strong> Se escribe la 2ª ley para cada cuerpo y se suman miembro a miembro para eliminar la tensión interna $T$, permitiendo despejar la aceleración $a$ de inmediato.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 3: CONSERVACIÓN DEL MOMENTO LINEAL -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        3. Cantidad de Movimiento y Tipos de Choques
+      </h2>
+      <div class="space-y-3 text-sm text-slate-700 leading-relaxed">
+        <p>
+          En cualquier sistema aislado ($\sum \vec{F}_{\text{ext}} = 0$), la cantidad de movimiento total $\vec{p} = \sum m_i \vec{v}_i$ permanece constante antes y después de cualquier interacción:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+          <div class="border border-slate-200 rounded-xl p-3 bg-white">
+            <h4 class="font-bold text-slate-900 mb-1">Choque Elástico</h4>
+            <p>Se conservan tanto el momento lineal $\vec{p}$ como la energía cinética total $E_c$:</p>
+            $$\Delta \vec{p} = 0, \quad \frac{1}{2}m_1 v_1^2 + \frac{1}{2}m_2 v_2^2 = \frac{1}{2}m_1 (v_1')^2 + \frac{1}{2}m_2 (v_2')^2$$
+          </div>
+          <div class="border border-slate-200 rounded-xl p-3 bg-white">
+            <h4 class="font-bold text-slate-900 mb-1">Choque Inelástico / Plástico</h4>
+            <p>Se conserva $\vec{p}$, pero parte de $E_c$ se transforma en calor o deformación. En choque completamente inelástico, los cuerpos quedan unidos tras el impacto:</p>
+            $$m_1 \vec{v}_1 + m_2 \vec{v}_2 = (m_1 + m_2)\vec{v}'$$
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER NAV -->
+    <div class="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-slate-500">
+        Toomate.es &bull; Material Pedagógico de Física 1º Bachillerato LOMLOE
+      </div>
+      <a href="ejercicios-dinamica-newton-1-bach.html" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md transition">
+        <span>Ir al Boletín de 22 Ejercicios Resueltos</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

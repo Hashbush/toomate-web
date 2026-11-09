@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletín de Ejercicios: Ecuaciones y Sistemas | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary .arrow-icon { transform: rotate(180deg); }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 10pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+      details { border: 1px solid #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex flex-wrap items-center justify-between gap-3">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-blue-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex flex-wrap items-center gap-2.5">
+      <button onclick="toggleTodasLasSoluciones()" id="btnToggleAll" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="eye" class="w-4 h-4 text-blue-600"></i>
+        <span id="txtToggleAll">Desplegar todas las soluciones</span>
+      </button>
+
+      <a href="ecuaciones-1-2-eso.html" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-blue-600 bg-white border border-slate-200 px-3 py-2 rounded-xl transition">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Teoría & Resumen</span>
+      </a>
+
+      <button onclick="window.print()" class="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-6 sm:p-12">
+    
+    <header class="border-b-2 border-blue-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Toomate.es &bull; Cuaderno Interactivo</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Boletín de Ecuaciones y Sistemas</h1>
+          <p class="text-xs sm:text-sm text-slate-500">22 Ejercicios Resueltos Paso a Paso &bull; 1º, 2º y 3º ESO</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Páginas:</strong> 22 Problemas Graduados</p>
+        <p><strong class="text-slate-700">Modalidad:</strong> Soluciones desplegables</p>
+        <p><strong class="text-slate-700">Nivel:</strong> ESO Obligatoria</p>
+      </div>
+    </header>
+
+    <!-- BLOQUE 1: BÁSICO (1-8) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 1 &bull; Básico</span>
+        <h2 class="text-lg font-bold text-slate-800">Ecuaciones Lineales, Incompletas y Sistemas Directos</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 1 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">1</span>
+            Ecuación de 1º grado con paréntesis
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Resuelve la ecuación lineal: $3(x - 2) + 5 = 2(x + 1) + 4$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Quitamos paréntesis: $3x - 6 + 5 = 2x + 2 + 4$.</p>
+              <p>2. Simplificamos: $3x - 1 = 2x + 6$.</p>
+              <p>3. Transponemos términos: $3x - 2x = 6 + 1 \implies x = 7$.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: $x = 7$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 2 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">2</span>
+            Ecuación de 1º grado con denominadores sencillos
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Resuelve: $\frac{x}{2} + \frac{x}{3} = 5$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. El $\text{mcm}(2, 3) = 6$. Multiplicamos toda la ecuación por 6:</p>
+              <p>$$6 \cdot \frac{x}{2} + 6 \cdot \frac{x}{3} = 6 \cdot 5 \implies 3x + 2x = 30$$</p>
+              <p>2. $5x = 30 \implies x = \frac{30}{5} = 6$.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: $x = 6$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 3 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">3</span>
+            Ecuación de 2º grado incompleta (sin término lineal)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Resuelve: $3x^2 - 48 = 0$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Despejamos el término $x^2$: $3x^2 = 48 \implies x^2 = \frac{48}{3} = 16$.</p>
+              <p>2. Extraemos la raíz cuadrada: $x = \pm\sqrt{16} = \pm 4$.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: Dos soluciones: $x_1 = 4$ y $x_2 = -4$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 4 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">4</span>
+            Ecuación de 2º grado incompleta (sin término independiente)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Resuelve: $2x^2 - 8x = 0$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Sacamos factor común $2x$: $2x(x - 4) = 0$.</p>
+              <p>2. Para que un producto sea cero, al menos uno de los factores debe ser cero:</p>
+              <p>&bull; $2x = 0 \implies x_1 = 0$.</p>
+              <p>&bull; $x - 4 = 0 \implies x_2 = 4$.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: $x_1 = 0$ y $x_2 = 4$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 5 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">5</span>
+            Ecuación de 2º grado completa con discriminante positivo
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Resuelve mediante la fórmula general: $x^2 - 5x + 6 = 0$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Coeficientes: $a = 1, b = -5, c = 6$.</p>
+              <p>2. Discriminante: $\Delta = b^2 - 4ac = (-5)^2 - 4(1)(6) = 25 - 24 = 1 > 0$.</p>
+              <p>3. Fórmula: $x = \frac{-(-5) \pm \sqrt{1}}{2(1)} = \frac{5 \pm 1}{2}$.</p>
+              <p>&bull; $x_1 = \frac{5 + 1}{2} = \frac{6}{2} = 3$.</p>
+              <p>&bull; $x_2 = \frac{5 - 1}{2} = \frac{4}{2} = 2$.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: $x_1 = 3$ y $x_2 = 2$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 6 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">6</span>
+            Ecuación de 2º grado con solución doble
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Resuelve: $x^2 - 6x + 9 = 0$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Coeficientes: $a = 1, b = -6, c = 9$.</p>
+              <p>2. Discriminante: $\Delta = (-6)^2 - 4(1)(9) = 36 - 36 = 0$. Al ser 0, hay una única solución real doble.</p>
+              <p>3. $x = \frac{6 \pm 0}{2} = 3$ (o reconociendo la identidad notable $(x - 3)^2 = 0$).</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: Solución doble $x = 3$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 7 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">7</span>
+            Sistema lineal por sustitución
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Resuelve por el método de sustitución: $\begin{cases} x + y = 10 \\ 2x - y = 5 \end{cases}$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Despejamos $y$ en la primera ecuación: $y = 10 - x$.</p>
+              <p>2. Sustituimos en la segunda: $2x - (10 - x) = 5 \implies 2x - 10 + x = 5 \implies 3x = 15 \implies x = 5$.</p>
+              <p>3. Calculamos $y$: $y = 10 - 5 = 5$.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: Solución única: $x = 5, y = 5$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 8 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">8</span>
+            Sistema lineal por reducción directa
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Resuelve por el método de reducción: $\begin{cases} 3x + 2y = 12 \\ 5x - 2y = 4 \end{cases}$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Como los coeficientes de $y$ son opuestos ($+2$ y $-2$), sumamos directamente ambas ecuaciones:</p>
+              <p>$$(3x + 2y) + (5x - 2y) = 12 + 4 \implies 8x = 16 \implies x = 2$$</p>
+              <p>2. Sustituimos $x = 2$ en la primera ecuación:</p>
+              <p>$$3(2) + 2y = 12 \implies 6 + 2y = 12 \implies 2y = 6 \implies y = 3$$</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: $x = 2, y = 3$.
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: INTERMEDIO (9-16) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 2 &bull; Intermedio</span>
+        <h2 class="text-lg font-bold text-slate-800">Fracciones Algebraicas, Identidades y Problemas Verbales</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 9 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">9</span>
+            Ecuación con varios denominadores y signo negativo
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Resuelve: $\frac{2x - 1}{3} - \frac{x + 2}{4} = \frac{x - 3}{6} + 1$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. El $\text{mcm}(3, 4, 6) = 12$. Multiplicamos toda la ecuación por 12:</p>
+              <p>$$4(2x - 1) - 3(x + 2) = 2(x - 3) + 12$$</p>
+              <p>2. Desarrollamos con atención a los signos: $8x - 4 - 3x - 6 = 2x - 6 + 12$.</p>
+              <p>3. Simplificamos: $5x - 10 = 2x + 6$.</p>
+              <p>4. Transponemos: $5x - 2x = 6 + 10 \implies 3x = 16 \implies x = \frac{16}{3}$.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: $x = \frac{16}{3}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 10 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">10</span>
+            Ecuación cuadrática tras desarrollar identidades notables
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Resuelve: $(x - 1)^2 - 2(x + 1) = 3$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Desarrollamos el cuadrado: $x^2 - 2x + 1 - 2x - 2 = 3$.</p>
+              <p>2. Agrupamos e igualamos a 0: $x^2 - 4x - 1 = 3 \implies x^2 - 4x - 4 = 0$.</p>
+              <p>3. Aplicamos la fórmula: $x = \frac{4 \pm \sqrt{(-4)^2 - 4(1)(-4)}}{2} = \frac{4 \pm \sqrt{16 + 16}}{2} = \frac{4 \pm \sqrt{32}}{2} = \frac{4 \pm 4\sqrt{2}}{2} = 2 \pm 2\sqrt{2}$.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: $x = 2 + 2\sqrt{2}$ y $x = 2 - 2\sqrt{2}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 11 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">11</span>
+            Ecuación de 2º grado sin solución real
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Estudia el número de soluciones y resuelve en $\mathbb{R}$: $2x^2 - 3x + 4 = 0$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Calculamos el discriminante $\Delta = b^2 - 4ac$:</p>
+              <p>$$\Delta = (-3)^2 - 4(2)(4) = 9 - 32 = -23$$</p>
+              <p>2. Como $\Delta = -23 < 0$, la raíz cuadrada $\sqrt{-23}$ no es un número real.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: No tiene solución real ($\Delta < 0$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 12 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">12</span>
+            Sistema lineal con denominadores
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Resuelve el sistema: $\begin{cases} \frac{x}{3} + \frac{y}{2} = 4 \\ 2x - y = 1 \end{cases}$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Multiplicamos la 1ª ecuación por 6: $2x + 3y = 24$.</p>
+              <p>2. Tenemos el sistema equivalente: $\begin{cases} 2x + 3y = 24 \\ 2x - y = 1 \end{cases}$.</p>
+              <p>3. Restamos ambas ecuaciones: $(2x + 3y) - (2x - y) = 24 - 1 \implies 4y = 23 \implies y = \frac{23}{4}$.</p>
+              <p>4. Despejamos $x$: $2x = 1 + y = 1 + \frac{23}{4} = \frac{27}{4} \implies x = \frac{27}{8}$.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: $x = \frac{27}{8}$ e $y = \frac{23}{4}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 13 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">13</span>
+            Sistema incompatible vs compatible indeterminado
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Clasifica y resuelve los sistemas: a) $\begin{cases} 2x - y = 4 \\ 4x - 2y = 8 \end{cases}$; b) $\begin{cases} x + y = 3 \\ x + y = 7 \end{cases}$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>a) La segunda ecuación es la primera multiplicada por 2. Al restar da $0 = 0$. Son rectas coincidentes $\implies$ <strong>Sistema Compatible Indeterminado (S.C.I.)</strong> con infinitas soluciones de la forma $y = 2x - 4$.</p>
+              <p>b) Restando: $(x+y) - (x+y) = 3 - 7 \implies 0 = -4$ (Absurdo). Son rectas paralelas $\implies$ <strong>Sistema Incompatible (S.I.)</strong>, sin solución.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: a) S.C.I. (infinitas soluciones); b) S.I. (sin solución).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 14 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">14</span>
+            Problema clásico de edades
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un padre tiene 42 años y su hijo tiene 10 años. ¿Dentro de cuántos años la edad del padre será el triple de la edad de su hijo?
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Sea $x$ el número de años que deben transcurrir.</p>
+              <p>2. Dentro de $x$ años: la edad del padre será $42 + x$ y la del hijo será $10 + x$.</p>
+              <p>3. Planteamos la ecuación: $42 + x = 3(10 + x)$.</p>
+              <p>4. Resolvemos: $42 + x = 30 + 3x \implies 42 - 30 = 3x - x \implies 12 = 2x \implies x = 6$.</p>
+              <p>Comprobación: En 6 años el padre tendrá 48 y el hijo 16 ($16 \times 3 = 48$).</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: Dentro de 6 años.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 15 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">15</span>
+            Problema geométrico de un rectángulo
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            El perímetro de una parcela rectangular es de 48 metros. Si la base mide 6 metros más que la altura, halla las dimensiones de la parcela y su superficie.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Sea $x$ la altura y la base $x + 6$.</p>
+              <p>2. Perímetro: $2x + 2(x + 6) = 48 \implies 2x + 2x + 12 = 48 \implies 4x = 36 \implies x = 9$ m.</p>
+              <p>3. Dimensiones: Altura $= 9$ m y base $= 9 + 6 = 15$ m.</p>
+              <p>4. Superficie: $A = 15 \times 9 = 135\text{ m}^2$.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: Base 15 m, altura 9 m y superficie $= 135\text{ m}^2$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 16 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">16</span>
+            Problema clásico de cabezas y patas en una granja
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            En un corral hay conejos y gallinas. Entre todos contamos 35 cabezas y 94 patas. ¿Cuántos conejos y cuántas gallinas hay en el corral?
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Variables: $c =$ conejos (4 patas), $g =$ gallinas (2 patas).</p>
+              <p>2. Sistema: $\begin{cases} c + g = 35 \\ 4c + 2g = 94 \end{cases}$</p>
+              <p>3. Multiplicamos la primera por 2: $2c + 2g = 70$.</p>
+              <p>4. Restamos de la segunda: $(4c + 2g) - (2c + 2g) = 94 - 70 \implies 2c = 24 \implies c = 12$ conejos.</p>
+              <p>5. Gallinas: $g = 35 - 12 = 23$ gallinas.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: Hay 12 conejos y 23 gallinas.
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- BLOQUE 3: AVANZADO / APLICACIONES (17-22) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 3 &bull; Avanzado</span>
+        <h2 class="text-lg font-bold text-slate-800">Mezclas, Bicuadradas y Problemas de la Vida Real</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 17 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">17</span>
+            Dos enteros consecutivos con producto dado
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Halla dos números enteros consecutivos tales que su producto sea igual a 156.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Sean $x$ y $x + 1$ los números consecutivos.</p>
+              <p>2. Ecuación: $x(x + 1) = 156 \implies x^2 + x - 156 = 0$.</p>
+              <p>3. Resolvemos: $x = \frac{-1 \pm \sqrt{1 - 4(1)(-156)}}{2} = \frac{-1 \pm \sqrt{625}}{2} = \frac{-1 \pm 25}{2}$.</p>
+              <p>&bull; $x_1 = \frac{24}{2} = 12 \implies$ Los números son $12$ y $13$.</p>
+              <p>&bull; $x_2 = \frac{-26}{2} = -13 \implies$ Los números son $-13$ y $-12$.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: Dos parejas posibles: $(12, 13)$ y $(-13, -12)$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 18 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">18</span>
+            Problema de mezclas
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un comerciante mezcla dos tipos de aceite: uno de calidad superior a 8 €/litro y otro estándar a 5 €/litro, para obtener 120 litros de mezcla que se venderá a 7 €/litro. ¿Cuántos litros de cada aceite debe mezclar?
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Variables: $x =$ litros del aceite de 8 €, $y =$ litros del aceite de 5 €.</p>
+              <p>2. Sistema:</p>
+              <p>&bull; Litros totales: $x + y = 120 \implies y = 120 - x$.</p>
+              <p>&bull; Valor económico: $8x + 5y = 120 \times 7 = 840$.</p>
+              <p>3. Sustituimos: $8x + 5(120 - x) = 840 \implies 8x + 600 - 5x = 840 \implies 3x = 240 \implies x = 80$ litros.</p>
+              <p>4. $y = 120 - 80 = 40$ litros.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: Debe mezclar 80 litros de 8 €/l y 40 litros de 5 €/l.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 19 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">19</span>
+            Problema de velocidad y encuentro
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Dos ciclistas parten simultáneamente al encuentro desde dos pueblos separados 150 km por la misma carretera. El ciclista $A$ viaja a 20 km/h y el ciclista $B$ a 30 km/h. ¿Cuánto tiempo tardan en encontrarse y qué distancia ha recorrido cada uno?
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Sea $t$ el tiempo en horas hasta el encuentro.</p>
+              <p>2. Distancia de $A$: $d_A = 20t$; Distancia de $B$: $d_B = 30t$.</p>
+              <p>3. Suma de distancias: $20t + 30t = 150 \implies 50t = 150 \implies t = 3$ horas.</p>
+              <p>4. Distancias: $d_A = 20(3) = 60$ km y $d_B = 30(3) = 90$ km.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: Tardan 3 horas. El ciclista $A$ recorre 60 km y el ciclista $B$ 90 km.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 20 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">20</span>
+            Problema geométrico cuadrático (Paseo perimetral)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una piscina rectangular mide 10 metros de largo por 6 metros de ancho. Se construye un camino de cemento de anchura uniforme $x$ a su alrededor de modo que el área total (piscina más camino) sea de 140 metros cuadrados. Halla el ancho $x$ del camino.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Dimensiones exteriores: largo $(10 + 2x)$ y ancho $(6 + 2x)$.</p>
+              <p>2. Área total: $(10 + 2x)(6 + 2x) = 140$.</p>
+              <p>3. Desarrollamos: $60 + 20x + 12x + 4x^2 = 140 \implies 4x^2 + 32x - 80 = 0$.</p>
+              <p>4. Dividimos entre 4: $x^2 + 8x - 20 = 0 \implies (x + 10)(x - 2) = 0$.</p>
+              <p>Como la anchura física debe ser positiva: $x = 2$ metros.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: La anchura del camino es de 2 metros.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 21 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">21</span>
+            Ecuación bicuadrada
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Resuelve mediante cambio de variable: $x^4 - 13x^2 + 36 = 0$.
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Hacemos el cambio de variable $z = x^2$ (con lo que $x^4 = z^2$):</p>
+              <p>$$z^2 - 13z + 36 = 0$$</p>
+              <p>2. Resolvemos en $z$: $z = \frac{13 \pm \sqrt{169 - 144}}{2} = \frac{13 \pm 5}{2}$.</p>
+              <p>&bull; $z_1 = \frac{18}{2} = 9$.</p>
+              <p>&bull; $z_2 = \frac{8}{2} = 4$.</p>
+              <p>3. Deshacemos el cambio $x = \pm\sqrt{z}$:</p>
+              <p>&bull; De $z = 9 \implies x = \pm\sqrt{9} = \pm 3$.</p>
+              <p>&bull; De $z = 4 \implies x = \pm\sqrt{4} = \pm 2$.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: Cuatro soluciones reales: $x \in \{-3, -2, 2, 3\}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 22 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">22</span>
+            Problema comercial con porcentajes y beneficios
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una tienda de ropa adquiere dos abrigos por un coste total de 200 €. Al ponerlos a la venta, obtiene un beneficio del 25% con el primero y un 15% con el segundo, ingresando 242 € en total por la venta de ambos. ¿Cuánto le costó cada abrigo a la tienda?
+          </p>
+          <details class="exercise-details group border border-blue-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-blue-50 hover:bg-blue-100 cursor-pointer text-xs font-bold text-blue-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-blue-100">
+              <p>1. Variables: $x =$ coste del primer abrigo, $y =$ coste del segundo abrigo.</p>
+              <p>2. Sistema:</p>
+              <p>&bull; Coste total: $x + y = 200 \implies y = 200 - x$.</p>
+              <p>&bull; Precio de venta: $1{,}25x + 1{,}15y = 242$.</p>
+              <p>3. Sustituimos: $1{,}25x + 1{,}15(200 - x) = 242 \implies 1{,}25x + 230 - 1{,}15x = 242$.</p>
+              <p>4. $0{,}10x = 12 \implies x = \frac{12}{0{,}10} = 120$ €.</p>
+              <p>5. $y = 200 - 120 = 80$ €.</p>
+              <div class="p-2 bg-blue-50 text-blue-900 font-bold rounded mt-2">
+                Resultado: El primer abrigo costó 120 € y el segundo 80 €.
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+
+    let todasAbiertas = false;
+    function toggleTodasLasSoluciones() {
+      const allDetails = document.querySelectorAll('.exercise-details');
+      const btnText = document.getElementById('txtToggleAll');
+      todasAbiertas = !todasAbiertas;
+      allDetails.forEach(d => d.open = todasAbiertas);
+      if (btnText) {
+        btnText.textContent = todasAbiertas ? "Ocultar todas las soluciones" : "Desplegar todas las soluciones";
+      }
+    }
+  </script>
+</body>
+</html>

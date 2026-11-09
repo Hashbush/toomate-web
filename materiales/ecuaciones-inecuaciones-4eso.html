@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 3: Ecuaciones, Inecuaciones y Sistemas (4º ESO) | Toomate.es</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- KaTeX para fórmulas matemáticas perfectas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR (NO IMPRIMIBLE) -->
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-cyan-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-ecuaciones-inecuaciones-4eso.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-cyan-700 hover:text-cyan-800 bg-cyan-50 hover:bg-cyan-100 border border-cyan-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4 text-cyan-600"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- DOCUMENTO DIDÁCTICO -->
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <!-- CABECERA DEL DOCUMENTO -->
+    <header class="border-b-2 border-cyan-600 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-cyan-50 border border-cyan-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-600">Currículo Oficial Cantabria LOMLOE &bull; 4º ESO</span>
+          <h1 class="font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight">Tema 3: Ecuaciones, Inecuaciones y Sistemas</h1>
+          <p class="text-xs text-slate-500 mt-0.5">Bicuadradas, racionales, irracionales, inecuaciones y sistemas no lineales</p>
+        </div>
+      </div>
+      <div class="text-right flex sm:flex-col items-center sm:items-end justify-between">
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-100 text-cyan-800 border border-cyan-200">
+          Guía Teórica Oficial
+        </span>
+        <span class="text-xs text-slate-400 mt-1">Toomate.es &bull; Cantabria</span>
+      </div>
+    </header>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="mb-8 p-5 bg-cyan-50/70 rounded-2xl border border-cyan-100 text-sm text-cyan-950 leading-relaxed">
+      <div class="flex items-start gap-3">
+        <i data-lucide="target" class="w-5 h-5 text-cyan-600 shrink-0 mt-0.5"></i>
+        <div>
+          <p class="font-bold text-cyan-900 mb-1">El salto definitivo en resolución algebraica:</p>
+          <p>
+            En 4º de ESO dejamos atrás las ecuaciones sencillas de 1º y 2º grado para dominar las <strong>ecuaciones de grado superior</strong>: bicuadradas con cambio de variable, racionales con denominadores algebraicos, y ecuaciones con radicales donde elevar al cuadrado puede introducir soluciones fantasma. Además, abordamos las <strong>inecuaciones y el signo de funciones</strong>, imprescindibles para los dominios de 1º de Bachillerato.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÍNDICE DE CONTENIDOS -->
+    <div class="mb-10 p-5 bg-slate-50 rounded-2xl border border-slate-200">
+      <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+        <i data-lucide="list" class="w-4 h-4 text-cyan-600"></i>
+        Contenidos del tema
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-700">
+        <div>1. Ecuaciones Bicuadradas ($ax^4 + bx^2 + c = 0$)</div>
+        <div>2. Ecuaciones Fraccionarias (Racionales)</div>
+        <div>3. Ecuaciones con Radicales (Irracionales)</div>
+        <div>4. Ecuaciones Factorizadas e Igualadas a Cero</div>
+        <div>5. Inecuaciones de 1º Grado y Sistemas</div>
+        <div>6. Inecuaciones de 2º Grado (Tabla de Signos)</div>
+        <div>7. Sistemas No Lineales</div>
+        <div>8. Comprobaciones Obligatorias de Examen</div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 1: ECUACIONES BICUADRADAS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-cyan-600 pl-3 mb-4">
+        1. Ecuaciones Bicuadradas
+      </h2>
+      <p class="text-sm text-slate-600 mb-3 leading-relaxed">
+        Son ecuaciones de 4º grado que solo contienen potencias pares de la incógnita:
+        $$a x^4 + b x^2 + c = 0 \quad (a \neq 0)$$
+      </p>
+
+      <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm mb-4">
+        <h4 class="font-bold text-sm text-cyan-900 mb-2">Método de resolución paso a paso:</h4>
+        <ol class="list-decimal list-inside space-y-1.5 text-xs text-slate-700">
+          <li><strong>Cambio de variable:</strong> Hacemos $z = x^2$, por lo que $x^4 = z^2$. La ecuación se transforma en:
+            $$a z^2 + b z + c = 0$$
+          </li>
+          <li><strong>Resolvemos para $z$</strong> aplicando la fórmula cuadrática: $z_1, z_2$.</li>
+          <li><strong>Deshacemos el cambio</strong> para obtener $x$:
+            $$x^2 = z \implies x = \pm \sqrt{z}$$
+          </li>
+        </ol>
+      </div>
+
+      <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 flex items-start gap-2">
+        <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600 shrink-0 mt-0.5"></i>
+        <span><strong>¡Cuidado con los valores negativos de $z$!</strong> Si un valor de $z$ es negativo (ej. $z = -4$), al despejar $x = \pm \sqrt{-4}$ <strong>no produce soluciones reales</strong>. Se descarta ese valor y solo se calculan las raíces de los $z \ge 0$.</span>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: ECUACIONES RACIONALES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-cyan-600 pl-3 mb-4">
+        2. Ecuaciones Racionales (con incógnita en denominadores)
+      </h2>
+      <p class="text-sm text-slate-600 mb-3 leading-relaxed">
+        Aparecen fracciones algebraicas sumadas o igualadas. Ejemplo: $\frac{2}{x - 1} + \frac{1}{x} = 1$.
+      </p>
+
+      <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl mb-4 text-xs text-slate-700 space-y-2">
+        <p><strong>1. Calcular el $\text{m.c.m.}$</strong> de todos los denominadores.</p>
+        <p><strong>2. Multiplicar toda la ecuación</strong> por dicho $\text{m.c.m.}$ para cancelar todos los denominadores.</p>
+        <p><strong>3. Resolver</strong> la ecuación polinómica resultante.</p>
+        <p class="font-bold text-rose-700"><strong>4. COMPROBACIÓN CRÍTICA:</strong> Ninguna de las soluciones obtenidas puede anular los denominadores originales (división entre cero imposible). Si alguna lo anula, ¡se debe tachar como solución no válida!</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: ECUACIONES CON RADICALES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-cyan-600 pl-3 mb-4">
+        3. Ecuaciones con Radicales (Irracionales)
+      </h2>
+      <p class="text-sm text-slate-600 mb-3 leading-relaxed">
+        Tienen la incógnita bajo el signo radical: $\sqrt{2x + 3} - x = 0$.
+      </p>
+
+      <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm space-y-2 text-xs text-slate-700">
+        <div class="flex items-start gap-2">
+          <span class="w-5 h-5 rounded-full bg-cyan-600 text-white font-bold flex items-center justify-center shrink-0">1</span>
+          <div><strong>Aislar la raíz:</strong> Dejar el término con raíz solo en un miembro de la igualdad.</div>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="w-5 h-5 rounded-full bg-cyan-600 text-white font-bold flex items-center justify-center shrink-0">2</span>
+          <div><strong>Elevar al cuadrado ambos miembros:</strong> Recordar que $(A + B)^2$ es una identidad notable, no $A^2 + B^2$.</div>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="w-5 h-5 rounded-full bg-cyan-600 text-white font-bold flex items-center justify-center shrink-0">3</span>
+          <div><strong>Resolver la ecuación resultante.</strong></div>
+        </div>
+        <div class="flex items-start gap-2">
+          <span class="w-5 h-5 rounded-full bg-rose-600 text-white font-bold flex items-center justify-center shrink-0">4</span>
+          <div><strong class="text-rose-700">Comprobación obligatoria:</strong> Al elevar al cuadrado, se introducen soluciones falsas o "extrañas". Es obligatorio sustituir cada valor en la ecuación original para verificar si la igualdad se cumple.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: ECUACIONES FACTORIZADAS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-cyan-600 pl-3 mb-4">
+        4. Ecuaciones Factorizadas
+      </h2>
+      <p class="text-sm text-slate-600 mb-3 leading-relaxed">
+        Se basan en la propiedad del producto cero en $\mathbb{R}$:
+        $$A \cdot B = 0 \iff A = 0 \quad \text{ó} \quad B = 0$$
+      </p>
+      <div class="p-3 bg-cyan-50 border border-cyan-200 rounded-xl text-xs text-cyan-950">
+        <strong>Ejemplo:</strong> $(x - 3)(2x + 1)(x^2 - 4) = 0$.
+        <br>No desarrolles el polinomio. Iguala cada factor a cero de forma independiente:
+        <ul class="list-disc list-inside mt-1 space-y-0.5">
+          <li>$x - 3 = 0 \implies x = 3$</li>
+          <li>$2x + 1 = 0 \implies x = -1/2$</li>
+          <li>$x^2 - 4 = 0 \implies x = \pm 2$</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: INECUACIONES DE 1º GRADO -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-cyan-600 pl-3 mb-4">
+        5. Inecuaciones de 1º Grado y Notación de Intervalos
+      </h2>
+      <p class="text-sm text-slate-600 mb-3 leading-relaxed">
+        Una inecuación es una desigualdad matemática ($<, \le, >, \ge$). Se resuelve exactamente igual que una ecuación, con <strong>una única regla de oro crucial</strong>:
+      </p>
+
+      <div class="p-4 bg-rose-50 border-2 border-rose-300 rounded-xl mb-4 text-xs text-rose-950">
+        <h4 class="font-bold text-rose-800 text-sm mb-1 flex items-center gap-1.5">
+          <i data-lucide="shield-alert" class="w-4 h-4 text-rose-600"></i>
+          Regla de Oro de las Inecuaciones
+        </h4>
+        <p>Al <strong>multiplicar o dividir por un número negativo</strong> a ambos lados, el sentido de la desigualdad <strong>se invierte</strong>:</p>
+        <p class="font-mono text-center text-sm font-bold my-2 text-rose-900">
+          $$-2x \le 6 \implies x \ge \frac{6}{-2} \implies x \ge -3$$
+        </p>
+        <p>Solución en intervalo: $x \in [-3, +\infty)$.</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 6: INECUACIONES DE 2º GRADO -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-cyan-600 pl-3 mb-4">
+        6. Inecuaciones de 2º Grado (Método de Intervalos y Signos)
+      </h2>
+      <p class="text-sm text-slate-600 mb-3 leading-relaxed">
+        Para resolver inecuaciones de segundo grado como $x^2 - 5x + 6 > 0$:
+      </p>
+
+      <div class="p-4 bg-white border border-slate-200 rounded-xl shadow-2xs space-y-2 text-xs text-slate-700">
+        <p><strong>Paso 1:</strong> Pasar todo a un miembro para tener 0 al otro lado.</p>
+        <p><strong>Paso 2:</strong> Hallar las raíces de la ecuación cuadrática asociada: $x^2 - 5x + 6 = 0 \implies x_1 = 2, x_2 = 3$.</p>
+        <p><strong>Paso 3:</strong> Estas raíces dividen la recta real en 3 intervalos: $(-\infty, 2)$, $(2, 3)$, y $(3, +\infty)$.</p>
+        <p><strong>Paso 4:</strong> Tomar un número de prueba en cada intervalo para averiguar el signo:</p>
+        <div class="grid grid-cols-3 gap-2 text-center my-2 font-mono text-[11px]">
+          <div class="bg-emerald-50 border border-emerald-200 p-2 rounded">$(-\infty, 2)$: $x=0 \implies +6 > 0$ <br><span class="text-emerald-700 font-bold">SIGNO +</span></div>
+          <div class="bg-rose-50 border border-rose-200 p-2 rounded">$(2, 3)$: $x=2.5 \implies -0.25 < 0$ <br><span class="text-rose-700 font-bold">SIGNO −</span></div>
+          <div class="bg-emerald-50 border border-emerald-200 p-2 rounded">$(3, +\infty)$: $x=4 \implies +2 > 0$ <br><span class="text-emerald-700 font-bold">SIGNO +</span></div>
+        </div>
+        <p>Como pedían $> 0$, la solución es la unión de los tramos positivos: $\mathbf{x \in (-\infty, 2) \cup (3, +\infty)}$.</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 7: SISTEMAS NO LINEALES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-cyan-600 pl-3 mb-4">
+        7. Sistemas de Ecuaciones No Lineales
+      </h2>
+      <p class="text-sm text-slate-600 mb-3 leading-relaxed">
+        Sistemas donde al menos una de las ecuaciones es de 2º grado o tiene un producto cruzado $x \cdot y$.
+      </p>
+      <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700">
+        <p class="font-bold text-slate-900 mb-1">Estrategia habitual de resolución:</p>
+        <p>Despejar la incógnita de primer grado en la ecuación lineal y sustituirla en la ecuación cuadrática. Al resolver la ecuación de 2º grado resultante, obtendrás dos valores para una variable. Por cada valor, deberás hallar su correspondiente pareja, formando pares ordenados $(x_1, y_1)$ y $(x_2, y_2)$.</p>
+      </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+      <div>&copy; Toomate.es &bull; Material Didáctico Libre bajo licencia educativa CC</div>
+      <div class="flex items-center gap-2">
+        <a href="ejercicios-ecuaciones-inecuaciones-4eso.html" class="text-cyan-600 hover:underline font-semibold flex items-center gap-1">
+          Ir al Boletín de 22 Ejercicios con Soluciones <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Script para KaTeX y Lucide -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>

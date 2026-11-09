@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trigonometría Completa (1º Bachillerato Matemáticas I) | Toomate.es</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- KaTeX para fórmulas matemáticas perfectas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR (NO IMPRIMIBLE) -->
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-purple-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-trigonometria-1-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-700 hover:text-purple-800 bg-purple-50 hover:bg-purple-100 border border-purple-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4 text-purple-600"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- DOCUMENTO DIDÁCTICO -->
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <!-- CABECERA DEL DOCUMENTO -->
+    <header class="border-b-2 border-purple-600 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-purple-50 border border-purple-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Currículo Cantabria LOMLOE &bull; 1º Bachillerato Científico</span>
+          <h1 class="font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight">Trigonometría Plana y Ecuaciones Trigonométricas</h1>
+          <p class="text-xs text-slate-500 mt-0.5">Razones en cualquier cuadrante, fórmulas de adición, ángulo doble, mitad y teoremas</p>
+        </div>
+      </div>
+      <div class="text-right flex sm:flex-col items-center sm:items-end justify-between">
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800 border border-purple-200">
+          Matemáticas I
+        </span>
+        <span class="text-xs text-slate-400 mt-1">Toomate.es &bull; Cantabria</span>
+      </div>
+    </header>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="mb-8 p-5 bg-purple-50/70 rounded-2xl border border-purple-100 text-sm text-purple-950 leading-relaxed">
+      <div class="flex items-start gap-3">
+        <i data-lucide="compass" class="w-5 h-5 text-purple-600 shrink-0 mt-0.5"></i>
+        <div>
+          <p class="font-bold text-purple-900 mb-1">Pilar esencial para Física y Cálculo Infinitesimal:</p>
+          <p>
+            En 1º de Bachillerato ampliamos la trigonometría del triángulo rectángulo a la <strong>circunferencia goniométrica</strong> ($\mathbb{R}$, en radianes y grados). Aprenderás a deducir y memorizar todas las fórmulas del ángulo suma, diferencia, ángulo doble y mitad, resolver ecuaciones trigonométricas con múltiples vueltas ($+2k\pi$) y aplicar los Teoremas del Seno y del Coseno a cualquier triángulo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 1: FÓRMULAS FUNDAMENTALES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-purple-600 pl-3 mb-4">
+        1. Relaciones Fundamentales y Circunferencia Goniométrica
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm text-center">
+          <span class="text-xs font-bold text-purple-600 uppercase">Fundamental</span>
+          <div class="my-2 py-2 bg-slate-50 rounded-lg text-slate-900 font-medium">
+            $$\sin^2\alpha + \cos^2\alpha = 1$$
+          </div>
+          <p class="text-xs text-slate-500">Pitágoras en el radio unidad</p>
+        </div>
+
+        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm text-center">
+          <span class="text-xs font-bold text-purple-600 uppercase">Tangente</span>
+          <div class="my-2 py-2 bg-slate-50 rounded-lg text-slate-900 font-medium">
+            $$\tan\alpha = \frac{\sin\alpha}{\cos\alpha}$$
+          </div>
+          <p class="text-xs text-slate-500">Definición de tangente</p>
+        </div>
+
+        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm text-center">
+          <span class="text-xs font-bold text-purple-600 uppercase">Secante y Tangente</span>
+          <div class="my-2 py-2 bg-slate-50 rounded-lg text-slate-900 font-medium">
+            $$1 + \tan^2\alpha = \frac{1}{\cos^2\alpha}$$
+          </div>
+          <p class="text-xs text-slate-500">Dividiendo por $\cos^2\alpha$</p>
+        </div>
+      </div>
+
+      <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700">
+        <h4 class="font-bold text-slate-900 mb-1">Signos según el cuadrante:</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center mt-2 font-mono">
+          <div class="p-2 bg-white rounded border border-slate-200"><strong>I Cuadrante:</strong><br>$\sin > 0, \cos > 0, \tan > 0$</div>
+          <div class="p-2 bg-white rounded border border-slate-200"><strong>II Cuadrante:</strong><br>$\sin > 0, \cos < 0, \tan < 0$</div>
+          <div class="p-2 bg-white rounded border border-slate-200"><strong>III Cuadrante:</strong><br>$\sin < 0, \cos < 0, \tan > 0$</div>
+          <div class="p-2 bg-white rounded border border-slate-200"><strong>IV Cuadrante:</strong><br>$\sin < 0, \cos > 0, \tan < 0$</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: ÁNGULO SUMA Y DIFERENCIA -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-purple-600 pl-3 mb-4">
+        2. Razones Trigonométricas de la Suma y Diferencia
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div class="p-4 bg-purple-50 border border-purple-200 rounded-xl space-y-2 text-xs">
+          <h4 class="font-bold text-purple-900 text-sm">Suma de Ángulos $(\alpha + \beta)$</h4>
+          <p>$$\sin(\alpha + \beta) = \sin\alpha \cos\beta + \cos\alpha \sin\beta$$</p>
+          <p>$$\cos(\alpha + \beta) = \cos\alpha \cos\beta - \sin\alpha \sin\beta$$</p>
+          <p>$$\tan(\alpha + \beta) = \frac{\tan\alpha + \tan\beta}{1 - \tan\alpha \tan\beta}$$</p>
+        </div>
+
+        <div class="p-4 bg-purple-50 border border-purple-200 rounded-xl space-y-2 text-xs">
+          <h4 class="font-bold text-purple-900 text-sm">Resta de Ángulos $(\alpha - \beta)$</h4>
+          <p>$$\sin(\alpha - \beta) = \sin\alpha \cos\beta - \cos\alpha \sin\beta$$</p>
+          <p>$$\cos(\alpha - \beta) = \cos\alpha \cos\beta + \sin\alpha \sin\beta$$</p>
+          <p>$$\tan(\alpha - \beta) = \frac{\tan\alpha - \tan\beta}{1 + \tan\alpha \tan\beta}$$</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: ÁNGULO DOBLE Y MITAD -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-purple-600 pl-3 mb-4">
+        3. Fórmulas de Ángulo Doble y Ángulo Mitad
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div class="p-4 bg-white border border-slate-200 rounded-xl shadow-2xs space-y-2 text-xs">
+          <h4 class="font-bold text-slate-900 text-sm">Ángulo Doble $(2\alpha)$</h4>
+          <p class="font-mono bg-slate-50 p-2 rounded text-center">$$\sin(2\alpha) = 2\sin\alpha \cos\alpha$$</p>
+          <p class="font-mono bg-slate-50 p-2 rounded text-center">$$\cos(2\alpha) = \cos^2\alpha - \sin^2\alpha$$</p>
+          <p class="font-mono bg-slate-50 p-2 rounded text-center">$$\tan(2\alpha) = \frac{2\tan\alpha}{1 - \tan^2\alpha}$$</p>
+        </div>
+
+        <div class="p-4 bg-white border border-slate-200 rounded-xl shadow-2xs space-y-2 text-xs">
+          <h4 class="font-bold text-slate-900 text-sm">Ángulo Mitad $(\alpha/2)$</h4>
+          <p class="font-mono bg-slate-50 p-2 rounded text-center">$$\sin\left(\frac{\alpha}{2}\right) = \pm \sqrt{\frac{1 - \cos\alpha}{2}}$$</p>
+          <p class="font-mono bg-slate-50 p-2 rounded text-center">$$\cos\left(\frac{\alpha}{2}\right) = \pm \sqrt{\frac{1 + \cos\alpha}{2}}$$</p>
+          <p class="font-mono bg-slate-50 p-2 rounded text-center">$$\tan\left(\frac{\alpha}{2}\right) = \pm \sqrt{\frac{1 - \cos\alpha}{1 + \cos\alpha}}$$</p>
+          <p class="text-[11px] text-slate-500 italic text-center">El signo $\pm$ se elige según el cuadrante de $\alpha/2$.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: ECUACIONES TRIGONOMÉTRICAS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-purple-600 pl-3 mb-4">
+        4. Resolución de Ecuaciones Trigonométricas
+      </h2>
+      <p class="text-sm text-slate-600 mb-3 leading-relaxed">
+        El objetivo es reducir la ecuación a una sola razón trigonométrica del mismo argumento ($\sin x, \cos x$ o $\tan x$):
+      </p>
+
+      <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 mb-4">
+        <p>1. <strong>Usa identidades</strong> para que todas las razones sean iguales. Ejemplo: sustituir $\cos^2 x$ por $1 - \sin^2 x$ o $\cos(2x)$ por $\cos^2 x - \sin^2 x$.</p>
+        <p>2. <strong>Cambio de variable:</strong> Llamar $t = \sin x$ o $t = \cos x$ para convertirla en una ecuación polinómica en $t$.</p>
+        <p>3. <strong>Deshacer el cambio:</strong> Recordar que $-1 \le \sin x \le 1$ y $-1 \le \cos x \le 1$. Valores como $t = 2$ no tienen solución.</p>
+        <p>4. <strong>Añadir las infinitas vueltas:</strong> $+ 360^\circ k$ (o $+ 2k\pi$) para seno y coseno, y $+ 180^\circ k$ (o $+ k\pi$) para la tangente, con $k \in \mathbb{Z}$.</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: TEOREMAS DEL SENO Y DEL COSENO -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-purple-600 pl-3 mb-4">
+        5. Teoremas del Seno y del Coseno (Triángulos Cualesquiera)
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl">
+          <h4 class="font-bold text-emerald-900 text-sm mb-1 text-center">Teorema del Seno</h4>
+          <p class="text-xs text-slate-600 text-center mb-2">Para parejas lado-ángulo opuesto conocidas:</p>
+          <div class="text-center font-bold text-emerald-900 bg-white py-2 rounded border border-emerald-100 text-sm">
+            $$\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} = 2R$$
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2 text-center">($R$ es el radio de la circunferencia circunscrita)</p>
+        </div>
+
+        <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl">
+          <h4 class="font-bold text-blue-900 text-sm mb-1 text-center">Teorema del Coseno</h4>
+          <p class="text-xs text-slate-600 text-center mb-2">Conocidos dos lados y el ángulo que forman:</p>
+          <div class="text-center font-bold text-blue-900 bg-white py-2 rounded border border-blue-100 text-sm">
+            $$a^2 = b^2 + c^2 - 2bc \cos A$$
+          </div>
+          <p class="text-[11px] text-slate-500 mt-2 text-center">(Generalización de Pitágoras a cualquier ángulo)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+      <div>&copy; Toomate.es &bull; Material Didáctico Libre bajo licencia educativa CC</div>
+      <div class="flex items-center gap-2">
+        <a href="ejercicios-trigonometria-1-bach.html" class="text-purple-600 hover:underline font-semibold flex items-center gap-1">
+          Ir al Boletín de 22 Ejercicios con Soluciones <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Script para KaTeX y Lucide -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>

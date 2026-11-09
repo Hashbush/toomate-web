@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinemática Vectorial y Tiro Parabólico - 1º Bachillerato | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-emerald-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-cinematica-vectorial-1-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-emerald-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Toomate.es &bull; Material Didáctico Oficial</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Cinemática Vectorial y Tiro Parabólico</h1>
+          <p class="text-xs sm:text-sm text-slate-500">1º de Bachillerato &bull; Física y Química &bull; Movimientos en 2D y MCU</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Nivel:</strong> 1º Bachillerato (Ciencias)</p>
+        <p><strong class="text-slate-700">Bloque:</strong> Cinemática Vectorial</p>
+        <p><strong class="text-slate-700">Currículo:</strong> Cantabria LOMLOE</p>
+      </div>
+    </header>
+
+    <div class="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-5 mb-8">
+      <h3 class="text-sm font-bold text-emerald-900 flex items-center gap-2">
+        <i data-lucide="activity" class="w-4 h-4 text-emerald-600"></i>
+        La Descripción Matemática del Movimiento
+      </h3>
+      <p class="text-xs sm:text-sm text-emerald-950 mt-1 leading-relaxed">
+        La cinemática estudia el movimiento sin atender a las causas que lo originan. En 1º de Bachillerato abandonamos las fórmulas escalares simples de la ESO para trabajar con vectores en el plano, derivadas temporales y la descomposición del movimiento en componentes intrínsecas (tangencial y normal).
+      </p>
+    </div>
+
+    <!-- 1: VECTORES DE LA CINEMÁTICA -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white inline-flex items-center justify-center text-xs font-bold">1</span>
+        Vectores Posición, Velocidad y Aceleración
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-emerald-800">Vector de Posición y Velocidad</h4>
+          <p class="text-slate-600">Posición en el plano: $\vec{r}(t) = x(t)\vec{i} + y(t)\vec{j}$.</p>
+          <p class="text-slate-600">La velocidad instantánea es la derivada temporal del vector posición (tangente a la trayectoria):</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$\vec{v}(t) = \frac{d\vec{r}}{dt} = v_x(t)\vec{i} + v_y(t)\vec{j}$$
+            $$v = |\vec{v}| = \sqrt{v_x^2 + v_y^2}$$
+          </div>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-emerald-800">Aceleración y Componentes Intrínsecas</h4>
+          <p class="text-slate-600">Aceleración: $\vec{a}(t) = \frac{d\vec{v}}{dt} = a_t \vec{u}_t + a_n \vec{u}_n$:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$a_t = \frac{dv}{dt} \quad (\text{cambio de módulo})$$
+            $$a_n = \frac{v^2}{R} \quad (\text{cambio de dirección})$$
+            $$a = \sqrt{a_t^2 + a_n^2}$$
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2: TIRO PARABÓLICO -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white inline-flex items-center justify-center text-xs font-bold">2</span>
+        Tiro Parabólico (Composición de Movimientos de Galileo)
+      </h2>
+
+      <div class="p-5 bg-emerald-50/50 border border-emerald-200 rounded-2xl space-y-3 text-xs sm:text-sm">
+        <p class="text-slate-700">
+          Un proyectil lanzado con velocidad inicial $v_0$ formando un ángulo $\alpha$ con la horizontal descompone su movimiento en dos ejes ortogonales independientes:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-3 bg-white rounded-xl border border-emerald-200">
+            <span class="font-bold text-emerald-900 block mb-1">Eje Horizontal X (M.R.U. sin rozamiento)</span>
+            <p class="font-mono text-xs">$a_x = 0$</p>
+            <p class="font-mono text-xs">$v_x = v_0 \cos \alpha = \text{cte}$</p>
+            <p class="font-mono text-xs">$x(t) = (v_0 \cos \alpha) \cdot t$</p>
+          </div>
+          <div class="p-3 bg-white rounded-xl border border-emerald-200">
+            <span class="font-bold text-emerald-900 block mb-1">Eje Vertical Y (M.R.U.A. bajo la gravedad)</span>
+            <p class="font-mono text-xs">$a_y = -g = -9{,}8\text{ m/s}^2$</p>
+            <p class="font-mono text-xs">$v_y(t) = v_0 \sin \alpha - g t$</p>
+            <p class="font-mono text-xs">$y(t) = y_0 + (v_0 \sin \alpha)t - \frac{1}{2}gt^2$</p>
+          </div>
+        </div>
+        <p class="text-xs text-slate-600">
+          <strong>Condición de altura máxima:</strong> $v_y = 0$. <strong>Condición de alcance:</strong> $y = 0$.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3: MOVIMIENTO CIRCULAR -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white inline-flex items-center justify-center text-xs font-bold">3</span>
+        Movimiento Circular: Magnitudes Lineales y Angulares
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <strong class="text-emerald-700 block mb-1">Posición y Arco</strong>
+          <p class="font-mono text-xs">$s = \theta \cdot R$</p>
+          <p class="text-[11px] text-slate-500">$\theta$ en radianes, $s$ y $R$ en metros.</p>
+        </div>
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <strong class="text-emerald-700 block mb-1">Velocidad Angular</strong>
+          <p class="font-mono text-xs">$v = \omega \cdot R$</p>
+          <p class="text-[11px] text-slate-500">$\omega = \frac{2\pi}{T} = 2\pi f$ (en rad/s).</p>
+        </div>
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <strong class="text-emerald-700 block mb-1">Aceleraciones</strong>
+          <p class="font-mono text-xs">$a_t = \alpha \cdot R$</p>
+          <p class="font-mono text-xs">$a_n = \frac{v^2}{R} = \omega^2 R$</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

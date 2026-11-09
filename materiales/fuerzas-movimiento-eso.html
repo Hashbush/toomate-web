@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinemática y Fuerzas - 3º y 4º ESO | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-sky-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-fuerzas-movimiento-eso.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-sky-600 hover:text-sky-700 bg-sky-50 hover:bg-sky-100 border border-sky-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-sky-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-sky-50 border border-sky-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-200">
+            Física y Química &bull; 3º y 4º ESO LOMLOE
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Cinemática Básica (MRU y MRUA) y Leyes de Fuerzas
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Ecuaciones horarias, gráficas de movimiento, caída libre, Ley de Hooke y 2ª Ley de Newton</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- RESUMEN CLAVE -->
+    <section class="mb-10 bg-gradient-to-br from-sky-50 to-indigo-50 border border-sky-200 rounded-2xl p-6">
+      <h2 class="text-lg font-bold text-sky-950 flex items-center gap-2 mb-3">
+        <i data-lucide="compass" class="w-5 h-5 text-sky-600"></i>
+        Fórmulas Fundamentales de ESO
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="bg-white/80 p-3.5 rounded-xl border border-sky-100">
+          <p class="font-bold text-slate-800 mb-1">Movimiento Rectilíneo Uniforme (MRU):</p>
+          <div class="text-slate-700">$$s = s_0 + v \cdot t, \quad v = \text{constante}$$</div>
+          <p class="text-xs text-slate-500 mt-1">Gráfica $s-t$ es una recta; gráfica $v-t$ es una horizontal.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-sky-100">
+          <p class="font-bold text-slate-800 mb-1">MRU Acelerado y Caída Libre ($a = \pm g$):</p>
+          <div class="text-slate-700">$$v = v_0 + a \cdot t, \quad s = s_0 + v_0 t + \frac{1}{2} a t^2, \quad v^2 = v_0^2 + 2 a \Delta s$$</div>
+          <p class="text-xs text-slate-500 mt-1">En caída libre sin aire: $g \approx 9{,}8\text{ m/s}^2$ apuntando hacia abajo.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-sky-100">
+          <p class="font-bold text-slate-800 mb-1">Ley de Hooke (Fuerza Elástica):</p>
+          <div class="text-slate-700">$$F = k \cdot \Delta x = k \cdot (l - l_0)$$</div>
+          <p class="text-xs text-slate-500 mt-1">$k$ es la constante elástica en $\text{N/m}$ y $\Delta x$ el alargamiento en metros.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-sky-100">
+          <p class="font-bold text-slate-800 mb-1">Peso y 2ª Ley de Newton:</p>
+          <div class="text-slate-700">$$P = m \cdot g, \quad F_{\text{resultante}} = m \cdot a, \quad F_r = \mu \cdot N$$</div>
+          <p class="text-xs text-slate-500 mt-1">La masa $m$ en kg (invariable); el peso $P$ en Newtons (depende de $g$).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 1: MRU Y MRUA -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-sky-500 pl-3 mb-4">
+        1. Cinemática Unidimensional: MRU, MRUA y Encuentros
+      </h2>
+      <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+        <p>
+          En la ESO es crucial dominar el cambio de unidades de velocidad ($\text{km/h} \div 3{,}6 = \text{m/s}$) y resolver problemas de encuentro entre dos móviles igualando sus ecuaciones horarias de posición: $s_A(t) = s_B(t)$.
+        </p>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <h4 class="font-bold text-slate-900 mb-1">Regla de Signos para Caída y Lanzamiento Vertical:</h4>
+          <p>Tomando el suelo como origen ($y = 0$) y sentido hacia arriba como positivo:</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>La aceleración de la gravedad siempre es negativa: $a = -g = -9{,}8\text{ m/s}^2$.</li>
+            <li>Si el cuerpo sube, $v_0 > 0$. En el punto más alto, $v = 0$.</li>
+            <li>Si el cuerpo se deja caer desde una altura $h$, $y_0 = h$ y $v_0 = 0$.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: FUERZAS Y LEY DE HOOKE -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-sky-500 pl-3 mb-4">
+        2. Fuerzas, Muelles (Ley de Hooke) y Rozamiento
+      </h2>
+      <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+        <p>
+          Una fuerza es cualquier interacción capaz de deformar un cuerpo o de alterar su estado de reposo o movimiento:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Efecto dinámico ($F = m \cdot a$):</strong> Una fuerza resultante no nula produce siempre una aceleración en la misma dirección y sentido.</li>
+          <li><strong>Efecto estático (Ley de Hooke):</strong> Al colgar una masa $m$ de un muelle, en el equilibrio el peso iguala la fuerza elástica: $m g = k \cdot \Delta x \implies k = \frac{m g}{\Delta x}$.</li>
+          <li><strong>Fuerza de rozamiento:</strong> Surge del contacto microscópico entre superficies y siempre frena el movimiento relativo ($F_r = \mu N$).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FOOTER NAV -->
+    <div class="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-slate-500">
+        Toomate.es &bull; Física y Química 3º y 4º ESO LOMLOE
+      </div>
+      <a href="ejercicios-fuerzas-movimiento-eso.html" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md transition">
+        <span>Ir al Boletín de 22 Ejercicios Resueltos</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

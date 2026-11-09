@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletín de Ejercicios: Cinemática Vectorial | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary .arrow-icon { transform: rotate(180deg); }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 10pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+      details { border: 1px solid #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex flex-wrap items-center justify-between gap-3">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-emerald-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex flex-wrap items-center gap-2.5">
+      <button onclick="toggleTodasLasSoluciones()" id="btnToggleAll" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="eye" class="w-4 h-4 text-emerald-600"></i>
+        <span id="txtToggleAll">Desplegar todas las soluciones</span>
+      </button>
+
+      <a href="cinematica-vectorial-1-bach.html" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-emerald-600 bg-white border border-slate-200 px-3 py-2 rounded-xl transition">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Teoría & Resumen</span>
+      </a>
+
+      <button onclick="window.print()" class="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-6 sm:p-12">
+    
+    <header class="border-b-2 border-emerald-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Toomate.es &bull; Cuaderno Interactivo</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Boletín de Cinemática Vectorial</h1>
+          <p class="text-xs sm:text-sm text-slate-500">22 Ejercicios Resueltos Paso a Paso &bull; 1º Bachillerato Ciencias</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Páginas:</strong> 22 Problemas Graduados</p>
+        <p><strong class="text-slate-700">Modalidad:</strong> Soluciones desplegables</p>
+        <p><strong class="text-slate-700">Gravedad:</strong> $g = 9{,}8\text{ m/s}^2$</p>
+      </div>
+    </header>
+
+    <!-- BLOQUE 1: BÁSICO (1-8) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 1 &bull; Básico</span>
+        <h2 class="text-lg font-bold text-slate-800">Vector Posición, Derivadas y Movimientos en 1D</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 1 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">1</span>
+            Vector posición y vector desplazamiento
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            El vector de posición de una partícula es $\vec{r}(t) = (3t + 1)\vec{i} + (2t^2 - 4)\vec{j}$ (en metros y segundos). Halla la posición en $t = 0\text{ s}$ y en $t = 2\text{ s}$, y calcula el vector desplazamiento entre ambos instantes y su módulo.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Posición inicial: $\vec{r}(0) = (3(0) + 1)\vec{i} + (2(0)^2 - 4)\vec{j} = \vec{i} - 4\vec{j}$ m.</p>
+              <p>2. Posición en $t=2$: $\vec{r}(2) = (3(2) + 1)\vec{i} + (2(2^2) - 4)\vec{j} = 7\vec{i} + 4\vec{j}$ m.</p>
+              <p>3. Vector desplazamiento: $\Delta\vec{r} = \vec{r}(2) - \vec{r}(0) = (7 - 1)\vec{i} + (4 - (-4))\vec{j} = 6\vec{i} + 8\vec{j}$ m.</p>
+              <p>4. Módulo del desplazamiento: $|\Delta\vec{r}| = \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = \sqrt{100} = 10\text{ m}$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $\Delta\vec{r} = 6\vec{i} + 8\vec{j}\text{ m}$ y distancia en línea recta $= 10\text{ m}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 2 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">2</span>
+            Velocidad instantánea como derivada del vector posición
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Para la partícula del ejercicio anterior con $\vec{r}(t) = (3t + 1)\vec{i} + (2t^2 - 4)\vec{j}$, halla la función del vector velocidad $\vec{v}(t)$ y calcula la celeridad (módulo de la velocidad) a los $3\text{ segundos}$.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Derivamos el vector posición respecto al tiempo:</p>
+              <p>$$\vec{v}(t) = \frac{d\vec{r}}{dt} = \frac{d}{dt}(3t + 1)\vec{i} + \frac{d}{dt}(2t^2 - 4)\vec{j} = 3\vec{i} + 4t\vec{j}\text{ (en m/s)}$$</p>
+              <p>2. Evaluamos en $t = 3\text{ s}$: $\vec{v}(3) = 3\vec{i} + 4(3)\vec{j} = 3\vec{i} + 12\vec{j}\text{ m/s}$.</p>
+              <p>3. Celeridad o módulo: $v = \sqrt{3^2 + 12^2} = \sqrt{9 + 144} = \sqrt{153} \approx 12{,}37\text{ m/s}$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $\vec{v}(t) = 3\vec{i} + 4t\vec{j}\text{ m/s}$; en $t=3\text{ s}$, celeridad $v \approx 12{,}37\text{ m/s}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 3 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">3</span>
+            Ecuación cartesiana de la trayectoria
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Halla la ecuación de la trayectoria $y = f(x)$ del móvil con ecuaciones paramétricas $x(t) = 3t + 1$ e $y(t) = 2t^2 - 4$, e indica qué tipo de curva describe.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Despejamos el tiempo $t$ de la coordenada horizontal: $x = 3t + 1 \implies t = \frac{x - 1}{3}$.</p>
+              <p>2. Sustituimos en la coordenada vertical:</p>
+              <p>$$y = 2\left(\frac{x - 1}{3}\right)^2 - 4 = 2 \frac{x^2 - 2x + 1}{9} - 4 = \frac{2}{9}x^2 - \frac{4}{9}x + \frac{2}{9} - \frac{36}{9} = \frac{2}{9}x^2 - \frac{4}{9}x - \frac{34}{9}$$</p>
+              <p>3. Al ser una función cuadrática en $x$, la trayectoria es una <strong>parábola</strong> abierta hacia arriba.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Trayectoria parabólica $y = \frac{2}{9}x^2 - \frac{4}{9}x - \frac{34}{9}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 4 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">4</span>
+            Frenada de un vehículo (MRUA en 1D)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un automóvil circula a $108\text{ km/h}$ por una autopista cuando el conductor pisa a fondo el freno y se detiene en seco en $60\text{ metros}$. Calcula la aceleración de frenado y el tiempo empleado en detenerse.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Conversión al S.I.: $v_0 = 108\text{ km/h} = \frac{108}{3{,}6} = 30\text{ m/s}$. Velocidad final $v = 0$.</p>
+              <p>2. Relación de Torricelli independiente del tiempo: $v^2 - v_0^2 = 2 a \Delta x$:</p>
+              <p>$$0^2 - 30^2 = 2 a (60) \implies -900 = 120 a \implies a = \frac{-900}{120} = -7{,}5\text{ m/s}^2$$</p>
+              <p>3. Tiempo de frenada: $v = v_0 + a t \implies 0 = 30 - 7{,}5t \implies t = \frac{30}{7{,}5} = 4\text{ segundos}$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Aceleración de frenado $a = -7{,}5\text{ m/s}^2$ y tiempo de parada $t = 4\text{ s}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 5 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">5</span>
+            Caída libre desde un puente
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Se deja caer una piedra desde lo alto de un viaducto sin velocidad inicial y tarda $2{,}5\text{ segundos}$ en impactar contra el agua. Halla la altura del puente y la velocidad con la que choca contra el agua. ($g = 9{,}8\text{ m/s}^2$).
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Altura recorrida en caída libre ($v_0 = 0$):</p>
+              <p>$$h = \frac{1}{2} g t^2 = \frac{1}{2}(9{,}8)(2{,}5)^2 = 4{,}9 \times 6{,}25 = 30{,}625\text{ m}$$</p>
+              <p>2. Velocidad de impacto:</p>
+              <p>$$v = g t = (9{,}8\text{ m/s}^2)(2{,}5\text{ s}) = 24{,}5\text{ m/s} \quad (= 88{,}2\text{ km/h})$$</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Altura del puente $h \approx 30{,}6\text{ m}$ y velocidad de impacto $v = 24{,}5\text{ m/s}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 6 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">6</span>
+            Lanzamiento vertical hacia arriba
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Se lanza una pelota verticalmente hacia arriba desde el suelo con una velocidad inicial de $24{,}5\text{ m/s}$. Halla la altura máxima alcanzada y el tiempo total que permanece en el aire hasta regresar al suelo.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. En el punto más alto, la velocidad instantánea se anula: $v = 0$:</p>
+              <p>$$v = v_0 - gt \implies 0 = 24{,}5 - 9{,}8t_{\text{subida}} \implies t_{\text{subida}} = \frac{24{,}5}{9{,}8} = 2{,}5\text{ segundos}$$</p>
+              <p>2. Altura máxima alcanzada:</p>
+              <p>$$y_{\text{max}} = v_0 t - \frac{1}{2}gt^2 = (24{,}5)(2{,}5) - 4{,}9(2{,}5)^2 = 61{,}25 - 30{,}625 = 30{,}625\text{ m}$$</p>
+              <p>3. Tiempo total de vuelo (por simetría parabólica): $t_{\text{vuelo}} = 2 \times t_{\text{subida}} = 2 \times 2{,}5 = 5\text{ segundos}$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Altura máxima $y_{\text{max}} = 30{,}625\text{ m}$ y tiempo de vuelo $t = 5\text{ s}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 7 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">7</span>
+            Movimiento Circular Uniforme de una rueda
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una rueda de bicicleta de $60\text{ cm}$ de diámetro gira con M.C.U. a una frecuencia constante de $120\text{ rpm}$ (revoluciones por minuto). Halla su velocidad angular en rad/s, el periodo y la velocidad lineal de un punto del neumático exterior.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Radio: $R = \frac{0{,}60}{2} = 0{,}30\text{ m}$.</p>
+              <p>2. Velocidad angular: $\omega = 120 \frac{\text{rev}}{\text{min}} \times \frac{2\pi\text{ rad}}{1\text{ rev}} \times \frac{1\text{ min}}{60\text{ s}} = 4\pi\text{ rad/s} \approx 12{,}57\text{ rad/s}$.</p>
+              <p>3. Periodo: $T = \frac{2\pi}{\omega} = \frac{2\pi}{4\pi} = 0{,}5\text{ segundos}$.</p>
+              <p>4. Velocidad lineal: $v = \omega R = (4\pi\text{ rad/s})(0{,}30\text{ m}) = 1{,}2\pi\text{ m/s} \approx 3{,}77\text{ m/s} \quad (= 13{,}57\text{ km/h})$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $\omega = 4\pi \approx 12{,}57\text{ rad/s}$, $T = 0{,}5\text{ s}$, velocidad lineal $v \approx 3{,}77\text{ m/s}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 8 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">8</span>
+            Aceleración centrípeta en una curva
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un coche toma una curva circular plana de $80\text{ metros}$ de radio a una velocidad constante de $72\text{ km/h}$. Calcula su aceleración normal (centrípeta) y compárala con la gravedad.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Conversión de velocidad: $v = \frac{72}{3{,}6} = 20\text{ m/s}$. Radio $R = 80\text{ m}$.</p>
+              <p>2. Aceleración centrípeta: $a_n = \frac{v^2}{R} = \frac{20^2}{80} = \frac{400}{80} = 5\text{ m/s}^2$.</p>
+              <p>3. Comparación con $g = 9{,}8\text{ m/s}^2$: $a_n \approx 0{,}51\,g$ (sometido a media gravedad lateral).</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $a_n = 5\text{ m/s}^2$ (dirigida hacia el centro de curvatura).
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: INTERMEDIO (9-16) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 2 &bull; Intermedio</span>
+        <h2 class="text-lg font-bold text-slate-800">Tiro Horizontal, Lanzamiento Parabólico y MCUA</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 9 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">9</span>
+            Aceleraciones tangencial y normal en el espacio
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            El vector de velocidad de un móvil es $\vec{v}(t) = 4t\vec{i} + 3\vec{j}$ (en m/s). Halla el vector aceleración total, la aceleración tangencial $a_t$, la aceleración normal $a_n$ y el radio de curvatura de la trayectoria en $t = 1\text{ s}$.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Aceleración total: $\vec{a} = \frac{d\vec{v}}{dt} = 4\vec{i}\text{ m/s}^2 \implies |\vec{a}| = 4\text{ m/s}^2$.</p>
+              <p>2. Módulo de la velocidad en función de $t$: $v(t) = \sqrt{(4t)^2 + 3^2} = \sqrt{16t^2 + 9}$. En $t=1$: $v(1) = \sqrt{16+9} = 5\text{ m/s}$.</p>
+              <p>3. Aceleración tangencial: $a_t = \frac{dv}{dt} = \frac{32t}{2\sqrt{16t^2 + 9}} = \frac{16t}{\sqrt{16t^2 + 9}}$. En $t=1$: $a_t = \frac{16}{5} = 3{,}2\text{ m/s}^2$.</p>
+              <p>4. Aceleración normal: $a_n = \sqrt{a^2 - a_t^2} = \sqrt{4^2 - (3{,}2)^2} = \sqrt{16 - 10{,}24} = \sqrt{5{,}76} = 2{,}4\text{ m/s}^2$.</p>
+              <p>5. Radio de curvatura: $\rho = \frac{v^2}{a_n} = \frac{5^2}{2{,}4} = \frac{25}{2{,}4} \approx 10{,}42\text{ m}$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $a_t = 3{,}2\text{ m/s}^2$, $a_n = 2{,}4\text{ m/s}^2$ y radio de curvatura $\rho \approx 10{,}42\text{ m}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 10 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">10</span>
+            Tiro horizontal desde un acantilado
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Desde el borde de un acantilado de $44{,}1\text{ m}$ de altura sobre el mar, se dispara horizontalmente un proyectil con una velocidad de $20\text{ m/s}$. Calcula: a) El tiempo que tarda en caer al agua; b) El alcance horizontal desde la base del acantilado; c) El vector velocidad en el momento del impacto.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>a) Movimiento vertical (caída libre desde $44{,}1\text{ m}$):</p>
+              <p>$$y = h - \frac{1}{2}gt^2 \implies 0 = 44{,}1 - 4{,}9t^2 \implies t^2 = \frac{44{,}1}{4{,}9} = 9 \implies t = 3\text{ segundos}$$</p>
+              <p>b) Alcance horizontal (M.R.U. horizontal): $x = v_0 \cdot t = 20\text{ m/s} \times 3\text{ s} = 60\text{ metros}$.</p>
+              <p>c) Componentes de la velocidad de impacto:</p>
+              <p>&bull; $v_x = 20\text{ m/s}$.</p>
+              <p>&bull; $v_y = -gt = -9{,}8 \times 3 = -29{,}4\text{ m/s}$.</p>
+              <p>$$\vec{v} = 20\vec{i} - 29{,}4\vec{j}\text{ m/s} \implies v = \sqrt{20^2 + (-29{,}4)^2} \approx 35{,}56\text{ m/s}$$</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: a) $t = 3\text{ s}$; b) Alcance $= 60\text{ m}$; c) $\vec{v} = 20\vec{i} - 29{,}4\vec{j}\text{ m/s}$ ($v \approx 35{,}56\text{ m/s}$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 11 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">11</span>
+            Tiro parabólico completo desde el suelo
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un jugador de fútbol chuta un balón con velocidad inicial $v_0 = 30\text{ m/s}$ formando un ángulo de $30^\circ$ con el suelo horizontal. Halla la altura máxima, el tiempo de vuelo y el alcance horizontal máximo.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Componentes iniciales: $v_{0x} = 30 \cos 30^\circ = 30 \frac{\sqrt{3}}{2} \approx 25{,}98\text{ m/s}$; $v_{0y} = 30 \sin 30^\circ = 15\text{ m/s}$.</p>
+              <p>2. Altura máxima ($v_y = 0$): $t_{\text{subida}} = \frac{v_{0y}}{g} = \frac{15}{9{,}8} \approx 1{,}53\text{ s}$.</p>
+              <p>$$y_{\text{max}} = \frac{v_{0y}^2}{2g} = \frac{15^2}{2(9{,}8)} = \frac{225}{19{,}6} \approx 11{,}48\text{ metros}$$</p>
+              <p>3. Tiempo de vuelo: $t_{\text{vuelo}} = 2 \times 1{,}53 \approx 3{,}06\text{ segundos}$.</p>
+              <p>4. Alcance horizontal: $x_{\text{max}} = v_{0x} \cdot t_{\text{vuelo}} = 25{,}98 \times 3{,}06 \approx 79{,}53\text{ metros}$ (o $\frac{v_0^2 \sin(60^\circ)}{g} = \frac{900 \cdot 0{,}866}{9{,}8} \approx 79{,}53\text{ m}$).</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Altura máxima $\approx 11{,}48\text{ m}$, tiempo de vuelo $\approx 3{,}06\text{ s}$, alcance $\approx 79{,}53\text{ m}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 12 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">12</span>
+            Deducción del ángulo de alcance horizontal máximo
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Demuestra analíticamente que para una velocidad inicial $v_0$ dada, el alcance horizontal máximo de un proyectil en terreno llano se alcanza para un ángulo de lanzamiento de $45^\circ$.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. El tiempo de vuelo hasta volver al suelo ($y = 0$) es: $t = \frac{2 v_0 \sin \alpha}{g}$.</p>
+              <p>2. Sustituimos en la ecuación horizontal de alcance:</p>
+              <p>$$x = (v_0 \cos \alpha) \cdot t = v_0 \cos \alpha \cdot \frac{2 v_0 \sin \alpha}{g} = \frac{v_0^2}{g} (2 \sin \alpha \cos \alpha) = \frac{v_0^2}{g} \sin(2\alpha)$$</p>
+              <p>3. Para que $x$ sea máximo, la función $\sin(2\alpha)$ debe alcanzar su valor máximo posible ($+1$):</p>
+              <p>$$\sin(2\alpha) = 1 \implies 2\alpha = 90^\circ \implies \alpha = 45^\circ$$</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Queda demostrado que $\alpha = 45^\circ$ proporciona el alcance máximo $x_{\text{max}} = \frac{v_0^2}{g}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 13 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">13</span>
+            Movimiento Circular Uniformemente Acelerado (MCUA)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            El tambor de una lavadora parte del reposo y alcanza una velocidad de centrifugado de $1.200\text{ rpm}$ en 20 segundos con aceleración angular constante. Calcula la aceleración angular y el número de vueltas completadas en ese tiempo.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Velocidad angular final: $\omega = 1200 \frac{\text{rev}}{\text{min}} \times \frac{2\pi\text{ rad}}{60\text{ s}} = 40\pi\text{ rad/s} \approx 125{,}66\text{ rad/s}$.</p>
+              <p>2. Aceleración angular: $\alpha = \frac{\omega - \omega_0}{t} = \frac{40\pi - 0}{20} = 2\pi\text{ rad/s}^2 \approx 6{,}28\text{ rad/s}^2$.</p>
+              <p>3. Ángulo total girado: $\theta = \omega_0 t + \frac{1}{2}\alpha t^2 = 0 + \frac{1}{2}(2\pi)(20^2) = 400\pi\text{ radianes}$.</p>
+              <p>4. Número de vueltas: $N = \frac{\theta}{2\pi} = \frac{400\pi}{2\pi} = 200\text{ vueltas}$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $\alpha = 2\pi \approx 6{,}28\text{ rad/s}^2$ y completa $200\text{ vueltas}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 14 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">14</span>
+            Problema de persecución y alcance
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un infractor pasa a velocidad constante de $126\text{ km/h}$ delante de un coche de policía parado. Dos segundos después, la patrulla arranca en su persecución con una aceleración constante de $5\text{ m/s}^2$. ¿Cuánto tiempo tarda la policía en alcanzar al infractor desde que arranca y qué distancia ha recorrido?
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Velocidad del infractor: $v = \frac{126}{3{,}6} = 35\text{ m/s}$.</p>
+              <p>2. Tomando $t=0$ cuando arranca la policía: el infractor ya lleva una ventaja de $d_0 = 35 \times 2 = 70$ m.</p>
+              <p>3. Ecuaciones de posición:</p>
+              <p>&bull; Infractor: $x_I(t) = 70 + 35t$.</p>
+              <p>&bull; Policía: $x_P(t) = \frac{1}{2} a t^2 = 2{,}5t^2$.</p>
+              <p>4. Condición de alcance: $2{,}5t^2 = 70 + 35t \implies 2{,}5t^2 - 35t - 70 = 0 \iff t^2 - 14t - 28 = 0$.</p>
+              <p>$$t = \frac{14 \pm \sqrt{196 + 112}}{2} = \frac{14 \pm \sqrt{308}}{2} = \frac{14 + 17{,}55}{2} \approx 15{,}77\text{ s}$$</p>
+              <p>Distancia recorrida por la patrulla: $x_P = 2{,}5(15{,}77)^2 \approx 622\text{ m}$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Tarda $15{,}77\text{ segundos}$ y recorre unos $622\text{ metros}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 15 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">15</span>
+            Cruzando un río en barca (Composición de velocidades)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una lancha cruza un río de $120\text{ metros}$ de anchura con la proa orientada perpendicularmente a la corriente. La velocidad de la lancha respecto al agua es de $4\text{ m/s}$ y la corriente del río fluye a $3\text{ m/s}$. Halla el tiempo que tarda en cruzar, la distancia que la corriente la desplaza río abajo y la velocidad total respecto a la orilla.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Tiempo de travesía: depende exclusivamente de la velocidad perpendicular al río ($v_y = 4\text{ m/s}$):</p>
+              <p>$$t = \frac{d}{v_y} = \frac{120\text{ m}}{4\text{ m/s}} = 30\text{ segundos}$$</p>
+              <p>2. Arrastre río abajo: $x = v_x \cdot t = (3\text{ m/s})(30\text{ s}) = 90\text{ metros}$.</p>
+              <p>3. Velocidad resultante respecto a tierra:</p>
+              <p>$$v_{\text{total}} = \sqrt{v_x^2 + v_y^2} = \sqrt{3^2 + 4^2} = \sqrt{25} = 5\text{ m/s}$$</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Tarda $30\text{ s}$, se desplaza $90\text{ m}$ río abajo y su velocidad total es $5\text{ m/s}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 16 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">16</span>
+            Lanzamiento horizontal hacia una diana
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un tirador con arco dispara una flecha horizontalmente apuntando al centro de una diana situada a $50\text{ metros}$ con una velocidad de $80\text{ m/s}$. ¿Cuánto desciende verticalmente la flecha por efecto de la gravedad antes de impactar en la diana?
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Tiempo de vuelo horizontal: $t = \frac{x}{v_0} = \frac{50\text{ m}}{80\text{ m/s}} = 0{,}625\text{ segundos}$.</p>
+              <p>2. Caída vertical durante ese tiempo:</p>
+              <p>$$y_{\text{caída}} = \frac{1}{2} g t^2 = \frac{1}{2}(9{,}8)(0{,}625)^2 = 4{,}9 \times 0{,}390625 \approx 1{,}914\text{ metros}$$</p>
+              <p>Conclusión: Debe apuntar casi $2\text{ metros}$ por encima de la diana para compensar la caída gravitatoria.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Desciende aproximadamente $1{,}91\text{ metros}$ por debajo del punto apuntado.
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- BLOQUE 3: AVANZADO (17-22) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 3 &bull; Avanzado</span>
+        <h2 class="text-lg font-bold text-slate-800">Tiro al Blanco, Canastas de Baloncesto y Transmisiones</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 17 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">17</span>
+            Tiro a canasta de baloncesto
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un jugador de baloncesto lanza el balón desde una altura de $2\text{ metros}$ con un ángulo de $45^\circ$ hacia una canasta situada a una distancia horizontal de $6\text{ metros}$ y a una altura de $3{,}05\text{ metros}$. Halla la velocidad inicial $v_0$ necesaria para encestar limpio.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Ecuación de la trayectoria parabólica eliminando el tiempo ($t = \frac{x}{v_0 \cos \alpha}$):</p>
+              <p>$$y = y_0 + (\tan \alpha)x - \frac{g x^2}{2 v_0^2 \cos^2 \alpha}$$</p>
+              <p>2. Datos: $y_0 = 2$, $x = 6$, $y = 3{,}05$, $\alpha = 45^\circ \implies \tan 45^\circ = 1$, $\cos 45^\circ = \frac{\sqrt{2}}{2}$, $\cos^2 45^\circ = 0{,}5$.</p>
+              <p>$$3{,}05 = 2 + 1(6) - \frac{9{,}8(6^2)}{2 v_0^2 (0{,}5)} = 8 - \frac{9{,}8(36)}{v_0^2} = 8 - \frac{352{,}8}{v_0^2}$$</p>
+              <p>3. Despejamos $v_0$:</p>
+              <p>$$\frac{352{,}8}{v_0^2} = 8 - 3{,}05 = 4{,}95 \implies v_0^2 = \frac{352{,}8}{4{,}95} \approx 71{,}27 \implies v_0 \approx 8{,}44\text{ m/s}$$</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: La velocidad inicial requerida es $v_0 \approx 8{,}44\text{ m/s}$ ($30{,}4\text{ km/h}$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 18 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">18</span>
+            El problema clásico del cazador y el mono
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un dardo tranquilizante apunta directamente a un mono colgado de un árbol a distancia horizontal $d$ y altura $h$. En el instante exacto en que sale el dardo con velocidad $v_0$, el mono se suelta de la rama en caída libre. Demuestra que el dardo siempre impacta en el mono sin importar el valor de $v_0$ (siempre que alcance la distancia $d$).
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Como el cañón apunta al mono, $\tan \alpha = \frac{h}{d} \implies h = d \tan \alpha$.</p>
+              <p>2. El tiempo que tarda el dardo en recorrer la distancia horizontal $d$ es $t = \frac{d}{v_0 \cos \alpha}$.</p>
+              <p>3. Altura del dardo en ese instante $t$:</p>
+              <p>$$y_{\text{dardo}} = (v_0 \sin \alpha)t - \frac{1}{2}gt^2 = v_0 \sin \alpha \left(\frac{d}{v_0 \cos \alpha}\right) - \frac{1}{2}gt^2 = d \tan \alpha - \frac{1}{2}gt^2 = h - \frac{1}{2}gt^2$$</p>
+              <p>4. Altura del mono en caída libre en ese mismo instante $t$: $y_{\text{mono}} = h - \frac{1}{2}gt^2$.</p>
+              <p>Como $y_{\text{dardo}} = y_{\text{mono}}$, ambas posiciones coinciden exactamente en el espacio.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Queda demostrado que el impacto se produce siempre independientemente de la velocidad inicial.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 19 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">19</span>
+            Radio de curvatura en el vértice de una parábola
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Halla el radio de curvatura $\rho$ en el punto más alto de la trayectoria de un proyectil lanzado con $v_0 = 50\text{ m/s}$ y $\alpha = 60^\circ$.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. En la cúspide de la parábola, la velocidad es puramente horizontal: $v = v_x = v_0 \cos \alpha = 50 \cos 60^\circ = 25\text{ m/s}$.</p>
+              <p>2. En ese punto, la aceleración de la gravedad $\vec{g}$ es exactamente perpendicular a la velocidad horizontal, por lo que actúa íntegramente como aceleración normal: $a_n = g = 9{,}8\text{ m/s}^2$.</p>
+              <p>3. Aplicamos la fórmula del radio de curvatura: $a_n = \frac{v^2}{\rho} \implies \rho = \frac{v^2}{g}$:</p>
+              <p>$$\rho = \frac{25^2}{9{,}8} = \frac{625}{9{,}8} \approx 63{,}78\text{ metros}$$</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: El radio de curvatura en la cúspide es $\rho \approx 63{,}78\text{ m}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 20 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">20</span>
+            Transmisión por engranajes y correa
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Dos poleas de radios $R_1 = 30\text{ cm}$ y $R_2 = 10\text{ cm}$ están unidas por una correa de transmisión que no resbala. Si la polea grande gira a $100\text{ rpm}$, calcula la velocidad lineal de la correa y la velocidad angular de la polea pequeña en rpm y rad/s.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Al no deslizar, la velocidad tangencial o lineal de ambas poleas y de la correa es idéntica: $v_1 = v_2 = v$.</p>
+              <p>2. $\omega_1 = 100 \frac{\text{rev}}{\text{min}} \times \frac{2\pi}{60} = \frac{10\pi}{3}\text{ rad/s} \approx 10{,}47\text{ rad/s}$.</p>
+              <p>Velocidad lineal de la correa: $v = \omega_1 R_1 = \left(\frac{10\pi}{3}\right)(0{,}30) = \pi\text{ m/s} \approx 3{,}14\text{ m/s}$.</p>
+              <p>3. Relación de radios: $\omega_1 R_1 = \omega_2 R_2 \implies \omega_2 = \omega_1 \frac{R_1}{R_2} = 100 \times \frac{30}{10} = 300\text{ rpm}$.</p>
+              <p>En rad/s: $\omega_2 = 300 \times \frac{2\pi}{60} = 10\pi\text{ rad/s} \approx 31{,}42\text{ rad/s}$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Velocidad de la correa $\approx 3{,}14\text{ m/s}$; polea pequeña gira a $300\text{ rpm}$ ($10\pi\text{ rad/s}$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 21 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">21</span>
+            Colisión en el aire de dos proyectiles
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Desde el suelo se dispara verticalmente hacia arriba un objeto $A$ con velocidad de $40\text{ m/s}$. Dos segundos más tarde, se dispara desde el mismo punto un segundo objeto $B$ con velocidad de $50\text{ m/s}$. ¿A qué altura y en qué instante chocan?
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Tomando $t$ como el tiempo desde el lanzamiento de $A$:</p>
+              <p>&bull; Posición de $A$: $y_A(t) = 40t - 4{,}9t^2$.</p>
+              <p>&bull; Posición de $B$ (para $t \ge 2$): $y_B(t) = 50(t - 2) - 4{,}9(t - 2)^2 = 50t - 100 - 4{,}9(t^2 - 4t + 4) = 50t - 100 - 4{,}9t^2 + 19{,}6t - 19{,}6 = 69{,}6t - 119{,}6 - 4{,}9t^2$.</p>
+              <p>2. Igualamos $y_A = y_B$ (el término cuadrático $-4{,}9t^2$ se cancela):</p>
+              <p>$$40t = 69{,}6t - 119{,}6 \implies 29{,}6t = 119{,}6 \implies t = \frac{119{,}6}{29{,}6} \approx 4{,}04\text{ segundos}$$</p>
+              <p>3. Altura del choque: $y = 40(4{,}04) - 4{,}9(4{,}04)^2 \approx 161{,}6 - 80{,}0 \approx 81{,}6\text{ metros}$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Chocan a los $4{,}04\text{ s}$ del primer lanzamiento a una altura de $81{,}6\text{ m}$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <!-- 22 -->
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">22</span>
+            Aceleración variable dependiente del tiempo
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un móvil parte del reposo en el origen en $t = 0$ con una aceleración que varía en el tiempo según $a(t) = 6t - 4$ (en $\text{m/s}^2$). Halla la ecuación de la velocidad $v(t)$, la ecuación de la posición $x(t)$ y la distancia recorrida a los $3\text{ segundos}$.
+          </p>
+          <details class="exercise-details group border border-emerald-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-emerald-50 hover:bg-emerald-100 cursor-pointer text-xs font-bold text-emerald-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Velocidad por integración: $v(t) = \int a(t)\,dt = \int (6t - 4)\,dt = 3t^2 - 4t + C_1$.</p>
+              <p>Como parte del reposo $v(0) = 0 \implies C_1 = 0 \implies v(t) = 3t^2 - 4t\text{ m/s}$.</p>
+              <p>2. Posición por integración: $x(t) = \int v(t)\,dt = \int (3t^2 - 4t)\,dt = t^3 - 2t^2 + C_2$.</p>
+              <p>Como parte del origen $x(0) = 0 \implies C_2 = 0 \implies x(t) = t^3 - 2t^2\text{ m}$.</p>
+              <p>3. Posición en $t = 3\text{ s}$: $x(3) = 3^3 - 2(3^2) = 27 - 18 = 9\text{ metros}$.</p>
+              <p>(Nota de trayectoria: el móvil retrocede hasta $t = 4/3\text{ s}$ donde $v=0$ alcanzando $x = -1{,}18\text{ m}$ y luego avanza hacia adelante).</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $v(t) = 3t^2 - 4t\text{ m/s}$; $x(t) = t^3 - 2t^2\text{ m}$; posición a los $3\text{ s}$: $x = 9\text{ metros}$.
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+
+    let todasAbiertas = false;
+    function toggleTodasLasSoluciones() {
+      const allDetails = document.querySelectorAll('.exercise-details');
+      const btnText = document.getElementById('txtToggleAll');
+      todasAbiertas = !todasAbiertas;
+      allDetails.forEach(d => d.open = todasAbiertas);
+      if (btnText) {
+        btnText.textContent = todasAbiertas ? "Ocultar todas las soluciones" : "Desplegar todas las soluciones";
+      }
+    }
+  </script>
+</body>
+</html>

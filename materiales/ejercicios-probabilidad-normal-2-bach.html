@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletín de Ejercicios: Probabilidad y Normal | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary .arrow-icon { transform: rotate(180deg); }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 10pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+      details { border: 1px solid #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex flex-wrap items-center justify-between gap-3">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-amber-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex flex-wrap items-center gap-2.5">
+      <button onclick="toggleTodasLasSoluciones()" id="btnToggleAll" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="eye" class="w-4 h-4 text-amber-600"></i>
+        <span id="txtToggleAll">Desplegar todas las soluciones</span>
+      </button>
+
+      <a href="probabilidad-normal-2-bach.html" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-amber-600 bg-white border border-slate-200 px-3 py-2 rounded-xl transition">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Teoría & Resumen</span>
+      </a>
+
+      <button onclick="window.print()" class="inline-flex items-center gap-1.5 bg-amber-600 hover:bg-amber-700 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-6 sm:p-12">
+    
+    <header class="border-b-2 border-amber-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Toomate.es &bull; Cuaderno Interactivo</span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Boletín de Probabilidad y Distribución Normal</h1>
+          <p class="text-xs sm:text-sm text-slate-500">22 Ejercicios Graduados con Solución Paso a Paso &bull; 2º Bachillerato EvAU</p>
+        </div>
+      </div>
+
+      <div class="text-right sm:border-l sm:border-slate-200 sm:pl-6 text-xs text-slate-500 space-y-1">
+        <p><strong class="text-slate-700">Páginas:</strong> 22 Problemas Examen</p>
+        <p><strong class="text-slate-700">Modalidad:</strong> Desplegables interactivos</p>
+        <p><strong class="text-slate-700">Cursos:</strong> Ciencias y CCSS</p>
+      </div>
+    </header>
+
+    <!-- NIVEL BÁSICO (1-8) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 1 &bull; Básico</span>
+        <h2 class="text-lg font-bold text-slate-800">Axiomas, Leyes de Morgan y Manejo Directo de la Tabla Z</h2>
+      </div>
+
+      <div class="space-y-4">
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">1</span>
+            Unión, intersección y suceso complementario
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Sean $A$ y $B$ dos sucesos con $P(A) = 0{,}6$, $P(B) = 0{,}4$ y $P(A \cap B) = 0{,}25$. Calcula: a) $P(A \cup B)$, b) $P(\bar{A})$, c) $P(A \cap \bar{B})$.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>a) $P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0{,}6 + 0{,}4 - 0{,}25 = 0{,}75$.</p>
+              <p>b) $P(\bar{A}) = 1 - P(A) = 1 - 0{,}6 = 0{,}40$.</p>
+              <p>c) $P(A \cap \bar{B}) = P(A) - P(A \cap B) = 0{,}6 - 0{,}25 = 0{,}35$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: a) $0{,}75$; b) $0{,}40$; c) $0{,}35$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">2</span>
+            Aplicación de las Leyes de De Morgan
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Con los datos del ejercicio anterior ($P(A)=0{,}6$, $P(B)=0{,}4$, $P(A \cup B)=0{,}75$, $P(A \cap B)=0{,}25$), calcula: a) $P(\bar{A} \cap \bar{B})$, b) $P(\bar{A} \cup \bar{B})$.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>a) Por la primera ley de De Morgan: $P(\bar{A} \cap \bar{B}) = P(\overline{A \cup B}) = 1 - P(A \cup B) = 1 - 0{,}75 = 0{,}25$.</p>
+              <p>b) Por la segunda ley de De Morgan: $P(\bar{A} \cup \bar{B}) = P(\overline{A \cap B}) = 1 - P(A \cap B) = 1 - 0{,}25 = 0{,}75$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: a) $P(\bar{A} \cap \bar{B}) = 0{,}25$; b) $P(\bar{A} \cup \bar{B}) = 0{,}75$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">3</span>
+            Comprobar si dos sucesos son independientes o incompatibles
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Dados $P(A) = 0{,}5$, $P(B) = 0{,}3$ y $P(A \cup B) = 0{,}65$: ¿Son $A$ y $B$ incompatibles? ¿Son independientes? Justifica ambas respuestas.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Calculamos la intersección: $P(A \cap B) = P(A) + P(B) - P(A \cup B) = 0{,}5 + 0{,}3 - 0{,}65 = 0{,}15$.</p>
+              <p>2. <strong>Incompatibles:</strong> Serían incompatibles si $P(A \cap B) = 0$. Como $0{,}15 \neq 0$, <strong>NO son incompatibles</strong> (pueden ocurrir a la vez).</p>
+              <p>3. <strong>Independientes:</strong> Comparamos $P(A) \cdot P(B) = 0{,}5 \cdot 0{,}3 = 0{,}15$. Como coincide exactamente con $P(A \cap B) = 0{,}15$, <strong>SÍ son independientes</strong>.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: No son incompatibles ($P(A \cap B)=0{,}15 \neq 0$), pero sí son independientes ($P(A \cap B) = P(A)P(B)$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">4</span>
+            Probabilidad condicionada elemental
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            En un grupo, el 40% lee el periódico digital, el 25% escucha el podcast matutino y el 15% hace ambas cosas. Si elegimos al azar a una persona que escucha el podcast, ¿cuál es la probabilidad de que también lea el periódico?
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Definimos sucesos: $D$ (periódico digital), $P$ (podcast). Datos: $P(D)=0{,}40$, $P(P)=0{,}25$, $P(D \cap P)=0{,}15$.</p>
+              <p>2. Aplicamos la fórmula de probabilidad condicionada sabiendo que escucha el podcast ($P$):</p>
+              <p>$$P(D|P) = \frac{P(D \cap P)}{P(P)} = \frac{0{,}15}{0{,}25} = \frac{3}{5} = 0{,}60 \quad (60\%)$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $P(D|P) = 0{,}60$ (60%).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">5</span>
+            Extracción de bolas sin reemplazamiento
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una urna contiene 6 bolas blancas y 4 bolas negras. Se extraen dos bolas consecutivamente sin reemplazamiento. Halla la probabilidad de que: a) Ambas sean blancas; b) Sean de distinto color.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>Total = 10 bolas.</p>
+              <p>a) Ambas blancas ($B_1 \cap B_2$): $P(B_1 \cap B_2) = \frac{6}{10} \cdot \frac{5}{9} = \frac{30}{90} = \frac{1}{3} \approx 0{,}333$.</p>
+              <p>b) Distinto color ($B_1 N_2 \cup N_1 B_2$):</p>
+              <p>$$P(\text{distinto}) = \frac{6}{10} \cdot \frac{4}{9} + \frac{4}{10} \cdot \frac{6}{9} = \frac{24}{90} + \frac{24}{90} = \frac{48}{90} = \frac{8}{15} \approx 0{,}533$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: a) $1/3 \approx 0{,}333$; b) $8/15 \approx 0{,}533$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">6</span>
+            Uso directo de la tabla de la distribución Normal $Z \sim N(0, 1)$
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Si $Z \sim N(0, 1)$, calcula utilizando la tabla: a) $P(Z \le 1{,}64)$, b) $P(Z > 1{,}64)$, c) $P(0{,}5 \le Z \le 1{,}8)$.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>a) Directo en tabla: $P(Z \le 1{,}64) = \Phi(1{,}64) = 0{,}9495$.</p>
+              <p>b) Por suceso contrario: $P(Z > 1{,}64) = 1 - P(Z \le 1{,}64) = 1 - 0{,}9495 = 0{,}0505$.</p>
+              <p>c) Tramo entre dos valores positivos: $P(0{,}5 \le Z \le 1{,}8) = \Phi(1{,}8) - \Phi(0{,}5) = 0{,}9641 - 0{,}6915 = 0{,}2726$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: a) $0{,}9495$; b) $0{,}0505$; c) $0{,}2726$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">7</span>
+            Valores negativos y simetría en la Normal
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Para $Z \sim N(0, 1)$, calcula: a) $P(Z \le -1{,}28)$, b) $P(Z \ge -0{,}75)$, c) $P(-1 \le Z \le 1)$.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>a) Por simetría: $P(Z \le -1{,}28) = P(Z \ge 1{,}28) = 1 - \Phi(1{,}28) = 1 - 0{,}8997 = 0{,}1003$.</p>
+              <p>b) Por simetría: $P(Z \ge -0{,}75) = P(Z \le 0{,}75) = \Phi(0{,}75) = 0{,}7734$.</p>
+              <p>c) Intervalo simétrico alrededor del 0: $P(-1 \le Z \le 1) = \Phi(1) - \Phi(-1) = \Phi(1) - [1 - \Phi(1)] = 2\Phi(1) - 1 = 2(0{,}8413) - 1 = 1{,}6826 - 1 = 0{,}6826$ (el 68,26% central).</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: a) $0{,}1003$; b) $0{,}7734$; c) $0{,}6826$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">8</span>
+            Tipificación de una Normal general $N(\mu, \sigma)$
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            El peso de los paquetes de café sigue una distribución normal $X \sim N(250\text{ g}, 10\text{ g})$. Halla la probabilidad de que un paquete pese: a) Menos de 265 g; b) Más de 235 g.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>$\mu = 250$, $\sigma = 10$.</p>
+              <p>a) Tipificamos: $Z = \frac{265 - 250}{10} = \frac{15}{10} = 1{,}5$.</p>
+              <p>$$P(X < 265) = P(Z < 1{,}5) = \Phi(1{,}5) = 0{,}9332 \quad (93{,}32\%)$$</p>
+              <p>b) Tipificamos: $Z = \frac{235 - 250}{10} = \frac{-15}{10} = -1{,}5$.</p>
+              <p>$$P(X > 235) = P(Z > -1{,}5) = P(Z < 1{,}5) = \Phi(1{,}5) = 0{,}9332 \quad (93{,}32\%)$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: a) $0{,}9332$; b) $0{,}9332$.
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- NIVEL INTERMEDIO (9-16) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 2 &bull; Intermedio</span>
+        <h2 class="text-lg font-bold text-slate-800">Probabilidad Total, Bayes y Problemas Contextualizados</h2>
+      </div>
+
+      <div class="space-y-4">
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">9</span>
+            Teorema de la Probabilidad Total (Fábrica con 3 máquinas)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            En una factoría automotriz, tres máquinas $A$, $B$ y $C$ producen el 50%, 30% y 20% de las piezas, con porcentajes de defectuosas del 2%, 3% y 5% respectivamente. Si se elige una pieza al azar, ¿cuál es la probabilidad de que sea defectuosa?
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Datos: $P(A) = 0{,}50$, $P(B) = 0{,}30$, $P(C) = 0{,}20$.</p>
+              <p>Condicionadas: $P(D|A) = 0{,}02$, $P(D|B) = 0{,}03$, $P(D|C) = 0{,}05$.</p>
+              <p>2. Aplicando el Teorema de la Probabilidad Total:</p>
+              <p>$$P(D) = P(A)P(D|A) + P(B)P(D|B) + P(C)P(D|C)$$</p>
+              <p>$$P(D) = 0{,}50(0{,}02) + 0{,}30(0{,}03) + 0{,}20(0{,}05) = 0{,}010 + 0{,}009 + 0{,}010 = 0{,}029$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: La probabilidad de pieza defectuosa es $0{,}029$ ($2{,}9\%$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">10</span>
+            Teorema de Bayes (Causa a posteriori)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Con los datos del problema anterior, si una pieza elegida al azar resulta ser <strong>defectuosa</strong>, ¿cuál es la probabilidad de que proceda de la máquina $C$?
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Queremos calcular $P(C|D)$.</p>
+              <p>2. Aplicamos la fórmula del Teorema de Bayes:</p>
+              <p>$$P(C|D) = \frac{P(C) \cdot P(D|C)}{P(D)} = \frac{0{,}20 \cdot 0{,}05}{0{,}029} = \frac{0{,}010}{0{,}029} = \frac{10}{29} \approx 0{,}3448$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $P(C|D) = \frac{10}{29} \approx 0{,}3448$ ($34{,}48\%$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">11</span>
+            Tabla de contingencia 2x2 en un instituto
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            En un centro escolar con 200 alumnos de 2º de Bachillerato, 120 son chicas y 80 son chicos. Estudian Francés 50 personas, de las cuales 35 son chicas. Se elige un alumno al azar. a) Probabilidad de que no estudie Francés; b) Si es chico, probabilidad de que estudie Francés.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Construimos la tabla de contingencia:</p>
+              <p>&bull; Chicas: 35 Francés, 85 No Francés (Total 120).</p>
+              <p>&bull; Chicos: $50 - 35 = 15$ Francés, $80 - 15 = 65$ No Francés (Total 80).</p>
+              <p>&bull; Totales: 50 Francés, 150 No Francés (Total 200).</p>
+              <p>2. a) No estudie Francés: $P(\bar{F}) = \frac{150}{200} = \frac{3}{4} = 0{,}75$.</p>
+              <p>3. b) Condicionada si es chico: $P(F|\text{Chico}) = \frac{15}{80} = \frac{3}{16} = 0{,}1875$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: a) $0{,}75$ ($75\%$); b) $0{,}1875$ ($18{,}75\%$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">12</span>
+            Test médico diagnóstico (Sensibilidad y Falsos Positivos)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una enfermedad rara afecta al 1% de la población ($P(E) = 0{,}01$). Existe un test diagnóstico con sensibilidad del 95% ($P(+|E) = 0{,}95$) y tasa de falsos positivos del 2% ($P(+|\bar{E}) = 0{,}02$). Si a una persona el test le da positivo, ¿cuál es la probabilidad real de que esté enferma?
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Probabilidad total de positivo:</p>
+              <p>$$P(+) = P(E)P(+|E) + P(\bar{E})P(+|\bar{E}) = 0{,}01(0{,}95) + 0{,}99(0{,}02) = 0{,}0095 + 0{,}0198 = 0{,}0293$$</p>
+              <p>2. Probabilidad a posteriori mediante Bayes $P(E|+)$:</p>
+              <p>$$P(E|+) = \frac{P(E)P(+|E)}{P(+)} = \frac{0{,}0095}{0{,}0293} \approx 0{,}3242$$</p>
+              <p>Observación: A pesar de la alta fiabilidad del test, sólo el 32,42% de los positivos están realmente enfermos debido a la baja prevalencia.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $P(E|+) \approx 0{,}3242$ ($32{,}42\%$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">13</span>
+            Distribución Binomial exacta
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un examen tipo test consta de 6 preguntas con 4 respuestas posibles cada una, de las que sólo una es correcta. Si un alumno responde todas al azar, calcula la probabilidad de acertar: a) Exactamente 4 preguntas; b) Ninguna pregunta.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>Es una Binomial $X \sim B(n=6, \; p=1/4=0{,}25)$, $q = 0{,}75$.</p>
+              <p>a) $P(X = 4) = \binom{6}{4} (0{,}25)^4 (0{,}75)^2 = 15 \cdot \frac{1}{256} \cdot \frac{9}{16} = \frac{135}{4096} \approx 0{,}0330$ ($3{,}30\%$).</p>
+              <p>b) $P(X = 0) = \binom{6}{0} (0{,}25)^0 (0{,}75)^6 = (0{,}75)^6 = \frac{729}{4096} \approx 0{,}1780$ ($17{,}80\%$).</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: a) $P(X=4) \approx 0{,}0330$; b) $P(X=0) \approx 0{,}1780$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">14</span>
+            Búsqueda inversa del valor crítico en la Normal
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Las calificaciones de una oposición se distribuyen según una normal $X \sim N(\mu=60, \sigma=12)$. Si sólo el 10% de los mejores opositores obtienen plaza directa, ¿cuál es la nota de corte mínima necesaria?
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Condición del 10% superior: $P(X \ge k) = 0{,}10 \iff P(X \le k) = 0{,}90$.</p>
+              <p>2. Buscamos en la tabla $Z$ el valor tal que $\Phi(z) = 0{,}90$. En la tabla, $\Phi(1{,}28) = 0{,}8997$ y $\Phi(1{,}29) = 0{,}9015$. Tomamos $z \approx 1{,}282$ (o $1{,}28$).</p>
+              <p>3. Destipificamos: $z = \frac{k - \mu}{\sigma} \implies 1{,}282 = \frac{k - 60}{12} \implies k = 60 + 1{,}282(12) = 60 + 15{,}38 = 75{,}38$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: La nota de corte es $k \approx 75{,}38$ puntos.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">15</span>
+            Distribución de la media muestral
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            El tiempo de espera en la caja de un supermercado sigue una distribución $N(8\text{ min}, 3\text{ min})$. Si se toma una muestra aleatoria de 36 clientes, calcula la probabilidad de que la media del tiempo de espera de la muestra sea superior a 8,5 minutos.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. La media muestral $\bar{X}$ se distribuye como: $\bar{X} \sim N\left(\mu, \; \frac{\sigma}{\sqrt{n}}\right)$.</p>
+              <p>2. Parámetros: $\mu = 8$, $\sigma_{\bar{x}} = \frac{3}{\sqrt{36}} = \frac{3}{6} = 0{,}5$.</p>
+              <p>3. Tipificamos para $\bar{X} > 8{,}5$: $Z = \frac{8{,}5 - 8}{0{,}5} = \frac{0{,}5}{0{,}5} = 1{,}00$.</p>
+              <p>$$P(\bar{X} > 8{,}5) = P(Z > 1) = 1 - \Phi(1) = 1 - 0{,}8413 = 0{,}1587 \quad (15{,}87\%)$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $P(\bar{X} > 8{,}5) = 0{,}1587$ ($15{,}87\%$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">16</span>
+            Aproximación de Binomial a Normal con corrección de Yates
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Se lanza una moneda correcta 100 veces. Calcula mediante la aproximación normal la probabilidad de obtener entre 45 y 55 caras (ambos incluidos).
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Binomial $B(n=100, p=0{,}5)$. Como $np = 50 \ge 5$ y $n(1-p) = 50 \ge 5$, aproximamos por Normal:</p>
+              <p>$$\mu = np = 50, \quad \sigma = \sqrt{np(1-p)} = \sqrt{100 \cdot 0{,}5 \cdot 0{,}5} = \sqrt{25} = 5$$</p>
+              <p>2. Corrección de Yates para $45 \le X \le 55$: intervalo continuo $[44{,}5, \; 55{,}5]$.</p>
+              <p>3. Tipificamos ambos extremos:</p>
+              <p>$$Z_1 = \frac{44{,}5 - 50}{5} = -1{,}10, \quad Z_2 = \frac{55{,}5 - 50}{5} = +1{,}10$$</p>
+              <p>4. $P(-1{,}10 \le Z \le 1{,}10) = 2\Phi(1{,}10) - 1 = 2(0{,}8643) - 1 = 1{,}7286 - 1 = 0{,}7286$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: Probabilidad $\approx 0{,}7286$ ($72{,}86\%$).
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <!-- NIVEL AVANZADO / EvAU (17-22) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded-full uppercase tracking-wider">Nivel 3 &bull; Avanzado / EvAU</span>
+        <h2 class="text-lg font-bold text-slate-800">Inferencia Estadística, Parámetros Desconocidos y Problemas EvAU</h2>
+      </div>
+
+      <div class="space-y-4">
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">17</span>
+            Problema tipo EvAU: Elección de urnas condicionada por un dado
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Se lanza un dado de 6 caras. Si sale un número menor o igual que 2, se acude a la Urna $A$ (3 bolas rojas y 2 verdes); si sale 3 o más, se acude a la Urna $B$ (2 bolas rojas y 4 verdes). Se extrae una bola: a) Probabilidad de que sea roja; b) Si fue verde, ¿cuál es la probabilidad de que proceda de la Urna $A$?
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Probabilidades de urna: $P(A) = 2/6 = 1/3$, $P(B) = 4/6 = 2/3$.</p>
+              <p>2. Condicionadas:</p>
+              <p>&bull; $P(R|A) = 3/5$, $P(V|A) = 2/5$.</p>
+              <p>&bull; $P(R|B) = 2/6 = 1/3$, $P(V|B) = 4/6 = 2/3$.</p>
+              <p>3. a) Probabilidad Total de Roja: $P(R) = \frac{1}{3}\cdot\frac{3}{5} + \frac{2}{3}\cdot\frac{1}{3} = \frac{1}{5} + \frac{2}{9} = \frac{9 + 10}{45} = \frac{19}{45} \approx 0{,}422$.</p>
+              <p>4. b) Para verde: $P(V) = 1 - P(R) = 1 - \frac{19}{45} = \frac{26}{45}$. Por Bayes:</p>
+              <p>$$P(A|V) = \frac{P(A)P(V|A)}{P(V)} = \frac{\frac{1}{3}\cdot\frac{2}{5}}{\frac{26}{45}} = \frac{2/15}{26/45} = \frac{2 \cdot 45}{15 \cdot 26} = \frac{90}{390} = \frac{3}{13} \approx 0{,}2308$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: a) $P(R) = 19/45 \approx 0{,}422$; b) $P(A|V) = 3/13 \approx 0{,}2308$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">18</span>
+            Fiabilidad de un sistema con componentes independientes
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Un circuito eléctrico consta de dos relés $R_1$ y $R_2$ conectados en paralelo, que a su vez están en serie con un tercer relé $R_3$. La probabilidad de fallo independiente de cada relé es 0,10 para $R_1$ y $R_2$, y 0,05 para $R_3$. Halla la probabilidad de que el circuito funcione.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Probabilidades de funcionamiento individual: $P(\text{Ok}_1) = 0{,}90$, $P(\text{Ok}_2) = 0{,}90$, $P(\text{Ok}_3) = 0{,}95$.</p>
+              <p>2. Los relés en paralelo $R_1$ y $R_2$ fallan simultáneamente solo si ambos fallan: $P(\text{Fallo}_{12}) = 0{,}10 \cdot 0{,}10 = 0{,}01$.</p>
+              <p>Por tanto, el bloque paralelo funciona con probabilidad: $P(\text{Ok}_{12}) = 1 - 0{,}01 = 0{,}99$.</p>
+              <p>3. Como está en serie con $R_3$, deben funcionar ambos:</p>
+              <p>$$P(\text{Sistema Funciona}) = P(\text{Ok}_{12}) \cdot P(\text{Ok}_3) = 0{,}99 \cdot 0{,}95 = 0{,}9405$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: Probabilidad de funcionamiento $= 0{,}9405$ ($94{,}05\%$).
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">19</span>
+            Cálculo de parámetros $(\mu, \sigma)$ a partir de percentiles
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            En una variable aleatoria $X \sim N(\mu, \sigma)$ se sabe que el 15,87% de los valores son inferiores a 30 ($P(X < 30) = 0{,}1587$) y el 2,28% son superiores a 60 ($P(X > 60) = 0{,}0228$). Halla los parámetros $\mu$ y $\sigma$.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Para $P(X < 30) = 0{,}1587$: en la tabla $N(0, 1)$, $\Phi(1) = 0{,}8413$, luego por simetría el valor tipificado correspondiente a $1 - 0{,}8413 = 0{,}1587$ es $z_1 = -1$:</p>
+              <p>$$\frac{30 - \mu}{\sigma} = -1 \implies 30 - \mu = -\sigma \implies \mu - \sigma = 30$$</p>
+              <p>2. Para $P(X > 60) = 0{,}0228 \iff P(X < 60) = 0{,}9772$: en la tabla, $\Phi(2) = 0{,}9772$, por lo que $z_2 = 2$:</p>
+              <p>$$\frac{60 - \mu}{\sigma} = 2 \implies 60 - \mu = 2\sigma \implies \mu + 2\sigma = 60$$</p>
+              <p>3. Restamos la primera ecuación de la segunda: $3\sigma = 30 \implies \sigma = 10$.</p>
+              <p>4. Sustituimos: $\mu = 30 + 10 = 40$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: Media $\mu = 40$ y desviación típica $\sigma = 10$.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">20</span>
+            Intervalo de confianza para una proporción (CCSS EvAU)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            En un sondeo electoral sobre una muestra de 400 ciudadanos, 160 manifestaron su intención de votar a un candidato. Construye un intervalo de confianza al 95% para la proporción verdadera de votantes.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Proporción muestral: $\hat{p} = \frac{160}{400} = 0{,}40$, $\hat{q} = 0{,}60$.</p>
+              <p>2. Valor crítico para un nivel de confianza del 95%: $z_{\alpha/2} = 1{,}96$.</p>
+              <p>3. Error máximo admisible $E$:</p>
+              <p>$$E = z_{\alpha/2} \sqrt{\frac{\hat{p}\hat{q}}{n}} = 1{,}96 \sqrt{\frac{0{,}40 \cdot 0{,}60}{400}} = 1{,}96 \sqrt{\frac{0{,}24}{400}} = 1{,}96 \cdot 0{,}02449 = 0{,}0480$$</p>
+              <p>4. Intervalo de confianza: $(\hat{p} - E, \; \hat{p} + E) = (0{,}40 - 0{,}0480, \; 0{,}40 + 0{,}0480) = (0{,}3520, \; 0{,}4480)$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $IC_{95\%} = (0{,}3520, \; 0{,}4480)$, es decir, entre el 35,2% y el 44,8%.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">21</span>
+            Tamaño muestral mínimo para un error fijado
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Se desea estimar la media de una población con desviación típica $\sigma = 5$. ¿Cuántas observaciones deben incluirse en la muestra para que, con un 99% de confianza, el error cometido no supere 0,5 unidades?
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Para un 99% de confianza: $1 - \alpha = 0{,}99 \implies z_{\alpha/2} = 2{,}575$.</p>
+              <p>2. Despejamos el tamaño muestral de la fórmula del error: $E = z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \implies \sqrt{n} = \frac{z_{\alpha/2} \cdot \sigma}{E}$.</p>
+              <p>$$n = \left(\frac{2{,}575 \cdot 5}{0{,}5}\right)^2 = (2{,}575 \cdot 10)^2 = (25{,}75)^2 = 663{,}06$$</p>
+              <p>3. Redondeamos siempre al entero superior inmediato para garantizar el error acotado: $n = 664$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: Tamaño muestral mínimo necesario: $n = 664$ observaciones.
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+          <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-700 inline-flex items-center justify-center text-xs">22</span>
+            Problema integral EvAU con toma de decisiones
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-700 mb-3">
+            Una empresa de paquetería urgente sabe que el 90% de sus envíos llegan a tiempo. Se realiza un seguimiento de 10 paquetes enviados hoy: a) Probabilidad de que lleguen a tiempo al menos 9 paquetes; b) Si se envían 400 paquetes en la semana, halla la probabilidad de que se retrasen más de 48 paquetes mediante aproximación Normal.
+          </p>
+          <details class="exercise-details group border border-amber-200 rounded-xl overflow-hidden bg-white">
+            <summary class="px-4 py-2.5 bg-amber-50 hover:bg-amber-100 cursor-pointer text-xs font-bold text-amber-800 flex items-center justify-between select-none">
+              <span>✓ Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-4 h-4 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>a) $X \sim B(10, \; 0{,}90)$.</p>
+              <p>$P(X \ge 9) = P(X=9) + P(X=10)$.</p>
+              <p>$P(X=9) = \binom{10}{9}(0{,}9)^9(0{,}1)^1 = 10(0{,}3874)(0{,}1) = 0{,}3874$.</p>
+              <p>$P(X=10) = (0{,}9)^{10} = 0{,}3487$.</p>
+              <p>Suma: $P(X \ge 9) = 0{,}3874 + 0{,}3487 = 0{,}7361$ ($73{,}61\%$).</p>
+              <p>b) Variable $Y =$ "paquetes que se retrasan". $p = 0{,}10$, $n = 400$.</p>
+              <p>$\mu = np = 40$, $\sigma = \sqrt{400(0{,}1)(0{,}9)} = \sqrt{36} = 6$.</p>
+              <p>Queremos $P(Y > 48)$. Con corrección de continuidad: $P(Y \ge 48{,}5)$.</p>
+              <p>Tipificamos: $Z = \frac{48{,}5 - 40}{6} = \frac{8{,}5}{6} \approx 1{,}42$.</p>
+              <p>$$P(Z > 1{,}42) = 1 - \Phi(1{,}42) = 1 - 0{,}9222 = 0{,}0778 \quad (7{,}78\%)$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: a) $P(X \ge 9) = 0{,}7361$; b) Probabilidad de retraso $> 48$ paquetes $\approx 0{,}0778$ ($7{,}78\%$).
+              </div>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+
+    let todasAbiertas = false;
+    function toggleTodasLasSoluciones() {
+      const allDetails = document.querySelectorAll('.exercise-details');
+      const btnText = document.getElementById('txtToggleAll');
+      todasAbiertas = !todasAbiertas;
+      allDetails.forEach(d => d.open = todasAbiertas);
+      if (btnText) {
+        btnText.textContent = todasAbiertas ? "Ocultar todas las soluciones" : "Desplegar todas las soluciones";
+      }
+    }
+  </script>
+</body>
+</html>

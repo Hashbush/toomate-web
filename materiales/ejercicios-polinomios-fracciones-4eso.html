@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletín de Ejercicios: Polinomios y Fracciones Algebraicas (4º ESO) | Toomate.es</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- KaTeX para fórmulas matemáticas perfectas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary .arrow-icon { transform: rotate(180deg); }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 10pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+      details { border: 1px solid #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR (NO IMPRIMIBLE) -->
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex flex-wrap items-center justify-between gap-3">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-indigo-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex flex-wrap items-center gap-2.5">
+      <button onclick="toggleTodasLasSoluciones()" id="btnToggleAll" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-indigo-800 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="eye" class="w-4 h-4 text-indigo-600"></i>
+        <span id="txtToggleAll">Desplegar todas las soluciones</span>
+      </button>
+
+      <a href="polinomios-fracciones-4eso.html" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-indigo-600 bg-white border border-slate-200 px-3 py-2 rounded-xl transition">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Teoría & Fórmulas</span>
+      </a>
+
+      <button onclick="window.print()" class="inline-flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- DOCUMENTO PRINCIPAL -->
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-6 sm:p-12">
+    
+    <!-- CABECERA -->
+    <header class="border-b-2 border-indigo-600 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Boletín Oficial de Ejercicios Graduados</span>
+          <h1 class="font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight">Polinomios y Fracciones Algebraicas (4º ESO)</h1>
+          <p class="text-xs text-slate-500 mt-0.5">22 ejercicios con soluciones completas paso a paso desplegables</p>
+        </div>
+      </div>
+      <div class="text-right flex sm:flex-col items-center sm:items-end justify-between">
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800 border border-indigo-200">
+          Solucionario Completo
+        </span>
+        <span class="text-xs text-slate-400 mt-1">Currículo Cantabria LOMLOE</span>
+      </div>
+    </header>
+
+    <!-- INSTRUCCIONES -->
+    <div class="mb-8 p-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-600 flex items-start gap-3">
+      <i data-lucide="info" class="w-5 h-5 text-indigo-600 shrink-0 mt-0.5"></i>
+      <div>
+        <p class="font-semibold text-slate-800">Consejo pedagógico para el alumno:</p>
+        <p>Intenta resolver cada ejercicio en tu cuaderno antes de consultar el desarrollo. Si te encallas o quieres verificar tu resultado, pulsa el botón verde <strong>[✓ Ver Solución Paso a Paso ▾]</strong> para desplegar la explicación detallada.</p>
+      </div>
+    </div>
+
+    <!-- BLOQUE 1: NIVEL BÁSICO (EJERCICIOS 1 A 8) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-2 mb-6 border-b border-indigo-200 pb-2">
+        <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-100 text-indigo-800">Nivel 1</span>
+        <h2 class="text-lg font-bold text-slate-900">Operaciones Básicas, Identidades y Ruffini Inicial (Ejercicios 1 a 8)</h2>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- Ejercicio 1 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 1</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Suma y resta de polinomios</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Dados los polinomios $P(x) = 3x^3 - 5x^2 + 2x - 7$ y $Q(x) = 2x^3 + 4x^2 - 6x - 1$, calcula:
+            <br>a) $P(x) + Q(x)$ &emsp; b) $P(x) - Q(x)$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p><strong>a) Para la suma:</strong> Agrupamos términos del mismo grado:</p>
+              <p>$$P(x) + Q(x) = (3+2)x^3 + (-5+4)x^2 + (2-6)x + (-7-1) = \mathbf{5x^3 - x^2 - 4x - 8}$$</p>
+              <p><strong>b) Para la resta:</strong> Cambiamos de signo todos los coeficientes de $Q(x)$:</p>
+              <p>$$P(x) - Q(x) = (3-2)x^3 + (-5-4)x^2 + (2 - (-6))x + (-7 - (-1)) = \mathbf{x^3 - 9x^2 + 8x - 6}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 2 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 2</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Multiplicación de polinomios</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Efectúa y reduce el producto de polinomios:
+            $$(2x^2 - 3x + 1) \cdot (x - 4)$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Multiplicamos cada término del primer polinomio por $(x - 4)$ aplicando la propiedad distributiva:</p>
+              <p>$$= 2x^2(x - 4) - 3x(x - 4) + 1(x - 4)$$</p>
+              <p>$$= (2x^3 - 8x^2) + (-3x^2 + 12x) + (x - 4)$$</p>
+              <p>Agrupamos monomios semejantes:</p>
+              <p>$$= 2x^3 + (-8 - 3)x^2 + (12 + 1)x - 4 = \mathbf{2x^3 - 11x^2 + 13x - 4}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 3 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 3</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Identidades notables: Cuadrados</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Desarrolla aplicando las identidades notables $(a \pm b)^2 = a^2 \pm 2ab + b^2$:
+            <br>a) $(3x + 2)^2$ &emsp; b) $(2x - 5)^2$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p><strong>a) $(3x + 2)^2$:</strong></p>
+              <p>$$= (3x)^2 + 2 \cdot (3x) \cdot 2 + 2^2 = \mathbf{9x^2 + 12x + 4}$$</p>
+              <p><strong>b) $(2x - 5)^2$:</strong></p>
+              <p>$$= (2x)^2 - 2 \cdot (2x) \cdot 5 + 5^2 = \mathbf{4x^2 - 20x + 25}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 4 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 4</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Identidades notables: Suma por diferencia</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Calcula directamente:
+            $$(4x + 3)(4x - 3)$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Aplicamos la fórmula $(a + b)(a - b) = a^2 - b^2$, donde $a = 4x$ y $b = 3$:</p>
+              <p>$$(4x + 3)(4x - 3) = (4x)^2 - 3^2 = \mathbf{16x^2 - 9}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 5 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 5</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Extracción de factor común</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Extrae el máximo factor común posible en la siguiente expresión:
+            $$12x^4 - 8x^3 + 4x^2$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>1. Coeficientes: $\text{m.c.d.}(12, 8, 4) = 4$.</p>
+              <p>2. Parte literal: La menor potencia común es $x^2$.</p>
+              <p>El factor común total es $4x^2$. Dividimos cada término entre $4x^2$:</p>
+              <p>$$\frac{12x^4}{4x^2} = 3x^2, \quad \frac{-8x^3}{4x^2} = -2x, \quad \frac{4x^2}{4x^2} = 1$$</p>
+              <p>Resultado final: $$\mathbf{4x^2(3x^2 - 2x + 1)}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 6 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 6</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Regla de Ruffini con término ausente</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Calcula el cociente $C(x)$ y el resto $R$ de la división aplicando la Regla de Ruffini:
+            $$(x^3 - 3x^2 + 4) : (x - 2)$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>¡Atención! Como falta el término de primer grado $x$, completamos con coeficiente 0: $[1, -3, 0, 4]$.</p>
+              <p>Para el divisor $(x - 2)$, usamos el valor $a = +2$ en la tabla de Ruffini:</p>
+              <div class="bg-white p-2 rounded border border-slate-200 font-mono text-center">
+                Bajamos 1 &rarr; $1 \cdot 2 = 2$ &rarr; $-3 + 2 = -1$ &rarr; $-1 \cdot 2 = -2$ &rarr; $0 + (-2) = -2$ &rarr; $-2 \cdot 2 = -4$ &rarr; $4 + (-4) = 0$
+              </div>
+              <p>Coeficientes del cociente: $[1, -1, -2]$, con grado $3 - 1 = 2$.</p>
+              <p>$$\text{Cociente: } \mathbf{C(x) = x^2 - x - 2} \quad | \quad \text{Resto: } \mathbf{R = 0}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 7 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 7</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Teorema del Resto</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Sin realizar la división larga ni la tabla de Ruffini, calcula el resto de:
+            $$(2x^3 - 4x^2 + 5x - 7) : (x - 2)$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Por el <strong>Teorema del Resto</strong>, el resto de dividir $P(x)$ entre $(x - a)$ es igual a $P(a)$. Aquí $a = 2$:</p>
+              <p>$$R = P(2) = 2(2)^3 - 4(2)^2 + 5(2) - 7$$</p>
+              <p>$$R = 2(8) - 4(4) + 10 - 7 = 16 - 16 + 10 - 7 = \mathbf{3}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 8 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 8</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Teorema del Factor con parámetro k</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Halla el valor de $k$ para que el polinomio $P(x) = x^3 - 2x^2 + kx - 6$ sea divisible exactamente por $(x - 3)$.
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Que sea divisible significa que el resto es 0, es decir, $P(3) = 0$:</p>
+              <p>$$P(3) = (3)^3 - 2(3)^2 + k(3) - 6 = 0$$</p>
+              <p>$$27 - 2(9) + 3k - 6 = 0 \implies 27 - 18 + 3k - 6 = 0$$</p>
+              <p>$$3 + 3k = 0 \implies 3k = -3 \implies \mathbf{k = -1}$$</p>
+            </div>
+          </details>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: NIVEL INTERMEDIO (EJERCICIOS 9 A 16) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-2 mb-6 border-b border-indigo-200 pb-2">
+        <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-100 text-indigo-800">Nivel 2</span>
+        <h2 class="text-lg font-bold text-slate-900">Factorización Completa, M.C.D., M.C.M. y Simplificación (Ejercicios 9 a 16)</h2>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- Ejercicio 9 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 9</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Factorización: Factor común + Identidad</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Descompón en factores irreducibles el siguiente polinomio:
+            $$P(x) = 2x^3 - 18x$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p><strong>Paso 1:</strong> Sacamos factor común $2x$:</p>
+              <p>$$P(x) = 2x(x^2 - 9)$$</p>
+              <p><strong>Paso 2:</strong> Reconocemos la diferencia de cuadrados $x^2 - 9 = x^2 - 3^2 = (x - 3)(x + 3)$:</p>
+              <p>$$\mathbf{P(x) = 2x(x - 3)(x + 3)}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 10 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 10</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Factorización: Trinomio cuadrado perfecto</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Factoriza el siguiente trinomio:
+            $$Q(x) = 4x^2 - 12x + 9$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Observamos los extremos: $4x^2 = (2x)^2$ y $9 = 3^2$.</p>
+              <p>Comprobamos el término central: $2 \cdot (2x) \cdot 3 = 12x$. Al llevar signo negativo, es el cuadrado de una resta:</p>
+              <p>$$\mathbf{Q(x) = (2x - 3)^2}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 11 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 11</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Factorización completa por Ruffini</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Factoriza completamente el polinomio de grado 3 e indica cuáles son sus raíces reales:
+            $$P(x) = x^3 - 4x^2 + x + 6$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>1. Posibles raíces enteras entre los divisores de 6: $\pm 1, \pm 2, \pm 3, \pm 6$.</p>
+              <p>2. Probamos $x = -1$ por Ruffini sobre los coeficientes $[1, -4, 1, 6]$:</p>
+              <div class="bg-white p-2 rounded border border-slate-200 font-mono text-center">
+                $1 \cdot (-1) = -1 \implies -4 + (-1) = -5 \implies -5 \cdot (-1) = 5 \implies 1 + 5 = 6 \implies 6 \cdot (-1) = -6 \implies 6 - 6 = 0$
+              </div>
+              <p>Por tanto, $x = -1$ es raíz y $(x + 1)$ es factor. El cociente es $x^2 - 5x + 6$.</p>
+              <p>3. Factorizamos el cociente resolviendo $x^2 - 5x + 6 = 0$:</p>
+              <p>$$x = \frac{5 \pm \sqrt{25 - 24}}{2} = \frac{5 \pm 1}{2} \implies x_1 = 3, \quad x_2 = 2$$</p>
+              <p>Descomposición factorial completa: $$\mathbf{P(x) = (x + 1)(x - 2)(x - 3)}$$</p>
+              <p>Sus raíces son: $\mathbf{x = -1, \quad x = 2, \quad x = 3}$.</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 12 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 12</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Factorización grado 4 con factor común</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Descompón en factores el polinomio:
+            $$x^4 - 5x^3 + 6x^2$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>1. Extraemos factor común $x^2$:</p>
+              <p>$$x^2(x^2 - 5x + 6)$$</p>
+              <p>2. Factorizamos el paréntesis resolviendo la ecuación de segundo grado $x^2 - 5x + 6 = 0$ (raíces $x=2$ y $x=3$):</p>
+              <p>$$\mathbf{x^2(x - 2)(x - 3)}$$</p>
+              <p><em>Nota: $x=0$ es una raíz doble.</em></p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 13 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 13</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">M.C.D. y M.C.M. de polinomios</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Halla el $\text{M.C.D.}$ y el $\text{m.c.m.}$ de los polinomios:
+            $$P(x) = x^2 - 4 \quad \text{y} \quad Q(x) = x^2 - 4x + 4$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>1. Factorizamos ambos polinomios:</p>
+              <p>$$P(x) = x^2 - 4 = (x - 2)(x + 2)$$</p>
+              <p>$$Q(x) = x^2 - 4x + 4 = (x - 2)^2$$</p>
+              <p>2. $\text{M.C.D.}$ (comunes al menor exponente):</p>
+              <p>$$\mathbf{\text{M.C.D.}(P, Q) = x - 2}$$</p>
+              <p>3. $\text{m.c.m.}$ (comunes y no comunes al mayor exponente):</p>
+              <p>$$\mathbf{\text{m.c.m.}(P, Q) = (x - 2)^2(x + 2)}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 14 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 14</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Simplificación de fracciones algebraicas</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Simplifica la siguiente fracción algebraica:
+            $$\frac{x^2 - 25}{x^2 - 10x + 25}$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Factorizamos numerador y denominador:</p>
+              <p>Numerador: $x^2 - 25 = (x - 5)(x + 5)$ (diferencia de cuadrados)</p>
+              <p>Denominador: $x^2 - 10x + 25 = (x - 5)^2$ (cuadrado de resta)</p>
+              <p>Simplificamos el factor común $(x - 5)$:</p>
+              <p>$$\frac{(x - 5)(x + 5)}{(x - 5)^2} = \mathbf{\frac{x + 5}{x - 5}}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 15 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 15</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Simplificación con factor común</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Simplifica la fracción algebraica:
+            $$\frac{3x^2 - 6x}{x^2 - 4}$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>1. Factor común en el numerador: $3x(x - 2)$.</p>
+              <p>2. Diferencia de cuadrados en el denominador: $(x - 2)(x + 2)$.</p>
+              <p>$$\frac{3x(x - 2)}{(x - 2)(x + 2)} = \mathbf{\frac{3x}{x + 2}}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 16 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 16</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Multiplicación de fracciones</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Realiza la multiplicación y simplifica al máximo:
+            $$\frac{x^2 - 1}{x + 2} \cdot \frac{x^2 - 4}{x - 1}$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Regla de oro: Antes de multiplicar los polinomios, ¡factoriza para simplificar!</p>
+              <p>$$x^2 - 1 = (x - 1)(x + 1), \quad x^2 - 4 = (x - 2)(x + 2)$$</p>
+              <p>Escribimos la fracción unificada:</p>
+              <p>$$= \frac{(x - 1)(x + 1)(x - 2)(x + 2)}{(x + 2)(x - 1)}$$</p>
+              <p>Cancelamos $(x - 1)$ y $(x + 2)$:</p>
+              <p>$$= (x + 1)(x - 2) = \mathbf{x^2 - x - 2}$$</p>
+            </div>
+          </details>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- BLOQUE 3: NIVEL EXAMEN Y AVANZADO (EJERCICIOS 17 A 22) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-2 mb-6 border-b border-indigo-200 pb-2">
+        <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-100 text-indigo-800">Nivel 3</span>
+        <h2 class="text-lg font-bold text-slate-900">Operaciones Combinadas y Retos de Examen (Ejercicios 17 a 22)</h2>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- Ejercicio 17 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 17</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">División de fracciones algebraicas</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Realiza la siguiente división simplificando previamente:
+            $$\frac{x^2 - 9}{2x + 4} : \frac{x + 3}{x^2 - 4}$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Convertimos la división en producto invirtiendo la segunda fracción:</p>
+              <p>$$= \frac{x^2 - 9}{2x + 4} \cdot \frac{x^2 - 4}{x + 3}$$</p>
+              <p>Factorizamos cada componente:</p>
+              <p>$$x^2 - 9 = (x - 3)(x + 3)$$</p>
+              <p>$$2x + 4 = 2(x + 2)$$</p>
+              <p>$$x^2 - 4 = (x - 2)(x + 2)$$</p>
+              <p>Sustituimos y cancelamos factores comunes:</p>
+              <p>$$= \frac{(x - 3)(x + 3)(x - 2)(x + 2)}{2(x + 2)(x + 3)} = \mathbf{\frac{(x - 3)(x - 2)}{2}} = \mathbf{\frac{x^2 - 5x + 6}{2}}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 18 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 18</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Suma y resta con denominadores monomios</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Calcula reduciendo a común denominador:
+            $$\frac{2}{x} - \frac{3}{2x} + \frac{5}{x^2}$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>1. Hallamos el $\text{m.c.m.}$ de los denominadores $x, 2x, x^2$:</p>
+              <p>$$\text{m.c.m.}(x, 2x, x^2) = 2x^2$$</p>
+              <p>2. Adaptamos cada numerador:</p>
+              <p>$$\frac{2}{x} = \frac{2 \cdot 2x}{2x^2} = \frac{4x}{2x^2}$$</p>
+              <p>$$\frac{3}{2x} = \frac{3 \cdot x}{2x^2} = \frac{3x}{2x^2}$$</p>
+              <p>$$\frac{5}{x^2} = \frac{5 \cdot 2}{2x^2} = \frac{10}{2x^2}$$</p>
+              <p>3. Operamos numeradores:</p>
+              <p>$$= \frac{4x - 3x + 10}{2x^2} = \mathbf{\frac{x + 10}{2x^2}}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 19 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 19</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Resta con binomios distintos</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Opera y simplifica:
+            $$\frac{3}{x - 2} - \frac{2}{x + 1}$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Común denominador: $\text{m.c.m.} = (x - 2)(x + 1)$.</p>
+              <p>$$= \frac{3(x + 1) - 2(x - 2)}{(x - 2)(x + 1)}$$</p>
+              <p>Desarrollamos con extremo cuidado con el signo menos:</p>
+              <p>$$= \frac{3x + 3 - (2x - 4)}{(x - 2)(x + 1)} = \frac{3x + 3 - 2x + 4}{(x - 2)(x + 1)}$$</p>
+              <p>$$= \mathbf{\frac{x + 7}{(x - 2)(x + 1)}} = \mathbf{\frac{x + 7}{x^2 - x - 2}}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 20 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 20</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Operación combinada clásica de examen</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Simplifica completamente la siguiente suma y resta:
+            $$\frac{x + 1}{x - 1} - \frac{x - 1}{x + 1} - \frac{4}{x^2 - 1}$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Como $x^2 - 1 = (x - 1)(x + 1)$, el denominador común es $(x - 1)(x + 1)$.</p>
+              <p>$$= \frac{(x + 1)^2 - (x - 1)^2 - 4}{(x - 1)(x + 1)}$$</p>
+              <p>Desarrollamos los cuadrados:</p>
+              <p>$$(x + 1)^2 = x^2 + 2x + 1$$</p>
+              <p>$$(x - 1)^2 = x^2 - 2x + 1 \implies - (x - 1)^2 = -x^2 + 2x - 1$$</p>
+              <p>Sumamos términos del numerador:</p>
+              <p>$$(x^2 + 2x + 1) + (-x^2 + 2x - 1) - 4 = 4x - 4 = 4(x - 1)$$</p>
+              <p>Sustituimos en la fracción y simplificamos $(x - 1)$:</p>
+              <p>$$= \frac{4(x - 1)}{(x - 1)(x + 1)} = \mathbf{\frac{4}{x + 1}}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 21 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 21</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Factorización completa de grado 4</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Factoriza completamente en polinomios irreducibles:
+            $$P(x) = x^4 - 2x^3 - 11x^2 + 12x + 36$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>1. Divisores de 36: $\pm 1, \pm 2, \pm 3, \pm 4, \pm 6, \dots$</p>
+              <p>2. Probamos $x = -2$ por Ruffini sobre $[1, -2, -11, 12, 36]$:</p>
+              <div class="bg-white p-2 rounded border border-slate-200 font-mono text-center">
+                $1 \cdot (-2) = -2 \implies -4 \cdot (-2) = 8 \implies -3 \cdot (-2) = 6 \implies 18 \cdot (-2) = -36 \implies \text{Resto} = 0$
+              </div>
+              <p>Cociente: $x^3 - 4x^2 - 3x + 18$.</p>
+              <p>3. Volvemos a probar $x = -2$ sobre el cociente $[1, -4, -3, 18]$:</p>
+              <div class="bg-white p-2 rounded border border-slate-200 font-mono text-center">
+                $1 \cdot (-2) = -2 \implies -6 \cdot (-2) = 12 \implies 9 \cdot (-2) = -18 \implies \text{Resto} = 0$
+              </div>
+              <p>Cociente resultante: $x^2 - 6x + 9 = (x - 3)^2$.</p>
+              <p>Descomposición final:</p>
+              <p>$$\mathbf{P(x) = (x + 2)^2 (x - 3)^2}$$</p>
+              <p><em>Tiene dos raíces dobles: $x = -2$ (doble) y $x = 3$ (doble).</em></p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 22 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-indigo-700 text-sm">Ejercicio 22</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Fracción algebraica compuesta (Castillo)</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Simplifica al máximo la fracción compleja (nivel de examen final de 4º ESO):
+            $$\frac{\dfrac{1}{x + 1} + \dfrac{1}{x - 1}}{\dfrac{2x}{x^2 - 1}}$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p><strong>Paso 1:</strong> Operamos primero el numerador superior de la fracción grande:</p>
+              <p>$$\frac{1}{x + 1} + \frac{1}{x - 1} = \frac{(x - 1) + (x + 1)}{(x + 1)(x - 1)} = \frac{2x}{x^2 - 1}$$</p>
+              <p><strong>Paso 2:</strong> Comparamos con el denominador de la fracción:</p>
+              <p>$$\frac{\dfrac{2x}{x^2 - 1}}{\dfrac{2x}{x^2 - 1}} = \mathbf{1} \quad (\text{para todo } x \neq \pm 1, x \neq 0)$$</p>
+              <p>La expresión se simplifica asombrosamente al número constante <strong>1</strong>.</p>
+            </div>
+          </details>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+      <div>&copy; Toomate.es &bull; Material Didáctico de Matemáticas</div>
+      <div class="flex items-center gap-3">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-indigo-600 hover:underline font-semibold flex items-center gap-1">
+          <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i> Volver arriba
+        </button>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Script interactivo -->
+  <script>
+    let todasAbiertas = false;
+
+    function toggleTodasLasSoluciones() {
+      const allDetails = document.querySelectorAll('.exercise-details');
+      const btnText = document.getElementById('txtToggleAll');
+      todasAbiertas = !todasAbiertas;
+
+      allDetails.forEach(d => {
+        d.open = todasAbiertas;
+      });
+
+      if (btnText) {
+        btnText.textContent = todasAbiertas ? 'Cerrar todas las soluciones' : 'Desplegar todas las soluciones';
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>

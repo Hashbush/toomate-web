@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reacciones Redox, Pilas y Electrólisis - 2º Bachillerato EvAU | Toomate.es</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex items-center justify-between">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-emerald-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a href="ejercicios-reacciones-redox-2-bach.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="dumbbell" class="w-4 h-4"></i>
+        <span>Boletín de 22 Ejercicios</span>
+      </a>
+      <button onclick="window.print()" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </div>
+
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-8 sm:p-12">
+    
+    <header class="border-b-2 border-emerald-500 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+            Química EvAU &bull; 2º Bachillerato LOMLOE Cantabria
+          </span>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Reacciones Redox: Ion-Electrón, Pilas y Faraday
+          </h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Ajuste en medio ácido y básico, potenciales estándar de electrodo, pilas galvánicas y leyes de electrólisis</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- RESUMEN CLAVE -->
+    <section class="mb-10 bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-6">
+      <h2 class="text-lg font-bold text-emerald-950 flex items-center gap-2 mb-3">
+        <i data-lucide="zap" class="w-5 h-5 text-emerald-600"></i>
+        Fórmulas y Reglas Fundamentales
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Oxidación y Reducción:</p>
+          <div class="text-slate-700">$$\text{Oxidación: pierde } e^- \implies \uparrow\text{N.O.} \quad (\text{Ánodo -})$$
+          $$\text{Reducción: gana } e^- \implies \downarrow\text{N.O.} \quad (\text{Cátodo +})$$</div>
+          <p class="text-xs text-slate-500 mt-1">El oxidante se reduce; el reductor se oxida.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Fuerza Electromotriz de una Pila ($E_{\text{pila}}^\circ$):</p>
+          <div class="text-slate-700">$$E_{\text{pila}}^\circ = E_{\text{cátodo}}^\circ - E_{\text{ánodo}}^\circ; \quad \Delta G^\circ = -n F E^\circ$$</div>
+          <p class="text-xs text-slate-500 mt-1">Proceso espontáneo $\iff E_{\text{pila}}^\circ > 0 \iff \Delta G^\circ < 0$.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">1ª y 2ª Leyes de Faraday (Electrólisis):</p>
+          <div class="text-slate-700">$$m = \frac{M \cdot Q}{n \cdot F} = \frac{M \cdot I \cdot t}{n \cdot F}$$</div>
+          <p class="text-xs text-slate-500 mt-1">$F = 96485\text{ C/mol } e^-$; $n$ es el número de electrones transferidos por ion.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Notación IUPAC de la Pila Galvánica:</p>
+          <div class="text-slate-700">$$\text{Ánodo (ox)} \mid \text{Electrolito ánodo} \parallel \text{Electrolito cátodo} \mid \text{Cátodo (red)}$$</div>
+          <p class="text-xs text-slate-500 mt-1">Ejemplo Daniell: $\text{Zn}(s) \mid \text{Zn}^{2+}(1\text{M}) \parallel \text{Cu}^{2+}(1\text{M}) \mid \text{Cu}(s)$.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 1: METODO ION-ELECTRON -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        1. Protocolo Infalible del Método del Ion-Electrón
+      </h2>
+      <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+        <ol class="list-decimal pl-6 space-y-2">
+          <li><strong>Disociar en iones</strong> únicamente los electrolitos fuertes (ácidos inorgánicos fuertes, hidróxidos y sales solubles). Los óxidos, gases, metales puros y sustancias moleculares orgánicas o covalentes no se disocian.</li>
+          <li><strong>Identificar las dos semirreacciones:</strong> determinar qué especie se oxida y cuál se reduce comparando los números de oxidación.</li>
+          <li><strong>Ajuste material de átomos distintos de H y O.</strong></li>
+          <li><strong>Ajuste de Oxígenos e Hidrógenos:</strong>
+            <ul class="list-disc pl-5 mt-1 space-y-1">
+              <li><em>En medio ácido:</em> Añadir tantas moléculas de $\text{H}_2\text{O}$ como oxígenos falten en el miembro deficitario, y ajustar los hidrógenos añadiendo protones $\text{H}^+$ en el miembro opuesto.</li>
+              <li><em>En medio básico:</em> Por cada oxígeno que sobre, añadir una molécula de $\text{H}_2\text{O}$ en ese mismo miembro y el doble de $\text{OH}^-$ en el miembro opuesto.</li>
+            </ul>
+          </li>
+          <li><strong>Ajuste de carga eléctrica:</strong> Añadir electrones ($e^-$) en el miembro más positivo para igualar la carga neta a ambos lados de cada semirreacción.</li>
+          <li><strong>Igualar electrones y sumar:</strong> Multiplicar las semirreacciones por números enteros adecuados para que los electrones cedidos en la oxidación igualen a los ganados en la reducción, y sumar miembro a miembro obteniendo la ecuación iónica global ajustada.</li>
+          <li><strong>Paso a la ecuación molecular:</strong> Reincorporar los contraiones o iones espectadores iniciales.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: PILAS GALVANICAS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        2. Pilas Galvánicas y Espontaneidad Redox
+      </h2>
+      <div class="space-y-3 text-sm text-slate-700 leading-relaxed">
+        <p>
+          Una celda galvánica convierte energía química de una reacción redox espontánea en energía eléctrica:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5">
+          <li><strong>Ánodo (polo negativo $-$):</strong> Donde ocurre siempre la oxidación. El electrodo metálico pierde electrones y se va desgastando (disolviendo en la disolución).</li>
+          <li><strong>Cátodo (polo positivo $+$):</strong> Donde ocurre siempre la reducción. Los iones en disolución captan electrones y se depositan en el electrodo, aumentando su masa.</li>
+          <li><strong>Puente salino (ej. $\text{KNO}_3$ o $\text{KCl}$):</strong> Mantiene la neutralidad eléctrica de ambas cubas: los aniones ($\text{NO}_3^-$) migran hacia el ánodo y los cationes ($\text{K}^+$) hacia el cátodo.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FOOTER NAV -->
+    <div class="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-xs text-slate-500">
+        Toomate.es &bull; Química 2º Bachillerato EvAU LOMLOE
+      </div>
+      <a href="ejercicios-reacciones-redox-2-bach.html" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md transition">
+        <span>Ir al Boletín de 22 Ejercicios Resueltos</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

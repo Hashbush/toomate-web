@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletín de Ejercicios: Trigonometría (1º Bachillerato Matemáticas I) | Toomate.es</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- KaTeX para fórmulas matemáticas perfectas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] summary .arrow-icon { transform: rotate(180deg); }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; font-size: 10pt; }
+      .page-break { page-break-before: always; }
+      .shadow-xl, .shadow-md, .shadow-sm { box-shadow: none !important; }
+      .border { border-color: #cbd5e1 !important; }
+      details { border: 1px solid #cbd5e1 !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased font-sans py-8">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR (NO IMPRIMIBLE) -->
+  <div class="no-print max-w-4xl mx-auto px-4 mb-6 flex flex-wrap items-center justify-between gap-3">
+    <a href="../index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-purple-600 transition">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Volver al portal Toomate.es
+    </a>
+
+    <div class="flex flex-wrap items-center gap-2.5">
+      <button onclick="toggleTodasLasSoluciones()" id="btnToggleAll" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-purple-800 bg-purple-50 hover:bg-purple-100 border border-purple-200 px-3.5 py-2 rounded-xl transition">
+        <i data-lucide="eye" class="w-4 h-4 text-purple-600"></i>
+        <span id="txtToggleAll">Desplegar todas las soluciones</span>
+      </button>
+
+      <a href="trigonometria-1-bach.html" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 hover:text-purple-600 bg-white border border-slate-200 px-3 py-2 rounded-xl transition">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Teoría & Fórmulas</span>
+      </a>
+
+      <button onclick="window.print()" class="inline-flex items-center gap-1.5 bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-xl shadow-md transition">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Guardar en PDF</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- DOCUMENTO PRINCIPAL -->
+  <main class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-6 sm:p-12">
+    
+    <!-- CABECERA -->
+    <header class="border-b-2 border-purple-600 pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-purple-50 border border-purple-200 p-1 flex items-center justify-center shrink-0">
+          <img src="../logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-xl">
+        </div>
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Boletín Oficial de Ejercicios Graduados</span>
+          <h1 class="font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight">Trigonometría (1º Bachillerato Científico)</h1>
+          <p class="text-xs text-slate-500 mt-0.5">22 ejercicios con soluciones completas paso a paso desplegables</p>
+        </div>
+      </div>
+      <div class="text-right flex sm:flex-col items-center sm:items-end justify-between">
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800 border border-purple-200">
+          Solucionario Completo
+        </span>
+        <span class="text-xs text-slate-400 mt-1">Matemáticas I &bull; Cantabria</span>
+      </div>
+    </header>
+
+    <!-- INSTRUCCIONES -->
+    <div class="mb-8 p-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-600 flex items-start gap-3">
+      <i data-lucide="info" class="w-5 h-5 text-purple-600 shrink-0 mt-0.5"></i>
+      <div>
+        <p class="font-semibold text-slate-800">Consejo para el examen de 1º de Bachillerato:</p>
+        <p>Asegúrate de escribir siempre las soluciones generales añadiendo las infinitas vueltas $+ 2k\pi$ (o $+ 360^\circ k$, con $k \in \mathbb{Z}$) a menos que el enunciado especifique expresamente "soluciones en la primera vuelta $[0, 2\pi)$".</p>
+      </div>
+    </div>
+
+    <!-- BLOQUE 1: NIVEL BÁSICO (EJERCICIOS 1 A 8) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-2 mb-6 border-b border-purple-200 pb-2">
+        <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-purple-100 text-purple-800">Nivel 1</span>
+        <h2 class="text-lg font-bold text-slate-900">Razones Goniométricas, Reducción de Cuadrante y Fórmulas Básicas (1 a 8)</h2>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- Ejercicio 1 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 1</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Radianes y Grados</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            a) Convierte a radianes exactos en función de $\pi$: $120^\circ$ y $315^\circ$.
+            <br>b) Pasa a grados sexagesimales: $\frac{5\pi}{6}\text{ rad}$ y $\frac{4\pi}{3}\text{ rad}$.
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Relación fundamental: $180^\circ = \pi\text{ rad}$.</p>
+              <p><strong>a)</strong> $120^\circ = 120 \cdot \frac{\pi}{180} = \mathbf{\frac{2\pi}{3}\text{ rad}}$ &emsp; | &emsp; $315^\circ = 315 \cdot \frac{\pi}{180} = \mathbf{\frac{7\pi}{4}\text{ rad}}$</p>
+              <p><strong>b)</strong> $\frac{5\pi}{6} = \frac{5 \cdot 180^\circ}{6} = \mathbf{150^\circ}$ &emsp; | &emsp; $\frac{4\pi}{3} = \frac{4 \cdot 180^\circ}{3} = \mathbf{240^\circ}$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 2 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 2</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Razones en cuadrantes</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Sabiendo que $\sin\alpha = \frac{3}{5}$ y que $\alpha \in \text{II Cuadrante}$ ($\frac{\pi}{2} < \alpha < \pi$), calcula exactamente $\cos\alpha$ y $\tan\alpha$.
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Aplicamos $\sin^2\alpha + \cos^2\alpha = 1$:</p>
+              <p>$$\left(\frac{3}{5}\right)^2 + \cos^2\alpha = 1 \implies \frac{9}{25} + \cos^2\alpha = 1 \implies \cos^2\alpha = \frac{16}{25}$$</p>
+              <p>En el II cuadrante el coseno es estrictamente <strong>negativo</strong>:</p>
+              <p>$$\cos\alpha = -\sqrt{\frac{16}{25}} = \mathbf{-\frac{4}{5}}$$</p>
+              <p>Calculamos la tangente:</p>
+              <p>$$\tan\alpha = \frac{\sin\alpha}{\cos\alpha} = \frac{3/5}{-4/5} = \mathbf{-\frac{3}{4}}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 3 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 3</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Reducción al primer cuadrante</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Halla el valor exacto sin calculadora reduciendo al 1º cuadrante:
+            <br>a) $\sin(150^\circ)$ &emsp; b) $\cos(225^\circ)$ &emsp; c) $\tan(300^\circ)$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p><strong>a)</strong> $150^\circ = 180^\circ - 30^\circ$ (II cuad., seno positivo):</p>
+              <p>$$\sin(150^\circ) = \sin(30^\circ) = \mathbf{\frac{1}{2}}$$</p>
+              <p><strong>b)</strong> $225^\circ = 180^\circ + 45^\circ$ (III cuad., coseno negativo):</p>
+              <p>$$\cos(225^\circ) = -\cos(45^\circ) = \mathbf{-\frac{\sqrt{2}}{2}}$$</p>
+              <p><strong>c)</strong> $300^\circ = 360^\circ - 60^\circ$ (IV cuad., tangente negativa):</p>
+              <p>$$\tan(300^\circ) = -\tan(60^\circ) = \mathbf{-\sqrt{3}}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 4 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 4</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Fórmula del seno de la suma</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Calcula el valor exacto de $\sin(75^\circ)$ descomponiéndolo como suma de ángulos notables ($45^\circ + 30^\circ$).
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$\sin(75^\circ) = \sin(45^\circ + 30^\circ) = \sin 45^\circ \cos 30^\circ + \cos 45^\circ \sin 30^\circ$$</p>
+              <p>$$= \left(\frac{\sqrt{2}}{2}\right) \cdot \left(\frac{\sqrt{3}}{2}\right) + \left(\frac{\sqrt{2}}{2}\right) \cdot \left(\frac{1}{2}\right)$$</p>
+              <p>$$= \frac{\sqrt{6}}{4} + \frac{\sqrt{2}}{4} = \mathbf{\frac{\sqrt{6} + \sqrt{2}}{4}}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 5 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 5</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Fórmula del coseno de la resta</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Halla el valor exacto de $\cos(15^\circ)$ aplicando $\cos(45^\circ - 30^\circ)$.
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$\cos(45^\circ - 30^\circ) = \cos 45^\circ \cos 30^\circ + \sin 45^\circ \sin 30^\circ$$</p>
+              <p>$$= \frac{\sqrt{2}}{2} \cdot \frac{\sqrt{3}}{2} + \frac{\sqrt{2}}{2} \cdot \frac{1}{2} = \mathbf{\frac{\sqrt{6} + \sqrt{2}}{4}}$$</p>
+              <p><em>(Coincide con $\sin 75^\circ$ porque son ángulos complementarios).</em></p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 6 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 6</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Fórmulas de ángulo doble</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Si $\sin\alpha = \frac{4}{5}$ con $\alpha$ en el primer cuadrante, calcula $\sin(2\alpha)$ y $\cos(2\alpha)$.
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>1º hallamos $\cos\alpha$: $\cos\alpha = \sqrt{1 - (4/5)^2} = \sqrt{9/25} = 3/5$.</p>
+              <p>2º $\sin(2\alpha) = 2\sin\alpha \cos\alpha = 2 \cdot \frac{4}{5} \cdot \frac{3}{5} = \mathbf{\frac{24}{25}}$</p>
+              <p>3º $\cos(2\alpha) = \cos^2\alpha - \sin^2\alpha = \left(\frac{3}{5}\right)^2 - \left(\frac{4}{5}\right)^2 = \frac{9 - 16}{25} = \mathbf{-\frac{7}{25}}$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 7 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 7</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Fórmula de ángulo mitad</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Halla el valor exacto de $\cos(22.5^\circ)$ aplicando la fórmula del ángulo mitad con $\alpha = 45^\circ$.
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Como $22.5^\circ$ está en el primer cuadrante, elegimos el signo positivo:</p>
+              <p>$$\cos(22.5^\circ) = \sqrt{\frac{1 + \cos 45^\circ}{2}} = \sqrt{\frac{1 + \frac{\sqrt{2}}{2}}{2}} = \sqrt{\frac{\frac{2 + \sqrt{2}}{2}}{2}} = \mathbf{\frac{\sqrt{2 + \sqrt{2}}}{2}}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 8 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 8</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Demostración de identidad</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Demuestra la identidad trigonométrica:
+            $$\frac{\sin(2x)}{1 + \cos(2x)} = \tan x$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Sustituimos el numerador por $\sin(2x) = 2\sin x \cos x$.</p>
+              <p>En el denominador usamos $\cos(2x) = 2\cos^2 x - 1$:</p>
+              <p>$$1 + \cos(2x) = 1 + (2\cos^2 x - 1) = 2\cos^2 x$$</p>
+              <p>Sustituimos en la fracción y simplificamos:</p>
+              <p>$$\frac{2\sin x \cos x}{2\cos^2 x} = \frac{\sin x}{\cos x} = \mathbf{\tan x} \quad \text{(Q.E.D.)}$$</p>
+            </div>
+          </details>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: NIVEL INTERMEDIO (EJERCICIOS 9 A 16) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-2 mb-6 border-b border-purple-200 pb-2">
+        <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-purple-100 text-purple-800">Nivel 2</span>
+        <h2 class="text-lg font-bold text-slate-900">Ecuaciones Trigonométricas y Teoremas del Seno y Coseno (9 a 16)</h2>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- Ejercicio 9 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 9</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Identidad recíproca</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Demuestra:
+            $$\tan x + \cot x = \frac{2}{\sin(2x)}$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Escribimos todo en senos y cosenos:</p>
+              <p>$$\tan x + \cot x = \frac{\sin x}{\cos x} + \frac{\cos x}{\sin x} = \frac{\sin^2 x + \cos^2 x}{\sin x \cos x} = \frac{1}{\sin x \cos x}$$</p>
+              <p>Multiplicamos y dividimos por 2:</p>
+              <p>$$= \frac{2}{2\sin x \cos x} = \mathbf{\frac{2}{\sin(2x)}} \quad \text{(Demostrado)}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 10 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 10</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Ecuación elemental</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Halla todas las soluciones reales de:
+            $$\sin x = \frac{1}{2}$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>En la primera vuelta $[0, 360^\circ)$, el seno vale $1/2$ en el I y II cuadrante:</p>
+              <p>1º cuadrante: $x_1 = 30^\circ = \frac{\pi}{6}\text{ rad}$</p>
+              <p>2º cuadrante: $x_2 = 180^\circ - 30^\circ = 150^\circ = \frac{5\pi}{6}\text{ rad}$</p>
+              <p>Soluciones generales ($k \in \mathbb{Z}$):</p>
+              <p>$$\mathbf{x = \frac{\pi}{6} + 2k\pi} \quad \text{y} \quad \mathbf{x = \frac{5\pi}{6} + 2k\pi}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 11 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 11</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Coseno negativo</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Resuelve en radianes:
+            $$\cos x = -\frac{\sqrt{2}}{2}$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>El coseno es negativo en el II y III cuadrante, con ángulo de referencia $45^\circ = \pi/4$:</p>
+              <p>II Cuadrante: $x_1 = \pi - \frac{\pi}{4} = \mathbf{\frac{3\pi}{4} + 2k\pi}$</p>
+              <p>III Cuadrante: $x_2 = \pi + \frac{\pi}{4} = \mathbf{\frac{5\pi}{4} + 2k\pi}$ ($k \in \mathbb{Z}$)</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 12 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 12</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Ecuación cuadrática trigonométrica</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Resuelve en $[0, 2\pi)$:
+            $$2\sin^2 x - \sin x - 1 = 0$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Hacemos el cambio $t = \sin x$:</p>
+              <p>$$2t^2 - t - 1 = 0 \implies t = \frac{1 \pm \sqrt{1 + 8}}{4} = \frac{1 \pm 3}{4} \implies t_1 = 1, \quad t_2 = -\frac{1}{2}$$</p>
+              <p>&bull; Para $\sin x = 1 \implies \mathbf{x = \frac{\pi}{2}}$</p>
+              <p>&bull; Para $\sin x = -1/2 \implies \mathbf{x = \frac{7\pi}{6}, \quad x = \frac{11\pi}{6}}$</p>
+              <p>Soluciones en la 1ª vuelta: $\mathbf{x \in \{\pi/2, 7\pi/6, 11\pi/6\}}$.</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 13 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 13</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Ecuación con ángulo doble</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Resuelve:
+            $$\cos(2x) + \cos x = 0$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Sustituimos $\cos(2x) = 2\cos^2 x - 1$:</p>
+              <p>$$2\cos^2 x + \cos x - 1 = 0$$</p>
+              <p>Cambio $t = \cos x \implies 2t^2 + t - 1 = 0 \implies t = \frac{-1 \pm 3}{4} \implies t_1 = \frac{1}{2}, \quad t_2 = -1$.</p>
+              <p>&bull; $\cos x = 1/2 \implies \mathbf{x = \pm \frac{\pi}{3} + 2k\pi}$</p>
+              <p>&bull; $\cos x = -1 \implies \mathbf{x = \pi + 2k\pi}$ ($k \in \mathbb{Z}$).</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 14 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 14</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Ecuación factorizable</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Resuelve sin perder soluciones:
+            $$\sin(2x) = \cos x$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>¡Cuidado! Nunca dividas entre $\cos x$ porque perderías las soluciones donde $\cos x = 0$.</p>
+              <p>$$2\sin x \cos x - \cos x = 0 \implies \cos x (2\sin x - 1) = 0$$</p>
+              <p>1. $\cos x = 0 \implies \mathbf{x = \frac{\pi}{2} + k\pi}$</p>
+              <p>2. $2\sin x - 1 = 0 \implies \sin x = 1/2 \implies \mathbf{x = \frac{\pi}{6} + 2k\pi} \quad \text{y} \quad \mathbf{x = \frac{5\pi}{6} + 2k\pi}$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 15 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 15</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Teorema del Seno</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            En un triángulo conocemos $a = 8\text{ cm}$, $A = 45^\circ$ y $B = 60^\circ$. Halla la longitud exacta del lado $b$.
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Por el Teorema del Seno:</p>
+              <p>$$\frac{a}{\sin A} = \frac{b}{\sin B} \implies b = a \cdot \frac{\sin B}{\sin A}$$</p>
+              <p>$$b = 8 \cdot \frac{\sin 60^\circ}{\sin 45^\circ} = 8 \cdot \frac{\frac{\sqrt{3}}{2}}{\frac{\sqrt{2}}{2}} = 8 \cdot \frac{\sqrt{3}}{\sqrt{2}} = 8 \cdot \frac{\sqrt{6}}{2} = \mathbf{4\sqrt{6}\text{ cm}} \approx 9.80\text{ cm}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 16 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 16</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Teorema del Coseno</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            En un triángulo se conocen dos lados $b = 5\text{ m}$, $c = 8\text{ m}$ y el ángulo comprendido entre ellos $A = 60^\circ$. Halla el tercer lado $a$.
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Aplicamos el Teorema del Coseno:</p>
+              <p>$$a^2 = b^2 + c^2 - 2bc \cos A$$</p>
+              <p>$$a^2 = 5^2 + 8^2 - 2(5)(8) \cos 60^\circ = 25 + 64 - 80 \cdot \frac{1}{2} = 89 - 40 = 49$$</p>
+              <p>$$a = \sqrt{49} = \mathbf{7\text{ m}}$$</p>
+            </div>
+          </details>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- BLOQUE 3: NIVEL EXAMEN Y AVANZADO (EJERCICIOS 17 A 22) -->
+    <section class="mb-12">
+      <div class="flex items-center gap-2 mb-6 border-b border-purple-200 pb-2">
+        <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-purple-100 text-purple-800">Nivel 3</span>
+        <h2 class="text-lg font-bold text-slate-900">Ecuaciones Avanzadas, Doble Observación y Retos de Examen (17 a 22)</h2>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- Ejercicio 17 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 17</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Ecuación con secante</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Resuelve en $[0, 2\pi)$ la ecuación:
+            $$\tan^2 x + 2\tan x - 3 = 0$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Cambio $t = \tan x \implies t^2 + 2t - 3 = 0 \implies (t + 3)(t - 1) = 0$.</p>
+              <p>&bull; $\tan x = 1 \implies \mathbf{x = \frac{\pi}{4}, \quad x = \frac{5\pi}{4}}$</p>
+              <p>&bull; $\tan x = -3 \implies x = \arctan(-3) \approx -71.57^\circ \implies \mathbf{108.43^\circ \text{ y } 288.43^\circ}$.</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 18 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 18</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Ecuación homogénea</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Resuelve dividiendo por $\cos^2 x$:
+            $$\sin^2 x - 3\sin x \cos x + 2\cos^2 x = 0$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Dividimos entre $\cos^2 x$ (comprobando que $\cos x \neq 0$):</p>
+              <p>$$\tan^2 x - 3\tan x + 2 = 0$$</p>
+              <p>$$(\tan x - 1)(\tan x - 2) = 0$$</p>
+              <p>1. $\tan x = 1 \implies \mathbf{x = \frac{\pi}{4} + k\pi}$</p>
+              <p>2. $\tan x = 2 \implies \mathbf{x = \arctan(2) + k\pi \approx 1.107\text{ rad} + k\pi}$ ($k \in \mathbb{Z}$).</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 19 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 19</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Clásica de examen con cambio a seno</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Halla las soluciones generales de:
+            $$2\cos^2 x + 3\sin x = 0$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Sustituimos $\cos^2 x = 1 - \sin^2 x$:</p>
+              <p>$$2(1 - \sin^2 x) + 3\sin x = 0 \implies 2 - 2\sin^2 x + 3\sin x = 0$$</p>
+              <p>$$2\sin^2 x - 3\sin x - 2 = 0 \implies \sin x = \frac{3 \pm \sqrt{9 + 16}}{4} = \frac{3 \pm 5}{4}$$</p>
+              <p>&bull; $\sin x = 8/4 = 2$ (Imposible, $-1 \le \sin x \le 1$).</p>
+              <p>&bull; $\sin x = -2/4 = -1/2 \implies \mathbf{x = \frac{7\pi}{6} + 2k\pi} \quad \text{y} \quad \mathbf{x = \frac{11\pi}{6} + 2k\pi}$ ($k \in \mathbb{Z}$).</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 20 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 20</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Problema de doble observación</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Desde un punto en el suelo vemos la cúspide de una torre bajo un ángulo de $30^\circ$. Si nos acercamos $20\text{ metros}$ en línea recta hacia ella, el ángulo de elevación pasa a ser de $45^\circ$. Calcula la altura de la torre.
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Sea $h$ la altura y $x$ la distancia desde la segunda posición hasta la base de la torre:</p>
+              <p>1ª posición: $\tan 30^\circ = \frac{h}{x + 20} \implies h = (x + 20) \tan 30^\circ$</p>
+              <p>2ª posición: $\tan 45^\circ = \frac{h}{x} \implies 1 = \frac{h}{x} \implies h = x$</p>
+              <p>Igualamos: $h = (h + 20) \frac{\sqrt{3}}{3} \implies 3h = \sqrt{3}h + 20\sqrt{3}$</p>
+              <p>$$h(3 - \sqrt{3}) = 20\sqrt{3} \implies h = \frac{20\sqrt{3}}{3 - \sqrt{3}} = \mathbf{10(\sqrt{3} + 1)\text{ m}} \approx 27.32\text{ metros}$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 21 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 21</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Área trigonométrica</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Halla el área exacta de una parcela triangular cuyos lados miden $a = 10\text{ m}$, $b = 14\text{ m}$ y forman un ángulo comprendido de $C = 45^\circ$.
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Aplicamos la fórmula del área mediante seno:</p>
+              <p>$$\text{Área} = \frac{1}{2} a b \sin C = \frac{1}{2} \cdot 10 \cdot 14 \cdot \sin 45^\circ$$</p>
+              <p>$$= 70 \cdot \frac{\sqrt{2}}{2} = \mathbf{35\sqrt{2}\text{ m}^2} \approx 49.50\text{ m}^2$$</p>
+            </div>
+          </details>
+        </article>
+
+        <!-- Ejercicio 22 -->
+        <article class="p-5 bg-white rounded-2xl border border-slate-200 hover:border-purple-300 transition shadow-2xs">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <span class="font-bold text-purple-700 text-sm">Ejercicio 22</span>
+            <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Sistema no lineal trigonométrico</span>
+          </div>
+          <p class="text-sm text-slate-800 mb-3">
+            Resuelve en la primera vuelta $[0, 2\pi)$ el sistema de ecuaciones:
+            $$\begin{cases} \sin x + \cos y = 1 \\ x + y = \frac{\pi}{2} \end{cases}$$
+          </p>
+          <details class="exercise-details group">
+            <summary class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 text-xs font-semibold border border-emerald-200 transition select-none">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Ver Solución Paso a Paso</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-emerald-600 arrow-icon transition-transform"></i>
+            </summary>
+            <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>De la 2ª ecuación: $y = \frac{\pi}{2} - x$.</p>
+              <p>Por ángulos complementarios: $\cos y = \cos\left(\frac{\pi}{2} - x\right) = \sin x$.</p>
+              <p>Sustituimos en la 1ª ecuación:</p>
+              <p>$$\sin x + \sin x = 1 \implies 2\sin x = 1 \implies \sin x = \frac{1}{2}$$</p>
+              <p>En $[0, 2\pi)$:</p>
+              <p>&bull; Si $x_1 = \frac{\pi}{6} \implies y_1 = \frac{\pi}{2} - \frac{\pi}{6} = \frac{\pi}{3} \implies \mathbf{(x_1, y_1) = \left(\frac{\pi}{6}, \frac{\pi}{3}\right)}$</p>
+              <p>&bull; Si $x_2 = \frac{5\pi}{6} \implies y_2 = \frac{\pi}{2} - \frac{5\pi}{6} = -\frac{\pi}{3} \equiv \frac{5\pi}{3} \implies \mathbf{(x_2, y_2) = \left(\frac{5\pi}{6}, \frac{5\pi}{3}\right)}$</p>
+            </div>
+          </details>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+      <div>&copy; Toomate.es &bull; Material Didáctico de Matemáticas</div>
+      <div class="flex items-center gap-3">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-purple-600 hover:underline font-semibold flex items-center gap-1">
+          <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i> Volver arriba
+        </button>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Script interactivo -->
+  <script>
+    let todasAbiertas = false;
+
+    function toggleTodasLasSoluciones() {
+      const allDetails = document.querySelectorAll('.exercise-details');
+      const btnText = document.getElementById('txtToggleAll');
+      todasAbiertas = !todasAbiertas;
+
+      allDetails.forEach(d => {
+        d.open = todasAbiertas;
+      });
+
+      if (btnText) {
+        btnText.textContent = todasAbiertas ? 'Cerrar todas las soluciones' : 'Desplegar todas las soluciones';
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>
