@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toomate | Academia de Estudios & Recursos Didácticos</title>
+  <title>Toomate.es | Matemáticas, Física y Química</title>
   
   <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -12,12 +12,9 @@
   <!-- Google Fonts: Inter & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Carga de Materiales Didácticos (Fácil de editar por el usuario) -->
-  <script src="materiales.js"></script>
-
-  <!-- KaTeX para tipografía matemática oficial (fracciones, integrales, raíces...) -->
+  <!-- KaTeX para renderizar las muestras visuales de ecuaciones -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 
@@ -37,14 +34,6 @@
               500: '#f43f5e',
               600: '#e11d48',
               700: '#be123c',
-              800: '#9f1239',
-              900: '#881337',
-            },
-            accent: {
-              50: '#eff6ff',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
             }
           }
         }
@@ -53,1010 +42,593 @@
   </script>
 
   <style>
-    .math-font { font-family: 'KaTeX_Main', serif; }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+    /* Cuadrícula tipo libreta matemática para la imagen de muestra de cada tema */
+    .math-preview-box {
+      background-color: #f8fafc;
+      background-image: 
+        linear-gradient(to right, rgba(203, 213, 225, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(203, 213, 225, 0.4) 1px, transparent 1px);
+      background-size: 16px 16px;
     }
-    .custom-shadow {
-      box-shadow: 0 10px 30px -5px rgba(225, 29, 72, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+    .katex-display {
+      margin: 0 !important;
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      padding: 0.25rem 0;
     }
-    .gradient-hero {
-      background: radial-gradient(circle at 10% 20%, rgba(254, 205, 211, 0.45) 0%, rgba(255, 255, 255, 1) 70%);
+    .katex {
+      font-size: 1.1em;
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-slate-100 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
 
-  <!-- BARRA DE AVISO SUPERIOR -->
-  <div class="bg-gradient-to-r from-brand-700 via-brand-600 to-rose-600 text-white text-xs md:text-sm py-2 px-4 text-center font-medium shadow-inner flex items-center justify-center gap-2">
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-white text-brand-700">Nuevo</span>
-    <span>Preparación intensiva de exámenes y EvAU 2026/2027. ¡Descarga las listas de problemas actualizadas!</span>
-  </div>
-
-  <!-- NAVEGACIÓN PRINCIPAL -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
-        
-        <!-- LOGO TOOMATE: Mascota Profe Tomate -->
-        <a href="#" class="flex items-center gap-3 group">
-          <div class="w-12 h-12 rounded-2xl bg-white border border-rose-100 p-0.5 flex items-center justify-center shadow-md shadow-brand-500/10 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
-            <img src="logo-tomate.jpg" alt="Profesor Tomate - Toomate.es" class="w-full h-full object-cover rounded-xl">
-          </div>
-          <div>
-            <div class="flex items-center gap-1.5">
-              <span class="font-display font-bold text-2xl text-slate-900 tracking-tight">Too<span class="text-brand-600">mate</span></span>
-              <span class="text-xs bg-slate-100 text-slate-600 font-semibold px-2 py-0.5 rounded-md border border-slate-200">.es</span>
-            </div>
-            <p class="text-xs text-slate-500 font-medium">Academia & Recursos Didácticos &bull; <span class="text-brand-600 font-semibold">¡Muchas Mates!</span></p>
-          </div>
-        </a>
-
-        <!-- MENÚ DE ESCRITORIO -->
-        <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
-          <a href="#catalogo" class="hover:text-brand-600 transition-colors flex items-center gap-1.5">
-            <i data-lucide="book-open" class="w-4 h-4 text-brand-500"></i>
-            Materiales y Fichas
-          </a>
-          <a href="#chuletas" class="hover:text-brand-600 transition-colors flex items-center gap-1.5">
-            <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i>
-            Formularios Clave
-          </a>
-          <a href="#niveles" class="hover:text-brand-600 transition-colors flex items-center gap-1.5">
-            <i data-lucide="layers" class="w-4 h-4 text-blue-500"></i>
-            Cursos (ESO / Bach)
-          </a>
-          <a href="#academia" class="hover:text-brand-600 transition-colors">
-            La Academia
-          </a>
-        </nav>
-
-        <!-- ACCIONES RÁPIDAS -->
-        <div class="flex items-center gap-3">
-          <a href="https://wa.me/?text=Hola%20Toomate,%20tengo%20una%20duda%20sobre%20las%20clases%20y%20materiales" target="_blank"
-             class="hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm px-4 py-2.5 rounded-xl transition shadow-sm shadow-emerald-600/20">
-            <i data-lucide="message-circle" class="w-4 h-4"></i>
-            <span>Dudas WhatsApp</span>
-          </a>
-          
-          <button onclick="scrollToSearch()" class="p-2.5 text-slate-600 hover:text-brand-600 hover:bg-brand-50 rounded-xl transition md:hidden">
-            <i data-lucide="search" class="w-5 h-5"></i>
-          </button>
-        </div>
+  <!-- CABECERA SENCILLA CON EL PROFE TOMATE CON GAFAS MUCHO MÁS GRANDE -->
+  <header class="bg-white border-b border-slate-200 pt-8 pb-8 px-4 text-center shadow-xs">
+    <div class="max-w-5xl mx-auto flex flex-col items-center">
+      
+      <!-- PROFE TOMATE CON GAFAS GRANDE -->
+      <div class="w-40 h-40 sm:w-52 sm:h-52 rounded-3xl bg-white border-4 border-rose-200 shadow-xl overflow-hidden flex items-center justify-center mb-4">
+        <img src="logo-tomate.jpg" alt="Profesor Tomate - Toomate.es" class="w-full h-full object-cover scale-125">
       </div>
+
+      <h1 class="font-display font-extrabold text-4xl sm:text-5xl text-slate-900 tracking-tight">
+        Too<span class="text-brand-600">mate</span><span class="text-slate-400 font-semibold text-2xl sm:text-3xl">.es</span>
+      </h1>
+
+      <!-- BOTONES DE ACCESO DIRECTO A LOS 2 GRANDES BLOQUES -->
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-6">
+        <a href="#bloque-matematicas" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-display font-bold text-base sm:text-lg shadow-md transition transform hover:-translate-y-0.5">
+          <span>📐</span>
+          <span>MATEMÁTICAS</span>
+        </a>
+        <a href="#bloque-fisica-quimica" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-display font-bold text-base sm:text-lg shadow-md transition transform hover:-translate-y-0.5">
+          <span>⚛️</span>
+          <span>FÍSICA Y QUÍMICA</span>
+        </a>
+      </div>
+
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="relative pt-12 pb-16 md:pt-20 md:pb-24 gradient-hero overflow-hidden border-b border-rose-100/60">
-    <!-- Círculos decorativos de fondo -->
-    <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-200/40 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute top-1/2 -left-24 w-80 h-80 bg-blue-200/30 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <!-- =================================================================== -->
+    <!-- GRAN BLOQUE 1: MATEMÁTICAS -->
+    <!-- =================================================================== -->
+    <section id="bloque-matematicas" class="bg-white rounded-3xl border-2 border-rose-200 shadow-lg overflow-hidden">
       
-      <!-- AVATAR MASCOTA PROFE TOMATE -->
-      <div class="flex items-center justify-center mb-6">
-        <div class="relative group inline-block">
-          <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-white p-1.5 shadow-xl shadow-brand-500/15 border-2 border-rose-200 transform group-hover:scale-105 group-hover:rotate-1 transition-all duration-300">
-            <img src="logo-tomate.jpg" alt="Profesor Tomate" class="w-full h-full object-cover rounded-2xl">
-          </div>
-          <span class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-gradient-to-r from-brand-600 to-rose-500 text-white text-[11px] font-bold px-3 py-0.5 rounded-full shadow-md border-2 border-white">
-            ¡Hola, soy Profe Tomate! 🍅
-          </span>
+      <!-- CABECERA DEL BLOQUE MATEMÁTICAS -->
+      <div class="bg-gradient-to-r from-brand-600 to-rose-500 px-6 py-5 sm:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white flex items-center gap-3 tracking-wide">
+          <span>📐</span>
+          <span>MATEMÁTICAS</span>
+        </h2>
+        <!-- Navegación rápida por cursos de Matemáticas -->
+        <div class="flex flex-wrap gap-2">
+          <a href="#mat-1-2-eso" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-brand-700 font-bold text-xs sm:text-sm transition">1º y 2º ESO</a>
+          <a href="#mat-3-4-eso" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-brand-700 font-bold text-xs sm:text-sm transition">3º y 4º ESO</a>
+          <a href="#mat-1-bach" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-brand-700 font-bold text-xs sm:text-sm transition">1º BACHILLER</a>
+          <a href="#mat-2-bach" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-brand-700 font-bold text-xs sm:text-sm transition">2º BACHILLER</a>
         </div>
       </div>
 
-      <!-- INSIGNIA SUPERIOR -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-rose-200 shadow-sm mb-6">
-        <span class="w-2 h-2 rounded-full bg-brand-500"></span>
-        <span class="text-xs font-semibold text-slate-700">Toomate.es &bull; Matemáticas, Física y Química &bull; ESO & Bachillerato</span>
+      <div class="p-6 sm:p-8 space-y-12" id="contenedor-matematicas">
+        <!-- Rellenado automáticamente por JS -->
       </div>
+    </section>
 
-      <!-- TÍTULO PRINCIPAL -->
-      <h1 class="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl text-slate-900 tracking-tight max-w-4xl mx-auto leading-[1.15]">
-        Aprende y domina <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-600 to-rose-500">Matemáticas, Física y Química</span>
-      </h1>
+    <!-- =================================================================== -->
+    <!-- GRAN BLOQUE 2: FÍSICA Y QUÍMICA -->
+    <!-- =================================================================== -->
+    <section id="bloque-fisica-quimica" class="bg-white rounded-3xl border-2 border-blue-200 shadow-lg overflow-hidden">
       
-      <!-- SUBTÍTULO -->
-      <p class="mt-5 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
-        Todo el temario oficial de Cantabria (LOMLOE): guías teóricas, formularios y boletines de 22 ejercicios graduados con soluciones paso a paso desplegables.
-      </p>
-
-      <!-- BARRA DE BÚSQUEDA INTERACTIVA PRINCIPAL -->
-      <div class="mt-8 max-w-2xl mx-auto" id="buscador-container">
-        <div class="relative flex items-center bg-white rounded-2xl shadow-xl shadow-slate-200/70 border-2 border-slate-200 focus-within:border-brand-500 transition-all p-2">
-          <div class="pl-3 pr-2 text-slate-400">
-            <i data-lucide="search" class="w-6 h-6 text-brand-500"></i>
-          </div>
-          <input 
-            type="text" 
-            id="searchInput" 
-            placeholder="¿Qué estás estudiando hoy? Ej. Integrales, Matrices, Ecuaciones, Trigonometría..." 
-            class="w-full text-slate-800 placeholder-slate-400 font-medium text-base sm:text-lg focus:outline-none bg-transparent py-2"
-            oninput="filtrarRecursos()"
-          >
-          <button 
-            onclick="resetBusqueda()"
-            id="clearSearchBtn"
-            class="hidden px-2 text-slate-400 hover:text-slate-600 transition"
-            title="Borrar búsqueda"
-          >
-            <i data-lucide="x" class="w-5 h-5"></i>
-          </button>
-        </div>
-
-        <!-- ETIQUETAS DE BÚSQUEDA RÁPIDA -->
-        <div class="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs sm:text-sm">
-          <span class="text-slate-500 font-medium">Búsquedas habituales:</span>
-          <button onclick="buscarPildora('Integrales')" class="bg-white/90 hover:bg-brand-50 text-slate-700 hover:text-brand-700 px-3 py-1 rounded-lg border border-slate-200 transition font-medium shadow-2xs">
-            Integrales
-          </button>
-          <button onclick="buscarPildora('Matrices')" class="bg-white/90 hover:bg-brand-50 text-slate-700 hover:text-brand-700 px-3 py-1 rounded-lg border border-slate-200 transition font-medium shadow-2xs">
-            Matrices y Determinantes
-          </button>
-          <button onclick="buscarPildora('Derivadas')" class="bg-white/90 hover:bg-brand-50 text-slate-700 hover:text-brand-700 px-3 py-1 rounded-lg border border-slate-200 transition font-medium shadow-2xs">
-            Derivadas
-          </button>
-          <button onclick="buscarPildora('Trigonometría')" class="bg-white/90 hover:bg-brand-50 text-slate-700 hover:text-brand-700 px-3 py-1 rounded-lg border border-slate-200 transition font-medium shadow-2xs">
-            Trigonometría
-          </button>
-          <button onclick="buscarPildora('EvAU')" class="bg-rose-50 hover:bg-rose-100 text-brand-700 px-3 py-1 rounded-lg border border-rose-200 transition font-semibold">
-            🎯 Exámenes EvAU
-          </button>
+      <!-- CABECERA DEL BLOQUE FÍSICA Y QUÍMICA -->
+      <div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-5 sm:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white flex items-center gap-3 tracking-wide">
+          <span>⚛️</span>
+          <span>FÍSICA Y QUÍMICA</span>
+        </h2>
+        <!-- Navegación rápida por cursos de Física y Química -->
+        <div class="flex flex-wrap gap-2">
+          <a href="#fyq-1-2-eso" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-blue-700 font-bold text-xs sm:text-sm transition">1º y 2º ESO</a>
+          <a href="#fyq-3-4-eso" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-blue-700 font-bold text-xs sm:text-sm transition">3º y 4º ESO</a>
+          <a href="#fyq-1-bach" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-blue-700 font-bold text-xs sm:text-sm transition">1º BACHILLER</a>
+          <a href="#fyq-2-bach" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-blue-700 font-bold text-xs sm:text-sm transition">2º BACHILLER</a>
         </div>
       </div>
 
-      <!-- MÉTRICAS DE CONFIANZA -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto mt-12 pt-8 border-t border-rose-200/60 text-slate-700">
-        <div class="p-3 bg-white/60 rounded-xl backdrop-blur-xs">
-          <p class="font-display font-bold text-2xl sm:text-3xl text-brand-600">+1.200</p>
-          <p class="text-xs text-slate-500 font-medium mt-0.5">Ejercicios con Solución</p>
-        </div>
-        <div class="p-3 bg-white/60 rounded-xl backdrop-blur-xs">
-          <p class="font-display font-bold text-2xl sm:text-3xl text-slate-900">100%</p>
-          <p class="text-xs text-slate-500 font-medium mt-0.5">Acceso Libre para Alumnos</p>
-        </div>
-        <div class="p-3 bg-white/60 rounded-xl backdrop-blur-xs">
-          <p class="font-display font-bold text-2xl sm:text-3xl text-blue-600">ESO & Bach</p>
-          <p class="text-xs text-slate-500 font-medium mt-0.5">Todos los niveles oficiales</p>
-        </div>
-        <div class="p-3 bg-white/60 rounded-xl backdrop-blur-xs">
-          <p class="font-display font-bold text-2xl sm:text-3xl text-emerald-600">PDF & Vídeo</p>
-          <p class="text-xs text-slate-500 font-medium mt-0.5">Material descargable</p>
-        </div>
+      <div class="p-6 sm:p-8 space-y-12" id="contenedor-fisica-quimica">
+        <!-- Rellenado automáticamente por JS -->
       </div>
+    </section>
 
-    </div>
-  </section>
+  </main>
 
-  <!-- ACCESO RÁPIDO POR NIVELES -->
-  <section id="niveles" class="py-12 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
-        <div>
-          <span class="text-xs font-bold tracking-wider text-brand-600 uppercase">Explora por etapa</span>
-          <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900">Selecciona tu Curso</h2>
-        </div>
-        <p class="text-slate-500 text-sm max-w-md">
-          Haz clic en tu nivel para ver directamente los bloques temáticos y las listas de ejercicios correspondientes.
-        </p>
+  <!-- PIE DE PÁGINA MÍNIMO -->
+  <footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5">
+        <img src="logo-tomate.jpg" alt="Toomate" class="w-9 h-9 rounded-lg object-cover scale-125">
+        <span class="font-display font-bold text-white text-base">Too<span class="text-brand-500">mate</span>.es</span>
       </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <!-- Tarjeta 1º y 2º ESO -->
-        <button onclick="seleccionarNivel('1-2-eso')" class="nivel-card group text-left p-5 rounded-2xl border-2 border-slate-200 hover:border-brand-500 bg-slate-50 hover:bg-white transition-all shadow-sm hover:shadow-md">
-          <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-lg mb-3 group-hover:scale-110 transition-transform">
-            1-2
-          </div>
-          <h3 class="font-display font-bold text-slate-900 text-lg">1º y 2º ESO</h3>
-          <p class="text-xs text-slate-500 mt-1">Enteros, fracciones, álgebra inicial, proporcionalidad y geometría.</p>
-          <span class="inline-flex items-center text-xs font-semibold text-brand-600 mt-3 group-hover:translate-x-1 transition-transform">
-            Ver materiales &rarr;
-          </span>
-        </button>
-
-        <!-- Tarjeta 3º y 4º ESO -->
-        <button onclick="seleccionarNivel('3-4-eso')" class="nivel-card group text-left p-5 rounded-2xl border-2 border-slate-200 hover:border-brand-500 bg-slate-50 hover:bg-white transition-all shadow-sm hover:shadow-md">
-          <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-lg mb-3 group-hover:scale-110 transition-transform">
-            3-4
-          </div>
-          <h3 class="font-display font-bold text-slate-900 text-lg">3º y 4º ESO</h3>
-          <p class="text-xs text-slate-500 mt-1">Ecuaciones 2º grado, sistemas, funciones, trigonometría básica.</p>
-          <span class="inline-flex items-center text-xs font-semibold text-brand-600 mt-3 group-hover:translate-x-1 transition-transform">
-            Ver materiales &rarr;
-          </span>
-        </button>
-
-        <!-- Tarjeta 1º Bachillerato -->
-        <button onclick="seleccionarNivel('1-bach')" class="nivel-card group text-left p-5 rounded-2xl border-2 border-slate-200 hover:border-brand-500 bg-slate-50 hover:bg-white transition-all shadow-sm hover:shadow-md">
-          <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-lg mb-3 group-hover:scale-110 transition-transform">
-            1ºB
-          </div>
-          <h3 class="font-display font-bold text-slate-900 text-lg">1º Bachillerato</h3>
-          <p class="text-xs text-slate-500 mt-1">Trigonometría completa, vectores, geometría plana, límites y derivadas.</p>
-          <span class="inline-flex items-center text-xs font-semibold text-brand-600 mt-3 group-hover:translate-x-1 transition-transform">
-            Ver materiales &rarr;
-          </span>
-        </button>
-
-        <!-- Tarjeta 2º Bachillerato / EvAU -->
-        <button onclick="seleccionarNivel('2-bach')" class="nivel-card group text-left p-5 rounded-2xl border-2 border-brand-500 bg-rose-50/50 hover:bg-white transition-all shadow-sm hover:shadow-md relative overflow-hidden">
-          <span class="absolute top-2 right-2 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-brand-600 text-white">Top EvAU</span>
-          <div class="w-10 h-10 rounded-xl bg-rose-100 text-brand-600 flex items-center justify-center font-bold text-lg mb-3 group-hover:scale-110 transition-transform">
-            2ºB
-          </div>
-          <h3 class="font-display font-bold text-slate-900 text-lg">2º Bach & Selectividad</h3>
-          <p class="text-xs text-slate-500 mt-1">Matrices, Rouché, geometría espacial, integrales, probabilidad.</p>
-          <span class="inline-flex items-center text-xs font-semibold text-brand-600 mt-3 group-hover:translate-x-1 transition-transform">
-            Ver exámenes &rarr;
-          </span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- CATÁLOGO DE MATERIAL DIDÁCTICO -->
-  <section id="catalogo" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- SELECTOR DE ASIGNATURA PRINCIPAL -->
-    <div class="mb-8 p-3 bg-slate-50 border border-slate-200 rounded-2xl flex flex-wrap items-center justify-between gap-3 shadow-xs">
-      <div class="flex items-center gap-2 px-2">
-        <i data-lucide="sparkles" class="w-5 h-5 text-brand-600"></i>
-        <span class="text-xs sm:text-sm font-bold text-slate-800">Elige Asignatura:</span>
-      </div>
-      <div class="flex flex-wrap items-center gap-2" id="asignatura-buttons">
-        <button onclick="filtrarAsignatura('todos')" data-asig="todos" class="asig-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-brand-600 text-white shadow-sm flex items-center gap-1.5">
-          <span>🌟</span> Todas las materias
-        </button>
-        <button onclick="filtrarAsignatura('matematicas')" data-asig="matematicas" class="asig-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 flex items-center gap-1.5">
-          <span>📐</span> Matemáticas
-        </button>
-        <button onclick="filtrarAsignatura('fisica')" data-asig="fisica" class="asig-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 flex items-center gap-1.5">
-          <span>⚛️</span> Física
-        </button>
-        <button onclick="filtrarAsignatura('quimica')" data-asig="quimica" class="asig-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 flex items-center gap-1.5">
-          <span>🧪</span> Química
-        </button>
-      </div>
-    </div>
-
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200">
-      <div>
-        <div class="flex items-center gap-2">
-          <i data-lucide="files" class="w-5 h-5 text-brand-600"></i>
-          <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Repositorio Didáctico Oficial</span>
-        </div>
-        <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mt-1">Materiales y Fichas de Estudio</h2>
-      </div>
-
-      <!-- FILTROS POR CATEGORÍA -->
-      <div class="flex flex-wrap items-center gap-2" id="filter-buttons">
-        <button onclick="filtrarCategoria('todos')" data-cat="todos" class="filter-btn active-filter px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-900 text-white shadow-sm">
-          Todos los bloques
-        </button>
-        <button onclick="filtrarCategoria('analisis')" data-cat="analisis" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
-          Cálculo & Funciones
-        </button>
-        <button onclick="filtrarCategoria('algebra')" data-cat="algebra" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
-          Álgebra & Fórmulas
-        </button>
-        <button onclick="filtrarCategoria('geometria')" data-cat="geometria" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
-          Geometría & Física
-        </button>
-        <button onclick="filtrarCategoria('probabilidad')" data-cat="probabilidad" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
-          Probabilidad & Datos
-        </button>
-      </div>
-    </div>
-
-    <!-- CONTADOR DE RESULTADOS -->
-    <div class="flex items-center justify-between text-xs sm:text-sm text-slate-500 py-4">
-      <span id="resultsCount">Mostrando todos los materiales disponibles</span>
-      <div class="flex items-center gap-2">
-        <i data-lucide="info" class="w-4 h-4 text-slate-400"></i>
-        <span>Los documentos incluyen soluciones detalladas paso a paso</span>
-      </div>
-    </div>
-
-    <!-- GRID DE TARJETAS DE MATERIALES -->
-    <div id="materialesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
-      <!-- Se inyecta dinámicamente con JavaScript -->
-    </div>
-
-    <!-- MENSAJE SI NO HAY RESULTADOS -->
-    <div id="noResults" class="hidden text-center py-16 bg-white rounded-3xl border border-slate-200 p-8 mt-4">
-      <div class="w-16 h-16 bg-rose-50 rounded-2xl flex items-center justify-center text-brand-600 mx-auto mb-4">
-        <i data-lucide="search-x" class="w-8 h-8"></i>
-      </div>
-      <h3 class="text-lg font-bold text-slate-900">No encontramos ningún material con esa búsqueda</h3>
-      <p class="text-sm text-slate-500 mt-1 max-w-md mx-auto">Prueba buscando otro tema (ej: "Límites", "Polinomios", "Trigonometría") o haz clic abajo para restablecer los filtros.</p>
-      <button onclick="resetBusqueda()" class="mt-4 px-4 py-2 rounded-xl bg-brand-600 text-white text-sm font-semibold hover:bg-brand-700 transition">
-        Ver todos los materiales
-      </button>
-    </div>
-
-  </section>
-
-  <!-- SECCIÓN: FORMULARIOS & CHULETAS RÁPIDAS -->
-  <section id="chuletas" class="py-16 bg-slate-900 text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#f43f5e_1px,transparent_1px)] [background-size:16px_16px]"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/20 border border-brand-500/30 text-rose-300 text-xs font-semibold uppercase tracking-wider mb-3">
-          <i data-lucide="zap" class="w-3.5 h-3.5"></i>
-          Imprescindible para repasar
-        </span>
-        <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">Formularios y Chuletas Clave</h2>
-        <p class="mt-3 text-slate-400 text-base">
-          Tablas resumidas que puedes consultar en pantalla o descargar en un solo clic antes de tus exámenes.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Chuleta 1: Derivadas -->
-        <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-6 hover:border-brand-500/50 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">Cálculo</span>
-              <span class="text-xs text-slate-400">1 página PDF</span>
-            </div>
-            <h3 class="text-xl font-bold font-display text-white mb-2">Tabla de Derivadas Inmediatas</h3>
-            <p class="text-sm text-slate-400 mb-4">Todas las reglas de derivación, potencias, exponenciales, logaritmos, trigonométricas y regla de la cadena.</p>
-            
-            <!-- Vista previa fórmula -->
-            <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 text-sm text-rose-200 mb-4 text-center overflow-x-auto flex items-center justify-center min-h-[44px]">
-              <span class="katex-render" data-expr="(f \cdot g)' = f' \cdot g + f \cdot g'"></span>
-            </div>
-          </div>
-
-          <button onclick="abrirModalPreview('derivadas')" class="w-full py-2.5 px-4 rounded-xl bg-slate-700 hover:bg-brand-600 text-white text-sm font-semibold transition flex items-center justify-center gap-2">
-            <i data-lucide="eye" class="w-4 h-4"></i>
-            <span>Ver Formulario Rápido</span>
-          </button>
-        </div>
-
-        <!-- Chuleta 2: Integrales -->
-        <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-6 hover:border-brand-500/50 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">Cálculo</span>
-              <span class="text-xs text-slate-400">1 página PDF</span>
-            </div>
-            <h3 class="text-xl font-bold font-display text-white mb-2">Tabla de Integrales & Métodos</h3>
-            <p class="text-sm text-slate-400 mb-4">Integrales inmediatas, método por partes, racionales y cambio de variable con la regla de Barrow explicada.</p>
-            
-            <!-- Vista previa fórmula -->
-            <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 text-sm text-amber-200 mb-4 text-center overflow-x-auto flex items-center justify-center min-h-[44px]">
-              <span class="katex-render" data-expr="\int u \, dv = u \cdot v - \int v \, du"></span>
-            </div>
-          </div>
-
-          <button onclick="abrirModalPreview('integrales')" class="w-full py-2.5 px-4 rounded-xl bg-slate-700 hover:bg-brand-600 text-white text-sm font-semibold transition flex items-center justify-center gap-2">
-            <i data-lucide="eye" class="w-4 h-4"></i>
-            <span>Ver Formulario Rápido</span>
-          </button>
-        </div>
-
-        <!-- Chuleta 3: Trigonometría -->
-        <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-6 hover:border-brand-500/50 transition-all flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">Geometría</span>
-              <span class="text-xs text-slate-400">1 página PDF</span>
-            </div>
-            <h3 class="text-xl font-bold font-display text-white mb-2">Identidades Trigonométricas</h3>
-            <p class="text-sm text-slate-400 mb-4">Razones fundamentales, ángulo doble y mitad, sumas y transformaciones de producto en suma.</p>
-            
-            <!-- Vista previa fórmula -->
-            <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 text-sm text-blue-200 mb-4 text-center overflow-x-auto flex items-center justify-center min-h-[44px]">
-              <span class="katex-render" data-expr="\sin^2(\alpha) + \cos^2(\alpha) = 1"></span>
-            </div>
-          </div>
-
-          <button onclick="abrirModalPreview('trigonometria')" class="w-full py-2.5 px-4 rounded-xl bg-slate-700 hover:bg-brand-600 text-white text-sm font-semibold transition flex items-center justify-center gap-2">
-            <i data-lucide="eye" class="w-4 h-4"></i>
-            <span>Ver Formulario Rápido</span>
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SECCIÓN: LA ACADEMIA TOOMATE & APOYO PERSONALIZADO -->
-  <section id="academia" class="py-16 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-brand-600">Sobre el proyecto Toomate</span>
-          <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 mt-2">
-            Más que una web: tu soporte directo para aprobar y sacar nota
-          </h2>
-          <p class="text-slate-600 mt-4 text-base leading-relaxed">
-            La web de <strong>Toomate</strong> nació con una misión muy clara: que ningún alumno se quede atascado con una duda en casa o antes de un examen decisivo.
-          </p>
-
-          <div class="mt-6 space-y-4">
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
-                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-slate-900 text-base">Ejercicios graduados por dificultad</h4>
-                <p class="text-sm text-slate-500">Desde los conceptos básicos para afianzar la base hasta los problemas complejos de examen final y selectividad.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                <i data-lucide="video" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-slate-900 text-base">Vídeos directos al grano</h4>
-                <p class="text-sm text-slate-500">Sin rodeos teóricos innecesarios. Explicaciones en pizarra digital paso a paso con los trucos que te ahorran tiempo.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                <i data-lucide="users" class="w-5 h-5"></i>
-              </div>
-              <div>
-                <h4 class="font-bold text-slate-900 text-base">Clases de refuerzo y resolución de dudas</h4>
-                <p class="text-sm text-slate-500">¿Necesitas apoyo semanal, preparación individual para la EvAU o resolver dudas concretas de tus tareas escolares?</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-8 flex flex-wrap items-center gap-4">
-            <a href="https://wa.me/?text=Hola%20Toomate,%20quiero%20informacion%20sobre%20las%20clases" target="_blank"
-               class="px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm transition shadow-lg shadow-brand-600/25 flex items-center gap-2">
-              <i data-lucide="send" class="w-4 h-4"></i>
-              <span>Consultar horarios y clases</span>
-            </a>
-            <a href="#catalogo" class="px-6 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm transition">
-              Ver materiales didácticos
-            </a>
-          </div>
-        </div>
-
-        <!-- TARJETA DESTACADA DUDAS -->
-        <div class="bg-gradient-to-br from-slate-50 to-rose-50/40 p-8 rounded-3xl border border-rose-100 shadow-xl relative">
-          <div class="absolute -top-3 -right-3 w-12 h-12 bg-brand-600 text-white rounded-2xl flex items-center justify-center shadow-md rotate-6">
-            <i data-lucide="help-circle" class="w-6 h-6"></i>
-          </div>
-
-          <h3 class="font-display font-bold text-2xl text-slate-900 mb-2">¿Tienes una duda con un ejercicio?</h3>
-          <p class="text-slate-600 text-sm mb-6">Si estás preparando un examen y te has atascado en un problema de clase, envíanoslo y te ayudamos a enfocarlo.</p>
-
-          <form onsubmit="simularEnvioDuda(event)" class="space-y-4">
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">Tu nombre o curso</label>
-              <input type="text" required placeholder="Ej. Lucía - 2º Bachillerato" class="w-full text-sm px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500 bg-white">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">Tema de la duda</label>
-              <select class="w-full text-sm px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500 bg-white">
-                <option>Cálculo / Derivadas e Integrales</option>
-                <option>Álgebra / Matrices y Sistemas</option>
-                <option>Geometría / Vectores y Rectas</option>
-                <option>Probabilidad y Estadística</option>
-                <option>Matemáticas ESO (1º a 4º)</option>
-                <option>Física / Química</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">Describe tu duda brevemente</label>
-              <textarea rows="3" required placeholder="Ej. No entiendo cómo aplicar el cambio de variable en la integral del ejercicio 4..." class="w-full text-sm px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-500 bg-white"></textarea>
-            </div>
-            <button type="submit" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold transition flex items-center justify-center gap-2">
-              <i data-lucide="message-square" class="w-4 h-4"></i>
-              <span>Enviar duda a la Academia</span>
-            </button>
-          </form>
-          
-          <div id="mensajeEnviado" class="hidden mt-4 p-3 bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-semibold text-center">
-            ✓ ¡Duda enviada con éxito! Te responderemos muy pronto.
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
-        
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-white p-0.5 overflow-hidden border border-slate-700">
-            <img src="logo-tomate.jpg" alt="Toomate logo" class="w-full h-full object-cover rounded-lg">
-          </div>
-          <span class="font-display font-bold text-xl text-white">Too<span class="text-brand-500">mate</span>.es</span>
-          <span class="text-xs text-slate-500 border-l border-slate-800 pl-3">Portal Educativo Libre &bull; ¡Muchas Mates! 🍅</span>
-        </div>
-
-        <div class="flex items-center gap-6 text-sm">
-          <a href="#catalogo" class="hover:text-white transition">Materiales</a>
-          <a href="#niveles" class="hover:text-white transition">Cursos</a>
-          <a href="#chuletas" class="hover:text-white transition">Formularios</a>
-          <a href="#academia" class="hover:text-white transition">Contacto</a>
-        </div>
-      </div>
-
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-        <p>&copy; 2026 Toomate.es &bull; Diseñado especialmente para estudiantes y profesores de secundaria y bachillerato.</p>
-        <p class="flex items-center gap-1">
-          <span>Diseño renovado para toomate.es</span>
-          <span class="text-rose-500">&hearts;</span>
-        </p>
-      </div>
+      <p>&copy; 2026 Toomate.es &bull; Matemáticas, Física y Química</p>
     </div>
   </footer>
 
-  <!-- MODAL DE VISTA PREVIA Y DESCARGA DE MATERIAL -->
-  <div id="modalMaterial" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto relative animate-in fade-in duration-200">
-      
-      <!-- Botón cerrar -->
-      <button onclick="cerrarModal()" class="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition">
-        <i data-lucide="x" class="w-6 h-6"></i>
-      </button>
-
-      <!-- Contenido del modal -->
-      <div id="modalContent">
-        <!-- Rellenado por JS -->
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL DE FORMULARIO RÁPIDO (CHULETA) -->
-  <div id="modalChuleta" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 max-h-[90vh] overflow-y-auto relative">
-      <button onclick="cerrarModalChuleta()" class="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition">
-        <i data-lucide="x" class="w-6 h-6"></i>
-      </button>
-
-      <div id="chuletaContent">
-        <!-- Rellenado por JS -->
-      </div>
-    </div>
-  </div>
-
-  <!-- JAVASCRIPT CON LÓGICA Y DATOS DIDÁCTICOS REALES -->
+  <!-- LÓGICA DE ESTRUCTURA Y TARJETAS VISUALES -->
   <script>
-    // La lista de materiales se carga automáticamente desde el archivo 'materiales.js'
-    // Puedes editar ese archivo directamente para añadir tus PDFs, enlaces y temas.
+    const estructuraMatematicas = [
+      {
+        id: "mat-1-2-eso",
+        cursoTitulo: "1º y 2º ESO",
+        colorCurso: "bg-orange-500",
+        subgrupos: [
+          {
+            nombre: null,
+            temas: [
+              {
+                titulo: "Ecuaciones de 1º y 2º Grado y Sistemas",
+                muestraLatex: "\\frac{x - 1}{2} + 3x = 5",
+                teoriaUrl: "materiales/ecuaciones-1-2-eso.html",
+                ejerciciosUrl: "materiales/ejercicios-ecuaciones-1-2-eso.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "mat-3-4-eso",
+        cursoTitulo: "3º y 4º ESO",
+        colorCurso: "bg-amber-500",
+        subgrupos: [
+          {
+            nombre: null,
+            temas: [
+              {
+                titulo: "Números Reales, Radicales y Logaritmos",
+                muestraLatex: "\\frac{6}{\\sqrt{5} - \\sqrt{2}} \\quad \\cdot \\quad \\log_2(8) = x",
+                teoriaUrl: "materiales/numeros-reales-4eso-academicas.html",
+                ejerciciosUrl: "materiales/ejercicios-numeros-reales-4eso-academicas.html"
+              },
+              {
+                titulo: "Porcentajes y Matemática Financiera",
+                muestraLatex: "C_f = C_0 \\cdot \\left(1 + \\frac{r}{100}\\right)^t",
+                teoriaUrl: "materiales/numeros-reales-4eso-aplicadas.html",
+                ejerciciosUrl: "materiales/ejercicios-numeros-reales-4eso-aplicadas.html"
+              },
+              {
+                titulo: "Polinomios, Ruffini y Fracciones Algebraicas",
+                muestraLatex: "\\frac{x^2 - 9}{x^2 + 6x + 9}",
+                teoriaUrl: "materiales/polinomios-fracciones-4eso.html",
+                ejerciciosUrl: "materiales/ejercicios-polinomios-fracciones-4eso.html"
+              },
+              {
+                titulo: "Ecuaciones Bicuadradas, Irracionales e Inecuaciones",
+                muestraLatex: "\\sqrt{2x + 3} - x = 0",
+                teoriaUrl: "materiales/ecuaciones-inecuaciones-4eso.html",
+                ejerciciosUrl: "materiales/ejercicios-ecuaciones-inecuaciones-4eso.html"
+              },
+              {
+                titulo: "Sucesiones y Progresiones",
+                muestraLatex: "a_n = a_1 + (n - 1)\\cdot d",
+                teoriaUrl: "materiales/sucesiones-eso.html",
+                ejerciciosUrl: "materiales/ejercicios-sucesiones-eso.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "mat-1-bach",
+        cursoTitulo: "1º BACHILLER",
+        colorCurso: "bg-purple-600",
+        subgrupos: [
+          {
+            nombre: "CCSS",
+            badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
+            temas: [
+              {
+                titulo: "Matemática Financiera, TAE y Amortización",
+                muestraLatex: "\\text{TAE} = \\left(1 + \\frac{r}{k}\\right)^k - 1",
+                teoriaUrl: "materiales/matematica-financiera-1-bach-ccss.html",
+                ejerciciosUrl: "materiales/ejercicios-matematica-financiera-1-bach-ccss.html"
+              },
+              {
+                titulo: "Derivadas y Optimización de Funciones",
+                muestraLatex: "f(x) = x^3 - 3x^2 \\implies f'(x) = 0",
+                teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
+              }
+            ]
+          },
+          {
+            nombre: "MATEMÁTICAS I",
+            badgeColor: "bg-purple-100 text-purple-800 border-purple-300",
+            temas: [
+              {
+                titulo: "Trigonometría Plana y Ecuaciones",
+                muestraLatex: "\\sin(2x) + \\cos(x) = 0",
+                teoriaUrl: "materiales/trigonometria-1-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-trigonometria-1-bach.html"
+              },
+              {
+                titulo: "Derivadas y Estudio de Funciones",
+                muestraLatex: "f'(x) = \\frac{u' \\cdot v - u \\cdot v'}{v^2}",
+                teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "mat-2-bach",
+        cursoTitulo: "2º BACHILLER",
+        colorCurso: "bg-brand-600",
+        subgrupos: [
+          {
+            nombre: "CCSS",
+            badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
+            temas: [
+              {
+                titulo: "Matrices y Determinantes",
+                muestraLatex: "A \\cdot X - B = 2X",
+                teoriaUrl: "materiales/matrices-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-matrices-2-bach.html"
+              },
+              {
+                titulo: "Sistemas de Ecuaciones Lineales",
+                muestraLatex: "\\begin{cases} x + y + mz = 1 \\\\ x + my + z = m \\end{cases}",
+                teoriaUrl: "materiales/sistemas-rouche-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-rouche-2-bach.html"
+              },
+              {
+                titulo: "Programación Lineal",
+                muestraLatex: "F(x,y) = 40x + 30y \\; \\begin{cases} 2x + y \\le 10 \\\\ x \\ge 0, \\, y \\ge 0 \\end{cases}",
+                teoriaUrl: "materiales/programacion-lineal-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-programacion-lineal-2-bach.html"
+              },
+              {
+                titulo: "Límites, Continuidad y Asíntotas",
+                muestraLatex: "f(x) = \\begin{cases} ax + 1 & x \\le 1 \\\\ x^2 + b & x > 1 \\end{cases}",
+                teoriaUrl: "materiales/limites-continuidad-2-bach-ccss.html",
+                ejerciciosUrl: "materiales/ejercicios-limites-continuidad-2-bach-ccss.html"
+              },
+              {
+                titulo: "Derivadas y Optimización",
+                muestraLatex: "B(x) = -x^2 + 80x - 500 \\implies B'(x) = 0",
+                teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
+              },
+              {
+                titulo: "Cálculo Integral y Regla de Barrow",
+                muestraLatex: "\\int_1^3 (-x^2 + 4x - 3)\\,dx",
+                teoriaUrl: "materiales/integrales-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-integrales-2-bach.html"
+              },
+              {
+                titulo: "Probabilidad y Teorema de Bayes",
+                muestraLatex: "P(A|B) = \\frac{P(A \\cap B)}{P(B)}",
+                teoriaUrl: "materiales/probabilidad-normal-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-probabilidad-normal-2-bach.html"
+              },
+              {
+                titulo: "Inferencia Estadística e Intervalos de Confianza",
+                muestraLatex: "\\left(\\bar{x} - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}, \\; \\bar{x} + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}\\right)",
+                teoriaUrl: "materiales/inferencia-estadistica-2-bach-ccss.html",
+                ejerciciosUrl: "materiales/ejercicios-inferencia-estadistica-2-bach-ccss.html"
+              }
+            ]
+          },
+          {
+            nombre: "MATEMÁTICAS II",
+            badgeColor: "bg-rose-100 text-brand-700 border-rose-300",
+            temas: [
+              {
+                titulo: "Matrices y Determinantes",
+                muestraLatex: "A = \\begin{pmatrix} 1 & m \\\\ 2 & 3 \\end{pmatrix} \\quad A^{-1} = \\frac{(\\text{Adj } A)^t}{|A|}",
+                teoriaUrl: "materiales/matrices-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-matrices-2-bach.html"
+              },
+              {
+                titulo: "Sistemas de Ecuaciones: Rouché y Cramer",
+                muestraLatex: "\\begin{cases} x + y + mz = 1 \\\\ x + my + z = m \\\\ mx + y + z = 1 \\end{cases}",
+                teoriaUrl: "materiales/sistemas-rouche-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-rouche-2-bach.html"
+              },
+              {
+                titulo: "Geometría en el Espacio: Rectas y Planos",
+                muestraLatex: "\\frac{x - 1}{2} = \\frac{y + 1}{-1} = \\frac{z}{3}",
+                teoriaUrl: "materiales/geometria-espacio-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-geometria-espacio-2-bach.html"
+              },
+              {
+                titulo: "Límites, Continuidad y Asíntotas",
+                muestraLatex: "\\lim_{x \\to 0} \\frac{e^x - 1 - x}{x^2}",
+                teoriaUrl: "materiales/limites-continuidad-2-bach-ccss.html",
+                ejerciciosUrl: "materiales/ejercicios-limites-continuidad-2-bach-ccss.html"
+              },
+              {
+                titulo: "Derivadas y Optimización",
+                muestraLatex: "f(x) = \\frac{x^2}{x - 1} \\implies f'(x) = 0",
+                teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
+              },
+              {
+                titulo: "Cálculo Integral y Cálculo de Áreas",
+                muestraLatex: "\\int_a^b |f(x) - g(x)|\\,dx",
+                teoriaUrl: "materiales/integrales-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-integrales-2-bach.html"
+              },
+              {
+                titulo: "Probabilidad y Distribución Normal",
+                muestraLatex: "P(A|B) = \\frac{P(A \\cap B)}{P(B)} \\quad Z = \\frac{X - \\mu}{\\sigma}",
+                teoriaUrl: "materiales/probabilidad-normal-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-probabilidad-normal-2-bach.html"
+              }
+            ]
+          }
+        ]
+      }
+    ];
 
-    // Función auxiliar para renderizar fórmulas en tipografía matemática oficial (KaTeX)
-    function formatearFormula(latex, display = false) {
+    const estructuraFisicaQuimica = [
+      {
+        id: "fyq-1-2-eso",
+        cursoTitulo: "1º y 2º ESO",
+        colorCurso: "bg-sky-500",
+        subgrupos: [
+          {
+            nombre: null,
+            temas: [
+              {
+                titulo: "El Movimiento (MRU) y las Fuerzas",
+                muestraLatex: "v = \\frac{\\Delta x}{\\Delta t} \\quad \\cdot \\quad F = m \\cdot a",
+                teoriaUrl: "materiales/fuerzas-movimiento-eso.html",
+                ejerciciosUrl: "materiales/ejercicios-fuerzas-movimiento-eso.html"
+              },
+              {
+                titulo: "El Átomo y la Tabla Periódica",
+                muestraLatex: "^{A}_{Z}\\text{X} \\quad (A = Z + N)",
+                teoriaUrl: "materiales/atomo-enlace-eso.html",
+                ejerciciosUrl: "materiales/ejercicios-atomo-enlace-eso.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "fyq-3-4-eso",
+        cursoTitulo: "3º y 4º ESO",
+        colorCurso: "bg-cyan-600",
+        subgrupos: [
+          {
+            nombre: null,
+            temas: [
+              {
+                titulo: "Cinemática (MRU y MRUA) y Leyes de Newton",
+                muestraLatex: "x = x_0 + v_0 t + \\frac{1}{2}at^2",
+                teoriaUrl: "materiales/fuerzas-movimiento-eso.html",
+                ejerciciosUrl: "materiales/ejercicios-fuerzas-movimiento-eso.html"
+              },
+              {
+                titulo: "El Átomo, Tabla Periódica y Enlace Químico",
+                muestraLatex: "1s^2 \\, 2s^2 \\, 2p^6 \\, 3s^2 \\, 3p^4",
+                teoriaUrl: "materiales/atomo-enlace-eso.html",
+                ejerciciosUrl: "materiales/ejercicios-atomo-enlace-eso.html"
+              },
+              {
+                titulo: "Formulación y Nomenclatura Química",
+                muestraLatex: "\\text{Fe}_2\\text{O}_3 \\quad \\cdot \\quad \\text{H}_2\\text{SO}_4 \\quad \\cdot \\quad \\text{NH}_3",
+                teoriaUrl: "materiales/formulacion-nomenclatura.html",
+                ejerciciosUrl: "materiales/ejercicios-formulacion-nomenclatura.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "fyq-1-bach",
+        cursoTitulo: "1º BACHILLER",
+        colorCurso: "bg-blue-600",
+        subgrupos: [
+          {
+            nombre: "FÍSICA",
+            badgeColor: "bg-blue-100 text-blue-800 border-blue-300",
+            temas: [
+              {
+                titulo: "Cinemática Vectorial, Tiro Parabólico y MCU",
+                muestraLatex: "\\vec{r}(t) = x(t)\\vec{i} + y(t)\\vec{j} \\quad \\cdot \\quad a_n = \\frac{v^2}{R}",
+                teoriaUrl: "materiales/cinematica-vectorial-1-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-cinematica-vectorial-1-bach.html"
+              },
+              {
+                titulo: "Dinámica de Newton, Fuerzas y Conservación",
+                muestraLatex: "\\sum \\vec{F} = m \\cdot \\vec{a} \\quad \\cdot \\quad F_r = \\mu \\cdot N",
+                teoriaUrl: "materiales/dinamica-newton-1-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-dinamica-newton-1-bach.html"
+              }
+            ]
+          },
+          {
+            nombre: "QUÍMICA",
+            badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
+            temas: [
+              {
+                titulo: "Estequiometría, Reactivo Limitante y Disoluciones",
+                muestraLatex: "P \\cdot V = n \\cdot R \\cdot T",
+                teoriaUrl: "materiales/estequiometria-disoluciones-1-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-estequiometria-disoluciones-1-bach.html"
+              },
+              {
+                titulo: "Formulación Inorgánica y Orgánica IUPAC",
+                muestraLatex: "\\text{K}_2\\text{Cr}_2\\text{O}_7 \\quad \\cdot \\quad \\text{CH}_3\\text{-CH}_2\\text{-COOH}",
+                teoriaUrl: "materiales/formulacion-nomenclatura.html",
+                ejerciciosUrl: "materiales/ejercicios-formulacion-nomenclatura.html"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "fyq-2-bach",
+        cursoTitulo: "2º BACHILLER",
+        colorCurso: "bg-indigo-600",
+        subgrupos: [
+          {
+            nombre: "FÍSICA",
+            badgeColor: "bg-blue-100 text-blue-800 border-blue-300",
+            temas: [
+              {
+                titulo: "Campo Gravitatorio: Órbitas y Satélites",
+                muestraLatex: "\\vec{F} = -G\\frac{M \\cdot m}{r^2}\\vec{u}_r",
+                teoriaUrl: "materiales/campo-gravitatorio-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-campo-gravitatorio-2-bach.html"
+              },
+              {
+                titulo: "Campo Eléctrico: Ley de Coulomb y Potencial",
+                muestraLatex: "\\vec{F} = K\\frac{q_1 \\cdot q_2}{r^2}\\vec{u}_r",
+                teoriaUrl: "materiales/campo-electrico-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-campo-electrico-2-bach.html"
+              },
+              {
+                titulo: "Campo Magnético e Inducción (Lorentz y Faraday)",
+                muestraLatex: "\\vec{F} = q(\\vec{v} \\times \\vec{B}) \\quad \\cdot \\quad \\varepsilon = -\\frac{d\\Phi}{dt}",
+                teoriaUrl: "materiales/campo-magnetico-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-campo-magnetico-2-bach.html"
+              },
+              {
+                titulo: "Ondas, Óptica Geométrica y Física Cuántica",
+                muestraLatex: "y(x,t) = A\\sin(\\omega t - kx)",
+                teoriaUrl: "materiales/ondas-optica-moderna-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-ondas-optica-moderna-2-bach.html"
+              }
+            ]
+          },
+          {
+            nombre: "QUÍMICA",
+            badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
+            temas: [
+              {
+                titulo: "Equilibrio Químico: Kc, Kp y Le Châtelier",
+                muestraLatex: "K_p = K_c \\cdot (R \\cdot T)^{\\Delta n}",
+                teoriaUrl: "materiales/equilibrio-quimico-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-equilibrio-quimico-2-bach.html"
+              },
+              {
+                titulo: "Reacciones Ácido-Base, pH y Valoraciones",
+                muestraLatex: "\\text{pH} = -\\log[\\text{H}_3\\text{O}^+]",
+                teoriaUrl: "materiales/reacciones-acido-base-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-reacciones-acido-base-2-bach.html"
+              },
+              {
+                titulo: "Termoquímica: Ley de Hess y Energía de Gibbs",
+                muestraLatex: "\\Delta G^\\circ = \\Delta H^\\circ - T \\cdot \\Delta S^\\circ",
+                teoriaUrl: "materiales/termoquimica-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-termoquimica-2-bach.html"
+              },
+              {
+                titulo: "Reacciones Redox, Pilas Galvánicas y Faraday",
+                muestraLatex: "E^\\circ_{\\text{pila}} = E^\\circ_{\\text{cátodo}} - E^\\circ_{\\text{ánodo}}",
+                teoriaUrl: "materiales/reacciones-redox-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-reacciones-redox-2-bach.html"
+              },
+              {
+                titulo: "Química del Carbono: Isomería y Reacciones",
+                muestraLatex: "\\text{CH}_3\\text{-CH=CH}_2 + \\text{HBr}",
+                teoriaUrl: "materiales/quimica-organica-2-bach.html",
+                ejerciciosUrl: "materiales/ejercicios-quimica-organica-2-bach.html"
+              }
+            ]
+          }
+        ]
+      }
+    ];
+
+    function renderizarFormula(latex) {
       if (typeof katex !== 'undefined') {
         try {
-          return katex.renderToString(latex, { displayMode: display, throwOnError: false });
+          return katex.renderToString(latex, { displayMode: true, throwOnError: false });
         } catch (e) {
-          console.warn("KaTeX render error:", e);
+          return latex;
         }
       }
       return latex;
     }
 
-    let filtroAsignaturaActual = 'todos';
-    let filtroNivelActual = 'todos';
-    let filtroCategoriaActual = 'todos';
-
-    // RENDERIZAR TARJETAS EN EL GRID
-    function renderizarMateriales(items) {
-      const grid = document.getElementById('materialesGrid');
-      const noResults = document.getElementById('noResults');
-      const resultsCount = document.getElementById('resultsCount');
-
-      if (!grid) return;
-
-      if (items.length === 0) {
-        grid.innerHTML = '';
-        noResults.classList.remove('hidden');
-        resultsCount.textContent = '0 materiales encontrados';
-        return;
-      }
-
-      noResults.classList.add('hidden');
-      resultsCount.textContent = `Mostrando ${items.length} de ${materiales.length} materiales didácticos`;
-
-      grid.innerHTML = items.map(item => `
-        <div class="bg-white rounded-2xl border border-slate-200/90 hover:border-brand-500/60 p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-slate-200/60 group">
+    function crearTarjetaTema(tema) {
+      return `
+        <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-slate-400 p-5 flex flex-col justify-between transition shadow-xs hover:shadow-md">
           <div>
-            <!-- Cabecera de la tarjeta -->
-            <div class="flex items-center justify-between gap-2 mb-3">
-              <div class="flex items-center gap-1.5">
-                <span class="px-2.5 py-1 rounded-lg text-xs font-bold border ${item.colorBadge}">
-                  ${item.cursoTexto}
-                </span>
-                ${item.pdfUrl && !item.pdfUrl.includes('ejemplo') ? `
-                  <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200 flex items-center gap-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
-                    ¡Listo para estudiar!
-                  </span>
-                ` : ''}
-              </div>
-              <span class="text-xs font-medium text-slate-400 flex items-center gap-1">
-                <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
-                ${item.paginas}
-              </span>
-            </div>
+            <!-- TÍTULO DEL TEMA -->
+            <h4 class="font-display font-bold text-base sm:text-lg text-slate-900 text-center mb-3">
+              ${tema.titulo}
+            </h4>
 
-            <!-- Título -->
-            <h3 class="font-display font-bold text-lg text-slate-900 group-hover:text-brand-600 transition-colors leading-snug">
-              ${item.titulo}
-            </h3>
-
-            <!-- Descripción -->
-            <p class="text-xs sm:text-sm text-slate-500 mt-2.5 leading-relaxed">
-              ${item.descripcion}
-            </p>
-
-            <!-- Tags -->
-            <div class="flex flex-wrap gap-1.5 mt-4">
-              ${item.tags.map(t => `<span class="bg-slate-100 text-slate-600 text-[11px] font-medium px-2 py-0.5 rounded-md">${t}</span>`).join('')}
+            <!-- MUESTRA VISUAL DE ECUACIÓN (ESTILO IMAGEN DE CUADERNO) -->
+            <div class="math-preview-box rounded-xl border border-slate-200 p-4 mb-4 min-h-[100px] flex items-center justify-center text-slate-800 shadow-inner overflow-x-auto">
+              ${renderizarFormula(tema.muestraLatex)}
             </div>
           </div>
 
-          <!-- Botones de Acción -->
-          <div class="pt-6 mt-6 border-t border-slate-100 flex items-center gap-2">
-            ${item.ejerciciosUrl ? `
-              <a href="${item.pdfUrl}" target="_blank" class="flex-1 py-2.5 px-2 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1 shadow-sm shadow-brand-600/20" title="Ver Apuntes y Teoría">
-                <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-                <span>Teoría</span>
-              </a>
-              <a href="${item.ejerciciosUrl}" target="_blank" class="flex-1 py-2.5 px-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1 shadow-sm shadow-emerald-600/20" title="Ver Boletín de 22 Ejercicios">
-                <i data-lucide="dumbbell" class="w-3.5 h-3.5"></i>
-                <span>22 Ejercicios</span>
-              </a>
-              <button onclick="abrirModal('${item.id}')" class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition" title="Ver detalles">
-                <i data-lucide="info" class="w-4 h-4"></i>
-              </button>
-            ` : (item.pdfUrl && !item.pdfUrl.includes('ejemplo')) ? `
-              <a href="${item.pdfUrl}" target="_blank" class="flex-1 py-2.5 px-3 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-md shadow-brand-600/20">
-                <i data-lucide="book-open" class="w-4 h-4"></i>
-                <span>Abrir Apuntes & Ejercicios</span>
-              </a>
-              <button onclick="abrirModal('${item.id}')" class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition" title="Ver resumen">
-                <i data-lucide="info" class="w-4 h-4"></i>
-              </button>
-            ` : `
-              <button onclick="abrirModal('${item.id}')" class="flex-1 py-2.5 px-3 bg-brand-50 hover:bg-brand-600 hover:text-white text-brand-700 text-xs sm:text-sm font-semibold rounded-xl transition flex items-center justify-center gap-1.5 group/btn">
-                <i data-lucide="eye" class="w-4 h-4"></i>
-                <span>Ver ficha y temas</span>
-              </button>
-              <button onclick="descargarSimulado('${item.titulo}', '${item.pdfUrl || ''}')" class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition" title="Ver / Descargar PDF">
-                <i data-lucide="download" class="w-4 h-4"></i>
-              </button>
-            `}
+          <!-- SOLO LOS 2 BOTONES: TEORÍA Y EJERCICIOS -->
+          <div class="grid grid-cols-2 gap-2.5">
+            <a href="${tema.teoriaUrl}" target="_blank" class="py-2.5 px-3 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs">
+              <i data-lucide="book-open" class="w-4 h-4"></i>
+              <span>Teoría</span>
+            </a>
+            <a href="${tema.ejerciciosUrl}" target="_blank" class="py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs">
+              <i data-lucide="dumbbell" class="w-4 h-4"></i>
+              <span>Ejercicios</span>
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderizarBloque(estructura, contenedorId) {
+      const contenedor = document.getElementById(contenedorId);
+      if (!contenedor) return;
+
+      contenedor.innerHTML = estructura.map(curso => `
+        <div id="${curso.id}" class="scroll-mt-6">
+          <!-- CABECERA DEL CURSO -->
+          <div class="flex items-center gap-3 mb-5 pb-2 border-b-2 border-slate-200">
+            <span class="${curso.colorCurso} text-white font-display font-extrabold text-sm sm:text-base px-4 py-1.5 rounded-xl shadow-xs">
+              ${curso.cursoTitulo}
+            </span>
+          </div>
+
+          <!-- SUBGRUPOS (Ej. CCSS / MATEMÁTICAS I o FÍSICA / QUÍMICA) -->
+          <div class="space-y-8">
+            ${curso.subgrupos.map(sub => `
+              <div>
+                ${sub.nombre ? `
+                  <div class="mb-4">
+                    <span class="inline-block font-display font-extrabold text-sm sm:text-base px-4 py-1.5 rounded-xl border-2 ${sub.badgeColor}">
+                      ${sub.nombre}
+                    </span>
+                  </div>
+                ` : ''}
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  ${sub.temas.map(t => crearTarjetaTema(t)).join('')}
+                </div>
+              </div>
+            `).join('')}
           </div>
         </div>
       `).join('');
+    }
 
-      // Reactivar iconos Lucide
+    document.addEventListener('DOMContentLoaded', () => {
+      renderizarBloque(estructuraMatematicas, 'contenedor-matematicas');
+      renderizarBloque(estructuraFisicaQuimica, 'contenedor-fisica-quimica');
       if (window.lucide) {
         lucide.createIcons();
       }
-    }
-
-    // FILTRADO DINÁMICO
-    function filtrarRecursos() {
-      const query = document.getElementById('searchInput').value.toLowerCase().trim();
-      const clearBtn = document.getElementById('clearSearchBtn');
-
-      if (query.length > 0) {
-        clearBtn.classList.remove('hidden');
-      } else {
-        clearBtn.classList.add('hidden');
-      }
-
-      const resultados = materiales.filter(item => {
-        const coincideAsignatura = (filtroAsignaturaActual === 'todos') || (item.asignatura === filtroAsignaturaActual);
-        const coincideNivel = (filtroNivelActual === 'todos') || (item.curso === filtroNivelActual);
-        const coincideCategoria = (filtroCategoriaActual === 'todos') || (item.categoria === filtroCategoriaActual);
-        
-        const coincideTexto = 
-          item.titulo.toLowerCase().includes(query) ||
-          item.descripcion.toLowerCase().includes(query) ||
-          item.cursoTexto.toLowerCase().includes(query) ||
-          item.tags.some(t => t.toLowerCase().includes(query));
-
-        return coincideAsignatura && coincideNivel && coincideCategoria && coincideTexto;
-      });
-
-      renderizarMateriales(resultados);
-    }
-
-    function filtrarAsignatura(asig) {
-      filtroAsignaturaActual = asig;
-
-      // Actualizar estilo visual de los botones de asignatura
-      document.querySelectorAll('#asignatura-buttons button').forEach(btn => {
-        if (btn.getAttribute('data-asig') === asig) {
-          btn.className = "asig-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-brand-600 text-white shadow-sm flex items-center gap-1.5";
-        } else {
-          btn.className = "asig-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 flex items-center gap-1.5";
-        }
-      });
-
-      filtrarRecursos();
-    }
-
-    function filtrarCategoria(cat) {
-      filtroCategoriaActual = cat;
-
-      // Actualizar estilo visual de los botones
-      document.querySelectorAll('#filter-buttons button').forEach(btn => {
-        if (btn.getAttribute('data-cat') === cat) {
-          btn.className = "filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-900 text-white shadow-sm";
-        } else {
-          btn.className = "filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200";
-        }
-      });
-
-      filtrarRecursos();
-    }
-
-    function seleccionarNivel(nivel) {
-      filtroNivelActual = nivel;
-      filtrarRecursos();
-
-      // Scroll suave a catálogo
-      document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function buscarPildora(texto) {
-      document.getElementById('searchInput').value = texto;
-      filtrarRecursos();
-      document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function resetBusqueda() {
-      document.getElementById('searchInput').value = '';
-      filtroAsignaturaActual = 'todos';
-      filtroNivelActual = 'todos';
-      filtroCategoriaActual = 'todos';
-      filtrarAsignatura('todos');
-      filtrarCategoria('todos');
-      filtrarRecursos();
-    }
-
-    function scrollToSearch() {
-      document.getElementById('searchInput').focus();
-      document.getElementById('buscador-container').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // MODAL DE DETALLES
-    function abrirModal(id) {
-      const item = materiales.find(m => m.id === id);
-      if (!item) return;
-
-      const modalContent = document.getElementById('modalContent');
-      modalContent.innerHTML = `
-        <div class="flex items-center gap-2 mb-2">
-          <span class="px-2.5 py-1 rounded-lg text-xs font-bold border ${item.colorBadge}">
-            ${item.cursoTexto}
-          </span>
-          <span class="text-xs text-slate-400">&bull; Material Oficial Toomate</span>
-        </div>
-
-        <h3 class="font-display font-extrabold text-2xl text-slate-900 mt-2">${item.titulo}</h3>
-        <p class="text-slate-600 text-sm mt-3 leading-relaxed">${item.descripcion}</p>
-
-        <!-- Puntos del temario cubiertos -->
-        <div class="mt-6 bg-slate-50 border border-slate-200 rounded-2xl p-4">
-          <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-            <i data-lucide="check-square" class="w-4 h-4 text-brand-600"></i>
-            ¿Qué incluye este documento?
-          </h4>
-          <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
-            ${item.puntosContenido.map(p => `<li class="flex items-start gap-2"><span>&bull;</span><span>${p}</span></li>`).join('')}
-          </ul>
-        </div>
-
-        <!-- Fórmulas destacadas (Formato Matemático Oficial) -->
-        ${item.formulasClave && item.formulasClave.length > 0 ? `
-          <div class="mt-5 bg-rose-50/70 border border-rose-200/90 rounded-2xl p-4 sm:p-5">
-            <h4 class="text-xs font-bold text-brand-800 uppercase tracking-wider mb-3 flex items-center gap-1.5">
-              <i data-lucide="sparkles" class="w-4 h-4 text-brand-600"></i>
-              Fórmulas y Teoremas Clave (Notación Oficial)
-            </h4>
-            <div class="flex flex-col gap-2.5">
-              ${item.formulasClave.map(f => `
-                <div class="bg-white px-4 py-3 rounded-xl border border-rose-200/90 shadow-2xs flex items-center justify-center text-slate-900 overflow-x-auto text-base sm:text-lg">
-                  ${formatearFormula(f, true)}
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        ` : ''}
-
-        <!-- Botones de acción del modal -->
-        <div class="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row gap-3">
-          <button onclick="descargarSimulado('${item.titulo}', '${item.pdfUrl || ''}')" class="flex-1 py-3 px-4 bg-brand-600 hover:bg-brand-700 text-white rounded-xl text-sm font-bold transition flex items-center justify-center gap-2 shadow-lg shadow-brand-600/25">
-            <i data-lucide="book-open" class="w-4 h-4"></i>
-            <span>Ver Teoría y Fórmulas (.PDF)</span>
-          </button>
-          ${item.ejerciciosUrl ? `
-            <a href="${item.ejerciciosUrl}" target="_blank" class="flex-1 py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-bold transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25">
-              <i data-lucide="dumbbell" class="w-4 h-4"></i>
-              <span>Boletín de 22 Ejercicios (.PDF)</span>
-            </a>
-          ` : ''}
-          <a href="${item.videoUrl}" target="_blank" class="py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-sm font-semibold transition flex items-center justify-center gap-2">
-            <i data-lucide="play-circle" class="w-4 h-4 text-brand-600"></i>
-            <span>Vídeo</span>
-          </a>
-        </div>
-      `;
-
-      document.getElementById('modalMaterial').classList.remove('hidden');
-      if (window.lucide) lucide.createIcons();
-    }
-
-    function cerrarModal() {
-      document.getElementById('modalMaterial').classList.add('hidden');
-    }
-
-    // MODAL DE CHULETAS RÁPIDAS
-    function abrirModalPreview(tipo) {
-      const modal = document.getElementById('modalChuleta');
-      const content = document.getElementById('chuletaContent');
-
-      if (tipo === 'derivadas') {
-        content.innerHTML = `
-          <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-rose-100 text-brand-700">Formulario Rápido</span>
-          <h3 class="font-display font-bold text-2xl text-slate-900 mt-2">Tabla de Derivadas Inmediatas</h3>
-          <p class="text-xs text-slate-500 mt-1">Notación matemática estándar para secundaria y bachillerato.</p>
-          
-          <div class="mt-6 border border-slate-200 rounded-2xl overflow-hidden text-sm">
-            <table class="w-full text-left">
-              <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200 text-xs">
-                <tr>
-                  <th class="p-3">Función f(x)</th>
-                  <th class="p-3">Derivada f'(x)</th>
-                  <th class="p-3">Ejemplo práctico</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100 text-slate-700 text-sm">
-                <tr><td class="p-3">${formatearFormula('f(x) = k')}</td><td class="p-3 font-semibold text-brand-700">${formatearFormula("f'(x) = 0")}</td><td class="p-3 text-slate-500 text-xs">${formatearFormula('7 \\to 0')}</td></tr>
-                <tr><td class="p-3">${formatearFormula('f(x) = x^n')}</td><td class="p-3 font-semibold text-brand-700">${formatearFormula("n \\cdot x^{n-1}")}</td><td class="p-3 text-slate-500 text-xs">${formatearFormula('x^5 \\to 5x^4')}</td></tr>
-                <tr><td class="p-3">${formatearFormula('f(x) = e^u')}</td><td class="p-3 font-semibold text-brand-700">${formatearFormula("u' \\cdot e^u")}</td><td class="p-3 text-slate-500 text-xs">${formatearFormula('e^{3x} \\to 3e^{3x}')}</td></tr>
-                <tr><td class="p-3">${formatearFormula('f(x) = \\ln(u)')}</td><td class="p-3 font-semibold text-brand-700">${formatearFormula("\\frac{u'}{u}")}</td><td class="p-3 text-slate-500 text-xs">${formatearFormula('\\ln(x^2) \\to \\frac{2}{x}')}</td></tr>
-                <tr><td class="p-3">${formatearFormula('f(x) = \\sin(u)')}</td><td class="p-3 font-semibold text-brand-700">${formatearFormula("u' \\cdot \\cos(u)")}</td><td class="p-3 text-slate-500 text-xs">${formatearFormula('\\sin(4x) \\to 4\\cos(4x)')}</td></tr>
-                <tr><td class="p-3">${formatearFormula('f(x) = \\cos(u)')}</td><td class="p-3 font-semibold text-brand-700">${formatearFormula("-u' \\cdot \\sin(u)")}</td><td class="p-3 text-slate-500 text-xs">${formatearFormula('\\cos(x^2) \\to -2x\\sin(x^2)')}</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <button onclick="descargarSimulado('Tabla de Derivadas Toomate.es')" class="mt-6 w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl transition text-sm flex items-center justify-center gap-2">
-            <i data-lucide="download" class="w-4 h-4"></i>
-            <span>Descargar Formulario PDF</span>
-          </button>
-        `;
-      } else if (tipo === 'integrales') {
-        content.innerHTML = `
-          <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-100 text-amber-700">Formulario Rápido</span>
-          <h3 class="font-display font-bold text-2xl text-slate-900 mt-2">Tabla de Integrales & Regla de Barrow</h3>
-          <p class="text-xs text-slate-500 mt-1">Fórmulas inmediatas y métodos fundamentales de integración.</p>
-
-          <div class="mt-6 border border-slate-200 rounded-2xl overflow-hidden text-sm">
-            <table class="w-full text-left">
-              <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200 text-xs">
-                <tr>
-                  <th class="p-3">Integral Inmediata / Método</th>
-                  <th class="p-3">Primitiva Resultante F(x) + C</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100 text-slate-700 text-sm">
-                <tr><td class="p-3">${formatearFormula('\\int x^n \\, dx \\quad (n \\ne -1)')}</td><td class="p-3 font-semibold text-amber-800">${formatearFormula('\\frac{x^{n+1}}{n + 1} + C')}</td></tr>
-                <tr><td class="p-3">${formatearFormula('\\int \\frac{1}{x} \\, dx')}</td><td class="p-3 font-semibold text-amber-800">${formatearFormula('\\ln|x| + C')}</td></tr>
-                <tr><td class="p-3">${formatearFormula('\\int e^{kx} \\, dx')}</td><td class="p-3 font-semibold text-amber-800">${formatearFormula('\\frac{1}{k}e^{kx} + C')}</td></tr>
-                <tr><td class="p-3">Método por Partes: ${formatearFormula('\\int u \\, dv')}</td><td class="p-3 font-semibold text-amber-800">${formatearFormula('u \\cdot v - \\int v \\, du')}</td></tr>
-                <tr><td class="p-3">Regla de Barrow (Integral definida)</td><td class="p-3 font-semibold text-amber-800">${formatearFormula('\\int_a^b f(x) \\, dx = F(b) - F(a)')}</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <button onclick="descargarSimulado('Tabla de Integrales Toomate.es')" class="mt-6 w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl transition text-sm flex items-center justify-center gap-2">
-            <i data-lucide="download" class="w-4 h-4"></i>
-            <span>Descargar Formulario PDF</span>
-          </button>
-        `;
-      } else {
-        content.innerHTML = `
-          <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-blue-100 text-blue-700">Formulario Rápido</span>
-          <h3 class="font-display font-bold text-2xl text-slate-900 mt-2">Identidades Trigonométricas Clave</h3>
-          <p class="text-xs text-slate-500 mt-1">Formulario completo con notación oficial para exámenes.</p>
-
-          <div class="mt-6 space-y-3 text-slate-800">
-            <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-200">
-              <strong class="text-blue-900 text-xs uppercase tracking-wider block mb-2">Relación Fundamental y Derivada:</strong>
-              <div class="flex flex-wrap items-center gap-6 justify-center text-base">
-                <span>${formatearFormula('\\sin^2(\\alpha) + \\cos^2(\\alpha) = 1')}</span>
-                <span>${formatearFormula('1 + \\tan^2(\\alpha) = \\frac{1}{\\cos^2(\\alpha)}')}</span>
-              </div>
-            </div>
-
-            <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-200">
-              <strong class="text-blue-900 text-xs uppercase tracking-wider block mb-2">Ángulo Doble:</strong>
-              <div class="flex flex-wrap items-center gap-6 justify-center text-base">
-                <span>${formatearFormula('\\sin(2\\alpha) = 2\\sin(\\alpha)\\cos(\\alpha)')}</span>
-                <span>${formatearFormula('\\cos(2\\alpha) = \\cos^2(\\alpha) - \\sin^2(\\alpha)')}</span>
-              </div>
-            </div>
-
-            <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-200">
-              <strong class="text-blue-900 text-xs uppercase tracking-wider block mb-2">Suma y Resta de Ángulos:</strong>
-              <div class="flex flex-wrap items-center gap-6 justify-center text-base">
-                <span>${formatearFormula('\\sin(\\alpha \\pm \\beta) = \\sin(\\alpha)\\cos(\\beta) \\pm \\cos(\\alpha)\\sin(\\beta)')}</span>
-              </div>
-            </div>
-          </div>
-
-          <button onclick="descargarSimulado('Formulario Trigonometria Toomate.es')" class="mt-6 w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl transition text-sm flex items-center justify-center gap-2">
-            <i data-lucide="download" class="w-4 h-4"></i>
-            <span>Descargar Formulario PDF</span>
-          </button>
-        `;
-      }
-
-      modal.classList.remove('hidden');
-      if (window.lucide) lucide.createIcons();
-    }
-
-    function cerrarModalChuleta() {
-      document.getElementById('modalChuleta').classList.add('hidden');
-    }
-
-    function descargarSimulado(titulo, url) {
-      if (url && url !== '') {
-        window.open(url, '_blank');
-      } else {
-        alert(`[Descarga de Material Didáctico Toomate]\n\nSe ha iniciado la descarga del documento PDF:\n"${titulo}"\n\n(En tu servidor real, este botón enlaza directamente a tu archivo PDF o Google Drive).`);
-      }
-    }
-
-    function simularEnvioDuda(e) {
-      e.preventDefault();
-      document.getElementById('mensajeEnviado').classList.remove('hidden');
-      e.target.reset();
-      setTimeout(() => {
-        document.getElementById('mensajeEnviado').classList.add('hidden');
-      }, 5000);
-    }
-
-    // Cerrar modales con Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        cerrarModal();
-        cerrarModalChuleta();
-      }
-    });
-
-    // Renderizado de fórmulas KaTeX en la portada
-    function renderizarTodosLosKatex() {
-      document.querySelectorAll('.katex-render').forEach(el => {
-        const expr = el.getAttribute('data-expr');
-        if (expr) {
-          el.innerHTML = formatearFormula(expr, false);
-        }
-      });
-    }
-
-    // INICIALIZACIÓN
-    document.addEventListener('DOMContentLoaded', () => {
-      renderizarMateriales(materiales);
-      renderizarTodosLosKatex();
-      if (window.lucide) lucide.createIcons();
     });
   </script>
 </body>
