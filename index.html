@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +42,7 @@
   </script>
 
   <style>
-    /* Cuadrícula tipo libreta matemática para la imagen de muestra de cada tema */
+    /* Cuadrícula tipo libreta matemática para la muestra de cada tema */
     .math-preview-box {
       background-color: #f8fafc;
       background-image: 
@@ -58,116 +58,84 @@
       padding: 0.25rem 0;
     }
     .katex {
-      font-size: 1.1em;
+      font-size: 1.15em;
+    }
+    .fade-in {
+      animation: fadeIn 0.2s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
-<body class="bg-slate-100 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
 
-  <!-- CABECERA SENCILLA CON EL PROFE TOMATE CON GAFAS MUCHO MÁS GRANDE -->
-  <header class="bg-white border-b border-slate-200 pt-8 pb-8 px-4 text-center shadow-xs">
-    <div class="max-w-5xl mx-auto flex flex-col items-center">
-      
-      <!-- PROFE TOMATE CON GAFAS GRANDE -->
-      <div class="w-40 h-40 sm:w-52 sm:h-52 rounded-3xl bg-white border-4 border-rose-200 shadow-xl overflow-hidden flex items-center justify-center mb-4">
-        <img src="logo-tomate.jpg" alt="Profesor Tomate - Toomate.es" class="w-full h-full object-cover scale-125">
-      </div>
+  <div>
+    <!-- CABECERA CON EL PROFE TOMATE GRANDE -->
+    <header class="bg-white border-b border-slate-200 pt-7 pb-6 px-4 text-center shadow-xs">
+      <div class="max-w-5xl mx-auto flex flex-col items-center">
+        
+        <!-- Clic en el Profe Tomate o en el título lleva siempre a la página principal -->
+        <a href="#" onclick="irA(''); return false;" class="group flex flex-col items-center focus:outline-none">
+          <div class="w-36 h-36 sm:w-48 sm:h-48 rounded-3xl bg-white border-4 border-rose-200 shadow-xl overflow-hidden flex items-center justify-center mb-3 group-hover:scale-105 transition-transform duration-200">
+            <img src="logo-tomate.jpg" alt="Profesor Tomate - Toomate.es" class="w-full h-full object-cover scale-125">
+          </div>
 
-      <h1 class="font-display font-extrabold text-4xl sm:text-5xl text-slate-900 tracking-tight">
-        Too<span class="text-brand-600">mate</span><span class="text-slate-400 font-semibold text-2xl sm:text-3xl">.es</span>
-      </h1>
-
-      <!-- BOTONES DE ACCESO DIRECTO A LOS 2 GRANDES BLOQUES -->
-      <div class="flex flex-wrap items-center justify-center gap-4 mt-6">
-        <a href="#bloque-matematicas" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-display font-bold text-base sm:text-lg shadow-md transition transform hover:-translate-y-0.5">
-          <span>📐</span>
-          <span>MATEMÁTICAS</span>
+          <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-slate-900 tracking-tight">
+            Too<span class="text-brand-600">mate</span><span class="text-slate-400 font-semibold text-2xl sm:text-3xl">.es</span>
+          </h1>
         </a>
-        <a href="#bloque-fisica-quimica" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-display font-bold text-base sm:text-lg shadow-md transition transform hover:-translate-y-0.5">
-          <span>⚛️</span>
-          <span>FÍSICA Y QUÍMICA</span>
-        </a>
+
       </div>
+    </header>
 
-    </div>
-  </header>
-
-  <!-- CONTENEDOR PRINCIPAL -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
-
-    <!-- =================================================================== -->
-    <!-- GRAN BLOQUE 1: MATEMÁTICAS -->
-    <!-- =================================================================== -->
-    <section id="bloque-matematicas" class="bg-white rounded-3xl border-2 border-rose-200 shadow-lg overflow-hidden">
+    <!-- CONTENEDOR DINÁMICO DE PANTALLAS (SOLO SE MUESTRA EL PASO ACTUAL) -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       
-      <!-- CABECERA DEL BLOQUE MATEMÁTICAS -->
-      <div class="bg-gradient-to-r from-brand-600 to-rose-500 px-6 py-5 sm:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white flex items-center gap-3 tracking-wide">
-          <span>📐</span>
-          <span>MATEMÁTICAS</span>
-        </h2>
-        <!-- Navegación rápida por cursos de Matemáticas -->
-        <div class="flex flex-wrap gap-2">
-          <a href="#mat-1-2-eso" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-brand-700 font-bold text-xs sm:text-sm transition">1º y 2º ESO</a>
-          <a href="#mat-3-4-eso" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-brand-700 font-bold text-xs sm:text-sm transition">3º y 4º ESO</a>
-          <a href="#mat-1-bach" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-brand-700 font-bold text-xs sm:text-sm transition">1º BACHILLER</a>
-          <a href="#mat-2-bach" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-brand-700 font-bold text-xs sm:text-sm transition">2º BACHILLER</a>
+      <!-- BARRA DE NAVEGACIÓN / BOTÓN VOLVER (Oculta en la pantalla principal) -->
+      <div id="barra-navegacion" class="hidden mb-8 flex flex-wrap items-center justify-between gap-4 bg-white px-5 py-3.5 rounded-2xl border border-slate-200 shadow-xs">
+        <button id="btn-volver" onclick="volverAtras()" class="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-slate-700 hover:text-brand-600 transition cursor-pointer">
+          <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          <span>Volver atrás</span>
+        </button>
+
+        <div id="migas-pan" class="flex flex-wrap items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-500">
+          <!-- Rellenado dinámicamente -->
         </div>
       </div>
 
-      <div class="p-6 sm:p-8 space-y-12" id="contenedor-matematicas">
-        <!-- Rellenado automáticamente por JS -->
-      </div>
-    </section>
+      <!-- ÁREA DONDE SE RENDERIZA EXCLUSIVAMENTE LA PANTALLA ACTUAL -->
+      <div id="vista-actual" class="fade-in"></div>
 
-    <!-- =================================================================== -->
-    <!-- GRAN BLOQUE 2: FÍSICA Y QUÍMICA -->
-    <!-- =================================================================== -->
-    <section id="bloque-fisica-quimica" class="bg-white rounded-3xl border-2 border-blue-200 shadow-lg overflow-hidden">
-      
-      <!-- CABECERA DEL BLOQUE FÍSICA Y QUÍMICA -->
-      <div class="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-5 sm:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white flex items-center gap-3 tracking-wide">
-          <span>⚛️</span>
-          <span>FÍSICA Y QUÍMICA</span>
-        </h2>
-        <!-- Navegación rápida por cursos de Física y Química -->
-        <div class="flex flex-wrap gap-2">
-          <a href="#fyq-1-2-eso" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-blue-700 font-bold text-xs sm:text-sm transition">1º y 2º ESO</a>
-          <a href="#fyq-3-4-eso" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-blue-700 font-bold text-xs sm:text-sm transition">3º y 4º ESO</a>
-          <a href="#fyq-1-bach" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-blue-700 font-bold text-xs sm:text-sm transition">1º BACHILLER</a>
-          <a href="#fyq-2-bach" class="px-3.5 py-1.5 rounded-xl bg-white/20 hover:bg-white text-white hover:text-blue-700 font-bold text-xs sm:text-sm transition">2º BACHILLER</a>
-        </div>
-      </div>
-
-      <div class="p-6 sm:p-8 space-y-12" id="contenedor-fisica-quimica">
-        <!-- Rellenado automáticamente por JS -->
-      </div>
-    </section>
-
-  </main>
+    </main>
+  </div>
 
   <!-- PIE DE PÁGINA MÍNIMO -->
-  <footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2.5">
-        <img src="logo-tomate.jpg" alt="Toomate" class="w-9 h-9 rounded-lg object-cover scale-125">
-        <span class="font-display font-bold text-white text-base">Too<span class="text-brand-500">mate</span>.es</span>
+  <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs border-t border-slate-800 mt-12">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <img src="logo-tomate.jpg" alt="Toomate" class="w-7 h-7 rounded-lg object-cover scale-125">
+        <span class="font-display font-bold text-white text-sm">Too<span class="text-brand-500">mate</span>.es</span>
       </div>
       <p>&copy; 2026 Toomate.es &bull; Matemáticas, Física y Química</p>
     </div>
   </footer>
 
-  <!-- LÓGICA DE ESTRUCTURA Y TARJETAS VISUALES -->
+  <!-- BASE DE DATOS ESTRUCTURADA Y NAVEGACIÓN PASO A PASO -->
   <script>
-    const estructuraMatematicas = [
-      {
-        id: "mat-1-2-eso",
-        cursoTitulo: "1º y 2º ESO",
-        colorCurso: "bg-orange-500",
-        subgrupos: [
-          {
-            nombre: null,
+    const catalogo = {
+      "matematicas": {
+        nombre: "MATEMÁTICAS",
+        icono: "📐",
+        colorGradiente: "from-brand-600 to-rose-500",
+        colorBorde: "border-rose-200 hover:border-brand-500",
+        cursos: {
+          "1-2-eso": {
+            nombre: "1º y 2º ESO",
+            etiqueta: "1º - 2º ESO",
+            color: "bg-orange-500",
+            ramas: null,
             temas: [
               {
                 titulo: "Ecuaciones de 1º y 2º Grado y Sistemas",
@@ -176,16 +144,12 @@
                 ejerciciosUrl: "materiales/ejercicios-ecuaciones-1-2-eso.html"
               }
             ]
-          }
-        ]
-      },
-      {
-        id: "mat-3-4-eso",
-        cursoTitulo: "3º y 4º ESO",
-        colorCurso: "bg-amber-500",
-        subgrupos: [
-          {
-            nombre: null,
+          },
+          "3-4-eso": {
+            nombre: "3º y 4º ESO",
+            etiqueta: "3º - 4º ESO",
+            color: "bg-amber-500",
+            ramas: null,
             temas: [
               {
                 titulo: "Números Reales, Radicales y Logaritmos",
@@ -218,171 +182,173 @@
                 ejerciciosUrl: "materiales/ejercicios-sucesiones-eso.html"
               }
             ]
-          }
-        ]
-      },
-      {
-        id: "mat-1-bach",
-        cursoTitulo: "1º BACHILLER",
-        colorCurso: "bg-purple-600",
-        subgrupos: [
-          {
-            nombre: "CCSS",
-            badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
-            temas: [
-              {
-                titulo: "Matemática Financiera, TAE y Amortización",
-                muestraLatex: "\\text{TAE} = \\left(1 + \\frac{r}{k}\\right)^k - 1",
-                teoriaUrl: "materiales/matematica-financiera-1-bach-ccss.html",
-                ejerciciosUrl: "materiales/ejercicios-matematica-financiera-1-bach-ccss.html"
-              },
-              {
-                titulo: "Derivadas y Optimización de Funciones",
-                muestraLatex: "f(x) = x^3 - 3x^2 \\implies f'(x) = 0",
-                teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
-              }
-            ]
           },
-          {
-            nombre: "MATEMÁTICAS I",
-            badgeColor: "bg-purple-100 text-purple-800 border-purple-300",
-            temas: [
-              {
-                titulo: "Trigonometría Plana y Ecuaciones",
-                muestraLatex: "\\sin(2x) + \\cos(x) = 0",
-                teoriaUrl: "materiales/trigonometria-1-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-trigonometria-1-bach.html"
+          "1-bach": {
+            nombre: "1º BACHILLER",
+            etiqueta: "1º BACH",
+            color: "bg-purple-600",
+            ramas: {
+              "ccss": {
+                nombre: "MATEMÁTICAS CCSS",
+                color: "bg-emerald-600",
+                temas: [
+                  {
+                    titulo: "Matemática Financiera, TAE y Amortización",
+                    muestraLatex: "\\text{TAE} = \\left(1 + \\frac{r}{k}\\right)^k - 1",
+                    teoriaUrl: "materiales/matematica-financiera-1-bach-ccss.html",
+                    ejerciciosUrl: "materiales/ejercicios-matematica-financiera-1-bach-ccss.html"
+                  },
+                  {
+                    titulo: "Derivadas y Optimización de Funciones",
+                    muestraLatex: "f(x) = x^3 - 3x^2 \\implies f'(x) = 0",
+                    teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
+                  }
+                ]
               },
-              {
-                titulo: "Derivadas y Estudio de Funciones",
-                muestraLatex: "f'(x) = \\frac{u' \\cdot v - u \\cdot v'}{v^2}",
-                teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
+              "mat-1": {
+                nombre: "MATEMÁTICAS I",
+                color: "bg-purple-600",
+                temas: [
+                  {
+                    titulo: "Trigonometría Plana y Ecuaciones",
+                    muestraLatex: "\\sin(2x) + \\cos(x) = 0",
+                    teoriaUrl: "materiales/trigonometria-1-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-trigonometria-1-bach.html"
+                  },
+                  {
+                    titulo: "Derivadas y Estudio de Funciones",
+                    muestraLatex: "f'(x) = \\frac{u' \\cdot v - u \\cdot v'}{v^2}",
+                    teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
+                  }
+                ]
               }
-            ]
-          }
-        ]
-      },
-      {
-        id: "mat-2-bach",
-        cursoTitulo: "2º BACHILLER",
-        colorCurso: "bg-brand-600",
-        subgrupos: [
-          {
-            nombre: "CCSS",
-            badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
-            temas: [
-              {
-                titulo: "Matrices y Determinantes",
-                muestraLatex: "A \\cdot X - B = 2X",
-                teoriaUrl: "materiales/matrices-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-matrices-2-bach.html"
-              },
-              {
-                titulo: "Sistemas de Ecuaciones Lineales",
-                muestraLatex: "\\begin{cases} x + y + mz = 1 \\\\ x + my + z = m \\end{cases}",
-                teoriaUrl: "materiales/sistemas-rouche-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-rouche-2-bach.html"
-              },
-              {
-                titulo: "Programación Lineal",
-                muestraLatex: "F(x,y) = 40x + 30y \\; \\begin{cases} 2x + y \\le 10 \\\\ x \\ge 0, \\, y \\ge 0 \\end{cases}",
-                teoriaUrl: "materiales/programacion-lineal-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-programacion-lineal-2-bach.html"
-              },
-              {
-                titulo: "Límites, Continuidad y Asíntotas",
-                muestraLatex: "f(x) = \\begin{cases} ax + 1 & x \\le 1 \\\\ x^2 + b & x > 1 \\end{cases}",
-                teoriaUrl: "materiales/limites-continuidad-2-bach-ccss.html",
-                ejerciciosUrl: "materiales/ejercicios-limites-continuidad-2-bach-ccss.html"
-              },
-              {
-                titulo: "Derivadas y Optimización",
-                muestraLatex: "B(x) = -x^2 + 80x - 500 \\implies B'(x) = 0",
-                teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
-              },
-              {
-                titulo: "Cálculo Integral y Regla de Barrow",
-                muestraLatex: "\\int_1^3 (-x^2 + 4x - 3)\\,dx",
-                teoriaUrl: "materiales/integrales-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-integrales-2-bach.html"
-              },
-              {
-                titulo: "Probabilidad y Teorema de Bayes",
-                muestraLatex: "P(A|B) = \\frac{P(A \\cap B)}{P(B)}",
-                teoriaUrl: "materiales/probabilidad-normal-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-probabilidad-normal-2-bach.html"
-              },
-              {
-                titulo: "Inferencia Estadística e Intervalos de Confianza",
-                muestraLatex: "\\left(\\bar{x} - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}, \\; \\bar{x} + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}\\right)",
-                teoriaUrl: "materiales/inferencia-estadistica-2-bach-ccss.html",
-                ejerciciosUrl: "materiales/ejercicios-inferencia-estadistica-2-bach-ccss.html"
-              }
-            ]
+            }
           },
-          {
-            nombre: "MATEMÁTICAS II",
-            badgeColor: "bg-rose-100 text-brand-700 border-rose-300",
-            temas: [
-              {
-                titulo: "Matrices y Determinantes",
-                muestraLatex: "A = \\begin{pmatrix} 1 & m \\\\ 2 & 3 \\end{pmatrix} \\quad A^{-1} = \\frac{(\\text{Adj } A)^t}{|A|}",
-                teoriaUrl: "materiales/matrices-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-matrices-2-bach.html"
+          "2-bach": {
+            nombre: "2º BACHILLER",
+            etiqueta: "2º BACH",
+            color: "bg-brand-600",
+            ramas: {
+              "ccss": {
+                nombre: "MATEMÁTICAS CCSS",
+                color: "bg-emerald-600",
+                temas: [
+                  {
+                    titulo: "Matrices y Determinantes",
+                    muestraLatex: "A \\cdot X - B = 2X",
+                    teoriaUrl: "materiales/matrices-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-matrices-2-bach.html"
+                  },
+                  {
+                    titulo: "Sistemas de Ecuaciones Lineales",
+                    muestraLatex: "\\begin{cases} x + y + mz = 1 \\\\ x + my + z = m \\end{cases}",
+                    teoriaUrl: "materiales/sistemas-rouche-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-rouche-2-bach.html"
+                  },
+                  {
+                    titulo: "Programación Lineal",
+                    muestraLatex: "F(x,y) = 40x + 30y \\; \\begin{cases} 2x + y \\le 10 \\\\ x \\ge 0, \\, y \\ge 0 \\end{cases}",
+                    teoriaUrl: "materiales/programacion-lineal-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-programacion-lineal-2-bach.html"
+                  },
+                  {
+                    titulo: "Límites, Continuidad y Asíntotas",
+                    muestraLatex: "f(x) = \\begin{cases} ax + 1 & x \\le 1 \\\\ x^2 + b & x > 1 \\end{cases}",
+                    teoriaUrl: "materiales/limites-continuidad-2-bach-ccss.html",
+                    ejerciciosUrl: "materiales/ejercicios-limites-continuidad-2-bach-ccss.html"
+                  },
+                  {
+                    titulo: "Derivadas y Optimización",
+                    muestraLatex: "B(x) = -x^2 + 80x - 500 \\implies B'(x) = 0",
+                    teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
+                  },
+                  {
+                    titulo: "Cálculo Integral y Regla de Barrow",
+                    muestraLatex: "\\int_1^3 (-x^2 + 4x - 3)\\,dx",
+                    teoriaUrl: "materiales/integrales-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-integrales-2-bach.html"
+                  },
+                  {
+                    titulo: "Probabilidad y Teorema de Bayes",
+                    muestraLatex: "P(A|B) = \\frac{P(A \\cap B)}{P(B)}",
+                    teoriaUrl: "materiales/probabilidad-normal-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-probabilidad-normal-2-bach.html"
+                  },
+                  {
+                    titulo: "Inferencia Estadística e Intervalos de Confianza",
+                    muestraLatex: "\\left(\\bar{x} - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}, \\; \\bar{x} + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}\\right)",
+                    teoriaUrl: "materiales/inferencia-estadistica-2-bach-ccss.html",
+                    ejerciciosUrl: "materiales/ejercicios-inferencia-estadistica-2-bach-ccss.html"
+                  }
+                ]
               },
-              {
-                titulo: "Sistemas de Ecuaciones: Rouché y Cramer",
-                muestraLatex: "\\begin{cases} x + y + mz = 1 \\\\ x + my + z = m \\\\ mx + y + z = 1 \\end{cases}",
-                teoriaUrl: "materiales/sistemas-rouche-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-rouche-2-bach.html"
-              },
-              {
-                titulo: "Geometría en el Espacio: Rectas y Planos",
-                muestraLatex: "\\frac{x - 1}{2} = \\frac{y + 1}{-1} = \\frac{z}{3}",
-                teoriaUrl: "materiales/geometria-espacio-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-geometria-espacio-2-bach.html"
-              },
-              {
-                titulo: "Límites, Continuidad y Asíntotas",
-                muestraLatex: "\\lim_{x \\to 0} \\frac{e^x - 1 - x}{x^2}",
-                teoriaUrl: "materiales/limites-continuidad-2-bach-ccss.html",
-                ejerciciosUrl: "materiales/ejercicios-limites-continuidad-2-bach-ccss.html"
-              },
-              {
-                titulo: "Derivadas y Optimización",
-                muestraLatex: "f(x) = \\frac{x^2}{x - 1} \\implies f'(x) = 0",
-                teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
-              },
-              {
-                titulo: "Cálculo Integral y Cálculo de Áreas",
-                muestraLatex: "\\int_a^b |f(x) - g(x)|\\,dx",
-                teoriaUrl: "materiales/integrales-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-integrales-2-bach.html"
-              },
-              {
-                titulo: "Probabilidad y Distribución Normal",
-                muestraLatex: "P(A|B) = \\frac{P(A \\cap B)}{P(B)} \\quad Z = \\frac{X - \\mu}{\\sigma}",
-                teoriaUrl: "materiales/probabilidad-normal-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-probabilidad-normal-2-bach.html"
+              "mat-2": {
+                nombre: "MATEMÁTICAS II",
+                color: "bg-brand-600",
+                temas: [
+                  {
+                    titulo: "Matrices y Determinantes",
+                    muestraLatex: "A = \\begin{pmatrix} 1 & m \\\\ 2 & 3 \\end{pmatrix} \\quad A^{-1} = \\frac{(\\text{Adj } A)^t}{|A|}",
+                    teoriaUrl: "materiales/matrices-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-matrices-2-bach.html"
+                  },
+                  {
+                    titulo: "Sistemas de Ecuaciones: Rouché y Cramer",
+                    muestraLatex: "\\begin{cases} x + y + mz = 1 \\\\ x + my + z = m \\\\ mx + y + z = 1 \\end{cases}",
+                    teoriaUrl: "materiales/sistemas-rouche-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-rouche-2-bach.html"
+                  },
+                  {
+                    titulo: "Geometría en el Espacio: Rectas y Planos",
+                    muestraLatex: "\\frac{x - 1}{2} = \\frac{y + 1}{-1} = \\frac{z}{3}",
+                    teoriaUrl: "materiales/geometria-espacio-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-geometria-espacio-2-bach.html"
+                  },
+                  {
+                    titulo: "Límites, Continuidad y Asíntotas",
+                    muestraLatex: "\\lim_{x \\to 0} \\frac{e^x - 1 - x}{x^2}",
+                    teoriaUrl: "materiales/limites-continuidad-2-bach-ccss.html",
+                    ejerciciosUrl: "materiales/ejercicios-limites-continuidad-2-bach-ccss.html"
+                  },
+                  {
+                    titulo: "Derivadas y Optimización",
+                    muestraLatex: "f(x) = \\frac{x^2}{x - 1} \\implies f'(x) = 0",
+                    teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
+                  },
+                  {
+                    titulo: "Cálculo Integral y Cálculo de Áreas",
+                    muestraLatex: "\\int_a^b |f(x) - g(x)|\\,dx",
+                    teoriaUrl: "materiales/integrales-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-integrales-2-bach.html"
+                  },
+                  {
+                    titulo: "Probabilidad y Distribución Normal",
+                    muestraLatex: "P(A|B) = \\frac{P(A \\cap B)}{P(B)} \\quad Z = \\frac{X - \\mu}{\\sigma}",
+                    teoriaUrl: "materiales/probabilidad-normal-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-probabilidad-normal-2-bach.html"
+                  }
+                ]
               }
-            ]
+            }
           }
-        ]
-      }
-    ];
+        }
+      },
 
-    const estructuraFisicaQuimica = [
-      {
-        id: "fyq-1-2-eso",
-        cursoTitulo: "1º y 2º ESO",
-        colorCurso: "bg-sky-500",
-        subgrupos: [
-          {
-            nombre: null,
+      "fisica-quimica": {
+        nombre: "FÍSICA Y QUÍMICA",
+        icono: "⚛️",
+        colorGradiente: "from-blue-600 to-indigo-600",
+        colorBorde: "border-blue-200 hover:border-blue-500",
+        cursos: {
+          "1-2-eso": {
+            nombre: "1º y 2º ESO",
+            etiqueta: "1º - 2º ESO",
+            color: "bg-sky-500",
+            ramas: null,
             temas: [
               {
                 titulo: "El Movimiento (MRU) y las Fuerzas",
@@ -397,16 +363,12 @@
                 ejerciciosUrl: "materiales/ejercicios-atomo-enlace-eso.html"
               }
             ]
-          }
-        ]
-      },
-      {
-        id: "fyq-3-4-eso",
-        cursoTitulo: "3º y 4º ESO",
-        colorCurso: "bg-cyan-600",
-        subgrupos: [
-          {
-            nombre: null,
+          },
+          "3-4-eso": {
+            nombre: "3º y 4º ESO",
+            etiqueta: "3º - 4º ESO",
+            color: "bg-cyan-600",
+            ramas: null,
             temas: [
               {
                 titulo: "Cinemática (MRU y MRUA) y Leyes de Newton",
@@ -427,126 +389,126 @@
                 ejerciciosUrl: "materiales/ejercicios-formulacion-nomenclatura.html"
               }
             ]
-          }
-        ]
-      },
-      {
-        id: "fyq-1-bach",
-        cursoTitulo: "1º BACHILLER",
-        colorCurso: "bg-blue-600",
-        subgrupos: [
-          {
-            nombre: "FÍSICA",
-            badgeColor: "bg-blue-100 text-blue-800 border-blue-300",
-            temas: [
-              {
-                titulo: "Cinemática Vectorial, Tiro Parabólico y MCU",
-                muestraLatex: "\\vec{r}(t) = x(t)\\vec{i} + y(t)\\vec{j} \\quad \\cdot \\quad a_n = \\frac{v^2}{R}",
-                teoriaUrl: "materiales/cinematica-vectorial-1-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-cinematica-vectorial-1-bach.html"
-              },
-              {
-                titulo: "Dinámica de Newton, Fuerzas y Conservación",
-                muestraLatex: "\\sum \\vec{F} = m \\cdot \\vec{a} \\quad \\cdot \\quad F_r = \\mu \\cdot N",
-                teoriaUrl: "materiales/dinamica-newton-1-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-dinamica-newton-1-bach.html"
-              }
-            ]
           },
-          {
-            nombre: "QUÍMICA",
-            badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
-            temas: [
-              {
-                titulo: "Estequiometría, Reactivo Limitante y Disoluciones",
-                muestraLatex: "P \\cdot V = n \\cdot R \\cdot T",
-                teoriaUrl: "materiales/estequiometria-disoluciones-1-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-estequiometria-disoluciones-1-bach.html"
+          "1-bach": {
+            nombre: "1º BACHILLER",
+            etiqueta: "1º BACH",
+            color: "bg-blue-600",
+            ramas: {
+              "fisica": {
+                nombre: "FÍSICA",
+                color: "bg-blue-600",
+                temas: [
+                  {
+                    titulo: "Cinemática Vectorial, Tiro Parabólico y MCU",
+                    muestraLatex: "\\vec{r}(t) = x(t)\\vec{i} + y(t)\\vec{j} \\quad \\cdot \\quad a_n = \\frac{v^2}{R}",
+                    teoriaUrl: "materiales/cinematica-vectorial-1-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-cinematica-vectorial-1-bach.html"
+                  },
+                  {
+                    titulo: "Dinámica de Newton, Fuerzas y Conservación",
+                    muestraLatex: "\\sum \\vec{F} = m \\cdot \\vec{a} \\quad \\cdot \\quad F_r = \\mu \\cdot N",
+                    teoriaUrl: "materiales/dinamica-newton-1-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-dinamica-newton-1-bach.html"
+                  }
+                ]
               },
-              {
-                titulo: "Formulación Inorgánica y Orgánica IUPAC",
-                muestraLatex: "\\text{K}_2\\text{Cr}_2\\text{O}_7 \\quad \\cdot \\quad \\text{CH}_3\\text{-CH}_2\\text{-COOH}",
-                teoriaUrl: "materiales/formulacion-nomenclatura.html",
-                ejerciciosUrl: "materiales/ejercicios-formulacion-nomenclatura.html"
+              "quimica": {
+                nombre: "QUÍMICA",
+                color: "bg-emerald-600",
+                temas: [
+                  {
+                    titulo: "Estequiometría, Reactivo Limitante y Disoluciones",
+                    muestraLatex: "P \\cdot V = n \\cdot R \\cdot T",
+                    teoriaUrl: "materiales/estequiometria-disoluciones-1-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-estequiometria-disoluciones-1-bach.html"
+                  },
+                  {
+                    titulo: "Formulación Inorgánica y Orgánica IUPAC",
+                    muestraLatex: "\\text{K}_2\\text{Cr}_2\\text{O}_7 \\quad \\cdot \\quad \\text{CH}_3\\text{-CH}_2\\text{-COOH}",
+                    teoriaUrl: "materiales/formulacion-nomenclatura.html",
+                    ejerciciosUrl: "materiales/ejercicios-formulacion-nomenclatura.html"
+                  }
+                ]
               }
-            ]
-          }
-        ]
-      },
-      {
-        id: "fyq-2-bach",
-        cursoTitulo: "2º BACHILLER",
-        colorCurso: "bg-indigo-600",
-        subgrupos: [
-          {
-            nombre: "FÍSICA",
-            badgeColor: "bg-blue-100 text-blue-800 border-blue-300",
-            temas: [
-              {
-                titulo: "Campo Gravitatorio: Órbitas y Satélites",
-                muestraLatex: "\\vec{F} = -G\\frac{M \\cdot m}{r^2}\\vec{u}_r",
-                teoriaUrl: "materiales/campo-gravitatorio-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-campo-gravitatorio-2-bach.html"
-              },
-              {
-                titulo: "Campo Eléctrico: Ley de Coulomb y Potencial",
-                muestraLatex: "\\vec{F} = K\\frac{q_1 \\cdot q_2}{r^2}\\vec{u}_r",
-                teoriaUrl: "materiales/campo-electrico-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-campo-electrico-2-bach.html"
-              },
-              {
-                titulo: "Campo Magnético e Inducción (Lorentz y Faraday)",
-                muestraLatex: "\\vec{F} = q(\\vec{v} \\times \\vec{B}) \\quad \\cdot \\quad \\varepsilon = -\\frac{d\\Phi}{dt}",
-                teoriaUrl: "materiales/campo-magnetico-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-campo-magnetico-2-bach.html"
-              },
-              {
-                titulo: "Ondas, Óptica Geométrica y Física Cuántica",
-                muestraLatex: "y(x,t) = A\\sin(\\omega t - kx)",
-                teoriaUrl: "materiales/ondas-optica-moderna-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-ondas-optica-moderna-2-bach.html"
-              }
-            ]
+            }
           },
-          {
-            nombre: "QUÍMICA",
-            badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-300",
-            temas: [
-              {
-                titulo: "Equilibrio Químico: Kc, Kp y Le Châtelier",
-                muestraLatex: "K_p = K_c \\cdot (R \\cdot T)^{\\Delta n}",
-                teoriaUrl: "materiales/equilibrio-quimico-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-equilibrio-quimico-2-bach.html"
+          "2-bach": {
+            nombre: "2º BACHILLER",
+            etiqueta: "2º BACH",
+            color: "bg-indigo-600",
+            ramas: {
+              "fisica": {
+                nombre: "FÍSICA",
+                color: "bg-blue-600",
+                temas: [
+                  {
+                    titulo: "Campo Gravitatorio: Órbitas y Satélites",
+                    muestraLatex: "\\vec{F} = -G\\frac{M \\cdot m}{r^2}\\vec{u}_r",
+                    teoriaUrl: "materiales/campo-gravitatorio-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-campo-gravitatorio-2-bach.html"
+                  },
+                  {
+                    titulo: "Campo Eléctrico: Ley de Coulomb y Potencial",
+                    muestraLatex: "\\vec{F} = K\\frac{q_1 \\cdot q_2}{r^2}\\vec{u}_r",
+                    teoriaUrl: "materiales/campo-electrico-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-campo-electrico-2-bach.html"
+                  },
+                  {
+                    titulo: "Campo Magnético e Inducción (Lorentz y Faraday)",
+                    muestraLatex: "\\vec{F} = q(\\vec{v} \\times \\vec{B}) \\quad \\cdot \\quad \\varepsilon = -\\frac{d\\Phi}{dt}",
+                    teoriaUrl: "materiales/campo-magnetico-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-campo-magnetico-2-bach.html"
+                  },
+                  {
+                    titulo: "Ondas, Óptica Geométrica y Física Cuántica",
+                    muestraLatex: "y(x,t) = A\\sin(\\omega t - kx)",
+                    teoriaUrl: "materiales/ondas-optica-moderna-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-ondas-optica-moderna-2-bach.html"
+                  }
+                ]
               },
-              {
-                titulo: "Reacciones Ácido-Base, pH y Valoraciones",
-                muestraLatex: "\\text{pH} = -\\log[\\text{H}_3\\text{O}^+]",
-                teoriaUrl: "materiales/reacciones-acido-base-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-reacciones-acido-base-2-bach.html"
-              },
-              {
-                titulo: "Termoquímica: Ley de Hess y Energía de Gibbs",
-                muestraLatex: "\\Delta G^\\circ = \\Delta H^\\circ - T \\cdot \\Delta S^\\circ",
-                teoriaUrl: "materiales/termoquimica-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-termoquimica-2-bach.html"
-              },
-              {
-                titulo: "Reacciones Redox, Pilas Galvánicas y Faraday",
-                muestraLatex: "E^\\circ_{\\text{pila}} = E^\\circ_{\\text{cátodo}} - E^\\circ_{\\text{ánodo}}",
-                teoriaUrl: "materiales/reacciones-redox-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-reacciones-redox-2-bach.html"
-              },
-              {
-                titulo: "Química del Carbono: Isomería y Reacciones",
-                muestraLatex: "\\text{CH}_3\\text{-CH=CH}_2 + \\text{HBr}",
-                teoriaUrl: "materiales/quimica-organica-2-bach.html",
-                ejerciciosUrl: "materiales/ejercicios-quimica-organica-2-bach.html"
+              "quimica": {
+                nombre: "QUÍMICA",
+                color: "bg-emerald-600",
+                temas: [
+                  {
+                    titulo: "Equilibrio Químico: Kc, Kp y Le Châtelier",
+                    muestraLatex: "K_p = K_c \\cdot (R \\cdot T)^{\\Delta n}",
+                    teoriaUrl: "materiales/equilibrio-quimico-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-equilibrio-quimico-2-bach.html"
+                  },
+                  {
+                    titulo: "Reacciones Ácido-Base, pH y Valoraciones",
+                    muestraLatex: "\\text{pH} = -\\log[\\text{H}_3\\text{O}^+]",
+                    teoriaUrl: "materiales/reacciones-acido-base-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-reacciones-acido-base-2-bach.html"
+                  },
+                  {
+                    titulo: "Termoquímica: Ley de Hess y Energía de Gibbs",
+                    muestraLatex: "\\Delta G^\\circ = \\Delta H^\\circ - T \\cdot \\Delta S^\\circ",
+                    teoriaUrl: "materiales/termoquimica-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-termoquimica-2-bach.html"
+                  },
+                  {
+                    titulo: "Reacciones Redox, Pilas Galvánicas y Faraday",
+                    muestraLatex: "E^\\circ_{\\text{pila}} = E^\\circ_{\\text{cátodo}} - E^\\circ_{\\text{ánodo}}",
+                    teoriaUrl: "materiales/reacciones-redox-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-reacciones-redox-2-bach.html"
+                  },
+                  {
+                    titulo: "Química del Carbono: Isomería y Reacciones",
+                    muestraLatex: "\\text{CH}_3\\text{-CH=CH}_2 + \\text{HBr}",
+                    teoriaUrl: "materiales/quimica-organica-2-bach.html",
+                    ejerciciosUrl: "materiales/ejercicios-quimica-organica-2-bach.html"
+                  }
+                ]
               }
-            ]
+            }
           }
-        ]
+        }
       }
-    ];
+    };
 
     function renderizarFormula(latex) {
       if (typeof katex !== 'undefined') {
@@ -561,26 +523,26 @@
 
     function crearTarjetaTema(tema) {
       return `
-        <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-slate-400 p-5 flex flex-col justify-between transition shadow-xs hover:shadow-md">
+        <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-slate-400 p-5 flex flex-col justify-between transition shadow-sm hover:shadow-md">
           <div>
             <!-- TÍTULO DEL TEMA -->
             <h4 class="font-display font-bold text-base sm:text-lg text-slate-900 text-center mb-3">
               ${tema.titulo}
             </h4>
 
-            <!-- MUESTRA VISUAL DE ECUACIÓN (ESTILO IMAGEN DE CUADERNO) -->
-            <div class="math-preview-box rounded-xl border border-slate-200 p-4 mb-4 min-h-[100px] flex items-center justify-center text-slate-800 shadow-inner overflow-x-auto">
+            <!-- MUESTRA VISUAL DE ECUACIÓN (SIN RESOLVER) -->
+            <div class="math-preview-box rounded-xl border border-slate-200 p-4 mb-4 min-h-[105px] flex items-center justify-center text-slate-800 shadow-inner overflow-x-auto">
               ${renderizarFormula(tema.muestraLatex)}
             </div>
           </div>
 
-          <!-- SOLO LOS 2 BOTONES: TEORÍA Y EJERCICIOS -->
+          <!-- BOTONES DE TEORÍA Y EJERCICIOS -->
           <div class="grid grid-cols-2 gap-2.5">
-            <a href="${tema.teoriaUrl}" target="_blank" class="py-2.5 px-3 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs">
+            <a href="${tema.teoriaUrl}" class="py-2.5 px-3 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs">
               <i data-lucide="book-open" class="w-4 h-4"></i>
               <span>Teoría</span>
             </a>
-            <a href="${tema.ejerciciosUrl}" target="_blank" class="py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs">
+            <a href="${tema.ejerciciosUrl}" class="py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs">
               <i data-lucide="dumbbell" class="w-4 h-4"></i>
               <span>Ejercicios</span>
             </a>
@@ -589,47 +551,196 @@
       `;
     }
 
-    function renderizarBloque(estructura, contenedorId) {
-      const contenedor = document.getElementById(contenedorId);
-      if (!contenedor) return;
-
-      contenedor.innerHTML = estructura.map(curso => `
-        <div id="${curso.id}" class="scroll-mt-6">
-          <!-- CABECERA DEL CURSO -->
-          <div class="flex items-center gap-3 mb-5 pb-2 border-b-2 border-slate-200">
-            <span class="${curso.colorCurso} text-white font-display font-extrabold text-sm sm:text-base px-4 py-1.5 rounded-xl shadow-xs">
-              ${curso.cursoTitulo}
-            </span>
-          </div>
-
-          <!-- SUBGRUPOS (Ej. CCSS / MATEMÁTICAS I o FÍSICA / QUÍMICA) -->
-          <div class="space-y-8">
-            ${curso.subgrupos.map(sub => `
-              <div>
-                ${sub.nombre ? `
-                  <div class="mb-4">
-                    <span class="inline-block font-display font-extrabold text-sm sm:text-base px-4 py-1.5 rounded-xl border-2 ${sub.badgeColor}">
-                      ${sub.nombre}
-                    </span>
-                  </div>
-                ` : ''}
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                  ${sub.temas.map(t => crearTarjetaTema(t)).join('')}
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      `).join('');
+    function irA(ruta) {
+      window.location.hash = ruta;
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      renderizarBloque(estructuraMatematicas, 'contenedor-matematicas');
-      renderizarBloque(estructuraFisicaQuimica, 'contenedor-fisica-quimica');
-      if (window.lucide) {
-        lucide.createIcons();
+    function volverAtras() {
+      const hash = window.location.hash.replace(/^#\/?/, '');
+      const partes = hash ? hash.split('/') : [];
+      partes.pop();
+      irA(partes.join('/'));
+    }
+
+    function actualizarVista() {
+      const hash = window.location.hash.replace(/^#\/?/, '');
+      const partes = hash ? hash.split('/') : [];
+      const [bloqueKey, cursoKey, ramaKey] = partes;
+
+      const vista = document.getElementById('vista-actual');
+      const barraNav = document.getElementById('barra-navegacion');
+      const migas = document.getElementById('migas-pan');
+
+      // Reiniciar animación suave
+      vista.classList.remove('fade-in');
+      void vista.offsetWidth;
+      vista.classList.add('fade-in');
+
+      // ==========================================================
+      // PASO 1: PÁGINA PRINCIPAL (MATEMÁTICAS vs FÍSICA Y QUÍMICA)
+      // ==========================================================
+      if (!bloqueKey || !catalogo[bloqueKey]) {
+        barraNav.classList.add('hidden');
+        vista.innerHTML = `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto pt-2">
+            
+            <!-- BLOQUE MATEMÁTICAS -->
+            <button onclick="irA('matematicas')" class="group bg-white rounded-3xl border-4 border-rose-200 hover:border-brand-600 p-8 sm:p-10 text-center shadow-lg hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-4">
+              <div class="w-20 h-20 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform">
+                📐
+              </div>
+              <span class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 group-hover:text-brand-600 transition-colors">
+                MATEMÁTICAS
+              </span>
+            </button>
+
+            <!-- BLOQUE FÍSICA Y QUÍMICA -->
+            <button onclick="irA('fisica-quimica')" class="group bg-white rounded-3xl border-4 border-blue-200 hover:border-blue-600 p-8 sm:p-10 text-center shadow-lg hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-4">
+              <div class="w-20 h-20 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform">
+                ⚛️
+              </div>
+              <span class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 group-hover:text-blue-600 transition-colors">
+                FÍSICA Y QUÍMICA
+              </span>
+            </button>
+
+          </div>
+        `;
+        if (window.lucide) lucide.createIcons();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
       }
-    });
+
+      const bloque = catalogo[bloqueKey];
+      barraNav.classList.remove('hidden');
+
+      // ==========================================================
+      // PASO 2: ELEGIR CURSO (1º y 2º ESO, 3º y 4º ESO, 1º BACH, 2º BACH)
+      // ==========================================================
+      if (!cursoKey || !bloque.cursos[cursoKey]) {
+        migas.innerHTML = `
+          <a href="#" onclick="irA(''); return false;" class="hover:text-brand-600">Inicio</a>
+          <span>&rsaquo;</span>
+          <span class="text-slate-900 font-bold">${bloque.nombre}</span>
+        `;
+
+        vista.innerHTML = `
+          <div class="text-center mb-8">
+            <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 flex items-center justify-center gap-3">
+              <span>${bloque.icono}</span>
+              <span>${bloque.nombre}</span>
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
+            ${Object.entries(bloque.cursos).map(([key, c]) => `
+              <button onclick="irA('${bloqueKey}/${key}')" class="group bg-white rounded-3xl border-2 border-slate-200 hover:border-slate-800 p-7 sm:p-8 text-center shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-3">
+                <span class="${c.color} text-white font-display font-extrabold text-sm px-3.5 py-1 rounded-xl">
+                  ${c.etiqueta}
+                </span>
+                <span class="font-display font-extrabold text-2xl text-slate-900 group-hover:text-brand-600 transition-colors">
+                  ${c.nombre}
+                </span>
+              </button>
+            `).join('')}
+          </div>
+        `;
+        if (window.lucide) lucide.createIcons();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      const curso = bloque.cursos[cursoKey];
+
+      // ==========================================================
+      // PASO 3A: SI EL CURSO TIENE RAMAS (1º BACH y 2º BACH) Y AÚN NO SE HA ELEGIDO RAMA
+      // ==========================================================
+      if (curso.ramas && (!ramaKey || !curso.ramas[ramaKey])) {
+        migas.innerHTML = `
+          <a href="#" onclick="irA(''); return false;" class="hover:text-brand-600">Inicio</a>
+          <span>&rsaquo;</span>
+          <a href="#" onclick="irA('${bloqueKey}'); return false;" class="hover:text-brand-600">${bloque.nombre}</a>
+          <span>&rsaquo;</span>
+          <span class="text-slate-900 font-bold">${curso.nombre}</span>
+        `;
+
+        vista.innerHTML = `
+          <div class="text-center mb-8">
+            <span class="${curso.color} text-white font-display font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+              ${bloque.nombre}
+            </span>
+            <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 mt-2">
+              ${curso.nombre}
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            ${Object.entries(curso.ramas).map(([rKey, rObj]) => `
+              <button onclick="irA('${bloqueKey}/${cursoKey}/${rKey}')" class="group bg-white rounded-3xl border-4 border-slate-200 hover:border-slate-800 p-8 sm:p-10 text-center shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-3">
+                <span class="${rObj.color} text-white font-display font-extrabold text-xs px-3.5 py-1 rounded-xl">
+                  ${curso.nombre}
+                </span>
+                <span class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 group-hover:text-brand-600 transition-colors">
+                  ${rObj.nombre}
+                </span>
+              </button>
+            `).join('')}
+          </div>
+        `;
+        if (window.lucide) lucide.createIcons();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      // ==========================================================
+      // PASO 3B / PASO 4: MOSTRAR LOS TEMAS DEL CURSO O DE LA RAMA ELEGIDA
+      // ==========================================================
+      let listaTemas = [];
+      let tituloPantalla = "";
+
+      if (curso.ramas && ramaKey && curso.ramas[ramaKey]) {
+        const rama = curso.ramas[ramaKey];
+        listaTemas = rama.temas;
+        tituloPantalla = `${curso.nombre} &bull; ${rama.nombre}`;
+        migas.innerHTML = `
+          <a href="#" onclick="irA(''); return false;" class="hover:text-brand-600">Inicio</a>
+          <span>&rsaquo;</span>
+          <a href="#" onclick="irA('${bloqueKey}'); return false;" class="hover:text-brand-600">${bloque.nombre}</a>
+          <span>&rsaquo;</span>
+          <a href="#" onclick="irA('${bloqueKey}/${cursoKey}'); return false;" class="hover:text-brand-600">${curso.nombre}</a>
+          <span>&rsaquo;</span>
+          <span class="text-slate-900 font-bold">${rama.nombre}</span>
+        `;
+      } else {
+        listaTemas = curso.temas;
+        tituloPantalla = `${bloque.nombre} &bull; ${curso.nombre}`;
+        migas.innerHTML = `
+          <a href="#" onclick="irA(''); return false;" class="hover:text-brand-600">Inicio</a>
+          <span>&rsaquo;</span>
+          <a href="#" onclick="irA('${bloqueKey}'); return false;" class="hover:text-brand-600">${bloque.nombre}</a>
+          <span>&rsaquo;</span>
+          <span class="text-slate-900 font-bold">${curso.nombre}</span>
+        `;
+      }
+
+      vista.innerHTML = `
+        <div class="text-center mb-8">
+          <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900">
+            ${tituloPantalla}
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          ${listaTemas.map(t => crearTarjetaTema(t)).join('')}
+        </div>
+      `;
+
+      if (window.lucide) lucide.createIcons();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('hashchange', actualizarVista);
+    document.addEventListener('DOMContentLoaded', actualizarVista);
   </script>
 </body>
 </html>
