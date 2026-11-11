@@ -12,11 +12,7 @@
   <!-- Google Fonts: Inter & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- KaTeX para renderizar las muestras visuales de ecuaciones -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
@@ -42,24 +38,6 @@
   </script>
 
   <style>
-    /* Cuadrícula tipo libreta matemática para la muestra de cada tema */
-    .math-preview-box {
-      background-color: #f8fafc;
-      background-image: 
-        linear-gradient(to right, rgba(203, 213, 225, 0.4) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(203, 213, 225, 0.4) 1px, transparent 1px);
-      background-size: 16px 16px;
-    }
-    .katex-display {
-      margin: 0 !important;
-      overflow-x: auto;
-      overflow-y: hidden;
-      max-width: 100%;
-      padding: 0.25rem 0;
-    }
-    .katex {
-      font-size: 1.15em;
-    }
     .fade-in {
       animation: fadeIn 0.2s ease-out;
     }
@@ -67,45 +45,58 @@
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    /* Botones con rojo y verde más suaves y agradables */
+    .btn-teoria-suave {
+      background-color: #e57373;
+      color: #ffffff;
+    }
+    .btn-teoria-suave:hover {
+      background-color: #ef5350;
+    }
+    .btn-ejercicios-suave {
+      background-color: #66bb6a;
+      color: #ffffff;
+    }
+    .btn-ejercicios-suave:hover {
+      background-color: #4caf50;
+    }
   </style>
 </head>
-<body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-rose-400 selection:text-white">
 
   <div>
     <!-- CABECERA CON EL PROFE TOMATE GRANDE -->
     <header class="bg-white border-b border-slate-200 pt-7 pb-6 px-4 text-center shadow-xs">
       <div class="max-w-5xl mx-auto flex flex-col items-center">
         
-        <!-- Clic en el Profe Tomate o en el título lleva siempre a la página principal -->
         <a href="#" onclick="irA(''); return false;" class="group flex flex-col items-center focus:outline-none">
           <div class="w-36 h-36 sm:w-48 sm:h-48 rounded-3xl bg-white border-4 border-rose-200 shadow-xl overflow-hidden flex items-center justify-center mb-3 group-hover:scale-105 transition-transform duration-200">
             <img src="logo-tomate.jpg" alt="Profesor Tomate - Toomate.es" class="w-full h-full object-cover scale-125">
           </div>
 
           <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-slate-900 tracking-tight">
-            Too<span class="text-brand-600">mate</span><span class="text-slate-400 font-semibold text-2xl sm:text-3xl">.es</span>
+            Too<span class="text-rose-500">mate</span><span class="text-slate-400 font-semibold text-2xl sm:text-3xl">.es</span>
           </h1>
         </a>
 
       </div>
     </header>
 
-    <!-- CONTENEDOR DINÁMICO DE PANTALLAS (SOLO SE MUESTRA EL PASO ACTUAL) -->
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <!-- CONTENEDOR DINÁMICO DE PANTALLAS -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       
-      <!-- BARRA DE NAVEGACIÓN / BOTÓN VOLVER (Oculta en la pantalla principal) -->
+      <!-- BARRA DE NAVEGACIÓN / BOTÓN VOLVER -->
       <div id="barra-navegacion" class="hidden mb-8 flex flex-wrap items-center justify-between gap-4 bg-white px-5 py-3.5 rounded-2xl border border-slate-200 shadow-xs">
-        <button id="btn-volver" onclick="volverAtras()" class="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-slate-700 hover:text-brand-600 transition cursor-pointer">
+        <button id="btn-volver" onclick="volverAtras()" class="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-slate-700 hover:text-rose-500 transition cursor-pointer">
           <i data-lucide="arrow-left" class="w-5 h-5"></i>
           <span>Volver atrás</span>
         </button>
 
         <div id="migas-pan" class="flex flex-wrap items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-500">
-          <!-- Rellenado dinámicamente -->
         </div>
       </div>
 
-      <!-- ÁREA DONDE SE RENDERIZA EXCLUSIVAMENTE LA PANTALLA ACTUAL -->
+      <!-- ÁREA DONDE SE RENDERIZA LA PANTALLA ACTUAL -->
       <div id="vista-actual" class="fade-in"></div>
 
     </main>
@@ -113,71 +104,916 @@
 
   <!-- PIE DE PÁGINA MÍNIMO -->
   <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs border-t border-slate-800 mt-12">
-    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
       <div class="flex items-center gap-2">
         <img src="logo-tomate.jpg" alt="Toomate" class="w-7 h-7 rounded-lg object-cover scale-125">
-        <span class="font-display font-bold text-white text-sm">Too<span class="text-brand-500">mate</span>.es</span>
+        <span class="font-display font-bold text-white text-sm">Too<span class="text-rose-400">mate</span>.es</span>
       </div>
       <p>&copy; 2026 Toomate.es &bull; Matemáticas, Física y Química</p>
     </div>
   </footer>
 
-  <!-- BASE DE DATOS ESTRUCTURADA Y NAVEGACIÓN PASO A PASO -->
+  <!-- ILUSTRACIONES TIPO MINIATURA YOUTUBE Y CATÁLOGO -->
   <script>
+    // Generador de miniaturas ilustradas estilo YouTube (16:9) para cada tema
+    function obtenerMiniaturaSVG(tipo) {
+      const miniaturas = {
+        // 1. COCHE EN MOVIMIENTO Y FUERZAS (MRU / MRUA)
+        "coche-movimiento": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="skyCar" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1e3a8a"/>
+                <stop offset="100%" stop-color="#3b82f6"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#skyCar)"/>
+            <!-- Sol / Destello -->
+            <circle cx="340" cy="45" r="28" fill="#fde047" opacity="0.9"/>
+            <!-- Carretera -->
+            <rect x="0" y="160" width="400" height="60" fill="#1e293b"/>
+            <line x1="20" y1="190" x2="80" y2="190" stroke="#facc15" stroke-width="6" stroke-linecap="round"/>
+            <line x1="130" y1="190" x2="190" y2="190" stroke="#facc15" stroke-width="6" stroke-linecap="round"/>
+            <line x1="240" y1="190" x2="300" y2="190" stroke="#facc15" stroke-width="6" stroke-linecap="round"/>
+            <line x1="350" y1="190" x2="395" y2="190" stroke="#facc15" stroke-width="6" stroke-linecap="round"/>
+            <!-- Líneas de velocidad -->
+            <line x1="25" y1="105" x2="95" y2="105" stroke="#93c5fd" stroke-width="5" stroke-linecap="round"/>
+            <line x1="15" y1="125" x2="75" y2="125" stroke="#93c5fd" stroke-width="4" stroke-linecap="round"/>
+            <line x1="40" y1="145" x2="85" y2="145" stroke="#93c5fd" stroke-width="4" stroke-linecap="round"/>
+            <!-- Coche deportivo rojo/naranja -->
+            <path d="M95 145 L115 105 L210 105 L245 130 L285 135 L285 162 L95 162 Z" fill="#ef4444" stroke="#ffffff" stroke-width="3"/>
+            <path d="M125 112 L165 112 L165 132 L112 132 Z" fill="#bae6fd"/>
+            <path d="M173 112 L205 112 L232 132 L173 132 Z" fill="#bae6fd"/>
+            <!-- Ruedas -->
+            <circle cx="135" cy="162" r="20" fill="#0f172a" stroke="#e2e8f0" stroke-width="4"/>
+            <circle cx="135" cy="162" r="8" fill="#94a3b8"/>
+            <circle cx="245" cy="162" r="20" fill="#0f172a" stroke="#e2e8f0" stroke-width="4"/>
+            <circle cx="245" cy="162" r="8" fill="#94a3b8"/>
+            <!-- Flecha de Fuerza / Velocidad -->
+            <path d="M295 135 L360 135" stroke="#4ade80" stroke-width="8" stroke-linecap="round"/>
+            <polygon points="355,120 385,135 355,150" fill="#4ade80"/>
+            <rect x="295" y="75" width="85" height="38" rx="10" fill="#fbbf24"/>
+            <text x="337" y="101" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="22">F = m·a</text>
+          </svg>
+        `,
+
+        // 2. EL ÁTOMO Y LA TABLA PERIÓDICA
+        "atomo-tabla": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgAtom" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0f172a"/>
+                <stop offset="100%" stop-color="#312e81"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgAtom)"/>
+            <!-- Órbitas del átomo -->
+            <g transform="translate(145, 110)">
+              <ellipse rx="85" ry="32" fill="none" stroke="#38bdf8" stroke-width="3.5" transform="rotate(30)"/>
+              <ellipse rx="85" ry="32" fill="none" stroke="#a855f7" stroke-width="3.5" transform="rotate(-30)"/>
+              <ellipse rx="85" ry="32" fill="none" stroke="#4ade80" stroke-width="3.5" transform="rotate(90)"/>
+              <!-- Núcleo -->
+              <circle cx="-6" cy="-4" r="12" fill="#ef4444"/>
+              <circle cx="7" cy="-3" r="12" fill="#3b82f6"/>
+              <circle cx="0" cy="8" r="12" fill="#ef4444"/>
+              <circle cx="-3" cy="2" r="10" fill="#facc15"/>
+              <!-- Electrones brillantes -->
+              <circle cx="72" cy="40" r="7" fill="#38bdf8" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="-72" cy="40" r="7" fill="#a855f7" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="0" cy="-85" r="7" fill="#4ade80" stroke="#ffffff" stroke-width="2"/>
+            </g>
+            <!-- Casillas de la Tabla Periódica -->
+            <rect x="265" y="35" width="105" height="110" rx="14" fill="#10b981" stroke="#ffffff" stroke-width="3"/>
+            <text x="282" y="62" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="800" font-size="18">6</text>
+            <text x="317" y="108" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="48">C</text>
+            <text x="317" y="132" text-anchor="middle" fill="#d1fae5" font-family="Inter, sans-serif" font-weight="700" font-size="13">Carbono</text>
+            <rect x="245" y="155" width="130" height="36" rx="8" fill="#f59e0b"/>
+            <text x="310" y="179" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="18">A = Z + N</text>
+          </svg>
+        `,
+
+        // 3. FORMULACIÓN Y NOMENCLATURA QUÍMICA
+        "formulacion-quimica": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgChem" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#064e3b"/>
+                <stop offset="100%" stop-color="#0f766e"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgChem)"/>
+            <!-- Matraz Erlenmeyer -->
+            <path d="M115 45 L145 45 L145 85 L185 165 C190 175 182 185 170 185 L90 185 C78 185 70 175 75 165 L115 85 Z" fill="#e2e8f0" opacity="0.25" stroke="#ffffff" stroke-width="4"/>
+            <path d="M92 130 L168 130 L182 162 C186 172 180 180 168 180 L92 180 C80 180 74 172 78 162 Z" fill="#34d399"/>
+            <line x1="108" y1="45" x2="152" y2="45" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+            <!-- Burbujas -->
+            <circle cx="120" cy="155" r="6" fill="#ffffff" opacity="0.8"/>
+            <circle cx="145" cy="145" r="8" fill="#ffffff" opacity="0.8"/>
+            <circle cx="130" cy="105" r="7" fill="#6ee7b7"/>
+            <circle cx="142" cy="70" r="5" fill="#6ee7b7"/>
+            <!-- Tubo de ensayo -->
+            <rect x="210" y="55" width="34" height="125" rx="17" fill="#e2e8f0" opacity="0.25" stroke="#ffffff" stroke-width="4" transform="rotate(12 227 115)"/>
+            <rect x="213" y="105" width="28" height="72" rx="14" fill="#f43f5e" transform="rotate(12 227 115)"/>
+            <!-- Etiquetas de Fórmulas -->
+            <rect x="265" y="42" width="115" height="44" rx="10" fill="#fbbf24"/>
+            <text x="322" y="71" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="22">H₂SO₄</text>
+            <rect x="265" y="100" width="115" height="44" rx="10" fill="#38bdf8"/>
+            <text x="322" y="129" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="22">Fe₂O₃</text>
+            <rect x="265" y="156" width="115" height="36" rx="8" fill="#ffffff"/>
+            <text x="322" y="180" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="18">IUPAC</text>
+          </svg>
+        `,
+
+        // 4. ECUACIONES 1º Y 2º GRADO (BALANZA Y X)
+        "ecuaciones-balanza": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgEq" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#7c2d12"/>
+                <stop offset="100%" stop-color="#ea580c"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgEq)"/>
+            <!-- Balanza de equilibrio -->
+            <polygon points="170,185 230,185 200,130" fill="#fde047"/>
+            <rect x="85" y="124" width="230" height="10" rx="5" fill="#fef08a"/>
+            <circle cx="200" cy="129" r="9" fill="#ca8a04"/>
+            <!-- Platillo izquierdo con incógnita X -->
+            <line x1="115" y1="130" x2="95" y2="165" stroke="#fef08a" stroke-width="3"/>
+            <line x1="115" y1="130" x2="135" y2="165" stroke="#fef08a" stroke-width="3"/>
+            <rect x="75" y="165" width="80" height="10" rx="4" fill="#fde047"/>
+            <rect x="92" y="118" width="46" height="46" rx="10" fill="#3b82f6" stroke="#ffffff" stroke-width="3"/>
+            <text x="115" y="150" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="30">X</text>
+            <!-- Platillo derecho con número -->
+            <line x1="285" y1="130" x2="265" y2="165" stroke="#fef08a" stroke-width="3"/>
+            <line x1="285" y1="130" x2="305" y2="165" stroke="#fef08a" stroke-width="3"/>
+            <rect x="245" y="165" width="80" height="10" rx="4" fill="#fde047"/>
+            <circle cx="285" cy="142" r="23" fill="#10b981" stroke="#ffffff" stroke-width="3"/>
+            <text x="285" y="151" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="24">12</text>
+            <!-- Cartel superior llamativo -->
+            <rect x="65" y="28" width="270" height="54" rx="14" fill="#ffffff"/>
+            <text x="200" y="64" text-anchor="middle" fill="#9a3412" font-family="Outfit, sans-serif" font-weight="900" font-size="28">2x + 5 = 17</text>
+          </svg>
+        `,
+
+        // 5. NÚMEROS REALES, RADICALES Y LOGARITMOS
+        "reales-radicales": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgRad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#065f46"/>
+                <stop offset="100%" stop-color="#059669"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgRad)"/>
+            <!-- Tarjeta Raíz Cuadrada -->
+            <rect x="35" y="35" width="155" height="95" rx="18" fill="#ffffff" opacity="0.95"/>
+            <text x="112" y="98" text-anchor="middle" fill="#065f46" font-family="Outfit, sans-serif" font-weight="900" font-size="44">√aⁿ</text>
+            <!-- Tarjeta Logaritmo -->
+            <rect x="210" y="35" width="155" height="95" rx="18" fill="#fef08a"/>
+            <text x="287" y="95" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="36">log₂(x)</text>
+            <!-- Recta Real abajo -->
+            <line x1="40" y1="175" x2="360" y2="175" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="110" cy="175" r="9" fill="#fbbf24" stroke="#ffffff" stroke-width="3"/>
+            <circle cx="200" cy="175" r="9" fill="#f43f5e" stroke="#ffffff" stroke-width="3"/>
+            <circle cx="290" cy="175" r="9" fill="#38bdf8" stroke="#ffffff" stroke-width="3"/>
+            <text x="110" y="156" text-anchor="middle" fill="#fde047" font-family="Outfit, sans-serif" font-weight="800" font-size="18">-√2</text>
+            <text x="200" y="156" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="800" font-size="18">0</text>
+            <text x="290" y="156" text-anchor="middle" fill="#7dd3fc" font-family="Outfit, sans-serif" font-weight="800" font-size="20">π</text>
+          </svg>
+        `,
+
+        // 6. PORCENTAJES Y MATEMÁTICA FINANCIERA
+        "finanzas-porcentajes": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgFin" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1e293b"/>
+                <stop offset="100%" stop-color="#0f766e"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgFin)"/>
+            <!-- Barras de crecimiento -->
+            <rect x="55" y="135" width="38" height="55" rx="6" fill="#38bdf8"/>
+            <rect x="110" y="105" width="38" height="85" rx="6" fill="#34d399"/>
+            <rect x="165" y="70" width="38" height="120" rx="6" fill="#facc15"/>
+            <!-- Flecha alcista -->
+            <path d="M55 120 L125 80 L190 40" fill="none" stroke="#4ade80" stroke-width="7" stroke-linecap="round"/>
+            <polygon points="180,28 210,30 198,55" fill="#4ade80"/>
+            <!-- Monedas y símbolo % -->
+            <circle cx="295" cy="85" r="46" fill="#fbbf24" stroke="#fef08a" stroke-width="4"/>
+            <text x="295" y="103" text-anchor="middle" fill="#78350f" font-family="Outfit, sans-serif" font-weight="900" font-size="52">%</text>
+            <rect x="240" y="150" width="125" height="40" rx="10" fill="#ffffff"/>
+            <text x="302" y="177" text-anchor="middle" fill="#0f766e" font-family="Outfit, sans-serif" font-weight="900" font-size="20">TAE / €</text>
+          </svg>
+        `,
+
+        // 7. POLINOMIOS Y REGLA DE RUFFINI
+        "polinomios-ruffini": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgPol" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#312e81"/>
+                <stop offset="100%" stop-color="#4f46e5"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgPol)"/>
+            <!-- Caja estilo Ruffini visual -->
+            <rect x="35" y="28" width="330" height="164" rx="18" fill="#1e1b4b" stroke="#818cf8" stroke-width="3"/>
+            <!-- Líneas de la cruz de Ruffini -->
+            <line x1="105" y1="45" x2="105" y2="175" stroke="#facc15" stroke-width="4" stroke-linecap="round"/>
+            <line x1="60" y1="130" x2="340" y2="130" stroke="#facc15" stroke-width="4" stroke-linecap="round"/>
+            <!-- Coeficientes -->
+            <text x="145" y="78" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="800" font-size="24">1</text>
+            <text x="205" y="78" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="800" font-size="24">-5</text>
+            <text x="265" y="78" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="800" font-size="24">6</text>
+            <!-- Raíz -->
+            <rect x="58" y="88" width="36" height="34" rx="8" fill="#f43f5e"/>
+            <text x="76" y="113" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="22">2</text>
+            <!-- Resto 0 destacado -->
+            <rect x="245" y="140" width="42" height="34" rx="8" fill="#10b981"/>
+            <text x="266" y="164" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="22">0</text>
+            <text x="145" y="164" text-anchor="middle" fill="#93c5fd" font-family="Outfit, sans-serif" font-weight="800" font-size="22">1</text>
+            <text x="205" y="164" text-anchor="middle" fill="#93c5fd" font-family="Outfit, sans-serif" font-weight="800" font-size="22">-3</text>
+          </svg>
+        `,
+
+        // 8. ECUACIONES BICUADRADAS E INECUACIONES
+        "bicuadradas-inecuaciones": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgIn" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0e7490"/>
+                <stop offset="100%" stop-color="#0284c7"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgIn)"/>
+            <rect x="45" y="32" width="310" height="72" rx="16" fill="#ffffff"/>
+            <text x="200" y="79" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="32">x⁴ - 5x² + 4 ≥ 0</text>
+            <!-- Intervalos de signo + - + -->
+            <line x1="45" y1="165" x2="355" y2="165" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="135" cy="165" r="10" fill="#fde047" stroke="#ffffff" stroke-width="3"/>
+            <circle cx="265" cy="165" r="10" fill="#fde047" stroke="#ffffff" stroke-width="3"/>
+            <rect x="65" y="122" width="44" height="30" rx="8" fill="#22c55e"/>
+            <text x="87" y="144" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="22">+</text>
+            <rect x="178" y="122" width="44" height="30" rx="8" fill="#ef4444"/>
+            <text x="200" y="144" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="22">−</text>
+            <rect x="290" y="122" width="44" height="30" rx="8" fill="#22c55e"/>
+            <text x="312" y="144" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="22">+</text>
+          </svg>
+        `,
+
+        // 9. SUCESIONES Y PROGRESIONES
+        "sucesiones-progresiones": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgSuc" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#4338ca"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgSuc)"/>
+            <!-- Escalones geométricos -->
+            <circle cx="65" cy="135" r="28" fill="#38bdf8" stroke="#ffffff" stroke-width="3"/>
+            <text x="65" y="144" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="26">2</text>
+            <circle cx="150" cy="115" r="32" fill="#4ade80" stroke="#ffffff" stroke-width="3"/>
+            <text x="150" y="125" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="28">6</text>
+            <circle cx="245" cy="95" r="36" fill="#facc15" stroke="#ffffff" stroke-width="3"/>
+            <text x="245" y="106" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="28">18</text>
+            <circle cx="342" cy="75" r="40" fill="#f43f5e" stroke="#ffffff" stroke-width="3"/>
+            <text x="342" y="86" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="28">54</text>
+            <!-- Saltos ×3 -->
+            <path d="M75 95 Q105 60 140 75" fill="none" stroke="#fde047" stroke-width="4" stroke-linecap="round"/>
+            <text x="105" y="60" text-anchor="middle" fill="#fde047" font-family="Outfit, sans-serif" font-weight="900" font-size="18">×3</text>
+            <path d="M165 72 Q200 38 235 52" fill="none" stroke="#fde047" stroke-width="4" stroke-linecap="round"/>
+            <text x="200" y="38" text-anchor="middle" fill="#fde047" font-family="Outfit, sans-serif" font-weight="900" font-size="18">×3</text>
+          </svg>
+        `,
+
+        // 10. TRIGONOMETRÍA PLANA
+        "trigonometria": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgTrig" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#3b0764"/>
+                <stop offset="100%" stop-color="#6d28d9"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgTrig)"/>
+            <!-- Circunferencia goniométrica -->
+            <circle cx="130" cy="110" r="72" fill="none" stroke="#c4b5fd" stroke-width="3.5"/>
+            <line x1="45" y1="110" x2="215" y2="110" stroke="#94a3b8" stroke-width="2"/>
+            <line x1="130" y1="25" x2="130" y2="195" stroke="#94a3b8" stroke-width="2"/>
+            <!-- Triángulo rectángulo interior -->
+            <polygon points="130,110 188,110 188,67" fill="#f43f5e" fill-opacity="0.35" stroke="#fbbf24" stroke-width="4"/>
+            <text x="160" y="130" fill="#fde047" font-family="Outfit, sans-serif" font-weight="800" font-size="15">cos α</text>
+            <text x="215" y="92" fill="#4ade80" font-family="Outfit, sans-serif" font-weight="800" font-size="15">sen α</text>
+            <!-- Onda sinusoidal a la derecha -->
+            <path d="M245 110 Q275 40 305 110 T365 110" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+            <rect x="245" y="145" width="130" height="38" rx="10" fill="#ffffff"/>
+            <text x="310" y="170" text-anchor="middle" fill="#4c1d95" font-family="Outfit, sans-serif" font-weight="900" font-size="18">sen² + cos² = 1</text>
+          </svg>
+        `,
+
+        // 11. DERIVADAS Y OPTIMIZACIÓN
+        "derivadas-optimizacion": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgDer" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#064e3b"/>
+                <stop offset="100%" stop-color="#10b981"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgDer)"/>
+            <!-- Ejes -->
+            <line x1="40" y1="185" x2="365" y2="185" stroke="#a7f3d0" stroke-width="3"/>
+            <line x1="55" y1="30" x2="55" y2="195" stroke="#a7f3d0" stroke-width="3"/>
+            <!-- Curva con Máximo y Mínimo -->
+            <path d="M65 165 C115 20, 175 20, 215 110 C255 190, 310 190, 355 55" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+            <!-- Recta tangente horizontal en el Máximo -->
+            <line x1="90" y1="56" x2="200" y2="56" stroke="#fde047" stroke-width="4" stroke-dasharray="8 5"/>
+            <circle cx="145" cy="56" r="9" fill="#ef4444" stroke="#ffffff" stroke-width="3"/>
+            <rect x="95" y="18" width="100" height="28" rx="8" fill="#fde047"/>
+            <text x="145" y="38" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="15">MÁX (f'=0)</text>
+            <!-- Punto Mínimo -->
+            <line x1="230" y1="158" x2="335" y2="158" stroke="#38bdf8" stroke-width="4" stroke-dasharray="8 5"/>
+            <circle cx="283" cy="158" r="9" fill="#38bdf8" stroke="#ffffff" stroke-width="3"/>
+          </svg>
+        `,
+
+        // 12. MATRICES Y DETERMINANTES
+        "matrices": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgMat" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1e3a8a"/>
+                <stop offset="100%" stop-color="#2563eb"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgMat)"/>
+            <!-- Corchetes de la Matriz -->
+            <path d="M95 35 L70 35 L70 185 L95 185" fill="none" stroke="#fde047" stroke-width="6" stroke-linecap="round"/>
+            <path d="M245 35 L270 35 L270 185 L245 185" fill="none" stroke="#fde047" stroke-width="6" stroke-linecap="round"/>
+            <!-- Diagonal de Sarrus -->
+            <line x1="100" y1="60" x2="240" y2="165" stroke="#f43f5e" stroke-width="10" stroke-linecap="round" opacity="0.5"/>
+            <!-- Números de la matriz -->
+            <text x="110" y="75" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="26">2</text>
+            <text x="170" y="75" text-anchor="middle" fill="#93c5fd" font-family="Outfit, sans-serif" font-weight="900" font-size="26">0</text>
+            <text x="230" y="75" text-anchor="middle" fill="#93c5fd" font-family="Outfit, sans-serif" font-weight="900" font-size="26">-1</text>
+            <text x="110" y="122" text-anchor="middle" fill="#93c5fd" font-family="Outfit, sans-serif" font-weight="900" font-size="26">1</text>
+            <text x="170" y="122" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="26">3</text>
+            <text x="230" y="122" text-anchor="middle" fill="#93c5fd" font-family="Outfit, sans-serif" font-weight="900" font-size="26">4</text>
+            <text x="110" y="168" text-anchor="middle" fill="#93c5fd" font-family="Outfit, sans-serif" font-weight="900" font-size="26">0</text>
+            <text x="170" y="168" text-anchor="middle" fill="#93c5fd" font-family="Outfit, sans-serif" font-weight="900" font-size="26">2</text>
+            <text x="230" y="168" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="26">5</text>
+            <!-- Inversa A^-1 -->
+            <rect x="292" y="82" width="82" height="55" rx="12" fill="#10b981"/>
+            <text x="333" y="119" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="28">A⁻¹</text>
+          </svg>
+        `,
+
+        // 13. SISTEMAS DE ECUACIONES (ROUCHÉ Y CRAMER)
+        "sistemas-rouche": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgSis" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#312e81"/>
+                <stop offset="100%" stop-color="#6366f1"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgSis)"/>
+            <!-- Planos / Rectas que se cortan en un punto -->
+            <line x1="45" y1="175" x2="245" y2="35" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+            <line x1="45" y1="45" x2="245" y2="175" stroke="#4ade80" stroke-width="6" stroke-linecap="round"/>
+            <line x1="145" y1="20" x2="145" y2="195" stroke="#facc15" stroke-width="5" stroke-dasharray="8 6"/>
+            <circle cx="145" cy="108" r="13" fill="#f43f5e" stroke="#ffffff" stroke-width="4"/>
+            <!-- Etiquetas SCD / SCI / SI -->
+            <rect x="260" y="38" width="110" height="40" rx="10" fill="#22c55e"/>
+            <text x="315" y="65" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="20">S.C.D.</text>
+            <rect x="260" y="90" width="110" height="40" rx="10" fill="#eab308"/>
+            <text x="315" y="117" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="20">S.C.I.</text>
+            <rect x="260" y="142" width="110" height="40" rx="10" fill="#ef4444"/>
+            <text x="315" y="169" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="20">S.I.</text>
+          </svg>
+        `,
+
+        // 14. PROGRAMACIÓN LINEAL (REGIÓN FACTIBLE)
+        "programacion-lineal": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgPL" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#065f46"/>
+                <stop offset="100%" stop-color="#0d9488"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgPL)"/>
+            <!-- Ejes -->
+            <line x1="60" y1="180" x2="350" y2="180" stroke="#ffffff" stroke-width="4"/>
+            <line x1="60" y1="25" x2="60" y2="180" stroke="#ffffff" stroke-width="4"/>
+            <!-- Polígono Región Factible -->
+            <polygon points="60,180 60,70 175,45 265,115 240,180" fill="#fde047" fill-opacity="0.45" stroke="#fde047" stroke-width="4"/>
+            <!-- Vértices -->
+            <circle cx="60" cy="70" r="7" fill="#ffffff"/>
+            <circle cx="240" cy="180" r="7" fill="#ffffff"/>
+            <circle cx="265" cy="115" r="7" fill="#ffffff"/>
+            <!-- Vértice Óptimo brillante -->
+            <circle cx="175" cy="45" r="12" fill="#f43f5e" stroke="#ffffff" stroke-width="3"/>
+            <rect x="200" y="25" width="155" height="42" rx="10" fill="#ffffff"/>
+            <text x="277" y="52" text-anchor="middle" fill="#065f46" font-family="Outfit, sans-serif" font-weight="900" font-size="19">★ ÓPTIMO MÁX</text>
+          </svg>
+        `,
+
+        // 15. LÍMITES, CONTINUIDAD Y ASÍNTOTAS
+        "limites-continuidad": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgLim" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0f172a"/>
+                <stop offset="100%" stop-color="#0369a1"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgLim)"/>
+            <!-- Asíntota Vertical punteada -->
+            <line x1="200" y1="15" x2="200" y2="205" stroke="#f43f5e" stroke-width="4" stroke-dasharray="9 6"/>
+            <!-- Asíntota Horizontal punteada -->
+            <line x1="25" y1="110" x2="375" y2="110" stroke="#facc15" stroke-width="3" stroke-dasharray="9 6"/>
+            <!-- Ramas hiperbólicas acercándose a las asíntotas -->
+            <path d="M35 122 C135 125, 175 140, 186 200" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+            <path d="M214 20 C225 80, 265 95, 365 98" fill="none" stroke="#4ade80" stroke-width="6" stroke-linecap="round"/>
+            <!-- Etiqueta Límite -->
+            <rect x="42" y="32" width="125" height="46" rx="12" fill="#ffffff"/>
+            <text x="104" y="62" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="22">lím f(x)</text>
+          </svg>
+        `,
+
+        // 16. CÁLCULO INTEGRAL Y ÁREAS
+        "integrales-areas": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgInt" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#881337"/>
+                <stop offset="100%" stop-color="#e11d48"/>
+              </linearGradient>
+              <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#fde047" stop-opacity="0.85"/>
+                <stop offset="100%" stop-color="#fde047" stop-opacity="0.2"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgInt)"/>
+            <!-- Área sombreada bajo la curva -->
+            <path d="M85 175 L85 95 C140 30, 220 140, 295 55 L295 175 Z" fill="url(#areaGrad)"/>
+            <!-- Curva superior -->
+            <path d="M45 140 C110 15, 210 150, 335 35" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+            <!-- Eje X -->
+            <line x1="35" y1="175" x2="365" y2="175" stroke="#ffffff" stroke-width="4"/>
+            <!-- Símbolo Integral grande -->
+            <rect x="145" y="95" width="105" height="52" rx="12" fill="#0f172a" opacity="0.85"/>
+            <text x="197" y="130" text-anchor="middle" fill="#fde047" font-family="Outfit, sans-serif" font-weight="900" font-size="26">∫ ÁREA</text>
+          </svg>
+        `,
+
+        // 17. GEOMETRÍA EN EL ESPACIO (3D)
+        "geometria-espacio": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgGeo" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1e1b4b"/>
+                <stop offset="100%" stop-color="#5b21b6"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgGeo)"/>
+            <!-- Ejes 3D X, Y, Z -->
+            <line x1="180" y1="125" x2="180" y2="20" stroke="#94a3b8" stroke-width="3"/>
+            <line x1="180" y1="125" x2="345" y2="125" stroke="#94a3b8" stroke-width="3"/>
+            <line x1="180" y1="125" x2="75" y2="195" stroke="#94a3b8" stroke-width="3"/>
+            <!-- Plano flotante en 3D -->
+            <polygon points="105,145 255,165 315,75 165,55" fill="#38bdf8" fill-opacity="0.4" stroke="#38bdf8" stroke-width="3.5"/>
+            <!-- Vector normal y recta que corta al plano -->
+            <line x1="210" y1="115" x2="210" y2="35" stroke="#fde047" stroke-width="5" stroke-linecap="round"/>
+            <polygon points="200,40 210,18 220,40" fill="#fde047"/>
+            <circle cx="210" cy="115" r="7" fill="#f43f5e" stroke="#ffffff" stroke-width="2"/>
+            <text x="245" y="48" fill="#fde047" font-family="Outfit, sans-serif" font-weight="900" font-size="22">n⃗</text>
+            <text x="285" y="155" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="22">π</text>
+          </svg>
+        `,
+
+        // 18. PROBABILIDAD Y TEOREMA DE BAYES (DADOS Y CAMPANA)
+        "probabilidad-bayes": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgProb" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#78350f"/>
+                <stop offset="100%" stop-color="#d97706"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgProb)"/>
+            <!-- Dado 1 -->
+            <rect x="55" y="55" width="75" height="75" rx="16" fill="#ffffff" stroke="#fde047" stroke-width="3" transform="rotate(-10 92 92)"/>
+            <circle cx="75" cy="75" r="7" fill="#dc2626"/>
+            <circle cx="92" cy="92" r="7" fill="#dc2626"/>
+            <circle cx="110" cy="110" r="7" fill="#dc2626"/>
+            <!-- Dado 2 -->
+            <rect x="135" y="95" width="70" height="70" rx="15" fill="#f43f5e" stroke="#ffffff" stroke-width="3" transform="rotate(12 170 130)"/>
+            <circle cx="152" cy="112" r="6" fill="#ffffff"/>
+            <circle cx="186" cy="112" r="6" fill="#ffffff"/>
+            <circle cx="152" cy="146" r="6" fill="#ffffff"/>
+            <circle cx="186" cy="146" r="6" fill="#ffffff"/>
+            <!-- Árbol de probabilidad a la derecha -->
+            <line x1="245" y1="110" x2="310" y2="65" stroke="#fde047" stroke-width="5" stroke-linecap="round"/>
+            <line x1="245" y1="110" x2="310" y2="155" stroke="#fde047" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="245" cy="110" r="9" fill="#ffffff"/>
+            <rect x="315" y="45" width="55" height="36" rx="8" fill="#ffffff"/>
+            <text x="342" y="70" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="18">P(A)</text>
+            <rect x="315" y="135" width="55" height="36" rx="8" fill="#ffffff"/>
+            <text x="342" y="160" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="18">P(B)</text>
+          </svg>
+        `,
+
+        // 19. INFERENCIA ESTADÍSTICA E INTERVALOS DE CONFIANZA
+        "inferencia-estadistica": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgInf" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#134e4a"/>
+                <stop offset="100%" stop-color="#0d9488"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgInf)"/>
+            <!-- Área central 95% de la Campana de Gauss -->
+            <path d="M115 170 L115 110 C150 45, 175 30, 200 30 C225 30, 250 45, 285 110 L285 170 Z" fill="#fde047" fill-opacity="0.75"/>
+            <!-- Curva de Gauss completa -->
+            <path d="M35 170 C95 170, 145 30, 200 30 C255 30, 305 170, 365 170" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+            <line x1="30" y1="170" x2="370" y2="170" stroke="#ffffff" stroke-width="4"/>
+            <!-- Texto 95% en el centro -->
+            <text x="200" y="125" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="30">95%</text>
+            <text x="115" y="196" text-anchor="middle" fill="#fde047" font-family="Outfit, sans-serif" font-weight="800" font-size="16">x̄ − E</text>
+            <text x="285" y="196" text-anchor="middle" fill="#fde047" font-family="Outfit, sans-serif" font-weight="800" font-size="16">x̄ + E</text>
+          </svg>
+        `,
+
+        // 20. CINEMÁTICA VECTORIAL Y TIRO PARABÓLICO
+        "tiro-parabolico": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgPar" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0c4a6e"/>
+                <stop offset="100%" stop-color="#0284c7"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgPar)"/>
+            <!-- Suelo -->
+            <rect x="0" y="175" width="400" height="45" fill="#166534"/>
+            <!-- Trayectoria parabólica punteada -->
+            <path d="M55 165 Q200 -10 345 165" fill="none" stroke="#fde047" stroke-width="5" stroke-dasharray="10 7"/>
+            <!-- Proyectil / Pelota en el aire -->
+            <circle cx="195" cy="78" r="18" fill="#f97316" stroke="#ffffff" stroke-width="3"/>
+            <!-- Vector velocidad tangente -->
+            <line x1="195" y1="78" x2="265" y2="78" stroke="#4ade80" stroke-width="6" stroke-linecap="round"/>
+            <polygon points="260,66 282,78 260,90" fill="#4ade80"/>
+            <text x="240" y="60" fill="#4ade80" font-family="Outfit, sans-serif" font-weight="900" font-size="22">v⃗</text>
+          </svg>
+        `,
+
+        // 21. DINÁMICA DE NEWTON (PLANO INCLINADO Y POLEA)
+        "dinamica-newton": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgDin" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1e293b"/>
+                <stop offset="100%" stop-color="#334155"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgDin)"/>
+            <!-- Plano inclinado -->
+            <polygon points="45,180 285,180 285,60" fill="#64748b" stroke="#cbd5e1" stroke-width="3"/>
+            <!-- Polea en la cima -->
+            <circle cx="298" cy="52" r="14" fill="#facc15" stroke="#ffffff" stroke-width="3"/>
+            <!-- Bloque sobre la rampa -->
+            <g transform="translate(165, 118) rotate(-26.5)">
+              <rect x="-30" y="-42" width="60" height="42" rx="6" fill="#ef4444" stroke="#ffffff" stroke-width="3"/>
+              <text x="0" y="-14" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="20">m₁</text>
+            </g>
+            <!-- Cuerda y bloque colgante -->
+            <line x1="185" y1="88" x2="292" y2="40" stroke="#fde047" stroke-width="3.5"/>
+            <line x1="312" y1="52" x2="312" y2="125" stroke="#fde047" stroke-width="3.5"/>
+            <rect x="288" y="125" width="48" height="44" rx="6" fill="#3b82f6" stroke="#ffffff" stroke-width="3"/>
+            <text x="312" y="153" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="18">m₂</text>
+          </svg>
+        `,
+
+        // 22. ESTEQUIOMETRÍA, MOLES Y GASES IDEALES
+        "estequiometria": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgEst" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#065f46"/>
+                <stop offset="100%" stop-color="#047857"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgEst)"/>
+            <!-- Vaso de precipitados con molaridad -->
+            <rect x="65" y="45" width="105" height="135" rx="10" fill="#ffffff" fill-opacity="0.2" stroke="#ffffff" stroke-width="4"/>
+            <rect x="69" y="95" width="97" height="81" rx="6" fill="#38bdf8"/>
+            <line x1="85" y1="75" x2="110" y2="75" stroke="#ffffff" stroke-width="3"/>
+            <line x1="85" y1="115" x2="115" y2="115" stroke="#ffffff" stroke-width="3"/>
+            <line x1="85" y1="145" x2="110" y2="145" stroke="#ffffff" stroke-width="3"/>
+            <!-- Cartel PV = nRT -->
+            <rect x="200" y="52" width="160" height="54" rx="14" fill="#fde047"/>
+            <text x="280" y="87" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="26">P·V = n·R·T</text>
+            <rect x="200" y="122" width="160" height="48" rx="12" fill="#ffffff"/>
+            <text x="280" y="153" text-anchor="middle" fill="#065f46" font-family="Outfit, sans-serif" font-weight="900" font-size="22">M = mol / L</text>
+          </svg>
+        `,
+
+        // 23. CAMPO GRAVITATORIO (PLANETA Y SATÉLITE EN ÓRBITA)
+        "campo-gravitatorio": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgGrav" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#090d16"/>
+                <stop offset="100%" stop-color="#1e1b4b"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgGrav)"/>
+            <!-- Estrellas -->
+            <circle cx="50" cy="40" r="2" fill="#ffffff"/>
+            <circle cx="340" cy="35" r="2.5" fill="#fde047"/>
+            <circle cx="80" cy="180" r="2" fill="#ffffff"/>
+            <circle cx="360" cy="170" r="2" fill="#ffffff"/>
+            <!-- Órbita elíptica -->
+            <ellipse cx="200" cy="110" rx="145" ry="62" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="8 6" transform="rotate(-12 200 110)"/>
+            <!-- Planeta Tierra central -->
+            <circle cx="200" cy="110" r="44" fill="#2563eb" stroke="#60a5fa" stroke-width="3"/>
+            <path d="M175 85 Q195 95 190 120 Q180 140 215 135 Q230 110 215 80 Z" fill="#22c55e"/>
+            <!-- Satélite -->
+            <circle cx="68" cy="138" r="12" fill="#facc15" stroke="#ffffff" stroke-width="3"/>
+            <rect x="40" y="132" width="16" height="12" fill="#93c5fd"/>
+            <rect x="80" y="132" width="16" height="12" fill="#93c5fd"/>
+          </svg>
+        `,
+
+        // 24. CAMPO ELÉCTRICO (CARGAS + Y -)
+        "campo-electrico": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgElec" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0f172a"/>
+                <stop offset="100%" stop-color="#1e3a8a"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgElec)"/>
+            <!-- Líneas de campo entre cargas -->
+            <path d="M115 110 Q200 30 285 110" fill="none" stroke="#fde047" stroke-width="3.5"/>
+            <path d="M115 110 Q200 190 285 110" fill="none" stroke="#fde047" stroke-width="3.5"/>
+            <line x1="115" y1="110" x2="285" y2="110" stroke="#fde047" stroke-width="4"/>
+            <!-- Carga Positiva + -->
+            <circle cx="115" cy="110" r="38" fill="#ef4444" stroke="#ffffff" stroke-width="4"/>
+            <text x="115" y="124" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="44">+</text>
+            <!-- Carga Negativa - -->
+            <circle cx="285" cy="110" r="38" fill="#3b82f6" stroke="#ffffff" stroke-width="4"/>
+            <text x="285" y="122" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="48">−</text>
+          </svg>
+        `,
+
+        // 25. CAMPO MAGNÉTICO E INDUCCIÓN (IMÁN N / S)
+        "campo-magnetico": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgMag" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1e1b4b"/>
+                <stop offset="100%" stop-color="#312e81"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgMag)"/>
+            <!-- Líneas de campo magnético -->
+            <ellipse cx="200" cy="60" rx="115" ry="38" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="7 5"/>
+            <ellipse cx="200" cy="160" rx="115" ry="38" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="7 5"/>
+            <!-- Imán Polo Norte (Rojo) y Polo Sur (Azul) -->
+            <rect x="85" y="82" width="115" height="56" rx="6" fill="#ef4444" stroke="#ffffff" stroke-width="3"/>
+            <text x="142" y="120" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="32">N</text>
+            <rect x="200" y="82" width="115" height="56" rx="6" fill="#3b82f6" stroke="#ffffff" stroke-width="3"/>
+            <text x="257" y="120" text-anchor="middle" fill="#ffffff" font-family="Outfit, sans-serif" font-weight="900" font-size="32">S</text>
+          </svg>
+        `,
+
+        // 26. ONDAS, ÓPTICA Y FÍSICA CUÁNTICA (PRISMA Y ONDA)
+        "ondas-optica": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <rect width="400" height="220" fill="#0f172a"/>
+            <!-- Haz de luz blanca entrante -->
+            <line x1="30" y1="145" x2="155" y2="105" stroke="#ffffff" stroke-width="6"/>
+            <!-- Prisma de cristal -->
+            <polygon points="130,165 200,45 270,165" fill="#38bdf8" fill-opacity="0.25" stroke="#ffffff" stroke-width="4"/>
+            <!-- Arcoíris dispersado -->
+            <line x1="232" y1="100" x2="375" y2="65" stroke="#ef4444" stroke-width="6"/>
+            <line x1="236" y1="107" x2="375" y2="85" stroke="#facc15" stroke-width="6"/>
+            <line x1="240" y1="114" x2="375" y2="105" stroke="#22c55e" stroke-width="6"/>
+            <line x1="244" y1="121" x2="375" y2="125" stroke="#3b82f6" stroke-width="6"/>
+            <line x1="248" y1="128" x2="375" y2="145" stroke="#a855f7" stroke-width="6"/>
+          </svg>
+        `,
+
+        // 27. EQUILIBRIO QUÍMICO (Kc y Kp)
+        "equilibrio-quimico": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgEqQ" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#064e3b"/>
+                <stop offset="100%" stop-color="#0d9488"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgEqQ)"/>
+            <circle cx="90" cy="110" r="46" fill="#38bdf8" stroke="#ffffff" stroke-width="4"/>
+            <text x="90" y="121" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="30">A+B</text>
+            <!-- Doble flecha de equilibrio -->
+            <line x1="155" y1="98" x2="245" y2="98" stroke="#fde047" stroke-width="6" stroke-linecap="round"/>
+            <polygon points="238,86 258,98 238,110" fill="#fde047"/>
+            <line x1="245" y1="122" x2="155" y2="122" stroke="#fde047" stroke-width="6" stroke-linecap="round"/>
+            <polygon points="162,110 142,122 162,134" fill="#fde047"/>
+            <circle cx="310" cy="110" r="46" fill="#4ade80" stroke="#ffffff" stroke-width="4"/>
+            <text x="310" y="121" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="30">C+D</text>
+          </svg>
+        `,
+
+        // 28. REACCIONES ÁCIDO-BASE Y ESCALA DE pH
+        "acido-base-ph": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <rect width="400" height="220" fill="#1e293b"/>
+            <!-- Escala de colores de pH -->
+            <rect x="35" y="135" width="45" height="50" rx="6" fill="#ef4444"/>
+            <rect x="85" y="135" width="45" height="50" rx="6" fill="#f97316"/>
+            <rect x="135" y="135" width="45" height="50" rx="6" fill="#facc15"/>
+            <rect x="185" y="135" width="45" height="50" rx="6" fill="#22c55e"/>
+            <rect x="235" y="135" width="45" height="50" rx="6" fill="#06b6d4"/>
+            <rect x="285" y="135" width="45" height="50" rx="6" fill="#3b82f6"/>
+            <rect x="335" y="135" width="35" height="50" rx="6" fill="#8b5cf6"/>
+            <!-- Insignia grande pH -->
+            <rect x="115" y="35" width="170" height="75" rx="18" fill="#ffffff"/>
+            <text x="200" y="86" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="42">pH 0–14</text>
+          </svg>
+        `,
+
+        // 29. TERMOQUÍMICA (ENERGÍA Y ENTALPÍA)
+        "termoquimica": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgTermo" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#7c2d12"/>
+                <stop offset="100%" stop-color="#dc2626"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgTermo)"/>
+            <!-- Llama estilizada -->
+            <path d="M125 180 C85 180, 70 130, 105 90 C105 115, 125 110, 130 55 C165 95, 185 135, 150 175 Z" fill="#f97316" stroke="#fde047" stroke-width="4"/>
+            <path d="M125 180 C105 180, 100 145, 125 115 C145 145, 145 175, 125 180 Z" fill="#fde047"/>
+            <!-- Tarjeta Entalpía y Gibbs -->
+            <rect x="205" y="55" width="160" height="52" rx="12" fill="#ffffff"/>
+            <text x="285" y="89" text-anchor="middle" fill="#991b1b" font-family="Outfit, sans-serif" font-weight="900" font-size="26">ΔH &lt; 0</text>
+            <rect x="205" y="122" width="160" height="48" rx="12" fill="#fde047"/>
+            <text x="285" y="153" text-anchor="middle" fill="#0f172a" font-family="Outfit, sans-serif" font-weight="900" font-size="20">ΔG = ΔH − TΔS</text>
+          </svg>
+        `,
+
+        // 30. REACCIONES REDOX Y PILAS GALVÁNICAS
+        "redox-pilas": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgRedox" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0f172a"/>
+                <stop offset="100%" stop-color="#1e40af"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgRedox)"/>
+            <!-- Pila / Batería energética -->
+            <rect x="65" y="65" width="135" height="90" rx="14" fill="#22c55e" stroke="#ffffff" stroke-width="4"/>
+            <rect x="200" y="88" width="16" height="44" rx="4" fill="#fde047"/>
+            <!-- Rayo eléctrico -->
+            <polygon points="145,78 110,115 135,115 120,145 160,105 135,105" fill="#fde047"/>
+            <!-- Flujo de electrones -->
+            <rect x="240" y="75" width="125" height="70" rx="16" fill="#ffffff"/>
+            <text x="302" y="120" text-anchor="middle" fill="#1e3a8a" font-family="Outfit, sans-serif" font-weight="900" font-size="30">e⁻ →</text>
+          </svg>
+        `,
+
+        // 31. QUÍMICA ORGÁNICA (CADENA DE CARBONO Y ANILLO DE BENCENO)
+        "quimica-organica": `
+          <svg viewBox="0 0 400 220" class="w-full h-full object-cover">
+            <defs>
+              <linearGradient id="bgOrg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#115e59"/>
+                <stop offset="100%" stop-color="#0d9488"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="220" fill="url(#bgOrg)"/>
+            <!-- Hexágono de Benceno -->
+            <polygon points="135,45 190,77 190,143 135,175 80,143 80,77" fill="none" stroke="#ffffff" stroke-width="6"/>
+            <circle cx="135" cy="110" r="34" fill="none" stroke="#fde047" stroke-width="4" stroke-dasharray="8 6"/>
+            <!-- Átomos en vértices -->
+            <circle cx="135" cy="45" r="9" fill="#f43f5e"/>
+            <circle cx="190" cy="77" r="9" fill="#38bdf8"/>
+            <circle cx="190" cy="143" r="9" fill="#38bdf8"/>
+            <circle cx="135" cy="175" r="9" fill="#f43f5e"/>
+            <circle cx="80" cy="143" r="9" fill="#38bdf8"/>
+            <circle cx="80" cy="77" r="9" fill="#38bdf8"/>
+            <!-- Etiqueta Química del Carbono -->
+            <rect x="225" y="78" width="145" height="64" rx="14" fill="#ffffff"/>
+            <text x="297" y="119" text-anchor="middle" fill="#115e59" font-family="Outfit, sans-serif" font-weight="900" font-size="26">−CH₂−</text>
+          </svg>
+        `
+      };
+
+      return miniaturas[tipo] || miniaturas["ecuaciones-balanza"];
+    }
+
+    // Catálogo completo con 1º ESO, 2º ESO, 3º ESO, 4º ESO, 1º BACHILLER y 2º BACHILLER separados
     const catalogo = {
       "matematicas": {
         nombre: "MATEMÁTICAS",
         icono: "📐",
-        colorGradiente: "from-brand-600 to-rose-500",
-        colorBorde: "border-rose-200 hover:border-brand-500",
         cursos: {
-          "1-2-eso": {
-            nombre: "1º y 2º ESO",
-            etiqueta: "1º - 2º ESO",
+          "1-eso": {
+            nombre: "1º ESO",
             color: "bg-orange-500",
             ramas: null,
             temas: [
               {
-                titulo: "Ecuaciones de 1º y 2º Grado y Sistemas",
-                muestraLatex: "\\frac{x - 1}{2} + 3x = 5",
+                titulo: "Ecuaciones de 1º Grado y Problemas",
+                miniatura: "ecuaciones-balanza",
                 teoriaUrl: "materiales/ecuaciones-1-2-eso.html",
                 ejerciciosUrl: "materiales/ejercicios-ecuaciones-1-2-eso.html"
               }
             ]
           },
-          "3-4-eso": {
-            nombre: "3º y 4º ESO",
-            etiqueta: "3º - 4º ESO",
+          "2-eso": {
+            nombre: "2º ESO",
             color: "bg-amber-500",
             ramas: null,
             temas: [
               {
+                titulo: "Ecuaciones de 1º y 2º Grado y Sistemas",
+                miniatura: "ecuaciones-balanza",
+                teoriaUrl: "materiales/ecuaciones-1-2-eso.html",
+                ejerciciosUrl: "materiales/ejercicios-ecuaciones-1-2-eso.html"
+              }
+            ]
+          },
+          "3-eso": {
+            nombre: "3º ESO",
+            color: "bg-yellow-600",
+            ramas: null,
+            temas: [
+              {
+                titulo: "Ecuaciones de 1º y 2º Grado y Sistemas",
+                miniatura: "ecuaciones-balanza",
+                teoriaUrl: "materiales/ecuaciones-1-2-eso.html",
+                ejerciciosUrl: "materiales/ejercicios-ecuaciones-1-2-eso.html"
+              },
+              {
+                titulo: "Polinomios, Ruffini y Fracciones Algebraicas",
+                miniatura: "polinomios-ruffini",
+                teoriaUrl: "materiales/polinomios-fracciones-4eso.html",
+                ejerciciosUrl: "materiales/ejercicios-polinomios-fracciones-4eso.html"
+              },
+              {
+                titulo: "Sucesiones y Progresiones",
+                miniatura: "sucesiones-progresiones",
+                teoriaUrl: "materiales/sucesiones-eso.html",
+                ejerciciosUrl: "materiales/ejercicios-sucesiones-eso.html"
+              }
+            ]
+          },
+          "4-eso": {
+            nombre: "4º ESO",
+            color: "bg-emerald-600",
+            ramas: null,
+            temas: [
+              {
                 titulo: "Números Reales, Radicales y Logaritmos",
-                muestraLatex: "\\frac{6}{\\sqrt{5} - \\sqrt{2}} \\quad \\cdot \\quad \\log_2(8) = x",
+                miniatura: "reales-radicales",
                 teoriaUrl: "materiales/numeros-reales-4eso-academicas.html",
                 ejerciciosUrl: "materiales/ejercicios-numeros-reales-4eso-academicas.html"
               },
               {
                 titulo: "Porcentajes y Matemática Financiera",
-                muestraLatex: "C_f = C_0 \\cdot \\left(1 + \\frac{r}{100}\\right)^t",
+                miniatura: "finanzas-porcentajes",
                 teoriaUrl: "materiales/numeros-reales-4eso-aplicadas.html",
                 ejerciciosUrl: "materiales/ejercicios-numeros-reales-4eso-aplicadas.html"
               },
               {
                 titulo: "Polinomios, Ruffini y Fracciones Algebraicas",
-                muestraLatex: "\\frac{x^2 - 9}{x^2 + 6x + 9}",
+                miniatura: "polinomios-ruffini",
                 teoriaUrl: "materiales/polinomios-fracciones-4eso.html",
                 ejerciciosUrl: "materiales/ejercicios-polinomios-fracciones-4eso.html"
               },
               {
                 titulo: "Ecuaciones Bicuadradas, Irracionales e Inecuaciones",
-                muestraLatex: "\\sqrt{2x + 3} - x = 0",
+                miniatura: "bicuadradas-inecuaciones",
                 teoriaUrl: "materiales/ecuaciones-inecuaciones-4eso.html",
                 ejerciciosUrl: "materiales/ejercicios-ecuaciones-inecuaciones-4eso.html"
               },
               {
                 titulo: "Sucesiones y Progresiones",
-                muestraLatex: "a_n = a_1 + (n - 1)\\cdot d",
+                miniatura: "sucesiones-progresiones",
                 teoriaUrl: "materiales/sucesiones-eso.html",
                 ejerciciosUrl: "materiales/ejercicios-sucesiones-eso.html"
               }
@@ -185,22 +1021,20 @@
           },
           "1-bach": {
             nombre: "1º BACHILLER",
-            etiqueta: "1º BACH",
             color: "bg-purple-600",
             ramas: {
               "ccss": {
                 nombre: "MATEMÁTICAS CCSS",
-                color: "bg-emerald-600",
                 temas: [
                   {
                     titulo: "Matemática Financiera, TAE y Amortización",
-                    muestraLatex: "\\text{TAE} = \\left(1 + \\frac{r}{k}\\right)^k - 1",
+                    miniatura: "finanzas-porcentajes",
                     teoriaUrl: "materiales/matematica-financiera-1-bach-ccss.html",
                     ejerciciosUrl: "materiales/ejercicios-matematica-financiera-1-bach-ccss.html"
                   },
                   {
                     titulo: "Derivadas y Optimización de Funciones",
-                    muestraLatex: "f(x) = x^3 - 3x^2 \\implies f'(x) = 0",
+                    miniatura: "derivadas-optimizacion",
                     teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
                   }
@@ -208,17 +1042,16 @@
               },
               "mat-1": {
                 nombre: "MATEMÁTICAS I",
-                color: "bg-purple-600",
                 temas: [
                   {
                     titulo: "Trigonometría Plana y Ecuaciones",
-                    muestraLatex: "\\sin(2x) + \\cos(x) = 0",
+                    miniatura: "trigonometria",
                     teoriaUrl: "materiales/trigonometria-1-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-trigonometria-1-bach.html"
                   },
                   {
                     titulo: "Derivadas y Estudio de Funciones",
-                    muestraLatex: "f'(x) = \\frac{u' \\cdot v - u \\cdot v'}{v^2}",
+                    miniatura: "derivadas-optimizacion",
                     teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
                   }
@@ -228,58 +1061,56 @@
           },
           "2-bach": {
             nombre: "2º BACHILLER",
-            etiqueta: "2º BACH",
-            color: "bg-brand-600",
+            color: "bg-rose-500",
             ramas: {
               "ccss": {
                 nombre: "MATEMÁTICAS CCSS",
-                color: "bg-emerald-600",
                 temas: [
                   {
                     titulo: "Matrices y Determinantes",
-                    muestraLatex: "A \\cdot X - B = 2X",
+                    miniatura: "matrices",
                     teoriaUrl: "materiales/matrices-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-matrices-2-bach.html"
                   },
                   {
                     titulo: "Sistemas de Ecuaciones Lineales",
-                    muestraLatex: "\\begin{cases} x + y + mz = 1 \\\\ x + my + z = m \\end{cases}",
+                    miniatura: "sistemas-rouche",
                     teoriaUrl: "materiales/sistemas-rouche-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-rouche-2-bach.html"
                   },
                   {
                     titulo: "Programación Lineal",
-                    muestraLatex: "F(x,y) = 40x + 30y \\; \\begin{cases} 2x + y \\le 10 \\\\ x \\ge 0, \\, y \\ge 0 \\end{cases}",
+                    miniatura: "programacion-lineal",
                     teoriaUrl: "materiales/programacion-lineal-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-programacion-lineal-2-bach.html"
                   },
                   {
                     titulo: "Límites, Continuidad y Asíntotas",
-                    muestraLatex: "f(x) = \\begin{cases} ax + 1 & x \\le 1 \\\\ x^2 + b & x > 1 \\end{cases}",
+                    miniatura: "limites-continuidad",
                     teoriaUrl: "materiales/limites-continuidad-2-bach-ccss.html",
                     ejerciciosUrl: "materiales/ejercicios-limites-continuidad-2-bach-ccss.html"
                   },
                   {
                     titulo: "Derivadas y Optimización",
-                    muestraLatex: "B(x) = -x^2 + 80x - 500 \\implies B'(x) = 0",
+                    miniatura: "derivadas-optimizacion",
                     teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
                   },
                   {
                     titulo: "Cálculo Integral y Regla de Barrow",
-                    muestraLatex: "\\int_1^3 (-x^2 + 4x - 3)\\,dx",
+                    miniatura: "integrales-areas",
                     teoriaUrl: "materiales/integrales-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-integrales-2-bach.html"
                   },
                   {
                     titulo: "Probabilidad y Teorema de Bayes",
-                    muestraLatex: "P(A|B) = \\frac{P(A \\cap B)}{P(B)}",
+                    miniatura: "probabilidad-bayes",
                     teoriaUrl: "materiales/probabilidad-normal-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-probabilidad-normal-2-bach.html"
                   },
                   {
                     titulo: "Inferencia Estadística e Intervalos de Confianza",
-                    muestraLatex: "\\left(\\bar{x} - z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}, \\; \\bar{x} + z_{\\alpha/2}\\frac{\\sigma}{\\sqrt{n}}\\right)",
+                    miniatura: "inferencia-estadistica",
                     teoriaUrl: "materiales/inferencia-estadistica-2-bach-ccss.html",
                     ejerciciosUrl: "materiales/ejercicios-inferencia-estadistica-2-bach-ccss.html"
                   }
@@ -287,47 +1118,46 @@
               },
               "mat-2": {
                 nombre: "MATEMÁTICAS II",
-                color: "bg-brand-600",
                 temas: [
                   {
                     titulo: "Matrices y Determinantes",
-                    muestraLatex: "A = \\begin{pmatrix} 1 & m \\\\ 2 & 3 \\end{pmatrix} \\quad A^{-1} = \\frac{(\\text{Adj } A)^t}{|A|}",
+                    miniatura: "matrices",
                     teoriaUrl: "materiales/matrices-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-matrices-2-bach.html"
                   },
                   {
                     titulo: "Sistemas de Ecuaciones: Rouché y Cramer",
-                    muestraLatex: "\\begin{cases} x + y + mz = 1 \\\\ x + my + z = m \\\\ mx + y + z = 1 \\end{cases}",
+                    miniatura: "sistemas-rouche",
                     teoriaUrl: "materiales/sistemas-rouche-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-rouche-2-bach.html"
                   },
                   {
                     titulo: "Geometría en el Espacio: Rectas y Planos",
-                    muestraLatex: "\\frac{x - 1}{2} = \\frac{y + 1}{-1} = \\frac{z}{3}",
+                    miniatura: "geometria-espacio",
                     teoriaUrl: "materiales/geometria-espacio-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-geometria-espacio-2-bach.html"
                   },
                   {
                     titulo: "Límites, Continuidad y Asíntotas",
-                    muestraLatex: "\\lim_{x \\to 0} \\frac{e^x - 1 - x}{x^2}",
+                    miniatura: "limites-continuidad",
                     teoriaUrl: "materiales/limites-continuidad-2-bach-ccss.html",
                     ejerciciosUrl: "materiales/ejercicios-limites-continuidad-2-bach-ccss.html"
                   },
                   {
                     titulo: "Derivadas y Optimización",
-                    muestraLatex: "f(x) = \\frac{x^2}{x - 1} \\implies f'(x) = 0",
+                    miniatura: "derivadas-optimizacion",
                     teoriaUrl: "materiales/derivadas-optimizacion-1-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-derivadas-optimizacion-1-bach.html"
                   },
                   {
                     titulo: "Cálculo Integral y Cálculo de Áreas",
-                    muestraLatex: "\\int_a^b |f(x) - g(x)|\\,dx",
+                    miniatura: "integrales-areas",
                     teoriaUrl: "materiales/integrales-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-integrales-2-bach.html"
                   },
                   {
                     titulo: "Probabilidad y Distribución Normal",
-                    muestraLatex: "P(A|B) = \\frac{P(A \\cap B)}{P(B)} \\quad Z = \\frac{X - \\mu}{\\sigma}",
+                    miniatura: "probabilidad-bayes",
                     teoriaUrl: "materiales/probabilidad-normal-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-probabilidad-normal-2-bach.html"
                   }
@@ -341,50 +1171,84 @@
       "fisica-quimica": {
         nombre: "FÍSICA Y QUÍMICA",
         icono: "⚛️",
-        colorGradiente: "from-blue-600 to-indigo-600",
-        colorBorde: "border-blue-200 hover:border-blue-500",
         cursos: {
-          "1-2-eso": {
-            nombre: "1º y 2º ESO",
-            etiqueta: "1º - 2º ESO",
+          "1-eso": {
+            nombre: "1º ESO",
             color: "bg-sky-500",
             ramas: null,
             temas: [
               {
-                titulo: "El Movimiento (MRU) y las Fuerzas",
-                muestraLatex: "v = \\frac{\\Delta x}{\\Delta t} \\quad \\cdot \\quad F = m \\cdot a",
-                teoriaUrl: "materiales/fuerzas-movimiento-eso.html",
-                ejerciciosUrl: "materiales/ejercicios-fuerzas-movimiento-eso.html"
-              },
-              {
                 titulo: "El Átomo y la Tabla Periódica",
-                muestraLatex: "^{A}_{Z}\\text{X} \\quad (A = Z + N)",
+                miniatura: "atomo-tabla",
                 teoriaUrl: "materiales/atomo-enlace-eso.html",
                 ejerciciosUrl: "materiales/ejercicios-atomo-enlace-eso.html"
               }
             ]
           },
-          "3-4-eso": {
-            nombre: "3º y 4º ESO",
-            etiqueta: "3º - 4º ESO",
+          "2-eso": {
+            nombre: "2º ESO",
             color: "bg-cyan-600",
             ramas: null,
             temas: [
               {
+                titulo: "El Movimiento (MRU) y las Fuerzas",
+                miniatura: "coche-movimiento",
+                teoriaUrl: "materiales/fuerzas-movimiento-eso.html",
+                ejerciciosUrl: "materiales/ejercicios-fuerzas-movimiento-eso.html"
+              },
+              {
+                titulo: "El Átomo y la Tabla Periódica",
+                miniatura: "atomo-tabla",
+                teoriaUrl: "materiales/atomo-enlace-eso.html",
+                ejerciciosUrl: "materiales/ejercicios-atomo-enlace-eso.html"
+              }
+            ]
+          },
+          "3-eso": {
+            nombre: "3º ESO",
+            color: "bg-teal-600",
+            ramas: null,
+            temas: [
+              {
+                titulo: "El Átomo, Tabla Periódica y Enlace Químico",
+                miniatura: "atomo-tabla",
+                teoriaUrl: "materiales/atomo-enlace-eso.html",
+                ejerciciosUrl: "materiales/ejercicios-atomo-enlace-eso.html"
+              },
+              {
+                titulo: "El Movimiento y las Fuerzas",
+                miniatura: "coche-movimiento",
+                teoriaUrl: "materiales/fuerzas-movimiento-eso.html",
+                ejerciciosUrl: "materiales/ejercicios-fuerzas-movimiento-eso.html"
+              },
+              {
+                titulo: "Formulación y Nomenclatura Química",
+                miniatura: "formulacion-quimica",
+                teoriaUrl: "materiales/formulacion-nomenclatura.html",
+                ejerciciosUrl: "materiales/ejercicios-formulacion-nomenclatura.html"
+              }
+            ]
+          },
+          "4-eso": {
+            nombre: "4º ESO",
+            color: "bg-blue-600",
+            ramas: null,
+            temas: [
+              {
                 titulo: "Cinemática (MRU y MRUA) y Leyes de Newton",
-                muestraLatex: "x = x_0 + v_0 t + \\frac{1}{2}at^2",
+                miniatura: "coche-movimiento",
                 teoriaUrl: "materiales/fuerzas-movimiento-eso.html",
                 ejerciciosUrl: "materiales/ejercicios-fuerzas-movimiento-eso.html"
               },
               {
                 titulo: "El Átomo, Tabla Periódica y Enlace Químico",
-                muestraLatex: "1s^2 \\, 2s^2 \\, 2p^6 \\, 3s^2 \\, 3p^4",
+                miniatura: "atomo-tabla",
                 teoriaUrl: "materiales/atomo-enlace-eso.html",
                 ejerciciosUrl: "materiales/ejercicios-atomo-enlace-eso.html"
               },
               {
                 titulo: "Formulación y Nomenclatura Química",
-                muestraLatex: "\\text{Fe}_2\\text{O}_3 \\quad \\cdot \\quad \\text{H}_2\\text{SO}_4 \\quad \\cdot \\quad \\text{NH}_3",
+                miniatura: "formulacion-quimica",
                 teoriaUrl: "materiales/formulacion-nomenclatura.html",
                 ejerciciosUrl: "materiales/ejercicios-formulacion-nomenclatura.html"
               }
@@ -392,22 +1256,20 @@
           },
           "1-bach": {
             nombre: "1º BACHILLER",
-            etiqueta: "1º BACH",
-            color: "bg-blue-600",
+            color: "bg-indigo-600",
             ramas: {
               "fisica": {
                 nombre: "FÍSICA",
-                color: "bg-blue-600",
                 temas: [
                   {
                     titulo: "Cinemática Vectorial, Tiro Parabólico y MCU",
-                    muestraLatex: "\\vec{r}(t) = x(t)\\vec{i} + y(t)\\vec{j} \\quad \\cdot \\quad a_n = \\frac{v^2}{R}",
+                    miniatura: "tiro-parabolico",
                     teoriaUrl: "materiales/cinematica-vectorial-1-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-cinematica-vectorial-1-bach.html"
                   },
                   {
                     titulo: "Dinámica de Newton, Fuerzas y Conservación",
-                    muestraLatex: "\\sum \\vec{F} = m \\cdot \\vec{a} \\quad \\cdot \\quad F_r = \\mu \\cdot N",
+                    miniatura: "dinamica-newton",
                     teoriaUrl: "materiales/dinamica-newton-1-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-dinamica-newton-1-bach.html"
                   }
@@ -415,17 +1277,16 @@
               },
               "quimica": {
                 nombre: "QUÍMICA",
-                color: "bg-emerald-600",
                 temas: [
                   {
                     titulo: "Estequiometría, Reactivo Limitante y Disoluciones",
-                    muestraLatex: "P \\cdot V = n \\cdot R \\cdot T",
+                    miniatura: "estequiometria",
                     teoriaUrl: "materiales/estequiometria-disoluciones-1-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-estequiometria-disoluciones-1-bach.html"
                   },
                   {
                     titulo: "Formulación Inorgánica y Orgánica IUPAC",
-                    muestraLatex: "\\text{K}_2\\text{Cr}_2\\text{O}_7 \\quad \\cdot \\quad \\text{CH}_3\\text{-CH}_2\\text{-COOH}",
+                    miniatura: "formulacion-quimica",
                     teoriaUrl: "materiales/formulacion-nomenclatura.html",
                     ejerciciosUrl: "materiales/ejercicios-formulacion-nomenclatura.html"
                   }
@@ -435,34 +1296,32 @@
           },
           "2-bach": {
             nombre: "2º BACHILLER",
-            etiqueta: "2º BACH",
-            color: "bg-indigo-600",
+            color: "bg-violet-600",
             ramas: {
               "fisica": {
                 nombre: "FÍSICA",
-                color: "bg-blue-600",
                 temas: [
                   {
                     titulo: "Campo Gravitatorio: Órbitas y Satélites",
-                    muestraLatex: "\\vec{F} = -G\\frac{M \\cdot m}{r^2}\\vec{u}_r",
+                    miniatura: "campo-gravitatorio",
                     teoriaUrl: "materiales/campo-gravitatorio-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-campo-gravitatorio-2-bach.html"
                   },
                   {
                     titulo: "Campo Eléctrico: Ley de Coulomb y Potencial",
-                    muestraLatex: "\\vec{F} = K\\frac{q_1 \\cdot q_2}{r^2}\\vec{u}_r",
+                    miniatura: "campo-electrico",
                     teoriaUrl: "materiales/campo-electrico-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-campo-electrico-2-bach.html"
                   },
                   {
                     titulo: "Campo Magnético e Inducción (Lorentz y Faraday)",
-                    muestraLatex: "\\vec{F} = q(\\vec{v} \\times \\vec{B}) \\quad \\cdot \\quad \\varepsilon = -\\frac{d\\Phi}{dt}",
+                    miniatura: "campo-magnetico",
                     teoriaUrl: "materiales/campo-magnetico-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-campo-magnetico-2-bach.html"
                   },
                   {
                     titulo: "Ondas, Óptica Geométrica y Física Cuántica",
-                    muestraLatex: "y(x,t) = A\\sin(\\omega t - kx)",
+                    miniatura: "ondas-optica",
                     teoriaUrl: "materiales/ondas-optica-moderna-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-ondas-optica-moderna-2-bach.html"
                   }
@@ -470,35 +1329,34 @@
               },
               "quimica": {
                 nombre: "QUÍMICA",
-                color: "bg-emerald-600",
                 temas: [
                   {
                     titulo: "Equilibrio Químico: Kc, Kp y Le Châtelier",
-                    muestraLatex: "K_p = K_c \\cdot (R \\cdot T)^{\\Delta n}",
+                    miniatura: "equilibrio-quimico",
                     teoriaUrl: "materiales/equilibrio-quimico-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-equilibrio-quimico-2-bach.html"
                   },
                   {
                     titulo: "Reacciones Ácido-Base, pH y Valoraciones",
-                    muestraLatex: "\\text{pH} = -\\log[\\text{H}_3\\text{O}^+]",
+                    miniatura: "acido-base-ph",
                     teoriaUrl: "materiales/reacciones-acido-base-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-reacciones-acido-base-2-bach.html"
                   },
                   {
                     titulo: "Termoquímica: Ley de Hess y Energía de Gibbs",
-                    muestraLatex: "\\Delta G^\\circ = \\Delta H^\\circ - T \\cdot \\Delta S^\\circ",
+                    miniatura: "termoquimica",
                     teoriaUrl: "materiales/termoquimica-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-termoquimica-2-bach.html"
                   },
                   {
                     titulo: "Reacciones Redox, Pilas Galvánicas y Faraday",
-                    muestraLatex: "E^\\circ_{\\text{pila}} = E^\\circ_{\\text{cátodo}} - E^\\circ_{\\text{ánodo}}",
+                    miniatura: "redox-pilas",
                     teoriaUrl: "materiales/reacciones-redox-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-reacciones-redox-2-bach.html"
                   },
                   {
                     titulo: "Química del Carbono: Isomería y Reacciones",
-                    muestraLatex: "\\text{CH}_3\\text{-CH=CH}_2 + \\text{HBr}",
+                    miniatura: "quimica-organica",
                     teoriaUrl: "materiales/quimica-organica-2-bach.html",
                     ejerciciosUrl: "materiales/ejercicios-quimica-organica-2-bach.html"
                   }
@@ -510,39 +1368,28 @@
       }
     };
 
-    function renderizarFormula(latex) {
-      if (typeof katex !== 'undefined') {
-        try {
-          return katex.renderToString(latex, { displayMode: true, throwOnError: false });
-        } catch (e) {
-          return latex;
-        }
-      }
-      return latex;
-    }
-
     function crearTarjetaTema(tema) {
       return `
-        <div class="bg-white rounded-2xl border-2 border-slate-200 hover:border-slate-400 p-5 flex flex-col justify-between transition shadow-sm hover:shadow-md">
+        <div class="bg-white rounded-3xl border-2 border-slate-200 hover:border-slate-300 p-5 flex flex-col justify-between transition shadow-sm hover:shadow-lg">
           <div>
-            <!-- TÍTULO DEL TEMA -->
-            <h4 class="font-display font-bold text-base sm:text-lg text-slate-900 text-center mb-3">
+            <!-- TÍTULO DEL TEMA MÁS GRANDE -->
+            <h4 class="font-display font-extrabold text-xl sm:text-2xl text-slate-900 text-center leading-tight mb-4">
               ${tema.titulo}
             </h4>
 
-            <!-- MUESTRA VISUAL DE ECUACIÓN (SIN RESOLVER) -->
-            <div class="math-preview-box rounded-xl border border-slate-200 p-4 mb-4 min-h-[105px] flex items-center justify-center text-slate-800 shadow-inner overflow-x-auto">
-              ${renderizarFormula(tema.muestraLatex)}
+            <!-- IMAGEN ESTILO MINIATURA DE YOUTUBE -->
+            <div class="rounded-2xl overflow-hidden border-2 border-slate-200 mb-5 aspect-video shadow-md">
+              ${obtenerMiniaturaSVG(tema.miniatura)}
             </div>
           </div>
 
-          <!-- BOTONES DE TEORÍA Y EJERCICIOS -->
-          <div class="grid grid-cols-2 gap-2.5">
-            <a href="${tema.teoriaUrl}" class="py-2.5 px-3 bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs">
+          <!-- BOTONES CON ROJO Y VERDE MÁS SUAVES -->
+          <div class="grid grid-cols-2 gap-3">
+            <a href="${tema.teoriaUrl}" class="btn-teoria-suave py-3 px-3 text-sm sm:text-base font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-xs">
               <i data-lucide="book-open" class="w-4 h-4"></i>
               <span>Teoría</span>
             </a>
-            <a href="${tema.ejerciciosUrl}" class="py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs">
+            <a href="${tema.ejerciciosUrl}" class="btn-ejercicios-suave py-3 px-3 text-sm sm:text-base font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-xs">
               <i data-lucide="dumbbell" class="w-4 h-4"></i>
               <span>Ejercicios</span>
             </a>
@@ -571,7 +1418,6 @@
       const barraNav = document.getElementById('barra-navegacion');
       const migas = document.getElementById('migas-pan');
 
-      // Reiniciar animación suave
       vista.classList.remove('fade-in');
       void vista.offsetWidth;
       vista.classList.add('fade-in');
@@ -585,17 +1431,17 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto pt-2">
             
             <!-- BLOQUE MATEMÁTICAS -->
-            <button onclick="irA('matematicas')" class="group bg-white rounded-3xl border-4 border-rose-200 hover:border-brand-600 p-8 sm:p-10 text-center shadow-lg hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-4">
+            <button onclick="irA('matematicas')" class="group bg-white rounded-3xl border-4 border-rose-200 hover:border-rose-400 p-8 sm:p-10 text-center shadow-lg hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-4">
               <div class="w-20 h-20 rounded-2xl bg-rose-50 border border-rose-200 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform">
                 📐
               </div>
-              <span class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 group-hover:text-brand-600 transition-colors">
+              <span class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 group-hover:text-rose-500 transition-colors">
                 MATEMÁTICAS
               </span>
             </button>
 
             <!-- BLOQUE FÍSICA Y QUÍMICA -->
-            <button onclick="irA('fisica-quimica')" class="group bg-white rounded-3xl border-4 border-blue-200 hover:border-blue-600 p-8 sm:p-10 text-center shadow-lg hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-4">
+            <button onclick="irA('fisica-quimica')" class="group bg-white rounded-3xl border-4 border-blue-200 hover:border-blue-500 p-8 sm:p-10 text-center shadow-lg hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-4">
               <div class="w-20 h-20 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform">
                 ⚛️
               </div>
@@ -615,11 +1461,12 @@
       barraNav.classList.remove('hidden');
 
       // ==========================================================
-      // PASO 2: ELEGIR CURSO (1º y 2º ESO, 3º y 4º ESO, 1º BACH, 2º BACH)
+      // PASO 2: ELEGIR CURSO (1º ESO, 2º ESO, 3º ESO, 4º ESO, 1º BACH, 2º BACH)
+      // Sin repetir el nombre del curso dos veces dentro del botón
       // ==========================================================
       if (!cursoKey || !bloque.cursos[cursoKey]) {
         migas.innerHTML = `
-          <a href="#" onclick="irA(''); return false;" class="hover:text-brand-600">Inicio</a>
+          <a href="#" onclick="irA(''); return false;" class="hover:text-rose-500">Inicio</a>
           <span>&rsaquo;</span>
           <span class="text-slate-900 font-bold">${bloque.nombre}</span>
         `;
@@ -632,13 +1479,11 @@
             </h2>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 max-w-4xl mx-auto">
             ${Object.entries(bloque.cursos).map(([key, c]) => `
-              <button onclick="irA('${bloqueKey}/${key}')" class="group bg-white rounded-3xl border-2 border-slate-200 hover:border-slate-800 p-7 sm:p-8 text-center shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-3">
-                <span class="${c.color} text-white font-display font-extrabold text-sm px-3.5 py-1 rounded-xl">
-                  ${c.etiqueta}
-                </span>
-                <span class="font-display font-extrabold text-2xl text-slate-900 group-hover:text-brand-600 transition-colors">
+              <button onclick="irA('${bloqueKey}/${key}')" class="group bg-white rounded-3xl border-2 border-slate-200 hover:border-slate-800 p-8 text-center shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-3">
+                <div class="w-12 h-2 rounded-full ${c.color}"></div>
+                <span class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 group-hover:text-rose-500 transition-colors">
                   ${c.nombre}
                 </span>
               </button>
@@ -653,34 +1498,28 @@
       const curso = bloque.cursos[cursoKey];
 
       // ==========================================================
-      // PASO 3A: SI EL CURSO TIENE RAMAS (1º BACH y 2º BACH) Y AÚN NO SE HA ELEGIDO RAMA
+      // PASO 3A: ELEGIR RAMA EN BACHILLERATO (Sin texto repetido)
       // ==========================================================
       if (curso.ramas && (!ramaKey || !curso.ramas[ramaKey])) {
         migas.innerHTML = `
-          <a href="#" onclick="irA(''); return false;" class="hover:text-brand-600">Inicio</a>
+          <a href="#" onclick="irA(''); return false;" class="hover:text-rose-500">Inicio</a>
           <span>&rsaquo;</span>
-          <a href="#" onclick="irA('${bloqueKey}'); return false;" class="hover:text-brand-600">${bloque.nombre}</a>
+          <a href="#" onclick="irA('${bloqueKey}'); return false;" class="hover:text-rose-500">${bloque.nombre}</a>
           <span>&rsaquo;</span>
           <span class="text-slate-900 font-bold">${curso.nombre}</span>
         `;
 
         vista.innerHTML = `
           <div class="text-center mb-8">
-            <span class="${curso.color} text-white font-display font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">
-              ${bloque.nombre}
-            </span>
-            <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900 mt-2">
+            <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900">
               ${curso.nombre}
             </h2>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             ${Object.entries(curso.ramas).map(([rKey, rObj]) => `
-              <button onclick="irA('${bloqueKey}/${cursoKey}/${rKey}')" class="group bg-white rounded-3xl border-4 border-slate-200 hover:border-slate-800 p-8 sm:p-10 text-center shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center gap-3">
-                <span class="${rObj.color} text-white font-display font-extrabold text-xs px-3.5 py-1 rounded-xl">
-                  ${curso.nombre}
-                </span>
-                <span class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 group-hover:text-brand-600 transition-colors">
+              <button onclick="irA('${bloqueKey}/${cursoKey}/${rKey}')" class="group bg-white rounded-3xl border-4 border-slate-200 hover:border-slate-800 p-9 sm:p-11 text-center shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer flex flex-col items-center justify-center">
+                <span class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 group-hover:text-rose-500 transition-colors">
                   ${rObj.nombre}
                 </span>
               </button>
@@ -693,7 +1532,7 @@
       }
 
       // ==========================================================
-      // PASO 3B / PASO 4: MOSTRAR LOS TEMAS DEL CURSO O DE LA RAMA ELEGIDA
+      // PASO 3B / PASO 4: MOSTRAR LOS TEMAS CON MINIATURAS YOUTUBE
       // ==========================================================
       let listaTemas = [];
       let tituloPantalla = "";
@@ -703,11 +1542,11 @@
         listaTemas = rama.temas;
         tituloPantalla = `${curso.nombre} &bull; ${rama.nombre}`;
         migas.innerHTML = `
-          <a href="#" onclick="irA(''); return false;" class="hover:text-brand-600">Inicio</a>
+          <a href="#" onclick="irA(''); return false;" class="hover:text-rose-500">Inicio</a>
           <span>&rsaquo;</span>
-          <a href="#" onclick="irA('${bloqueKey}'); return false;" class="hover:text-brand-600">${bloque.nombre}</a>
+          <a href="#" onclick="irA('${bloqueKey}'); return false;" class="hover:text-rose-500">${bloque.nombre}</a>
           <span>&rsaquo;</span>
-          <a href="#" onclick="irA('${bloqueKey}/${cursoKey}'); return false;" class="hover:text-brand-600">${curso.nombre}</a>
+          <a href="#" onclick="irA('${bloqueKey}/${cursoKey}'); return false;" class="hover:text-rose-500">${curso.nombre}</a>
           <span>&rsaquo;</span>
           <span class="text-slate-900 font-bold">${rama.nombre}</span>
         `;
@@ -715,9 +1554,9 @@
         listaTemas = curso.temas;
         tituloPantalla = `${bloque.nombre} &bull; ${curso.nombre}`;
         migas.innerHTML = `
-          <a href="#" onclick="irA(''); return false;" class="hover:text-brand-600">Inicio</a>
+          <a href="#" onclick="irA(''); return false;" class="hover:text-rose-500">Inicio</a>
           <span>&rsaquo;</span>
-          <a href="#" onclick="irA('${bloqueKey}'); return false;" class="hover:text-brand-600">${bloque.nombre}</a>
+          <a href="#" onclick="irA('${bloqueKey}'); return false;" class="hover:text-rose-500">${bloque.nombre}</a>
           <span>&rsaquo;</span>
           <span class="text-slate-900 font-bold">${curso.nombre}</span>
         `;
@@ -725,12 +1564,12 @@
 
       vista.innerHTML = `
         <div class="text-center mb-8">
-          <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900">
+          <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-slate-900">
             ${tituloPantalla}
           </h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           ${listaTemas.map(t => crearTarjetaTema(t)).join('')}
         </div>
       `;
