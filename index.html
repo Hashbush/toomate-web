@@ -45,7 +45,7 @@
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    /* Botones con rojo y verde más suaves y agradables */
+    /* Botones con rojo, verde y azul más suaves y agradables */
     .btn-teoria-suave {
       background-color: #e57373;
       color: #ffffff;
@@ -59,6 +59,13 @@
     }
     .btn-ejercicios-suave:hover {
       background-color: #4caf50;
+    }
+    .btn-soluciones-suave {
+      background-color: #5c9ce6;
+      color: #ffffff;
+    }
+    .btn-soluciones-suave:hover {
+      background-color: #4285d6;
     }
   </style>
 </head>
@@ -939,8 +946,10 @@
               {
                 titulo: "Ecuaciones de 1º Grado y Problemas",
                 miniatura: "ecuaciones-balanza",
-                teoriaUrl: "materiales/ecuaciones-1-2-eso.html",
-                ejerciciosUrl: "materiales/ejercicios-ecuaciones-1-2-eso.html"
+                textoTeoria: "Cómo resolver y Formulario (PDF)",
+                teoriaUrl: "materiales/pdf/formulario-ecuaciones-1-2-eso.pdf",
+                ejerciciosUrl: "materiales/pdf/enunciados-ecuaciones-1-2-eso.pdf",
+                solucionesUrl: "materiales/pdf/soluciones-ecuaciones-1-2-eso.pdf"
               }
             ]
           },
@@ -952,8 +961,10 @@
               {
                 titulo: "Ecuaciones de 1º y 2º Grado y Sistemas",
                 miniatura: "ecuaciones-balanza",
-                teoriaUrl: "materiales/ecuaciones-1-2-eso.html",
-                ejerciciosUrl: "materiales/ejercicios-ecuaciones-1-2-eso.html"
+                textoTeoria: "Cómo resolver y Formulario (PDF)",
+                teoriaUrl: "materiales/pdf/formulario-ecuaciones-1-2-eso.pdf",
+                ejerciciosUrl: "materiales/pdf/enunciados-ecuaciones-1-2-eso.pdf",
+                solucionesUrl: "materiales/pdf/soluciones-ecuaciones-1-2-eso.pdf"
               }
             ]
           },
@@ -965,8 +976,10 @@
               {
                 titulo: "Ecuaciones de 1º y 2º Grado y Sistemas",
                 miniatura: "ecuaciones-balanza",
-                teoriaUrl: "materiales/ecuaciones-1-2-eso.html",
-                ejerciciosUrl: "materiales/ejercicios-ecuaciones-1-2-eso.html"
+                textoTeoria: "Cómo resolver y Formulario (PDF)",
+                teoriaUrl: "materiales/pdf/formulario-ecuaciones-1-2-eso.pdf",
+                ejerciciosUrl: "materiales/pdf/enunciados-ecuaciones-1-2-eso.pdf",
+                solucionesUrl: "materiales/pdf/soluciones-ecuaciones-1-2-eso.pdf"
               },
               {
                 titulo: "Polinomios, Ruffini y Fracciones Algebraicas",
@@ -1193,8 +1206,10 @@
               {
                 titulo: "El Movimiento (MRU) y las Fuerzas",
                 miniatura: "coche-movimiento",
-                teoriaUrl: "materiales/fuerzas-movimiento-eso.html",
-                ejerciciosUrl: "materiales/ejercicios-fuerzas-movimiento-eso.html"
+                textoTeoria: "Formulario y Cómo resolver (PDF)",
+                teoriaUrl: "materiales/pdf/formulario-fuerzas-movimiento-eso.pdf",
+                ejerciciosUrl: "materiales/pdf/enunciados-fuerzas-movimiento-eso.pdf",
+                solucionesUrl: "materiales/pdf/soluciones-fuerzas-movimiento-eso.pdf"
               },
               {
                 titulo: "El Átomo y la Tabla Periódica",
@@ -1218,8 +1233,10 @@
               {
                 titulo: "El Movimiento y las Fuerzas",
                 miniatura: "coche-movimiento",
-                teoriaUrl: "materiales/fuerzas-movimiento-eso.html",
-                ejerciciosUrl: "materiales/ejercicios-fuerzas-movimiento-eso.html"
+                textoTeoria: "Formulario y Cómo resolver (PDF)",
+                teoriaUrl: "materiales/pdf/formulario-fuerzas-movimiento-eso.pdf",
+                ejerciciosUrl: "materiales/pdf/enunciados-fuerzas-movimiento-eso.pdf",
+                solucionesUrl: "materiales/pdf/soluciones-fuerzas-movimiento-eso.pdf"
               },
               {
                 titulo: "Formulación y Nomenclatura Química",
@@ -1237,8 +1254,10 @@
               {
                 titulo: "Cinemática (MRU y MRUA) y Leyes de Newton",
                 miniatura: "coche-movimiento",
-                teoriaUrl: "materiales/fuerzas-movimiento-eso.html",
-                ejerciciosUrl: "materiales/ejercicios-fuerzas-movimiento-eso.html"
+                textoTeoria: "Formulario y Cómo resolver (PDF)",
+                teoriaUrl: "materiales/pdf/formulario-fuerzas-movimiento-eso.pdf",
+                ejerciciosUrl: "materiales/pdf/enunciados-fuerzas-movimiento-eso.pdf",
+                solucionesUrl: "materiales/pdf/soluciones-fuerzas-movimiento-eso.pdf"
               },
               {
                 titulo: "El Átomo, Tabla Periódica y Enlace Químico",
@@ -1369,6 +1388,11 @@
     };
 
     function crearTarjetaTema(tema) {
+      const etiquetaTeoria = tema.textoTeoria || "Formulario / Cómo resolver";
+      const urlSoluciones = tema.solucionesUrl || tema.ejerciciosUrl;
+      const esPdf = tema.teoriaUrl && tema.teoriaUrl.endsWith('.pdf');
+      const targetAttr = esPdf ? 'target="_blank"' : '';
+
       return `
         <div class="bg-white rounded-3xl border-2 border-slate-200 hover:border-slate-300 p-5 flex flex-col justify-between transition shadow-sm hover:shadow-lg">
           <div>
@@ -1383,16 +1407,22 @@
             </div>
           </div>
 
-          <!-- BOTONES CON ROJO Y VERDE MÁS SUAVES -->
-          <div class="grid grid-cols-2 gap-3">
-            <a href="${tema.teoriaUrl}" class="btn-teoria-suave py-3 px-3 text-sm sm:text-base font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-xs">
-              <i data-lucide="book-open" class="w-4 h-4"></i>
-              <span>Teoría</span>
+          <!-- 3 BOTONES CLAROS: FORMULARIO/CÓMO RESOLVER + EJERCICIOS PDF + SOLUCIONES PDF -->
+          <div class="flex flex-col gap-2.5">
+            <a href="${tema.teoriaUrl}" ${targetAttr} class="btn-teoria-suave py-3 px-3 text-sm sm:text-base font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-xs">
+              <i data-lucide="file-text" class="w-4 h-4 shrink-0"></i>
+              <span>${etiquetaTeoria}</span>
             </a>
-            <a href="${tema.ejerciciosUrl}" class="btn-ejercicios-suave py-3 px-3 text-sm sm:text-base font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-xs">
-              <i data-lucide="dumbbell" class="w-4 h-4"></i>
-              <span>Ejercicios</span>
-            </a>
+            <div class="grid grid-cols-2 gap-2.5">
+              <a href="${tema.ejerciciosUrl}" ${targetAttr} class="btn-ejercicios-suave py-3 px-2.5 text-sm sm:text-base font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs">
+                <i data-lucide="file-down" class="w-4 h-4 shrink-0"></i>
+                <span>Ejercicios PDF</span>
+              </a>
+              <a href="${urlSoluciones}" ${targetAttr} class="btn-soluciones-suave py-3 px-2.5 text-sm sm:text-base font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-xs">
+                <i data-lucide="check-circle-2" class="w-4 h-4 shrink-0"></i>
+                <span>Soluciones PDF</span>
+              </a>
+            </div>
           </div>
         </div>
       `;

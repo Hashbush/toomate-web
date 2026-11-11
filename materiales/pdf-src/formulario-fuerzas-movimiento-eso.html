@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Movimiento y Fuerzas | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 11.5pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0f9ff;
+      border: 2.5px solid #bae6fd;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #7dd3fc;
+      object-fit: cover;
+      background: white;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17.5pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .section-card {
+      border: 2px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 12px 14px;
+      margin-bottom: 11px;
+      break-inside: avoid;
+      background: #ffffff;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13.5pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0 0 9px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #f1f5f9;
+    }
+    .num-circle {
+      width: 27px;
+      height: 27px;
+      border-radius: 8px;
+      background: #0284c7;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 12.5pt;
+      flex-shrink: 0;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .formula-card {
+      background: #f8fafc;
+      border: 1.8px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+    }
+    .formula-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+      color: #0369a1;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .formula-pill {
+      background: #fffbeb;
+      border: 2px solid #fde047;
+      border-radius: 12px;
+      padding: 6px 10px;
+      text-align: center;
+      font-size: 12.5pt;
+      margin: 5px 0;
+      color: #0f172a;
+    }
+    .step-box {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 11px;
+    }
+    .step-header {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+      color: #0284c7;
+      margin-bottom: 3px;
+      display: block;
+    }
+    .example-pill {
+      background: #eff6ff;
+      border: 1.5px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 5px 9px;
+      margin-top: 5px;
+      font-size: 10.5pt;
+      color: #1e3a8a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABECERA -->
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Guía Paso a Paso</span>
+        <h1 class="main-title">El Movimiento (MRU / MRUA) y las Fuerzas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #0284c7; font-size: 12pt;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Física y Química ESO</span>
+    </div>
+  </div>
+
+  <!-- BLOQUE 1: FORMULARIO DE MOVIMIENTO -->
+  <div class="section-card">
+    <h2 class="section-title">
+      <span class="num-circle">1</span>
+      <span>Formulario de Movimiento (MRU, MRUA y Caída Libre)</span>
+    </h2>
+
+    <div class="grid-2">
+      <div class="formula-card">
+        <span class="formula-title">🚗 MRU (Velocidad constante, $a = 0$)</span>
+        <div>El móvil no acelera ni frena. Va siempre al mismo ritmo:</div>
+        <div class="formula-pill">
+          $$s = s_0 + v \cdot t \qquad \left(v = \frac{\text{espacio}}{\text{tiempo}}\right)$$
+        </div>
+        <div style="font-size: 10.2pt; color: #475569;">
+          &bull; $s$: posición final ($\text{m}$) &nbsp;|&nbsp; $s_0$: posición inicial ($\text{m}$)<br>
+          &bull; $v$: velocidad ($\text{m/s}$) &nbsp;|&nbsp; $t$: tiempo ($\text{s}$)
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-title">🚀 MRUA (Con aceleración, $a \neq 0$)</span>
+        <div>La velocidad sube ($a > 0$) o frena ($a < 0$):</div>
+        <div class="formula-pill">
+          $$v = v_0 + a \cdot t$$
+          $$s = s_0 + v_0 \cdot t + \frac{1}{2} \cdot a \cdot t^2$$
+        </div>
+        <div style="font-size: 10.2pt; color: #475569;">
+          &bull; Fórmula extra sin tiempo: $v^2 = v_0^2 + 2 \cdot a \cdot \Delta s$
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-title">🍎 Caída Libre y Lanzamiento Vertical</span>
+        <div>Es un MRUA vertical donde la aceleración es la gravedad ($g = 9{,}8\text{ m/s}^2$ hacia abajo):</div>
+        <div class="formula-pill">
+          $$v = v_0 - 9{,}8 \cdot t \qquad y = y_0 + v_0 \cdot t - 4{,}9 \cdot t^2$$
+        </div>
+        <div style="font-size: 10.2pt; color: #475569;">
+          &bull; Si se <strong>deja caer</strong>: $v_0 = 0$. En la <strong>altura máxima</strong>: $v = 0$.
+        </div>
+      </div>
+
+      <div class="formula-card" style="background: #fffbeb; border-color: #fde047;">
+        <span class="formula-title" style="color: #b45309;">⚠️ Cambio de Unidades Obligatorio (S.I.)</span>
+        <div>Antes de usar cualquier fórmula, pasa siempre a <strong>metros ($\text{m}$)</strong>, <strong>segundos ($\text{s}$)</strong> y <strong>kilogramos ($\text{kg}$)</strong>:</div>
+        <div class="formula-pill" style="background: white;">
+          $$\text{km/h} \xrightarrow{\quad : \ 3{,}6 \quad} \text{m/s} \qquad \text{m/s} \xrightarrow{\quad \times \ 3{,}6 \quad} \text{km/h}$$
+        </div>
+        <div style="font-size: 10.2pt; color: #78350f;">
+          &bull; Ejemplos: $90\text{ km/h} = 25\text{ m/s}$ &nbsp;|&nbsp; $108\text{ km/h} = 30\text{ m/s}$
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 2: FORMULARIO DE FUERZAS -->
+  <div class="section-card">
+    <h2 class="section-title">
+      <span class="num-circle">2</span>
+      <span>Formulario de Fuerzas, Muelles y Leyes de Newton</span>
+    </h2>
+
+    <div class="grid-2">
+      <div class="formula-card">
+        <span class="formula-title">💪 2ª Ley de Newton (Fuerza y Aceleración)</span>
+        <div class="formula-pill">
+          $$F_{\text{resultante}} = m \cdot a$$
+        </div>
+        <div style="font-size: 10.2pt; color: #475569;">
+          $\text{Fuerza a favor} - \text{Fuerza en contra} = m \cdot a$<br>
+          &bull; Si va a <strong>velocidad constante</strong> ($a = 0$): las fuerzas empatan.
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-title">🌍 Peso vs Masa y Rozamiento</span>
+        <div class="formula-pill">
+          $$P = m \cdot g \qquad \qquad F_r = \mu \cdot N$$
+        </div>
+        <div style="font-size: 10.2pt; color: #475569;">
+          &bull; La <strong>masa ($m$)</strong> en $\text{kg}$ no cambia nunca.<br>
+          &bull; El <strong>peso ($P$)</strong> en $\text{N}$ depende del planeta ($g_{\text{Tierra}} = 9{,}8$).
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-title">🌀 Ley de Hooke (Muelles)</span>
+        <div class="formula-pill">
+          $$F = k \cdot \Delta x = k \cdot (L - L_0)$$
+        </div>
+        <div style="font-size: 10.2pt; color: #475569;">
+          &bull; $k$: constante del muelle ($\text{N/m}$)<br>
+          &bull; $\Delta x$: lo que se estira el muelle (¡pásalo a metros!).
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-title">📐 Fuerzas Perpendiculares ($90^\circ$)</span>
+        <div>Si dos fuerzas tiran formando esquina ($90^\circ$), usa Pitágoras:</div>
+        <div class="formula-pill">
+          $$F_{\text{total}} = \sqrt{F_1^2 + F_2^2}$$
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 3: RECETA PASO A PASO -->
+  <div class="section-card">
+    <h2 class="section-title">
+      <span class="num-circle">3</span>
+      <span>Receta en 4 pasos para resolver cualquier problema</span>
+    </h2>
+
+    <div class="grid-2">
+      <div class="step-box">
+        <span class="step-header">👉 PASO 1: Apunta los datos y cambia unidades</span>
+        <div>Pasa $\text{km/h}$ a $\text{m/s}$ (dividiendo entre $3{,}6$), $\text{cm}$ a $\text{m}$ y $\text{gramos}$ a $\text{kg}$.</div>
+      </div>
+
+      <div class="step-box">
+        <span class="step-header">👉 PASO 2: ¿Dice "velocidad constante" o "acelera/frena"?</span>
+        <div>&bull; Velocidad constante $\rightarrow$ <strong>MRU</strong> ($s = v \cdot t$)<br>&bull; Acelera, frena o cae $\rightarrow$ <strong>MRUA</strong></div>
+      </div>
+
+      <div class="step-box">
+        <span class="step-header">👉 PASO 3: Si dos vehículos se cruzan o persiguen</span>
+        <div>Escribe la ecuación $s(t)$ de cada uno e <strong>iguálalas</strong> ($s_A = s_B$) para sacar el tiempo $t$.</div>
+      </div>
+
+      <div class="step-box">
+        <span class="step-header">👉 PASO 4: Si hay varias fuerzas actuando</span>
+        <div>Haz un dibujo rápido con flechas: $\text{Fuerzas a favor} - \text{Rozamiento} = m \cdot a$.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 4: CHULETA DE GRÁFICAS Y RAMPAS -->
+  <div class="section-card" style="margin-bottom: 0;">
+    <h2 class="section-title">
+      <span class="num-circle">4</span>
+      <span>Cómo leer Gráficas de Movimiento y Planos Inclinados</span>
+    </h2>
+
+    <div class="grid-2">
+      <div class="formula-card">
+        <span class="formula-title">📈 Gráfica Posición-Tiempo ($s - t$)</span>
+        <div>Calcula la velocidad de cada tramo con:</div>
+        <div class="formula-pill">
+          $$v = \frac{s_{\text{final}} - s_{\text{inicial}}}{\text{tiempo del tramo}}$$
+        </div>
+        <div style="font-size: 10.2pt; color: #475569;">
+          &bull; Línea <strong>horizontal plana</strong>: está parado ($v = 0$).<br>
+          &bull; Línea que <strong>baja</strong>: vuelve hacia atrás ($v < 0$).
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-title">📊 Gráfica Velocidad-Tiempo ($v - t$)</span>
+        <div>Calcula la aceleración de cada tramo con:</div>
+        <div class="formula-pill">
+          $$a = \frac{v_{\text{final}} - v_{\text{inicial}}}{\text{tiempo del tramo}}$$
+        </div>
+        <div style="font-size: 10.2pt; color: #475569;">
+          &bull; Línea <strong>horizontal plana</strong>: va en <strong>MRU</strong> ($a = 0$).<br>
+          &bull; El <strong>área debajo de la línea</strong> es la distancia recorrida.
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-title">🎿 Rampa / Plano Inclinado (4º ESO)</span>
+        <div>Al bajar por una cuesta de ángulo $\alpha$, el peso $P = m \cdot g$ se divide en dos:</div>
+        <div class="formula-pill">
+          $$P_x = P \cdot \text{sen }\alpha \qquad P_y = P \cdot \cos\alpha$$
+        </div>
+        <div style="font-size: 10.2pt; color: #475569;">
+          &bull; $P_x$ tira cuesta abajo &nbsp;|&nbsp; La Normal vale $N = P_y$.
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <span class="formula-title">📦 Dos Cajas en Contacto ($A$ y $B$)</span>
+        <div>Si empujas dos cajas juntas con una fuerza $F$:</div>
+        <div class="formula-pill">
+          $$a = \frac{F}{m_A + m_B} \qquad F_{AB} = m_B \cdot a$$
+        </div>
+        <div style="font-size: 10.2pt; color: #475569;">
+          &bull; Primero saca la aceleración sumando las dos masas.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

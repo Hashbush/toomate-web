@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Soluciones Paso a Paso: Ecuaciones y Sistemas | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    @page {
+      size: A4;
+      margin: 11mm 13mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 11.5pt;
+      line-height: 1.45;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eff6ff;
+      border: 2.5px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #93c5fd;
+      object-fit: cover;
+      background: white;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17.5pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 12px 0 9px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12.5pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 15px;
+      padding: 10px 13px;
+      break-inside: avoid;
+      margin-bottom: 9px;
+    }
+    .sol-card-grid {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 15px;
+      padding: 10px 12px;
+      break-inside: avoid;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .ex-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #f1f5f9;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 11pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border-radius: 11px;
+      padding: 7px 11px;
+      color: #334155;
+      font-size: 11pt;
+    }
+    .steps-list p {
+      margin: 3px 0;
+    }
+    .final-box {
+      margin-top: 6px;
+      background: #ecfdf5;
+      border: 1.5px solid #6ee7b7;
+      color: #065f46;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11pt;
+      padding: 4px 10px;
+      border-radius: 9px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABECERA -->
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Solucionario Paso a Paso</span>
+        <h1 class="main-title">Ecuaciones de 1º y 2º Grado y Sistemas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios Resueltos</span>
+    </div>
+  </div>
+
+  <!-- NIVEL 1 -->
+  <div class="level-banner level-1">
+    <span>🟢 NIVEL 1: Soluciones Paso a Paso (Ejercicios 1 al 8)</span>
+  </div>
+
+  <div class="grid-2">
+    <!-- 1 -->
+    <div class="sol-card-grid">
+      <div>
+        <div class="ex-header">
+          <span class="ex-num">1</span>
+          <span class="ex-statement">$3(x - 2) + 5 = 2(x + 1) + 4$</span>
+        </div>
+        <div class="steps-list">
+          <p><strong>Paso 1 (Paréntesis):</strong> $3x - 6 + 5 = 2x + 2 + 4$</p>
+          <p><strong>Paso 2 (Agrupa):</strong> $3x - 1 = 2x + 6$</p>
+          <p><strong>Paso 3 (Pasa las $x$):</strong> $3x - 2x = 6 + 1$</p>
+        </div>
+      </div>
+      <div><span class="final-box">✅ Solución: $x = 7$</span></div>
+    </div>
+
+    <!-- 2 -->
+    <div class="sol-card-grid">
+      <div>
+        <div class="ex-header">
+          <span class="ex-num">2</span>
+          <span class="ex-statement">$\dfrac{x}{2} + \dfrac{x}{3} = 5$</span>
+        </div>
+        <div class="steps-list">
+          <p><strong>Paso 1 ($\text{mcm}=6$):</strong> Multiplicamos todo por 6:</p>
+          <p>$3x + 2x = 30$</p>
+          <p><strong>Paso 2 (Despeja):</strong> $5x = 30 \rightarrow x = \dfrac{30}{5}$</p>
+        </div>
+      </div>
+      <div><span class="final-box">✅ Solución: $x = 6$</span></div>
+    </div>
+
+    <!-- 3 -->
+    <div class="sol-card-grid">
+      <div>
+        <div class="ex-header">
+          <span class="ex-num">3</span>
+          <span class="ex-statement">$3x^2 - 48 = 0$ (Incompleta sin $x$)</span>
+        </div>
+        <div class="steps-list">
+          <p><strong>Paso 1 (Despeja $x^2$):</strong> $3x^2 = 48 \rightarrow x^2 = \dfrac{48}{3} = 16$</p>
+          <p><strong>Paso 2 (Raíz con $\pm$):</strong> $x = \pm\sqrt{16}$</p>
+        </div>
+      </div>
+      <div><span class="final-box">✅ Solución: $x_1 = 4, \ x_2 = -4$</span></div>
+    </div>
+
+    <!-- 4 -->
+    <div class="sol-card-grid">
+      <div>
+        <div class="ex-header">
+          <span class="ex-num">4</span>
+          <span class="ex-statement">$2x^2 - 8x = 0$ (Incompleta sin número)</span>
+        </div>
+        <div class="steps-list">
+          <p><strong>Paso 1 (Saca $2x$ fuera):</strong> $2x(x - 4) = 0$</p>
+          <p><strong>Paso 2 (Iguala a 0 cada parte):</strong></p>
+          <p>&bull; $2x = 0 \rightarrow x_1 = 0$ &nbsp;|&nbsp; &bull; $x - 4 = 0 \rightarrow x_2 = 4$</p>
+        </div>
+      </div>
+      <div><span class="final-box">✅ Solución: $x_1 = 0, \ x_2 = 4$</span></div>
+    </div>
+
+    <!-- 5 -->
+    <div class="sol-card-grid">
+      <div>
+        <div class="ex-header">
+          <span class="ex-num">5</span>
+          <span class="ex-statement">$x^2 - 5x + 6 = 0$</span>
+        </div>
+        <div class="steps-list">
+          <p><strong>Datos:</strong> $a = 1, \ b = -5, \ c = 6$</p>
+          <p><strong>Fórmula:</strong> $x = \dfrac{5 \pm \sqrt{(-5)^2 - 4\cdot 1\cdot 6}}{2} = \dfrac{5 \pm 1}{2}$</p>
+        </div>
+      </div>
+      <div><span class="final-box">✅ Solución: $x_1 = 3, \ x_2 = 2$</span></div>
+    </div>
+
+    <!-- 6 -->
+    <div class="sol-card-grid">
+      <div>
+        <div class="ex-header">
+          <span class="ex-num">6</span>
+          <span class="ex-statement">$x^2 - 6x + 9 = 0$</span>
+        </div>
+        <div class="steps-list">
+          <p><strong>Datos:</strong> $a = 1, \ b = -6, \ c = 9$</p>
+          <p><strong>Fórmula:</strong> $x = \dfrac{6 \pm \sqrt{36 - 36}}{2} = \dfrac{6 \pm 0}{2} = 3$</p>
+        </div>
+      </div>
+      <div><span class="final-box">✅ Solución: $x = 3$ (solución doble)</span></div>
+    </div>
+
+    <!-- 7 -->
+    <div class="sol-card-grid">
+      <div>
+        <div class="ex-header">
+          <span class="ex-num">7</span>
+          <span class="ex-statement">$\begin{cases} x + y = 10 \\ 2x - y = 5 \end{cases}$ (Sustitución)</span>
+        </div>
+        <div class="steps-list">
+          <p><strong>1. Despeja $y$ arriba:</strong> $y = 10 - x$</p>
+          <p><strong>2. Sustituye abajo:</strong> $2x - (10 - x) = 5 \rightarrow 3x = 15 \rightarrow x = 5$</p>
+          <p><strong>3. Calcula $y$:</strong> $y = 10 - 5 = 5$</p>
+        </div>
+      </div>
+      <div><span class="final-box">✅ Solución: $x = 5, \ y = 5$</span></div>
+    </div>
+
+    <!-- 8 -->
+    <div class="sol-card-grid">
+      <div>
+        <div class="ex-header">
+          <span class="ex-num">8</span>
+          <span class="ex-statement">$\begin{cases} 3x + 2y = 12 \\ 5x - 2y = 4 \end{cases}$ (Reducción)</span>
+        </div>
+        <div class="steps-list">
+          <p><strong>1. Suma en vertical (se va la $y$):</strong> $8x = 16 \rightarrow x = 2$</p>
+          <p><strong>2. Pon $x=2$ en la 1ª:</strong> $3(2) + 2y = 12 \rightarrow 2y = 6 \rightarrow y = 3$</p>
+        </div>
+      </div>
+      <div><span class="final-box">✅ Solución: $x = 2, \ y = 3$</span></div>
+    </div>
+  </div>
+
+  <!-- NIVEL 2 -->
+  <div class="level-banner level-2">
+    <span>🟡 NIVEL 2: Soluciones Paso a Paso (Ejercicios 9 al 16)</span>
+  </div>
+
+  <div class="grid-2" style="margin-bottom: 9px;">
+    <!-- 9 -->
+    <div class="sol-card-grid">
+      <div>
+        <div class="ex-header">
+          <span class="ex-num" style="background: #f59e0b;">9</span>
+          <span class="ex-statement">$\dfrac{2x - 1}{3} - \dfrac{x + 2}{4} = \dfrac{x - 3}{6} + 1$</span>
+        </div>
+        <div class="steps-list">
+          <p><strong>1. $\text{mcm}(3,4,6) = 12$:</strong> $4(2x - 1) - 3(x + 2) = 2(x - 3) + 12$</p>
+          <p><strong>2. Paréntesis:</strong> $8x - 4 - 3x - 6 = 2x - 6 + 12$</p>
+          <p><strong>3. Agrupa:</strong> $5x - 10 = 2x + 6 \rightarrow 3x = 16$</p>
+        </div>
+      </div>
+      <div><span class="final-box">✅ Solución: $x = \dfrac{16}{3}$</span></div>
+    </div>
+
+    <!-- 10 -->
+    <div class="sol-card-grid">
+      <div>
+        <div class="ex-header">
+          <span class="ex-num" style="background: #f59e0b;">10</span>
+          <span class="ex-statement">$(x - 1)^2 - 2(x + 1) = 3$</span>
+        </div>
+        <div class="steps-list">
+          <p><strong>1. Desarrolla:</strong> $(x^2 - 2x + 1) - 2x - 2 = 3$</p>
+          <p><strong>2. Iguala a 0:</strong> $x^2 - 4x - 4 = 0$</p>
+          <p><strong>3. Fórmula:</strong> $x = \dfrac{4 \pm \sqrt{16 + 16}}{2} = \dfrac{4 \pm 4\sqrt{2}}{2}$</p>
+        </div>
+      </div>
+      <div><span class="final-box">✅ Solución: $x = 2 \pm 2\sqrt{2}$</span></div>
+    </div>
+
+    <!-- 11 -->
+    <div class="sol-card-grid">
+      <div>
+        <div class="ex-header">
+          <span class="ex-num" style="background: #f59e0b;">11</span>
+          <span class="ex-statement">$2x^2 - 3x + 4 = 0$</span>
+        </div>
+        <div class="steps-list">
+          <p><strong>1. Miramos lo de dentro de la raíz ($b^2 - 4ac$):</strong></p>
+          <p>$(-3)^2 - 4 \cdot 2 \cdot 4 = 9 - 32 = -23$</p>
+          <p><strong>2.</strong> Como $\sqrt{-23}$ es negativa, no existe en los reales.</p>
+        </div>
+      </div>
+      <div><span class="final-box">✅ Solución: No tiene solución real</span></div>
+    </div>
+
+    <!-- 12 -->
+    <div class="sol-card-grid">
+      <div>
+        <div class="ex-header">
+          <span class="ex-num" style="background: #f59e0b;">12</span>
+          <span class="ex-statement">$\begin{cases} \frac{x}{3} + \frac{y}{2} = 4 \\ 2x - y = 1 \end{cases}$</span>
+        </div>
+        <div class="steps-list">
+          <p><strong>1. Quita fracciones arriba ($\times 6$):</strong> $2x + 3y = 24$</p>
+          <p><strong>2. Resta las dos ecuaciones:</strong> $4y = 23 \rightarrow y = \dfrac{23}{4}$</p>
+          <p><strong>3. Halla $x$:</strong> $2x = 1 + \dfrac{23}{4} = \dfrac{27}{4} \rightarrow x = \dfrac{27}{8}$</p>
+        </div>
+      </div>
+      <div><span class="final-box">✅ Solución: $x = \dfrac{27}{8}, \ y = \dfrac{23}{4}$</span></div>
+    </div>
+  </div>
+
+  <!-- 13 -->
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <span class="ex-statement">Clasifica: a) $\begin{cases} 2x - y = 4 \\ 4x - 2y = 8 \end{cases}$ &nbsp;&nbsp;&nbsp; b) $\begin{cases} x + y = 3 \\ x + y = 7 \end{cases}$</span>
+    </div>
+    <div class="steps-list">
+      <p>&bull; <strong>En el a):</strong> Si multiplicas la 1ª por $-2$ y sumas, queda $0 = 0$ (siempre verdad) $\rightarrow$ Tiene <strong>infinitas soluciones (S.C.I.)</strong>.</p>
+      <p>&bull; <strong>En el b):</strong> Si restas las ecuaciones queda $0 = -4$ (imposible) $\rightarrow$ <strong>No tiene solución (S.I.)</strong>.</p>
+    </div>
+  </div>
+
+  <!-- 14, 15, 16 -->
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <span class="ex-statement">Problema de edades (Padre 42 años, hijo 10 años. ¿Cuándo será el triple?)</span>
+    </div>
+    <div class="steps-list">
+      <p><strong>1. Planteamiento:</strong> Dentro de $x$ años, el padre tendrá $(42 + x)$ y el hijo $(10 + x)$.</p>
+      <p><strong>2. Ecuación:</strong> $42 + x = 3(10 + x) \rightarrow 42 + x = 30 + 3x \rightarrow 12 = 2x \rightarrow x = 6$.</p>
+    </div>
+    <div><span class="final-box">✅ Solución: Dentro de 6 años (tendrán 48 y 16 años)</span></div>
+  </div>
+
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <span class="ex-statement">Parcela rectangular (Perímetro 48 m, la base mide 6 m más que la altura)</span>
+    </div>
+    <div class="steps-list">
+      <p><strong>1. Lados:</strong> Altura $= x$, Base $= x + 6$. &nbsp; <strong>2. Suma de los 4 lados:</strong> $2x + 2(x + 6) = 48 \rightarrow 4x + 12 = 48 \rightarrow 4x = 36 \rightarrow x = 9\text{ m}$.</p>
+      <p><strong>3. Resultados:</strong> Altura $= 9\text{ m}$, Base $= 15\text{ m}$. Área $= 15 \cdot 9 = 135\text{ m}^2$.</p>
+    </div>
+    <div><span class="final-box">✅ Solución: Base $15\text{ m}$, altura $9\text{ m}$ y Área $= 135\text{ m}^2$</span></div>
+  </div>
+
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <span class="ex-statement">Problema de la granja (35 cabezas y 94 patas entre conejos y gallinas)</span>
+    </div>
+    <div class="steps-list">
+      <p><strong>1. Sistema:</strong> Conejos ($c$, 4 patas) y gallinas ($g$, 2 patas): $\begin{cases} c + g = 35 \\ 4c + 2g = 94 \end{cases}$</p>
+      <p><strong>2. Resolución:</strong> Despejamos $g = 35 - c$. Sustituimos: $4c + 2(35 - c) = 94 \rightarrow 4c + 70 - 2c = 94 \rightarrow 2c = 24 \rightarrow c = 12$.</p>
+    </div>
+    <div><span class="final-box">✅ Solución: Hay 12 conejos y 23 gallinas</span></div>
+  </div>
+
+  <!-- NIVEL 3 -->
+  <div class="level-banner level-3">
+    <span>🟣 NIVEL 3: Soluciones Paso a Paso (Ejercicios 17 al 22)</span>
+  </div>
+
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <span class="ex-statement">Dos números enteros consecutivos cuyo producto es 156</span>
+    </div>
+    <div class="steps-list">
+      <p><strong>1. Ecuación:</strong> Los números son $x$ y $(x + 1) \rightarrow x(x + 1) = 156 \rightarrow x^2 + x - 156 = 0$.</p>
+      <p><strong>2. Fórmula:</strong> $x = \dfrac{-1 \pm \sqrt{1 - 4(1)(-156)}}{2} = \dfrac{-1 \pm 25}{2} \rightarrow x_1 = 12, \ x_2 = -13$.</p>
+    </div>
+    <div><span class="final-box">✅ Solución: Los números son $12\text{ y }13$ (o también $-13\text{ y }-12$)</span></div>
+  </div>
+
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <span class="ex-statement">Mezcla de aceites (de 8 €/L y de 5 €/L para obtener 120 L a 7 €/L)</span>
+    </div>
+    <div class="steps-list">
+      <p><strong>1. Sistema:</strong> $\begin{cases} x + y = 120 \text{ (litros)} \\ 8x + 5y = 120 \cdot 7 = 840 \text{ (euros)} \end{cases}$</p>
+      <p><strong>2. Sustitución:</strong> $y = 120 - x \rightarrow 8x + 5(120 - x) = 840 \rightarrow 3x = 240 \rightarrow x = 80\text{ L}$.</p>
+    </div>
+    <div><span class="final-box">✅ Solución: $80\text{ litros}$ de $8\text{ €/L}$ y $40\text{ litros}$ de $5\text{ €/L}$</span></div>
+  </div>
+
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <span class="ex-statement">Encuentro de dos ciclistas separados 150 km (a 20 km/h y 30 km/h)</span>
+    </div>
+    <div class="steps-list">
+      <p><strong>1. Planteamiento:</strong> En un tiempo $t$, entre los dos recorren los 150 km: $20t + 30t = 150$.</p>
+      <p><strong>2. Tiempo:</strong> $50t = 150 \rightarrow t = 3\text{ horas}$. Distancias: $20 \cdot 3 = 60\text{ km}$ y $30 \cdot 3 = 90\text{ km}$.</p>
+    </div>
+    <div><span class="final-box">✅ Solución: Tardan $3\text{ horas}$ (recorren $60\text{ km}$ y $90\text{ km}$)</span></div>
+  </div>
+
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <span class="ex-statement">Paseo de ancho $x$ alrededor de una piscina de $10\text{ m} \times 6\text{ m}$ (Área total $= 140\text{ m}^2$)</span>
+    </div>
+    <div class="steps-list">
+      <p><strong>1. Medidas con paseo:</strong> Largo $= 10 + 2x$, Ancho $= 6 + 2x$. Área: $(10 + 2x)(6 + 2x) = 140$.</p>
+      <p><strong>2. Ecuación:</strong> $4x^2 + 32x - 80 = 0 \xrightarrow{:4} x^2 + 8x - 20 = 0 \rightarrow x = 2\text{ m}$ (descartamos $-10$ por ser negativo).</p>
+    </div>
+    <div><span class="final-box">✅ Solución: El ancho del paseo es $x = 2\text{ metros}$</span></div>
+  </div>
+
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <span class="ex-statement">Ecuación bicuadrada: $x^4 - 13x^2 + 36 = 0$</span>
+    </div>
+    <div class="steps-list">
+      <p><strong>1. Cambio $z = x^2$:</strong> $z^2 - 13z + 36 = 0 \rightarrow z_1 = 9, \ z_2 = 4$.</p>
+      <p><strong>2. Deshacer el cambio ($x = \pm\sqrt{z}$):</strong> De $z = 9 \rightarrow x = \pm\sqrt{9} = \pm 3$. De $z = 4 \rightarrow x = \pm\sqrt{4} = \pm 2$.</p>
+    </div>
+    <div><span class="final-box">✅ Solución: 4 soluciones: $x = 3, \ x = -3, \ x = 2, \ x = -2$</span></div>
+  </div>
+
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <span class="ex-statement">Problema de los dos abrigos (Coste total 200 €, venta 242 € ganando +25% y +15%)</span>
+    </div>
+    <div class="steps-list">
+      <p><strong>1. Sistema:</strong> Ganar un 25% es multiplicar por $1{,}25$, y ganar un 15% es multiplicar por $1{,}15$: $\begin{cases} x + y = 200 \\ 1{,}25x + 1{,}15y = 242 \end{cases}$</p>
+      <p><strong>2. Sustitución:</strong> $1{,}25x + 1{,}15(200 - x) = 242 \rightarrow 1{,}25x + 230 - 1{,}15x = 242 \rightarrow 0{,}10x = 12 \rightarrow x = 120\text{ €}$.</p>
+    </div>
+    <div><span class="final-box">✅ Solución: Costaron $120\text{ €}$ el primero y $80\text{ €}$ el segundo</span></div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

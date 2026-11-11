@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Movimiento y Fuerzas | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.38;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17.5pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 8px 12px;
+      margin-bottom: 7px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 11pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.5pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABECERA -->
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">El Movimiento (MRU / MRUA) y las Fuerzas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+  <!-- NIVEL 1 -->
+  <div class="level-banner level-1">
+    <span>🟢 NIVEL 1: Para calentar (MRU, MRUA, Muelles y Fuerzas básicas)</span>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num">1</span><div class="ex-text">Un tren viaja a velocidad constante de $90\text{ km/h}$. Pasa su velocidad a $\text{m/s}$ y calcula qué distancia recorre en $40\text{ segundos}$.</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $v = 25\text{ m/s}$, distancia $= 1000\text{ m}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num">2</span><div class="ex-text">Un coche pasa de $0$ a $108\text{ km/h}$ en $6\text{ segundos}$. Calcula su aceleración en $\text{m/s}^2$ y la distancia que recorre en ese tiempo.</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a = 5\text{ m/s}^2$, distancia $= 90\text{ m}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num">3</span><div class="ex-text">Un astronauta tiene una masa de $80\text{ kg}$. Calcula su masa y su peso: a) en la Tierra ($g = 9{,}8\text{ m/s}^2$) y b) en la Luna ($g = 1{,}62\text{ m/s}^2$).</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Masa $= 80\text{ kg}$ siempre; $P_{\text{Tierra}} = 784\text{ N}$, $P_{\text{Luna}} = 129{,}6\text{ N}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num">4</span><div class="ex-text">Un muelle mide $15\text{ cm}$ sin estirar y pasa a medir $21\text{ cm}$ al tirar con $12\text{ N}$. Calcula su constante $k$ y cuánto medirá si tiramos con $20\text{ N}$.</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $k = 200\text{ N/m}$, longitud $= 25\text{ cm}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num">5</span><div class="ex-text">Un patinete con su piloto ($60\text{ kg}$ en total) avanza con una fuerza de motor de $150\text{ N}$ y un rozamiento en contra de $30\text{ N}$. ¿Cuál es su aceleración?</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a = 2\text{ m/s}^2$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num">6</span><div class="ex-text">Dos personas tiran de un trineo de $20\text{ kg}$ con dos cuerdas perpendiculares ($90^\circ$) de $30\text{ N}$ y $40\text{ N}$. Calcula la fuerza total y la aceleración.</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $F = 50\text{ N}$, $a = 2{,}5\text{ m/s}^2$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num">7</span><div class="ex-text">Se deja caer una piedra desde una torre de $45\text{ m}$ de altura ($g = 9{,}8\text{ m/s}^2$). ¿Cuánto tarda en llegar al suelo y a qué velocidad choca?</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $t \approx 3{,}03\text{ s}$, $v \approx 29{,}7\text{ m/s}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num">8</span><div class="ex-text">Una moto va a $54\text{ km/h}$ y frena a razón de $3\text{ m/s}^2$. ¿Cuántos segundos tarda en pararse y cuántos metros recorre frenando?</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $t = 5\text{ s}$, distancia $= 37{,}5\text{ m}$</span></div>
+  </div>
+
+  <!-- NIVEL 2 -->
+  <div class="level-banner level-2">
+    <span>🟡 NIVEL 2: Nivel Examen (Cruces, Lanzamientos y Rozamiento)</span>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #f59e0b;">9</span><div class="ex-text">Dos pueblos $A$ y $B$ están a $120\text{ km}$. A las 10:00 sale de $A$ un coche a $80\text{ km/h}$ y de $B$ una moto hacia $A$ a $40\text{ km/h}$. ¿A qué hora y a qué distancia de $A$ se cruzan?</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> A las 11:00 h (tras $1\text{ h}$), a $80\text{ km}$ de $A$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #f59e0b;">10</span><div class="ex-text">Un ladrón corre a $4\text{ m/s}$. Cuando lleva $60\text{ m}$ de ventaja, un policía sale tras él a $7\text{ m/s}$. ¿Cuánto tarda en alcanzarlo y qué distancia recorre el policía?</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $t = 20\text{ s}$, recorre $140\text{ m}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #f59e0b;">11</span><div class="ex-text">Lanzamos una pelota hacia arriba a $19{,}6\text{ m/s}$. Calcula: a) tiempo en subir del todo, b) altura máxima y c) tiempo total en volver a la mano.</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $2\text{ s}$ &bull; b) $19{,}6\text{ m}$ &bull; c) $4\text{ s}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #f59e0b;">12</span><div class="ex-text">Al colgar $500\text{ g}$ de un muelle vertical, se estira $4\text{ cm}$. Calcula su constante $k$ y qué masa hay que colgar para que se estire $7\text{ cm}$.</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $k = 122{,}5\text{ N/m}$, masa $= 875\text{ g}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #f59e0b;">13</span><div class="ex-text">Para arrastrar una caja de $25\text{ kg}$ a velocidad constante por el suelo hay que empujar con $49\text{ N}$. ¿Cuánto vale el coeficiente de rozamiento $\mu$?</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\mu = 0{,}2$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #f59e0b;">14</span><div class="ex-text">Si empujamos la caja anterior ($25\text{ kg}$, rozamiento $49\text{ N}$) con una fuerza de $99\text{ N}$, ¿qué aceleración lleva y qué velocidad alcanza en $4\text{ s}$?</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a = 2\text{ m/s}^2$, $v = 8\text{ m/s}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #f59e0b;">15</span><div class="ex-text">Soltamos una piedra en un pozo y escuchamos el chapoteo a los $3\text{ segundos}$. ¿Qué profundidad tiene el pozo? ($g = 9{,}8\text{ m/s}^2$).</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Profundidad $= 44{,}1\text{ m}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #f59e0b;">16</span><div class="ex-text">Una persona avanza $30\text{ m}$ en $10\text{ s}$, se para $5\text{ s}$ y luego retrocede $10\text{ m}$ en $5\text{ s}$. Calcula la velocidad en cada tramo y el desplazamiento final.</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $v_1 = 3\text{ m/s}, \ v_2 = 0, \ v_3 = -2\text{ m/s}$; Desplazamiento $= 20\text{ m}$</span></div>
+  </div>
+
+  <!-- NIVEL 3 -->
+  <div class="level-banner level-3">
+    <span>🟣 NIVEL 3: Retos para Sacar un 10</span>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #8b5cf6;">17</span><div class="ex-text">Un coche arranca de un semáforo con $a = 2\text{ m/s}^2$ justo cuando lo adelanta un camión a $14\text{ m/s}$ constantes. ¿Cuándo y dónde alcanza el coche al camión?</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> En $t = 14\text{ s}$, a $196\text{ m}$ del semáforo</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #8b5cf6;">18</span><div class="ex-text">Dos cajas juntas ($4\text{ kg}$ y $2\text{ kg}$) sin rozamiento se empujan con $18\text{ N}$. Calcula la aceleración del conjunto y la fuerza con la que la primera empuja a la segunda.</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a = 3\text{ m/s}^2$, $F_{AB} = 6\text{ N}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #8b5cf6;">19</span><div class="ex-text">Desde una terraza a $25\text{ m}$ de altura se lanza una piedra hacia arriba a $20\text{ m/s}$. ¿Cuánto tiempo tarda en chocar contra la calle?</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $t \approx 5{,}08\text{ s}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #8b5cf6;">20</span><div class="ex-text">Un patinador de $50\text{ kg}$ baja por una rampa lisa inclinada $30^\circ$. Calcula la fuerza que lo empuja cuesta abajo ($P_x$), su aceleración y la fuerza normal ($N$).</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $P_x = 245\text{ N}$, $a = 4{,}9\text{ m/s}^2$, $N \approx 424{,}3\text{ N}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #8b5cf6;">21</span><div class="ex-text">Un muelle se estira $3\text{ cm}$ al colgarle $150\text{ g}$. Si colgamos otro objeto desconocido se estira $8\text{ cm}$. ¿Cuánto vale la masa del objeto y la constante $k$?</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $k = 49\text{ N/m}$, Masa $= 400\text{ g}$</span></div>
+  </div>
+
+  <div class="ex-card-full">
+    <div class="ex-top"><span class="ex-num" style="background: #8b5cf6;">22</span><div class="ex-text">En una gráfica velocidad-tiempo: de $0$ a $4\text{ s}$ sube de $0$ a $20\text{ m/s}$; de $4$ a $10\text{ s}$ sigue a $20\text{ m/s}$; y de $10$ a $14\text{ s}$ frena hasta pararse. Calcula la aceleración de cada tramo y la distancia total.</div></div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a_A = 5, \ a_B = 0, \ a_C = -5\text{ m/s}^2$; Distancia total $= 200\text{ m}$</span></div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

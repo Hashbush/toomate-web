@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Ecuaciones y Sistemas | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 11.5pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3, .font-title {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17.5pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .section-card {
+      border: 2px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 12px 14px;
+      margin-bottom: 11px;
+      break-inside: avoid;
+      background: #ffffff;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13.5pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0 0 9px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #f1f5f9;
+    }
+    .num-circle {
+      width: 27px;
+      height: 27px;
+      border-radius: 8px;
+      background: #e57373;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 12.5pt;
+      flex-shrink: 0;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+    .step-box {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 11px;
+    }
+    .step-header {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+      color: #c2410c;
+      margin-bottom: 3px;
+      display: block;
+    }
+    .formula-big {
+      background: #fffbeb;
+      border: 2px solid #fde047;
+      border-radius: 14px;
+      padding: 8px 12px;
+      text-align: center;
+      font-size: 13.5pt;
+      margin: 7px 0;
+    }
+    .example-pill {
+      background: #eff6ff;
+      border: 1.5px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 6px 10px;
+      margin-top: 6px;
+      font-size: 10.8pt;
+      color: #1e3a8a;
+    }
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .three-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 9px;
+    }
+    .mini-card {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 9px 11px;
+    }
+    .mini-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.5pt;
+      color: #0369a1;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .alert-tip {
+      background: #fef2f2;
+      border: 1.5px solid #fecaca;
+      border-radius: 12px;
+      padding: 7px 12px;
+      margin-top: 8px;
+      color: #991b1b;
+      font-size: 10.8pt;
+    }
+    .katex-display {
+      margin: 0.25em 0 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CABECERA -->
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Guía Paso a Paso y Formulario</span>
+        <h1 class="main-title">Ecuaciones de 1º y 2º Grado y Sistemas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Matemáticas ESO</span>
+    </div>
+  </div>
+
+  <!-- BLOQUE 1: ECUACIONES DE 1º GRADO -->
+  <div class="section-card">
+    <h2 class="section-title">
+      <span class="num-circle">1</span>
+      <span>Cómo resolver Ecuaciones de 1º Grado (en 4 pasos)</span>
+    </h2>
+
+    <div class="steps-grid">
+      <div class="step-box">
+        <div class="step-header">👉 PASO 1: Quita los paréntesis</div>
+        <div>Multiplica el número de fuera por todo lo de dentro.</div>
+        <div class="example-pill">
+          <strong>Ejemplo:</strong> $3(x - 2) \rightarrow 3x - 6$<br>
+          <strong>¡Ojo al signo menos!:</strong> $-(x - 4) \rightarrow -x + 4$
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-header">👉 PASO 2: Quita denominadores</div>
+        <div>Haz el <strong>m.c.m.</strong> de los de abajo. Divide entre el de abajo y multiplica por lo de arriba.</div>
+        <div class="example-pill" style="text-align: center;">
+          $\dfrac{x}{2} + \dfrac{x}{3} = 5 \xrightarrow{\text{mcm}=6} 3x + 2x = 30$
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-header">👉 PASO 3: Las $x$ a un lado, números al otro</div>
+        <div>Las $x$ a la izquierda y números a la derecha. <strong>Si cambia de lado, cambia de signo.</strong></div>
+        <div class="example-pill" style="text-align: center;">
+          $3x - 1 = 2x + 6 \rightarrow 3x - 2x = 6 + 1$
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-header">👉 PASO 4: Despeja la $x$</div>
+        <div>El número que multiplica a la $x$ pasa al otro lado <strong>dividiendo</strong> (con su mismo signo).</div>
+        <div class="example-pill" style="text-align: center;">
+          $5x = 30 \rightarrow x = \dfrac{30}{5} \rightarrow \mathbf{x = 6}$
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 2: ECUACIONES DE 2º GRADO -->
+  <div class="section-card">
+    <h2 class="section-title">
+      <span class="num-circle">2</span>
+      <span>Ecuaciones de 2º Grado ($ax^2 + bx + c = 0$)</span>
+    </h2>
+
+    <div class="two-cols">
+      <!-- COMPLETA -->
+      <div class="mini-card" style="background: #fffdf5; border-color: #fde047;">
+        <div class="mini-card-title" style="color: #b45309;">⭐ Si está COMPLETA (tiene $x^2$, $x$ y número)</div>
+        <div>Pasa todo a la izquierda ($= 0$) y usa la <strong>Fórmula General</strong>:</div>
+        <div class="formula-big">
+          $$x = \frac{-b \pm \sqrt{b^2 - 4 \cdot a \cdot c}}{2 \cdot a}$$
+        </div>
+        <div style="font-size: 10.5pt;">
+          &bull; Raíz <strong>positiva ($+$)</strong>: salen <strong>2 soluciones</strong>.<br>
+          &bull; Raíz igual a <strong>$0$</strong>: sale <strong>1 solución doble</strong>.<br>
+          &bull; Raíz <strong>negativa ($-$)</strong>: <strong>no tiene solución real</strong>.
+        </div>
+      </div>
+
+      <!-- INCOMPLETAS -->
+      <div class="mini-card">
+        <div class="mini-card-title">⚡ Si está INCOMPLETA (¡más rápido sin fórmula!)</div>
+        
+        <div style="margin-bottom: 7px; padding: 6px 9px; background: white; border-radius: 9px; border: 1.5px solid #cbd5e1;">
+          <strong style="color: #0f766e;">CASO A: Falta la $x$ ($ax^2 + c = 0$)</strong><br>
+          Despeja $x^2$ normal y haz la raíz cuadrada con $\pm$:
+          <div style="margin-top: 3px; color: #1e3a8a;">
+            $3x^2 - 48 = 0 \rightarrow x^2 = 16 \rightarrow x = \pm\sqrt{16} = \mathbf{\pm 4}$
+          </div>
+        </div>
+
+        <div style="padding: 6px 9px; background: white; border-radius: 9px; border: 1.5px solid #cbd5e1;">
+          <strong style="color: #7c3aed;">CASO B: Falta el número suelto ($ax^2 + bx = 0$)</strong><br>
+          Saca la $x$ fuera (factor común). <strong>Una solución siempre es $x = 0$:</strong>
+          <div style="margin-top: 3px; color: #1e3a8a;">
+            $2x^2 - 8x = 0 \rightarrow x(2x - 8) = 0 \rightarrow \mathbf{x_1 = 0}, \ \mathbf{x_2 = 4}$
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 3: SISTEMAS DE ECUACIONES -->
+  <div class="section-card">
+    <h2 class="section-title">
+      <span class="num-circle">3</span>
+      <span>Sistemas de 2 Ecuaciones con 2 Incógnitas ($x, y$)</span>
+    </h2>
+
+    <div class="three-cols">
+      <div class="mini-card">
+        <div class="mini-card-title">1. Sustitución</div>
+        <div><strong>¿Cuándo usarlo?</strong> Cuando veas una $x$ o $y$ sola (sin número delante).</div>
+        <div class="example-pill" style="font-size: 10pt;">
+          Despeja esa letra y métela entre paréntesis en la otra ecuación.
+        </div>
+      </div>
+
+      <div class="mini-card">
+        <div class="mini-card-title">2. Reducción (El más rápido)</div>
+        <div><strong>¿Cómo se hace?</strong> Multiplica para que una letra tenga el mismo número pero <strong>signo contrario</strong>.</div>
+        <div class="example-pill" style="font-size: 10pt;">
+          Suma las dos ecuaciones en vertical para que se vaya esa letra.
+        </div>
+      </div>
+
+      <div class="mini-card">
+        <div class="mini-card-title">3. Igualación</div>
+        <div><strong>¿Cómo se hace?</strong> Despeja la misma letra en las dos ecuaciones e iguala los resultados.</div>
+        <div class="example-pill" style="font-size: 10pt;">
+          Si $y = 10 - x$ e $y = 2x + 1$:<br>
+          $10 - x = 2x + 1$
+        </div>
+      </div>
+    </div>
+
+    <div class="alert-tip">
+      <strong>💡 Truco final:</strong> En los sistemas, cuando encuentres el valor de la $x$, ¡no olvides sustituirlo al final para calcular también cuánto vale la $y$!
+    </div>
+  </div>
+
+  <!-- BLOQUE 4: CHULETA PARA PROBLEMAS -->
+  <div class="section-card" style="margin-bottom: 0;">
+    <h2 class="section-title">
+      <span class="num-circle">4</span>
+      <span>Cómo plantear los Problemas Típicos de Examen</span>
+    </h2>
+
+    <div class="steps-grid">
+      <div class="step-box">
+        <div class="step-header">🎂 Problemas de Edades</div>
+        <div>Llama $x$ a los años que pasan. Recuerda que <strong>los años pasan igual para todos</strong>:</div>
+        <div class="example-pill">
+          &bull; Hoy: Padre $42$, Hijo $10$<br>
+          &bull; Dentro de $x$ años: Padre $(42 + x)$, Hijo $(10 + x)$
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-header">📐 Problemas de Rectángulos</div>
+        <div>Haz siempre un dibujo. El <strong>perímetro</strong> es la suma de los 4 lados ($2 \cdot \text{base} + 2 \cdot \text{altura}$):</div>
+        <div class="example-pill">
+          &bull; Altura $= x$, Base $= x + 6$<br>
+          &bull; Perímetro: $2x + 2(x + 6) = \text{Total}$
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-header">🐇 Problemas de Granja (Cabezas y Patas)</div>
+        <div>Plantea un sistema con $c$ (conejos, 4 patas) y $g$ (gallinas, 2 patas):</div>
+        <div class="example-pill">
+          $\begin{cases} c + g = \text{Total cabezas} \\ 4c + 2g = \text{Total patas} \end{cases}$
+        </div>
+      </div>
+
+      <div class="step-box">
+        <div class="step-header">🔢 Lenguaje Algebraico Básico</div>
+        <div>Traduce cada frase paso a paso:</div>
+        <div class="example-pill">
+          &bull; El doble de un número: $2x$ &nbsp;|&nbsp; Su mitad: $\dfrac{x}{2}$<br>
+          &bull; Dos números consecutivos: $x$ y $(x + 1)$
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>
