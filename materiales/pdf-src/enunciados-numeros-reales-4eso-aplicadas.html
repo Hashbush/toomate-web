@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Tema 1: Números Reales & Finanzas | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Tema 1: Números Reales & Finanzas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Halla la fracción generatriz irreducible de los siguientes números decimales:
+            a) $3,45$ &nbsp;&bull;&nbsp; b) $2,\widehat{6}$ &nbsp;&bull;&nbsp; c) $1,4\widehat{2}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\frac{69}{20}$ ; $\frac{8}{3}$ ; $\frac{64}{45}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">El precio de una reparación mecánica sin impuestos es de $350\text{ €}$. Si se le aplica el $21\%$ de IVA general, calcula cuánto dinero supone el impuesto y cuál es el precio final a pagar.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $73,50\text{ €}$ ; $423,50\text{ €}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Un teléfono móvil cuesta $420\text{ €}$, pero está rebajado un $15\%$. Calcula directamente el precio rebajado utilizando el índice de variación.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $357\text{ €}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">Escribe en notación científica:<br>
+            <strong>a)</strong> $450.000.000$ (habitantes aprox. de la Unión Europea)<br>
+            <strong>b)</strong> $0,000038\text{ g}$ (masa de una partícula microscópica).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $4,5 \cdot 10^8$ ; $3,8 \cdot 10^{-5}\text{ g}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Depositamos $2.000\text{ €}$ en un plazo fijo al $3\%$ de interés simple anual durante 4 años. ¿Qué intereses totales recibiremos y cuál será el capital final acumulado?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $240\text{ € de intereses}$ ; $2.240\text{ € acumulados}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">En un instituto de Cantabria hay 680 alumnos matriculados. Si 238 participan en actividades deportivas extraescolares, ¿qué porcentaje de los alumnos del centro realiza deporte?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $35\%$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Una chaqueta deportiva ha costado $72\text{ €}$ tras aplicársele un descuento del $20\%$. ¿Cuál era su precio original antes de estar rebajada?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $90\text{ €}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Una factura con el $21\%$ de IVA incluido asciende a un total de $484\text{ €}$. Halla la base imponible (precio sin IVA) y el importe del impuesto.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $400\text{ €}$ ; $84\text{ €}$</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">El precio del combustible subió un $12\%$ en enero y bajó un $8\%$ en febrero. Si a principios de año el litro costaba $1,50\text{ €}$, ¿cuál es su precio al finalizar febrero? ¿Qué variación porcentual global ha tenido?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $1,5456\text{ €/litro}$ ; $1,55\text{ €}$ ; $3,04\%$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Una tienda de ropa ofrece en las segundas rebajas un $20\%$ de descuento adicional sobre artículos que ya tenían una rebaja del $30\%$. ¿Qué porcentaje total de descuento real se está aplicando?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $0,56$ ; $44\%$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">Tres socios aportan a un proyecto $3.000\text{ €}$, $5.000\text{ €}$ y $7.000\text{ €}$ respectivamente. Al cabo de un año obtienen un beneficio conjunto de $9.000\text{ €}$. ¿Cuánto beneficio le corresponde a cada uno de forma directamente proporcional a su aportación?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $1.800\text{ €}$ ; $3.000\text{ €}$ ; $4.200\text{ €}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Un premio de $1.100\text{ €}$ se reparte entre dos conserjes de forma inversamente proporcional a los días que faltaron al trabajo: 2 días y 3 días. ¿Cuánto recibe cada uno?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $660\text{ €}$ ; $440\text{ €}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">Calcula reduciendo a exponente común: &nbsp; $(4,5 \cdot 10^7) + (3,8 \cdot 10^6) - (2 \cdot 10^5)$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $4,86 \cdot 10^7$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">¿Durante cuántos años debemos mantener un capital de $5.000\text{ €}$ colocado al $4\%$ de interés simple anual para obtener unos intereses de $600\text{ €}$?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $3\text{ años}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">Invertimos $6.000\text{ €}$ a un tipo de interés compuesto del $3,5\%$ anual durante 5 años. Calcula el capital final acumulado y los intereses netos generados.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $7.126,12\text{ €}$ ; $1.126,12\text{ €}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Se depositan $10.000\text{ €}$ durante 10 años al $5\%$ anual. Compara el capital final si se aplica: a) interés simple, b) interés compuesto. ¿Qué diferencia de dinero supone?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $15.000\text{ €}$ ; $16.288,95\text{ €}$ ; $1.288,95\text{ €}$</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Si la tasa media de inflación durante los últimos 3 años ha sido del $4\%$ anual, ¿cuánto cuesta hoy un servicio que hace 3 años costaba $80\text{ €}$?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $89,99\text{ €}$ ; $90\text{ €}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">El sueldo bruto mensual de un trabajador es de $1.850\text{ €}$. En su nómina se le retiene un $6,35\%$ de cuotas de Seguridad Social y un $14\%$ de IRPF. ¿Cuál es el sueldo neto que recibe en su cuenta bancaria?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $1.473,52\text{ €}$ ; $1.473,53\text{ €}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">¿Qué capital debemos depositar hoy al $4\%$ de interés compuesto anual para reunir $10.000\text{ €}$ dentro de 6 años?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $7.903,15\text{ €}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">Compramos un televisor que cuesta $800\text{ €}$ al contado. La tienda ofrece pagarlo en 12 mensualidades de $75\text{ €}$. ¿Qué recargo total en euros nos cobran por aplazar el pago y qué porcentaje de interés supone sobre el precio original?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $100\text{ €}$ ; $12,5\%$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">Un banco abona un $4\%$ de interés nominal anual liquidable semestralmente. Si depositamos $5.000\text{ €}$ durante 2 años, ¿cuál será el capital final al capitalizar dos veces al año?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $5.412,16\text{ €}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Un pequeño comercio de Santander compra género por valor de $12.000\text{ €}$ sin IVA. Le cargan el $21\%$ de IVA. Paga el $40\%$ al contado y para el resto solicita un crédito al $5\%$ de interés simple a devolver en 18 meses. ¿Cuánto pagará en total por la mercancía incluidos impuestos e intereses de financiación?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $15.173,40\text{ €}$</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Matrices y Determinantes | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Matrices y Determinantes</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Dadas las matrices $A_{2 \times 3}$, $B_{3 \times 4}$ y $C_{4 \times 2}$, determina cuáles de los siguientes productos son posibles y cuál es la dimensión de la matriz resultante:<br>
+            <strong>a)</strong> $A \cdot B$ &nbsp;&bull;&nbsp; <strong>b)</strong> $B \cdot A$ &nbsp;&bull;&nbsp; <strong>c)</strong> $(A \cdot B) \cdot C$ &nbsp;&bull;&nbsp; <strong>d)</strong> $C \cdot A$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $2 \times 4$ ; $2 \times 2$ ; $4 \times 3$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Sean las matrices $A = \begin{pmatrix} 2 & -1 \\ 3 & 0 \end{pmatrix}$ y $B = \begin{pmatrix} 1 & 4 \\ -2 & 5 \end{pmatrix}$. Calcula la matriz resultante $M = 3A - 2B^t$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\begin{pmatrix} 4 & 1 \\ 1 & -10 \end{pmatrix}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Calcula mediante la regla de Sarrus los siguientes determinantes:<br>
+            <strong>a)</strong> $|M_1| = \begin{vmatrix} 2 & 1 & 0 \\ -1 & 3 & 2 \\ 4 & -2 & 1 \end{vmatrix}$ &nbsp;&bull;&nbsp; <strong>b)</strong> $|M_2| = \begin{vmatrix} 1 & 3 & -1 \\ 0 & 2 & 4 \\ 2 & 1 & 0 \end{vmatrix}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $|M_2| = (0 + 24 + 0) - (-4 + 4 + 0) = 24 - 0 = 24$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">Halla, en caso de que existan, las matrices inversas de:<br>
+            <strong>a)</strong> $A = \begin{pmatrix} 3 & 5 \\ 1 & 2 \end{pmatrix}$ &nbsp;&bull;&nbsp; <strong>b)</strong> $B = \begin{pmatrix} 2 & 6 \\ 1 & 3 \end{pmatrix}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $0$. Como el determinante es cero, la matriz $B$ es singular y NO existe $B^{-1}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Demuestra algebraicamente que para cualquier matriz cuadrada $A$, la matriz $S = A + A^t$ es siempre simétrica, y la matriz $T = A - A^t$ es antisimétrica.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Por tanto, $T^t = -T$ (es antisimétrica). Q.E.D.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Encuentra la matriz incógnita $X$ que satisface la igualdad: &nbsp; $2X + \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = \begin{pmatrix} 5 & 0 \\ -1 & 2 \end{pmatrix}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $X = \frac{1}{2}\begin{pmatrix} 4 & -2 \\ -4 & -2 \end{pmatrix} = \begin{pmatrix} 2 & -1 \\ -2 & -1 \end{pmatrix}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Dada la matriz $A = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$, calcula $A^2, A^3, A^4$. A partir del ciclo obtenido, deduce razonadamente el valor exacto de la potencia $A^{2027}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $A^{2027} = (A^4)^{506} \cdot A^3 = I^{506} \cdot A^3 = A^3 = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Calcula la matriz inversa de $A = \begin{pmatrix} 1 & 0 & 2 \\ 2 & -1 & 1 \\ 0 & 1 & 1 \end{pmatrix}$ aplicando la fórmula $A^{-1} = \frac{1}{|A|}(\text{Adj}(A))^t$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\begin{pmatrix} -1 & 1 & 1 \\ -1 & 1/2 & 3/2 \\ 1 & -1/2 & -1/2 \end{pmatrix}$</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">Calcula el rango de la matriz $M = \begin{pmatrix} 1 & -1 & 2 & 0 \\ 2 & 1 & 1 & 3 \\ 0 & -3 & 3 & -3 \end{pmatrix}$ encontrando el menor no nulo de mayor orden.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\text{Rg}(M) = 2$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Sabiendo que $A$ y $B$ son matrices cuadradas de orden 3 tales que $|A| = -2$ y $|B| = 5$, calcula razonadamente:<br>
+            <strong>a)</strong> $|A \cdot B|$ &nbsp;&bull;&nbsp; <strong>b)</strong> $|3A|$ &nbsp;&bull;&nbsp; <strong>c)</strong> $|A^{-1}|$ &nbsp;&bull;&nbsp; <strong>d)</strong> $|A^t \cdot B^2|$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $-10$ ; $-54$ ; $-0,5$ ; $-50$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">Estudia el rango de la matriz $A = \begin{pmatrix} 1 & 1 & a \\ 1 & a & 1 \\ a & 1 & 1 \end{pmatrix}$ en función de los valores del parámetro real $a$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\text{Rg}(A) = 3$ ; $\text{Rg}(A) = 1$ ; $\text{Rg}(A) = 2$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Dada la matriz $N = \begin{pmatrix} 0 & 1 & 2 \\ 0 & 0 & -1 \\ 0 & 0 & 0 \end{pmatrix}$, comprueba que $N^3 = O$ (matriz nula). Utiliza este resultado para calcular $(I + N)^5$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $(I + N)^5 = I + 5N + 10N^2 = \begin{pmatrix} 1 & 5 & 0 \\ 0 & 1 & -5 \\ 0 & 0 & 1 \end{pmatrix}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">Sabiendo que $\begin{vmatrix} a & b & c \\ d & e & f \\ g & h & i \end{vmatrix} = 7$, calcula el valor del determinante: &nbsp; $\begin{vmatrix} 2a & 2b & 2c \\ d-a & e-b & f-c \\ 3g & 3h & 3i \end{vmatrix}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $Resultado = 6 \cdot 7 = 42$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Si la matriz cuadrada $A$ satisface la ecuación $A^2 - 3A + 2I = O$, demuestra algebraicamente que $A$ tiene inversa y expresa $A^{-1}$ en función de $A$ e $I$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $A^{-1} = \frac{1}{2}(3I - A)$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">Dadas las matrices $A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ y $B = \begin{pmatrix} 1 & -1 \\ 0 & 2 \end{pmatrix}$, resuelve la ecuación matricial: &nbsp; $X \cdot A + X = B$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\frac{1}{5}\begin{pmatrix} 3 & -4 \\ -2 & 6 \end{pmatrix}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Considera la matriz $A = \begin{pmatrix} 1 & 0 & k \\ k & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}$.<br>
+            <strong>a)</strong> Halla los valores de $k$ para los que $A$ no tiene inversa.<br>
+            <strong>b)</strong> Para $k = 2$, resuelve la ecuación $A \cdot X = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $X = \begin{pmatrix} -1/5 \\ 2/5 \\ 3/5 \end{pmatrix}$</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Despeja y calcula la matriz $X$ en la ecuación $A^t \cdot X - B = I$, donde $A = \begin{pmatrix} 1 & 2 \\ 0 & -1 \end{pmatrix}$ y $B = \begin{pmatrix} 3 & 1 \\ -1 & 2 \end{pmatrix}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $X = (A^t)^{-1} \cdot (B + I)$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Dadas $A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 1 & 0 & 1 \end{pmatrix}$ y $B = \begin{pmatrix} 2 & 0 & 1 \\ 1 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$, resuelve la ecuación: &nbsp; $A \cdot X + B = 2B$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $X = A^{-1} \cdot B$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">Sea la matriz $A = \begin{pmatrix} 1 & 0 \\ 3 & 1 \end{pmatrix}$. Calcula $A^n$. A continuación, encuentra una matriz $X$ tal que $A^{10} \cdot X = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $A^n = \begin{pmatrix} 1 & 0 \\ 3n & 1 \end{pmatrix}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">Halla todas las matrices de la forma $A = \begin{pmatrix} a & 0 \\ b & c \end{pmatrix}$ que verifican la igualdad $A^2 = I$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\begin{pmatrix} -1 & 0 \\ b & 1 \end{pmatrix}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">Se considera la matriz $M(a) = \begin{pmatrix} a & 1 & 1 \\ 1 & a & 1 \\ 1 & 1 & a \end{pmatrix}$. Determina para qué valores del parámetro real $a$ se anula el determinante de $(M(a))^3$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a = 1$ ; $a = -2$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Resuelve el siguiente sistema matricial para las incógnitas $X$ e $Y$:
+            $$\begin{cases} 2X + Y = \begin{pmatrix} 1 & 0 \\ 2 & -1 \end{pmatrix} \\ X - Y = \begin{pmatrix} 2 & 3 \\ -2 & 4 \end{pmatrix} \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $X = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ ; $Y = \begin{pmatrix} -1 & -2 \\ 2 & -3 \end{pmatrix}$</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

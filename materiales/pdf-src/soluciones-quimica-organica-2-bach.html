@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Química Orgánica: Isomería y Reacciones | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Química Orgánica: Isomería y Reacciones</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Indica qué tipo de isomería estructural existe entre cada una de las siguientes parejas de compuestos:<br>
+            a) Butanal y butanona.<br>
+            b) 1-butanol y 2-butanol.<br>
+            c) Pentano y 2,2-dimetilpropano.<br>
+            d) Ácido propanoico y acetato de metilo.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Butanal ($\text{CH}_3\text{CH}_2\text{CH}_2\text{CHO}$) y butanona ($\text{CH}_3\text{COCH}_2\text{CH}_3$):</strong> Isomería de <strong>función</strong> (aldehído frente a cetona, ambos $\text{C}_4\text{H}_8\text{O}$).</p>
+                <p><strong>b) 1-butanol y 2-butanol:</strong> Isomería de <strong>posición</strong> (cambia la posición del grupo $-\text{OH}$ en la cadena de 4 carbonos).</p>
+                <p><strong>c) Pentano y 2,2-dimetilpropano:</strong> Isomería de <strong>cadena</strong> (cadena lineal frente a ramificada, ambos $\text{C}_5\text{H}_{12}$).</p>
+                <p><strong>d) Ácido propanoico y acetato de metilo:</strong> Isomería de <strong>función</strong> (ácido carboxílico frente a éster, ambos $\text{C}_3\text{H}_6\text{O}_2$).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Identifica si presentan carbono asimétrico ($C^*$) e isomería óptica las siguientes moléculas: a) 2-clorobutano, b) 1-clorobutano, c) ácido láctico (ácido 2-hidroxipropanoico), d) propanona.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>Un carbono asimétrico debe ser $sp^3$ y estar unido a 4 grupos distintos:</p>
+                <p><strong>a) 2-clorobutano ($\text{CH}_3-\text{C}^* \text{H(Cl)}-\text{CH}_2\text{CH}_3$):</strong> El C2 está unido a $-\text{H}$, $-\text{Cl}$, $-\text{CH}_3$ y $-\text{CH}_2\text{CH}_3$. <strong>SÍ tiene $C^*$</strong> y presenta isomería óptica.</p>
+                <p><strong>b) 1-clorobutano ($\text{Cl}-\text{CH}_2-\text{CH}_2\text{CH}_2\text{CH}_3$):</strong> El C1 tiene dos hidrógenos idénticos. <strong>NO presenta quiralidad</strong>.</p>
+                <p><strong>c) Ácido láctico ($\text{CH}_3-\text{C}^* \text{H(OH)}-\text{COOH}$):</strong> El C2 está unido a $-\text{H}$, $-\text{OH}$, $-\text{CH}_3$ y $-\text{COOH}$. <strong>SÍ tiene $C^*$</strong>.</p>
+                <p><strong>d) Propanona ($\text{CH}_3-\text{CO}-\text{CH}_3$):</strong> El carbono carbonílico es $sp^2$ y los metilos son simétricos. <strong>NO es quiral</strong>.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Justifica razonadamente si pueden presentar isomería geométrica (cis/trans o Z/E) las siguientes moléculas: a) 1-buteno, b) 2-buteno, c) 2-metil-2-buteno.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>Para tener isomería cis/trans, <strong>cada uno</strong> de los dos carbonos del doble enlace debe tener dos sustituyentes diferentes entre sí:</p>
+                <p><strong>a) 1-buteno ($\text{CH}_2=\text{CH}-\text{CH}_2\text{CH}_3$):</strong> El C1 tiene dos hidrógenos idénticos ($\text{H}_2\text{C}=$). <strong>NO tiene isomería cis/trans</strong>.</p>
+                <p><strong>b) 2-buteno ($\text{CH}_3-\text{CH}=\text{CH}-\text{CH}_3$):</strong> Tanto el C2 como el C3 están unidos a $-\text{H}$ y $-\text{CH}_3$ ($\text{H} \ne \text{CH}_3$). <strong>SÍ presenta isomería geométrica</strong>: cis-2-buteno (metilos del mismo lado) y trans-2-buteno (metilos en lados opuestos).</p>
+                <p><strong>c) 2-metil-2-buteno ($(\text{CH}_3)_2\text{C}=\text{CH}-\text{CH}_3$):</strong> El C2 tiene dos grupos metilo idénticos. <strong>NO tiene isomería cis/trans</strong>.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Formula la reacción de adición de bromuro de hidrógeno ($\text{HBr}$) al propeno. Indica el producto mayoritario y minoritario justificando la respuesta mediante la regla de Markovnikov.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>$\text{CH}_3-\text{CH}=\text{CH}_2 + \text{HBr} \to$</p>
+                <p>El C1 tiene 2 hidrógenos y el C2 tiene 1 hidrógeno. Según la regla de Markovnikov, el protón ($\text{H}^+$) se adiciona al carbono más hidrogenado (C1) para formar el carbocatión secundario más estable ($\text{CH}_3-\text{CH}^+-\text{CH}_3$), sobre el cual ataca el bromuro ($\text{Br}^-$):</p>
+                <p><strong>Producto Mayoritario ($\approx 95\%$):</strong> $\text{CH}_3-\text{CH(Br)}-\text{CH}_3$ (2-bromopropano).</p>
+                <p><strong>Producto Minoritario:</strong> $\text{CH}_3-\text{CH}_2-\text{CH}_2\text{Br}$ (1-bromopropano).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Clasifica las siguientes reacciones orgánicas como adición, sustitución, eliminación o condensación:<br>
+            a) $\text{CH}_3\text{CH}_2\text{Cl} + \text{NaOH}(aq) \to \text{CH}_3\text{CH}_2\text{OH} + \text{NaCl}$<br>
+            b) $\text{CH}_2=\text{CH}_2 + \text{Cl}_2 \to \text{CH}_2\text{Cl}-\text{CH}_2\text{Cl}$<br>
+            c) $\text{CH}_3\text{CH}_2\text{OH} \xrightarrow{\text{H}_2\text{SO}_4, 180^\circ} \text{CH}_2=\text{CH}_2 + \text{H}_2\text{O}$<br>
+            d) $\text{CH}_3\text{COOH} + \text{CH}_3\text{OH} \xrightarrow{\text{H}^+} \text{CH}_3\text{COOCH}_3 + \text{H}_2\text{O}$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a)</strong> Reacción de <strong>sustitución nucleófila</strong> (el grupo $-\text{OH}$ sustituye al átomo de $-\text{Cl}$).</p>
+                <p><strong>b)</strong> Reacción de <strong>adición</strong> (se rompe el enlace $\pi$ y se incorporan dos átomos de cloro).</p>
+                <p><strong>c)</strong> Reacción de <strong>eliminación</strong> (deshidratación de un alcohol para formar un alqueno y agua).</p>
+                <p><strong>d)</strong> Reacción de <strong>condensación / esterificación</strong> (unión de ácido y alcohol con pérdida de una molécula de agua).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Escribe las estructuras del producto orgánico resultante al tratar con dicromato de potasio en medio ácido ($\text{K}_2\text{Cr}_2\text{O}_7/\text{H}^+$): a) 1-propanol, b) 2-propanol, c) 2-metil-2-propanol.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) 1-propanol (alcohol primario):</strong> Se oxida primero a propanal ($\text{CH}_3\text{CH}_2\text{CHO}$) y con el oxidante fuerte pasa finalmente a <strong>ácido propanoico</strong> ($\text{CH}_3\text{CH}_2\text{COOH}$).</p>
+                <p><strong>b) 2-propanol (alcohol secundario):</strong> Se oxida a <strong>propanona</strong> ($\text{CH}_3-\text{CO}-\text{CH}_3$), la cual ya no se oxida más sin romper la cadena.</p>
+                <p><strong>c) 2-metil-2-propanol (alcohol terciario):</strong> <strong>No reacciona</strong> (no hay hidrógeno disponible en el carbono portador del grupo hidroxilo).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">El metano reacciona con cloro en presencia de luz ultravioleta ($h\nu$). Escribe las etapas de iniciación, propagación y terminación del mecanismo de sustitución radicalaria para obtener clorometano.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Iniciación (ruptura homolítica):</strong> $\text{Cl}_2 \xrightarrow{h\nu} 2\text{ Cl}^\bullet$.</p>
+                <p><strong>2. Propagación:</strong></p>
+                <p>$\text{CH}_4 + \text{Cl}^\bullet \to \text{CH}_3^\bullet + \text{HCl}$</p>
+                <p>$\text{CH}_3^\bullet + \text{Cl}_2 \to \text{CH}_3\text{Cl} + \text{Cl}^\bullet$</p>
+                <p><strong>3. Terminación (combinación de radicales):</strong></p>
+                <p>$\text{Cl}^\bullet + \text{Cl}^\bullet \to \text{Cl}_2; \quad \text{CH}_3^\bullet + \text{Cl}^\bullet \to \text{CH}_3\text{Cl}; \quad \text{CH}_3^\bullet + \text{CH}_3^\bullet \to \text{CH}_3-\text{CH}_3$ (etano).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Escribe la reacción ajustada de combustión completa del 2-metilbutano en estado gaseoso y calcula el volumen de dióxido de carbono medido a $25^\circ\text{C}$ y $1\text{ atm}$ producido al quemar $144\text{ g}$ de este hidrocarburo ($M = 72\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>Fórmula molecular del 2-metilbutano: $\text{C}_5\text{H}_{12}$.</p>
+                $$\text{C}_5\text{H}_{12} + 8\text{ O}_2 \to 5\text{ CO}_2 + 6\text{ H}_2\text{O}$$
+                <p>Moles de hidrocarburo: $n = \frac{144\text{ g}}{72\text{ g/mol}} = 2\text{ moles}$.</p>
+                <p>Moles de $\text{CO}_2$: $n_{\text{CO}_2} = 5 \times 2 = 10\text{ moles}$.</p>
+                <p>Volumen de gas ($P V = n R T$):
+                  $$V = \frac{10 \cdot 0{,}082 \cdot 298}{1} = \mathbf{244{,}36\text{ Litros}}.$$</p>
+              </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">Escribe las fórmulas semidesarrolladas y nombres IUPAC de los 7 isómeros estructurales (4 alcoholes y 3 éteres) correspondientes a la fórmula molecular $\text{C}_4\text{H}_{10}\text{O}$. Indica cuál o cuáles presentan isomería óptica.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>Alcoholes (4 isómeros):</strong></p>
+                <ol class="list-decimal pl-5 space-y-1">
+                  <li>$\text{CH}_3-\text{CH}_2-\text{CH}_2-\text{CH}_2\text{OH}$ (1-butanol).</li>
+                  <li>$\text{CH}_3-\text{CH}_2-\text{C}^* \text{H(OH)}-\text{CH}_3$ (2-butanol). <strong>¡Presenta carbono asimétrico y quiralidad óptica!</strong></li>
+                  <li>$\text{CH}_3-\text{CH(CH}_3)-\text{CH}_2\text{OH}$ (2-metil-1-propanol).</li>
+                  <li>$(\text{CH}_3)_3\text{C}-\text{OH}$ (2-metil-2-propanol).</li>
+                </ol>
+                <p><strong>Éteres (3 isómeros):</strong></p>
+                <ol class="list-decimal pl-5 space-y-1" start="5">
+                  <li>$\text{CH}_3-\text{O}-\text{CH}_2-\text{CH}_2-\text{CH}_3$ (metil propil éter o 1-metoxipropano).</li>
+                  <li>$\text{CH}_3-\text{O}-\text{CH(CH}_3)_2$ (isopropil metil éter o 2-metoxipropano).</li>
+                  <li>$\text{CH}_3-\text{CH}_2-\text{O}-\text{CH}_2-\text{CH}_3$ (dietiléter o etoxietano).</li>
+                </ol>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Al calentar 2-butanol en presencia de ácido sulfúrico concentrado ($\text{H}_2\text{SO}_4$) se produce una reacción de eliminación. Formula la reacción, predice los dos alquenos que pueden formarse y razona cuál es el producto mayoritario según la regla de Saytzeff.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>Estructura: $\text{CH}_3(C_1)-\text{CH(OH)}(C_2)-\text{CH}_2(C_3)-\text{CH}_3(C_4)$.</p>
+                <p>El grupo $-\text{OH}$ sale del C2. El protón $\text{H}^+$ puede eliminarse del C1 (que tiene 3 hidrógenos) o del C3 (que tiene 2 hidrógenos):</p>
+                <p><strong>Producto Mayoritario ($\approx 85\%$):</strong> Por la <strong>regla de Saytzeff</strong>, se elimina preferentemente el hidrógeno del carbono adyacente menos hidrogenado (C3), dando el alqueno más sustituido y más estable termodinámicamente:</p>
+                $$\text{CH}_3-\text{CH}=\text{CH}-\text{CH}_3 \quad (\text{2-buteno}).$$
+                <p><strong>Producto Minoritario ($\approx 15\%$):</strong> $\text{CH}_3-\text{CH}_2-\text{CH}=\text{CH}_2 \quad (\text{1-buteno})$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">El acetato de isopentilo (olor a plátano) se sintetiza mediante esterificación de Fischer entre ácido acético ($\text{CH}_3\text{COOH}$) y 3-metil-1-butanol ($(\text{CH}_3)_2\text{CH}-\text{CH}_2-\text{CH}_2\text{OH}$). Escribe la ecuación ajustada, nombra el éster según la IUPAC e indica el catalizador empleado.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>Catalizador: ácido fuerte concentrado ($\text{H}_2\text{SO}_4$).</p>
+                $$\text{CH}_3\text{COOH} + (\text{CH}_3)_2\text{CH}-\text{CH}_2\text{CH}_2\text{OH} \xrightleftharpoons{\text{H}^+} \text{CH}_3\text{COO}-\text{CH}_2\text{CH}_2-\text{CH}(\text{CH}_3)_2 + \text{H}_2\text{O}$$
+                <p>Nombre IUPAC: <strong>etanoato de 3-metilbutilo</strong> (o acetato de isopentilo).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">La combustión de $2{,}20\text{ g}$ de un compuesto orgánico oxigenado produce $4{,}40\text{ g}$ de $\text{CO}_2$ y $1{,}80\text{ g}$ de $\text{H}_2\text{O}$. En estado gaseoso, a $100^\circ\text{C}$ y $1\text{ atm}$, $0{,}88\text{ g}$ de dicho compuesto ocupan un volumen de $310\text{ mL}$. Halla su fórmula empírica y molecular ($M(\text{C}) = 12$, $M(\text{H}) = 1$, $M(\text{O}) = 16$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Masas de elementos en la muestra:</strong></p>
+                <p>Masa de C: $4{,}40\text{ g CO}_2 \times \frac{12}{44} = 1{,}20\text{ g de C}$.</p>
+                <p>Masa de H: $1{,}80\text{ g H}_2\text{O} \times \frac{2}{18} = 0{,}20\text{ g de H}$.</p>
+                <p>Masa de O: $2{,}20 - (1{,}20 + 0{,}20) = 0{,}80\text{ g de O}$.</p>
+                <p><strong>2. Proporción molar (fórmula empírica):</strong></p>
+                <p>$n_C = \frac{1{,}20}{12} = 0{,}10; \quad n_H = \frac{0{,}20}{1} = 0{,}20; \quad n_O = \frac{0{,}80}{16} = 0{,}05$.</p>
+                <p>Dividiendo por el menor ($0{,}05$): $\text{C} = 2, \quad \text{H} = 4, \quad \text{O} = 1 \implies (\text{C}_2\text{H}_4\text{O})_n \quad (M_{\text{emp}} = 44\text{ g/mol})$.</p>
+                <p><strong>3. Masa molecular experimental:</strong>
+                  $$M = \frac{m R T}{P V} = \frac{0{,}88 \cdot 0{,}082 \cdot 373{,}15}{1 \cdot 0{,}310} \approx \frac{26{,}93}{0{,}310} \approx 86{,}9 \approx 88\text{ g/mol}.$$</p>
+                <p>$n = \frac{88}{44} = 2 \implies$ <strong>Fórmula molecular: $\text{C}_4\text{H}_8\text{O}_2$</strong> (ejemplo: acetato de etilo o ácido butanoico).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">La trioleína (triglicérido del ácido oleico, $\text{C}_{57}\text{H}_{104}\text{O}_6$) se calienta con hidróxido de sodio en disolución acuosa para fabricar jabón. Escribe esquemáticamente los productos obtenidos y explica por qué las moléculas de jabón tienen carácter anfipático.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>Reacción de hidrólisis alcalina de ésteres (saponificación):</p>
+                $$\text{Triglicérido} + 3\text{ NaOH} \to \text{Glicerol (1,2,3-propanotriol)} + 3\text{ Sales sódicas de ácidos grasos (jabón)}$$
+                <p>El oleato de sodio ($\text{CH}_3(\text{CH}_2)_7\text{CH}=\text{CH}(\text{CH}_2)_7\text{COO}^- \text{Na}^+$) es una sustancia <strong>anfipática</strong> porque posee:</p>
+                <ul class="list-disc pl-5 text-xs space-y-1">
+                  <li>Una <strong>cola hidrocarbonada apolar hidrófoba</strong> que se disuelve en las grasas y suciedad.</li>
+                  <li>Una <strong>cabeza iónica polar hidrófila</strong> ($-\text{COO}^-$) que interacciona con el agua mediante puentes de hidrógeno, formando micelas coloidales que dispersan la grasa.</li>
+                </ul>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">El ácido 2-aminopropanoico (alanina) tiene un centro quiral. Dibuja las dos estructuras enantiómeras en proyección tridimensional o cuñas e indica qué propiedades físicas idénticas comparten y en qué se diferencian.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>Estructura: $\text{CH}_3-\text{C}^* \text{H(NH}_2)-\text{COOH}$.</p>
+                <p>Los dos enantiómeros (D-alanina y L-alanina) son imágenes especulares no superponibles:</p>
+                <p><strong>Propiedades idénticas:</strong> Tienen exactamente el mismo punto de fusión, punto de ebullición, densidad, índice de refracción y solubilidad en disolventes aquirales.</p>
+                <p><strong>Propiedades en las que difieren:</strong></p>
+                <ol class="list-decimal pl-5 text-xs space-y-1">
+                  <li>Desvían el plano de la luz polarizada en un polarímetro con el <strong>mismo ángulo pero en sentidos opuestos</strong> (uno es dextrógiro $+$ y el otro levógiro $-$).</li>
+                  <li>Reaccionan a velocidades diferentes con reactivos quirales y presentan diferente actividad biológica y farmacológica.</li>
+                </ol>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Formula la adición de hidrógeno en presencia de platino catalítico al 2-penteno. ¿El producto obtenido presenta isomería óptica? Justifica la respuesta.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                $$\text{CH}_3-\text{CH}=\text{CH}-\text{CH}_2-\text{CH}_3 + \text{H}_2 \xrightarrow{\text{Pt}} \text{CH}_3-\text{CH}_2-\text{CH}_2-\text{CH}_2-\text{CH}_3 \quad (\text{pentano})$$
+                <p>El producto es el <strong>pentano</strong>. No posee ningún carbono asimétrico unido a 4 sustituyentes diferentes; por tanto, <strong>NO presenta isomería óptica</strong>.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">Formula la reacción de condensación entre el ácido etanoico y la metilamina en presencia de calor para formar una amida secundaria. Nombra el compuesto orgánico resultante.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                $$\text{CH}_3\text{COOH} + \text{H}_2\text{N}-\text{CH}_3 \xrightarrow{\Delta} \text{CH}_3\text{CO}-\text{NH}-\text{CH}_3 + \text{H}_2\text{O}$$
+                <p>Nombre IUPAC: <strong>N-metiletanamida</strong> (o N-metilacetamida).</p>
+              </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Identifica los compuestos orgánicos $A$, $B$ y $C$ en la siguiente secuencia de reacciones y nombra cada uno de ellos:<br>
+            1. $\text{1-cloropropano} + \text{KOH}(\text{alcohólico}) \xrightarrow{\Delta} A + \text{KCl} + \text{H}_2\text{O}$<br>
+            2. $A + \text{H}_2\text{O} \xrightarrow{\text{H}_2\text{SO}_4} B \quad (\text{producto mayoritario})$<br>
+            3. $B + \text{K}_2\text{Cr}_2\text{O}_7 / \text{H}^+ \to C$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Paso 1 (Eliminación / deshidrohalogenación):</strong></p>
+                <p>$\text{CH}_3-\text{CH}_2-\text{CH}_2\text{Cl} + \text{KOH} \to \text{CH}_3-\text{CH}=\text{CH}_2 \implies$ <strong>Compuesto A: Propeno</strong>.</p>
+                <p><strong>2. Paso 2 (Adición electrofílica según Markovnikov):</strong></p>
+                <p>El $-\text{OH}$ se une al carbono secundario C2: $\text{CH}_3-\text{CH(OH)}-\text{CH}_3 \implies$ <strong>Compuesto B: 2-propanol</strong>.</p>
+                <p><strong>3. Paso 3 (Oxidación de alcohol secundario):</strong></p>
+                <p>El 2-propanol se oxida a cetona: $\text{CH}_3-\text{CO}-\text{CH}_3 \implies$ <strong>Compuesto C: Propanona (acetona)</strong>.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">a) Escribe la reacción de polimerización del cloroeteno (cloruro de vinilo) para formar policloruro de vinilo (PVC) e indica de qué tipo de polimerización se trata.<br>
+            b) El Nailon 6,6 se forma por reacción entre el ácido hexanodioico ($\text{HOOC}-(\text{CH}_2)_4-\text{COOH}$) y la 1,6-hexanodiamina ($\text{H}_2\text{N}-(\text{CH}_2)_6-\text{NH}_2$). Escribe la unidad repetitiva del polímero e indica qué tipo de polimerización es.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) PVC:</strong> $n \, (\text{CH}_2=\text{CH(Cl)}) \to -[\text{CH}_2-\text{CH(Cl)}]_n-$.</p>
+                <p>Es una <strong>polimerización por adición</strong>: los monómeros se enlazan mediante ruptura de dobles enlaces $\text{C}=\text{C}$ sin desprender ninguna molécula secundaria.</p>
+                <p><strong>b) Nailon 6,6:</strong></p>
+                $$n \, \text{HOOC}(\text{CH}_2)_4\text{COOH} + n \, \text{H}_2\text{N}(\text{CH}_2)_6\text{NH}_2 \to -[\text{CO}-(\text{CH}_2)_4-\text{CONH}-(\text{CH}_2)_6-\text{NH}]_n- + 2n \, \text{H}_2\text{O}$$
+                <p>Es una <strong>polimerización por condensación (poliamida)</strong>: la formación del enlace amida desprende moléculas de agua como subproducto.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Un compuesto orgánico $X$ de fórmula molecular $\text{C}_3\text{H}_6\text{O}$ no reacciona con bromo en tetracloruro de carbono (no tiene enlaces múltiples $\text{C}=\text{C}$), pero reduce el reactivo de Tollens formando un espejo de plata metálica brillante. Por oxidación enérgica se convierte en el compuesto $Y$. Deduce razonadamente las estructuras y nombres de $X$ e $Y$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>1. Con fórmula $\text{C}_3\text{H}_6\text{O}$ y un grado de insaturación ($C_n H_{2n} O$), las opciones carbonílicas son el propanal y la propanona.</p>
+                <p>2. El test de Tollens es un oxidante suave que da positivo únicamente con <strong>aldehídos</strong> (se oxidan fácilmente a ácidos) y negativo con cetonas.</p>
+                <p>3. Por tanto: <strong>Compuesto X: Propanal</strong> ($\text{CH}_3-\text{CH}_2-\text{CHO}$).</p>
+                <p>4. Al oxidarse enérgicamente: <strong>Compuesto Y: Ácido propanoico</strong> ($\text{CH}_3-\text{CH}_2-\text{COOH}$).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">Explica por qué la hidrólisis del 2-bromo-2-metilpropano transcurre a través de un mecanismo unimolecular ($S_N1$) con formación de carbocatión intermedio y racemización óptica, mientras que el 1-bromobutano transcurre mediante un mecanismo concertado bimolecular ($S_N2$) con inversión de la configuración de Walden.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>2-bromo-2-metilpropano (sustrato terciario):</strong></p>
+                <ul class="list-disc pl-5 text-xs space-y-1">
+                  <li>Gran impedimento estérico alrededor del carbono central que impide el ataque nucleófilo por detrás.</li>
+                  <li>Al marcharse el $\text{Br}^-$, genera un <strong>carbocatión terciario muy estable</strong> por efecto inductivo dador de los tres grupos metilo ($+I$) e hiperconjugación. Por ello sigue $S_N1$ en dos etapas.</li>
+                </ul>
+                <p><strong>1-bromobutano (sustrato primario):</strong></p>
+                <ul class="list-disc pl-5 text-xs space-y-1">
+                  <li>El carbocatión primario sería sumamente inestable y energéticamente desfavorable.</li>
+                  <li>El carbono C1 está muy accesible sin impedimento estérico, lo que permite el ataque simultáneo del nucleófilo por el lado opuesto al grupo saliente en un estado de transición pentacoordinado ($S_N2$).</li>
+                </ul>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Escribe las estructuras completas de los dos dipéptidos isoméricos diferentes que se pueden formar por condensación entre la glicina ($\text{H}_2\text{N}-\text{CH}_2-\text{COOH}$) y la alanina ($\text{H}_2\text{N}-\text{CH(CH}_3)-\text{COOH}$). Señala el enlace peptídico en cada una.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p>Según qué aminoácido actúe con su grupo amino o carboxilo:</p>
+                <p><strong>1. Glicil-alanina (Gly-Ala):</strong> El carboxilo de la glicina se une al amino de la alanina:</p>
+                $$\text{H}_2\text{N}-\text{CH}_2-\mathbf{CO-NH}-\text{CH}(\text{CH}_3)-\text{COOH} + \text{H}_2\text{O}$$
+                <p><strong>2. Alanil-glicina (Ala-Gly):</strong> El carboxilo de la alanina se une al amino de la glicina:</p>
+                $$\text{H}_2\text{N}-\text{CH}(\text{CH}_3)-\mathbf{CO-NH}-\text{CH}_2-\text{COOH} + \text{H}_2\text{O}$$
+                <p>El grupo amida $-\mathbf{CO-NH}-$ es el enlace peptídico planar estabilizado por resonancia.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">El 1,2-dimetilciclopentano no tiene dobles enlaces, pero el anillo rígido impide la libre rotación entre carbonos. Representa los isómeros cis y trans, e indica cuál de ellos es una forma meso ópticamente inactiva por poseer plano de simetría interno.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-teal-100 text-sm text-slate-700 space-y-2">
+                <p><strong>Isómero cis-1,2-dimetilciclopentano:</strong> Ambos grupos metilo apuntan hacia la misma cara del anillo plano (ambas cuñas hacia arriba). Posee un <strong>plano de simetría perpendicular</strong> que pasa por el C4 y biseca el enlace C1-C2. Por consiguiente, a pesar de tener dos carbonos asimétricos quirales (C1 y C2), la molécula es aquiral: es una <strong>forma meso</strong> ópticamente inactiva.</p>
+                <p><strong>Isómero trans-1,2-dimetilciclopentano:</strong> Un metilo está por encima del plano y el otro por debajo. No tiene plano ni centro de simetría; existe como una pareja de enantiómeros quirales activos ($(1R, 2R)$ y $(1S, 2S)$).</p>
+              </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

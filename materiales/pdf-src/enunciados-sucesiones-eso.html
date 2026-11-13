@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Sucesiones: Progresiones Aritméticas y Geométricas | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Sucesiones: Progresiones Aritméticas y Geométricas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Escribe los cinco primeros términos de las sucesiones: a) $a_n = 3n - 2$; b) $b_n = 2^n$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $1, 4, 7, 10, 13$; b) $2, 4, 8, 16, 32$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Dada la progresión aritmética $5, 9, 13, 17, 21, \dots$: halla la diferencia $d$, el término general $a_n$ y el valor del término $a_{25}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $d = 4$, término general $a_n = 4n + 1$ y $a_{25} = 101$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">En la progresión geométrica $3, 6, 12, 24, \dots$: halla la razón $r$, el término general $a_n$ y el valor de $a_8$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $r = 2$, término general $a_n = 3 \cdot 2^{n-1}$ y $a_8 = 384$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">Calcula la suma de los primeros 30 términos de la progresión aritmética $2, 5, 8, 11, \dots$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $S_{30} = 1.365$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Calcula la suma de los 10 primeros términos de la progresión geométrica $1, 2, 4, 8, 16, \dots$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $S_{10} = 1.023$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Determina si el número 143 forma parte de la sucesión $a_n = 4n + 3$. Si es así, indica qué posición ocupa.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Sí pertenece y ocupa la posición $35$ ($a_{35} = 143$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Halla la suma de los infinitos términos de la progresión geométrica: $16, 8, 4, 2, 1, \frac{1}{2}, \dots$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> La suma infinita es exactamente $32$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Dada la sucesión definida por recurrencia $a_1 = 2$, $a_2 = 3$ y $a_n = a_{n-1} + a_{n-2}$ para todo $n \ge 3$, calcula los términos $a_3, a_4, a_5$ y $a_6$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a_3 = 5$, $a_4 = 8$, $a_5 = 13$, $a_6 = 21$.</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">En una progresión aritmética se sabe que $a_3 = 11$ y $a_7 = 27$. Halla la diferencia $d$, el primer término $a_1$ y el término general $a_n$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $d = 4$, $a_1 = 3$ y $a_n = 4n - 1$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">En una progresión geométrica de términos positivos se sabe que $a_2 = 6$ y $a_5 = 162$. Halla la razón $r$ y el primer término $a_1$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Razón $r = 3$ y primer término $a_1 = 2$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">Interpola 4 medios aritméticos entre los números 3 y 23 para formar una progresión aritmética de 6 términos.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Los cuatro términos interpolados son $7, 11, 15, 19$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Interpola 3 medios geométricos entre 5 y 80.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Los tres términos son $10, 20, 40$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">¿Cuántos términos consecutivos de la progresión aritmética $3, 7, 11, 15, \dots$ hay que sumar para que el total sea igual a 210?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Hay que sumar $n = 10$ términos.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Halla el producto de los 6 primeros términos de la progresión geométrica $2, 6, 18, 54, \dots$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $P_6 = 918.330.048$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">Se deja caer una pelota de baloncesto desde una altura de 16 metros. Tras cada bote, asciende exactamente hasta los $\frac{3}{4}$ de la altura alcanzada en el bote anterior. Calcula la distancia total vertical recorrida por la pelota hasta detenerse por completo.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> La pelota recorre una distancia total vertical de 112 metros.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Una estudiante decide ahorrar para su viaje de fin de curso guardando 5 € la primera semana, 8 € la segunda, 11 € la tercera, y así sucesivamente aumentando 3 € cada semana. ¿Cuánto dinero habrá acumulado al cabo de 40 semanas?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Habrá ahorrado un total de 2.540 euros.</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Las longitudes de los tres lados de un triángulo rectángulo están en progresión aritmética. Si el perímetro del triángulo es de 36 cm, halla la longitud de los tres lados y el área del triángulo.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Catetos 9 cm y 12 cm, hipotenusa 15 cm. Área $= 54\text{ cm}^2$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Tres números están en progresión geométrica. Su producto es 216 y su suma es 26. Halla dichos números.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Los números son $2, 6$ y $18$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">Halla la fracción generatriz irreducible del número decimal periódico puro $0{,}\widehat{27} = 0{,}272727\dots$ demostrando que es la suma de los infinitos términos de una progresión geométrica.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> La fracción generatriz irreducible es $\frac{3}{11}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">En un cultivo de laboratorio, una cepa bacteriana se reproduce por bipartición duplicando su población cada 20 minutos. Si inicialmente hay un cultivo con 50 bacterias, ¿cuántas habrá al cabo de 4 horas?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Al cabo de 4 horas habrá 204.800 bacterias.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">Se deposita un capital de 8.000 € en una cuenta a plazo fijo con un interés compuesto anual del 5% durante 6 años. Calcula el capital final acumulado y los intereses generados.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Capital final $= 10.720{,}76$ euros; intereses generados $= 2.720{,}76$ euros.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Calcula la suma de los $n$ primeros términos de la sucesión $a_n = \frac{1}{n(n+1)}$ descomponiéndola en fracciones simples.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $S_n = \frac{n}{n+1}$ (y para $n \to \infty$, la suma converge a $1$).</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

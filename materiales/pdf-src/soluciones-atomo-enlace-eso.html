@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: El Átomo, la Tabla Periódica y el Enlace Químico | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">El Átomo, la Tabla Periódica y el Enlace Químico</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Completa el número de protones ($p^+$), neutrones ($n^0$) y electrones ($e^-$) para las siguientes especies:<br>
+            a) $^{23}_{11}\text{Na}$ (átomo neutro)<br>
+            b) $^{35}_{17}\text{Cl}^-$ (anión cloruro)<br>
+            c) $^{40}_{20}\text{Ca}^{2+}$ (catión calcio)<br>
+            d) $^{16}_{8}\text{O}^{2-}$ (anión óxido)</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Recordar: $Z = p^+$, $N = A - Z$, carga $= p^+ - e^- \implies e^- = p^+ - \text{carga}$.</p>
+                <p><strong>a) $^{23}_{11}\text{Na}$:</strong> $Z = 11, A = 23 \implies \mathbf{11\text{ }p^+, 12\text{ }n^0, 11\text{ }e^-}$.</p>
+                <p><strong>b) $^{35}_{17}\text{Cl}^-$:</strong> $Z = 17, A = 35$, gana $1e^- \implies \mathbf{17\text{ }p^+, 18\text{ }n^0, 18\text{ }e^-}$.</p>
+                <p><strong>c) $^{40}_{20}\text{Ca}^{2+}$:</strong> $Z = 20, A = 40$, pierde $2e^- \implies \mathbf{20\text{ }p^+, 20\text{ }n^0, 18\text{ }e^-}$.</p>
+                <p><strong>d) $^{16}_{8}\text{O}^{2-}$:</strong> $Z = 8, A = 16$, gana $2e^- \implies \mathbf{8\text{ }p^+, 8\text{ }n^0, 10\text{ }e^-}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">En la naturaleza, el cloro se presenta en dos isótopos estables: $^{35}\text{Cl}$ con masa $34{,}97\text{ u}$ y abundancia del $75{,}77\%$, y $^{37}\text{Cl}$ con masa $36{,}97\text{ u}$ y abundancia del $24{,}23\%$. Calcula la masa atómica media relativa que aparece en la tabla periódica.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Aplicando la media ponderada:</p>
+                $$\overline{M} = \frac{34{,}97 \cdot 75{,}77 + 36{,}97 \cdot 24{,}23}{100} = \frac{2649{,}68 + 895{,}78}{100} = \frac{3545{,}46}{100} \approx \mathbf{35{,}45\text{ u}}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Escribe la configuración electrónica por subniveles para: a) Carbono ($Z = 6$), b) Sodio ($Z = 11$), c) Cloro ($Z = 17$), d) Calcio ($Z = 20$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Carbono ($Z = 6$):</strong> $1s^2 \, 2s^2 \, 2p^2$.</p>
+                <p><strong>b) Sodio ($Z = 11$):</strong> $1s^2 \, 2s^2 \, 2p^6 \, 3s^1$ (o bien $[\text{Ne}] \, 3s^1$).</p>
+                <p><strong>c) Cloro ($Z = 17$):</strong> $1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^5$ (o bien $[\text{Ne}] \, 3s^2 \, 3p^5$).</p>
+                <p><strong>d) Calcio ($Z = 20$):</strong> $1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^6 \, 4s^2$ (o bien $[\text{Ar}] \, 4s^2$).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">A partir de las configuraciones del ejercicio anterior, indica el número de electrones en la capa más externa (electrones de valencia), el Periodo y el Grupo de la tabla periódica para el Sodio ($Z = 11$) y el Cloro ($Z = 17$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>Sodio ($1s^2 \, 2s^2 \, 2p^6 \, 3s^1$):</strong></p>
+                <p>Capa de valencia: nivel $n = 3 \implies$ <strong>Periodo 3</strong>. Tiene <strong>1 electrón de valencia</strong> $\implies$ <strong>Grupo 1 (Alcalinos)</strong>.</p>
+                <p><strong>Cloro ($1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^5$):</strong></p>
+                <p>Capa de valencia: nivel $n = 3 \implies$ <strong>Periodo 3</strong>. Tiene $2 + 5 = \mathbf{7\text{ electrones de valencia}} \implies$ <strong>Grupo 17 (Halógenos)</strong>.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Explica mediante la regla del octeto qué ion tenderán a formar espontáneamente los siguientes átomos para alcanzar configuración de gas noble: a) Magnesio ($Z = 12$), b) Oxígeno ($Z = 8$), c) Aluminio ($Z = 13$), d) Flúor ($Z = 9$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Mg ($2, 8, 2$):</strong> Tiende a perder sus 2 electrones de valencia formando el catión $\mathbf{\text{Mg}^{2+}}$ ($[\text{Ne}]$).</p>
+                <p><strong>b) O ($2, 6$):</strong> Tiende a ganar 2 electrones completando el octeto como anión $\mathbf{\text{O}^{2-}}$ ($[\text{Ne}]$).</p>
+                <p><strong>c) Al ($2, 8, 3$):</strong> Pierde 3 electrones formando el catión $\mathbf{\text{Al}^{3+}}$ ($[\text{Ne}]$).</p>
+                <p><strong>d) F ($2, 7$):</strong> Gana 1 electrón formando el anión fluoruro $\mathbf{\text{F}^-}$ ($[\text{Ne}]$).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Clasifica el tipo de enlace predominante (iónico, covalente o metálico) en las siguientes sustancias: a) $\text{KF}$, b) $\text{Cl}_2$, c) $\text{Fe}(s)$, d) $\text{CH}_4$, e) $\text{MgO}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{KF}$:</strong> Metal alcalino (K) + No metal halógeno (F) $\implies$ <strong>Enlace iónico</strong>.</p>
+                <p><strong>b) $\text{Cl}_2$:</strong> No metal + No metal idéntico $\implies$ <strong>Enlace covalente apolar</strong>.</p>
+                <p><strong>c) $\text{Fe}(s)$:</strong> Metal de transición puro $\implies$ <strong>Enlace metálico</strong>.</p>
+                <p><strong>d) $\text{CH}_4$:</strong> Dos no metales (C y H) compartiendo electrones $\implies$ <strong>Enlace covalente</strong>.</p>
+                <p><strong>e) $\text{MgO}$:</strong> Metal alcalinotérreo (Mg) + No metal (O) $\implies$ <strong>Enlace iónico</strong>.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">En el célebre experimento de 1911, Rutherford bombardeó una fina lámina de oro con partículas $\alpha$ positivas. ¿Qué tres observaciones experimentales realizó y qué concluyó sobre la estructura interna del átomo frente al modelo de Thomson?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>Observaciones:</strong></p>
+                <ol class="list-decimal pl-5 space-y-1">
+                  <li>La inmensa mayoría de las partículas $\alpha$ atravesaban la lámina en línea recta sin desviarse.</li>
+                  <li>Una pequeña fracción sufría desviaciones apreciables de su trayectoria.</li>
+                  <li>Aproximadamente 1 de cada 10000 rebotaba hacia atrás.</li>
+                </ol>
+                <p><strong>Conclusiones:</strong> El átomo no es macizo (como sostenía Thomson), sino que está <strong>prácticamente vacío</strong>. Toda la carga positiva y casi la totalidad de la masa están concentradas en una región central diminuta llamada <strong>núcleo atómico</strong>, mientras que los ligeros electrones orbitan a gran distancia en la corteza.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Calcula la masa molecular en unidades de masa atómica ($\text{u}$) de: a) Dióxido de carbono ($\text{CO}_2$), b) Ácido sulfúrico ($\text{H}_2\text{SO}_4$), c) Glucosa ($\text{C}_6\text{H}_{12}\text{O}_6$). Datos: $\text{H} = 1, \text{C} = 12, \text{O} = 16, \text{S} = 32{,}06\text{ u}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{CO}_2$:</strong> $12 + 2(16) = 12 + 32 = \mathbf{44\text{ u}}$.</p>
+                <p><strong>b) $\text{H}_2\text{SO}_4$:</strong> $2(1) + 32{,}06 + 4(16) = 2 + 32{,}06 + 64 = \mathbf{98{,}06\text{ u}}$.</p>
+                <p><strong>c) $\text{C}_6\text{H}_{12}\text{O}_6$:</strong> $6(12) + 12(1) + 6(16) = 72 + 12 + 96 = \mathbf{180\text{ u}}$.</p>
+              </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">Escribe la configuración electrónica de los siguientes iones: a) $\text{S}^{2-}$ ($Z = 16$), b) $\text{Al}^{3+}$ ($Z = 13$), c) $\text{Fe}$ neutro ($Z = 26$), d) $\text{Fe}^{2+}$ y e) $\text{Fe}^{3+}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{S}^{2-}$ (18 electrones):</strong> $1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^6$ (isoelectrónico con el Argón).</p>
+                <p><strong>b) $\text{Al}^{3+}$ (10 electrones):</strong> $1s^2 \, 2s^2 \, 2p^6$ (isoelectrónico con el Neón).</p>
+                <p><strong>c) $\text{Fe}$ neutro (26 electrones):</strong> $1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^6 \, 4s^2 \, 3d^6$ o $[\text{Ar}] \, 4s^2 \, 3d^6$.</p>
+                <p><strong>d) $\text{Fe}^{2+}$ (24 electrones):</strong> ¡Al ionizarse, se pierden primero los electrones del nivel más externo ($4s$)!: $[\text{Ar}] \, 3d^6$.</p>
+                <p><strong>e) $\text{Fe}^{3+}$ (23 electrones):</strong> $[\text{Ar}] \, 3d^5$ (subnivel $d$ semilleno de gran estabilidad).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Dibuja la estructura de puntos de Lewis indicando pares de electrones enlazantes y solitarios (no enlazantes) para: a) $\text{H}_2\text{O}$, b) $\text{NH}_3$, c) $\text{CH}_4$, d) $\text{O}_2$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{H}_2\text{O}$ (8 electrones de valencia):</strong> El oxígeno comparte 1 par con cada H y tiene <strong>2 pares solitarios</strong>: $\text{H}-\overline{\underline{\text{O}}}-\text{H}$.</p>
+                <p><strong>b) $\text{NH}_3$ (8 electrones):</strong> El nitrógeno forma 3 enlaces simples $\text{N}-\text{H}$ y tiene <strong>1 par solitario</strong>: $|\text{N}(\text{H})_3$.</p>
+                <p><strong>c) $\text{CH}_4$ (8 electrones):</strong> El carbono forma 4 enlaces covalentes simples sin pares solitarios.</p>
+                <p><strong>d) $\text{O}_2$ (12 electrones):</strong> Doble enlace covalente entre oxígenos con 2 pares solitarios sobre cada átomo: $\overline{\underline{\text{O}}}=\overline{\underline{\text{O}}}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Explica mediante transferencia de electrones y atracción electrostática cómo se forma el cloruro de magnesio ($\text{MgCl}_2$) a partir de átomos neutros de magnesio ($Z = 12$) y cloro ($Z = 17$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>1. El átomo de $\text{Mg}$ ($2, 8, 2$) cede sus 2 electrones de valencia transformándose en el catión $\text{Mg}^{2+}$.</p>
+                <p>2. Se necesitan <strong>dos átomos de cloro</strong> ($2, 8, 7$); cada uno capta 1 electrón para completar su octeto convirtiéndose en aniones cloruro $\text{Cl}^-$.</p>
+                <p>3. Los iones $\text{Mg}^{2+}$ y $\text{Cl}^-$ se atraen fuertemente mediante fuerzas electrostáticas omnidireccionales (Ley de Coulomb), empaquetándose en una red tridimensional cristalina ordenada en proporción $1:2$ ($\text{MgCl}_2$).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">En un laboratorio se monta un circuito eléctrico con una bombilla y dos electrodos sumergidos en un vaso de precipitados. Se observa que la disolución de sal común ($\text{NaCl}$) enciende la bombilla, mientras que la disolución de azúcar (sacarosa, $\text{C}_{12}\text{H}_{22}\text{O}_{11}$) no la enciende. Explica la razón molecular de esta diferencia.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Para conducir la corriente eléctrica en un líquido se requiere la presencia de <strong>cargas libres con movilidad</strong>:</p>
+                <p>• El $\text{NaCl}$ es un compuesto iónico. Al disolverse en agua, el agua polar disocia la red cristalina liberando iones hidratados móviles ($\text{Na}^+$ y $\text{Cl}^-$) que migran hacia los electrodos, cerrando el circuito eléctrico (electrolito).</p>
+                <p>• El azúcar es una sustancia covalente molecular. Al disolverse se dispersa en moléculas neutras individuales de sacarosa que no poseen carga neta libre; por tanto, no puede transportar la corriente eléctrica (no electrolito).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Ordena de menor a mayor los siguientes elementos según: a) su radio atómico: $\text{Na}, \text{K}, \text{Cl}$; b) su electronegatividad: $\text{F}, \text{C}, \text{Li}$. Justifica las tendencias periódicas.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Radio atómico ($\text{Cl} < \text{Na} < \text{K}$):</strong></p>
+                <p>En un mismo periodo (periodo 3), al avanzar de izquierda a derecha aumenta la carga nuclear efectiva ($Z_{\text{ef}}$), atrayendo más a los electrones y contrayendo el átomo ($\text{Cl} < \text{Na}$). En un mismo grupo (grupo 1), al bajar se añade una nueva capa electrónica entera, aumentando el tamaño ($\text{Na} < \text{K}$).</p>
+                <p><strong>b) Electronegatividad ($\text{Li} < \text{C} < \text{F}$):</strong></p>
+                <p>En el periodo 2, la electronegatividad (tendencia a atraer electrones de enlace) aumenta de izquierda a derecha hacia los no metales, siendo el flúor el elemento más electronegativo de toda la tabla periódica ($\approx 4{,}0$).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">El agua ($\text{H}_2\text{O}$, masa molar $18\text{ g/mol}$) es líquida a temperatura ambiente y hierve a $100^\circ\text{C}$, mientras que el sulfuro de hidrógeno ($\text{H}_2\text{S}$, masa molar $34\text{ g/mol}$), a pesar de ser más pesado, es un gas que hierve a $-60^\circ\text{C}$. Justifica esta anomalía.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>El oxígeno es muy pequeño y extremadamente electronegativo ($\text{EN} = 3{,}5$), lo que genera enlaces $\text{O}-\text{H}$ extraordinariamente polarizados.</p>
+                <p>Entre moléculas de agua contiguas se forman intensas fuerzas de atracción intermolecular llamadas <strong>puentes de hidrógeno</strong> (el átomo de H unido a O es atraído por el par solitario de un O vecino), tejiendo una red tridimensional que exige gran cantidad de energía térmica para separarse y pasar a vapor.</p>
+                <p>El azufre es mucho menos electronegativo y más grande; en el $\text{H}_2\text{S}$ solo actúan débiles fuerzas dipolo-dipolo de Van der Waals, incapaces de mantenerlo líquido a temperatura ambiente.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Tanto el diamante como el grafito están formados exclusivamente por átomos de carbono puro. Explica por qué el diamante es uno de los materiales más duros y un aislante eléctrico, mientras que el grafito es blando (lubricante) y conduce la electricidad.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>Diamante:</strong></p>
+                <p>Cada átomo de carbono tiene hibridación $sp^3$ y forma 4 enlaces covalentes simples tetraédricos con otros 4 carbonos, formando una red tridimensional colosal rígida de altísima dureza sin ningún electrón libre (aislante eléctrico).</p>
+                <p><strong>Grafito:</strong></p>
+                <p>Cada carbono tiene hibridación $sp^2$ y forma 3 enlaces covalentes en láminas hexagonales planas bidimensionales. El cuarto electrón de valencia queda deslocalizado en un sistema $\pi$ a lo largo de toda la lámina, permitiendo la <strong>conducción eléctrica</strong>. Entre láminas contiguas solo actúan débiles fuerzas de Van der Waals que se deslizan fácilmente, otorgándole su tacto untuoso y carácter lubricante.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">La masa atómica promedio del boro es $10{,}81\text{ u}$. Sabiendo que está formado por dos isótopos: $^{10}\text{B}$ de masa $10{,}01\text{ u}$ y $^{11}\text{B}$ de masa $11{,}01\text{ u}$, calcula el porcentaje de abundancia de cada isótopo en la corteza terrestre.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Sea $x$ la fracción del isótopo $^{10}\text{B}$ y $(1 - x)$ la del $^{11}\text{B}$:</p>
+                $$10{,}81 = 10{,}01 \cdot x + 11{,}01 \cdot (1 - x)$$
+                $$10{,}81 = 10{,}01 x + 11{,}01 - 11{,}01 x = 11{,}01 - 1{,}00 x$$
+                $$1{,}00 x = 11{,}01 - 10{,}81 = 0{,}20 \implies x = 0{,}20\text{ (20\%)}.$$
+                <p>Abundancias naturales: <strong>$20\%$ de $^{10}\text{B}$ y $80\%$ de $^{11}\text{B}$</strong>.</p>
+              </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Un elemento químico neutro $X$ tiene la siguiente configuración electrónica en su estado fundamental: $1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^4$.<br>
+            a) Indica su número atómico $Z$, periodo y grupo.<br>
+            b) ¿Es un metal o un no metal? ¿Qué ion estable formará?<br>
+            c) Escribe la fórmula del compuesto que formará con el magnesio ($Z = 12$) y el tipo de enlace.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a)</strong> Suma de electrones: $2 + 2 + 6 + 2 + 4 = 16 \implies \mathbf{Z = 16}$ (Azufre). Capa externa $n = 3 \implies$ <strong>Periodo 3</strong>. Electrones de valencia: $2 + 4 = 6 \implies$ <strong>Grupo 16 (Calcógenos)</strong>.</p>
+                <p><strong>b)</strong> Al tener 6 electrones de valencia y alta electronegatividad, es un <strong>no metal</strong>. Gana 2 electrones para el octeto formando el anión $\mathbf{X^{2-}}$ (ion sulfuro $\text{S}^{2-}$).</p>
+                <p><strong>c)</strong> El magnesio forma $\text{Mg}^{2+}$. Con $X^{2-}$ se unen en proporción $1:1$: $\mathbf{\text{MgX}}$ (sulfuro de magnesio $\text{MgS}$), mediante <strong>enlace iónico</strong>.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Predice razonadamente la forma geométrica espacial aproximada de las siguientes moléculas según los pares enlazantes y no enlazantes del átomo central: a) $\text{BeCl}_2$, b) $\text{BF}_3$, c) $\text{CH}_4$, d) $\text{NH}_3$, e) $\text{H}_2\text{O}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) $\text{BeCl}_2$:</strong> 2 pares enlazantes a $180^\circ \implies$ <strong>Lineal</strong>.</p>
+                <p><strong>b) $\text{BF}_3$:</strong> 3 pares enlazantes a $120^\circ \implies$ <strong>Trigonal plana</strong>.</p>
+                <p><strong>c) $\text{CH}_4$:</strong> 4 pares enlazantes dirigidos a los vértices de un tetraedro ($109{,}5^\circ$) $\implies$ <strong>Tetraédrica</strong>.</p>
+                <p><strong>d) $\text{NH}_3$:</strong> 3 pares enlazantes y 1 par solitario que repele fuertemente $\implies$ <strong>Piramidal trigonal</strong> (ángulo $\approx 107^\circ$).</p>
+                <p><strong>e) $\text{H}_2\text{O}$:</strong> 2 pares enlazantes y 2 pares solitarios $\implies$ <strong>Angular</strong> (ángulo $\approx 104{,}5^\circ$).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Tanto en la molécula de dióxido de carbono ($\text{CO}_2$) como en la de agua ($\text{H}_2\text{O}$) los enlaces individuales están fuertemente polarizados debido a la diferencia de electronegatividad con el oxígeno. Sin embargo, el $\text{CO}_2$ es una molécula apolar ($\mu = 0$) y el agua es muy polar ($\mu \ne 0$). Explica por qué.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>La polaridad global de una molécula depende de la <strong>suma vectorial</strong> de los momentos dipolares de enlace ($\vec{\mu}_{\text{total}} = \sum \vec{\mu}_i$):</p>
+                <p>• En el $\text{CO}_2$ la geometría es <strong>lineal</strong> ($\text{O}=\text{C}=\text{O}$, $180^\circ$). Los dos dipolos de enlace $\text{C}\to\text{O}$ son de igual magnitud y apuntan en sentidos opuestos, anulándose mutuamente ($\vec{\mu}_{\text{total}} = 0$). Es una molécula <strong>apolar</strong>.</p>
+                <p>• En el $\text{H}_2\text{O}$ la geometría es <strong>angular</strong> ($104{,}5^\circ$) por la repulsión de los dos pares solitarios. Los dos vectores dipolares $\text{H}\to\text{O}$ no son opuestos; su suma vectorial resultante es distinta de cero y apunta hacia el oxígeno, haciendo que el agua sea una molécula <strong>altamente polar</strong>.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">Explica por qué los metales como el cobre o el oro son maleables y dúctiles (pueden deformarse en láminas o hilos sin romperse al golpearlos con un martillo), mientras que los cristales iónicos como la sal gema se fracturan de inmediato al recibir un golpe mecánico.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>• <strong>Enlace metálico (mar de electrones):</strong> Los cationes metálicos están inmersos en una nube continua y deslocalizada de electrones libres. Al aplicar una fuerza mecánica, los planos de cationes se deslizan unos sobre otros, pero la nube electrónica se reacomoda instantáneamente manteniendo la cohesión sin que aparezcan repulsiones electrostáticas. Por eso son <strong>maleables y dúctiles</strong>.</p>
+                <p>• <strong>Enlace iónico (red rígida alternada):</strong> Cationes y aniones ocupan posiciones fijas alternadas ($+-+-$). Al golpearlo, el plano se desplaza una posición, enfrentando iones del mismo signo ($++$ y $--$). Las intensas fuerzas de repulsión electrostática parten el cristal limpiamente: son <strong>frágiles</strong>.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Se analizan en el laboratorio cuatro sustancias sólidas $A$, $B$, $C$ y $D$ con las siguientes propiedades:<br>
+            • $A$: Punto de fusión $801^\circ\text{C}$, soluble en agua, no conduce en sólido pero sí disuelta.<br>
+            • $B$: Punto de fusión $1085^\circ\text{C}$, insoluble en agua, conduce la electricidad tanto en estado sólido como fundido.<br>
+            • $C$: Punto de fusión $3500^\circ\text{C}$, extremadamente duro, insoluble en agua, no conduce la electricidad.<br>
+            • $D$: Punto de fusión $114^\circ\text{C}$, soluble en hexano pero no en agua, no conduce la electricidad en ningún estado.<br>
+            Asigna justificadamente a cada sustancia uno de los siguientes tipos de sólido: Iónico, Covalente reticular, Covalente molecular, Metálico.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>Sustancia A: Sólido Iónico</strong> (ej. $\text{NaCl}$). Fusión alta, soluble en agua y conductor electrolítico solo al fundirse o disolverse.</p>
+                <p><strong>Sustancia B: Sólido Metálico</strong> (ej. Cobre $\text{Cu}$). Conductor en sólido y fundido por electrones libres, insoluble.</p>
+                <p><strong>Sustancia C: Sólido Covalente Reticular</strong> (ej. Diamante $\text{C}$ o cuarzo $\text{SiO}_2$). Punto de fusión colosal, dureza extrema, insoluble y aislante.</p>
+                <p><strong>Sustancia D: Sólido Covalente Molecular</strong> (ej. Yodo molecular $\text{I}_2$ o naftaleno). Bajo punto de fusión, apolar soluble en hexano y totalmente aislante.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">En el modelo de Bohr del átomo de hidrógeno, los niveles energéticos vienen dados por $E_n = -\frac{2{,}18 \times 10^{-18}}{n^2}\text{ J}$. Calcula la energía del fotón emitido cuando un electrón desciende del nivel excitado $n = 3$ al nivel fundamental $n = 1$, y determina la frecuencia de la radiación emitida ($h = 6{,}626 \times 10^{-34}\text{ J}\cdot\text{s}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Energía en $n = 1$: $E_1 = -2{,}18 \times 10^{-18}\text{ J}$.</p>
+                <p>Energía en $n = 3$: $E_3 = -\frac{2{,}18 \times 10^{-18}}{9} \approx -0{,}2422 \times 10^{-18}\text{ J}$.</p>
+                <p>Variación de energía emitida por el fotón:</p>
+                $$\Delta E = |E_3 - E_1| = 2{,}18 \times 10^{-18} \cdot \left(1 - \frac{1}{9}\right) = 2{,}18 \times 10^{-18} \cdot \frac{8}{9} \approx \mathbf{1{,}938 \times 10^{-18}\text{ Julios}}.$$
+                <p>Frecuencia de la radiación emitida ($\Delta E = h \cdot \nu$):</p>
+                $$\nu = \frac{\Delta E}{h} = \frac{1{,}938 \times 10^{-18}\text{ J}}{6{,}626 \times 10^{-34}\text{ J}\cdot\text{s}} \approx \mathbf{2{,}925 \times 10^{15}\text{ Hz}}.$$
+                <p>(Pertenece a la serie de Lyman en el rango ultravioleta del espectro electromagnético).</p>
+              </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Campo Gravitatorio y Satélites | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Campo Gravitatorio y Satélites</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Calcula la fuerza de atracción gravitatoria mutua entre la Tierra ($M_T = 5.97 \times 10^{24}\text{ kg}$) y la Luna ($M_L = 7.35 \times 10^{22}\text{ kg}$) si la distancia media entre sus centros es de $3.84 \times 10^8\text{ m}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $1.986 \times 10^{20}\text{ N}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Sabiendo que en la superficie de la Tierra la aceleración de la gravedad es $g_0 = 9.81\text{ m/s}^2$ y el radio terrestre es $R_T = 6.37 \times 10^6\text{ m}$, calcula el valor de la masa de la Tierra.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $5.964 \times 10^{24}\text{ kg}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Demuestra teóricamente y calcula el valor de $g$ a una altura sobre la superficie terrestre igual al radio de la Tierra ($h = R_T$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $2.45\text{ m/s}^2$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">Un astronauta tiene una masa de $80\text{ kg}$ en la Tierra.
+            <br>a) ¿Cuál es su peso en la superficie de la Tierra ($g_0 = 9.8\text{ m/s}^2$)?
+            <br>b) ¿Cuál es su masa y su peso en la Luna ($g_L = 1.62\text{ m/s}^2$)?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $784\text{ N}$ ; $m = 80\text{ kg}$ ; $129.6\text{ N}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Dos masas $M_1 = 100\text{ kg}$ y $M_2 = 400\text{ kg}$ están separadas una distancia fija de $6\text{ metros}$. ¿A qué distancia de $M_1$ en el segmento que las une el campo gravitatorio total es nulo?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $x = 2\text{ metros}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Halla el potencial gravitatorio en un punto situado a $10.000\text{ km}$ del centro de la Tierra.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $-3.98 \times 10^7\text{ J/kg}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Calcula el trabajo que debe realizar una fuerza exterior para llevar una masa de $500\text{ kg}$ desde la superficie terrestre hasta el infinito.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $3.127 \times 10^{10}\text{ J}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Demuestra que para cualquier satélite en órbita circular se cumple $E_m = \frac{1}{2} E_p = -E_c$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $-\frac{1}{2} G \frac{Mm}{r} = \frac{1}{2}E_p = -E_c$</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">La Estación Espacial Internacional orbita a $h = 400\text{ km}$ sobre la superficie de la Tierra. Calcula su velocidad orbital en $\text{m/s}$ y en $\text{km/h}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $7.671\text{ m/s}$ ; $27.616\text{ km/h}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Con los datos del ejercicio anterior, calcula cuánto tarda la ISS en dar una vuelta completa a la Tierra y cuántas vueltas da en un día de $24\text{ horas}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $5.545\text{ s}$ ; $92.4\text{ minutos}$ ; $15.6\text{ órbitas / día}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">Un satélite geoestacionario permanece inmóvil respecto a un observador en la superficie terrestre, por lo que su periodo orbital es de 1 día sideral ($T = 86.400\text{ s}$). Calcula la altura $h$ sobre la superficie a la que debe situarse.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $4.224 \times 10^7\text{ m}$ ; $35.870\text{ km}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Deduce por consideraciones energéticas y calcula la velocidad de escape desde la superficie de la Tierra.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $11.185\text{ m/s}$ ; $11.2\text{ km/s}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">Sabiendo que $M_L = 7.35 \times 10^{22}\text{ kg}$ y $R_L = 1.74 \times 10^6\text{ m}$, calcula la velocidad de escape de la Luna y explica por qué carece de atmósfera permanente.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $2.375\text{ m/s}$ ; $2.38\text{ km/s}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Halla la energía mínima suministrada por el cohete lanzador para poner en órbita circular a $h = 600\text{ km}$ un satélite meteorológico de $m = 1.200\text{ kg}$ desde la superficie terrestre.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $4.07 \times 10^{10}\text{ J}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">Un satélite de $500\text{ kg}$ pasa de una órbita circular de radio $r_1 = 7.000\text{ km}$ a otra superior de radio $r_2 = 8.500\text{ km}$. ¿Aumenta o disminuye su velocidad? ¿Qué energía debe aportar su motor?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $2.51 \times 10^9\text{ J}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Sabiendo que la Tierra tarda $1\text{ año}$ ($3.156 \times 10^7\text{ s}$) en describir su órbita alrededor del Sol con radio medio $r = 1.496 \times 10^{11}\text{ m}$, determina la masa del Sol.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $1.989 \times 10^{30}\text{ kg}$</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Tres masas iguales de $M = 2\text{ kg}$ se colocan en los vértices $(0, 0)$, $(4, 0)$ y $(2, 2\sqrt{3})$ en metros. Halla el vector campo gravitatorio $\vec{g}$ y el potencial $V$ en el baricentro del triángulo.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $-1.735 \times 10^{-10}\text{ J/kg}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Desde la superficie de la Tierra se lanza verticalmente un proyectil con velocidad $v_0 = 5.000\text{ m/s}$. Despreciando el rozamiento del aire, calcula la altura máxima $h$ alcanzada sobre la superficie.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $1.593 \times 10^6\text{ m}$ ; $1.593\text{ km}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">Una sonda se lanza desde la Tierra con una velocidad de $15\text{ km/s}$ (superior a la de escape $v_{\text{esc}} = 11.2\text{ km/s}$). ¿Con qué velocidad residual continuará moviéndose cuando escape completamente de la gravedad terrestre ($r \to \infty$)?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $9.98\text{ km/s}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">El cometa Halley describe una órbita elíptica alrededor del Sol con distancia en el perihelio $r_p = 8.78 \times 10^{10}\text{ m}$ y velocidad $v_p = 54.6\text{ km/s}$. Sabiendo que en el afelio su distancia es $r_a = 5.28 \times 10^{12}\text{ m}$, halla su velocidad en el afelio $v_a$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $0.908\text{ km/s}$ ; $908\text{ m/s}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">Un telescopio detecta un planeta extrasolar cuyo radio es el doble del terrestre ($R_P = 2R_T$) y cuya gravedad en la superficie es la mitad que en la Tierra ($g_P = \frac{1}{2}g_0$).
+            <br>a) ¿Cuál es la masa del planeta respecto a la terrestre?
+            <br>b) ¿Cuál es la velocidad de escape en ese planeta?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $M_P = 2 M_T$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Justifica razonadamente si las siguientes afirmaciones son verdaderas o falsas:
+            <br>a) "Un astronauta en la ISS flota porque allí no hay gravedad ($g = 0$)".
+            <br>b) "El trabajo realizado por el campo gravitatorio para desplazar una masa a lo largo de una línea equipotencial cerrada es siempre cero".</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $0$).</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

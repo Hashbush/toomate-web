@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Termoquímica: Ley de Hess, Entropía y Gibbs | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Termoquímica: Ley de Hess, Entropía y Gibbs</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Calcula la entalpía estándar de la reacción de formación de dióxido de nitrógeno: $2\text{ NO}(g) + \text{O}_2(g) \to 2\text{ NO}_2(g)$, sabiendo que $\Delta H_f^\circ[\text{NO}(g)] = +90{,}25\text{ kJ/mol}$ y $\Delta H_f^\circ[\text{NO}_2(g)] = +33{,}18\text{ kJ/mol}$. ¿Es endotérmica o exotérmica?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Al ser $\Delta H_r^\circ exotérmica (libera $114{,}14\text{ kJ}$ cada 2 moles de $\text{NO}_2$ formados).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">La entalpía estándar de combustión del propano $\text{C}_3\text{H}_8(g)$ es $\Delta H_c^\circ = -2220\text{ kJ/mol}$. Calcula la energía en forma de calor desprendida al quemar una bombona que contiene $11\text{ kg}$ de propano ($M = 44\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $555\text{ MJ}.$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Estima la entalpía de la hidrogenación del eteno: $\text{CH}_2=\text{CH}_2(g) + \text{H}_2(g) \to \text{CH}_3-\text{CH}_3(g)$ sabiendo que las energías de enlace son: $E(\text{C}=\text{C}) = 612\text{ kJ/mol}$, $E(\text{H}-\text{H}) = 436\text{ kJ/mol}$, $E(\text{C}-\text{C}) = 348\text{ kJ/mol}$ y $E(\text{C}-\text{H}) = 413\text{ kJ/mol}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $-126\text{ kJ/mol}.$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">Justifica cualitativamente el signo de la variación de entropía $\Delta S^\circ$ en los siguientes procesos: a) $\text{CaCO}_3(s) \to \text{CaO}(s) + \text{CO}_2(g)$, b) $\text{N}_2(g) + 3\text{H}_2(g) \to 2\text{ NH}_3(g)$, c) $\text{H}_2\text{O}(g) \to \text{H}_2\text{O}(l)$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> c) $\Delta S^\circ Condensación. El estado líquido tiene mucha menor libertad molecular y volumen disponible q...</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Para una reacción química se conoce que $\Delta H^\circ = -84\text{ kJ/mol}$ y $\Delta S^\circ = -150\text{ J}/(\text{mol}\cdot\text{K})$. Calcula $\Delta G^\circ$ a $25^\circ\text{C}$ e indica si es un proceso espontáneo.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Como $\Delta G^\circ espontánea a $25^\circ\text{C}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Al quemar $0{,}5\text{ g}$ de ácido benzoico en una bomba calorimétrica (que libera $13{,}2\text{ kJ}$), la temperatura del agua y del calorímetro asciende $2{,}4^\circ\text{C}$. Halla la capacidad calorífica $C_{\text{cal}}$ del sistema.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> El calor absorbido por el calorímetro es igual al calor liberado por la combustión:</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Dadas las reacciones: (1) $\text{C}(s) + \text{O}_2(g) \to \text{CO}_2(g)$ con $\Delta H_1 = -393{,}5\text{ kJ/mol}$, y (2) $\text{CO}(g) + \frac{1}{2}\text{O}_2(g) \to \text{CO}_2(g)$ con $\Delta H_2 = -283{,}0\text{ kJ/mol}$. Calcula la entalpía de formación del monóxido de carbono: $\text{C}(s) + \frac{1}{2}\text{O}_2(g) \to \text{CO}(g)$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Sumando ambas miembro a miembro: $\text{C}(s) + \frac{1}{2}\text{O}_2(g) \to \text{CO}(g)$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">En la combustión de 1 mol de metano a $298\text{ K}$: $\text{CH}_4(g) + 2\text{ O}_2(g) \to \text{CO}_2(g) + 2\text{ H}_2\text{O}(l)$, la entalpía es $\Delta H^\circ = -890\text{ kJ}$. Calcula la variación de energía interna $\Delta U^\circ$ a esa temperatura ($R = 8{,}314\text{ J}/(\text{mol}\cdot\text{K})$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $-2\text{ moles}$.</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">Calcula la entalpía estándar de formación del eteno ($\text{C}_2\text{H}_4(g)$) a partir de:<br>
+            (1) $\text{C}_2\text{H}_4(g) + 3\text{ O}_2(g) \to 2\text{ CO}_2(g) + 2\text{ H}_2\text{O}(l) \quad \Delta H_1 = -1411\text{ kJ}$<br>
+            (2) $\text{C}(s) + \text{O}_2(g) \to \text{CO}_2(g) \quad \Delta H_2 = -393{,}5\text{ kJ}$<br>
+            (3) $\text{H}_2(g) + \frac{1}{2}\text{O}_2(g) \to \text{H}_2\text{O}(l) \quad \Delta H_3 = -285{,}8\text{ kJ}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Sumando algebraicamente: $\Delta H_f^\circ = -787 - 571{,}6 + 1411 = +52{,}4\text{ kJ/mol}.$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">La descomposición térmica del carbonato cálcico $\text{CaCO}_3(s) \to \text{CaO}(s) + \text{CO}_2(g)$ tiene $\Delta H^\circ = +178\text{ kJ/mol}$ y $\Delta S^\circ = +160{,}5\text{ J}/(\text{mol}\cdot\text{K})$. ¿A partir de qué temperatura mínima es espontánea la reacción en condiciones estándar?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Dado que tanto $\Delta H > 0$ como $\Delta S > 0$, la reacción es espontánea a temperaturas superiores a $T > ...</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">Se queman $100\text{ g}$ de etanol líquido $\text{C}_2\text{H}_5\text{OH}$ ($M = 46\text{ g/mol}$) a $25^\circ\text{C}$ y $1\text{ atm}$. Calcula los moles de $\text{O}_2$ requeridos y el volumen de aire necesario medido en esas condiciones (sabiendo que el aire contiene un $21\%$ en volumen de $\text{O}_2$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Volumen de aire: $V_{\text{aire}} = \frac{159{,}38}{0{,}21} \approx 759\text{ Litros}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Conociendo que $\Delta H_f^\circ[\text{H}_2\text{O}(l)] = -285{,}8\text{ kJ/mol}$ y $\Delta H_f^\circ[\text{H}_2\text{O}(g)] = -241{,}8\text{ kJ/mol}$, calcula la entalpía molar de vaporización del agua líquida y el calor necesario para evaporar $1\text{ litro}$ de agua a $25^\circ\text{C}$ ($\rho = 1\text{ g/cm}^3$, $M = 18\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Para $1\text{ L}$ de agua ($1000\text{ g}$): $n = \frac{1000}{18} = 55{,}56\text{ moles}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">Calcula $\Delta S_r^\circ$ a $298\text{ K}$ para la síntesis de Haber-Bosch del amoníaco: $\text{N}_2(g) + 3\text{ H}_2(g) \to 2\text{ NH}_3(g)$, sabiendo que las entropías absolutas estándar son: $S^\circ[\text{N}_2] = 191{,}6\text{ J}/(\text{mol}\cdot\text{K})$, $S^\circ[\text{H}_2] = 130{,}7\text{ J}/(\text{mol}\cdot\text{K})$ y $S^\circ[\text{NH}_3] = 192{,}8\text{ J}/(\text{mol}\cdot\text{K})$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $-198{,}1\text{ J}/(\text{mol}\cdot\text{K}).$ El valor negativo corrobora la fuerte disminución del desorden al pasar de 4 moles gaseosos a solo 2.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Continuando con el ejercicio anterior, si para la síntesis de amoníaco $\Delta H^\circ = -92{,}4\text{ kJ/mol}$ y $\Delta S^\circ = -198{,}1\text{ J}/(\text{mol}\cdot\text{K})$, analiza la espontaneidad a $298\text{ K}$ y a $800\text{ K}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Temperatura límite: $T_{\text{eq}} = \frac{92{,}4}{0{,}1981} \approx 466\text{ K} = 193^\circ\text{C}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">Calcula la entalpía molar estándar de combustión del benceno líquido $\text{C}_6\text{H}_6(l)$, sabiendo que $\Delta H_f^\circ[\text{C}_6\text{H}_6(l)] = +49{,}0\text{ kJ/mol}$, $\Delta H_f^\circ[\text{CO}_2(g)] = -393{,}5\text{ kJ/mol}$ y $\Delta H_f^\circ[\text{H}_2\text{O}(l)] = -285{,}8\text{ kJ/mol}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Reacción ajustada: $\text{C}_6\text{H}_6(l) + \frac{15}{2}\text{O}_2(g) \to 6\text{ CO}_2(g) + 3\text{ H}_2\text{O}(l)$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Compara la energía liberada por gramo quemado (densidad energética gravimétrica en $\text{kJ/g}$) entre el hidrógeno gas $\text{H}_2$ ($\Delta H_c^\circ = -285{,}8\text{ kJ/mol}$, $M = 2\text{ g/mol}$) y el metano $\text{CH}_4$ ($\Delta H_c^\circ = -890\text{ kJ/mol}$, $M = 16\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> El hidrógeno libera casi 2,6 veces más energía por unidad de masa que el gas natural.</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Para la combustión del acetileno $\text{C}_2\text{H}_2(g) + \frac{5}{2}\text{O}_2(g) \to 2\text{ CO}_2(g) + \text{H}_2\text{O}(l)$ se dan:<br>
+            $\Delta H_f^\circ$: $\text{C}_2\text{H}_2(g) = +226{,}7\text{ kJ/mol}$, $\text{CO}_2(g) = -393{,}5\text{ kJ/mol}$, $\text{H}_2\text{O}(l) = -285{,}8\text{ kJ/mol}$.<br>
+            $S^\circ$: $\text{C}_2\text{H}_2(g) = 200{,}9$, $\text{O}_2(g) = 205{,}1$, $\text{CO}_2(g) = 213{,}7$, $\text{H}_2\text{O}(l) = 69{,}9$ (todas en $\text{J}/(\text{mol}\cdot\text{K})$).<br>
+            Calcula: a) $\Delta H_r^\circ$, b) $\Delta S_r^\circ$, c) $\Delta G_r^\circ$ a $298\text{ K}$, d) el volumen de $\text{CO}_2$ desprendido a $1\text{ atm}$ y $25^\circ\text{C}$ por cada $1000\text{ kJ}$ liberados.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $V = \frac{n R T}{P} = \frac{1{,}539 \cdot 0{,}082 \cdot 298}{1} \approx 37{,}6\text{ Litros}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Calcula la energía reticular $U_0$ del $\text{NaCl}(s)$ con los siguientes datos termoquímicos:<br>
+            Entalpía de formación: $\Delta H_f^\circ[\text{NaCl}(s)] = -411\text{ kJ/mol}$<br>
+            Entalpía de sublimación del sodio: $\Delta H_{\text{sub}}[\text{Na}] = +108\text{ kJ/mol}$<br>
+            Primera energía de ionización del sodio: $EI_1[\text{Na}] = +496\text{ kJ/mol}$<br>
+            Entalpía de disociación del cloro: $\Delta H_{\text{dis}}[\text{Cl}_2] = +244\text{ kJ/mol}$<br>
+            Afinidad electrónica del cloro: $AE[\text{Cl}] = -349\text{ kJ/mol}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $-788\text{ kJ/mol}$, o bien $+788\text{ kJ/mol}$ para disociar la red).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">La combustión de 1 mol de glucosa sólida $\text{C}_6\text{H}_{12}\text{O}_6(s) + 6\text{ O}_2(g) \to 6\text{ CO}_2(g) + 6\text{ H}_2\text{O}(l)$ libera $2808\text{ kJ}$. Con $\Delta H_f^\circ[\text{CO}_2] = -393{,}5\text{ kJ/mol}$ y $\Delta H_f^\circ[\text{H}_2\text{O}(l)] = -285{,}8\text{ kJ/mol}$, halla la entalpía estándar de formación de la glucosa.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\Delta H_c^\circ = -2808\text{ kJ/mol}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">A $25^\circ\text{C}$ la reacción de dimerización $2\text{ NO}_2(g) \rightleftharpoons \text{N}_2\text{O}_4(g)$ tiene $\Delta H^\circ = -57{,}2\text{ kJ}$ y $\Delta S^\circ = -175{,}8\text{ J/K}$. Calcula $\Delta G^\circ$ a $298\text{ K}$ y determina la constante de equilibrio $K_p$ a esa temperatura ($\Delta G^\circ = -R T \ln K_p$, $R = 8{,}314\text{ J}/(\text{mol}\cdot\text{K})$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $e^{1{,}9414} \approx 6{,}97.$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">La entalpía de formación del amoníaco gas es $\Delta H_f^\circ[\text{NH}_3] = -46{,}1\text{ kJ/mol}$. Las energías medias de enlace son $E(\text{H}-\text{H}) = 436\text{ kJ/mol}$ y $E(\text{N}-\text{H}) = 391\text{ kJ/mol}$. Deduce el valor de la energía del triple enlace $E(\text{N}\equiv\text{N})$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Un valor altísimo que explica la extraordinaria inercia química del nitrógeno molecular atmosférico.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Compara la emisión de $\text{CO}_2$ (en gramos de $\text{CO}_2$ por cada $\text{MJ}$ de calor liberado) entre el metano $\text{CH}_4$ ($\Delta H_c^\circ = -890\text{ kJ/mol}$) y el carbón representado por carbono puro $\text{C}(s)$ ($\Delta H_c^\circ = -393{,}5\text{ kJ/mol}$). ($M(\text{CO}_2) = 44\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> El carbón emite más del doble de dióxido de carbono que el gas natural para generar la misma energía térmica.</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

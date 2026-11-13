@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Sucesiones: Progresiones Aritméticas y Geométricas | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Sucesiones: Progresiones Aritméticas y Geométricas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Escribe los cinco primeros términos de las sucesiones: a) $a_n = 3n - 2$; b) $b_n = 2^n$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>a) Sustituimos $n = 1, 2, 3, 4, 5$ en $a_n = 3n - 2$:</p>
+              <p>&bull; $a_1 = 3(1) - 2 = 1$; $a_2 = 3(2) - 2 = 4$; $a_3 = 3(3) - 2 = 7$; $a_4 = 10$; $a_5 = 13$.</p>
+              <p>b) Sustituimos $n = 1, 2, 3, 4, 5$ en $b_n = 2^n$:</p>
+              <p>&bull; $b_1 = 2^1 = 2$; $b_2 = 2^2 = 4$; $b_3 = 2^3 = 8$; $b_4 = 2^4 = 16$; $b_5 = 2^5 = 32$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: a) $1, 4, 7, 10, 13$; b) $2, 4, 8, 16, 32$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Dada la progresión aritmética $5, 9, 13, 17, 21, \dots$: halla la diferencia $d$, el término general $a_n$ y el valor del término $a_{25}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Diferencia: $d = 9 - 5 = 4$.</p>
+              <p>2. Término general: $a_n = a_1 + (n - 1)d = 5 + (n - 1)4 = 5 + 4n - 4 = 4n + 1$.</p>
+              <p>3. Término 25: $a_{25} = 4(25) + 1 = 100 + 1 = 101$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $d = 4$, término general $a_n = 4n + 1$ y $a_{25} = 101$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">En la progresión geométrica $3, 6, 12, 24, \dots$: halla la razón $r$, el término general $a_n$ y el valor de $a_8$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Razón: $r = \frac{6}{3} = 2$.</p>
+              <p>2. Término general: $a_n = a_1 \cdot r^{n-1} = 3 \cdot 2^{n-1}$.</p>
+              <p>3. Término 8: $a_8 = 3 \cdot 2^{8-1} = 3 \cdot 2^7 = 3 \cdot 128 = 384$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $r = 2$, término general $a_n = 3 \cdot 2^{n-1}$ y $a_8 = 384$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Calcula la suma de los primeros 30 términos de la progresión aritmética $2, 5, 8, 11, \dots$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. $a_1 = 2$, $d = 3$.</p>
+              <p>2. Término 30: $a_{30} = 2 + (30 - 1)3 = 2 + 29(3) = 2 + 87 = 89$.</p>
+              <p>3. Suma: $S_{30} = \frac{a_1 + a_{30}}{2} \cdot 30 = \frac{2 + 89}{2} \cdot 30 = \frac{91}{2} \cdot 30 = 91 \cdot 15 = 1.365$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $S_{30} = 1.365$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Calcula la suma de los 10 primeros términos de la progresión geométrica $1, 2, 4, 8, 16, \dots$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. $a_1 = 1$, $r = 2$, $n = 10$.</p>
+              <p>2. Aplicamos la fórmula: $S_n = \frac{a_1(r^n - 1)}{r - 1}$:</p>
+              <p>$$S_{10} = \frac{1(2^{10} - 1)}{2 - 1} = \frac{1024 - 1}{1} = 1.023$$</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $S_{10} = 1.023$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Determina si el número 143 forma parte de la sucesión $a_n = 4n + 3$. Si es así, indica qué posición ocupa.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Igualamos el término general a 143: $4n + 3 = 143$.</p>
+              <p>2. Despejamos $n$: $4n = 140 \implies n = \frac{140}{4} = 35$.</p>
+              <p>3. Como $n$ es un número natural entero positivo ($n \in \mathbb{N}$), el número sí forma parte de la sucesión.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Sí pertenece y ocupa la posición $35$ ($a_{35} = 143$).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Halla la suma de los infinitos términos de la progresión geométrica: $16, 8, 4, 2, 1, \frac{1}{2}, \dots$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. $a_1 = 16$ y razón $r = \frac{8}{16} = \frac{1}{2} = 0{,}5$.</p>
+              <p>2. Como $|r| = 0{,}5 < 1$, la serie geométrica es convergente.</p>
+              <p>3. Aplicamos la fórmula: $S_\infty = \frac{a_1}{1 - r} = \frac{16}{1 - 0{,}5} = \frac{16}{0{,}5} = 32$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: La suma infinita es exactamente $32$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Dada la sucesión definida por recurrencia $a_1 = 2$, $a_2 = 3$ y $a_n = a_{n-1} + a_{n-2}$ para todo $n \ge 3$, calcula los términos $a_3, a_4, a_5$ y $a_6$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>&bull; $a_3 = a_2 + a_1 = 3 + 2 = 5$.</p>
+              <p>&bull; $a_4 = a_3 + a_2 = 5 + 3 = 8$.</p>
+              <p>&bull; $a_5 = a_4 + a_3 = 8 + 5 = 13$.</p>
+              <p>&bull; $a_6 = a_5 + a_4 = 13 + 8 = 21$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $a_3 = 5$, $a_4 = 8$, $a_5 = 13$, $a_6 = 21$.
+              </div>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">En una progresión aritmética se sabe que $a_3 = 11$ y $a_7 = 27$. Halla la diferencia $d$, el primer término $a_1$ y el término general $a_n$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Relación entre $a_7$ y $a_3$: $a_7 = a_3 + (7 - 3)d = a_3 + 4d$.</p>
+              <p>$$27 = 11 + 4d \implies 4d = 16 \implies d = 4$$</p>
+              <p>2. Hallamos $a_1$: $a_3 = a_1 + 2d \implies 11 = a_1 + 2(4) \implies a_1 = 11 - 8 = 3$.</p>
+              <p>3. Término general: $a_n = 3 + (n - 1)4 = 4n - 1$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $d = 4$, $a_1 = 3$ y $a_n = 4n - 1$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">En una progresión geométrica de términos positivos se sabe que $a_2 = 6$ y $a_5 = 162$. Halla la razón $r$ y el primer término $a_1$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Dividimos ambos términos: $\frac{a_5}{a_2} = \frac{a_1 r^4}{a_1 r^1} = r^3$.</p>
+              <p>$$r^3 = \frac{162}{6} = 27 \implies r = \sqrt[3]{27} = 3$$</p>
+              <p>2. Hallamos $a_1$: $a_2 = a_1 \cdot r \implies 6 = a_1 \cdot 3 \implies a_1 = 2$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Razón $r = 3$ y primer término $a_1 = 2$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Interpola 4 medios aritméticos entre los números 3 y 23 para formar una progresión aritmética de 6 términos.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Datos: $a_1 = 3$, $a_6 = 23$, $n = 6$.</p>
+              <p>2. Diferencia: $d = \frac{b - a}{k + 1} = \frac{23 - 3}{4 + 1} = \frac{20}{5} = 4$.</p>
+              <p>3. Términos interpolados sumando 4 sucesivamente:</p>
+              <p>&bull; $a_2 = 3 + 4 = 7$</p>
+              <p>&bull; $a_3 = 7 + 4 = 11$</p>
+              <p>&bull; $a_4 = 11 + 4 = 15$</p>
+              <p>&bull; $a_5 = 15 + 4 = 19$</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Los cuatro términos interpolados son $7, 11, 15, 19$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Interpola 3 medios geométricos entre 5 y 80.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Datos: $a_1 = 5$, $a_5 = 80$, $n = 5$.</p>
+              <p>2. Razón: $a_5 = a_1 \cdot r^4 \implies 80 = 5 \cdot r^4 \implies r^4 = 16 \implies r = 2$.</p>
+              <p>3. Medios geométricos multiplicando por 2:</p>
+              <p>&bull; $a_2 = 5 \cdot 2 = 10$</p>
+              <p>&bull; $a_3 = 10 \cdot 2 = 20$</p>
+              <p>&bull; $a_4 = 20 \cdot 2 = 40$</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Los tres términos son $10, 20, 40$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">¿Cuántos términos consecutivos de la progresión aritmética $3, 7, 11, 15, \dots$ hay que sumar para que el total sea igual a 210?</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. $a_1 = 3$, $d = 4 \implies a_n = 3 + (n - 1)4 = 4n - 1$.</p>
+              <p>2. Fórmula de la suma: $S_n = \frac{a_1 + a_n}{2} \cdot n = \frac{3 + (4n - 1)}{2} \cdot n = \frac{4n + 2}{2} \cdot n = (2n + 1)n = 2n^2 + n$.</p>
+              <p>3. Igualamos a 210: $2n^2 + n - 210 = 0$.</p>
+              <p>$$n = \frac{-1 \pm \sqrt{1 - 4(2)(-210)}}{4} = \frac{-1 \pm \sqrt{1 + 1680}}{4} = \frac{-1 \pm \sqrt{1681}}{4} = \frac{-1 \pm 41}{4}$$</p>
+              <p>Solución positiva: $n = \frac{40}{4} = 10$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Hay que sumar $n = 10$ términos.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Halla el producto de los 6 primeros términos de la progresión geométrica $2, 6, 18, 54, \dots$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. $a_1 = 2$, $r = 3 \implies a_6 = 2 \cdot 3^{6-1} = 2 \cdot 3^5 = 2 \cdot 243 = 486$.</p>
+              <p>2. Fórmula del producto: $P_n = \sqrt{(a_1 \cdot a_n)^n}$:</p>
+              <p>$$P_6 = \sqrt{(2 \cdot 486)^6} = (2 \cdot 486)^3 = 972^3 = 918.330.048$$</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $P_6 = 918.330.048$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Se deja caer una pelota de baloncesto desde una altura de 16 metros. Tras cada bote, asciende exactamente hasta los $\frac{3}{4}$ de la altura alcanzada en el bote anterior. Calcula la distancia total vertical recorrida por la pelota hasta detenerse por completo.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Caída inicial: 16 m.</p>
+              <p>2. En cada bote posterior, la pelota sube y vuelve a bajar, recorriendo el doble de la altura del rebote.</p>
+              <p>Primer rebote: sube $16 \cdot \frac{3}{4} = 12$ m y baja 12 m (total 24 m).</p>
+              <p>3. Los rebotes forman una P.G. infinita de término inicial $a_1 = 2(12) = 24$ y razón $r = 3/4 = 0{,}75$:</p>
+              <p>$$S_\infty = \frac{24}{1 - 0{,}75} = \frac{24}{0{,}25} = 96 \text{ m}$$</p>
+              <p>4. Distancia total sumando la primera caída: $D = 16 + 96 = 112$ metros.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: La pelota recorre una distancia total vertical de 112 metros.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">Una estudiante decide ahorrar para su viaje de fin de curso guardando 5 € la primera semana, 8 € la segunda, 11 € la tercera, y así sucesivamente aumentando 3 € cada semana. ¿Cuánto dinero habrá acumulado al cabo de 40 semanas?</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Progresión Aritmética con $a_1 = 5$ €, $d = 3$ €, $n = 40$.</p>
+              <p>2. Ahorro de la semana 40: $a_{40} = 5 + (40 - 1)3 = 5 + 39(3) = 5 + 117 = 122$ €.</p>
+              <p>3. Total acumulado: $S_{40} = \frac{5 + 122}{2} \cdot 40 = 127 \cdot 20 = 2.540$ €.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Habrá ahorrado un total de 2.540 euros.
+              </div>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Las longitudes de los tres lados de un triángulo rectángulo están en progresión aritmética. Si el perímetro del triángulo es de 36 cm, halla la longitud de los tres lados y el área del triángulo.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Representamos los tres lados en P.A. simétrica: $x - d$, $x$ y la hipotenusa $x + d$.</p>
+              <p>2. Perímetro: $(x - d) + x + (x + d) = 36 \implies 3x = 36 \implies x = 12$ cm.</p>
+              <p>3. Teorema de Pitágoras con $x=12$:</p>
+              <p>$$(12 - d)^2 + 12^2 = (12 + d)^2 \implies 144 - 24d + d^2 + 144 = 144 + 24d + d^2$$</p>
+              <p>$$144 = 48d \implies d = \frac{144}{48} = 3 \text{ cm}$$</p>
+              <p>4. Lados: $12 - 3 = 9$ cm, $12$ cm y la hipotenusa $12 + 3 = 15$ cm (triángulo 3-4-5 escalado).</p>
+              <p>5. Área: $\frac{9 \cdot 12}{2} = 54\text{ cm}^2$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Catetos 9 cm y 12 cm, hipotenusa 15 cm. Área $= 54\text{ cm}^2$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Tres números están en progresión geométrica. Su producto es 216 y su suma es 26. Halla dichos números.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Representamos los tres números como: $\frac{x}{r}$, $x$, $x \cdot r$.</p>
+              <p>2. Producto: $\frac{x}{r} \cdot x \cdot (x \cdot r) = x^3 = 216 \implies x = \sqrt[3]{216} = 6$.</p>
+              <p>3. Suma: $\frac{6}{r} + 6 + 6r = 26 \implies \frac{6}{r} + 6r = 20$.</p>
+              <p>Multiplicamos por $r$: $6r^2 - 20r + 6 = 0 \iff 3r^2 - 10r + 3 = 0$.</p>
+              <p>$$r = \frac{10 \pm \sqrt{100 - 36}}{6} = \frac{10 \pm 8}{6} \implies r = 3 \quad (\text{o } r = 1/3)$$</p>
+              <p>4. Con $r = 3$: los números son $6/3 = 2$, $6$ y $6 \cdot 3 = 18$.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Los números son $2, 6$ y $18$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Halla la fracción generatriz irreducible del número decimal periódico puro $0{,}\widehat{27} = 0{,}272727\dots$ demostrando que es la suma de los infinitos términos de una progresión geométrica.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Expresamos el número en potencias de 10:</p>
+              <p>$$0{,}\widehat{27} = \frac{27}{100} + \frac{27}{10.000} + \frac{27}{1.000.000} + \dots$$</p>
+              <p>2. Es una P.G. infinita con $a_1 = \frac{27}{100}$ y razón $r = \frac{1}{100}$.</p>
+              <p>3. Aplicamos la fórmula de la suma infinita:</p>
+              <p>$$S_\infty = \frac{a_1}{1 - r} = \frac{\frac{27}{100}}{1 - \frac{1}{100}} = \frac{\frac{27}{100}}{\frac{99}{100}} = \frac{27}{99} = \frac{3}{11}$$</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: La fracción generatriz irreducible es $\frac{3}{11}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">En un cultivo de laboratorio, una cepa bacteriana se reproduce por bipartición duplicando su población cada 20 minutos. Si inicialmente hay un cultivo con 50 bacterias, ¿cuántas habrá al cabo de 4 horas?</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Tiempo transcurrido: 4 horas $= 4 \times 60 = 240$ minutos.</p>
+              <p>2. Número de duplicaciones: $k = \frac{240}{20} = 12$ ciclos de mitosis.</p>
+              <p>3. Modelo P.G.: $P = P_0 \cdot 2^{12} = 50 \cdot 4096 = 204.800$ bacterias.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Al cabo de 4 horas habrá 204.800 bacterias.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Se deposita un capital de 8.000 € en una cuenta a plazo fijo con un interés compuesto anual del 5% durante 6 años. Calcula el capital final acumulado y los intereses generados.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Cada año el capital se multiplica por $r = 1 + \frac{5}{100} = 1{,}05$.</p>
+              <p>2. Capital final tras 6 años: $C_f = C_0 \cdot (1{,}05)^6 = 8.000 \cdot 1{,}340096 = 10.720{,}76$ €.</p>
+              <p>3. Intereses generados: $I = C_f - C_0 = 10.720{,}76 - 8.000 = 2.720{,}76$ €.</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: Capital final $= 10.720{,}76$ euros; intereses generados $= 2.720{,}76$ euros.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Calcula la suma de los $n$ primeros términos de la sucesión $a_n = \frac{1}{n(n+1)}$ descomponiéndola en fracciones simples.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-emerald-100">
+              <p>1. Descomposición en fracciones simples: $\frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}$.</p>
+              <p>2. Escribimos la suma término a término:</p>
+              <p>$$S_n = \left(1 - \frac{1}{2}\right) + \left(\frac{1}{2} - \frac{1}{3}\right) + \left(\frac{1}{3} - \frac{1}{4}\right) + \dots + \left(\frac{1}{n} - \frac{1}{n+1}\right)$$</p>
+              <p>3. Todos los términos intermedios se cancelan (suma telescópica):</p>
+              <p>$$S_n = 1 - \frac{1}{n+1} = \frac{n}{n+1}$$</p>
+              <div class="p-2 bg-emerald-50 text-emerald-900 font-bold rounded mt-2">
+                Resultado: $S_n = \frac{n}{n+1}$ (y para $n \to \infty$, la suma converge a $1$).
+              </div>
+            </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

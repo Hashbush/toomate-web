@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Estequiometría, Disoluciones y Reactivo Limitante | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Estequiometría, Disoluciones y Reactivo Limitante</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">En una muestra de $9\text{ g}$ de agua ($\text{H}_2\text{O}$), calcula: a) los moles de agua, b) el número de moléculas de agua, c) el número total de átomos de hidrógeno y de oxígeno ($M = 18\text{ g/mol}$, $N_A = 6{,}022 \times 10^{23}\text{ partículas/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $3{,}011 \times 10^{23}\text{ moléculas}$ ; $6{,}022 \times 10^{23}\text{ átomos de H}$ ; $3{,}011 \times 10^{23}\text{ átomos de O}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Se disuelven $11{,}7\text{ g}$ de cloruro de sodio ($\text{NaCl}$) en agua destilada hasta enrasar un matraz aforado de $500\text{ mL}$. Calcula la concentración molar (Molaridad) de la disolución resultante ($M(\text{Na}) = 23$, $M(\text{Cl}) = 35{,}5\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $0{,}40\text{ mol/L (0,40 M)}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Disponemos de una disolución de hidróxido de sodio $2{,}0\text{ M}$. ¿Qué volumen de esta disolución concentrada debemos tomar con una pipeta para preparar exactamente $250\text{ mL}$ de una disolución diluida $0{,}10\text{ M}$?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $12{,}5\text{ mL}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">El gas propano arde según: $\text{C}_3\text{H}_8(g) + 5\text{ O}_2(g) \to 3\text{ CO}_2(g) + 4\text{ H}_2\text{O}(l)$. Calcula cuántos moles de $\text{O}_2$ y cuántos gramos de $\text{CO}_2$ se obtienen al quemar completamente $88\text{ g}$ de propano ($M(\text{C}_3\text{H}_8) = 44$, $M(\text{CO}_2) = 44\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $10\text{ moles de O}_2$ ; $264\text{ gramos de CO}_2$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">La descomposición térmica de $100\text{ g}$ de cloruro de potasio ($\text{KClO}_3$) genera oxígeno: $2\text{ KClO}_3(s) \to 2\text{ KCl}(s) + 3\text{ O}_2(g)$. Calcula el volumen de $\text{O}_2$ liberado medido en condiciones normales ($0^\circ\text{C}$ y $1\text{ atm}$, donde $1\text{ mol} = 22{,}4\text{ L}$). ($M(\text{KClO}_3) = 122{,}55\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $27{,}42\text{ Litros}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Un ácido clorhídrico comercial tiene una densidad de $1{,}18\text{ g/mL}$ y una riqueza del $36\%$ en masa de $\text{HCl}$. Calcula la molaridad de este reactivo comercial ($M(\text{HCl}) = 36{,}5\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $11{,}64\text{ M}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Al añadir cinc metálico sobre ácido clorhídrico se desprende hidrógeno: $\text{Zn}(s) + 2\text{ HCl}(aq) \to \text{ZnCl}_2(aq) + \text{H}_2(g)$. Calcula el volumen de gas $\text{H}_2$ recogido a $25^\circ\text{C}$ y $740\text{ mmHg}$ al reaccionar $6{,}54\text{ g}$ de cinc ($M = 65{,}4\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $2{,}51\text{ Litros}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Calcula el porcentaje en masa de nitrógeno en el nitrato amónico ($\text{NH}_4\text{NO}_3$), uno de los fertilizantes más utilizados en agricultura ($M(\text{N}) = 14$, $M(\text{H}) = 1$, $M(\text{O}) = 16$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $35{,}0\%$</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">Se mezclan $20\text{ g}$ de hidrógeno gas y $128\text{ g}$ de oxígeno gas para formar agua según: $2\text{ H}_2(g) + \text{O}_2(g) \to 2\text{ H}_2\text{O}(l)$. Determina: a) cuál es el reactivo limitante, b) la masa de agua formada, c) la masa del reactivo en exceso que queda sin reaccionar.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $144\text{ gramos de agua}$ ; $4\text{ gramos de H}_2$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Una muestra de $150\text{ g}$ de piedra caliza con una riqueza del $80\%$ en carbonato de calcio ($\text{CaCO}_3$) se trata con exceso de ácido clorhídrico: $\text{CaCO}_3(s) + 2\text{ HCl}(aq) \to \text{CaCl}_2(aq) + \text{CO}_2(g) + \text{H}_2\text{O}(l)$. Halla la masa de $\text{CaCl}_2$ producida y el volumen de $\text{CO}_2$ medido en c.n. ($M(\text{CaCO}_3) = 100$, $M(\text{CaCl}_2) = 111\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $133{,}2\text{ gramos}$ ; $26{,}88\text{ Litros}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">La aspirina (ácido acetilsalicílico, $M = 180\text{ g/mol}$) se prepara haciendo reaccionar ácido salicílico ($M = 138\text{ g/mol}$) con anhídrido acético en proporción molar $1:1$. Si a partir de $13{,}8\text{ g}$ de ácido salicílico se aíslan experimentalmente $14{,}4\text{ g}$ de aspirina pura, ¿cuál ha sido el rendimiento de la reacción?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $80{,}0\%$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Una disolución acuosa anticongelante contiene $124\text{ g}$ de etilenglicol ($\text{C}_2\text{H}_6\text{O}_2$, $M = 62\text{ g/mol}$) disueltos en $500\text{ g}$ de agua pura ($M = 18\text{ g/mol}$). Calcula: a) la molalidad ($m$), b) la fracción molar del soluto y del disolvente.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $4{,}0\text{ mol/kg (4 m)}$ ; $0{,}0672$ ; $0{,}9328$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">¿Qué volumen de disolución $0{,}25\text{ M}$ de hidróxido de sodio ($\text{NaOH}$) se necesita para neutralizar exactamente $40\text{ mL}$ de una disolución $0{,}15\text{ M}$ de ácido sulfúrico ($\text{H}_2\text{SO}_4$)? Escribe la reacción ajustada.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $48\text{ mL}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Se mezclan $200\text{ mL}$ de ácido clorhídrico $3{,}0\text{ M}$ con $300\text{ mL}$ de ácido clorhídrico $1{,}0\text{ M}$. Suponiendo volúmenes aditivos, calcula la concentración molar de la disolución resultante.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $1{,}80\text{ M}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">El gas oxígeno generado por descomposición de agua oxigenada se recoge sobre agua en una probeta invertida a $20^\circ\text{C}$ y una presión barométrica de $758\text{ mmHg}$. El volumen recogido es de $450\text{ mL}$. Sabiendo que la presión de vapor del agua a $20^\circ\text{C}$ es de $17{,}5\text{ mmHg}$, halla los moles de $\text{O}_2$ seco obtenidos.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $0{,}01824\text{ moles}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Se disuelven $14{,}2\text{ g}$ de sulfato de sodio ($\text{Na}_2\text{SO}_4$) en agua hasta completar $2\text{ L}$ de disolución. Calcula la molaridad de la sal y la concentración molar de los iones $\text{Na}^+$ y $\text{SO}_4^{2-}$ en la disolución ($M = 142\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $0{,}10\text{ M}$ ; $0{,}05\text{ M}$</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Se tratan $50\text{ g}$ de una muestra impura de cinc (riqueza del $65{,}4\%$) con $100\text{ mL}$ de un ácido clorhídrico comercial ($\rho = 1{,}18\text{ g/mL}$, $36\%$ en masa de $\text{HCl}$):<br>
+            $\text{Zn}(s) + 2\text{ HCl}(aq) \to \text{ZnCl}_2(aq) + \text{H}_2(g)$.<br>
+            a) Determina cuál es el reactivo limitante.<br>
+            b) Si el rendimiento de la reacción es del $85\%$, calcula el volumen de gas $\text{H}_2$ recogido a $27^\circ\text{C}$ y $750\text{ mmHg}$ ($M(\text{Zn}) = 65{,}4$, $M(\text{HCl}) = 36{,}5\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $10{,}60\text{ Litros}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Se desean preparar en el laboratorio escolar exactamente $500\text{ mL}$ de una disolución $0{,}25\text{ M}$ de ácido sulfúrico a partir de un frasco de ácido sulfúrico comercial concentrado del $98\%$ en masa y densidad $1{,}84\text{ g/cm}^3$.<br>
+            a) Calcula el volumen de ácido concentrado que se debe medir con la pipeta.<br>
+            b) Describe brevemente el procedimiento experimental y material necesario indicando las normas de seguridad.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $6{,}79\text{ mL}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">Una mezcla gaseosa de $10\text{ L}$ de metano ($\text{CH}_4$) y propano ($\text{C}_3\text{H}_8$) se quema completamente con exceso de oxígeno, produciéndose $22\text{ L}$ de dióxido de carbono ($\text{CO}_2$), estando todos los gases medidos a la misma presión y temperatura. Calcula el porcentaje en volumen de cada gas en la mezcla original.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Composición volumétrica: $40\%$ de $\text{CH}_4$ y $60\%$ de $\text{C}_3\text{H}_8$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">En el proceso industrial de obtención de ácido nítrico (Ostwald):<br>
+            Etapa 1: $4\text{ NH}_3(g) + 5\text{ O}_2(g) \to 4\text{ NO}(g) + 6\text{ H}_2\text{O}(g) \quad (\eta_1 = 90\%)$<br>
+            Etapa 2: $2\text{ NO}(g) + \text{O}_2(g) \to 2\text{ NO}_2(g) \quad (\eta_2 = 100\%)$<br>
+            Etapa 3: $3\text{ NO}_2(g) + \text{H}_2\text{O}(l) \to 2\text{ HNO}_3(aq) + \text{NO}(g) \quad (\eta_3 = 80\%)$<br>
+            Calcula la masa de ácido nítrico puro obtenido a partir de $170\text{ kg}$ de amoníaco ($M(\text{NH}_3) = 17$, $M(\text{HNO}_3) = 63\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $302{,}4\text{ kg de HNO}_3$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">Para analizar la pureza de una sosa comercial ($\text{NaOH}$), se pesan $2{,}50\text{ g}$ y se disuelven añadiendo exactamente $100\text{ mL}$ de $\text{HCl}$ $1{,}0\text{ M}$ (exceso). El exceso de ácido no reaccionado requiere para su valoración $28\text{ mL}$ de $\text{NaOH}$ valorado $0{,}50\text{ M}$. Halla la pureza porcentual de la sosa comercial ($M(\text{NaOH}) = 40\text{ g/mol}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $86{,}0\%$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Se mezclan $100\text{ mL}$ de disolución $0{,}20\text{ M}$ de $\text{NaCl}$, $200\text{ mL}$ de $\text{CaCl}_2$ $0{,}10\text{ M}$ y $200\text{ mL}$ de $\text{Na}_2\text{SO}_4$ $0{,}05\text{ M}$. Suponiendo volúmenes aditivos y que no se forma precipitado, calcula la concentración molar de cada uno de los iones presentes en la disolución final: $[\text{Na}^+]$, $[\text{Ca}^{2+}]$, $[\text{Cl}^-]$ y $[\text{SO}_4^{2-}]$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $0{,}080\text{ M}$ ; $0{,}040\text{ M}$ ; $0{,}120\text{ M}$ ; $0{,}020\text{ M}$</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

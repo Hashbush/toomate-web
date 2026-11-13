@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Tema 1: Números Reales & Finanzas | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Tema 1: Números Reales & Finanzas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Halla la fracción generatriz irreducible de los siguientes números decimales:
+            a) $3,45$ &nbsp;&bull;&nbsp; b) $2,\widehat{6}$ &nbsp;&bull;&nbsp; c) $1,4\widehat{2}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>&bull; <strong>a) Decimal exacto:</strong> $\frac{345}{100} = \mathbf{\frac{69}{20}}$ (simplificando entre 5).</p>
+              <p>&bull; <strong>b) Periódico puro:</strong> $\frac{26 - 2}{9} = \frac{24}{9} = \mathbf{\frac{8}{3}}$ (simplificando entre 3).</p>
+              <p>&bull; <strong>c) Periódico mixto:</strong> $\frac{142 - 14}{90} = \frac{128}{90} = \mathbf{\frac{64}{45}}$ (simplificando entre 2).</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">El precio de una reparación mecánica sin impuestos es de $350\text{ €}$. Si se le aplica el $21\%$ de IVA general, calcula cuánto dinero supone el impuesto y cuál es el precio final a pagar.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>&bull; Cuota de IVA: $350 \cdot 0,21 = \mathbf{73,50\text{ €}}$ de impuesto.</p>
+              <p>&bull; Precio Final (multiplicando por el índice $1,21$):</p>
+              <p>$$\text{Total} = 350 \cdot 1,21 = \mathbf{423,50\text{ €}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Un teléfono móvil cuesta $420\text{ €}$, pero está rebajado un $15\%$. Calcula directamente el precio rebajado utilizando el índice de variación.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>El índice de variación por rebaja del $15\%$ es: $I_v = 1 - 0,15 = 0,85$.</p>
+              <p>$$\text{Precio Rebajado} = 420 \cdot 0,85 = \mathbf{357\text{ €}}$$</p>
+              <p class="font-sans text-slate-600 text-xs">El ahorro ha sido de $420 - 357 = 63\text{ €}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Escribe en notación científica:<br>
+            <strong>a)</strong> $450.000.000$ (habitantes aprox. de la Unión Europea)<br>
+            <strong>b)</strong> $0,000038\text{ g}$ (masa de una partícula microscópica).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>&bull; <strong>a)</strong> Movemos la coma 8 posiciones a la izquierda: $\mathbf{4,5 \cdot 10^8}$.</p>
+              <p>&bull; <strong>b)</strong> Movemos la coma 5 posiciones a la derecha: $\mathbf{3,8 \cdot 10^{-5}\text{ g}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Depositamos $2.000\text{ €}$ en un plazo fijo al $3\%$ de interés simple anual durante 4 años. ¿Qué intereses totales recibiremos y cuál será el capital final acumulado?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>Fórmula del interés simple:</p>
+              <p>$$I = \frac{C \cdot r \cdot t}{100} = \frac{2000 \cdot 3 \cdot 4}{100} = \mathbf{240\text{ € de intereses}}$$</p>
+              <p>$$C_f = C + I = 2000 + 240 = \mathbf{2.240\text{ € acumulados}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">En un instituto de Cantabria hay 680 alumnos matriculados. Si 238 participan en actividades deportivas extraescolares, ¿qué porcentaje de los alumnos del centro realiza deporte?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>$$\text{Porcentaje} = \frac{\text{Parte}}{\text{Total}} \cdot 100 = \frac{238}{680} \cdot 100 = 0,35 \cdot 100 = \mathbf{35\%}$$</p>
+              <p class="font-sans text-slate-600 text-xs">El 35% de los alumnos participa en actividades deportivas.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Una chaqueta deportiva ha costado $72\text{ €}$ tras aplicársele un descuento del $20\%$. ¿Cuál era su precio original antes de estar rebajada?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700">
+              <p><strong>Error típico:</strong> Sumarle el $20\%$ a $72$ ($72 \cdot 1,20 = 86,40$) ¡está MAL! porque el descuento se aplicó sobre el precio original desconocido.</p>
+              <p>Relación correcta con el índice de variación: $\text{Precio Final} = \text{Precio Inicial} \cdot 0,80$:</p>
+              <div class="p-2.5 bg-white rounded border border-slate-200 font-mono text-center font-bold text-emerald-800">
+                $$\text{Precio Inicial} = \frac{72}{0,80} = \mathbf{90\text{ €}}$$
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Una factura con el $21\%$ de IVA incluido asciende a un total de $484\text{ €}$. Halla la base imponible (precio sin IVA) y el importe del impuesto.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>$\text{Total con IVA} = \text{Base Imponible} \cdot 1,21$</p>
+              <p>$$\text{Base Imponible} = \frac{484}{1,21} = \mathbf{400\text{ €}}$$</p>
+              <p>Cuota de IVA = $484 - 400 = \mathbf{84\text{ €}}$.</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">El precio del combustible subió un $12\%$ en enero y bajó un $8\%$ en febrero. Si a principios de año el litro costaba $1,50\text{ €}$, ¿cuál es su precio al finalizar febrero? ¿Qué variación porcentual global ha tenido?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>Multiplicamos los dos índices de variación sucesivos:</p>
+              <p>$$I_{global} = (1 + 0,12) \cdot (1 - 0,08) = 1,12 \cdot 0,92 = 1,0304$$</p>
+              <p>&bull; Precio final: $1,50 \cdot 1,0304 = \mathbf{1,5456\text{ €/litro}} \approx \mathbf{1,55\text{ €}}$.</p>
+              <p>&bull; Variación global: Como $I_v = 1,0304 > 1$, la subida neta acumulada ha sido del $\mathbf{3,04\%}$ (no del $4\%$).</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Una tienda de ropa ofrece en las segundas rebajas un $20\%$ de descuento adicional sobre artículos que ya tenían una rebaja del $30\%$. ¿Qué porcentaje total de descuento real se está aplicando?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>Multiplicamos los dos índices de descuento:</p>
+              <p>$$I_{global} = (1 - 0,30) \cdot (1 - 0,20) = 0,70 \cdot 0,80 = \mathbf{0,56}$$</p>
+              <p class="font-sans text-slate-800">El cliente paga el $56\%$ del precio original.</p>
+              <p class="font-bold text-emerald-800 font-sans">
+                Descuento real total: $100\% - 56\% = \mathbf{44\%}$ (¡no el $50\%$!).
+              </p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Tres socios aportan a un proyecto $3.000\text{ €}$, $5.000\text{ €}$ y $7.000\text{ €}$ respectivamente. Al cabo de un año obtienen un beneficio conjunto de $9.000\text{ €}$. ¿Cuánto beneficio le corresponde a cada uno de forma directamente proporcional a su aportación?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>Aportación total: $3000 + 5000 + 7000 = 15.000\text{ €}$.</p>
+              <p>Constante de reparto $k$: $k = \frac{9000}{15000} = 0,60\text{ € de beneficio por cada euro invertido}$.</p>
+              <p>&bull; Socio 1: $3000 \cdot 0,60 = \mathbf{1.800\text{ €}}$</p>
+              <p>&bull; Socio 2: $5000 \cdot 0,60 = \mathbf{3.000\text{ €}}$</p>
+              <p>&bull; Socio 3: $7000 \cdot 0,60 = \mathbf{4.200\text{ €}}$</p>
+              <p class="text-slate-500 font-sans text-xs">Comprobación: $1800 + 3000 + 4200 = 9.000\text{ €}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Un premio de $1.100\text{ €}$ se reparte entre dos conserjes de forma inversamente proporcional a los días que faltaron al trabajo: 2 días y 3 días. ¿Cuánto recibe cada uno?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>El reparto inverso a 2 y 3 equivale al directo a sus inversos: $\frac{1}{2}$ y $\frac{1}{3}$.</p>
+              <p>Denominador común 6: $\frac{3}{6}$ y $\frac{2}{6}$. Repartimos proporcionalmente a 3 y 2.</p>
+              <p>Suma de partes = $3 + 2 = 5$. Valor de cada parte: $\frac{1100}{5} = 220\text{ €}$.</p>
+              <p>&bull; Quien faltó 2 días recibe: $3 \cdot 220 = \mathbf{660\text{ €}}$ (recibe más por faltar menos).</p>
+              <p>&bull; Quien faltó 3 días recibe: $2 \cdot 220 = \mathbf{440\text{ €}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Calcula reduciendo a exponente común: &nbsp; $(4,5 \cdot 10^7) + (3,8 \cdot 10^6) - (2 \cdot 10^5)$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>Pasamos todos los sumandos al exponente mayor ($10^7$):</p>
+              <p>&bull; $3,8 \cdot 10^6 = 0,38 \cdot 10^7$</p>
+              <p>&bull; $2 \cdot 10^5 = 0,02 \cdot 10^7$</p>
+              <p>Operamos los coeficientes:</p>
+              <p>$$(4,5 + 0,38 - 0,02) \cdot 10^7 = \mathbf{4,86 \cdot 10^7}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">¿Durante cuántos años debemos mantener un capital de $5.000\text{ €}$ colocado al $4\%$ de interés simple anual para obtener unos intereses de $600\text{ €}$?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>De la fórmula $I = \frac{C \cdot r \cdot t}{100}$ despejamos el tiempo $t$:</p>
+              <p>$$t = \frac{I \cdot 100}{C \cdot r} = \frac{600 \cdot 100}{5000 \cdot 4} = \frac{60.000}{20.000} = \mathbf{3\text{ años}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Invertimos $6.000\text{ €}$ a un tipo de interés compuesto del $3,5\%$ anual durante 5 años. Calcula el capital final acumulado y los intereses netos generados.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>Fórmula de capitalización compuesta:</p>
+              <p>$$C_f = C_i \cdot \left( 1 + \frac{r}{100} \right)^t = 6000 \cdot (1 + 0,035)^5 = 6000 \cdot (1,035)^5$$</p>
+              <p>$$C_f = 6000 \cdot 1,187686 \approx \mathbf{7.126,12\text{ €}}$$</p>
+              <p>Intereses ganados: $I = C_f - C_i = 7126,12 - 6000 = \mathbf{1.126,12\text{ €}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">Se depositan $10.000\text{ €}$ durante 10 años al $5\%$ anual. Compara el capital final si se aplica: a) interés simple, b) interés compuesto. ¿Qué diferencia de dinero supone?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>&bull; <strong>Interés Simple:</strong> $I = \frac{10000 \cdot 5 \cdot 10}{100} = 5.000\text{ €} \implies C_f = \mathbf{15.000\text{ €}}$.</p>
+              <p>&bull; <strong>Interés Compuesto:</strong> $C_f = 10000 \cdot (1,05)^{10} = 10000 \cdot 1,62889 = \mathbf{16.288,95\text{ €}}$.</p>
+              <p class="font-sans text-emerald-800 font-bold">
+                ¡El interés compuesto genera $\mathbf{1.288,95\text{ €}}$ más gracias a que los intereses se reinvierten cada año!
+              </p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Si la tasa media de inflación durante los últimos 3 años ha sido del $4\%$ anual, ¿cuánto cuesta hoy un servicio que hace 3 años costaba $80\text{ €}$?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>La inflación acumulada funciona exactamente como el interés compuesto:</p>
+              <p>$$\text{Precio Actual} = 80 \cdot (1 + 0,04)^3 = 80 \cdot (1,04)^3 = 80 \cdot 1,124864 = \mathbf{89,99\text{ €}} \approx \mathbf{90\text{ €}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">El sueldo bruto mensual de un trabajador es de $1.850\text{ €}$. En su nómina se le retiene un $6,35\%$ de cuotas de Seguridad Social y un $14\%$ de IRPF. ¿Cuál es el sueldo neto que recibe en su cuenta bancaria?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>Total retenciones: $6,35\% + 14\% = 20,35\%$.</p>
+              <p>Retención total en euros: $1850 \cdot 0,2035 = 376,48\text{ €}$.</p>
+              <p>$$\text{Sueldo Neto} = 1850 - 376,48 = \mathbf{1.473,52\text{ €}}$$</p>
+              <p class="font-sans text-xs text-slate-600">O directamente: $1850 \cdot (1 - 0,2035) = 1850 \cdot 0,7965 = \mathbf{1.473,53\text{ €}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">¿Qué capital debemos depositar hoy al $4\%$ de interés compuesto anual para reunir $10.000\text{ €}$ dentro de 6 años?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>De $C_f = C_i \cdot (1 + r/100)^t$ despejamos $C_i$:</p>
+              <p>$$C_i = \frac{C_f}{(1 + r/100)^t} = \frac{10000}{(1,04)^6} = \frac{10000}{1,265319} \approx \mathbf{7.903,15\text{ €}}$$</p>
+              <p class="font-sans text-xs text-slate-600">Basta ingresar hoy 7.903,15 € para tener 10.000 € en 6 años.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">Compramos un televisor que cuesta $800\text{ €}$ al contado. La tienda ofrece pagarlo en 12 mensualidades de $75\text{ €}$. ¿Qué recargo total en euros nos cobran por aplazar el pago y qué porcentaje de interés supone sobre el precio original?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>Total pagado a plazos: $12 \cdot 75 = 900\text{ €}$.</p>
+              <p>Interés pagado en euros: $900 - 800 = \mathbf{100\text{ €}}$.</p>
+              <p>$$\text{Porcentaje de recargo} = \frac{100}{800} \cdot 100 = \mathbf{12,5\%}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Un banco abona un $4\%$ de interés nominal anual liquidable semestralmente. Si depositamos $5.000\text{ €}$ durante 2 años, ¿cuál será el capital final al capitalizar dos veces al año?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>Al ser semestral: el interés por semestre es $\frac{4\%}{2} = 2\% = 0,02$.</p>
+              <p>En 2 años hay $2 \cdot 2 = 4$ periodos semestrales:</p>
+              <p>$$C_f = 5000 \cdot (1 + 0,02)^4 = 5000 \cdot (1,02)^4 = 5000 \cdot 1,082432 \approx \mathbf{5.412,16\text{ €}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Un pequeño comercio de Santander compra género por valor de $12.000\text{ €}$ sin IVA. Le cargan el $21\%$ de IVA. Paga el $40\%$ al contado y para el resto solicita un crédito al $5\%$ de interés simple a devolver en 18 meses. ¿Cuánto pagará en total por la mercancía incluidos impuestos e intereses de financiación?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>1) Factura con IVA: $12.000 \cdot 1,21 = 14.520\text{ €}$.</p>
+              <p>2) Pago al contado ($40\%$): $14.520 \cdot 0,40 = 5.808\text{ €}$.</p>
+              <p>3) Cantidad a financiar ($60\%$ restante): $14.520 \cdot 0,60 = 8.712\text{ €}$.</p>
+              <p>4) Interés del crédito a 18 meses ($t = 1,5$ años):</p>
+              <p>$$I = \frac{8712 \cdot 5 \cdot 1,5}{100} = 653,40\text{ €}$$</p>
+              <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-lg text-center font-bold text-emerald-900">
+                $$\text{Coste Total} = 14.520 + 653,40 = \mathbf{15.173,40\text{ €}}$$
+              </div>
+            </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

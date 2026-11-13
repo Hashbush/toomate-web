@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Equilibrio Ácido-Base y pH | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Equilibrio Ácido-Base y pH</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Identifica los dos pares ácido-base conjugados en las siguientes reacciones:
+            <br>a) $\text{HNO}_2 + \text{H}_2\text{O} \rightleftharpoons \text{NO}_2^- + \text{H}_3\text{O}^+$
+            <br>b) $\text{NH}_3 + \text{H}_2\text{O} \rightleftharpoons \text{NH}_4^+ + \text{OH}^-$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p><strong>a)</strong></p>
+              <p>&bull; Par 1: $\text{HNO}_2$ (ácido) / $\text{NO}_2^-$ (su base conjugada).</p>
+              <p>&bull; Par 2: $\text{H}_3\text{O}^+$ (ácido) / $\text{H}_2\text{O}$ (su base conjugada).</p>
+              <p><strong>b)</strong></p>
+              <p>&bull; Par 1: $\text{NH}_4^+$ (ácido conjugado) / $\text{NH}_3$ (base).</p>
+              <p>&bull; Par 2: $\text{H}_2\text{O}$ (ácido) / $\text{OH}^-$ (su base conjugada).</p>
+              <p><em>(El agua actúa como anfótera: base en a y ácido en b).</em></p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Calcula el pH y el pOH de una disolución acuosa de ácido clorhídrico ($\text{HCl}$) de concentración $0.02\text{ M}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>El $\text{HCl}$ es un ácido fuerte monoprótico que se disocia al $100\%$:</p>
+              <p>$$\text{HCl} + \text{H}_2\text{O} \to \text{Cl}^- + \text{H}_3\text{O}^+ \implies [\text{H}_3\text{O}^+] = 0.02\text{ M}$$</p>
+              <p>$$\text{pH} = -\log[\text{H}_3\text{O}^+] = -\log(0.02) = \mathbf{1.70}$$</p>
+              <p>$$\text{pOH} = 14 - \text{pH} = 14 - 1.70 = \mathbf{12.30}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Halla el pH de una disolución de hidróxido de sodio ($\text{NaOH}$) $0.05\text{ M}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>El $\text{NaOH}$ se disocia completamente en agua: $\text{NaOH} \to \text{Na}^+ + \text{OH}^-$.</p>
+              <p>$$[\text{OH}^-] = 0.05\text{ M}$$</p>
+              <p>$$\text{pOH} = -\log(0.05) = 1.30$$</p>
+              <p>$$\text{pH} = 14 - \text{pOH} = 14 - 1.30 = \mathbf{12.70}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Calcula el pH de una disolución de ácido sulfúrico ($\text{H}_2\text{SO}_4$) de concentración $0.005\text{ M}$ considerando completa la ionización de ambos protones.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$\text{H}_2\text{SO}_4 + 2\text{H}_2\text{O} \to \text{SO}_4^{2-} + 2\text{H}_3\text{O}^+$$</p>
+              <p>Cada molécula libera 2 protones:</p>
+              <p>$$[\text{H}_3\text{O}^+] = 2 \cdot 0.005 = 0.01\text{ M} = 10^{-2}\text{ M}$$</p>
+              <p>$$\text{pH} = -\log(10^{-2}) = \mathbf{2.00}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">El pH de la sangre humana es aproximadamente $7.40$. Calcula las concentraciones molares de $[\text{H}_3\text{O}^+]$ y $[\text{OH}^-]$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$[\text{H}_3\text{O}^+] = 10^{-\text{pH}} = 10^{-7.40} = \mathbf{3.98 \times 10^{-8}\text{ M}}$$</p>
+              <p>$$\text{pOH} = 14 - 7.40 = 6.60 \implies [\text{OH}^-] = 10^{-6.60} = \mathbf{2.51 \times 10^{-7}\text{ M}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Calcula el pH de una disolución $0.10\text{ M}$ de ácido acético ($\text{CH}_3\text{COOH}$) sabiendo que su constante de acidez es $K_a = 1.8 \times 10^{-5}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Equilibrio:</p>
+              <p>$$\text{CH}_3\text{COOH} + \text{H}_2\text{O} \rightleftharpoons \text{CH}_3\text{COO}^- + \text{H}_3\text{O}^+$$</p>
+              <p>En el equilibrio: $[\text{CH}_3\text{COOH}] = 0.10 - x$, $[\text{CH}_3\text{COO}^-] = x$, $[\text{H}_3\text{O}^+] = x$.</p>
+              <p>$$K_a = \frac{x^2}{0.10 - x} \approx \frac{x^2}{0.10} = 1.8 \times 10^{-5}$$</p>
+              <p>$$x = \sqrt{1.8 \times 10^{-5} \cdot 0.10} = \sqrt{1.8 \times 10^{-6}} = 1.34 \times 10^{-3}\text{ M}$$</p>
+              <p>$$\text{pH} = -\log(1.34 \times 10^{-3}) = \mathbf{2.87}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Halla el porcentaje de ionización ($\alpha \cdot 100$) del ácido acético del ejercicio anterior y comprueba si la aproximación $c_0 - x \approx c_0$ era válida.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$\alpha = \frac{x}{c_0} = \frac{1.34 \times 10^{-3}}{0.10} = 0.0134 \implies \mathbf{1.34\%}$$</p>
+              <p>Como $\alpha < 5\%$ ($0.05$), la aproximación $0.10 - x \approx 0.10$ es <strong>plenamente válida y rigurosa</strong>.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Determina el pH de una disolución acuosa de amoníaco ($\text{NH}_3$) de concentración $0.20\text{ M}$ sabiendo que $K_b = 1.8 \times 10^{-5}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Equilibrio: $\text{NH}_3 + \text{H}_2\text{O} \rightleftharpoons \text{NH}_4^+ + \text{OH}^-$.</p>
+              <p>$$K_b = \frac{[\text{NH}_4^+][\text{OH}^-]}{[\text{NH}_3]} \approx \frac{x^2}{0.20} = 1.8 \times 10^{-5}$$</p>
+              <p>$$x = [\text{OH}^-] = \sqrt{0.20 \cdot 1.8 \times 10^{-5}} = \sqrt{3.6 \times 10^{-6}} = 1.90 \times 10^{-3}\text{ M}$$</p>
+              <p>$$\text{pOH} = -\log(1.90 \times 10^{-3}) = 2.72 \implies \text{pH} = 14 - 2.72 = \mathbf{11.28}$$</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">Una disolución $0.05\text{ M}$ de un ácido monoprótico $\text{HA}$ tiene un $\text{pH} = 3.10$. Calcula el valor de su constante de acidez $K_a$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$[\text{H}_3\text{O}^+] = x = 10^{-3.10} = 7.94 \times 10^{-4}\text{ M}$$</p>
+              <p>$$K_a = \frac{x^2}{c_0 - x} = \frac{(7.94 \times 10^{-4})^2}{0.05 - 7.94 \times 10^{-4}} = \frac{6.309 \times 10^{-7}}{0.0492} = \mathbf{1.28 \times 10^{-5}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Explica razonadamente qué le ocurre al grado de disociación $\alpha$ de un ácido débil cuando se añade agua destilada a la disolución (dilución).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Por la Ley de Ostwald: $K_a = \frac{c_0 \alpha^2}{1 - \alpha} \approx c_0 \alpha^2 \implies \alpha = \sqrt{\frac{K_a}{c_0}}$.</p>
+              <p>Al diluir la disolución (añadir agua), la concentración inicial $c_0$ disminuye. Como $K_a$ permanece constante (solo depende de $T$), <strong>el grado de disociación $\alpha$ aumenta</strong>.</p>
+              <p><em>(A dilución infinita, los ácidos débiles se disocian prácticamente al 100%).</em></p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Justifica mediante las reacciones iónicas correspondientes por qué una disolución acuosa de cloruro de sodio ($\text{NaCl}$) tiene un $\text{pH} = 7$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>1º Disociación total de la sal: $\text{NaCl(s)} \to \text{Na}^+ + \text{Cl}^-$.</p>
+              <p>2º Comportamiento de cada ion frente al agua:</p>
+              <p>&bull; $\text{Na}^+$ procede de una base fuerte ($\text{NaOH}$), por lo que es un ácido conjugado extraordinariamente débil y <strong>no se hidroliza</strong>.</p>
+              <p>&bull; $\text{Cl}^-$ procede de un ácido fuerte ($\text{HCl}$), por lo que es una base conjugada débil y <strong>no se hidroliza</strong>.</p>
+              <p>Ningún ion altera las concentraciones $[\text{H}_3\text{O}^+]$ y $[\text{OH}^-]$ del agua pura $\implies \mathbf{\text{pH} = 7}$ (Neutro).</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Calcula el pH de una disolución acuosa de acetato de sodio ($\text{CH}_3\text{COONa}$) $0.10\text{ M}$ ($K_a(\text{acético}) = 1.8 \times 10^{-5}$, $K_w = 1.0 \times 10^{-14}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Constante de hidrólisis de la base conjugada $\text{CH}_3\text{COO}^-$:</p>
+              <p>$$K_h = K_b = \frac{K_w}{K_a} = \frac{10^{-14}}{1.8 \times 10^{-5}} = 5.56 \times 10^{-10}$$</p>
+              <p>Equilibrio de hidrólisis: $\text{CH}_3\text{COO}^- + \text{H}_2\text{O} \rightleftharpoons \text{CH}_3\text{COOH} + \text{OH}^-$.</p>
+              <p>$$K_h \approx \frac{x^2}{0.10} \implies x = [\text{OH}^-] = \sqrt{0.10 \cdot 5.56 \times 10^{-10}} = 7.45 \times 10^{-6}\text{ M}$$</p>
+              <p>$$\text{pOH} = -\log(7.45 \times 10^{-6}) = 5.13 \implies \text{pH} = 14 - 5.13 = \mathbf{8.87} \quad (\text{Básico})$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Halla el pH de una disolución acuosa de cloruro de amonio ($\text{NH}_4\text{Cl}$) de concentración $0.20\text{ M}$ sabiendo que $K_b(\text{NH}_3) = 1.8 \times 10^{-5}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>El catión amonio $\text{NH}_4^+$ es el ácido conjugado del $\text{NH}_3$ y se hidroliza:</p>
+              <p>$$\text{NH}_4^+ + \text{H}_2\text{O} \rightleftharpoons \text{NH}_3 + \text{H}_3\text{O}^+$$</p>
+              <p>$$K_a = \frac{K_w}{K_b} = \frac{10^{-14}}{1.8 \times 10^{-5}} = 5.56 \times 10^{-10}$$</p>
+              <p>$$x = [\text{H}_3\text{O}^+] = \sqrt{0.20 \cdot 5.56 \times 10^{-10}} = 1.054 \times 10^{-5}\text{ M}$$</p>
+              <p>$$\text{pH} = -\log(1.054 \times 10^{-5}) = \mathbf{4.98} \quad (\text{Ácido})$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">¿Qué volumen en $\text{mL}$ de una disolución de $\text{NaOH } 0.15\text{ M}$ se necesita para neutralizar exactamente $25\text{ mL}$ de $\text{HCl } 0.20\text{ M}$?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Reacción: $\text{HCl} + \text{NaOH} \to \text{NaCl} + \text{H}_2\text{O}$ (relación 1:1).</p>
+              <p>$$M_A \cdot V_A = M_B \cdot V_B \implies V_B = \frac{M_A \cdot V_A}{M_B}$$</p>
+              <p>$$V_B = \frac{0.20\text{ M} \cdot 25\text{ mL}}{0.15\text{ M}} = \frac{5}{0.15} = \mathbf{33.33\text{ mL}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Halla el volumen necesario de $\text{KOH } 0.50\text{ M}$ para neutralizar completamente $40\text{ mL}$ de $\text{H}_2\text{SO}_4\text{ } 0.25\text{ M}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Reacción: $\text{H}_2\text{SO}_4 + 2\text{KOH} \to \text{K}_2\text{SO}_4 + 2\text{H}_2\text{O}$.</p>
+              <p>$$\text{moles de } \text{H}_2\text{SO}_4 = 0.040\text{ L} \cdot 0.25\text{ M} = 0.010\text{ moles}$$</p>
+              <p>$$\text{moles de } \text{KOH} = 2 \cdot 0.010 = 0.020\text{ moles}$$</p>
+              <p>$$V_{\text{KOH}} = \frac{0.020\text{ moles}}{0.50\text{ M}} = 0.040\text{ L} = \mathbf{40\text{ mL}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">Calcula el pH de una disolución amortiguadora formada por ácido acético $0.20\text{ M}$ y acetato de sodio $0.30\text{ M}$ ($K_a = 1.8 \times 10^{-5}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Ecuación de Henderson-Hasselbalch:</p>
+              <p>$$\text{pH} = \text{p}K_a + \log\left(\frac{[\text{base conjugada}]}{[\text{ácido}]}\right)$$</p>
+              <p>$$\text{p}K_a = -\log(1.8 \times 10^{-5}) = 4.74$$</p>
+              <p>$$\text{pH} = 4.74 + \log\left(\frac{0.30}{0.20}\right) = 4.74 + \log(1.5) = 4.74 + 0.176 = \mathbf{4.92}$$</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Se mezclan $50\text{ mL}$ de $\text{HCl } 0.10\text{ M}$ con $30\text{ mL}$ de $\text{NaOH } 0.10\text{ M}$. Suponiendo volúmenes aditivos, calcula el pH de la disolución resultante.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$\text{moles de } \text{H}_3\text{O}^+ = 0.050 \cdot 0.10 = 0.0050\text{ moles}$$</p>
+              <p>$$\text{moles de } \text{OH}^- = 0.030 \cdot 0.10 = 0.0030\text{ moles}$$</p>
+              <p>Reactivo limitante: $\text{OH}^-$. Exceso de ácido sin neutralizar:</p>
+              <p>$$\text{moles } \text{H}_3\text{O}^+ \text{ en exceso} = 0.0050 - 0.0030 = 0.0020\text{ moles}$$</p>
+              <p>Volumen total: $V_T = 50 + 30 = 80\text{ mL} = 0.080\text{ L}$.</p>
+              <p>$$[\text{H}_3\text{O}^+] = \frac{0.0020}{0.080} = 0.025\text{ M} \implies \text{pH} = -\log(0.025) = \mathbf{1.60}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Halla el pH resultante al mezclar $40\text{ mL}$ de $\text{HNO}_3\text{ } 0.05\text{ M}$ con $60\text{ mL}$ de $\text{KOH } 0.10\text{ M}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>moles $\text{HNO}_3 = 0.040 \cdot 0.05 = 0.0020\text{ moles}$.</p>
+              <p>moles $\text{KOH} = 0.060 \cdot 0.10 = 0.0060\text{ moles}$.</p>
+              <p>Exceso de $\text{OH}^- = 0.0060 - 0.0020 = 0.0040\text{ moles}$.</p>
+              <p>Volumen total: $40 + 60 = 100\text{ mL} = 0.100\text{ L}$.</p>
+              <p>$$[\text{OH}^-] = \frac{0.0040}{0.100} = 0.040\text{ M} \implies \text{pOH} = -\log(0.040) = 1.40 \implies \text{pH} = \mathbf{12.60}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Para analizar la acidez de un vinagre comercial, se toman $10\text{ mL}$ del mismo y se neutralizan exactamente con $18.5\text{ mL}$ de $\text{NaOH } 0.50\text{ M}$. Calcula la concentración de ácido acético en gramos por litro ($\text{g/L}$) sabiendo que su masa molar es $M = 60\text{ g/mol}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$\text{moles de } \text{NaOH} = 0.0185\text{ L} \cdot 0.50\text{ M} = 9.25 \times 10^{-3}\text{ moles}$$</p>
+              <p>Molaridad del vinagre: $M = \frac{9.25 \times 10^{-3}\text{ moles}}{0.010\text{ L}} = 0.925\text{ M}$.</p>
+              <p>Concentración en $\text{g/L}$:</p>
+              <p>$$\text{Conc} = 0.925\text{ mol/L} \cdot 60\text{ g/mol} = \mathbf{55.5\text{ g/L}} \quad (\approx 5.55\%\text{ acidez comercial})$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">Explica detalladamente qué ocurre a nivel molecular cuando se añaden unas gotas de $\text{HCl}$ a una disolución amortiguadora formada por $\text{CH}_3\text{COOH} / \text{CH}_3\text{COONa}$ y por qué su pH casi no cambia.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Al añadir un ácido fuerte ($\text{HCl}$), los protones $\text{H}_3\text{O}^+$ introducidos reaccionan inmediatamente con la gran reserva de base conjugada disponible ($\text{CH}_3\text{COO}^-$):</p>
+              <p>$$\text{CH}_3\text{COO}^- + \text{H}_3\text{O}^+ \to \text{CH}_3\text{COOH} + \text{H}_2\text{O}$$</p>
+              <p>Los protones libres desaparecen transformándose en ácido acético no disociado (ácido débil). Como el cociente $\frac{[\text{base}]}{[\text{ácido}]}$ cambia de forma mínima, el $\text{pH}$ permanece prácticamente constante.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Predice razonadamente si una disolución acuosa de cianuro de amonio ($\text{NH}_4\text{CN}$) será ácida, básica o neutra sabiendo que $K_a(\text{HCN}) = 4.9 \times 10^{-10}$ y $K_b(\text{NH}_3) = 1.8 \times 10^{-5}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Ambos iones sufren hidrólisis en disolución:</p>
+              <p>&bull; Catión amonio: $K_a(\text{NH}_4^+) = \frac{K_w}{K_b} = \frac{10^{-14}}{1.8 \times 10^{-5}} = 5.56 \times 10^{-10}$</p>
+              <p>&bull; Anión cianuro: $K_b(\text{CN}^-) = \frac{K_w}{K_a} = \frac{10^{-14}}{4.9 \times 10^{-10}} = 2.04 \times 10^{-5}$</p>
+              <p>Comparamos ambas constantes: $K_b(\text{CN}^-) \gg K_a(\text{NH}_4^+)$ ($2.04 \times 10^{-5} > 5.56 \times 10^{-10}$).</p>
+              <p>Como predomina la hidrólisis básica del anión generando más $\text{OH}^-$, la disolución resultante será claramente <strong>básica ($\text{pH} > 7$)</strong>.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Al valorar ácido acético con hidróxido sódico, ¿qué indicador es el adecuado para detectar el punto de equivalencia?:
+            <br>&bull; Rojo de metilo (intervalo de viraje: $4.2 - 6.3$).
+            <br>&bull; Fenolftaleína (intervalo de viraje: $8.2 - 10.0$).
+            <br>Justifica tu respuesta mediante la hidrólisis de la sal formada.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>En el punto de equivalencia todo el ácido y la base han reaccionado para dar acetato de sodio ($\text{CH}_3\text{COONa}$).</p>
+              <p>El anión acetato sufre hidrólisis básica: $\text{CH}_3\text{COO}^- + \text{H}_2\text{O} \rightleftharpoons \text{CH}_3\text{COOH} + \text{OH}^-$.</p>
+              <p>Por tanto, el punto de equivalencia se alcanza a un <strong>$\text{pH}$ básico (aproximadamente entre $8.5$ y $9.0$)</strong>.</p>
+              <p>El indicador óptimo debe virar en la zona del punto de equivalencia. Por tanto, el indicador adecuado es la <strong>fenolftaleína ($8.2 - 10.0$)</strong>, ya que el rojo de metilo viraría prematuramente en zona ácida dando un error sistemático.</p>
+            </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Campo Eléctrico y Ley de Coulomb | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Campo Eléctrico y Ley de Coulomb</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Dos cargas puntuales $q_1 = +2\,\mu\text{C}$ y $q_2 = -5\,\mu\text{C}$ están situadas en el vacío a una distancia de $10\text{ cm}$. Calcula el módulo de la fuerza electrostática mutua e indica si es atractiva o repulsiva.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Unidades S.I.: $q_1 = 2 \cdot 10^{-6}\text{ C}$, $q_2 = -5 \cdot 10^{-6}\text{ C}$, $r = 0{,}10\text{ m}$.</p>
+              <p>2. Aplicamos la Ley de Coulomb:</p>
+              <p>$$F = K \frac{|q_1 q_2|}{r^2} = (9 \cdot 10^9) \frac{(2 \cdot 10^{-6})(5 \cdot 10^{-6})}{(0{,}10)^2} = (9 \cdot 10^9) \frac{10^{-11}}{0{,}01} = \frac{9 \cdot 10^{-2}}{10^{-2}} = 9\text{ N}$$</p>
+              <p>3. Al tener signos opuestos, la fuerza es <strong>atractiva</strong>.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: Fuerza de atracción de $9\text{ N}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Halla el módulo de la intensidad de campo eléctrico creado por una carga puntual de $+4\text{ nC}$ a una distancia de $30\text{ cm}$ en el aire/vacío.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Unidades: $Q = 4 \cdot 10^{-9}\text{ C}$, $r = 0{,}30\text{ m}$.</p>
+              <p>2. Módulo del campo eléctrico:</p>
+              <p>$$E = K \frac{Q}{r^2} = (9 \cdot 10^9) \frac{4 \cdot 10^{-9}}{(0{,}30)^2} = \frac{36}{0{,}09} = 400\text{ N/C} \quad (\text{o V/m})$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $E = 400\text{ N/C}$ (dirección radial hacia afuera).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Calcula el potencial eléctrico creado por una carga puntual $Q = -6\,\mu\text{C}$ a una distancia de 2 metros.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. ¡Atención! En el potencial eléctrico <strong>SÍ se incluye el signo</strong> de la carga, pues es una magnitud escalar:</p>
+              <p>$$V = K \frac{Q}{r} = (9 \cdot 10^9) \frac{-6 \cdot 10^{-6}}{2} = -27.000\text{ V} = -27\text{ kV}$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $V = -27.000\text{ Voltios}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Un electrón ($q = -1{,}6 \cdot 10^{-19}\text{ C}$) se encuentra en una región donde existe un campo eléctrico uniforme $\vec{E} = 2.000\,\vec{i}\text{ N/C}$. Halla el vector fuerza eléctrica que actúa sobre él.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Relación vectorial: $\vec{F} = q \cdot \vec{E}$.</p>
+              <p>2. Sustituimos con el signo de la carga:</p>
+              <p>$$\vec{F} = (-1{,}6 \cdot 10^{-19}\text{ C})(2.000\,\vec{i}\text{ N/C}) = -3{,}2 \cdot 10^{-16}\,\vec{i}\text{ N}$$</p>
+              <p>3. La fuerza tiene sentido opuesto al del campo eléctrico por ser la carga negativa.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $\vec{F} = -3{,}2 \cdot 10^{-16}\,\vec{i}\text{ N}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Calcula el trabajo que realizan las fuerzas del campo eléctrico para trasladar una carga puntual $q = +3\,\mu\text{C}$ desde un punto $A$ con potencial $V_A = 200\text{ V}$ hasta un punto $B$ con $V_B = 50\text{ V}$. ¿Es un proceso espontáneo?</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Trabajo del campo: $W_{A \to B} = q(V_A - V_B)$.</p>
+              <p>2. Sustituyendo valores:</p>
+              <p>$$W_{A \to B} = (3 \cdot 10^{-6}\text{ C})(200\text{ V} - 50\text{ V}) = 3 \cdot 10^{-6} \times 150 = 4{,}5 \cdot 10^{-4}\text{ J}$$</p>
+              <p>3. Al ser $W > 0$, el trabajo lo realiza el propio campo electrostático; por tanto, <strong>sí es un proceso espontáneo</strong> (las cargas positivas se mueven espontáneamente hacia potenciales decrecientes).</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $W = 4{,}5 \cdot 10^{-4}\text{ J}$ (proceso espontáneo).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Dos placas metálicas planas paralelas están separadas una distancia de $5\text{ mm}$ y se conectan a una diferencia de potencial de $100\text{ V}$. Halla el campo eléctrico uniforme que se establece entre ellas.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Distancia en metros: $d = 5 \cdot 10^{-3}\text{ m}$, $\Delta V = 100\text{ V}$.</p>
+              <p>2. Relación de campo uniforme: $E = \frac{\Delta V}{d} = \frac{100\text{ V}}{5 \cdot 10^{-3}\text{ m}} = 20.000\text{ V/m} = 2 \cdot 10^4\text{ N/C}$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $E = 20.000\text{ V/m}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Un protón ($q = +1{,}6 \cdot 10^{-19}\text{ C}$, $m = 1{,}67 \cdot 10^{-27}\text{ kg}$) se libera en reposo en un campo eléctrico uniforme de $10^4\text{ N/C}$. Calcula la aceleración que adquiere y compárala cualitativamente con la gravedad ($g = 9{,}8\text{ m/s}^2$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Fuerza eléctrica: $F_e = q E = (1{,}6 \cdot 10^{-19})(10^4) = 1{,}6 \cdot 10^{-15}\text{ N}$.</p>
+              <p>2. Por la 2ª Ley de Newton: $a = \frac{F_e}{m} = \frac{1{,}6 \cdot 10^{-15}}{1{,}67 \cdot 10^{-27}} \approx 9{,}58 \cdot 10^{11}\text{ m/s}^2$.</p>
+              <p>3. Observación: Es unas $10^{11}$ veces superior a la aceleración gravitatoria terrestre, por lo que en problemas atómicos el peso siempre se desprecia frente a la fuerza eléctrica.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $a \approx 9{,}58 \cdot 10^{11}\text{ m/s}^2$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Calcula el flujo eléctrico que atraviesa una superficie esférica cerrada de radio 15 cm que contiene en su interior una carga neta de $+8{,}85\text{ nC}$. ($\varepsilon_0 = 8{,}85 \cdot 10^{-12}\text{ C}^2/(\text{N}\cdot\text{m}^2)$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Según el Teorema de Gauss, el flujo neto depende únicamente de la carga interior y no del radio de la superficie:</p>
+              <p>$$\Phi = \frac{Q_{\text{enc}}}{\varepsilon_0} = \frac{8{,}85 \cdot 10^{-9}\text{ C}}{8{,}85 \cdot 10^{-12}\text{ C}^2/(\text{N}\cdot\text{m}^2)} = 1.000\text{ N}\cdot\text{m}^2/\text{C}$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $\Phi = 1.000\text{ N}\cdot\text{m}^2/\text{C}$.
+              </div>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">Dos cargas puntuales $q_1 = +4\,\mu\text{C}$ y $q_2 = -4\,\mu\text{C}$ están situadas en los puntos $A(0, 0)$ y $B(0{,}40, 0)$ en metros. Halla el vector campo eléctrico y el potencial en el punto medio $M(0{,}20, 0)$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>Distancias: $r_1 = r_2 = 0{,}20$ m.</p>
+              <p>1. <strong>Campo Eléctrico (Vectorial):</strong></p>
+              <p>&bull; $q_1 > 0$ crea campo hacia la derecha: $\vec{E}_1 = (9 \cdot 10^9) \frac{4 \cdot 10^{-6}}{(0{,}20)^2}\,\vec{i} = \frac{36.000}{0{,}04}\,\vec{i} = 900.000\,\vec{i}\text{ N/C}$.</p>
+              <p>&bull; $q_2 < 0$ crea campo atractivo hacia ella (también hacia la derecha): $\vec{E}_2 = 900.000\,\vec{i}\text{ N/C}$.</p>
+              <p>Campo neto: $\vec{E} = \vec{E}_1 + \vec{E}_2 = 1{,}8 \cdot 10^6\,\vec{i}\text{ N/C}$.</p>
+              <p>2. <strong>Potencial Eléctrico (Escalar):</strong></p>
+              <p>$$V = V_1 + V_2 = K \frac{q_1}{r_1} + K \frac{q_2}{r_2} = (9 \cdot 10^9)\left(\frac{4 \cdot 10^{-6}}{0{,}20} + \frac{-4 \cdot 10^{-6}}{0{,}20}\right) = 0\text{ V}$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: Campo $\vec{E} = 1{,}8 \cdot 10^6\,\vec{i}\text{ N/C}$; Potencial $V = 0\text{ V}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Dos cargas puntuales positivas $q_1 = +9\,\mu\text{C}$ y $q_2 = +4\,\mu\text{C}$ están separadas una distancia de 1 metro. Halla a qué distancia de la primera carga el campo eléctrico total es cero.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Al ser las dos cargas del mismo signo, el punto de campo nulo se encuentra en el segmento intermedio, a distancia $x$ de $q_1$ y $(1 - x)$ de $q_2$.</p>
+              <p>2. Condición de módulos iguales: $E_1 = E_2$:</p>
+              <p>$$K \frac{q_1}{x^2} = K \frac{q_2}{(1 - x)^2} \implies \frac{9}{x^2} = \frac{4}{(1 - x)^2}$$</p>
+              <p>3. Tomamos raíz cuadrada a ambos lados: $\frac{3}{x} = \frac{2}{1 - x} \implies 3(1 - x) = 2x \implies 3 - 3x = 2x \implies 5x = 3 \implies x = 0{,}60\text{ m}$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: A $60\text{ cm}$ de la carga de $+9\,\mu\text{C}$ (y a $40\text{ cm}$ de la de $+4\,\mu\text{C}$).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Un electrón ($m = 9{,}1 \cdot 10^{-31}\text{ kg}$, $e = 1{,}6 \cdot 10^{-19}\text{ C}$) parte del reposo y es acelerado por una diferencia de potencial de $500\text{ V}$. Calcula su energía cinética y su velocidad final.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Principio de Conservación de la Energía Mecánica: $\Delta E_c = -\Delta E_p = q(V_A - V_B)$.</p>
+              <p>$$E_c = |q| \Delta V = (1{,}6 \cdot 10^{-19}\text{ C})(500\text{ V}) = 8 \cdot 10^{-17}\text{ J} \quad (= 500\text{ eV})$$</p>
+              <p>2. Despejamos la velocidad: $E_c = \frac{1}{2} m v^2 \implies v = \sqrt{\frac{2E_c}{m}}$:</p>
+              <p>$$v = \sqrt{\frac{2(8 \cdot 10^{-17})}{9{,}1 \cdot 10^{-31}}} = \sqrt{1{,}758 \cdot 10^{14}} \approx 1{,}326 \cdot 10^7\text{ m/s}$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $E_c = 8 \cdot 10^{-17}\text{ J}$ y $v \approx 1{,}33 \cdot 10^7\text{ m/s}$ ($\approx 4{,}4\%$ de la velocidad de la luz).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Una gota de aceite de masa $m = 3{,}2 \cdot 10^{-14}\text{ kg}$ permanece suspendida en equilibrio entre dos placas horizontales separadas 1 cm con una diferencia de potencial de 980 V. ¿Cuál es el signo y el valor de la carga de la gota, y a cuántos electrones elementales equivale? ($g = 9{,}8\text{ m/s}^2$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. En equilibrio: la fuerza eléctrica hacia arriba equilibra el peso hacia abajo: $F_e = P \implies q E = m g$.</p>
+              <p>2. Campo eléctrico: $E = \frac{\Delta V}{d} = \frac{980\text{ V}}{0{,}01\text{ m}} = 98.000\text{ V/m}$.</p>
+              <p>3. Despejamos la carga: $q = \frac{mg}{E} = \frac{(3{,}2 \cdot 10^{-14})(9{,}8)}{98.000} = \frac{3{,}136 \cdot 10^{-13}}{9{,}8 \cdot 10^4} = 3{,}2 \cdot 10^{-18}\text{ C}$.</p>
+              <p>Como la placa superior es positiva y la fuerza eléctrica debe apuntar hacia arriba, la gota tiene carga <strong>negativa</strong> ($q = -3{,}2 \cdot 10^{-18}\text{ C}$).</p>
+              <p>4. Número de electrones: $N = \frac{3{,}2 \cdot 10^{-18}}{1{,}6 \cdot 10^{-19}} = 20$ electrones en exceso.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: Carga $q = -3{,}2 \cdot 10^{-18}\text{ C}$ (equivalente a 20 electrones en exceso).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Una pequeña esfera de $2\text{ g}$ con carga $+1\,\mu\text{C}$ cuelga de un hilo inextensible de masa despreciable en una región con un campo eléctrico horizontal uniforme $E = 10^4\text{ N/C}$. Halla el ángulo que forma el hilo con la vertical en equilibrio y la tensión del hilo. ($g = 9{,}8\text{ m/s}^2$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Fuerzas en equilibrio:</p>
+              <p>&bull; Eje $Y$: $T \cos \theta = mg = (0{,}002)(9{,}8) = 0{,}0196\text{ N}$.</p>
+              <p>&bull; Eje $X$: $T \sin \theta = F_e = q E = (10^{-6})(10^4) = 0{,}01\text{ N}$.</p>
+              <p>2. Dividimos ambas ecuaciones: $\tan \theta = \frac{0{,}01}{0{,}0196} \approx 0{,}5102 \implies \theta = \arctan(0{,}5102) \approx 27{,}03^\circ$.</p>
+              <p>3. Tensión del hilo: $T = \sqrt{(mg)^2 + (F_e)^2} = \sqrt{(0{,}0196)^2 + (0{,}01)^2} = \sqrt{0{,}000384 + 0{,}0001} \approx 0{,}022\text{ N}$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: Ángulo $\theta \approx 27^\circ$ y tensión $T \approx 0{,}022\text{ N}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Una esfera conductora hueca de radio $R = 20\text{ cm}$ posee una carga neta de $+5\,\text{nC}$. Determina el campo y el potencial eléctrico en: a) Un punto interior a $10\text{ cm}$ del centro; b) Un punto exterior a $50\text{ cm}$ del centro.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>a) <strong>Punto interior ($r = 0{,}10\text{ m} < R$):</strong></p>
+              <p>&bull; Por el Teorema de Gauss, al no haber carga interior neta: $E_{\text{int}} = 0\text{ N/C}$.</p>
+              <p>&bull; El potencial en todo el interior es constante e igual al de la superficie:</p>
+              <p>$$V_{\text{int}} = V(R) = K \frac{Q}{R} = (9 \cdot 10^9) \frac{5 \cdot 10^{-9}}{0{,}20} = 225\text{ V}$$</p>
+              <p>b) <strong>Punto exterior ($r = 0{,}50\text{ m} > R$):</strong> Toda la carga se comporta como si estuviera concentrada en el centro:</p>
+              <p>&bull; $E_{\text{ext}} = K \frac{Q}{r^2} = (9 \cdot 10^9) \frac{5 \cdot 10^{-9}}{(0{,}50)^2} = \frac{45}{0{,}25} = 180\text{ N/C}$.</p>
+              <p>&bull; $V_{\text{ext}} = K \frac{Q}{r} = (9 \cdot 10^9) \frac{5 \cdot 10^{-9}}{0{,}50} = 90\text{ V}$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: Interior: $E = 0\text{ N/C}, V = 225\text{ V}$. Exterior: $E = 180\text{ N/C}, V = 90\text{ V}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Un electrón entra con velocidad horizontal $v_0 = 2 \cdot 10^7\text{ m/s}$ en el espacio entre dos placas de $10\text{ cm}$ de longitud donde hay un campo vertical uniforme $E = 1.000\text{ N/C}$ dirigido hacia arriba. Calcula la desviación vertical que sufre al salir de las placas.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Tiempo que permanece entre las placas (M.R.U. horizontal): $t = \frac{L}{v_0} = \frac{0{,}10\text{ m}}{2 \cdot 10^7\text{ m/s}} = 5 \cdot 10^{-9}\text{ s}$.</p>
+              <p>2. Aceleración vertical (hacia abajo, pues $q < 0$):</p>
+              <p>$$a = \frac{e E}{m} = \frac{(1{,}6 \cdot 10^{-19})(1.000)}{9{,}1 \cdot 10^{-31}} \approx 1{,}758 \cdot 10^{14}\text{ m/s}^2$$</p>
+              <p>3. Desviación vertical $y$ (M.R.U.A. partiendo con $v_{0y} = 0$):</p>
+              <p>$$y = \frac{1}{2} a t^2 = \frac{1}{2}(1{,}758 \cdot 10^{14})(5 \cdot 10^{-9})^2 = \frac{1}{2}(1{,}758 \cdot 10^{14})(25 \cdot 10^{-18}) \approx 2{,}2 \cdot 10^{-3}\text{ m} = 2{,}2\text{ mm}$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: Sufre una desviación vertical hacia la placa positiva de $2{,}2\text{ mm}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">En los cuatro vértices de un cuadrado de lado $L = 1\text{ m}$ se sitúan cuatro cargas idénticas de $+2\,\mu\text{C}$. Calcula el trabajo necesario para traer una carga testigo $q_0 = +1\,\mu\text{C}$ desde el infinito hasta el centro geométrico del cuadrado.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Distancia de cada vértice al centro: la diagonal es $d = \sqrt{1^2 + 1^2} = \sqrt{2}$, luego el radio al centro es $r = \frac{\sqrt{2}}{2}$ m.</p>
+              <p>2. Potencial electrostático en el centro por superposición:</p>
+              <p>$$V_{\text{centro}} = 4 \cdot K \frac{q}{r} = 4 \cdot (9 \cdot 10^9) \frac{2 \cdot 10^{-6}}{\sqrt{2}/2} = \frac{72.000}{\sqrt{2}/2} = 144.000 \cdot \frac{\sqrt{2}}{2} \approx 101.823\text{ V}$$</p>
+              <p>3. Potencial en el infinito: $V_\infty = 0\text{ V}$.</p>
+              <p>4. Trabajo del campo: $W_{\text{campo}} = q_0(V_\infty - V_{\text{centro}}) = 10^{-6}(0 - 101.823) \approx -0{,}102\text{ J}$.</p>
+              <p>El trabajo exterior necesario es $W_{\text{ext}} = -W_{\text{campo}} = +0{,}102\text{ J}$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $W_{\text{campo}} \approx -0{,}102\text{ J}$ (se deben aportar $0{,}102\text{ J}$ contra la repulsión electrostática).
+              </div>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">En los puntos $A(0, 3)$ y $B(0, -3)$ (coordenadas en metros) se fijan dos cargas $q_1 = +4\,\mu\text{C}$ y $q_2 = -4\,\mu\text{C}$. Halla:
+            a) El vector campo eléctrico total $\vec{E}$ en el punto $P(4, 0)$.
+            b) El potencial electrostático en $P$.
+            c) El trabajo realizado por el campo para trasladar una carga $q_3 = +2\,\mu\text{C}$ desde $P$ hasta el origen de coordenadas $O(0, 0)$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Distancia de $A(0,3)$ y $B(0,-3)$ al punto $P(4,0)$: $r = \sqrt{4^2 + 3^2} = 5$ m.</p>
+              <p>Módulo de campo individual: $E_1 = E_2 = (9 \cdot 10^9) \frac{4 \cdot 10^{-6}}{5^2} = \frac{36.000}{25} = 1.440\text{ N/C}$.</p>
+              <p>2. Descomposición de vectores:</p>
+              <p>&bull; $\vec{E}_1$ es repulsivo desde $A(0,3)$ hacia $P(4,0)$: apunta hacia abajo y a la derecha con $\cos \alpha = 4/5$, $\sin \alpha = 3/5 \implies \vec{E}_1 = 1440(0{,}8\,\vec{i} - 0{,}6\,\vec{j}) = 1152\,\vec{i} - 864\,\vec{j}$.</p>
+              <p>&bull; $\vec{E}_2$ es atractivo hacia $B(0,-3)$: apunta hacia abajo y a la izquierda con $\cos \alpha = 4/5$, $\sin \alpha = 3/5 \implies \vec{E}_2 = 1440(-0{,}8\,\vec{i} - 0{,}6\,\vec{j}) = -1152\,\vec{i} - 864\,\vec{j}$.</p>
+              <p>Suma vectorial: $\vec{E}_P = \vec{E}_1 + \vec{E}_2 = -1.728\,\vec{j}\text{ N/C}$.</p>
+              <p>3. <strong>Potencial en $P$:</strong> $V_P = K \frac{q_1}{r} + K \frac{q_2}{r} = K \left(\frac{4 \cdot 10^{-6}}{5} - \frac{4 \cdot 10^{-6}}{5}\right) = 0\text{ V}$.</p>
+              <p>4. <strong>Potencial en $O(0,0)$:</strong> $V_O = K \frac{4 \cdot 10^{-6}}{3} - K \frac{4 \cdot 10^{-6}}{3} = 0\text{ V}$.</p>
+              <p>5. <strong>Trabajo de $P$ a $O$:</strong> $W_{P \to O} = q_3(V_P - V_O) = (2 \cdot 10^{-6})(0 - 0) = 0\text{ Julios}$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: a) $\vec{E}_P = -1.728\,\vec{j}\text{ N/C}$; b) $V_P = 0\text{ V}$; c) $W_{P \to O} = 0\text{ J}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Tres cargas iguales de $+2\,\mu\text{C}$ están situadas en los vértices de un triángulo equilátero de lado $L = 30\text{ cm}$. Calcula la energía potencial electrostática total del sistema y la fuerza neta que actúa sobre una cualquiera de ellas.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. La energía electrostática total es la suma de los 3 pares de interacción posibles:</p>
+              <p>$$E_p = K \frac{q_1 q_2}{L} + K \frac{q_1 q_3}{L} + K \frac{q_2 q_3}{L} = 3 K \frac{q^2}{L}$$</p>
+              <p>$$E_p = 3 (9 \cdot 10^9) \frac{(2 \cdot 10^{-6})^2}{0{,}30} = 27 \cdot 10^9 \frac{4 \cdot 10^{-12}}{0{,}30} = 0{,}36\text{ Julios}$$</p>
+              <p>2. Fuerza sobre un vértice: las dos fuerzas repulsivas forman un ángulo de $60^\circ$ entre sí. El módulo de cada fuerza es $F_0 = (9 \cdot 10^9) \frac{4 \cdot 10^{-12}}{(0{,}30)^2} = \frac{0{,}036}{0{,}09} = 0{,}40\text{ N}$.</p>
+              <p>Fuerza resultante por el teorema del coseno: $F_R = \sqrt{F_0^2 + F_0^2 + 2F_0^2 \cos 60^\circ} = F_0 \sqrt{1 + 1 + 1} = F_0 \sqrt{3} = 0{,}40\sqrt{3} \approx 0{,}693\text{ N}$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: Energía $E_p = 0{,}36\text{ J}$; Fuerza resultante $F_R \approx 0{,}693\text{ N}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Deduce mediante el Teorema de Gauss la expresión del campo eléctrico a una distancia $r$ de un hilo rectilíneo infinitamente largo con densidad lineal de carga $\lambda$ uniforme. Calcula su valor para $\lambda = 20\,\text{nC/m}$ a $r = 10\text{ cm}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Elegimos como superficie gaussiana un cilindro coaxial de radio $r$ y longitud $L$.</p>
+              <p>Por simetría radial, el flujo a través de las bases circulares es nulo ($\vec{E} \perp d\vec{S}$). Solo hay flujo en la superficie lateral:</p>
+              <p>$$\Phi = E \cdot (2\pi r L) = \frac{Q_{\text{enc}}}{\varepsilon_0} = \frac{\lambda L}{\varepsilon_0}$$</p>
+              <p>2. Simplificando $L$: $E = \frac{\lambda}{2\pi \varepsilon_0 r} = \frac{2K \lambda}{r}$.</p>
+              <p>3. Calculamos para los datos dados: $E = \frac{2(9 \cdot 10^9)(20 \cdot 10^{-9})}{0{,}10} = \frac{360}{0{,}10} = 3.600\text{ N/C}$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: Expresión $E = \frac{2K\lambda}{r}$. Valor numérico $E = 3.600\text{ N/C}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">En el modelo atómico clásico de Bohr para el hidrógeno, un electrón gira en una órbita circular de radio $r = 5{,}3 \cdot 10^{-11}\text{ m}$ alrededor del protón. Calcula su velocidad orbital y la energía mecánica total del átomo.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Fuerza electrostática como fuerza centrípeta: $F_e = F_c \implies K \frac{e^2}{r^2} = m \frac{v^2}{r} \implies m v^2 = K \frac{e^2}{r}$.</p>
+              <p>2. Velocidad orbital:</p>
+              <p>$$v = \sqrt{\frac{K e^2}{m r}} = \sqrt{\frac{(9 \cdot 10^9)(1{,}6 \cdot 10^{-19})^2}{(9{,}1 \cdot 10^{-31})(5{,}3 \cdot 10^{-11})}} \approx 2{,}19 \cdot 10^6\text{ m/s}$$</p>
+              <p>3. Energía mecánica total: $E_m = E_c + E_p = \frac{1}{2} m v^2 - K \frac{e^2}{r} = -\frac{1}{2} K \frac{e^2}{r}$:</p>
+              <p>$$E_m = -\frac{1}{2} \frac{(9 \cdot 10^9)(1{,}6 \cdot 10^{-19})^2}{5{,}3 \cdot 10^{-11}} \approx -2{,}17 \cdot 10^{-18}\text{ J} \quad (= -13{,}6\text{ eV})$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: Velocidad $v \approx 2{,}19 \cdot 10^6\text{ m/s}$; Energía total $E_m \approx -13{,}6\text{ eV}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Deduce la expresión del campo eléctrico generado por un plano infinito no conductor con densidad superficial uniforme de carga $\sigma$. Demuestra que el campo es independiente de la distancia y calcula su valor para $\sigma = +17{,}7\text{ nC/m}^2$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>1. Construimos una caja cilíndrica de área $S$ simétrica que atraviesa el plano.</p>
+              <p>2. El flujo sólo sale por las dos tapas perpendiculares: $\Phi = 2 E S = \frac{Q_{\text{enc}}}{\varepsilon_0} = \frac{\sigma S}{\varepsilon_0}$.</p>
+              <p>3. Despejamos: $E = \frac{\sigma}{2\varepsilon_0}$ (independiente de la distancia $r$).</p>
+              <p>4. Numéricamente: $E = \frac{17{,}7 \cdot 10^{-9}}{2(8{,}85 \cdot 10^{-12})} = \frac{17{,}7 \cdot 10^{-9}}{17{,}7 \cdot 10^{-12}} = 1.000\text{ N/C}$.</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: $E = \frac{\sigma}{2\varepsilon_0} = 1.000\text{ N/C}$ (constante en todo el espacio).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Dos cargas $q_1 = +4\,\mu\text{C}$ y $q_2 = +1\,\mu\text{C}$ están fijas en el eje $X$ en $x = 0$ y $x = 1\text{ m}$.
+            a) Halla la posición $x_0$ donde debe colocarse una tercera carga $q_3$ para que la fuerza neta sobre ella sea cero.
+            b) ¿Depende dicha posición del valor o del signo de $q_3$?
+            c) Si $q_3 = -2\,\mu\text{C}$ se coloca en dicho punto de equilibrio, ¿cuál es la energía potencial del sistema formado por las tres cargas?</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-amber-100">
+              <p>a) Equilibrio en $x \in (0, 1)$: $K \frac{q_1 q_3}{x^2} = K \frac{q_2 q_3}{(1 - x)^2} \implies \frac{4}{x^2} = \frac{1}{(1 - x)^2}$.</p>
+              <p>Tomando raíz: $\frac{2}{x} = \frac{1}{1 - x} \implies 2 - 2x = x \implies 3x = 2 \implies x = \frac{2}{3}\text{ m} \approx 0{,}667\text{ m}$.</p>
+              <p>b) Al simplificarse $q_3$ en la ecuación, la posición de equilibrio es <strong>completamente independiente</strong> del valor y del signo de $q_3$.</p>
+              <p>c) Para $q_3 = -2\,\mu\text{C}$ en $x = 2/3$: $r_{13} = 2/3$ m, $r_{23} = 1/3$ m, $r_{12} = 1$ m.</p>
+              <p>$$E_p = K \left[\frac{q_1 q_2}{r_{12}} + \frac{q_1 q_3}{r_{13}} + \frac{q_2 q_3}{r_{23}}\right]$$</p>
+              <p>$$E_p = (9 \cdot 10^9) \cdot 10^{-12} \left[\frac{(4)(1)}{1} + \frac{(4)(-2)}{2/3} + \frac{(1)(-2)}{1/3}\right] = 9 \cdot 10^{-3} [4 - 12 - 6] = 9 \cdot 10^{-3} [-14] = -0{,}126\text{ J}$$</p>
+              <div class="p-2 bg-amber-50 text-amber-900 font-bold rounded mt-2">
+                Resultado: a) $x = 2/3\text{ m}$; b) Es independiente de $q_3$; c) $E_p = -0{,}126\text{ Julios}$.
+              </div>
+            </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

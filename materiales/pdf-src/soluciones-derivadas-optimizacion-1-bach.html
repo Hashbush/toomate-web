@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Cálculo Diferencial: Derivadas y Optimización | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Cálculo Diferencial: Derivadas y Optimización</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Halla la tasa de variación media de la función $f(x) = x^2 - 3x$ en el intervalo $[1, 4]$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Evaluamos los extremos:</p>
+              <p>&bull; $f(1) = 1^2 - 3(1) = 1 - 3 = -2$.</p>
+              <p>&bull; $f(4) = 4^2 - 3(4) = 16 - 12 = 4$.</p>
+              <p>2. Aplicamos la fórmula: $\text{TVM}[1, 4] = \frac{f(4) - f(1)}{4 - 1} = \frac{4 - (-2)}{3} = \frac{6}{3} = 2$.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: $\text{TVM}[1, 4] = 2$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Calcula la función derivada de $f(x) = 4x^3 - 5x^2 + 7x - 9$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>Aplicamos la regla $[x^n]' = n x^{n-1}$ término a término:</p>
+              <p>$$f'(x) = 4(3x^2) - 5(2x) + 7(1) - 0 = 12x^2 - 10x + 7$$</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: $f'(x) = 12x^2 - 10x + 7$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Halla la derivada de $f(x) = (x^2 + 1) \cdot e^x$ y simplifica el resultado factorizando.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Regla del producto $(u \cdot v)' = u'v + uv'$ con $u = x^2+1$ y $v = e^x$:</p>
+              <p>$$u' = 2x, \quad v' = e^x$$</p>
+              <p>$$f'(x) = 2x \cdot e^x + (x^2 + 1) \cdot e^x$$</p>
+              <p>2. Sacamos factor común $e^x$:</p>
+              <p>$$f'(x) = (x^2 + 2x + 1) e^x = (x + 1)^2 e^x$$</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: $f'(x) = (x + 1)^2 e^x$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Calcula la derivada de la función racional $f(x) = \frac{2x - 3}{x + 1}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Regla del cociente $\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}$ con $u = 2x-3$ y $v = x+1$:</p>
+              <p>$$f'(x) = \frac{2(x + 1) - (2x - 3)(1)}{(x + 1)^2} = \frac{2x + 2 - 2x + 3}{(x + 1)^2} = \frac{5}{(x + 1)^2}$$</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: $f'(x) = \frac{5}{(x + 1)^2}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Halla la función derivada de $f(x) = \ln(3x^2 + 5)$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>Por la regla $[\ln u]' = \frac{u'}{u}$ con $u = 3x^2 + 5 \implies u' = 6x$:</p>
+              <p>$$f'(x) = \frac{6x}{3x^2 + 5}$$</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: $f'(x) = \frac{6x}{3x^2 + 5}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Halla la ecuación de la recta tangente a la gráfica de $f(x) = x^2 - 4x + 5$ en el punto de abscisa $x_0 = 3$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Punto de tangencia: $y_0 = f(3) = 3^2 - 4(3) + 5 = 9 - 12 + 5 = 2 \implies P(3, 2)$.</p>
+              <p>2. Pendiente $m$: derivada $f'(x) = 2x - 4 \implies m = f'(3) = 2(3) - 4 = 2$.</p>
+              <p>3. Recta tangente: $y - 2 = 2(x - 3) \implies y - 2 = 2x - 6 \implies y = 2x - 4$.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: Recta tangente $y = 2x - 4$ (o en implícita $2x - y - 4 = 0$).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Encuentra los puntos de la curva $f(x) = x^3 - 3x + 1$ en los que la recta tangente es horizontal (paralela al eje de abscisas).</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Tangente horizontal $\iff$ pendiente $m = f'(x) = 0$.</p>
+              <p>2. Derivamos: $f'(x) = 3x^2 - 3$. Igualamos a cero:</p>
+              <p>$$3x^2 - 3 = 0 \implies x^2 = 1 \implies x = \pm 1$$</p>
+              <p>3. Puntos completos $(x, f(x))$:</p>
+              <p>&bull; Para $x = 1$: $f(1) = 1^3 - 3(1) + 1 = -1 \implies P_1(1, -1)$.</p>
+              <p>&bull; Para $x = -1$: $f(-1) = (-1)^3 - 3(-1) + 1 = -1 + 3 + 1 = 3 \implies P_2(-1, 3)$.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: Los puntos con tangente horizontal son $(1, -1)$ y $(-1, 3)$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Halla la función derivada de $f(x) = \sin(2x) + \cos^2(x)$ y simplifícala al máximo.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Derivada de $\sin(2x)$: $2\cos(2x)$.</p>
+              <p>2. Derivada de $\cos^2(x)$: por regla de la potencia $2\cos(x) \cdot (-\sin x) = -2\sin x \cos x = -\sin(2x)$.</p>
+              <p>3. Sumando: $f'(x) = 2\cos(2x) - \sin(2x)$.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: $f'(x) = 2\cos(2x) - \sin(2x)$.
+              </div>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">Determina los intervalos de crecimiento, decrecimiento y los máximos y mínimos relativos de $f(x) = 2x^3 - 9x^2 + 12x - 1$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Derivada primera: $f'(x) = 6x^2 - 18x + 12$.</p>
+              <p>2. Puntos críticos: $6(x^2 - 3x + 2) = 0 \implies (x - 1)(x - 2) = 0 \implies x_1 = 1, x_2 = 2$.</p>
+              <p>3. Signo de $f'(x)$ en la recta real:</p>
+              <p>&bull; $(-\infty, 1)$: $f'(0) = 12 > 0 \implies$ Creciente ($\nearrow$).</p>
+              <p>&bull; $(1, 2)$: $f'(1{,}5) = 6(2{,}25 - 4{,}5 + 2) = -1{,}5 < 0 \implies$ Decreciente ($\searrow$).</p>
+              <p>&bull; $(2, +\infty)$: $f'(3) = 12 > 0 \implies$ Creciente ($\nearrow$).</p>
+              <p>4. Conclusión: Máximo relativo en $x=1$ con $f(1) = 4$; Mínimo relativo en $x=2$ con $f(2) = 3$.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: Creciente en $(-\infty, 1) \cup (2, +\infty)$; decreciente en $(1, 2)$. Máximo en $(1, 4)$ y mínimo en $(2, 3)$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Halla los intervalos de concavidad ($\cap$), convexidad ($\cup$) y el punto de inflexión de $f(x) = x^3 - 6x^2 + 9x$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Derivadas sucesivas: $f'(x) = 3x^2 - 12x + 9 \implies f''(x) = 6x - 12$.</p>
+              <p>2. Posible punto de inflexión: $f''(x) = 0 \implies 6x - 12 = 0 \implies x = 2$.</p>
+              <p>3. Signo de $f''(x)$:</p>
+              <p>&bull; Para $x < 2$: $f''(x) < 0 \implies$ Cóncava ($\cap$).</p>
+              <p>&bull; Para $x > 2$: $f''(x) > 0 \implies$ Convexa ($\cup$).</p>
+              <p>4. Al cambiar de signo la curvatura, existe Punto de Inflexión en $x = 2$ con $f(2) = 2^3 - 6(4) + 9(2) = 8 - 24 + 18 = 2$.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: Cóncava en $(-\infty, 2)$, convexa en $(2, +\infty)$ y Punto de Inflexión en $(2, 2)$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Halla la ecuación de la recta normal a la gráfica de $f(x) = \frac{x}{x-1}$ en el punto de abscisa $x_0 = 2$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Punto: $y_0 = f(2) = \frac{2}{2-1} = 2 \implies P(2, 2)$.</p>
+              <p>2. Derivada: $f'(x) = \frac{1(x-1) - x(1)}{(x-1)^2} = \frac{-1}{(x-1)^2}$.</p>
+              <p>3. Pendiente de la tangente: $m_t = f'(2) = \frac{-1}{(2-1)^2} = -1$.</p>
+              <p>4. Pendiente de la normal: $m_n = -\frac{1}{m_t} = -\frac{1}{-1} = 1$.</p>
+              <p>5. Recta normal: $y - 2 = 1(x - 2) \implies y = x$.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: Recta normal $y = x$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Halla todas las asíntotas (verticales, horizontales y oblicuas) de la función $f(x) = \frac{2x^2 + 1}{x - 1}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. <strong>Asíntota Vertical:</strong> En el valor que anula el denominador $x = 1$.</p>
+              <p>$$\lim_{x \to 1^-} \frac{2x^2+1}{x-1} = -\infty, \quad \lim_{x \to 1^+} \frac{2x^2+1}{x-1} = +\infty \implies \text{A.V. en } x = 1$$</p>
+              <p>2. <strong>Asíntota Horizontal:</strong> $\lim_{x \to \pm\infty} \frac{2x^2+1}{x-1} = \pm\infty \implies$ No tiene A.H.</p>
+              <p>3. <strong>Asíntota Oblicua $y = mx + n$:</strong> (Grado del numerador es 1 más que el denominador):</p>
+              <p>$$m = \lim_{x \to \infty} \frac{f(x)}{x} = \lim_{x \to \infty} \frac{2x^2+1}{x^2-x} = 2$$</p>
+              <p>$$n = \lim_{x \to \infty} [f(x) - 2x] = \lim_{x \to \infty} \frac{2x^2+1 - 2x(x-1)}{x-1} = \lim_{x \to \infty} \frac{2x+1}{x-1} = 2$$</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: Asíntota Vertical en $x = 1$; Asíntota Oblicua en $y = 2x + 2$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Calcula mediante la Regla de L'Hôpital el límite: $\lim_{x \to 0} \frac{e^x - 1 - x}{x^2}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Al sustituir $x=0$, obtenemos la indeterminación $\frac{e^0 - 1 - 0}{0^2} = \frac{0}{0}$.</p>
+              <p>2. Aplicamos L'Hôpital derivando numerador y denominador por separado:</p>
+              <p>$$\lim_{x \to 0} \frac{[e^x - 1 - x]'}{[x^2]'} = \lim_{x \to 0} \frac{e^x - 1}{2x}$$</p>
+              <p>3. Vuelve a dar $\frac{0}{0}$. Aplicamos L'Hôpital por segunda vez:</p>
+              <p>$$\lim_{x \to 0} \frac{[e^x - 1]'}{[2x]'} = \lim_{x \to 0} \frac{e^x}{2} = \frac{e^0}{2} = \frac{1}{2}$$</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: $\lim_{x \to 0} \frac{e^x - 1 - x}{x^2} = \frac{1}{2}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Halla el valor de $k$ para que la función $f(x) = \begin{cases} x^2 + 2x & \text{si } x \le 1 \\ kx + 1 & \text{si } x > 1 \end{cases}$ sea continua en $x=1$ y estudia si para ese valor también es derivable.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. <strong>Continuidad en $x=1$:</strong></p>
+              <p>&bull; $f(1) = 1^2 + 2(1) = 3$.</p>
+              <p>&bull; $\lim_{x \to 1^-} f(x) = 3$, $\lim_{x \to 1^+} f(x) = k(1) + 1 = k + 1$.</p>
+              <p>Para ser continua: $k + 1 = 3 \implies k = 2$.</p>
+              <p>2. <strong>Derivabilidad con $k=2$:</strong></p>
+              <p>Derivadas laterales: $f'(x) = \begin{cases} 2x + 2 & \text{si } x < 1 \\ 2 & \text{si } x > 1 \end{cases}$</p>
+              <p>&bull; $f'(1^-) = 2(1) + 2 = 4$.</p>
+              <p>&bull; $f'(1^+) = 2$.</p>
+              <p>Como $f'(1^-) \neq f'(1^+)$, la función tiene un punto anguloso en $x=1$ y NO es derivable.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: Es continua para $k = 2$, pero NO es derivable en $x = 1$ ($f'(1^-)=4 \neq f'(1^+)=2$).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Descompón el número positivo 30 en dos sumandos $x$ e $y$ tales que el producto del primero por el cuadrado del segundo sea máximo.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Ecuación de ligadura: $x + y = 30 \implies x = 30 - y$.</p>
+              <p>2. Función a maximizar: $P = x \cdot y^2 = (30 - y)y^2 = 30y^2 - y^3$.</p>
+              <p>3. Derivamos e igualamos a 0: $P'(y) = 60y - 3y^2 = 0 \implies 3y(20 - y) = 0$.</p>
+              <p>Como los sumandos son positivos, $y = 20$.</p>
+              <p>4. Comprobación: $P''(y) = 60 - 6y \implies P''(20) = 60 - 120 = -60 < 0$ (Máximo confirmado).</p>
+              <p>5. El otro sumando es: $x = 30 - 20 = 10$.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: Los dos sumandos son $x = 10$ e $y = 20$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">Se quiere cercar un terreno rectangular aprovechando un muro recto de piedra ya construido como uno de los lados, de forma que sólo hay que cercar los otros tres lados. Si se dispone de 120 metros de valla metálica, halla las dimensiones del rectángulo para que el área sea máxima y calcula dicha área.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Sean $x$ el lado paralelo al muro y los dos lados perpendiculares de longitud $y$.</p>
+              <p>Condición del perímetro vallado: $x + 2y = 120 \implies x = 120 - 2y$.</p>
+              <p>2. Función área a maximizar: $A(y) = x \cdot y = (120 - 2y)y = 120y - 2y^2$.</p>
+              <p>3. Derivamos e igualamos a 0: $A'(y) = 120 - 4y = 0 \implies 4y = 120 \implies y = 30$ m.</p>
+              <p>4. $A''(y) = -4 < 0 \implies$ Máximo confirmado.</p>
+              <p>5. Lado paralelo: $x = 120 - 2(30) = 60$ m.</p>
+              <p>Área máxima: $A = 60 \cdot 30 = 1.800\text{ m}^2$.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: Dimensiones: $60\text{ m}$ por $30\text{ m}$. Área máxima $= 1.800\text{ m}^2$.
+              </div>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Con una pieza cuadrada de cartón de 24 cm de lado se desea construir una caja sin tapa recortando un cuadrado de lado $x$ en cada una de sus cuatro esquinas y doblando los bordes. Halla el valor de $x$ que hace que el volumen de la caja sea máximo y calcula dicho volumen.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Dimensiones de la caja: Base cuadrada de lado $(24 - 2x)$ y altura $x$, con $0 < x < 12$.</p>
+              <p>2. Función volumen: $V(x) = (24 - 2x)^2 \cdot x = (576 - 96x + 4x^2)x = 4x^3 - 96x^2 + 576x$.</p>
+              <p>3. Derivamos e igualamos a 0: $V'(x) = 12x^2 - 192x + 576 = 0$.</p>
+              <p>Dividiendo entre 12: $x^2 - 16x + 48 = 0 \implies (x - 4)(x - 12) = 0$.</p>
+              <p>La solución válida en el intervalo es $x = 4$ cm (pues $x = 12$ anula la caja).</p>
+              <p>4. Comprobación: $V''(x) = 24x - 192 \implies V''(4) = 96 - 192 = -96 < 0$ (Máximo).</p>
+              <p>5. Volumen máximo: $V(4) = (24 - 8)^2 \cdot 4 = 16^2 \cdot 4 = 256 \cdot 4 = 1.024\text{ cm}^3$.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: $x = 4\text{ cm}$ y volumen máximo $= 1.024\text{ cm}^3$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Halla la altura $h$ y el radio $r$ del cilindro circular recto de volumen máximo que puede inscribirse en una esfera de radio $R = \sqrt{3}$ metros.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Por Pitágoras en el triángulo rectángulo formado por el centro de la esfera, el radio del cilindro $r$ y la semi-altura $h/2$: $r^2 + (h/2)^2 = R^2 = 3 \implies r^2 = 3 - \frac{h^2}{4}$.</p>
+              <p>2. Volumen del cilindro: $V = \pi r^2 h = \pi \left(3 - \frac{h^2}{4}\right)h = \pi \left(3h - \frac{h^3}{4}\right)$.</p>
+              <p>3. Derivamos respecto a $h$: $V'(h) = \pi \left(3 - \frac{3h^2}{4}\right) = 0 \implies \frac{3h^2}{4} = 3 \implies h^2 = 4 \implies h = 2$ m.</p>
+              <p>4. $V''(h) = -\frac{3\pi h}{2} \implies V''(2) = -3\pi < 0$ (Máximo confirmado).</p>
+              <p>5. Radio del cilindro: $r^2 = 3 - \frac{4}{4} = 2 \implies r = \sqrt{2}$ m.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: Altura $h = 2\text{ m}$ y radio $r = \sqrt{2}\text{ m}$ (Volumen $= 2\pi\sqrt{2}\text{ m}^3$).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Halla los valores de los parámetros $a, b, c$ para que la función $f(x) = ax^3 + bx^2 + cx + 1$ tenga un extremo relativo en el punto $(1, 0)$ y un punto de inflexión en $x = 2$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Pasa por $(1, 0)$: $f(1) = 0 \implies a + b + c + 1 = 0 \implies a + b + c = -1$.</p>
+              <p>2. Extremo relativo en $x=1 \implies f'(1) = 0$. Como $f'(x) = 3ax^2 + 2bx + c$:</p>
+              <p>$$3a(1) + 2b(1) + c = 0 \implies 3a + 2b + c = 0$$</p>
+              <p>3. Punto de inflexión en $x=2 \implies f''(2) = 0$. Como $f''(x) = 6ax + 2b$:</p>
+              <p>$$6a(2) + 2b = 0 \implies 12a + 2b = 0 \implies b = -6a$$</p>
+              <p>4. Sustituimos $b = -6a$ en las otras ecuaciones:</p>
+              <p>&bull; $3a + 2(-6a) + c = 0 \implies -9a + c = 0 \implies c = 9a$.</p>
+              <p>&bull; $a - 6a + 9a = -1 \implies 4a = -1 \implies a = -1/4$.</p>
+              <p>5. Calculamos: $b = -6(-1/4) = 3/2$ y $c = 9(-1/4) = -9/4$.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: $a = -1/4$, $b = 3/2$, $c = -9/4$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">Comprueba que la función $f(x) = x^3 - 4x$ cumple las hipótesis del Teorema de Rolle en el intervalo $[-2, 2]$ y halla el punto intermedio $c \in (-2, 2)$ cuya existencia garantiza el teorema.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. <strong>Hipótesis:</strong></p>
+              <p>&bull; Es polinómica, por tanto continua en $[-2, 2]$ y derivable en $(-2, 2)$.</p>
+              <p>&bull; Extremos iguales: $f(-2) = (-2)^3 - 4(-2) = -8 + 8 = 0$, y $f(2) = 2^3 - 4(2) = 8 - 8 = 0 \implies f(-2) = f(2)$.</p>
+              <p>2. Se cumplen todas las hipótesis, luego existe $c \in (-2, 2)$ tal que $f'(c) = 0$.</p>
+              <p>3. Derivamos e igualamos a 0: $f'(c) = 3c^2 - 4 = 0 \implies c^2 = 4/3 \implies c = \pm \frac{2}{\sqrt{3}} \approx \pm 1{,}15$.</p>
+              <p>Ambos valores pertenecen estrictamente al intervalo $(-2, 2)$.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: Se cumple el teorema con dos puntos: $c = \pm \frac{2\sqrt{3}}{3} \approx \pm 1{,}15$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Demuestra rigurosamente que la ecuación $x^5 + 3x - 1 = 0$ tiene exactamente una única solución real.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. <strong>Existencia (Teorema de Bolzano):</strong> Consideramos $f(x) = x^5 + 3x - 1$, continua en $\mathbb{R}$.</p>
+              <p>En el intervalo $[0, 1]$:</p>
+              <p>&bull; $f(0) = -1 < 0$.</p>
+              <p>&bull; $f(1) = 1 + 3 - 1 = 3 > 0$.</p>
+              <p>Por el Teorema de Bolzano, existe al menos un $c \in (0, 1)$ tal que $f(c) = 0$.</p>
+              <p>2. <strong>Unicidad (Derivada y monotonía):</strong></p>
+              <p>Calculamos $f'(x) = 5x^4 + 3$.</p>
+              <p>Como $x^4 \ge 0$ para todo $x \in \mathbb{R}$, resulta que $f'(x) \ge 3 > 0$ en toda la recta real. La función es <strong>estrictamente creciente</strong> en todo $\mathbb{R}$. Una función estrictamente monótona sólo puede cortar al eje de abscisas en un único punto.</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: La ecuación tiene exactamente una única solución real en el intervalo $(0, 1)$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">El coste de fabricación de $x$ unidades de un dispositivo tecnológico es $C(x) = x^2 + 40x + 900$ euros y el precio unitario de venta en el mercado es $p(x) = 160 - x$ euros/unidad. Determina cuántas unidades deben fabricarse para maximizar el beneficio neto total y calcula dicho beneficio.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-rose-100">
+              <p>1. Ingresos totales: $I(x) = x \cdot p(x) = x(160 - x) = 160x - x^2$.</p>
+              <p>2. Función de beneficio neto: $B(x) = I(x) - C(x)$:</p>
+              <p>$$B(x) = (160x - x^2) - (x^2 + 40x + 900) = -2x^2 + 120x - 900$$</p>
+              <p>3. Derivamos e igualamos a cero: $B'(x) = -4x + 120 = 0 \implies 4x = 120 \implies x = 30$ unidades.</p>
+              <p>4. Justificación de máximo: $B''(x) = -4 < 0$ para cualquier $x$, lo que garantiza que se trata de un máximo absoluto.</p>
+              <p>5. Beneficio máximo alcanzado:</p>
+              <p>$$B(30) = -2(30^2) + 120(30) - 900 = -1800 + 3600 - 900 = 900 \text{ euros}$$</p>
+              <div class="p-2 bg-rose-50 text-rose-900 font-bold rounded mt-2">
+                Resultado: Deben fabricarse 30 unidades para un beneficio neto máximo de 900 euros.
+              </div>
+            </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Campo Eléctrico y Ley de Coulomb | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11.2pt;
+      line-height: 1.45;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    section, .rounded-xl, .rounded-2xl {
+      break-inside: avoid;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eff6ff;
+      border: 2.5px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #93c5fd;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.35em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Campo Eléctrico y Ley de Coulomb</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Física 2º Bachillerato</span>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    
+
+    <!-- 1: LEY DE COULOMB Y VECTOR CAMPO -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-600 text-white inline-flex items-center justify-center text-sm font-bold">1</span>
+        Ley de Coulomb e Intensidad del Campo Eléctrico $\vec{E}$
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-amber-800">Ley de Coulomb (Fuerza Electrostática)</h4>
+          <p class="text-slate-600">Fuerza mutua entre dos cargas puntuales $q_1$ y $q_2$ separadas una distancia $r$:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$\vec{F} = K \frac{q_1 q_2}{r^2} \vec{u}_r \quad (\text{en Newtons, N})$$
+          </div>
+          <p class="text-sm text-slate-500">Signos iguales se repelen; signos opuestos se atraen. $K = \frac{1}{4\pi\varepsilon_0} = 9 \cdot 10^9\text{ N}\cdot\text{m}^2/\text{C}^2$.</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-amber-800">Intensidad de Campo Eléctrico $\vec{E}$</h4>
+          <p class="text-slate-600">Fuerza por unidad de carga testigo positiva (+1 C):</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$\vec{E} = \frac{\vec{F}}{q'} = K \frac{Q}{r^2} \vec{u}_r \quad (\text{en N/C o V/m})$$
+          </div>
+          <p class="text-sm text-slate-500">Si $Q > 0$, $\vec{E}$ es saliente (radial). Si $Q < 0$, $\vec{E}$ es entrante.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2: POTENCIAL Y TRABAJO -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-600 text-white inline-flex items-center justify-center text-sm font-bold">2</span>
+        Potencial Eléctrico $V$ y Trabajo $W_{A \to B}$
+      </h2>
+
+      <div class="p-4 bg-amber-50/50 border border-amber-200 rounded-2xl space-y-3 text-base">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-3 bg-white rounded-xl border border-amber-200 text-center">
+            <span class="font-bold text-amber-900 text-sm block mb-1">Energía Potencial Electrostática</span>
+            $$E_p = K \frac{Q q}{r} \quad (\text{en Julios, J})$$
+          </div>
+          <div class="p-3 bg-white rounded-xl border border-amber-200 text-center">
+            <span class="font-bold text-amber-900 text-sm block mb-1">Potencial Eléctrico (Magnitud Escalar)</span>
+            $$V = K \frac{Q}{r} \quad (\text{en Voltios, V})$$
+          </div>
+        </div>
+        <p class="text-slate-700">
+          <strong>Trabajo del campo eléctrico:</strong> Al ser un campo conservativo, el trabajo para trasladar una carga $q$ desde un punto $A$ hasta un punto $B$ depende exclusivamente de la diferencia de potencial:
+        </p>
+        <div class="p-3 bg-white rounded-xl border border-amber-300 font-mono text-center font-bold text-amber-950">
+          $$W_{A \to B} = -\Delta E_p = -(E_{p,B} - E_{p,A}) = q(V_A - V_B)$$
+        </div>
+        <p class="text-sm text-slate-600">
+          Si $W > 0$, el proceso es espontáneo (lo realiza el campo). Si $W < 0$, se requiere una fuerza externa en contra del campo.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3: CAMPO UNIFORME Y TEOREMA DE GAUSS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-600 text-white inline-flex items-center justify-center text-sm font-bold">3</span>
+        Campo Uniforme (Condensador) y Teorema de Gauss
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-amber-800">Placas Paralelas / Condensador</h4>
+          <p class="text-slate-600">Entre dos placas planas cargadas con densidades $\pm\sigma$, el campo es constante:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$E = \frac{\Delta V}{d} \iff V_A - V_B = E \cdot d$$
+          </div>
+          <p class="text-sm text-slate-500">Aceleración de una partícula cargada: $a = \frac{q E}{m}$.</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-amber-800">Teorema de Gauss</h4>
+          <p class="text-slate-600">El flujo eléctrico total a través de cualquier superficie cerrada es proporcional a la carga interior:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$\Phi = \oint \vec{E} \cdot d\vec{S} = \frac{Q_{\text{interior}}}{\varepsilon_0}$$
+          </div>
+          <p class="text-sm text-slate-500">En el interior de un conductor en equilibrio electrostático, siempre $E = 0$.</p>
+        </div>
+      </div>
+    </section>
+
+  
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.lucide) lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

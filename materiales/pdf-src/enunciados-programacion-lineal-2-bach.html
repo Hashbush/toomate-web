@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Programación Lineal | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Programación Lineal</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Determina qué semiplano representa la inecuación lineal $2x + y \le 6$ utilizando el origen de coordenadas $(0,0)$ como punto de prueba.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> La región sombreada es la zona inferior/izquierda que incluye al punto $(0,0)$ y la recta frontera.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Halla el vértice donde se cortan las rectas delimitadoras del sistema $\begin{cases} x + y \ge 4 \\ 2x - y \le 2 \end{cases}$ y comprueba si el punto $P(3, 2)$ satisface ambas inecuaciones.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Vértice $V(2, 2)$. El punto $P(3, 2)$ NO pertenece a la región factible porque no cumple la segunda inecuación.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Halla los vértices de la región factible delimitada por:
+            $$\begin{cases} x + 2y \le 8 \\ 3x + y \le 9 \\ x \ge 0, \quad y \ge 0 \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Los cuatro vértices son $A(0, 0)$, $B(0, 4)$, $C(2, 3)$ y $D(3, 0)$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">En la región con vértices $A(0,0)$, $B(0,4)$, $C(2,3)$ y $D(3,0)$ del ejercicio anterior, maximiza la función objetivo $Z(x, y) = 4x + 5y$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> El máximo absoluto es $Z = 23$ en el punto $(x=2, y=3)$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Minimiza los costes $C(x, y) = 50x + 80y$ sobre la región triangular con vértices $A(2, 5)$, $B(6, 1)$ y $C(1, 8)$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> El coste mínimo es de $380$ €, obtenido en el punto $B(6, 1)$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Para la función objetivo $Z = 3x + 2y$, determina la ecuación de la recta de nivel que pasa por el origen ($Z = 0$), su pendiente y las coordenadas de un vector director en el sentido de máximo crecimiento.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Recta $3x + 2y = 0$, pendiente $m = -1{,}5$, vector de crecimiento $\vec{g} = (3, 2)$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Escribe algebraicamente las siguientes restricciones para dos productos $x$ e $y$:
+            a) "Se deben fabricar al menos 10 unidades de $x$".
+            b) "La producción de $y$ no puede superar el triple de la de $x$".
+            c) "Entre ambos productos no se pueden fabricar más de 100 unidades".</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $x \ge 10$, $y \le 3x$ y $x + y \le 100$ (junto con $y \ge 0$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Un artesano fabrica mesas ($x$) y estanterías ($y$). Una mesa requiere 2 h de corte y 1 h de lijado, dejando 40 € de beneficio. Una estantería requiere 1 h de corte y 3 h de lijado, dejando 50 € de beneficio. Dispone semanalmente de un máximo de 40 h de corte y 60 h de lijado. Escribe la función objetivo y el sistema de restricciones.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Maximizar $B = 40x + 50y$ sujeto a $\begin{cases} 2x + y \le 40 \\ x + 3y \le 60 \\ x \ge 0, \; y \ge 0 \end{cases}$.</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">Resuelve el problema del ejercicio 8: halla la región factible, calcula sus vértices y determina cuántas mesas y estanterías debe fabricar para que el beneficio sea máximo.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Debe fabricar 12 mesas y 16 estanterías para un beneficio máximo de 1.280 euros.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Un nutricionista prepara una mezcla con dos alimentos $P_1$ y $P_2$. Cada kg de $P_1$ cuesta 4 € y aporta 2 unidades de vitaminas y 3 de minerales. Cada kg de $P_2$ cuesta 6 € y aporta 4 de vitaminas y 2 de minerales. La mezcla debe contener al menos 16 unidades de vitaminas y 18 de minerales. Minimiza el coste de la mezcla.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> El coste mínimo es de 29 € utilizando 5 kg del alimento $P_1$ y 1,5 kg de $P_2$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">En la región delimitada por $\begin{cases} 2x + y \le 10 \\ x + y \le 7 \\ x \ge 0, y \ge 0 \end{cases}$, maximiza la función $Z(x, y) = 6x + 3y$. Explica qué ocurre con la solución.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Existen infinitas soluciones óptimas. Cualquier punto del segmento que une $(3,4)$ con $(5,0)$ proporciona el valor máximo $Z = 30$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Dada la región no acotada $\begin{cases} x + y \ge 5 \\ x \ge 1, \quad y \ge 0 \end{cases}$:
+            a) Halla el mínimo de $Z = 2x + 3y$.
+            b) Demuestra razonadamente si existe o no un valor máximo para $Z$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> El mínimo es $Z=10$ en $(5,0)$. NO existe máximo absoluto (la función no está acotada superiormente).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">Una agencia de transportes debe enviar al menos 1.200 pasajeros y 90 toneladas de equipaje. Dispone de camiones tipo $A$ (capacidad 40 pasajeros, 6 t equipaje, coste 300 €) y tipo $B$ (capacidad 50 pasajeros, 3 t equipaje, coste 250 €). Minimiza el coste del alquiler.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Coste mínimo de 6.500 € empleando 5 camiones tipo $A$ y 20 tipo $B$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Una fábrica produce $x$ ordenadores de sobremesa e $y$ portátiles. Por exigencias del mercado, la cantidad de portátiles debe ser al menos el doble que la de sobremesa ($y \ge 2x$) y la producción total no puede superar las 60 unidades. Además, se fabrican al menos 10 ordenadores de sobremesa. Maximiza el beneficio $B = 100x + 150y$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Beneficio máximo de 8.500 € fabricando 10 sobremesas y 50 portátiles.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">En el problema anterior, si el beneficio por portátil sube a 200 € ($B = 100x + 200y$), ¿cambia la solución óptima?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> La solución óptima no cambia de vértice: sigue siendo $B(10, 50)$, alcanzando ahora un beneficio de 11.000 euros.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Un inversor dispone de 100.000 € para repartir entre bonos del Estado ($x$, rentabilidad 4%) y un fondo indexado ($y$, rentabilidad 9%). Desea invertir al menos 20.000 € en bonos y no más de 60.000 € en el fondo indexado. Maximiza el rendimiento anual.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Debe destinar 40.000 € a bonos y 60.000 € al fondo indexado para un rendimiento máximo de 7.000 euros.</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Una conservera de Santoña elabora latas de anchoas en aceite de oliva ($x$) y en mantequilla ecológica ($y$). La lata de oliva aporta un beneficio neto de 2 € y la de mantequilla 3 €. Por disponibilidad de pescado se pueden enlatar como máximo 500 latas al día en total. Las normas sanitarias exigen producir al menos 100 latas de oliva y que el número de latas de mantequilla no supere al doble de las de oliva. Halla la producción óptima para maximizar ganancias.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Óptimo teórico en $(500/3, 1000/3)$ con $1.333{,}33$ €. En unidades enteras: 167 latas de oliva y 333 de mantequilla para $1.333$ € de ganancia.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Una agencia dispone de 18.000 € para publicidad. Un spot televisivo ($x$) cuesta 3.000 € y llega a 50.000 espectadores. Un anuncio en redes ($y$) cuesta 1.000 € y llega a 20.000 personas. Se deben contratar al menos 2 anuncios en televisión y un mínimo de 6 en redes. Halla el número de inserciones para maximizar el alcance de audiencia.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> La máxima audiencia (340.000 personas) se logra emitiendo 2 spots de televisión y 12 anuncios en redes.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">Determina los 5 vértices de la región definida por $\begin{cases} x \ge 1, \quad y \ge 1 \\ x + y \le 8 \\ y - x \le 2 \\ x - y \le 4 \end{cases}$ y maximiza $Z = 5x + 3y$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> El valor máximo es $Z = 36$, alcanzado en el vértice $C(6, 2)$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">Un artesano fabrica dos tipos de guitarras: flamencas ($x$) y acústicas ($y$). El modelo matemático continuo arroja como vértice óptimo $V(7{,}4; \; 4{,}8)$ con un beneficio teórico de $4.850$ €. Explica razonadamente el procedimiento para encontrar la solución óptima real sabiendo que sólo se pueden producir instrumentos enteros.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Se evalúan los puntos de coordenadas enteras circundantes que pertenezcan a la región factible, seleccionando el de mayor valor de $Z$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">En la región definida por $\begin{cases} x + 2y \ge 4 \\ 2x + y \le 8 \\ x \ge 0, y \ge 0 \end{cases}$, halla el punto que maximiza $Z = -2x + 5y$ y el que lo minimiza.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Máximo absoluto $Z = 40$ en $(0, 8)$ y mínimo absoluto $Z = -8$ en $(4, 0)$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Una central eléctrica distribuye energía procedente de un parque solar ($x$) y un parque eólico ($y$). La red de distribución soporta hasta 800 MWh diarios. Por estabilidad de red se deben suministrar al menos 200 MWh de energía solar y la energía eólica debe ser al menos la tercera parte de la solar. La ganancia neta es de 50 €/MWh solar y 70 €/MWh eólico. Determina la combinación que optimiza los ingresos.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Ingreso máximo de 52.000 € diarios distribuyendo 200 MWh solares y 600 MWh eólicos.</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

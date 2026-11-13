@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Límites, Continuidad y Asíntotas | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11.2pt;
+      line-height: 1.45;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    section, .rounded-xl, .rounded-2xl {
+      break-inside: avoid;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eff6ff;
+      border: 2.5px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #93c5fd;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.35em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Límites, Continuidad y Asíntotas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Matemáticas 2º Bachillerato</span>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    
+    
+    
+
+    <!-- RESUMEN CLAVE -->
+    <section class="mb-10 bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-6">
+      <h2 class="text-lg font-bold text-emerald-950 flex items-center gap-2 mb-4">
+        <i data-lucide="compass" class="w-5 h-5 text-emerald-600"></i>
+        Definiciones y Teoremas Fundamentales
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
+        
+        <!-- CARD 1: CONDICION DE CONTINUIDAD -->
+        <div class="bg-white/90 p-4 rounded-xl border border-emerald-100 shadow-sm overflow-hidden flex flex-col justify-between">
+          <div>
+            <p class="font-bold text-slate-800 text-sm mb-2 flex items-center gap-1.5">
+              <i data-lucide="activity" class="w-4 h-4 text-emerald-600"></i>
+              Condición de Continuidad en $x = x_0$
+            </p>
+            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-sm text-center space-y-1 font-mono text-slate-800">
+              <div>1) $\exists f(x_0)$ &nbsp;|&nbsp; 2) $\exists \lim_{x \to x_0} f(x)$</div>
+              <div class="text-emerald-700 font-bold">3) $\lim_{x \to x_0} f(x) = f(x_0)$</div>
+            </div>
+          </div>
+          <p class="text-sm text-slate-500 mt-2.5 pt-2 border-t border-slate-100">
+            En funciones a trozos: $\lim_{x \to x_0^-} f(x) = \lim_{x \to x_0^+} f(x) = f(x_0)$.
+          </p>
+        </div>
+
+        <!-- CARD 2: TIPOS DE ASINTOTAS -->
+        <div class="bg-white/90 p-4 rounded-xl border border-emerald-100 shadow-sm overflow-hidden flex flex-col justify-between">
+          <div>
+            <p class="font-bold text-slate-800 text-sm mb-2 flex items-center gap-1.5">
+              <i data-lucide="trending-up" class="w-4 h-4 text-emerald-600"></i>
+              Tipos de Asíntotas
+            </p>
+            <ul class="space-y-1.5 text-sm text-slate-700">
+              <li class="flex items-start gap-1.5">
+                <strong class="text-emerald-800 w-24 shrink-0">Vertical (AV):</strong>
+                <span>$\lim_{x \to a} f(x) = \pm\infty \implies \mathbf{x = a}$</span>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <strong class="text-emerald-800 w-24 shrink-0">Horizontal (AH):</strong>
+                <span>$\lim_{x \to \pm\infty} f(x) = k \implies \mathbf{y = k}$</span>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <strong class="text-emerald-800 w-24 shrink-0">Oblicua (AO):</strong>
+                <span>$y = mx + n$ ($m = \lim \frac{f(x)}{x}, \; n = \lim (f(x)-mx)$)</span>
+              </li>
+            </ul>
+          </div>
+          <p class="text-sm text-slate-500 mt-2.5 pt-2 border-t border-slate-100">
+            Si existe asíntota horizontal hacia $+\infty$, no puede haber oblicua en ese mismo sentido.
+          </p>
+        </div>
+
+        <!-- CARD 3: RESOLUCION DE INDETERMINACIONES -->
+        <div class="bg-white/90 p-4 rounded-xl border border-emerald-100 shadow-sm overflow-hidden flex flex-col justify-between">
+          <div>
+            <p class="font-bold text-slate-800 text-sm mb-2 flex items-center gap-1.5">
+              <i data-lucide="calculator" class="w-4 h-4 text-emerald-600"></i>
+              Resolución de Indeterminaciones
+            </p>
+            <div class="space-y-1.5 text-sm text-slate-700">
+              <div class="flex items-center gap-2">
+                <span class="font-mono font-bold text-emerald-700 w-12 text-center bg-emerald-50 py-0.5 rounded border border-emerald-200 shrink-0">$\frac{0}{0}$</span>
+                <span>Factorizar polinomios o multiplicar por el conjugado.</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono font-bold text-emerald-700 w-12 text-center bg-emerald-50 py-0.5 rounded border border-emerald-200 shrink-0">$\frac{\infty}{\infty}$</span>
+                <span>Comparar grados de polinomios o regla de L'Hôpital.</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono font-bold text-emerald-700 w-12 text-center bg-emerald-50 py-0.5 rounded border border-emerald-200 shrink-0">$1^\infty$</span>
+                <span>Aplicar fórmula: $\lim (1 + 1/g)^g = e^{\lim g(f - 1)}$.</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="font-mono font-bold text-emerald-700 w-12 text-center bg-emerald-50 py-0.5 rounded border border-emerald-200 shrink-0">$\infty - \infty$</span>
+                <span>Operar con el m.c.m. o multiplicar por el conjugado.</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-slate-500 mt-2.5 pt-2 border-t border-slate-100">
+            Regla de L'Hôpital disponible para $\frac{0}{0}$ y $\frac{\infty}{\infty}$ derivando numerador y denominador.
+          </p>
+        </div>
+
+        <!-- CARD 4: TEOREMA DE BOLZANO -->
+        <div class="bg-white/90 p-4 rounded-xl border border-emerald-100 shadow-sm overflow-hidden flex flex-col justify-between">
+          <div>
+            <p class="font-bold text-slate-800 text-sm mb-2 flex items-center gap-1.5">
+              <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+              Teorema de Bolzano
+            </p>
+            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-sm space-y-1.5 mb-2">
+              <p class="text-slate-700"><strong>1. Hipótesis:</strong> $f(x)$ continua en $[a, b]$ y $f(a) \cdot f(b) < 0$.</p>
+              <p class="text-emerald-800 font-semibold"><strong>2. Tesis:</strong> $\exists c \in (a, b)$ tal que $f(c) = 0$.</p>
+            </div>
+          </div>
+          <p class="text-sm text-slate-500 mt-2.5 pt-2 border-t border-slate-100">
+            Imprescindible en la EvAU de Cantabria para demostrar cortes con el eje OX o que dos funciones coinciden.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BLOQUE 1: FUNCIONES A TROZOS Y PARAMETROS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        1. Continuidad en Funciones a Trozos con Parámetros $a$ y $b$
+      </h2>
+      <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+        <p>
+          Es el tipo de ejercicio de Análisis más repetido en la EvAU de Ciencias Sociales en Cantabria. El protocolo de examen exige tres pasos perfectamente justificados:
+        </p>
+        <ol class="list-decimal pl-6 space-y-2">
+          <li><strong>Estudiar la continuidad en el interior de cada rama:</strong> Indicar explícitamente que cada trozo es una función elemental (polinómica, exponencial, racional sin anular el denominador) y por tanto continua en su dominio de definición.</li>
+          <li><strong>Estudiar el punto de empalme o frontera $x = c$:</strong>
+            <ul class="list-disc pl-5 mt-1 space-y-1">
+              <li>Calcular el valor de la función: $f(c)$.</li>
+              <li>Calcular el límite por la izquierda: $\lim_{x \to c^-} f(x)$.</li>
+              <li>Calcular el límite por la derecha: $\lim_{x \to c^+} f(x)$.</li>
+            </ul>
+          </li>
+          <li><strong>Plantear el sistema de ecuaciones:</strong> Igualar los tres valores:
+            $$\lim_{x \to c^-} f(x) = \lim_{x \to c^+} f(x) = f(c)$$
+            Despejar los parámetros $a$ y $b$ resultantes.
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: CLASIFICACION DE DISCONTINUIDADES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        2. Clasificación Rigurosa de Discontinuidades
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-base">
+        <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50">
+          <h4 class="font-bold text-emerald-800 mb-1">Evitable</h4>
+          <p class="text-sm text-slate-600">Existe el límite finito $\lim_{x \to c} f(x) = L$, pero:</p>
+          <p class="font-semibold text-slate-800 mt-1">O no existe $f(c)$, o $f(c) \ne L$.</p>
+          <p class="text-sm text-slate-500 mt-1">Se repara redefiniendo $f(c) = L$.</p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50">
+          <h4 class="font-bold text-amber-800 mb-1">Salto Finito</h4>
+          <p class="text-sm text-slate-600">Existen ambos límites laterales finitos, pero son distintos:</p>
+          <p class="font-semibold text-slate-800 mt-1">$\lim_{x \to c^-} f(x) \ne \lim_{x \to c^+} f(x)$</p>
+          <p class="text-sm text-slate-500 mt-1">Amplitud del salto: $|\lim^+ - \lim^-|$.</p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50">
+          <h4 class="font-bold text-rose-800 mb-1">Salto Infinito / Esencial</h4>
+          <p class="text-sm text-slate-600">Al menos uno de los dos límites laterales da $\pm\infty$:</p>
+          <p class="font-semibold text-slate-800 mt-1">$\lim_{x \to c} f(x) = \pm\infty$</p>
+          <p class="text-sm text-slate-500 mt-1">Genera una <strong>asíntota vertical</strong> $x = c$.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 3: APLICACIONES ECONOMICAS Y SOCIALES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        3. Contexto EvAU: Modelos de Población, Costes y Beneficios
+      </h2>
+      <div class="space-y-3 text-sm text-slate-700 leading-relaxed">
+        <p>
+          En Ciencias Sociales, los límites en el infinito ($\lim_{t \to +\infty} f(t)$) representan el <strong>comportamiento a largo plazo</strong> de variables económicas o demográficas:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5">
+          <li><strong>Estabilización de una población o cuota de mercado:</strong> Si $\lim_{t \to +\infty} P(t) = 500$, la población nunca superará los 500 individuos (capacidad de carga del modelo logístico).</li>
+          <li><strong>Coste medio a largo plazo:</strong> $\overline{C}(x) = \frac{C(x)}{x}$. La asíntota horizontal indica el coste unitario mínimo al fabricar grandes cantidades (economías de escala).</li>
+        </ul>
+      </div>
+    </section>
+
+    
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.lucide) lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

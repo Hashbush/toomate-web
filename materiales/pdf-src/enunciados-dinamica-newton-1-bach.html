@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Dinámica de Newton, Fuerzas y Principios de Conservación | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Dinámica de Newton, Fuerzas y Principios de Conservación</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Un cuerpo de masa $m = 6\text{ kg}$ reposa sobre un plano horizontal sin rozamiento ($\mu = 0$). Se le aplica una fuerza horizontal constante de $F = 18\text{ N}$. Calcula la aceleración que adquiere y la velocidad tras recorrer $12\text{ m}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\sqrt{72} \approx 8{,}49\text{ m/s}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Una persona de $70\text{ kg}$ sube a una báscula dentro de un ascensor ($g = 9{,}8\text{ m/s}^2$). ¿Qué marca la báscula (fuerza normal $N$) cuando: a) el ascensor sube acelerando a $2\text{ m/s}^2$, b) baja acelerando a $2\text{ m/s}^2$, c) baja a velocidad constante de $3\text{ m/s}$?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> c) Velocidad constante ($a = 0$): $N = P = m g = 70 \cdot 9{,}8 = 686\text{ N}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Un bloque de masa $m = 10\text{ kg}$ se desliza sobre una superficie horizontal con coeficiente cinético $\mu = 0{,}25$. Se le aplica una fuerza horizontal $F = 40\text{ N}$. Calcula la normal $N$, la fuerza de rozamiento $F_r$ y la aceleración ($g = 9{,}8\text{ m/s}^2$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $1{,}55\text{ m/s}^2.$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">Tiramos de una caja de $15\text{ kg}$ con una fuerza $F = 50\text{ N}$ que forma un ángulo de $30^\circ$ sobre la horizontal. Si el coeficiente de rozamiento es $\mu = 0{,}15$, calcula la normal y la aceleración ($g = 9{,}8\text{ m/s}^2$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\frac{25}{15} \approx 1{,}67\text{ m/s}^2$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Un ladrillo descansa sobre una tabla que se va inclinando progresivamente. El bloque comienza a deslizar justo cuando el ángulo alcanza $\alpha = 28^\circ$. Demuestra que $\mu_e = \tan\alpha$ y calcula el valor de $\mu_e$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Para $\alpha = 28^\circ$: $\mu_e = \tan(28^\circ) \approx 0{,}532$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Un coche de $1200\text{ kg}$ toma una curva horizontal sin peralte de radio $R = 80\text{ m}$. El coeficiente de rozamiento estático entre neumáticos y asfalto es $\mu_e = 0{,}6$. ¿Cuál es la velocidad máxima sin derrapar?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\sqrt{470{,}4} \approx 21{,}69\text{ m/s} \approx 78{,}1\text{ km/h}.$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Un jugador de fútbol golpea un balón parado de $m = 450\text{ g}$ comunicándole una velocidad de $24\text{ m/s}$. El contacto con la bota dura $\Delta t = 0{,}02\text{ s}$. Calcula el impulso $\vec{I}$ y la fuerza media ejercida.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> 2. Fuerza media: $F_m = \frac{I}{\Delta t} = \frac{10{,}8\text{ N}\cdot\text{s}}{0{,}02\text{ s}} = 540\text{ N}.$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Un fusil de masa $M = 3{,}5\text{ kg}$ dispara un proyectil de $m = 15\text{ g}$ que sale por la boca del cañón a una velocidad horizontal de $700\text{ m/s}$. Calcula la velocidad de retroceso del fusil.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> El fusil retrocede a $3\text{ m/s}$ en sentido opuesto al proyectil.</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">Un bloque de $m = 4\text{ kg}$ se suelta desde la parte superior de un plano inclinado $\alpha = 30^\circ$ con $\mu = 0{,}2$. Calcula la aceleración de bajada y el tiempo que tarda en descender una longitud de $6\text{ m}$ ($g = 9{,}8\text{ m/s}^2$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\sqrt{3{,}75} \approx 1{,}94\text{ s}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Dos masas $m_1 = 5\text{ kg}$ y $m_2 = 3\text{ kg}$ cuelgan verticalmente de los extremos de una cuerda que pasa por una polea ideal sin rozamiento. Halla la aceleración del sistema y la tensión $T$ de la cuerda ($g = 9{,}8\text{ m/s}^2$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Sustituyendo en el cuerpo 2: $T = m_2 (g + a) = 3 \cdot (9{,}8 + 2{,}45) = 3 \cdot 12{,}25 = 36{,}75\text{ N}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">Un cuerpo $A$ de $m_A = 6\text{ kg}$ está sobre una mesa horizontal con rozamiento $\mu = 0{,}2$. Se une mediante una cuerda y polea a un cuerpo colgante $B$ de $m_B = 4\text{ kg}$. Halla la aceleración y la tensión.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> 4. Tensión: $T = 11{,}76 + 6(2{,}744) = 11{,}76 + 16{,}464 = 28{,}22\text{ N}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Lanzamos un objeto de $2\text{ kg}$ hacia arriba por un plano con $\alpha = 30^\circ$ y $\mu = 0{,}25$ a una velocidad inicial $v_0 = 10\text{ m/s}$. Calcula la aceleración de frenada y la distancia que recorre hasta pararse.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\frac{100}{14{,}04} \approx 7{,}12\text{ m}.$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">Una curva de autopista tiene un radio de curvatura $R = 250\text{ m}$ y está diseñada para una velocidad de $108\text{ km/h}$ sin necesidad de rozamiento. Calcula el ángulo de peralte $\theta$ necesario ($g = 9{,}8\text{ m/s}^2$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\arctan(0{,}3673) \approx 20{,}17^\circ$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Un vagón de mercancías de masa $M_1 = 12000\text{ kg}$ que se mueve a $v_1 = 5\text{ m/s}$ choca contra otro vagón estacionario de $M_2 = 18000\text{ kg}$ acoplándose de inmediato. Calcula la velocidad común tras el acople y la energía cinética disipada.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\Delta E_c = 150000 - 60000 = 90000\text{ J}$ (el $60\%$ de la energía se disipó en calor y deformación).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">Una esfera de $m = 0{,}5\text{ kg}$ gira en un plano horizontal sujeta a un hilo de longitud $L = 1\text{ m}$ que forma un ángulo $\theta = 30^\circ$ con la vertical. Calcula la tensión del hilo y el periodo de giro ($g = 9{,}8\text{ m/s}^2$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> 3. Periodo: $T_{\text{periodo}} = \frac{2\pi}{\omega} = \frac{2\pi}{3{,}36} \approx 1{,}87\text{ s}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Una masa $m_1 = 2\text{ kg}$ con velocidad $v_1 = 4\text{ m/s}$ choca elásticamente de frente con otra masa $m_2 = 1\text{ kg}$ que se encuentra en reposo. Deduce las velocidades $v_1'$ y $v_2'$ posteriores al choque.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $16{,}00\text{ J}$ (exacto).</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Un bloque $A$ de $m_A = 5\text{ kg}$ está sobre un plano con $\alpha = 30^\circ$ y $\mu = 0{,}2$. Se une por una cuerda que pasa por la cúspide a un bloque colgante $B$ de $m_B = 4\text{ kg}$. Determina si el sistema se mueve y calcula su aceleración y la tensión.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> 3. Tensión: $P_B - T = m_B a \implies T = 4(9{,}8 - 0{,}69) = 4(9{,}11) = 36{,}44\text{ N}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Dos masas $m_1 = 8\text{ kg}$ y $m_2 = 4\text{ kg}$ descansan sobre dos planos inclinados opuestos con ángulos $\alpha_1 = 45^\circ$ y $\alpha_2 = 30^\circ$. Si no hay rozamiento ($\mu = 0$) y la polea es ideal, calcula la aceleración y la tensión.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Tensión: $T - P_{2x} = m_2 a \implies T = 19{,}60 + 4(2{,}99) = 19{,}60 + 11{,}96 = 31{,}56\text{ N}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">Una curva de radio $R = 100\text{ m}$ tiene un peralte $\theta = 15^\circ$ y el asfalto mojado tiene un coeficiente $\mu = 0{,}2$. Calcula la velocidad máxima que puede alcanzar un coche sin salirse hacia el exterior.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\sqrt{484{,}5} \approx 22{,}0\text{ m/s} \approx 79{,}2\text{ km/h}.$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">Una bala de $m = 10\text{ g}$ con velocidad horizontal desconocida $v_0$ impacta y queda incrustada en un bloque de madera suspendido de masa $M = 1{,}99\text{ kg}$. El conjunto se eleva hasta una altura máxima de $h = 5\text{ cm}$. Calcula la velocidad inicial $v_0$ de la bala.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $200 \cdot 0{,}9899 \approx 198\text{ m/s}.$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">Un bloque pequeño de $m_1 = 2\text{ kg}$ descansa sobre otro bloque de $m_2 = 6\text{ kg}$, el cual está apoyado sobre un suelo horizontal liso ($\mu_{\text{suelo}} = 0$). Entre ambos bloques el coeficiente estático es $\mu = 0{,}3$. Se tira del bloque inferior con una fuerza horizontal $F$. ¿Cuál es el valor máximo de $F$ para que el bloque superior no deslice?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Si $F > 23{,}52\text{ N}$, el bloque inferior se acelerará más rápido y el bloque superior deslizará hacia atrás.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Una bola de billar $A$ de masa $m$ que se mueve a $v_A = 2\text{ m/s}$ en la dirección del eje $+X$ choca con otra bola idéntica $B$ en reposo. Tras el choque, la bola $A$ se desvía un ángulo de $30^\circ$ sobre el eje $X$ con velocidad $v_A' = \sqrt{3}\text{ m/s}$. Halla la velocidad y el ángulo de salida de la bola $B$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $90^\circ$, característico de choques elásticos entre masas iguales.</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

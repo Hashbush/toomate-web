@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Cálculo Diferencial: Derivadas y Optimización | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11.2pt;
+      line-height: 1.45;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    section, .rounded-xl, .rounded-2xl {
+      break-inside: avoid;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eff6ff;
+      border: 2.5px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #93c5fd;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.35em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Cálculo Diferencial: Derivadas y Optimización</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Matemáticas Bachillerato</span>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    
+
+    <!-- 1: TABLA Y REGLAS DE DERIVACIÓN -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-rose-600 text-white inline-flex items-center justify-center text-sm font-bold">1</span>
+        Reglas de Derivación y Regla de la Cadena
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-rose-800">Reglas Operacionales</h4>
+          <p>&bull; <strong>Suma / Resta:</strong> $(u \pm v)' = u' \pm v'$</p>
+          <p>&bull; <strong>Producto:</strong> $(u \cdot v)' = u' v + u v'$</p>
+          <p>&bull; <strong>Cociente:</strong> $\left(\frac{u}{v}\right)' = \frac{u' v - u v'}{v^2}$</p>
+          <p>&bull; <strong>Regla de la Cadena:</strong> $[f(g(x))]' = f'(g(x)) \cdot g'(x)$</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-rose-800">Derivadas Compuestas Fundamentales</h4>
+          <p>&bull; <strong>Potencia:</strong> $[u^n]' = n \cdot u^{n-1} \cdot u'$</p>
+          <p>&bull; <strong>Exponencial:</strong> $[e^u]' = e^u \cdot u'$</p>
+          <p>&bull; <strong>Logaritmo:</strong> $[\ln u]' = \frac{u'}{u}$</p>
+          <p>&bull; <strong>Trigonométricas:</strong> $[\sin u]' = \cos u \cdot u'$, $[\cos u]' = -\sin u \cdot u'$</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2: RECTA TANGENTE Y NORMAL -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-rose-600 text-white inline-flex items-center justify-center text-sm font-bold">2</span>
+        Recta Tangente y Recta Normal en un Punto $x_0$
+      </h2>
+
+      <div class="p-5 bg-purple-50/50 border border-purple-200 rounded-2xl mb-4">
+        <p class="text-base text-slate-700 mb-3">
+          El valor de la derivada $f'(x_0)$ coincide exactamente con la pendiente $m$ de la recta tangente a la curva $y = f(x)$ en el punto de abscisa $x_0$:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+          <div class="p-3 bg-white border border-purple-200 rounded-xl font-mono text-sm font-bold text-purple-900">
+            $$\text{Recta Tangente: } y - f(x_0) = f'(x_0)(x - x_0)$$
+          </div>
+          <div class="p-3 bg-white border border-purple-200 rounded-xl font-mono text-sm font-bold text-purple-900">
+            $$\text{Recta Normal: } y - f(x_0) = -\frac{1}{f'(x_0)}(x - x_0)$$
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3: CRECIMIENTO Y EXTREMOS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-rose-600 text-white inline-flex items-center justify-center text-sm font-bold">3</span>
+        Estudio de Crecimiento y Extremos Relativos
+      </h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-base text-left border border-slate-200 rounded-xl overflow-hidden">
+          <thead class="bg-rose-100/70 text-rose-900 font-bold">
+            <tr>
+              <th class="p-3 border-b">Signo de la Derivada</th>
+              <th class="p-3 border-b">Comportamiento de la Función</th>
+              <th class="p-3 border-b">Conclusión / Criterio</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 bg-white">
+            <tr>
+              <td class="p-3 font-mono font-bold text-emerald-700">$f'(x) > 0$</td>
+              <td class="p-3">Función estrictamente creciente ($\nearrow$)</td>
+              <td class="p-3">La gráfica asciende de izquierda a derecha</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-bold text-rose-700">$f'(x) < 0$</td>
+              <td class="p-3">Función estrictamente decreciente ($\searrow$)</td>
+              <td class="p-3">La gráfica desciende de izquierda a derecha</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-bold text-blue-700">$f'(x_0) = 0$ y $f''(x_0) < 0$</td>
+              <td class="p-3">Pasa de crecer a decrecer ($\cap$)</td>
+              <td class="p-3 font-semibold text-rose-700">Máximo Relativo en $x_0$</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-mono font-bold text-blue-700">$f'(x_0) = 0$ y $f''(x_0) > 0$</td>
+              <td class="p-3">Pasa de decrecer a crecer ($\cup$)</td>
+              <td class="p-3 font-semibold text-emerald-700">Mínimo Relativo en $x_0$</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4: PROTOCOLO DE OPTIMIZACIÓN -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-rose-600 text-white inline-flex items-center justify-center text-sm font-bold">4</span>
+        Protocolo Maestro de Problemas de Optimización
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-sm">
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <span class="font-bold text-rose-700">1. Dibujo y Variables</span>
+          <p class="text-slate-600 mt-1">Nombra las magnitudes ($x$, $y$) e identifica la magnitud a maximizar o minimizar.</p>
+        </div>
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <span class="font-bold text-rose-700">2. Ecuación de Ligadura</span>
+          <p class="text-slate-600 mt-1">Usa la condición fija dada para despejar una variable en función de la otra ($y = g(x)$).</p>
+        </div>
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <span class="font-bold text-rose-700">3. Función de 1 Variable</span>
+          <p class="text-slate-600 mt-1">Sustituye en la función objetivo para obtener $f(x)$, deriva e iguala a cero: $f'(x) = 0$.</p>
+        </div>
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <span class="font-bold text-rose-700">4. Justificación $f''(x)$</span>
+          <p class="text-slate-600 mt-1">Calcula $f''(x)$ para demostrar rigurosamente que es un máximo ($< 0$) o mínimo ($> 0$).</p>
+        </div>
+      </div>
+    </section>
+
+  
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.lucide) lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

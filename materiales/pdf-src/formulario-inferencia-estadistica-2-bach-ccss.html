@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Inferencia Estadística e Intervalos de Confianza | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11.2pt;
+      line-height: 1.45;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    section, .rounded-xl, .rounded-2xl {
+      break-inside: avoid;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eff6ff;
+      border: 2.5px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #93c5fd;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.35em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Inferencia Estadística e Intervalos de Confianza</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Matemáticas CCSS 2º Bach</span>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    
+    
+    <!-- ENCABEZADO -->
+    
+
+    <!-- RESUMEN CLAVE / FORMULARIO RÁPIDO -->
+    <section class="mb-10 bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-6">
+      <h2 class="text-lg font-bold text-emerald-950 flex items-center gap-2 mb-3">
+        <i data-lucide="zap" class="w-5 h-5 text-emerald-600"></i>
+        Formulario Esencial EBAU (Chuleta Rápida)
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
+        
+        <div class="bg-white/80 p-4 rounded-xl border border-emerald-100 shadow-sm">
+          <div class="font-bold text-emerald-800 text-sm mb-1.5">1. Para la Media Poblacional $\mu$</div>
+          <p class="text-slate-600 mb-2">Distribución muestral: $\bar{X} \sim N\left(\mu, \, \frac{\sigma}{\sqrt{n}}\right)$</p>
+          <div class="bg-emerald-50/70 p-2.5 rounded-lg border border-emerald-200 text-slate-800 text-center font-mono text-sm">
+            $$IC = \left(\bar{x} - z_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \; \bar{x} + z_{\alpha/2} \frac{\sigma}{\sqrt{n}}\right)$$
+          </div>
+          <p class="text-slate-500 mt-2 text-sm">Error: $E = z_{\alpha/2} \frac{\sigma}{\sqrt{n}}$ &bull; Tamaño: $n = \left(\frac{z_{\alpha/2} \cdot \sigma}{E}\right)^2$</p>
+        </div>
+
+        <div class="bg-white/80 p-4 rounded-xl border border-emerald-100 shadow-sm">
+          <div class="font-bold text-emerald-800 text-sm mb-1.5">2. Para la Proporción Poblacional $p$</div>
+          <p class="text-slate-600 mb-2">Distribución: $\hat{P} \sim N\left(p, \, \sqrt{\frac{p(1-p)}{n}}\right)$</p>
+          <div class="bg-emerald-50/70 p-2.5 rounded-lg border border-emerald-200 text-slate-800 text-center font-mono text-sm">
+            $$IC = \left(\hat{p} - z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}, \; \hat{p} + z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\right)$$
+          </div>
+          <p class="text-slate-500 mt-2 text-sm">Error: $E = z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$ &bull; Tamaño: $n = \frac{z_{\alpha/2}^2 \cdot \hat{p}(1-\hat{p})}{E^2}$</p>
+        </div>
+
+      </div>
+
+      <!-- VALORES CRÍTICOS -->
+      <div class="mt-4 bg-white/90 p-3.5 rounded-xl border border-emerald-100 flex flex-wrap items-center justify-between gap-3 text-sm">
+        <span class="font-bold text-slate-700 flex items-center gap-1.5">
+          <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+          Valores críticos frecuentes $z_{\alpha/2}$:
+        </span>
+        <div class="flex items-center gap-4">
+          <span class="bg-slate-100 px-2.5 py-1 rounded-md text-slate-700"><b>90%</b> $\implies z_{\alpha/2} = 1.645$</span>
+          <span class="bg-emerald-100 px-2.5 py-1 rounded-md text-emerald-900 font-semibold"><b>95%</b> $\implies z_{\alpha/2} = 1.96$</span>
+          <span class="bg-slate-100 px-2.5 py-1 rounded-md text-slate-700"><b>99%</b> $\implies z_{\alpha/2} = 2.575$</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÍNDICE DE CONTENIDOS -->
+    <div class="space-y-10">
+
+      <!-- SECCIÓN 1: CONCEPTOS FUNDAMENTALES Y MUESTREO -->
+      <section>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">1</div>
+          <h2 class="text-xl font-bold text-slate-900">Población, Muestra y Métodos de Muestreo</h2>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+          La <strong>inferencia estadística</strong> es la rama de las matemáticas que permite extraer conclusiones sobre una <em>población</em> completa a partir del análisis de una parte representativa de ella, denominada <em>muestra</em>.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm mb-4">
+          <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl">
+            <h3 class="font-bold text-slate-800 text-sm mb-1">Muestreo Aleatorio Simple</h3>
+            <p class="text-slate-600">Cada individuo de la población tiene exactamente la misma probabilidad de ser elegido. Se realiza mediante sorteo, tablas o números aleatorios.</p>
+          </div>
+          <div class="p-3.5 bg-slate-50 border border-slate-200 rounded-xl">
+            <h3 class="font-bold text-slate-800 text-sm mb-1">Muestreo Sistemático</h3>
+            <p class="text-slate-600">Se ordenan los elementos y se toma 1 cada $k = N/n$ elementos (coeficiente de elevación), tras elegir el primero al azar entre $1$ y $k$.</p>
+          </div>
+          <div class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl">
+            <h3 class="font-bold text-emerald-900 text-sm mb-1">Muestreo Estratificado</h3>
+            <p class="text-slate-600">La población se divide en estratos homogéneos (edades, sexos, cursos). Con <strong>afijación proporcional</strong>, el número de elementos en el estrato $i$ es:</p>
+            <p class="font-mono text-center font-bold text-emerald-700 mt-1">$$\frac{n_i}{N_i} = \frac{n}{N} \implies n_i = n \cdot \frac{N_i}{N}$$</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 2: DISTRIBUCIÓN MUESTRAL DE MEDIAS -->
+      <section>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">2</div>
+          <h2 class="text-xl font-bold text-slate-900">Distribución Muestral de Medias y Teorema Central del Límite</h2>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-3">
+          Consideremos una variable $X$ con media poblacional $\mu$ y desviación típica $\sigma$. Si extraemos muestras aleatorias de tamaño $n$:
+        </p>
+
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-4 text-base">
+          <div class="font-bold text-slate-800 mb-1">Teorema Central del Límite (TCL):</div>
+          <p class="text-slate-600">
+            Si la población original es normal $N(\mu, \sigma)$, o si el tamaño muestral es suficientemente grande ($n \ge 30$), la media de las muestras $\bar{X}$ sigue una distribución aproximadamente <strong>normal</strong>:
+          </p>
+          <div class="bg-white p-3 rounded-lg border border-slate-200 font-mono text-center my-2 text-sm text-emerald-700 font-bold">
+            $$\bar{X} \sim N\left(\mu, \; \frac{\sigma}{\sqrt{n}}\right)$$
+          </div>
+          <ul class="list-disc list-inside text-slate-600 space-y-1 text-sm mt-2">
+            <li>Media de las medias muestrales: $\mu_{\bar{x}} = \mu$ (estimador insesgado).</li>
+            <li>Desviación típica de la media (error típico): $\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$. A mayor tamaño de muestra, menor es la dispersión de las medias.</li>
+            <li>Para tipificar: $Z = \frac{\bar{X} - \mu}{\sigma / \sqrt{n}} \sim N(0, 1)$.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 3: DISTRIBUCIÓN MUESTRAL DE PROPORCIONES -->
+      <section>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">3</div>
+          <h2 class="text-xl font-bold text-slate-900">Distribución Muestral de Proporciones</h2>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-3">
+          Cuando la variable estudiada es dicotómica (éxito/fracaso) con proporción poblacional de éxito $p$ ($q = 1 - p$), la proporción muestral $\hat{P} = \frac{X}{n}$ (donde $X \sim B(n, p)$) puede aproximarse mediante una normal si $n \cdot p \ge 5$ y $n \cdot (1-p) \ge 5$:
+        </p>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 text-base shadow-sm mb-4">
+          <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-200 font-mono text-center text-sm text-emerald-800 font-bold">
+            $$\hat{P} \sim N\left(p, \; \sqrt{\frac{p(1-p)}{n}}\right)$$
+          </div>
+          <p class="text-slate-600 text-sm mt-2">
+            Para tipificar: $Z = \frac{\hat{P} - p}{\sqrt{\frac{p(1-p)}{n}}} \sim N(0, 1)$.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 4: CÁLCULO DEL VALOR CRÍTICO Z_alpha/2 -->
+      <section>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">4</div>
+          <h2 class="text-xl font-bold text-slate-900">Nivel de Confianza ($1 - \alpha$) y Valor Crítico $z_{\alpha/2}$</h2>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-3">
+          El <strong>nivel de confianza</strong> es la probabilidad $1 - \alpha$ de que el parámetro desconocido ($\mu$ o $p$) quede dentro del intervalo calculado. El valor crítico $z_{\alpha/2}$ es el valor de la normal estándar $N(0, 1)$ que deja un área central igual a $1 - \alpha$, dejando un área de $\alpha/2$ en cada una de las dos colas.
+        </p>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-base mb-4">
+          <div class="font-bold text-slate-800 mb-2">Pasos para calcular $z_{\alpha/2}$ con la tabla de la $N(0, 1)$:</div>
+          <ol class="list-decimal list-inside space-y-1.5 text-slate-600">
+            <li>Identificar el nivel de confianza: $1 - \alpha$ (por ejemplo, al $95\% \implies 1 - \alpha = 0.95$).</li>
+            <li>Hallar el nivel de significación: $\alpha = 1 - 0.95 = 0.05 \implies \frac{\alpha}{2} = 0.025$.</li>
+            <li>Calcular la probabilidad acumulada hasta $z_{\alpha/2}$:
+              $$P(Z \le z_{\alpha/2}) = 1 - \frac{\alpha}{2} = 1 - 0.025 = 0.975$$
+            </li>
+            <li>Buscar en el interior de la tabla normal el valor $0.9750 \implies \mathbf{z_{\alpha/2} = 1.96}$.</li>
+          </ol>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm border border-slate-200 rounded-xl overflow-hidden">
+            <thead class="bg-slate-100 text-slate-700 border-b border-slate-200">
+              <tr>
+                <th class="p-2.5 font-bold">Nivel de Confianza ($1 - \alpha$)</th>
+                <th class="p-2.5 font-bold">Significación ($\alpha$)</th>
+                <th class="p-2.5 font-bold">Cola ($\alpha/2$)</th>
+                <th class="p-2.5 font-bold">Probabilidad $1 - \alpha/2$</th>
+                <th class="p-2.5 font-bold text-emerald-700">Valor Crítico ($z_{\alpha/2}$)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-600">
+              <tr>
+                <td class="p-2.5 font-semibold">90% (0.90)</td>
+                <td class="p-2.5">0.10</td>
+                <td class="p-2.5">0.05</td>
+                <td class="p-2.5">0.9500</td>
+                <td class="p-2.5 font-bold text-emerald-600">1.645</td>
+              </tr>
+              <tr class="bg-emerald-50/50">
+                <td class="p-2.5 font-semibold text-emerald-900">95% (0.95)</td>
+                <td class="p-2.5">0.05</td>
+                <td class="p-2.5">0.025</td>
+                <td class="p-2.5">0.9750</td>
+                <td class="p-2.5 font-bold text-emerald-700">1.96</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-semibold">99% (0.99)</td>
+                <td class="p-2.5">0.01</td>
+                <td class="p-2.5">0.005</td>
+                <td class="p-2.5">0.9950</td>
+                <td class="p-2.5 font-bold text-emerald-600">2.575</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 5: INTERVALOS DE CONFIANZA Y ERROR MÁXIMO -->
+      <section>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">5</div>
+          <h2 class="text-xl font-bold text-slate-900">Intervalos de Confianza y Error Máximo Admisible ($E$)</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
+          
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Para la Media Poblacional ($\mu$)</h3>
+            <p class="text-slate-600 mb-2">Se conoce o estima la desviación típica $\sigma$ y la media muestral $\bar{x}$ con una muestra de tamaño $n$:</p>
+            <div class="bg-white p-2.5 rounded-lg border border-slate-200 text-center font-mono my-2 text-sm font-bold text-slate-800">
+              $$IC = \left(\bar{x} - E, \; \bar{x} + E\right)$$
+            </div>
+            <p class="text-slate-700 font-semibold mt-2">Error Máximo Admisible ($E$):</p>
+            <div class="bg-emerald-50 p-2 rounded-lg border border-emerald-200 text-center font-mono text-emerald-800 text-sm font-bold my-1">
+              $$E = z_{\alpha/2} \frac{\sigma}{\sqrt{n}}$$
+            </div>
+          </div>
+
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <h3 class="font-bold text-slate-900 mb-2">Para la Proporción Poblacional ($p$)</h3>
+            <p class="text-slate-600 mb-2">A partir de una muestra de tamaño $n$ con proporción observada $\hat{p} = \frac{x}{n}$:</p>
+            <div class="bg-white p-2.5 rounded-lg border border-slate-200 text-center font-mono my-2 text-sm font-bold text-slate-800">
+              $$IC = \left(\hat{p} - E, \; \hat{p} + E\right)$$
+            </div>
+            <p class="text-slate-700 font-semibold mt-2">Error Máximo Admisible ($E$):</p>
+            <div class="bg-emerald-50 p-2 rounded-lg border border-emerald-200 text-center font-mono text-emerald-800 text-sm font-bold my-1">
+              $$E = z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECCIÓN 6: TAMAÑO MUESTRAL MÍNIMO (n) -->
+      <section>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">6</div>
+          <h2 class="text-xl font-bold text-slate-900">Determinación del Tamaño Muestral Mínimo ($n$)</h2>
+        </div>
+        <p class="text-slate-600 text-sm leading-relaxed mb-3">
+          En los problemas de diseño experimental y exámenes EBAU, se pide habitualmente calcular cuántos individuos hay que examinar como mínimo para garantizar que el error cometido no supere una cota prefijada $E$:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base mb-4">
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+            <div class="font-bold text-emerald-800 mb-1">Para la Media Poblacional:</div>
+            <p class="text-slate-600 mb-2">Despejando $n$ de la fórmula del error $E = z_{\alpha/2} \frac{\sigma}{\sqrt{n}}$:</p>
+            <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-200 text-center font-mono text-sm font-bold text-emerald-900">
+              $$n = \left(\frac{z_{\alpha/2} \cdot \sigma}{E}\right)^2$$
+            </div>
+            <p class="text-slate-500 text-sm mt-2"><strong>Regla:</strong> Si el resultado contiene decimales, se redondea siempre al <strong>entero superior</strong> para asegurar que el error sea $\le E$.</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+            <div class="font-bold text-emerald-800 mb-1">Para la Proporción Poblacional:</div>
+            <p class="text-slate-600 mb-2">Despejando $n$ de $E = z_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$:</p>
+            <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-200 text-center font-mono text-sm font-bold text-emerald-900">
+              $$n = \frac{z_{\alpha/2}^2 \cdot \hat{p}(1-\hat{p})}{E^2}$$
+            </div>
+            <p class="text-slate-500 text-sm mt-2"><strong>Caso más desfavorable:</strong> Si no se dispone de ningún valor preliminar de $\hat{p}$, se toma $p = 0.5$, que maximiza el producto $p(1-p) = 0.25$.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 7: TRUCOS E INVERSIONES EN LA EBAU -->
+      <section class="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+        <h3 class="text-base font-bold text-amber-950 flex items-center gap-2 mb-3">
+          <i data-lucide="help-circle" class="w-5 h-5 text-amber-600"></i>
+          Propiedades Clave para Preguntas Inversas y Teóricas de EBAU Cantabria
+        </h3>
+        <div class="space-y-3 text-base text-slate-700">
+          
+          <div class="bg-white/80 p-3.5 rounded-xl border border-amber-100">
+            <span class="font-bold text-amber-900">1. Centro y Radio del Intervalo:</span>
+            <p class="mt-1">Si nos dan directamente el intervalo $(a, b)$ sin especificar la media o el error:</p>
+            <ul class="list-disc list-inside mt-1 space-y-1">
+              <li>El <strong>centro</strong> es la media muestral o proporción muestral: $\bar{x} = \frac{a + b}{2}$ (o $\hat{p} = \frac{a + b}{2}$).</li>
+              <li>El <strong>radio</strong> es el error máximo: $E = \frac{b - a}{2}$.</li>
+              <li>La <strong>amplitud o longitud</strong> del intervalo es $L = b - a = 2E$.</li>
+            </ul>
+          </div>
+
+          <div class="bg-white/80 p-3.5 rounded-xl border border-amber-100">
+            <span class="font-bold text-amber-900">2. Relaciones Cualitativas y Variaciones:</span>
+            <ul class="list-disc list-inside mt-1 space-y-1">
+              <li><strong>Si aumentamos el nivel de confianza ($1-\alpha$):</strong> El valor crítico $z_{\alpha/2}$ aumenta $\implies$ el error $E$ aumenta $\implies$ el intervalo es <strong>más ancho</strong> (menos preciso pero más seguro).</li>
+              <li><strong>Si aumentamos el tamaño de la muestra ($n$):</strong> $\sqrt{n}$ está en el denominador $\implies$ el error $E$ disminuye $\implies$ el intervalo es <strong>más estrecho</strong> (más preciso).</li>
+              <li><strong>Para reducir el error a la mitad ($E' = E/2$):</strong> Es necesario <strong>cuadruplicar</strong> el tamaño muestral ($n' = 4n$).</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- PIE DE PÁGINA DEL TEMA -->
+    
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.lucide) lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

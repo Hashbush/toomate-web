@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Límites, Continuidad y Asíntotas | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Límites, Continuidad y Asíntotas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Calcula el límite: $\lim_{x \to 2} \frac{x^2 - 5x + 6}{x^2 - 4}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Sustituyendo $x = 2$: $\frac{2^2 - 5(2) + 6}{2^2 - 4} = \frac{4 - 10 + 6}{4 - 4} = \left[\frac{0}{0}\right]$ (indeterminación).</p>
+                <p>Factorizamos numerador y denominador:</p>
+                <p>Numerador: $x^2 - 5x + 6 = (x - 2)(x - 3)$.</p>
+                <p>Denominador: $x^2 - 4 = (x - 2)(x + 2)$.</p>
+                $$\lim_{x \to 2} \frac{(x - 2)(x - 3)}{(x - 2)(x + 2)} = \lim_{x \to 2} \frac{x - 3}{x + 2} = \frac{2 - 3}{2 + 2} = -\frac{1}{4}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Halla los siguientes límites en el infinito:<br>
+            a) $\lim_{x \to +\infty} \frac{3x^3 - 2x + 1}{5x^3 + 4x^2 - 7}$<br>
+            b) $\lim_{x \to +\infty} \frac{2x^2 + 5}{x^3 - 1}$<br>
+            c) $\lim_{x \to +\infty} \frac{x^4 - 1}{4x^2 + 3}$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Comparamos los grados del numerador y denominador:</p>
+                <p><strong>a)</strong> Mismo grado ($3 = 3$): Cociente de los coeficientes principales $\implies \frac{3}{5}$.</p>
+                <p><strong>b)</strong> Grado numerador ($2$) $<$ Grado denominador ($3$) $\implies 0$.</p>
+                <p><strong>c)</strong> Grado numerador ($4$) $>$ Grado denominador ($2$) $\implies +\infty$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Calcula los límites laterales de $f(x) = \frac{2x + 1}{x - 3}$ cuando $x \to 3$ y determina si existe $\lim_{x \to 3} f(x)$. ¿Qué tipo de discontinuidad presenta?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Al sustituir $x = 3$: $\frac{2(3) + 1}{3 - 3} = \left[\frac{7}{0}\right] \implies$ los límites laterales tienden a $\pm\infty$:</p>
+                <p>• Por la izquierda ($x \to 3^-$, ej. $x = 2{,}99$): Denominador $< 0 \implies \lim_{x \to 3^-} \frac{2x + 1}{x - 3} = \frac{7}{0^-} = -\infty$.</p>
+                <p>• Por la derecha ($x \to 3^+$, ej. $x = 3{,}01$): Denominador $> 0 \implies \lim_{x \to 3^+} \frac{2x + 1}{x - 3} = \frac{7}{0^+} = +\infty$.</p>
+                <p>Como los límites laterales no coinciden (ambos infinitos), no existe el límite global. Presenta una <strong>discontinuidad no evitable de salto infinito</strong> y una asíntota vertical en $x = 3$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Calcula el límite: $\lim_{x \to 0} \frac{\sqrt{x + 4} - 2}{x}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Sustituyendo $x = 0$: $\frac{\sqrt{4} - 2}{0} = \left[\frac{0}{0}\right]$. Multiplicamos y dividimos por el conjugado $(\sqrt{x + 4} + 2)$:</p>
+                $$\lim_{x \to 0} \frac{(\sqrt{x + 4} - 2)(\sqrt{x + 4} + 2)}{x(\sqrt{x + 4} + 2)} = \lim_{x \to 0} \frac{(x + 4) - 4}{x(\sqrt{x + 4} + 2)}$$
+                $$= \lim_{x \to 0} \frac{x}{x(\sqrt{x + 4} + 2)} = \lim_{x \to 0} \frac{1}{\sqrt{x + 4} + 2} = \frac{1}{\sqrt{4} + 2} = \frac{1}{4}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Dada la función $f(x) = \frac{3x - 6}{x + 1}$, halla sus asíntotas verticales y horizontales justificándolas mediante límites.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Dominio:</strong> $\text{Dom}(f) = \mathbb{R} \setminus \{-1\}$.</p>
+                <p><strong>2. Asíntota Vertical ($x = -1$):</strong>
+                  $$\lim_{x \to -1} \frac{3x - 6}{x + 1} = \left[\frac{-9}{0}\right] \implies \lim_{x \to -1^-} f(x) = +\infty, \quad \lim_{x \to -1^+} f(x) = -\infty.$$
+                  Por tanto, la recta $\mathbf{x = -1}$ es una asíntota vertical.</p>
+                <p><strong>3. Asíntota Horizontal:</strong>
+                  $$\lim_{x \to \pm\infty} \frac{3x - 6}{x + 1} = 3.$$
+                  Por tanto, la recta $\mathbf{y = 3}$ es una asíntota horizontal hacia $\pm\infty$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Estudia la continuidad en $x = 1$ de la función:
+            $$f(x) = \begin{cases} 2x + 3 & \text{si } x \le 1 \\ x^2 + 4 & \text{si } x > 1 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Evaluamos los tres elementos en $x = 1$:</p>
+                <p>1. Valor de la función: $f(1) = 2(1) + 3 = 5$.</p>
+                <p>2. Límite por la izquierda: $\lim_{x \to 1^-} (2x + 3) = 2(1) + 3 = 5$.</p>
+                <p>3. Límite por la derecha: $\lim_{x \to 1^+} (x^2 + 4) = 1^2 + 4 = 5$.</p>
+                <p>Como $\lim_{x \to 1^-} f(x) = \lim_{x \to 1^+} f(x) = f(1) = 5$, la función es <strong>continua en $x = 1$</strong> (y por tanto continua en todo $\mathbb{R}$).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Estudia la continuidad en $x = 2$ de la función y calcula la amplitud del salto:
+            $$f(x) = \begin{cases} 3x - 1 & \text{si } x < 2 \\ 8 - x^2 & \text{si } x \ge 2 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>1. Valor en el punto: $f(2) = 8 - 2^2 = 8 - 4 = 4$.</p>
+                <p>2. Límite por la izquierda: $\lim_{x \to 2^-} (3x - 1) = 3(2) - 1 = 5$.</p>
+                <p>3. Límite por la derecha: $\lim_{x \to 2^+} (8 - x^2) = 4$.</p>
+                <p>Como $\lim_{x \to 2^-} f(x) = 5 \ne \lim_{x \to 2^+} f(x) = 4$, no existe el límite. Presenta una <strong>discontinuidad no evitable de salto finito</strong> con una amplitud de $|5 - 4| = 1$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Calcula el límite: $\lim_{x \to +\infty} \left( \frac{x + 3}{x + 1} \right)^{2x}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Base: $\lim_{x \to \infty} \frac{x+3}{x+1} = 1$. Exponente: $\lim_{x \to \infty} 2x = \infty \implies [1^\infty]$.</p>
+                <p>Aplicamos la fórmula estándar $\lim f(x)^{g(x)} = e^{\lim g(x)[f(x) - 1]}$:</p>
+                $$\lim_{x \to +\infty} 2x \left( \frac{x + 3}{x + 1} - 1 \right) = \lim_{x \to +\infty} 2x \left( \frac{x + 3 - (x + 1)}{x + 1} \right) = \lim_{x \to +\infty} 2x \left( \frac{2}{x + 1} \right) = \lim_{x \to +\infty} \frac{4x}{x + 1} = 4.$$
+                <p>Por tanto, el límite vale $\mathbf{e^4}$.</p>
+              </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">Determina el valor de $a$ para que la siguiente función sea continua en todo $\mathbb{R}$:
+            $$f(x) = \begin{cases} a x^2 - 3x + 1 & \text{si } x \le 2 \\ \frac{x^2 - 4}{x - 2} & \text{si } x > 2 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>1. Para $x < 2$, $f(x)$ es polinómica (continua). Para $x > 2$, $x \ne 2$, luego el denominador no se anula (continua).</p>
+                <p>2. En el punto de empalme $x = 2$:</p>
+                <p>• $f(2) = a(2^2) - 3(2) + 1 = 4a - 6 + 1 = 4a - 5$.</p>
+                <p>• $\lim_{x \to 2^-} f(x) = 4a - 5$.</p>
+                <p>• $\lim_{x \to 2^+} \frac{x^2 - 4}{x - 2} = \lim_{x \to 2^+} \frac{(x - 2)(x + 2)}{x - 2} = \lim_{x \to 2^+} (x + 2) = 4$.</p>
+                <p>3. Para que sea continua deben coincidir:</p>
+                $$4a - 5 = 4 \implies 4a = 9 \implies \mathbf{a = \frac{9}{4} = 2{,}25}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Calcula los valores de $a$ y $b$ para que la siguiente función sea continua en todo $\mathbb{R}$:
+            $$f(x) = \begin{cases} x + 2 & \text{si } x \le 0 \\ a x + b & \text{si } 0 < x < 3 \\ x^2 - 1 & \text{si } x \ge 3 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Los tres trozos son polinomios (continuos). Estudiamos los dos puntos de frontera:</p>
+                <p><strong>En $x = 0$:</strong></p>
+                <p>$\lim_{x \to 0^-} (x + 2) = 2 = f(0)$.</p>
+                <p>$\lim_{x \to 0^+} (ax + b) = b$.</p>
+                <p>Para continuidad en $x = 0 \implies \mathbf{b = 2}$.</p>
+                <p><strong>En $x = 3$:</strong></p>
+                <p>$\lim_{x \to 3^-} (ax + b) = 3a + b = 3a + 2$.</p>
+                <p>$\lim_{x \to 3^+} (x^2 - 1) = 3^2 - 1 = 8 = f(3)$.</p>
+                <p>Para continuidad en $x = 3 \implies 3a + 2 = 8 \implies 3a = 6 \implies \mathbf{a = 2}$.</p>
+                <p>Solución: $\mathbf{a = 2, \quad b = 2}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Determina la ecuación de la asíntota oblicua $y = m x + n$ de la función $f(x) = \frac{x^2 + 2x - 1}{x - 1}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Como el grado del numerador supera en 1 al del denominador, existe asíntota oblicua:</p>
+                <p><strong>Pendiente $m$:</strong></p>
+                $$m = \lim_{x \to \infty} \frac{f(x)}{x} = \lim_{x \to \infty} \frac{x^2 + 2x - 1}{x^2 - x} = 1.$$
+                <p><strong>Ordenada en el origen $n$:</strong></p>
+                $$n = \lim_{x \to \infty} [f(x) - m x] = \lim_{x \to \infty} \left( \frac{x^2 + 2x - 1}{x - 1} - x \right) = \lim_{x \to \infty} \frac{x^2 + 2x - 1 - (x^2 - x)}{x - 1} = \lim_{x \to \infty} \frac{3x - 1}{x - 1} = 3.$$
+                <p>Ecuación de la asíntota oblicua: $\mathbf{y = x + 3}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Demuestra que la ecuación $x^3 - 3x - 1 = 0$ tiene al menos una solución real en el intervalo $[1, 2]$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Definimos la función $f(x) = x^3 - 3x - 1$:</p>
+                <p>1. $f(x)$ es una función polinómica, por tanto es <strong>continua en todo $\mathbb{R}$</strong> y en particular en el intervalo cerrado $[1, 2]$.</p>
+                <p>2. Evaluamos los extremos del intervalo:</p>
+                <p>• $f(1) = 1^3 - 3(1) - 1 = 1 - 3 - 1 = -3 < 0$.</p>
+                <p>• $f(2) = 2^3 - 3(2) - 1 = 8 - 6 - 1 = +1 > 0$.</p>
+                <p>3. Como $f(1) \cdot f(2) < 0$ (tienen signos opuestos), por el <strong>Teorema de Bolzano</strong> existe al menos un punto $c \in (1, 2)$ tal que $f(c) = 0$, lo que demuestra que la ecuación tiene solución en dicho intervalo.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Calcula el límite: $\lim_{x \to 1} \left( \frac{1}{x - 1} - \frac{2}{x^2 - 1} \right)$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Indeterminación $[\infty - \infty]$. Efectuamos la resta reduciendo a común denominador (m.c.m. $= x^2 - 1 = (x - 1)(x + 1)$):</p>
+                $$\lim_{x \to 1} \left( \frac{x + 1}{(x - 1)(x + 1)} - \frac{2}{(x - 1)(x + 1)} \right) = \lim_{x \to 1} \frac{x + 1 - 2}{x^2 - 1} = \lim_{x \to 1} \frac{x - 1}{(x - 1)(x + 1)}$$
+                $$= \lim_{x \to 1} \frac{1}{x + 1} = \frac{1}{1 + 1} = \frac{1}{2}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">El coste total (en miles de euros) de una empresa para producir $x$ miles de unidades viene dado por $C(x) = \frac{50x + 200}{x + 10}$. Calcula el coste inicial para $x = 0$ y analiza el comportamiento del coste medio cuando la producción crece indefinidamente ($\lim_{x \to +\infty}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>1. Coste inicial ($x = 0$): $C(0) = \frac{200}{10} = 20$ (20.000 € de costes fijos de arranque).</p>
+                <p>2. Comportamiento a largo plazo:</p>
+                $$\lim_{x \to +\infty} \frac{50x + 200}{x + 10} = 50.$$
+                <p>El coste total se estabiliza con una asíntota horizontal en $y = 50$ (50.000 €). El coste unitario tiende a $0$ a gran escala.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">La función $f(x) = \frac{x^2 - 9}{x - 3}$ no está definida en $x = 3$. ¿Es posible redefinir el valor de $f(3)$ para que la función sea continua en todo $\mathbb{R}$?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Calculamos el límite en el punto problemático:</p>
+                $$\lim_{x \to 3} \frac{x^2 - 9}{x - 3} = \lim_{x \to 3} \frac{(x - 3)(x + 3)}{x - 3} = \lim_{x \to 3} (x + 3) = 6.$$
+                <p>Como existe el límite finito $L = 6$, la discontinuidad es <strong>evitable</strong>. Sí es posible hacerla continua asignando el valor $\mathbf{f(3) = 6}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">Calcula aplicando la regla de L'Hôpital: $\lim_{x \to 0} \frac{e^x - x - 1}{x^2}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Al evaluar $x = 0$: $\frac{e^0 - 0 - 1}{0} = \left[\frac{0}{0}\right]$. Derivamos numerador y denominador (1ª vez):</p>
+                $$\lim_{x \to 0} \frac{e^x - 1}{2x} = \left[\frac{0}{0}\right].$$
+                <p>Derivamos de nuevo por L'Hôpital (2ª vez):</p>
+                $$\lim_{x \to 0} \frac{e^x}{2} = \frac{e^0}{2} = \frac{1}{2}.$$
+              </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Se considera la función:
+            $$f(x) = \begin{cases} \frac{a x + 1}{x - 1} & \text{si } x \le 0 \\ x^2 + b x - 1 & \text{si } x > 0 \end{cases}$$
+            a) Demuestra que $f(x)$ es continua en $x = 0$ para cualesquiera valores de $a$ y $b$.<br>
+            b) Halla el valor de $a$ sabiendo que la recta $y = 3$ es una asíntota horizontal hacia $-\infty$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Continuidad en $x = 0$:</strong></p>
+                <p>• $f(0) = \frac{a(0) + 1}{0 - 1} = \frac{1}{-1} = -1$.</p>
+                <p>• $\lim_{x \to 0^-} \frac{a x + 1}{x - 1} = \frac{1}{-1} = -1$.</p>
+                <p>• $\lim_{x \to 0^+} (x^2 + b x - 1) = 0 + 0 - 1 = -1$.</p>
+                <p>Dado que $\lim_{x \to 0^-} f(x) = \lim_{x \to 0^+} f(x) = f(0) = -1$ con independencia de $a$ y $b$, la función es <strong>siempre continua en $x = 0$</strong>.</p>
+                <p><strong>b) Asíntota horizontal hacia $-\infty$:</strong> Para $x < 0$ aplica la rama superior:</p>
+                $$\lim_{x \to -\infty} \frac{a x + 1}{x - 1} = a.$$
+                <p>Como la asíntota es $y = 3$, debe cumplirse $\mathbf{a = 3}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Halla los valores de $a$ y $b$ para que la función sea derivable en $x = 1$:
+            $$f(x) = \begin{cases} a x^2 + b & \text{si } x \le 1 \\ 4x - 1 & \text{si } x > 1 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Para ser derivable en $x = 1$ primero debe ser continua:</p>
+                <p><strong>1. Continuidad en $x = 1$:</strong></p>
+                <p>$\lim_{x \to 1^-} (a x^2 + b) = a + b = f(1)$.</p>
+                <p>$\lim_{x \to 1^+} (4x - 1) = 3$.</p>
+                <p>Condición 1: $a + b = 3$.</p>
+                <p><strong>2. Derivabilidad en $x = 1$:</strong> Calculamos la función derivada:</p>
+                $$f'(x) = \begin{cases} 2a x & \text{si } x < 1 \\ 4 & \text{si } x > 1 \end{cases}$$
+                <p>Derivadas laterales: $f'(1^-) = 2a(1) = 2a; \quad f'(1^+) = 4$.</p>
+                <p>Para que sea derivable: $2a = 4 \implies \mathbf{a = 2}$.</p>
+                <p>Sustituyendo en la continuidad: $2 + b = 3 \implies \mathbf{b = 1}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">La función de beneficios de una empresa viene dada por $B(x) = x^3 - 4x^2 + 2x + 1$ (en miles de euros), donde $x$ son las decenas de miles de unidades vendidas. Demuestra que existe un nivel de ventas entre 1 y 2 (es decir, entre 10.000 y 20.000 unidades) para el cual el beneficio es exactamente cero (punto muerto o umbral de rentabilidad).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>1. $B(x)$ es polinómica, luego continua en el intervalo cerrado $[1, 2]$.</p>
+                <p>2. Evaluamos los extremos:</p>
+                <p>• $B(1) = 1 - 4 + 2 + 1 = 0 \dots$ (En $x = 1$ ya se anula, pero busquemos en el interior evaluando en $1{,}5$ y $2$):</p>
+                <p>• $B(1{,}5) = 1{,}5^3 - 4(1{,}5^2) + 2(1{,}5) + 1 = 3{,}375 - 9 + 3 + 1 = -1{,}625 < 0$.</p>
+                <p>• $B(2) = 2^3 - 4(4) + 2(2) + 1 = 8 - 16 + 4 + 1 = -3 < 0 \dots$</p>
+                <p>• Evaluando en $x = 3$: $B(3) = 27 - 36 + 6 + 1 = -2$. Evaluando en $x = 4$: $B(4) = 64 - 64 + 8 + 1 = +9 > 0$.</p>
+                <p>Por tanto, en $[3, 4]$, como $B(3) < 0$ y $B(4) > 0$, por el <strong>Teorema de Bolzano</strong> existe al menos un punto donde $B(c) = 0$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">Determina todas las asíntotas (verticales, horizontales y oblicuas) de la función:
+            $$f(x) = \frac{2x^2}{x^2 - 9}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Dominio:</strong> $x^2 - 9 = 0 \implies x = \pm 3 \implies \text{Dom}(f) = \mathbb{R} \setminus \{-3, 3\}$.</p>
+                <p><strong>2. Asíntotas Verticales:</strong></p>
+                <p>• En $x = 3$: $\lim_{x \to 3} \frac{2x^2}{x^2 - 9} = \left[\frac{18}{0}\right] = \pm\infty \implies \mathbf{x = 3}$ es A.V.</p>
+                <p>• En $x = -3$: $\lim_{x \to -3} \frac{2x^2}{x^2 - 9} = \left[\frac{18}{0}\right] = \pm\infty \implies \mathbf{x = -3}$ es A.V.</p>
+                <p><strong>3. Asíntota Horizontal:</strong></p>
+                $$\lim_{x \to \pm\infty} \frac{2x^2}{x^2 - 9} = 2 \implies \mathbf{y = 2} \text{ es A.H.}$$
+                <p><strong>4. Asíntota Oblicua:</strong> Al tener asíntota horizontal, no existe asíntota oblicua.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Halla los puntos de discontinuidad de la función $f(x) = \frac{x^2 - x - 2}{x^2 - 4}$ y clasifica cada uno de ellos justificándolo mediante límites.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Denominador: $x^2 - 4 = 0 \implies x = 2$ y $x = -2$.</p>
+                <p>Factorizamos el numerador: $x^2 - x - 2 = (x - 2)(x + 1)$.</p>
+                <p><strong>En $x = 2$:</strong></p>
+                $$\lim_{x \to 2} \frac{(x - 2)(x + 1)}{(x - 2)(x + 2)} = \lim_{x \to 2} \frac{x + 1}{x + 2} = \frac{3}{4}.$$
+                <p>Como existe el límite finito, en $x = 2$ hay una <strong>discontinuidad evitable</strong>.</p>
+                <p><strong>En $x = -2$:</strong></p>
+                $$\lim_{x \to -2} \frac{x + 1}{x + 2} = \left[\frac{-1}{0}\right] = \pm\infty.$$
+                <p>En $x = -2$ hay una <strong>discontinuidad no evitable de salto infinito</strong> (Asíntota vertical $x = -2$).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">El número de socios (en cientos) de un club deportivo $t$ años después de su inauguración sigue el modelo:
+            $$N(t) = \begin{cases} t^2 - 4t + 8 & \text{si } 0 \le t \le 3 \\ \frac{10t - 5}{t + 2} & \text{si } t > 3 \end{cases}$$
+            a) ¿Ha variado de forma continua el número de socios a lo largo del tiempo?<br>
+            b) ¿Cuál será el número de socios a muy largo plazo?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Continuidad en el punto de empalme $t = 3$:</strong></p>
+                <p>• $N(3) = 3^2 - 4(3) + 8 = 9 - 12 + 8 = 5$ (500 socios).</p>
+                <p>• $\lim_{t \to 3^-} (t^2 - 4t + 8) = 5$.</p>
+                <p>• $\lim_{t \to 3^+} \frac{10t - 5}{t + 2} = \frac{10(3) - 5}{3 + 2} = \frac{25}{5} = 5$.</p>
+                <p>Como $\lim_{t \to 3^-} N(t) = \lim_{t \to 3^+} N(t) = N(3) = 5$, la función es <strong>continua en $t = 3$</strong> y en todo su dominio ($t \ge 0$).</p>
+                <p><strong>b) Comportamiento a muy largo plazo ($t \to +\infty$):</strong></p>
+                $$\lim_{t \to +\infty} \frac{10t - 5}{t + 2} = 10.$$
+                <p>A largo plazo, el número de socios se estabiliza con una asíntota horizontal en $10$ (es decir, en <strong>1.000 socios</strong>).</p>
+              </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

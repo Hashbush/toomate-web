@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Cinemática Vectorial y Tiro Parabólico | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Cinemática Vectorial y Tiro Parabólico</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">El vector de posición de una partícula es $\vec{r}(t) = (3t + 1)\vec{i} + (2t^2 - 4)\vec{j}$ (en metros y segundos). Halla la posición en $t = 0\text{ s}$ y en $t = 2\text{ s}$, y calcula el vector desplazamiento entre ambos instantes y su módulo.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\Delta\vec{r} = 6\vec{i} + 8\vec{j}\text{ m}$ y distancia en línea recta $= 10\text{ m}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Para la partícula del ejercicio anterior con $\vec{r}(t) = (3t + 1)\vec{i} + (2t^2 - 4)\vec{j}$, halla la función del vector velocidad $\vec{v}(t)$ y calcula la celeridad (módulo de la velocidad) a los $3\text{ segundos}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\vec{v}(t) = 3\vec{i} + 4t\vec{j}\text{ m/s}$; en $t=3\text{ s}$, celeridad $v \approx 12{,}37\text{ m/s}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Halla la ecuación de la trayectoria $y = f(x)$ del móvil con ecuaciones paramétricas $x(t) = 3t + 1$ e $y(t) = 2t^2 - 4$, e indica qué tipo de curva describe.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Trayectoria parabólica $y = \frac{2}{9}x^2 - \frac{4}{9}x - \frac{34}{9}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">Un automóvil circula a $108\text{ km/h}$ por una autopista cuando el conductor pisa a fondo el freno y se detiene en seco en $60\text{ metros}$. Calcula la aceleración de frenado y el tiempo empleado en detenerse.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Aceleración de frenado $a = -7{,}5\text{ m/s}^2$ y tiempo de parada $t = 4\text{ s}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Se deja caer una piedra desde lo alto de un viaducto sin velocidad inicial y tarda $2{,}5\text{ segundos}$ en impactar contra el agua. Halla la altura del puente y la velocidad con la que choca contra el agua. ($g = 9{,}8\text{ m/s}^2$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Altura del puente $h \approx 30{,}6\text{ m}$ y velocidad de impacto $v = 24{,}5\text{ m/s}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Se lanza una pelota verticalmente hacia arriba desde el suelo con una velocidad inicial de $24{,}5\text{ m/s}$. Halla la altura máxima alcanzada y el tiempo total que permanece en el aire hasta regresar al suelo.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Altura máxima $y_{\text{max}} = 30{,}625\text{ m}$ y tiempo de vuelo $t = 5\text{ s}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Una rueda de bicicleta de $60\text{ cm}$ de diámetro gira con M.C.U. a una frecuencia constante de $120\text{ rpm}$ (revoluciones por minuto). Halla su velocidad angular en rad/s, el periodo y la velocidad lineal de un punto del neumático exterior.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\omega = 4\pi \approx 12{,}57\text{ rad/s}$, $T = 0{,}5\text{ s}$, velocidad lineal $v \approx 3{,}77\text{ m/s}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Un coche toma una curva circular plana de $80\text{ metros}$ de radio a una velocidad constante de $72\text{ km/h}$. Calcula su aceleración normal (centrípeta) y compárala con la gravedad.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a_n = 5\text{ m/s}^2$ (dirigida hacia el centro de curvatura).</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">El vector de velocidad de un móvil es $\vec{v}(t) = 4t\vec{i} + 3\vec{j}$ (en m/s). Halla el vector aceleración total, la aceleración tangencial $a_t$, la aceleración normal $a_n$ y el radio de curvatura de la trayectoria en $t = 1\text{ s}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a_t = 3{,}2\text{ m/s}^2$, $a_n = 2{,}4\text{ m/s}^2$ y radio de curvatura $\rho \approx 10{,}42\text{ m}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Desde el borde de un acantilado de $44{,}1\text{ m}$ de altura sobre el mar, se dispara horizontalmente un proyectil con una velocidad de $20\text{ m/s}$. Calcula: a) El tiempo que tarda en caer al agua; b) El alcance horizontal desde la base del acantilado; c) El vector velocidad en el momento del impacto.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $t = 3\text{ s}$; b) Alcance $= 60\text{ m}$; c) $\vec{v} = 20\vec{i} - 29{,}4\vec{j}\text{ m/s}$ ($v \approx 35{,}56\text{ m/s}$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">Un jugador de fútbol chuta un balón con velocidad inicial $v_0 = 30\text{ m/s}$ formando un ángulo de $30^\circ$ con el suelo horizontal. Halla la altura máxima, el tiempo de vuelo y el alcance horizontal máximo.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Altura máxima $\approx 11{,}48\text{ m}$, tiempo de vuelo $\approx 3{,}06\text{ s}$, alcance $\approx 79{,}53\text{ m}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Demuestra analíticamente que para una velocidad inicial $v_0$ dada, el alcance horizontal máximo de un proyectil en terreno llano se alcanza para un ángulo de lanzamiento de $45^\circ$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Queda demostrado que $\alpha = 45^\circ$ proporciona el alcance máximo $x_{\text{max}} = \frac{v_0^2}{g}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">El tambor de una lavadora parte del reposo y alcanza una velocidad de centrifugado de $1.200\text{ rpm}$ en 20 segundos con aceleración angular constante. Calcula la aceleración angular y el número de vueltas completadas en ese tiempo.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\alpha = 2\pi \approx 6{,}28\text{ rad/s}^2$ y completa $200\text{ vueltas}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Un infractor pasa a velocidad constante de $126\text{ km/h}$ delante de un coche de policía parado. Dos segundos después, la patrulla arranca en su persecución con una aceleración constante de $5\text{ m/s}^2$. ¿Cuánto tiempo tarda la policía en alcanzar al infractor desde que arranca y qué distancia ha recorrido?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Tarda $15{,}77\text{ segundos}$ y recorre unos $622\text{ metros}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">Una lancha cruza un río de $120\text{ metros}$ de anchura con la proa orientada perpendicularmente a la corriente. La velocidad de la lancha respecto al agua es de $4\text{ m/s}$ y la corriente del río fluye a $3\text{ m/s}$. Halla el tiempo que tarda en cruzar, la distancia que la corriente la desplaza río abajo y la velocidad total respecto a la orilla.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Tarda $30\text{ s}$, se desplaza $90\text{ m}$ río abajo y su velocidad total es $5\text{ m/s}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Un tirador con arco dispara una flecha horizontalmente apuntando al centro de una diana situada a $50\text{ metros}$ con una velocidad de $80\text{ m/s}$. ¿Cuánto desciende verticalmente la flecha por efecto de la gravedad antes de impactar en la diana?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Desciende aproximadamente $1{,}91\text{ metros}$ por debajo del punto apuntado.</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Un jugador de baloncesto lanza el balón desde una altura de $2\text{ metros}$ con un ángulo de $45^\circ$ hacia una canasta situada a una distancia horizontal de $6\text{ metros}$ y a una altura de $3{,}05\text{ metros}$. Halla la velocidad inicial $v_0$ necesaria para encestar limpio.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> La velocidad inicial requerida es $v_0 \approx 8{,}44\text{ m/s}$ ($30{,}4\text{ km/h}$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Un dardo tranquilizante apunta directamente a un mono colgado de un árbol a distancia horizontal $d$ y altura $h$. En el instante exacto en que sale el dardo con velocidad $v_0$, el mono se suelta de la rama en caída libre. Demuestra que el dardo siempre impacta en el mono sin importar el valor de $v_0$ (siempre que alcance la distancia $d$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Queda demostrado que el impacto se produce siempre independientemente de la velocidad inicial.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">Halla el radio de curvatura $\rho$ en el punto más alto de la trayectoria de un proyectil lanzado con $v_0 = 50\text{ m/s}$ y $\alpha = 60^\circ$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> El radio de curvatura en la cúspide es $\rho \approx 63{,}78\text{ m}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">Dos poleas de radios $R_1 = 30\text{ cm}$ y $R_2 = 10\text{ cm}$ están unidas por una correa de transmisión que no resbala. Si la polea grande gira a $100\text{ rpm}$, calcula la velocidad lineal de la correa y la velocidad angular de la polea pequeña en rpm y rad/s.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Velocidad de la correa $\approx 3{,}14\text{ m/s}$; polea pequeña gira a $300\text{ rpm}$ ($10\pi\text{ rad/s}$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">Desde el suelo se dispara verticalmente hacia arriba un objeto $A$ con velocidad de $40\text{ m/s}$. Dos segundos más tarde, se dispara desde el mismo punto un segundo objeto $B$ con velocidad de $50\text{ m/s}$. ¿A qué altura y en qué instante chocan?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Chocan a los $4{,}04\text{ s}$ del primer lanzamiento a una altura de $81{,}6\text{ m}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Un móvil parte del reposo en el origen en $t = 0$ con una aceleración que varía en el tiempo según $a(t) = 6t - 4$ (en $\text{m/s}^2$). Halla la ecuación de la velocidad $v(t)$, la ecuación de la posición $x(t)$ y la distancia recorrida a los $3\text{ segundos}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $v(t) = 3t^2 - 4t\text{ m/s}$; $x(t) = t^3 - 2t^2\text{ m}$; posición a los $3\text{ s}$: $x = 9\text{ metros}$.</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

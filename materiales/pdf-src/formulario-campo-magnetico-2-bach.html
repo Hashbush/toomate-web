@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Campo Magnético e Inducción Electromagnética | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11.2pt;
+      line-height: 1.45;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    section, .rounded-xl, .rounded-2xl {
+      break-inside: avoid;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eff6ff;
+      border: 2.5px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #93c5fd;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.35em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Campo Magnético e Inducción Electromagnética</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Física 2º Bachillerato</span>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    
+
+    <!-- 1: FUERZA DE LORENTZ Y MOVIMIENTO CIRCULAR -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-cyan-600 text-white inline-flex items-center justify-center text-sm font-bold">1</span>
+        Fuerza de Lorentz y Trayectorias de Partículas
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-cyan-800">Fuerza Magnética sobre una Carga</h4>
+          <p class="text-slate-600">Actúa sólo cuando la carga está en movimiento y con componente perpendicular a $\vec{B}$:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$\vec{F}_m = q (\vec{v} \times \vec{B}) \implies F_m = |q| v B \sin \alpha$$
+          </div>
+          <p class="text-sm text-slate-500"><strong>Propiedad vital:</strong> $\vec{F}_m \perp \vec{v}$, por lo que <strong>nunca realiza trabajo</strong> ($W = 0$) y no altera el módulo de la velocidad ni la energía cinética.</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-cyan-800">Movimiento Circular Uniforme (MCU)</h4>
+          <p class="text-slate-600">Si $\vec{v} \perp \vec{B}$, la fuerza magnética actúa de fuerza centrípeta pura:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$R = \frac{m v}{|q| B}, \quad T = \frac{2\pi m}{|q| B}$$
+          </div>
+          <p class="text-sm text-cyan-800 font-semibold">El periodo $T$ y la frecuencia ciclotrón no dependen de la velocidad ni del radio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2: LEY DE BIOT-SAVART Y AMPÈRE -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-cyan-600 text-white inline-flex items-center justify-center text-sm font-bold">2</span>
+        Campos Magnéticos Creados por Corrientes Eléctricas
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-base">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+          <h5 class="font-bold text-slate-800 text-sm mb-1 uppercase tracking-wider text-cyan-700">Hilo Rectilíneo Infinito</h5>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center my-1 text-sm font-bold">
+            $$B = \frac{\mu_0 I}{2\pi d}$$
+          </div>
+          <p class="text-sm text-slate-500">Líneas circulares concéntricas. Sentido dado por la regla del pulgar derecho. $\mu_0 = 4\pi \cdot 10^{-7}\text{ T}\cdot\text{m/A}$.</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+          <h5 class="font-bold text-slate-800 text-sm mb-1 uppercase tracking-wider text-cyan-700">Espira Circular (Centro)</h5>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center my-1 text-sm font-bold">
+            $$B = \frac{\mu_0 I}{2 R}$$
+          </div>
+          <p class="text-sm text-slate-500">Si tiene $N$ espiras apretadas se multiplica por $N$.</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+          <h5 class="font-bold text-slate-800 text-sm mb-1 uppercase tracking-wider text-cyan-700">Solenoide / Bobina Larga</h5>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center my-1 text-sm font-bold">
+            $$B = \mu_0 \frac{N}{L} I = \mu_0 n I$$
+          </div>
+          <p class="text-sm text-slate-500">Campo uniforme y paralelo al eje en su interior; prácticamente nulo fuera.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3: INDUCCIÓN Y FARADAY-LENZ -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-cyan-600 text-white inline-flex items-center justify-center text-sm font-bold">3</span>
+        Inducción Electromagnética: Ley de Faraday y Lenz
+      </h2>
+
+      <div class="p-5 bg-cyan-50/50 border border-cyan-200 rounded-2xl space-y-3 text-base">
+        <p class="text-slate-700">
+          <strong>Flujo Magnético:</strong> Es el producto escalar del vector campo $\vec{B}$ por el vector superficie $\vec{S}$:
+        </p>
+        <div class="p-2 bg-white rounded-xl border border-cyan-200 font-mono text-center font-bold">
+          $$\Phi = \vec{B} \cdot \vec{S} = B S \cos \theta \quad (\text{en Webers, Wb})$$
+        </div>
+        <p class="text-slate-700">
+          <strong>Ley de Faraday-Henry y Ley de Lenz:</strong> Toda variación temporal del flujo que atraviesa un circuito cerrado genera una fuerza electromotriz ($\varepsilon$) inducida, cuyo sentido se opone siempre a la causa que lo produce (signo negativo):
+        </p>
+        <div class="p-3 bg-white rounded-xl border border-cyan-300 font-mono text-center font-bold text-cyan-950 text-base">
+          $$\varepsilon = -N \frac{d\Phi}{dt} \quad (\text{en Voltios, V})$$
+        </div>
+        <p class="text-slate-600 text-sm">
+          La corriente inducida resultante en un circuito de resistencia $R$ es: $I = \frac{\varepsilon}{R}$.
+        </p>
+      </div>
+    </section>
+
+  
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.lucide) lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

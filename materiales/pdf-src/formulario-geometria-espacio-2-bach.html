@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Geometría en el Espacio R³ | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11.2pt;
+      line-height: 1.45;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    section, .rounded-xl, .rounded-2xl {
+      break-inside: avoid;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eff6ff;
+      border: 2.5px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #93c5fd;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.35em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Geometría en el Espacio R³</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Matemáticas II 2º Bach</span>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    
+    
+    <!-- CABECERA -->
+    
+
+    <!-- INTRODUCCIÓN -->
+    <div class="bg-purple-50/70 border border-purple-200 rounded-2xl p-5 mb-8">
+      <h3 class="text-sm font-bold text-purple-900 flex items-center gap-2">
+        <i data-lucide="compass" class="w-4 h-4 text-purple-600"></i>
+        Concepto Clave del Bloque
+      </h3>
+      <p class="text-base text-purple-950 mt-1 leading-relaxed">
+        La geometría del espacio en 2º de Bachillerato combina el álgebra lineal (rangos, determinantes y sistemas) con el cálculo vectorial en $\mathbb{R}^3$. Dominar el vector director $\vec{v}_r$ de una recta y el vector normal $\vec{n}_\pi$ de un plano permite resolver el 90% de los problemas de posiciones relativas, distancias y puntos simétricos.
+      </p>
+    </div>
+
+    <!-- SECCIÓN 1: VECTORES EN EL ESPACIO -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-purple-600 text-white inline-flex items-center justify-center text-sm font-bold">1</span>
+        Operaciones Vectoriales en $\mathbb{R}^3$
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+          <h4 class="font-bold text-slate-800 text-sm mb-2 text-purple-700">Producto Escalar ($\vec{u} \cdot \vec{v}$)</h4>
+          <p class="text-sm text-slate-600 mb-2">Devuelve un <strong>número real</strong>. Mide ortogonalidad:</p>
+          <div class="text-sm font-mono bg-white p-2 rounded border border-slate-200 mb-2">
+            $$\vec{u} \cdot \vec{v} = u_1 v_1 + u_2 v_2 + u_3 v_3$$
+            $$\vec{u} \cdot \vec{v} = |\vec{u}| |\vec{v}| \cos \alpha$$
+          </div>
+          <p class="text-sm text-emerald-700 font-semibold">$\vec{u} \perp \vec{v} \iff \vec{u} \cdot \vec{v} = 0$</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+          <h4 class="font-bold text-slate-800 text-sm mb-2 text-purple-700">Producto Vectorial ($\vec{u} \times \vec{v}$)</h4>
+          <p class="text-sm text-slate-600 mb-2">Devuelve un <strong>vector perpendicular</strong> a ambos:</p>
+          <div class="text-sm font-mono bg-white p-2 rounded border border-slate-200 mb-2">
+            $$\vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \end{vmatrix}$$
+          </div>
+          <p class="text-sm text-amber-700 font-semibold">Área paralelogramo = $|\vec{u} \times \vec{v}|$</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+          <h4 class="font-bold text-slate-800 text-sm mb-2 text-purple-700">Producto Mixto ($[\vec{u}, \vec{v}, \vec{w}]$)</h4>
+          <p class="text-sm text-slate-600 mb-2">Determinante $3 \times 3$. Mide volumen y coplanariedad:</p>
+          <div class="text-sm font-mono bg-white p-2 rounded border border-slate-200 mb-2">
+            $$[\vec{u},\vec{v},\vec{w}] = \begin{vmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix}$$
+          </div>
+          <p class="text-sm text-indigo-700 font-semibold">Coplanares $\iff [\vec{u},\vec{v},\vec{w}] = 0$</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: ECUACIONES DE RECTA Y PLANO -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-purple-600 text-white inline-flex items-center justify-center text-sm font-bold">2</span>
+        Ecuaciones de la Recta y del Plano
+      </h2>
+
+      <div class="space-y-4">
+        <div class="p-5 bg-purple-50/40 rounded-2xl border border-purple-200">
+          <h3 class="font-bold text-purple-900 text-sm mb-2">La Recta $r(A, \vec{v})$ con $A(x_0,y_0,z_0)$ y $\vec{v}(v_1, v_2, v_3)$</h3>
+          <ul class="text-base text-slate-700 space-y-2 list-disc list-inside">
+            <li><strong>Forma Continua:</strong> $\frac{x - x_0}{v_1} = \frac{y - y_0}{v_2} = \frac{z - z_0}{v_3}$</li>
+            <li><strong>Forma Paramétrica:</strong> $x = x_0 + \lambda v_1, \quad y = y_0 + \lambda v_2, \quad z = z_0 + \lambda v_3$</li>
+            <li><strong>Forma Implícita (Intersección de dos planos):</strong> $\begin{cases} A_1 x + B_1 y + C_1 z + D_1 = 0 \\ A_2 x + B_2 y + C_2 z + D_2 = 0 \end{cases} \implies \vec{v}_r = \vec{n}_1 \times \vec{n}_2$</li>
+          </ul>
+        </div>
+
+        <div class="p-5 bg-blue-50/40 rounded-2xl border border-blue-200">
+          <h3 class="font-bold text-blue-900 text-sm mb-2">El Plano $\pi(P, \vec{n})$ con $P(x_0,y_0,z_0)$ y vector normal $\vec{n}(A, B, C)$</h3>
+          <p class="text-base text-slate-700 mb-2">
+            La ecuación general o implícita del plano es:
+          </p>
+          <div class="p-3 bg-white border border-blue-200 rounded-xl font-mono text-center text-sm font-bold text-blue-900">
+            $$A(x - x_0) + B(y - y_0) + C(z - z_0) = 0 \iff Ax + By + Cz + D = 0$$
+          </div>
+          <p class="text-sm text-slate-600 mt-2">
+            Donde $D = -(Ax_0 + By_0 + Cz_0)$. Si el plano viene dado por dos vectores directores $\vec{u}$ y $\vec{v}$, entonces $\vec{n} = \vec{u} \times \vec{v}$.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: POSICIONES RELATIVAS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-purple-600 text-white inline-flex items-center justify-center text-sm font-bold">3</span>
+        Posiciones Relativas y Rangos
+      </h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-base text-left border border-slate-200 rounded-xl overflow-hidden">
+          <thead class="bg-purple-100/70 text-purple-900 font-bold">
+            <tr>
+              <th class="p-3 border-b">Configuración</th>
+              <th class="p-3 border-b">Matrices a Analizar</th>
+              <th class="p-3 border-b">Rangos y Resultado</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 bg-white">
+            <tr>
+              <td class="p-3 font-semibold text-slate-800">Dos rectas $r(A,\vec{u})$ y $s(B,\vec{v})$</td>
+              <td class="p-3 font-mono text-sm">$M = (\vec{u} \mid \vec{v})$, $M^* = (\vec{u} \mid \vec{v} \mid \vec{AB})$</td>
+              <td class="p-3 text-sm">
+                $\text{Rg}(M)=1, \text{Rg}(M^*)=1 \implies \text{Coincidentes}$<br>
+                $\text{Rg}(M)=1, \text{Rg}(M^*)=2 \implies \text{Paralelas}$<br>
+                $\text{Rg}(M)=2, \text{Rg}(M^*)=2 \implies \text{Se cortan en un punto}$<br>
+                $\text{Rg}(M)=2, \text{Rg}(M^*)=3 \implies \text{Se cruzan en el espacio}$
+              </td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-slate-800">Recta $r(A,\vec{v})$ y Plano $\pi(\vec{n})$</td>
+              <td class="p-3 font-mono text-sm">Producto $\vec{v} \cdot \vec{n}$ y pertenencia de $A$</td>
+              <td class="p-3 text-sm">
+                $\vec{v} \cdot \vec{n} = 0 \text{ y } A \in \pi \implies \text{Recta contenida en el plano}$<br>
+                $\vec{v} \cdot \vec{n} = 0 \text{ y } A \notin \pi \implies \text{Recta paralela al plano}$<br>
+                $\vec{v} \cdot \vec{n} \neq 0 \implies \text{Se cortan en un punto (secantes)}$
+              </td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-slate-800">Dos planos $\pi_1$ y $\pi_2$</td>
+              <td class="p-3 font-mono text-sm">Proporcionalidad de coeficientes</td>
+              <td class="p-3 text-sm">
+                $\frac{A_1}{A_2} = \frac{B_1}{B_2} = \frac{C_1}{C_2} = \frac{D_1}{D_2} \implies \text{Coincidentes}$<br>
+                $\frac{A_1}{A_2} = \frac{B_1}{B_2} = \frac{C_1}{C_2} \neq \frac{D_1}{D_2} \implies \text{Paralelos}$<br>
+                No proporcionales $\implies \text{Se cortan en una recta}$
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: FÓRMULAS MÉTRICAS ESENCIALES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-purple-600 text-white inline-flex items-center justify-center text-sm font-bold">4</span>
+        Formulario Maestro de Distancias y Ángulos
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+          <span class="text-sm font-bold text-purple-700 uppercase">Distancia Punto a Plano</span>
+          <div class="my-2 p-2 bg-white rounded border border-slate-200 text-center text-sm font-mono font-bold">
+            $$d(P, \pi) = \frac{|A x_0 + B y_0 + C z_0 + D|}{\sqrt{A^2 + B^2 + C^2}}$$
+          </div>
+          <p class="text-sm text-slate-600">Sustituye las coordenadas de $P$ en la ecuación general del plano y divide entre el módulo del vector normal.</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+          <span class="text-sm font-bold text-purple-700 uppercase">Distancia Punto a Recta</span>
+          <div class="my-2 p-2 bg-white rounded border border-slate-200 text-center text-sm font-mono font-bold">
+            $$d(P, r) = \frac{|\vec{AP} \times \vec{v}_r|}{|\vec{v}_r|}$$
+          </div>
+          <p class="text-sm text-slate-600">Área del paralelogramo dividida entre la base (módulo del vector director de $r$).</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+          <span class="text-sm font-bold text-purple-700 uppercase">Distancia entre Rectas Cruzadas</span>
+          <div class="my-2 p-2 bg-white rounded border border-slate-200 text-center text-sm font-mono font-bold">
+            $$d(r, s) = \frac{|[\vec{u}, \vec{v}, \vec{AB}]|}{|\vec{u} \times \vec{v}|}$$
+          </div>
+          <p class="text-sm text-slate-600">Volumen del paralelepípedo dividido por el área de la base.</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+          <span class="text-sm font-bold text-purple-700 uppercase">Punto Simétrico $P'$ respecto a un Plano</span>
+          <div class="my-2 p-2 bg-white rounded border border-slate-200 text-sm">
+            <ol class="list-decimal list-inside space-y-1 text-slate-700">
+              <li>Recta normal: $r \perp \pi$ que pasa por $P$ con vector $\vec{n}$.</li>
+              <li>Punto medio $M = r \cap \pi$.</li>
+              <li>Simétrico: $P' = 2M - P$.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUCO EVAU -->
+    <div class="p-5 bg-amber-50 border-l-4 border-amber-500 rounded-r-2xl mb-8">
+      <h4 class="text-sm font-bold text-amber-900 flex items-center gap-2">
+        <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600"></i>
+        Trampa Típica de Selectividad: Ángulo Recta-Plano
+      </h4>
+      <p class="text-base text-amber-950 mt-1 leading-relaxed">
+        El ángulo entre dos rectas o dos planos utiliza el $\cos \alpha$. Sin embargo, el ángulo entre una <strong>recta y un plano</strong> utiliza el <strong>$\sin \alpha$</strong>:
+        $$\sin \alpha = \frac{|\vec{v} \cdot \vec{n}|}{|\vec{v}| |\vec{n}|}$$
+        Esto ocurre porque $\vec{n}$ es perpendicular al plano, formando el complementario del ángulo buscado.
+      </p>
+    </div>
+
+  
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.lucide) lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

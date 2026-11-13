@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Equilibrio Ácido-Base y pH | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11.2pt;
+      line-height: 1.45;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    section, .rounded-xl, .rounded-2xl {
+      break-inside: avoid;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eff6ff;
+      border: 2.5px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #93c5fd;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.35em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Equilibrio Ácido-Base y pH</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Química 2º Bachillerato</span>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    
+    
+    <!-- CABECERA DEL DOCUMENTO -->
+    
+
+    <!-- INTRODUCCIÓN -->
+    <section class="mb-8 p-5 bg-emerald-50/70 rounded-2xl border border-emerald-100 text-sm text-emerald-950 leading-relaxed">
+      <div class="flex items-start gap-3">
+        <i data-lucide="flask-conical" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
+        <div>
+          <p class="font-bold text-emerald-900 mb-1">Tema imprescindible de la Química de 2º de Bachillerato:</p>
+          <p>
+            Las reacciones de transferencia de protones (ácido-base) aparecen en el 100% de los exámenes de Selectividad / EvAU. En esta guía dominarás la definición de pares conjugados según Brönsted-Lowry, el producto iónico del agua ($K_w$), el cálculo riguroso del pH para especies fuertes y débiles ($K_a, K_b$), la predicción del pH en la hidrólisis de sales y los cálculos estequiométricos de neutralizaciones ácido-base.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 1: TEORÍA DE BRÖNSTED-LOWRY Y KW -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-600 pl-3 mb-4">
+        1. Teoría de Brönsted-Lowry y Autoionización del Agua
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm text-sm">
+          <span class="font-bold text-emerald-700 text-sm block mb-1">Ácido y Base Conjugados</span>
+          <p><strong>Ácido:</strong> Especie química capaz de <strong>ceder protones</strong> ($H^+$).</p>
+          <p class="mt-1"><strong>Base:</strong> Especie química capaz de <strong>aceptar protones</strong> ($H^+$).</p>
+          <div class="bg-slate-50 p-2 rounded mt-2 text-center font-mono">
+            $$\text{HA} + \text{H}_2\text{O} \rightleftharpoons \text{A}^- + \text{H}_3\text{O}^+$$
+          </div>
+          <p class="text-sm text-slate-500 mt-1">Par conjugado: $\text{HA} / \text{A}^-$.</p>
+        </div>
+
+        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm text-sm">
+          <span class="font-bold text-emerald-700 text-sm block mb-1">Producto Iónico del Agua ($K_w$)</span>
+          <p>A $25^\circ\text{C}$, el agua pura se autoioniza en grado mínimo:</p>
+          <div class="bg-slate-50 p-2 rounded mt-2 text-center font-mono">
+            $$K_w = [\text{H}_3\text{O}^+][\text{OH}^-] = 1.0 \times 10^{-14}$$
+          </div>
+          <p class="mt-2">Tomando logaritmos negativos:</p>
+          <div class="text-center font-bold text-emerald-900">
+            $$\text{pH} + \text{pOH} = 14$$
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: ESCALA DE PH Y FUERZA ÁCIDO-BASE -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-600 pl-3 mb-4">
+        2. Escala de pH y Fuerza de Ácidos y Bases
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-center mb-4 text-sm">
+        <div class="p-3 bg-rose-50 border border-rose-200 rounded-xl">
+          <strong class="text-rose-700 block text-sm">Medio Ácido</strong>
+          $[\text{H}_3\text{O}^+] > 10^{-7}\text{ M}$
+          <br><span class="font-bold text-rose-900 mt-1 block">$\text{pH} < 7$</span>
+        </div>
+        <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+          <strong class="text-slate-700 block text-sm">Medio Neutro</strong>
+          $[\text{H}_3\text{O}^+] = [\text{OH}^-] = 10^{-7}\text{ M}$
+          <br><span class="font-bold text-slate-900 mt-1 block">$\text{pH} = 7$</span>
+        </div>
+        <div class="p-3 bg-blue-50 border border-blue-200 rounded-xl">
+          <strong class="text-blue-700 block text-sm">Medio Básico</strong>
+          $[\text{OH}^-] > 10^{-7}\text{ M}$
+          <br><span class="font-bold text-blue-900 mt-1 block">$\text{pH} > 7$</span>
+        </div>
+      </div>
+
+      <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-sm space-y-2">
+        <p><strong>Ácidos y Bases Fuertes:</strong> Se disocian al $100\%$ ($\alpha = 1$). No tienen equilibrio. Ejemplos: $\text{HCl}, \text{HNO}_3, \text{H}_2\text{SO}_4, \text{NaOH}, \text{KOH}$.</p>
+        <p>$$[\text{H}_3\text{O}^+] = c_0 \implies \text{pH} = -\log(c_0)$$</p>
+        <p><strong>Ácidos y Bases Débiles:</strong> Se disocian parcialmente estableciendo un equilibrio gobernado por $K_a$ o $K_b$. Ejemplos: $\text{CH}_3\text{COOH}, \text{HF}, \text{NH}_3$.</p>
+        <p>$$K_a = \frac{[\text{A}^-][\text{H}_3\text{O}^+]}{[\text{HA}]} \approx \frac{x^2}{c_0 - x} \approx \frac{x^2}{c_0} \quad (\text{si } c_0/K_a > 100)$$</p>
+        <p>Relación conjugada: $$K_a \cdot K_b = K_w = 10^{-14}$$</p>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: HIDRÓLISIS DE SALES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-600 pl-3 mb-4">
+        3. Hidrólisis de Sales: Predicción del Carácter Ácido, Básico o Neutro
+      </h2>
+      <p class="text-sm text-slate-600 mb-3 leading-relaxed">
+        Al disolver una sal en agua, se disocia en sus iones. <strong>Solo los iones procedentes de ácidos o bases débiles reaccionan con el agua (sufren hidrólisis)</strong>:
+      </p>
+
+      <div class="space-y-2 text-sm">
+        <div class="p-3 bg-white border border-slate-200 rounded-xl">
+          <strong>1. Sal de Ácido Fuerte + Base Fuerte ($\text{NaCl}, \text{KNO}_3$):</strong> Ningún ion se hidroliza. $\mathbf{\text{pH} = 7}$ (Neutro).
+        </div>
+        <div class="p-3 bg-white border border-slate-200 rounded-xl">
+          <strong>2. Sal de Ácido Débil + Base Fuerte ($\text{CH}_3\text{COONa}, \text{KCN}$):</strong> El anión débil se hidroliza generando iones $\text{OH}^-$:
+          $$\text{CH}_3\text{COO}^- + \text{H}_2\text{O} \rightleftharpoons \text{CH}_3\text{COOH} + \text{OH}^- \implies \mathbf{\text{pH} > 7} \text{ (Básico)}$$
+        </div>
+        <div class="p-3 bg-white border border-slate-200 rounded-xl">
+          <strong>3. Sal de Ácido Fuerte + Base Débil ($\text{NH}_4\text{Cl}$):</strong> El catión débil se hidroliza generando iones $\text{H}_3\text{O}^+$:
+          $$\text{NH}_4^+ + \text{H}_2\text{O} \rightleftharpoons \text{NH}_3 + \text{H}_3\text{O}^+ \implies \mathbf{\text{pH} < 7} \text{ (Ácido)}$$
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: VOLUMETRÍAS Y NEUTRALIZACIÓN -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-600 pl-3 mb-4">
+        4. Neutralizaciones y Valoraciones Ácido-Base
+      </h2>
+      <p class="text-sm text-slate-600 mb-2 leading-relaxed">
+        Reacción de neutralización: $\text{Ácido} + \text{Base} \to \text{Sal} + \text{Agua}$.
+      </p>
+      <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-center text-sm">
+        <p class="font-bold text-emerald-900 mb-1">Punto de Equivalencia:</p>
+        <p>$$\text{Nº moles } \text{H}^+ = \text{Nº moles } \text{OH}^- \implies a \cdot M_A \cdot V_A = b \cdot M_B \cdot V_B$$</p>
+        <p class="text-sm text-slate-500 mt-1">($a$ y $b$ son el número de protones o hidróxidos cedidos por molécula).</p>
+      </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-sm text-slate-500 gap-3">
+      <div>&copy; Toomate.es &bull; Física y Química Secundaria y Bachillerato</div>
+      <div class="flex items-center gap-2">
+        <a href="ejercicios-reacciones-acido-base-2-bach.html" class="text-emerald-600 hover:underline font-semibold flex items-center gap-1">
+          Ir al Boletín de 22 Ejercicios con Soluciones <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </footer>
+
+  
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.lucide) lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

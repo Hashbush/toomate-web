@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Estequiometría, Disoluciones y Reactivo Limitante | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11.2pt;
+      line-height: 1.45;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    section, .rounded-xl, .rounded-2xl {
+      break-inside: avoid;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eff6ff;
+      border: 2.5px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #93c5fd;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.35em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Estequiometría, Disoluciones y Reactivo Limitante</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Química 1º Bachillerato</span>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    
+    
+    
+
+    <!-- RESUMEN CLAVE -->
+    <section class="mb-10 bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-6">
+      <h2 class="text-lg font-bold text-emerald-950 flex items-center gap-2 mb-3">
+        <i data-lucide="flask-conical" class="w-5 h-5 text-emerald-600"></i>
+        Fórmulas Fundamentales de Estequiometría
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Concepto de Mol y Gases Ideales:</p>
+          <div class="text-slate-700">$$n = \frac{m}{M} = \frac{N_{\text{partículas}}}{N_A}, \quad P \cdot V = n \cdot R \cdot T$$</div>
+          <p class="text-sm text-slate-500 mt-1">$N_A = 6{,}022 \times 10^{23}\text{ partículas/mol}$; $R = 0{,}082\text{ atm}\cdot\text{L}/(\text{mol}\cdot\text{K})$.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Concentraciones en Disolución:</p>
+          <div class="text-slate-700">$$M = \frac{n_{\text{soluto}}}{V_{\text{disol}}(\text{L})}, \quad m = \frac{n_{\text{soluto}}}{m_{\text{dsv}}(\text{kg})}, \quad \% = \frac{m_{\text{soluto}}}{m_{\text{total}}} \times 100$$</div>
+          <p class="text-sm text-slate-500 mt-1">Fracción molar: $X_i = \frac{n_i}{n_{\text{total}}}$, con $\sum X_i = 1$.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Reactivo Limitante:</p>
+          <div class="text-slate-700">$$\text{Reactivo con menor cociente } \frac{n_{\text{inicial}}}{\text{coeficiente estequiométrico}}$$</div>
+          <p class="text-sm text-slate-500 mt-1">Determina estrictamente la cantidad teórica máxima de producto que puede formarse.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Rendimiento y Pureza:</p>
+          <div class="text-slate-700">$$\eta = \frac{m_{\text{real}}}{m_{\text{teórica}}} \times 100, \quad m_{\text{pura}} = m_{\text{muestra}} \times \frac{\%\text{ pureza}}{100}$$</div>
+          <p class="text-sm text-slate-500 mt-1">Las impurezas inertes nunca intervienen en el balance molar de la reacción.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 1: ESTRATEGIA ESTEQUIOMETRICA -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        1. Protocolo de Resolución Estequiométrica Paso a Paso
+      </h2>
+      <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+        <ol class="list-decimal pl-6 space-y-2">
+          <li><strong>Escribir y ajustar la reacción química balanceada.</strong> Comprobar la conservación atómica de cada elemento.</li>
+          <li><strong>Filtrar la pureza:</strong> Si el enunciado indica una riqueza (ej. mineral al $80\%$), calcular los gramos puros antes de convertirlos a moles: $m_{\text{pura}} = m_{\text{mineral}} \cdot (\% / 100)$.</li>
+          <li><strong>Convertir todos los datos iniciales a moles ($n$):</strong> mediante masas molares ($m / M$), volúmenes y molaridades ($M \cdot V$) o ecuación de gases ($P V / R T$).</li>
+          <li><strong>Identificar el reactivo limitante:</strong> Dividir los moles de cada reactivo entre su respectivo coeficiente estequiométrico. El menor valor define el reactivo limitante.</li>
+          <li><strong>Calcular los moles teóricos de producto:</strong> aplicando la relación molar estequiométrica con respecto al reactivo limitante.</li>
+          <li><strong>Aplicar el rendimiento:</strong> Si el rendimiento es inferior al $100\%$, multiplicar por $\eta / 100$.</li>
+          <li><strong>Expresar en las unidades solicitadas:</strong> gramos, volumen gaseoso o molaridad final.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: DISOLUCIONES Y PREPARACION EN LABORATORIO -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        2. Diluciones y Preparación de Reactivos en el Laboratorio
+      </h2>
+      <div class="space-y-3 text-sm text-slate-700 leading-relaxed">
+        <p>
+          Al preparar una disolución diluida a partir de una disolución concentrada mediante adición de agua destilada, el número de moles de soluto permanece constante:
+        </p>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          $$n_{\text{inicial}} = n_{\text{final}} \implies M_1 \cdot V_1 = M_2 \cdot V_2$$
+          <p class="text-sm text-slate-600 mt-2">
+            Regla de seguridad: al diluir ácidos concentrados ($\text{H}_2\text{SO}_4$, $\text{HCl}$), <em>"nunca dar de beber al ácido"</em> (añadir siempre el ácido sobre el agua lentamente con agitación constante, debido a que el proceso es fuertemente exotérmico).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.lucide) lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

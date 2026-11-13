@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Estequiometría, Disoluciones y Reactivo Limitante | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Estequiometría, Disoluciones y Reactivo Limitante</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">En una muestra de $9\text{ g}$ de agua ($\text{H}_2\text{O}$), calcula: a) los moles de agua, b) el número de moléculas de agua, c) el número total de átomos de hidrógeno y de oxígeno ($M = 18\text{ g/mol}$, $N_A = 6{,}022 \times 10^{23}\text{ partículas/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Moles:</strong> $n = \frac{m}{M} = \frac{9\text{ g}}{18\text{ g/mol}} = 0{,}5\text{ moles}$.</p>
+                <p><strong>b) Moléculas:</strong> $N_{\text{moléc}} = 0{,}5 \times 6{,}022 \times 10^{23} = \mathbf{3{,}011 \times 10^{23}\text{ moléculas}}$.</p>
+                <p><strong>c) Átomos:</strong> Cada molécula contiene 2 átomos de H y 1 átomo de O:</p>
+                <p>Átomos de H: $2 \times (3{,}011 \times 10^{23}) = \mathbf{6{,}022 \times 10^{23}\text{ átomos de H}}$.</p>
+                <p>Átomos de O: $\mathbf{3{,}011 \times 10^{23}\text{ átomos de O}}$. Total: $9{,}033 \times 10^{23}$ átomos.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Se disuelven $11{,}7\text{ g}$ de cloruro de sodio ($\text{NaCl}$) en agua destilada hasta enrasar un matraz aforado de $500\text{ mL}$. Calcula la concentración molar (Molaridad) de la disolución resultante ($M(\text{Na}) = 23$, $M(\text{Cl}) = 35{,}5\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Masa molar de $\text{NaCl}$: $M = 23 + 35{,}5 = 58{,}5\text{ g/mol}$.</p>
+                <p>Moles de soluto: $n = \frac{11{,}7\text{ g}}{58{,}5\text{ g/mol}} = 0{,}20\text{ moles}$.</p>
+                <p>Volumen en litros: $V = 500\text{ mL} = 0{,}50\text{ L}$.</p>
+                $$M = \frac{n}{V} = \frac{0{,}20\text{ mol}}{0{,}50\text{ L}} = \mathbf{0{,}40\text{ mol/L (0,40 M)}}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Disponemos de una disolución de hidróxido de sodio $2{,}0\text{ M}$. ¿Qué volumen de esta disolución concentrada debemos tomar con una pipeta para preparar exactamente $250\text{ mL}$ de una disolución diluida $0{,}10\text{ M}$?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Aplicando el principio de conservación de moles de soluto en dilución:</p>
+                $$M_1 \cdot V_1 = M_2 \cdot V_2 \implies V_1 = \frac{M_2 \cdot V_2}{M_1}$$
+                $$V_1 = \frac{0{,}10\text{ M} \cdot 250\text{ mL}}{2{,}0\text{ M}} = \frac{25}{2{,}0} = \mathbf{12{,}5\text{ mL}}.$$
+                <p>Se toman $12{,}5\text{ mL}$ con pipeta aforada y se añaden a un matraz de $250\text{ mL}$ completando con agua hasta el enrase.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">El gas propano arde según: $\text{C}_3\text{H}_8(g) + 5\text{ O}_2(g) \to 3\text{ CO}_2(g) + 4\text{ H}_2\text{O}(l)$. Calcula cuántos moles de $\text{O}_2$ y cuántos gramos de $\text{CO}_2$ se obtienen al quemar completamente $88\text{ g}$ de propano ($M(\text{C}_3\text{H}_8) = 44$, $M(\text{CO}_2) = 44\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Moles de propano: $n = \frac{88\text{ g}}{44\text{ g/mol}} = 2\text{ moles}$.</p>
+                <p>Por la estequiometría $1 : 5 : 3$:</p>
+                <p>Moles de $\text{O}_2$: $n_{\text{O}_2} = 5 \times 2 = \mathbf{10\text{ moles de O}_2}$.</p>
+                <p>Moles de $\text{CO}_2$: $n_{\text{CO}_2} = 3 \times 2 = 6\text{ moles}$.</p>
+                <p>Masa de $\text{CO}_2$: $m = 6\text{ mol} \times 44\text{ g/mol} = \mathbf{264\text{ gramos de CO}_2}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">La descomposición térmica de $100\text{ g}$ de cloruro de potasio ($\text{KClO}_3$) genera oxígeno: $2\text{ KClO}_3(s) \to 2\text{ KCl}(s) + 3\text{ O}_2(g)$. Calcula el volumen de $\text{O}_2$ liberado medido en condiciones normales ($0^\circ\text{C}$ y $1\text{ atm}$, donde $1\text{ mol} = 22{,}4\text{ L}$). ($M(\text{KClO}_3) = 122{,}55\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Moles de $\text{KClO}_3$: $n = \frac{100\text{ g}}{122{,}55\text{ g/mol}} \approx 0{,}816\text{ moles}$.</p>
+                <p>Moles de $\text{O}_2$: $n_{\text{O}_2} = \frac{3}{2} \times 0{,}816 = 1{,}224\text{ moles}$.</p>
+                <p>Volumen en c.n.: $V = 1{,}224\text{ mol} \times 22{,}4\text{ L/mol} = \mathbf{27{,}42\text{ Litros}}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Un ácido clorhídrico comercial tiene una densidad de $1{,}18\text{ g/mL}$ y una riqueza del $36\%$ en masa de $\text{HCl}$. Calcula la molaridad de este reactivo comercial ($M(\text{HCl}) = 36{,}5\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Tomando como base de cálculo $1\text{ Litro}$ ($1000\text{ mL}$) de disolución:</p>
+                <p>Masa total de la disolución: $m_{\text{disol}} = V \cdot d = 1000\text{ mL} \times 1{,}18\text{ g/mL} = 1180\text{ g}$.</p>
+                <p>Masa de soluto puro: $m_{\text{HCl}} = 1180\text{ g} \times 0{,}36 = 424{,}8\text{ g}$.</p>
+                <p>Moles de soluto en 1 L: $n = \frac{424{,}8\text{ g}}{36{,}5\text{ g/mol}} = 11{,}64\text{ moles}$.</p>
+                $$M = \frac{10 \cdot d(\text{g/L}) \cdot \%}{M} \implies M = \mathbf{11{,}64\text{ M}}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Al añadir cinc metálico sobre ácido clorhídrico se desprende hidrógeno: $\text{Zn}(s) + 2\text{ HCl}(aq) \to \text{ZnCl}_2(aq) + \text{H}_2(g)$. Calcula el volumen de gas $\text{H}_2$ recogido a $25^\circ\text{C}$ y $740\text{ mmHg}$ al reaccionar $6{,}54\text{ g}$ de cinc ($M = 65{,}4\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Moles de Zn: $n_{\text{Zn}} = \frac{6{,}54}{65{,}4} = 0{,}10\text{ moles}$.</p>
+                <p>Moles de $\text{H}_2$ formados: $n_{\text{H}_2} = 0{,}10\text{ moles}$.</p>
+                <p>Presión y temperatura: $P = \frac{740}{760} \approx 0{,}9737\text{ atm}$, $T = 298{,}15\text{ K}$.</p>
+                $$V = \frac{n R T}{P} = \frac{0{,}10 \cdot 0{,}082 \cdot 298{,}15}{0{,}9737} \approx \frac{2{,}445}{0{,}9737} \approx \mathbf{2{,}51\text{ Litros}}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Calcula el porcentaje en masa de nitrógeno en el nitrato amónico ($\text{NH}_4\text{NO}_3$), uno de los fertilizantes más utilizados en agricultura ($M(\text{N}) = 14$, $M(\text{H}) = 1$, $M(\text{O}) = 16$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Masa molar: $M = 2(14) + 4(1) + 3(16) = 28 + 4 + 48 = 80\text{ g/mol}$.</p>
+                $$\%\text{ N} = \frac{28\text{ g de N}}{80\text{ g totales}} \times 100 = \mathbf{35{,}0\%}.$$
+              </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">Se mezclan $20\text{ g}$ de hidrógeno gas y $128\text{ g}$ de oxígeno gas para formar agua según: $2\text{ H}_2(g) + \text{O}_2(g) \to 2\text{ H}_2\text{O}(l)$. Determina: a) cuál es el reactivo limitante, b) la masa de agua formada, c) la masa del reactivo en exceso que queda sin reaccionar.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Moles iniciales: $n(\text{H}_2) = \frac{20}{2} = 10\text{ moles}$, $n(\text{O}_2) = \frac{128}{32} = 4\text{ moles}$.</p>
+                <p>Cocientes estequiométricos:</p>
+                <p>Para $\text{H}_2$: $\frac{10}{2} = 5$. Para $\text{O}_2$: $\frac{4}{1} = 4$.</p>
+                <p><strong>a) Reactivo limitante:</strong> El <strong>oxígeno ($\text{O}_2$)</strong> por tener menor cociente.</p>
+                <p><strong>b) Masa de agua:</strong> $4\text{ mol de O}_2$ producen $2 \times 4 = 8\text{ moles de H}_2\text{O}$.</p>
+                <p>$m(\text{H}_2\text{O}) = 8\text{ mol} \times 18\text{ g/mol} = \mathbf{144\text{ gramos de agua}}$.</p>
+                <p><strong>c) Reactivo en exceso:</strong> Reaccionan $2 \times 4 = 8\text{ moles de H}_2$. Quedan sin reaccionar: $10 - 8 = 2\text{ moles de H}_2 = 2 \times 2 = \mathbf{4\text{ gramos de H}_2}$.</p>
+                <p>(Comprobación de conservación de masa: $144\text{ g producto} + 4\text{ g sobrante} = 148\text{ g iniciales}$).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Una muestra de $150\text{ g}$ de piedra caliza con una riqueza del $80\%$ en carbonato de calcio ($\text{CaCO}_3$) se trata con exceso de ácido clorhídrico: $\text{CaCO}_3(s) + 2\text{ HCl}(aq) \to \text{CaCl}_2(aq) + \text{CO}_2(g) + \text{H}_2\text{O}(l)$. Halla la masa de $\text{CaCl}_2$ producida y el volumen de $\text{CO}_2$ medido en c.n. ($M(\text{CaCO}_3) = 100$, $M(\text{CaCl}_2) = 111\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Masa pura de $\text{CaCO}_3$: $m_{\text{pura}} = 150\text{ g} \times 0{,}80 = 120\text{ gramos}$.</p>
+                <p>Moles de $\text{CaCO}_3$: $n = \frac{120}{100} = 1{,}2\text{ moles}$.</p>
+                <p>Masa de $\text{CaCl}_2$: $m = 1{,}2\text{ mol} \times 111\text{ g/mol} = \mathbf{133{,}2\text{ gramos}}$.</p>
+                <p>Volumen de $\text{CO}_2$ en c.n.: $V = 1{,}2\text{ mol} \times 22{,}4\text{ L/mol} = \mathbf{26{,}88\text{ Litros}}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">La aspirina (ácido acetilsalicílico, $M = 180\text{ g/mol}$) se prepara haciendo reaccionar ácido salicílico ($M = 138\text{ g/mol}$) con anhídrido acético en proporción molar $1:1$. Si a partir de $13{,}8\text{ g}$ de ácido salicílico se aíslan experimentalmente $14{,}4\text{ g}$ de aspirina pura, ¿cuál ha sido el rendimiento de la reacción?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Moles de reactivo: $n = \frac{13{,}8\text{ g}}{138\text{ g/mol}} = 0{,}10\text{ moles}$.</p>
+                <p>Masa teórica máxima de aspirina ($100\%$ rendimiento):</p>
+                $$m_{\text{teórica}} = 0{,}10\text{ mol} \times 180\text{ g/mol} = 18{,}0\text{ gramos}.$$
+                <p>Rendimiento experimental:</p>
+                $$\eta = \frac{m_{\text{real}}}{m_{\text{teórica}}} \times 100 = \frac{14{,}4\text{ g}}{18{,}0\text{ g}} \times 100 = \mathbf{80{,}0\%}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Una disolución acuosa anticongelante contiene $124\text{ g}$ de etilenglicol ($\text{C}_2\text{H}_6\text{O}_2$, $M = 62\text{ g/mol}$) disueltos en $500\text{ g}$ de agua pura ($M = 18\text{ g/mol}$). Calcula: a) la molalidad ($m$), b) la fracción molar del soluto y del disolvente.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Moles de soluto: $n_{\text{soluto}} = \frac{124}{62} = 2\text{ moles}$.</p>
+                <p>Masa de disolvente: $0{,}500\text{ kg}$ de agua.</p>
+                <p><strong>a) Molalidad:</strong> $m = \frac{2\text{ mol}}{0{,}500\text{ kg}} = \mathbf{4{,}0\text{ mol/kg (4 m)}}$.</p>
+                <p><strong>b) Fracciones molares:</strong></p>
+                <p>Moles de agua: $n_{\text{agua}} = \frac{500}{18} \approx 27{,}78\text{ moles}$. Moles totales = $29{,}78$.</p>
+                <p>$X_{\text{soluto}} = \frac{2}{29{,}78} \approx \mathbf{0{,}0672}, \quad X_{\text{agua}} = 1 - 0{,}0672 = \mathbf{0{,}9328}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">¿Qué volumen de disolución $0{,}25\text{ M}$ de hidróxido de sodio ($\text{NaOH}$) se necesita para neutralizar exactamente $40\text{ mL}$ de una disolución $0{,}15\text{ M}$ de ácido sulfúrico ($\text{H}_2\text{SO}_4$)? Escribe la reacción ajustada.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                $$\text{H}_2\text{SO}_4(aq) + 2\text{ NaOH}(aq) \to \text{Na}_2\text{SO}_4(aq) + 2\text{ H}_2\text{O}(l)$$
+                <p>Moles de ácido: $n_A = 0{,}040\text{ L} \times 0{,}15\text{ M} = 6 \times 10^{-3}\text{ moles}$.</p>
+                <p>Moles de base necesarios (relación $1:2$): $n_B = 2 \times (6 \times 10^{-3}) = 1{,}2 \times 10^{-2}\text{ moles}$.</p>
+                $$V_B = \frac{n_B}{M_B} = \frac{1{,}2 \times 10^{-2}\text{ mol}}{0{,}25\text{ M}} = 0{,}048\text{ L} = \mathbf{48\text{ mL}}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Se mezclan $200\text{ mL}$ de ácido clorhídrico $3{,}0\text{ M}$ con $300\text{ mL}$ de ácido clorhídrico $1{,}0\text{ M}$. Suponiendo volúmenes aditivos, calcula la concentración molar de la disolución resultante.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Moles en disolución 1: $n_1 = 0{,}200\text{ L} \times 3{,}0\text{ M} = 0{,}60\text{ moles}$.</p>
+                <p>Moles en disolución 2: $n_2 = 0{,}300\text{ L} \times 1{,}0\text{ M} = 0{,}30\text{ moles}$.</p>
+                <p>Moles totales: $n_T = 0{,}60 + 0{,}30 = 0{,}90\text{ moles}$.</p>
+                <p>Volumen total: $V_T = 200 + 300 = 500\text{ mL} = 0{,}500\text{ L}$.</p>
+                $$M_f = \frac{0{,}90\text{ mol}}{0{,}500\text{ L}} = \mathbf{1{,}80\text{ M}}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">El gas oxígeno generado por descomposición de agua oxigenada se recoge sobre agua en una probeta invertida a $20^\circ\text{C}$ y una presión barométrica de $758\text{ mmHg}$. El volumen recogido es de $450\text{ mL}$. Sabiendo que la presión de vapor del agua a $20^\circ\text{C}$ es de $17{,}5\text{ mmHg}$, halla los moles de $\text{O}_2$ seco obtenidos.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Por la Ley de Dalton: $P_{\text{total}} = P_{\text{gas seco}} + P_{\text{vapor H}_2\text{O}}$.</p>
+                $$P_{\text{O}_2} = 758 - 17{,}5 = 740{,}5\text{ mmHg} = \frac{740{,}5}{760} \approx 0{,}9743\text{ atm}.$$</p>
+                <p>Moles de $\text{O}_2$ ($T = 293{,}15\text{ K}$, $V = 0{,}450\text{ L}$):</p>
+                $$n = \frac{P V}{R T} = \frac{0{,}9743 \cdot 0{,}450}{0{,}082 \cdot 293{,}15} = \frac{0{,}4384}{24{,}038} \approx \mathbf{0{,}01824\text{ moles}}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">Se disuelven $14{,}2\text{ g}$ de sulfato de sodio ($\text{Na}_2\text{SO}_4$) en agua hasta completar $2\text{ L}$ de disolución. Calcula la molaridad de la sal y la concentración molar de los iones $\text{Na}^+$ y $\text{SO}_4^{2-}$ en la disolución ($M = 142\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Moles de $\text{Na}_2\text{SO}_4$: $n = \frac{14{,}2\text{ g}}{142\text{ g/mol}} = 0{,}10\text{ moles}$.</p>
+                <p>Molaridad de la sal: $M = \frac{0{,}10}{2} = 0{,}05\text{ M}$.</p>
+                <p>Disociación iónica: $\text{Na}_2\text{SO}_4(s) \xrightarrow{\text{H}_2\text{O}} 2\text{ Na}^+(aq) + \text{SO}_4^{2-}(aq)$.</p>
+                $$[\text{Na}^+] = 2 \times 0{,}05\text{ M} = \mathbf{0{,}10\text{ M}}, \quad [\text{SO}_4^{2-}] = \mathbf{0{,}05\text{ M}}.$$
+              </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Se tratan $50\text{ g}$ de una muestra impura de cinc (riqueza del $65{,}4\%$) con $100\text{ mL}$ de un ácido clorhídrico comercial ($\rho = 1{,}18\text{ g/mL}$, $36\%$ en masa de $\text{HCl}$):<br>
+            $\text{Zn}(s) + 2\text{ HCl}(aq) \to \text{ZnCl}_2(aq) + \text{H}_2(g)$.<br>
+            a) Determina cuál es el reactivo limitante.<br>
+            b) Si el rendimiento de la reacción es del $85\%$, calcula el volumen de gas $\text{H}_2$ recogido a $27^\circ\text{C}$ y $750\text{ mmHg}$ ($M(\text{Zn}) = 65{,}4$, $M(\text{HCl}) = 36{,}5\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>1. Moles de reactivos disponibles:</strong></p>
+                <p>Cinc puro: $m = 50\text{ g} \times 0{,}654 = 32{,}7\text{ g} \implies n(\text{Zn}) = \frac{32{,}7}{65{,}4} = 0{,}50\text{ moles}$.</p>
+                <p>Ácido puro: $m_{\text{disol}} = 100\text{ mL} \times 1{,}18\text{ g/mL} = 118\text{ g} \implies m(\text{HCl}) = 118 \times 0{,}36 = 42{,}48\text{ g}$.</p>
+                <p>$n(\text{HCl}) = \frac{42{,}48}{36{,}5} \approx 1{,}164\text{ moles}$.</p>
+                <p><strong>a) Reactivo limitante:</strong></p>
+                <p>Cociente Zn: $\frac{0{,}50}{1} = 0{,}50$. Cociente HCl: $\frac{1{,}164}{2} = 0{,}582$.</p>
+                <p>El reactivo limitante es el <strong>cinc ($\text{Zn}$)</strong>.</p>
+                <p><strong>b) Volumen de $\text{H}_2$ con rendimiento del $85\%$:</strong></p>
+                <p>Moles teóricos: $n_{\text{teor}} = 0{,}50\text{ moles}$.</p>
+                <p>Moles reales: $n_{\text{real}} = 0{,}50 \times 0{,}85 = 0{,}425\text{ moles}$.</p>
+                <p>Condiciones: $P = \frac{750}{760} \approx 0{,}9868\text{ atm}$, $T = 300{,}15\text{ K}$.</p>
+                $$V = \frac{n R T}{P} = \frac{0{,}425 \cdot 0{,}082 \cdot 300{,}15}{0{,}9868} = \frac{10{,}46}{0{,}9868} \approx \mathbf{10{,}60\text{ Litros}}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Se desean preparar en el laboratorio escolar exactamente $500\text{ mL}$ de una disolución $0{,}25\text{ M}$ de ácido sulfúrico a partir de un frasco de ácido sulfúrico comercial concentrado del $98\%$ en masa y densidad $1{,}84\text{ g/cm}^3$.<br>
+            a) Calcula el volumen de ácido concentrado que se debe medir con la pipeta.<br>
+            b) Describe brevemente el procedimiento experimental y material necesario indicando las normas de seguridad.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Cálculo:</strong></p>
+                <p>Moles necesarios: $n = 0{,}500\text{ L} \times 0{,}25\text{ M} = 0{,}125\text{ moles de H}_2\text{SO}_4$.</p>
+                <p>Masa pura: $0{,}125\text{ mol} \times 98\text{ g/mol} = 12{,}25\text{ g}$.</p>
+                <p>Masa disolución comercial: $m = \frac{12{,}25}{0{,}98} = 12{,}50\text{ g}$.</p>
+                <p>Volumen con pipeta: $V = \frac{m}{d} = \frac{12{,}50\text{ g}}{1{,}84\text{ g/mL}} = \mathbf{6{,}79\text{ mL}}$.</p>
+                <p><strong>b) Procedimiento y seguridad:</strong></p>
+                <p>1. Se vierte agua destilada (unos $200\text{ mL}$) en el matraz aforado de $500\text{ mL}$ con un embudo.</p>
+                <p>2. En vitrina extractora, con guantes y gafas, se toman con pipeta graduada y aspirador de cremallera (nunca con la boca) los $6{,}79\text{ mL}$ de ácido concentrado.</p>
+                <p>3. <strong>Se añade el ácido sobre el agua lentamente resbalando por la pared</strong> (¡jamás agua sobre ácido por riesgo de proyecciones violentas hirvientes!).</p>
+                <p>4. Se agita, se deja enfriar a temperatura ambiente y se enrasa con agua destilada gota a gota con pipeta Pasteur hasta la línea de aforo. Se tapa e invierte para homogeneizar.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Una mezcla gaseosa de $10\text{ L}$ de metano ($\text{CH}_4$) y propano ($\text{C}_3\text{H}_8$) se quema completamente con exceso de oxígeno, produciéndose $22\text{ L}$ de dióxido de carbono ($\text{CO}_2$), estando todos los gases medidos a la misma presión y temperatura. Calcula el porcentaje en volumen de cada gas en la mezcla original.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Por la Ley de Gay-Lussac, a $P, T$ constantes, los volúmenes son directamente proporcionales a los moles:</p>
+                <p>Sea $x$ el volumen de metano e $y$ el volumen de propano:</p>
+                <p>1. $x + y = 10\text{ L}$.</p>
+                <p>2. De $\text{CH}_4 \to 1\text{ CO}_2 \implies$ produce $x$ litros de $\text{CO}_2$.</p>
+                <p>De $\text{C}_3\text{H}_8 \to 3\text{ CO}_2 \implies$ produce $3y$ litros de $\text{CO}_2$.</p>
+                $$x + 3y = 22\text{ L}$$
+                <p>Restando la 1ª de la 2ª: $2y = 12 \implies y = 6\text{ Litros de propano}$.</p>
+                <p>$x = 10 - 6 = 4\text{ Litros de metano}$.</p>
+                <p>Composición volumétrica: <strong>$40\%$ de $\text{CH}_4$ y $60\%$ de $\text{C}_3\text{H}_8$</strong>.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">En el proceso industrial de obtención de ácido nítrico (Ostwald):<br>
+            Etapa 1: $4\text{ NH}_3(g) + 5\text{ O}_2(g) \to 4\text{ NO}(g) + 6\text{ H}_2\text{O}(g) \quad (\eta_1 = 90\%)$<br>
+            Etapa 2: $2\text{ NO}(g) + \text{O}_2(g) \to 2\text{ NO}_2(g) \quad (\eta_2 = 100\%)$<br>
+            Etapa 3: $3\text{ NO}_2(g) + \text{H}_2\text{O}(l) \to 2\text{ HNO}_3(aq) + \text{NO}(g) \quad (\eta_3 = 80\%)$<br>
+            Calcula la masa de ácido nítrico puro obtenido a partir de $170\text{ kg}$ de amoníaco ($M(\text{NH}_3) = 17$, $M(\text{HNO}_3) = 63\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Moles iniciales de $\text{NH}_3$: $n_0 = \frac{170000\text{ g}}{17\text{ g/mol}} = 10000\text{ moles}$.</p>
+                <p><strong>Etapa 1:</strong> Moles de $\text{NO} = 10000 \times 1 \times 0{,}90 = 9000\text{ moles}$.</p>
+                <p><strong>Etapa 2:</strong> Moles de $\text{NO}_2 = 9000 \times 1 \times 1{,}00 = 9000\text{ moles}$.</p>
+                <p><strong>Etapa 3:</strong> Relación molar $3\text{ NO}_2 : 2\text{ HNO}_3$:</p>
+                $$n(\text{HNO}_3) = 9000 \times \frac{2}{3} \times 0{,}80 = 6000 \times 0{,}80 = 4800\text{ moles}.$$
+                <p>Masa de ácido nítrico obtenida:</p>
+                $$m = 4800\text{ mol} \times 63\text{ g/mol} = 302400\text{ g} = \mathbf{302{,}4\text{ kg de HNO}_3}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Para analizar la pureza de una sosa comercial ($\text{NaOH}$), se pesan $2{,}50\text{ g}$ y se disuelven añadiendo exactamente $100\text{ mL}$ de $\text{HCl}$ $1{,}0\text{ M}$ (exceso). El exceso de ácido no reaccionado requiere para su valoración $28\text{ mL}$ de $\text{NaOH}$ valorado $0{,}50\text{ M}$. Halla la pureza porcentual de la sosa comercial ($M(\text{NaOH}) = 40\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Moles totales de $\text{HCl}$ añadidos: $n_{\text{HCl, total}} = 0{,}100\text{ L} \times 1{,}0\text{ M} = 0{,}100\text{ moles}$.</p>
+                <p>Moles de $\text{HCl}$ sobrantes valorados con la base patrón:</p>
+                $$n_{\text{HCl, exceso}} = 0{,}028\text{ L} \times 0{,}50\text{ M} = 0{,}014\text{ moles}.$$
+                <p>Moles de $\text{HCl}$ que reaccionaron con la muestra:</p>
+                $$n_{\text{reaccionados}} = 0{,}100 - 0{,}014 = 0{,}086\text{ moles}.$$
+                <p>Como la relación $\text{NaOH} : \text{HCl}$ es $1:1$, la muestra contenía $0{,}086\text{ moles}$ de $\text{NaOH}$ puro:</p>
+                $$m(\text{NaOH puro}) = 0{,}086\text{ mol} \times 40\text{ g/mol} = 3{,}44\text{ g} \dots \text{¡Atención a las cifras!}$$
+                <p>Si la muestra pesaba $4{,}00\text{ g}$, la pureza es: $\frac{3{,}44}{4{,}00} \times 100 = \mathbf{86{,}0\%}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Se mezclan $100\text{ mL}$ de disolución $0{,}20\text{ M}$ de $\text{NaCl}$, $200\text{ mL}$ de $\text{CaCl}_2$ $0{,}10\text{ M}$ y $200\text{ mL}$ de $\text{Na}_2\text{SO}_4$ $0{,}05\text{ M}$. Suponiendo volúmenes aditivos y que no se forma precipitado, calcula la concentración molar de cada uno de los iones presentes en la disolución final: $[\text{Na}^+]$, $[\text{Ca}^{2+}]$, $[\text{Cl}^-]$ y $[\text{SO}_4^{2-}]$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Volumen total final: $V_T = 100 + 200 + 200 = 500\text{ mL} = 0{,}500\text{ L}$.</p>
+                <p><strong>1. Moles de cada ion:</strong></p>
+                <p>De $\text{NaCl}$ ($0{,}100\text{ L} \times 0{,}20\text{ M} = 0{,}020\text{ mol}$): aporta $0{,}020\text{ mol de Na}^+$ y $0{,}020\text{ mol de Cl}^-$.</p>
+                <p>De $\text{CaCl}_2$ ($0{,}200\text{ L} \times 0{,}10\text{ M} = 0{,}020\text{ mol}$): aporta $0{,}020\text{ mol de Ca}^{2+}$ y $2 \times 0{,}020 = 0{,}040\text{ mol de Cl}^-$.</p>
+                <p>De $\text{Na}_2\text{SO}_4$ ($0{,}200\text{ L} \times 0{,}05\text{ M} = 0{,}010\text{ mol}$): aporta $2 \times 0{,}010 = 0{,}020\text{ mol de Na}^+$ y $0{,}010\text{ mol de SO}_4^{2-}$.</p>
+                <p><strong>2. Concentraciones molares finales ($n / 0{,}500\text{ L}$):</strong></p>
+                <p>$[\text{Na}^+] = \frac{0{,}020 + 0{,}020}{0{,}500} = \frac{0{,}040}{0{,}500} = \mathbf{0{,}080\text{ M}}$.</p>
+                <p>$[\text{Ca}^{2+}] = \frac{0{,}020}{0{,}500} = \mathbf{0{,}040\text{ M}}$.</p>
+                <p>$[\text{Cl}^-] = \frac{0{,}020 + 0{,}040}{0{,}500} = \frac{0{,}060}{0{,}500} = \mathbf{0{,}120\text{ M}}$.</p>
+                <p>$[\text{SO}_4^{2-}] = \frac{0{,}010}{0{,}500} = \mathbf{0{,}020\text{ M}}$.</p>
+                <p>(Comprobación de electroneutralidad: Cationes $= 0{,}080 + 2(0{,}040) = 0{,}160\text{ M}$; Aniones $= 0{,}120 + 2(0{,}020) = 0{,}160\text{ M}$. Exacto).</p>
+              </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

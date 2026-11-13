@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Equilibrio Químico: Kc, Kp, Le Châtelier y Kps | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Equilibrio Químico: Kc, Kp, Le Châtelier y Kps</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Escribe las expresiones de las constantes $K_c$ y $K_p$ para las siguientes reacciones en equilibrio:<br>
+            a) $\text{CaCO}_3(s) \rightleftharpoons \text{CaO}(s) + \text{CO}_2(g)$<br>
+            b) $4\text{ HCl}(g) + \text{O}_2(g) \rightleftharpoons 2\text{ Cl}_2(g) + 2\text{ H}_2\text{O}(g)$<br>
+            c) $\text{NH}_4\text{HS}(s) \rightleftharpoons \text{NH}_3(g) + \text{H}_2\text{S}(g)$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Recordar que las especies en estado sólido puro o líquido puro tienen actividad unitaria ($= 1$) y no figuran en las constantes:</p>
+                <p><strong>a)</strong> $K_c = [\text{CO}_2], \quad K_p = P_{\text{CO}_2}$.</p>
+                <p><strong>b)</strong> $K_c = \frac{[\text{Cl}_2]^2 [\text{H}_2\text{O}]^2}{[\text{HCl}]^4 [\text{O}_2]}, \quad K_p = \frac{P_{\text{Cl}_2}^2 P_{\text{H}_2\text{O}}^2}{P_{\text{HCl}}^4 P_{\text{O}_2}}$.</p>
+                <p><strong>c)</strong> $K_c = [\text{NH}_3][\text{H}_2\text{S}], \quad K_p = P_{\text{NH}_3} \cdot P_{\text{H}_2\text{S}}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">A $500\text{ K}$, para el equilibrio $2\text{ SO}_2(g) + \text{O}_2(g) \rightleftharpoons 2\text{ SO}_3(g)$, el valor de $K_c$ es $1{,}2 \times 10^3\text{ M}^{-1}$. Calcula el valor de la constante $K_p$ a esa temperatura ($R = 0{,}082\text{ atm}\cdot\text{L}/(\text{mol}\cdot\text{K})$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Variación de moles de gas: $\Delta n_g = 2 - (2 + 1) = 2 - 3 = -1$.</p>
+                $$K_p = K_c (R T)^{\Delta n_g} = K_c (R T)^{-1} = \frac{K_c}{R T}$$
+                $$K_p = \frac{1200}{0{,}082 \cdot 500} = \frac{1200}{41} \approx 29{,}27\text{ atm}^{-1}.$$</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Para la reacción $\text{H}_2(g) + \text{I}_2(g) \rightleftharpoons 2\text{ HI}(g)$ a $448^\circ\text{C}$, $K_c = 50$. En un matraz de $2\text{ L}$ se introducen $0{,}2\text{ mol}$ de $\text{H}_2$, $0{,}2\text{ mol}$ de $\text{I}_2$ y $1{,}0\text{ mol}$ de $\text{HI}$. Justifica si el sistema está en equilibrio o en qué sentido evolucionará.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Concentraciones iniciales en $V = 2\text{ L}$:</p>
+                <p>$[\text{H}_2]_0 = \frac{0{,}2}{2} = 0{,}1\text{ M}, \quad [\text{I}_2]_0 = \frac{0{,}2}{2} = 0{,}1\text{ M}, \quad [\text{HI}]_0 = \frac{1{,}0}{2} = 0{,}5\text{ M}$.</p>
+                <p>Cociente de reacción $Q_c$:
+                  $$Q_c = \frac{[\text{HI}]_0^2}{[\text{H}_2]_0 [\text{I}_2]_0} = \frac{(0{,}5)^2}{0{,}1 \cdot 0{,}1} = \frac{0{,}25}{0{,}01} = 25.$$</p>
+                <p>Comparación: como $Q_c = 25 < K_c = 50$, el sistema no está en equilibrio y <strong>evoluciona hacia la derecha ($\to$, sentido directo)</strong>, formando más $\text{HI}$ a expensas de consumir $\text{H}_2$ y $\text{I}_2$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Dado el equilibrio exotérmico $\text{N}_2(g) + 3\text{ H}_2(g) \rightleftharpoons 2\text{ NH}_3(g) \quad (\Delta H < 0)$, predice razonadamente hacia dónde se desplazará el equilibrio si: a) aumentamos la presión reduciendo el volumen, b) aumentamos la temperatura, c) añadimos gas inerte argón a volumen constante.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Aumento de presión:</strong> Se desplaza hacia donde haya menor número de moles de gas ($\Delta n_g = 2 - 4 = -2$). Se desplaza hacia la <strong>derecha ($\to$, productos)</strong>, aumentando el rendimiento de $\text{NH}_3$.</p>
+                <p><strong>b) Aumento de temperatura:</strong> Favorece el sentido endotérmico. Como la reacción directa es exotérmica, se desplaza hacia la <strong>izquierda ($\leftarrow$, reactivos)</strong>, disminuyendo $K_c$.</p>
+                <p><strong>c) Gas inerte a volumen constante:</strong> Aumenta la presión total, pero las presiones parciales y concentraciones de $\text{N}_2$, $\text{H}_2$ y $\text{NH}_3$ no cambian. <strong>No produce ningún desplazamiento</strong>.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">El producto de solubilidad del cloruro de plata $\text{AgCl}$ a $25^\circ\text{C}$ es $K_{ps} = 1{,}8 \times 10^{-10}$. Calcula su solubilidad molar $s$ en agua pura y la masa de $\text{AgCl}$ que se puede disolver como máximo en $500\text{ mL}$ de agua ($M = 143{,}3\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Equilibrio: $\text{AgCl}(s) \rightleftharpoons \text{Ag}^+(aq) + \text{Cl}^-(aq)$.</p>
+                <p>Concentraciones en equilibrio: $[\text{Ag}^+] = s$, $[\text{Cl}^-] = s \implies K_{ps} = s^2$.</p>
+                $$s = \sqrt{K_{ps}} = \sqrt{1{,}8 \times 10^{-10}} \approx 1{,}34 \times 10^{-5}\text{ mol/L}.$$
+                <p>En $0{,}5\text{ L}$: $n = s \cdot V = 1{,}34 \times 10^{-5} \cdot 0{,}5 = 6{,}7 \times 10^{-6}\text{ moles}$.</p>
+                <p>Masa disuelta: $m = 6{,}7 \times 10^{-6}\text{ mol} \cdot 143{,}3\text{ g/mol} \approx 9{,}6 \times 10^{-4}\text{ g} = 0{,}96\text{ mg}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">El fluoruro de calcio $\text{CaF}_2$ tiene $K_{ps} = 3{,}9 \times 10^{-11}$ a $25^\circ\text{C}$. Expresa la relación entre $K_{ps}$ y la solubilidad molar $s$ y calcula el valor de $s$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Equilibrio de disociación: $\text{CaF}_2(s) \rightleftharpoons \text{Ca}^{2+}(aq) + 2\text{ F}^-(aq)$.</p>
+                <p>En saturación: $[\text{Ca}^{2+}] = s$, $[\text{F}^-] = 2s$.</p>
+                $$K_{ps} = [\text{Ca}^{2+}][\text{F}^-]^2 = (s)(2s)^2 = 4s^3.$$
+                $$s = \sqrt[3]{\frac{K_{ps}}{4}} = \sqrt[3]{\frac{3{,}9 \times 10^{-11}}{4}} = \sqrt[3]{9{,}75 \times 10^{-12}} \approx 2{,}14 \times 10^{-4}\text{ mol/L}.$$</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">En un recipiente cerrado de $5\text{ L}$ a $200^\circ\text{C}$ se alcanza el equilibrio $\text{PCl}_5(g) \rightleftharpoons \text{PCl}_3(g) + \text{Cl}_2(g)$, encontrándose $0{,}8\text{ mol}$ de $\text{PCl}_5$, $0{,}4\text{ mol}$ de $\text{PCl}_3$ y $0{,}4\text{ mol}$ de $\text{Cl}_2$. Calcula $K_c$ a esa temperatura.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Concentraciones de equilibrio en $V = 5\text{ L}$:</p>
+                <p>$[\text{PCl}_5] = \frac{0{,}8}{5} = 0{,}16\text{ M}, \quad [\text{PCl}_3] = \frac{0{,}4}{5} = 0{,}08\text{ M}, \quad [\text{Cl}_2] = \frac{0{,}4}{5} = 0{,}08\text{ M}$.</p>
+                $$K_c = \frac{[\text{PCl}_3][\text{Cl}_2]}{[\text{PCl}_5]} = \frac{0{,}08 \cdot 0{,}08}{0{,}16} = \frac{0{,}0064}{0{,}16} = 0{,}04\text{ M}.$$</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Se añade óxido de vanadio(V) como catalizador a la reacción $2\text{ SO}_2(g) + \text{O}_2(g) \rightleftharpoons 2\text{ SO}_3(g)$. Explica qué ocurre con: a) la constante de equilibrio $K_c$, b) la composición de la mezcla de equilibrio, c) el tiempo necesario para alcanzar el equilibrio.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Constante $K_c$:</strong> No varía. Solo la temperatura modifica el valor de $K_c$.</p>
+                <p><strong>b) Composición de equilibrio:</strong> No cambia. El catalizador acelera por igual las velocidades de la reacción directa e inversa al disminuir la energía de activación en ambos sentidos.</p>
+                <p><strong>c) Tiempo:</strong> Se reduce drásticamente; el equilibrio se alcanza mucho más rápido.</p>
+              </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">En un recipiente de $2\text{ L}$ a $250^\circ\text{C}$ se introducen $1\text{ mol}$ de $\text{PCl}_5(g)$. Al alcanzarse el equilibrio se observa que el grado de disociación es $\alpha = 0{,}40$ ($40\%$). Halla la concentración de cada especie en el equilibrio y el valor de $K_c$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>$\text{PCl}_5(g) \rightleftharpoons \text{PCl}_3(g) + \text{Cl}_2(g)$. Inicial: $n_0 = 1\text{ mol}$. $x = n_0 \alpha = 1 \cdot 0{,}4 = 0{,}4\text{ mol}$.</p>
+                <p>Moles en equilibrio: $n(\text{PCl}_5) = 1 - 0{,}4 = 0{,}6\text{ mol}$; $n(\text{PCl}_3) = 0{,}4\text{ mol}$; $n(\text{Cl}_2) = 0{,}4\text{ mol}$.</p>
+                <p>Concentraciones en $V = 2\text{ L}$:</p>
+                <p>$[\text{PCl}_5] = \frac{0{,}6}{2} = 0{,}3\text{ M}, \quad [\text{PCl}_3] = \frac{0{,}4}{2} = 0{,}2\text{ M}, \quad [\text{Cl}_2] = \frac{0{,}4}{2} = 0{,}2\text{ M}$.</p>
+                $$K_c = \frac{0{,}2 \cdot 0{,}2}{0{,}3} = \frac{0{,}04}{0{,}3} = \frac{2}{15} \approx 0{,}133\text{ M}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">En el ejercicio anterior, a $250^\circ\text{C}$ ($523{,}15\text{ K}$) en el matraz de $2\text{ L}$, halla la presión total de la mezcla gaseosa en el equilibrio, las presiones parciales de cada gas y calcula $K_p$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Moles totales en equilibrio: $n_T = 0{,}6 + 0{,}4 + 0{,}4 = 1{,}4\text{ moles}$.</p>
+                $$P_T = \frac{n_T R T}{V} = \frac{1{,}4 \cdot 0{,}082 \cdot 523{,}15}{2} = \frac{60{,}06}{2} \approx 30{,}03\text{ atm}.$$</p>
+                <p>Fracciones molares y presiones parciales ($P_i = X_i P_T$):</p>
+                <p>$P_{\text{PCl}_5} = \frac{0{,}6}{1{,}4} \cdot 30{,}03 = 12{,}87\text{ atm}$.</p>
+                <p>$P_{\text{PCl}_3} = P_{\text{Cl}_2} = \frac{0{,}4}{1{,}4} \cdot 30{,}03 = 8{,}58\text{ atm}$.</p>
+                $$K_p = \frac{8{,}58 \cdot 8{,}58}{12{,}87} = \frac{73{,}62}{12{,}87} \approx 5{,}72\text{ atm}.$$
+                <p>(Comprobación: $K_p = K_c(R T)^1 = 0{,}133 \cdot (0{,}082 \cdot 523{,}15) = 0{,}133 \cdot 42{,}90 \approx 5{,}71\text{ atm}$).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">A $800^\circ\text{C}$ la constante $K_p$ para $\text{CaCO}_3(s) \rightleftharpoons \text{CaO}(s) + \text{CO}_2(g)$ vale $0{,}22\text{ atm}$. En un recipiente evacuado de $10\text{ L}$ a esa temperatura se introducen $20\text{ g}$ de $\text{CaCO}_3(s)$. Determina si queda carbonato sin descomponer y halla la masa de $\text{CaO}$ formada ($M(\text{CaCO}_3) = 100$, $M(\text{CaO}) = 56$, $M(\text{CO}_2) = 44\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>En el equilibrio: $K_p = P_{\text{CO}_2} = 0{,}22\text{ atm}$.</p>
+                <p>Moles de $\text{CO}_2$ gaseoso necesarios para alcanzar el equilibrio ($T = 1073{,}15\text{ K}$, $V = 10\text{ L}$):
+                  $$n_{\text{CO}_2} = \frac{P V}{R T} = \frac{0{,}22 \cdot 10}{0{,}082 \cdot 1073{,}15} = \frac{2{,}2}{88{,}0} = 0{,}025\text{ moles}.$$</p>
+                <p>Moles iniciales de $\text{CaCO}_3$: $n_0 = \frac{20\text{ g}}{100\text{ g/mol}} = 0{,}20\text{ moles}$.</p>
+                <p>Como $n_0 = 0{,}20\text{ mol} > 0{,}025\text{ mol}$, <strong>sí se alcanza el equilibrio</strong> y queda sólido sin descomponer ($0{,}20 - 0{,}025 = 0{,}175\text{ mol} = 17{,}5\text{ g}$ de $\text{CaCO}_3$).</p>
+                <p>Masa de $\text{CaO}$ formada: $m(\text{CaO}) = 0{,}025\text{ mol} \cdot 56\text{ g/mol} = 1{,}4\text{ gramos}$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Calcula la solubilidad molar del $\text{AgCl}$ ($K_{ps} = 1{,}8 \times 10^{-10}$) en una disolución acuosa $0{,}05\text{ M}$ de cloruro de sodio $\text{NaCl}$. Compara el resultado con su solubilidad en agua pura ($1{,}34 \times 10^{-5}\text{ M}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>El $\text{NaCl}$ es un electrolito fuerte totalmente disociado: $[\text{Cl}^-]_{\text{aporte}} = 0{,}05\text{ M}$.</p>
+                <p>Al disolverse una cantidad $s'$ de $\text{AgCl}$: $[\text{Ag}^+] = s'$, $[\text{Cl}^-] = 0{,}05 + s' \approx 0{,}05\text{ M}$ (ya que $s' \ll 0{,}05$).</p>
+                $$K_{ps} = [\text{Ag}^+][\text{Cl}^-] \approx s' \cdot 0{,}05 \implies s' = \frac{1{,}8 \times 10^{-10}}{0{,}05} = 3{,}6 \times 10^{-9}\text{ mol/L}.$$</p>
+                <p>La presencia del ion común $\text{Cl}^-$ reduce la solubilidad casi 4000 veces (desplazamiento del equilibrio hacia el precipitado según Le Châtelier).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Se mezclan $100\text{ mL}$ de disolución $10^{-3}\text{ M}$ de $\text{AgNO}_3$ con $100\text{ mL}$ de disolución $2 \times 10^{-4}\text{ M}$ de $\text{K}_2\text{CrO}_4$. ¿Precipitará cromato de plata $\text{Ag}_2\text{CrO}_4$? ($K_{ps} = 1{,}1 \times 10^{-12}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Volumen final: $V_T = 100 + 100 = 200\text{ mL}$. Ambas concentraciones se diluyen a la mitad:</p>
+                <p>$[\text{Ag}^+] = \frac{10^{-3}\text{ M} \cdot 100}{200} = 5 \times 10^{-4}\text{ M}$.</p>
+                <p>$[\text{CrO}_4^{2-}] = \frac{2 \times 10^{-4}\text{ M} \cdot 100}{200} = 1 \times 10^{-4}\text{ M}$.</p>
+                <p>Producto iónico $Q_{ps}$ para $\text{Ag}_2\text{CrO}_4(s) \rightleftharpoons 2\text{ Ag}^+ + \text{CrO}_4^{2-}$:
+                  $$Q_{ps} = [\text{Ag}^+]^2 [\text{CrO}_4^{2-}] = (5 \times 10^{-4})^2 (1 \times 10^{-4}) = (2{,}5 \times 10^{-7})(10^{-4}) = 2{,}5 \times 10^{-11}.$$</p>
+                <p>Como $Q_{ps} = 2{,}5 \times 10^{-11} > K_{ps} = 1{,}1 \times 10^{-12}$, <strong>SÍ se produce precipitado</strong> de cromato de plata rojo.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Para la reacción de esterificación en fase líquida: $\text{CH}_3\text{COOH} + \text{C}_2\text{H}_5\text{OH} \rightleftharpoons \text{CH}_3\text{COOC}_2\text{H}_5 + \text{H}_2\text{O}$ se conoce que $K_c = 4$. Si se parte de $2\text{ moles}$ de ácido acético y $2\text{ moles}$ de etanol en $1\text{ L}$, calcula cuántos moles de éster se obtienen en el equilibrio.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>En el equilibrio: $n(\text{ácido}) = 2 - x$, $n(\text{alcohol}) = 2 - x$, $n(\text{éster}) = x$, $n(\text{agua}) = x$.</p>
+                $$K_c = \frac{x \cdot x}{(2 - x)(2 - x)} = \frac{x^2}{(2 - x)^2} = 4$$
+                <p>Tomando la raíz cuadrada a ambos lados: $\frac{x}{2 - x} = 2 \implies x = 4 - 2x \implies 3x = 4 \implies x = \frac{4}{3} \approx 1{,}33\text{ moles}$.</p>
+                <p>Se forman $1{,}33\text{ moles}$ de acetato de etilo (rendimiento del $66{,}7\%$).</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">En un matraz de $10\text{ L}$ a cierta temperatura se encuentra en equilibrio la mezcla: $0{,}2\text{ mol}$ de $\text{SO}_2$, $0{,}1\text{ mol}$ de $\text{O}_2$ y $0{,}4\text{ mol}$ de $\text{SO}_3$. Si el volumen se reduce bruscamente a $5\text{ L}$ sin cambiar la temperatura, predice en qué sentido evolucionará el sistema.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Reacción: $2\text{ SO}_2(g) + \text{O}_2(g) \rightleftharpoons 2\text{ SO}_3(g)$ ($\Delta n_g = 2 - 3 = -1$).</p>
+                <p>Al reducir el volumen a la mitad ($V' = 5\text{ L}$), la presión aumenta al doble.</p>
+                <p>Según el Principio de Le Châtelier, el sistema responde desplazándose hacia el miembro con <strong>menor número de moles gaseosos</strong> (2 moles de producto frente a 3 de reactivo).</p>
+                <p>Por tanto, el equilibrio evoluciona hacia la <strong>derecha ($\to$)</strong>, formándose más $\text{SO}_3$.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">Para $\text{H}_2(g) + \text{I}_2(g) \rightleftharpoons 2\text{ HI}(g)$, $K_c = 64$ a $450^\circ\text{C}$. Se parte de $1\text{ mol}$ de $\text{H}_2$ y $1\text{ mol}$ de $\text{I}_2$ en un recipiente cerrado de volumen $V$. Demuestra que el volumen $V$ no afecta al equilibrio y calcula el porcentaje de conversión de los reactivos.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Como $\Delta n_g = 2 - (1 + 1) = 0$, los volúmenes se cancelan:</p>
+                $$K_c = \frac{(2x / V)^2}{((1 - x) / V)((1 - x) / V)} = \frac{4x^2}{(1 - x)^2} = 64$$
+                <p>Extrayendo raíz: $\frac{2x}{1 - x} = \sqrt{64} = 8 \implies 2x = 8 - 8x \implies 10x = 8 \implies x = 0{,}8\text{ moles}$.</p>
+                <p>Porcentaje de reactivo transformado: $\frac{0{,}8}{1{,}0} \times 100 = \mathbf{80\%}$.</p>
+              </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">En un recipiente de $1\text{ L}$ a $35^\circ\text{C}$ se introduce tetraóxido de dinitrógeno gas ($\text{N}_2\text{O}_4$) hasta alcanzar una presión de $1\text{ atm}$. Se disocia según $\text{N}_2\text{O}_4(g) \rightleftharpoons 2\text{ NO}_2(g)$. En el equilibrio la presión total es de $1{,}20\text{ atm}$. Calcula: a) el grado de disociación $\alpha$, b) las presiones parciales de ambos gases, c) las constantes $K_p$ y $K_c$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Grado de disociación:</strong> Si $n_0$ son los moles iniciales:</p>
+                <p>$n(\text{N}_2\text{O}_4) = n_0(1 - \alpha)$, $n(\text{NO}_2) = 2 n_0 \alpha \implies n_T = n_0(1 + \alpha)$.</p>
+                <p>Como $P \propto n$ a $V, T$ constantes: $P_T = P_0 (1 + \alpha) \implies 1{,}20 = 1 \cdot (1 + \alpha) \implies \alpha = 0{,}20\text{ (20\%)}$.</p>
+                <p><strong>b) Presiones parciales:</strong></p>
+                <p>$P_{\text{N}_2\text{O}_4} = \frac{1 - \alpha}{1 + \alpha} P_T = \frac{0{,}80}{1{,}20} \cdot 1{,}20 = 0{,}80\text{ atm}$.</p>
+                <p>$P_{\text{NO}_2} = \frac{2\alpha}{1 + \alpha} P_T = \frac{0{,}40}{1{,}20} \cdot 1{,}20 = 0{,}40\text{ atm}$.</p>
+                <p><strong>c) Constantes:</strong>
+                  $$K_p = \frac{P_{\text{NO}_2}^2}{P_{\text{N}_2\text{O}_4}} = \frac{(0{,}40)^2}{0{,}80} = \frac{0{,}16}{0{,}80} = 0{,}20\text{ atm}.$$
+                  $$K_c = \frac{K_p}{R T} = \frac{0{,}20}{0{,}082 \cdot (35 + 273{,}15)} = \frac{0{,}20}{25{,}27} \approx 7{,}91 \times 10^{-3}\text{ M}.$$</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">En las condiciones del ejercicio anterior ($35^\circ\text{C}$ y $P_T = 1{,}20\text{ atm}$ con $\alpha = 0{,}20$), calcula la densidad en $\text{g/L}$ de la mezcla gaseosa en equilibrio ($M(\text{N}_2\text{O}_4) = 92\text{ g/mol}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Masa molar media aparente de la mezcla:
+                  $$\overline{M} = \frac{M_{\text{N}_2\text{O}_4}}{1 + \alpha} = \frac{92}{1 + 0{,}20} = \frac{92}{1{,}20} \approx 76{,}67\text{ g/mol}.$$</p>
+                <p>Aplicando la ecuación de gases ideales para la densidad:
+                  $$\rho = \frac{P_T \cdot \overline{M}}{R T} = \frac{1{,}20\text{ atm} \cdot 76{,}67\text{ g/mol}}{0{,}082 \cdot 308{,}15\text{ K}} = \frac{92{,}0}{25{,}27} \approx 3{,}64\text{ g/L}.$$</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Una disolución contiene iones cloruro ($\text{Cl}^-$) $0{,}01\text{ M}$ e ioduro ($\text{I}^-$) $0{,}01\text{ M}$. Se añade gota a gota nitrato de plata $\text{AgNO}_3$. Siendo $K_{ps}(\text{AgCl}) = 1{,}8 \times 10^{-10}$ y $K_{ps}(\text{AgI}) = 8{,}5 \times 10^{-17}$: a) ¿cuál sal precipita primero?, b) ¿qué concentración de $\text{I}^-$ queda en disolución cuando empieza a precipitar el $\text{AgCl}$?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p><strong>a) Concentración de $\text{Ag}^+$ necesaria para precipitar cada sal:</strong></p>
+                <p>Para $\text{AgI}$: $[\text{Ag}^+] = \frac{K_{ps}(\text{AgI})}{[\text{I}^-]} = \frac{8{,}5 \times 10^{-17}}{0{,}01} = 8{,}5 \times 10^{-15}\text{ M}$.</p>
+                <p>Para $\text{AgCl}$: $[\text{Ag}^+] = \frac{K_{ps}(\text{AgCl})}{[\text{Cl}^-]} = \frac{1{,}8 \times 10^{-10}}{0{,}01} = 1{,}8 \times 10^{-8}\text{ M}$.</p>
+                <p>Como necesita una concentración mucho menor de plata, <strong>precipita primero el $\text{AgI}$</strong>.</p>
+                <p><strong>b) Concentración residual de $\text{I}^-$ cuando empieza a precipitar $\text{AgCl}$:</strong></p>
+                <p>En ese instante, $[\text{Ag}^+] = 1{,}8 \times 10^{-8}\text{ M}$:</p>
+                $$[\text{I}^-] = \frac{K_{ps}(\text{AgI})}{[\text{Ag}^+]} = \frac{8{,}5 \times 10^{-17}}{1{,}8 \times 10^{-8}} \approx 4{,}72 \times 10^{-9}\text{ M}.$$
+                <p>Prácticamente el $99{,}9999\%$ del ioduro ha precipitado antes de que empiece a precipitar el cloruro, logrando una separación analítica perfecta.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">Para la reacción endotérmica $2\text{ HI}(g) \rightleftharpoons \text{H}_2(g) + \text{I}_2(g)$ con $\Delta H^\circ = +12{,}5\text{ kJ/mol}$, a $700\text{ K}$ la constante $K_c = 0{,}018$. Empleando la ecuación integrada de Van 't Hoff: $\ln\frac{K_2}{K_1} = -\frac{\Delta H^\circ}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right)$, estima el valor de $K_c$ a $800\text{ K}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                $$\ln\left(\frac{K_2}{0{,}018}\right) = -\frac{12500\text{ J/mol}}{8{,}314\text{ J}/(\text{mol}\cdot\text{K})} \left(\frac{1}{800} - \frac{1}{700}\right)$$
+                $$\frac{1}{800} - \frac{1}{700} = 0{,}00125 - 0{,}0014286 = -0{,}0001786\text{ K}^{-1}$$
+                $$\ln\left(\frac{K_2}{0{,}018}\right) = -1503{,}49 \cdot (-0{,}0001786) \approx +0{,}2685$$
+                $$\frac{K_2}{0{,}018} = e^{0{,}2685} \approx 1{,}308 \implies K_2 = 0{,}018 \cdot 1{,}308 \approx 0{,}0235.$$</p>
+                <p>Al ser endotérmica ($\Delta H > 0$), la constante aumenta al subir la temperatura como predice Le Châtelier.</p>
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">En un matraz de $2\text{ L}$ a $400^\circ\text{C}$ se mezclan $3\text{ moles}$ de $\text{H}_2$ y $1\text{ mol}$ de $\text{N}_2$. En el equilibrio se han formado $0{,}4\text{ moles}$ de $\text{NH}_3$. Calcula las concentraciones de las tres especies en el equilibrio y el valor de $K_c$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Reacción: $\text{N}_2(g) + 3\text{ H}_2(g) \rightleftharpoons 2\text{ NH}_3(g)$.</p>
+                <p>Si se forman $0{,}4\text{ mol}$ de $\text{NH}_3 \implies 2x = 0{,}4 \implies x = 0{,}2\text{ mol}$.</p>
+                <p>Moles en equilibrio:
+                  $n(\text{N}_2) = 1 - x = 1 - 0{,}2 = 0{,}8\text{ mol}$.
+                  $n(\text{H}_2) = 3 - 3x = 3 - 0{,}6 = 2{,}4\text{ mol}$.
+                  $n(\text{NH}_3) = 0{,}4\text{ mol}$.</p>
+                <p>Concentraciones en $V = 2\text{ L}$:
+                  $[\text{N}_2] = \frac{0{,}8}{2} = 0{,}4\text{ M}, \quad [\text{H}_2] = \frac{2{,}4}{2} = 1{,}2\text{ M}, \quad [\text{NH}_3] = \frac{0{,}4}{2} = 0{,}2\text{ M}$.</p>
+                $$K_c = \frac{[\text{NH}_3]^2}{[\text{N}_2][\text{H}_2]^3} = \frac{(0{,}2)^2}{0{,}4 \cdot (1{,}2)^3} = \frac{0{,}04}{0{,}4 \cdot 1{,}728} = \frac{0{,}04}{0{,}6912} \approx 0{,}0579\text{ M}^{-2}.$$
+              </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">El hidróxido de cinc $\text{Zn(OH)}_2$ es muy insoluble en agua ($K_{ps} = 3 \times 10^{-17}$). Sin embargo, al añadir amoníaco se forma el ion complejo tetraamincinc(II) según $\text{Zn}^{2+} + 4\text{ NH}_3 \rightleftharpoons [\text{Zn(NH}_3)_4]^{2+}$ con constante de formación $K_f = 7{,}8 \times 10^8$. Calcula la constante de equilibrio global del proceso de disolución y razona por qué el precipitado se disuelve en amoníaco concentrado.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-white rounded-xl border border-emerald-100 text-sm text-slate-700 space-y-2">
+                <p>Sumando ambas reacciones:</p>
+                <p>(1) $\text{Zn(OH)}_2(s) \rightleftharpoons \text{Zn}^{2+} + 2\text{ OH}^- \quad (K_{ps})$</p>
+                <p>(2) $\text{Zn}^{2+} + 4\text{ NH}_3 \rightleftharpoons [\text{Zn(NH}_3)_4]^{2+} \quad (K_f)$</p>
+                <p>Global: $\text{Zn(OH)}_2(s) + 4\text{ NH}_3 \rightleftharpoons [\text{Zn(NH}_3)_4]^{2+} + 2\text{ OH}^-$.</p>
+                $$K_{\text{global}} = K_{ps} \cdot K_f = (3 \times 10^{-17})(7{,}8 \times 10^8) = 2{,}34 \times 10^{-8}.$$</p>
+                <p>El amoníaco secuestra iones libres $\text{Zn}^{2+}$ formando el complejo estable $[\text{Zn(NH}_3)_4]^{2+}$, disminuyendo drásticamente $[\text{Zn}^{2+}]$. Según Le Châtelier, el hidróxido de cinc sólido se ve obligado a disolverse continuamente para restablecer el producto de solubilidad hasta su completa disolución.</p>
+              </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Geometría en el Espacio R³ | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Geometría en el Espacio R³</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Dados los puntos $A(1, -2, 3)$ y $B(4, 0, -1)$, halla las coordenadas del vector $\vec{AB}$, su módulo $|\vec{AB}|$ y un vector unitario en su misma dirección.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Coordenadas de $\vec{AB} = B - A = (4 - 1, \; 0 - (-2), \; -1 - 3) = (3, 2, -4)$.</p>
+              <p>2. Módulo: $|\vec{AB}| = \sqrt{3^2 + 2^2 + (-4)^2} = \sqrt{9 + 4 + 16} = \sqrt{29}$.</p>
+              <p>3. Vector unitario: $\vec{u} = \frac{1}{\sqrt{29}} (3, 2, -4) = \left(\frac{3}{\sqrt{29}}, \frac{2}{\sqrt{29}}, \frac{-4}{\sqrt{29}}\right)$.</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: $\vec{AB} = (3, 2, -4)$, módulo $|\vec{AB}| = \sqrt{29}$ y unitario $\vec{u} = \left(\frac{3}{\sqrt{29}}, \frac{2}{\sqrt{29}}, \frac{-4}{\sqrt{29}}\right)$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Dados los vectores $\vec{u} = (2, -1, 3)$ y $\vec{v} = (4, 2, -2)$: calcula su producto escalar $\vec{u} \cdot \vec{v}$, deduce si son perpendiculares y calcula el ángulo que forman.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Producto escalar: $\vec{u} \cdot \vec{v} = 2 \cdot 4 + (-1) \cdot 2 + 3 \cdot (-2) = 8 - 2 - 6 = 0$.</p>
+              <p>2. Al ser $\vec{u} \cdot \vec{v} = 0$, los vectores son <strong>ortogonales (perpendiculares)</strong>.</p>
+              <p>3. El ángulo que forman es $\alpha = 90^\circ$ ($\pi/2$ rad).</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: $\vec{u} \cdot \vec{v} = 0 \implies \vec{u} \perp \vec{v}$ con ángulo $\alpha = 90^\circ$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Halla el producto vectorial $\vec{u} \times \vec{v}$ de los vectores $\vec{u} = (1, 2, 0)$ y $\vec{v} = (0, -3, 1)$, y calcula el área del paralelogramo que definen.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Determinante simbólico:</p>
+              <p>$$\vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 1 & 2 & 0 \\ 0 & -3 & 1 \end{vmatrix} = \vec{i}(2 \cdot 1 - 0) - \vec{j}(1 \cdot 1 - 0) + \vec{k}(1 \cdot (-3) - 0) = (2, -1, -3)$$</p>
+              <p>2. El área del paralelogramo es el módulo: $\text{Área} = |\vec{u} \times \vec{v}| = \sqrt{2^2 + (-1)^2 + (-3)^2} = \sqrt{4 + 1 + 9} = \sqrt{14} \text{ u}^2 \approx 3{,}74 \text{ u}^2$.</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: $\vec{u} \times \vec{v} = (2, -1, -3)$ y Área $= \sqrt{14} \approx 3{,}74 \text{ u}^2$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Halla las ecuaciones paramétricas y la forma continua de la recta $r$ que pasa por el punto $P(2, -1, 4)$ y lleva la dirección del vector $\vec{v} = (3, 1, -2)$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. <strong>Paramétricas:</strong> con punto $P(2,-1,4)$ y vector $(3,1,-2)$:</p>
+              <p>$$x = 2 + 3\lambda, \quad y = -1 + \lambda, \quad z = 4 - 2\lambda \quad (\lambda \in \mathbb{R})$$</p>
+              <p>2. <strong>Continua:</strong> despejando el parámetro $\lambda$ en las tres coordenadas:</p>
+              <p>$$\frac{x - 2}{3} = \frac{y + 1}{1} = \frac{z - 4}{-2}$$</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: $r: \frac{x - 2}{3} = y + 1 = \frac{z - 4}{-2}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Escribe la ecuación implícita o general del plano $\pi$ que pasa por el punto $P(1, 2, -3)$ y es perpendicular al vector $\vec{n} = (2, -1, 4)$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. La forma general con normal $\vec{n}=(A,B,C)=(2,-1,4)$ es: $2x - y + 4z + D = 0$.</p>
+              <p>2. Como el punto $P(1, 2, -3)$ pertenece al plano, satisface la ecuación:</p>
+              <p>$$2(1) - (2) + 4(-3) + D = 0 \implies 2 - 2 - 12 + D = 0 \implies D = 12$$</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: Plano $\pi: 2x - y + 4z + 12 = 0$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Halla la ecuación del plano $\pi$ que contiene al punto $A(0, 1, 2)$ y tiene como vectores directores $\vec{u} = (1, -1, 0)$ y $\vec{v} = (2, 1, 3)$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Mediante el determinante de coplanariedad:</p>
+              <p>$$\begin{vmatrix} x - 0 & y - 1 & z - 2 \\ 1 & -1 & 0 \\ 2 & 1 & 3 \end{vmatrix} = 0$$</p>
+              <p>2. Desarrollando por la primera fila: $x(-3 - 0) - (y - 1)(3 - 0) + (z - 2)(1 - (-2)) = 0$.</p>
+              <p>3. Simplificando: $-3x - 3(y - 1) + 3(z - 2) = -3x - 3y + 3 + 3z - 6 = -3x - 3y + 3z - 3 = 0$.</p>
+              <p>4. Dividiendo entre $-3$: $x + y - z + 1 = 0$.</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: Plano $\pi: x + y - z + 1 = 0$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Calcula la distancia del punto $P(3, 1, -2)$ al plano $\pi: 2x - 2y + z - 5 = 0$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Aplicando la fórmula directa $d(P,\pi) = \frac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}}$:</p>
+              <p>$$d(P,\pi) = \frac{|2(3) - 2(1) + 1(-2) - 5|}{\sqrt{2^2 + (-2)^2 + 1^2}} = \frac{|6 - 2 - 2 - 5|}{\sqrt{4 + 4 + 1}} = \frac{|-3|}{\sqrt{9}} = \frac{3}{3} = 1$$</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: La distancia es exactamente $1$ unidad.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Determina si los puntos $A(1, 0, 2)$, $B(2, 2, 4)$ y $C(3, 4, 6)$ están alineados en el espacio.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Construimos los vectores: $\vec{AB} = (2-1, 2-0, 4-2) = (1, 2, 2)$ y $\vec{AC} = (3-1, 4-0, 6-2) = (2, 4, 4)$.</p>
+              <p>2. Comprobamos la proporcionalidad de sus coordenadas:</p>
+              <p>$$\frac{2}{1} = \frac{4}{2} = \frac{4}{2} = 2$$</p>
+              <p>3. Los vectores son linealmente dependientes ($\vec{AC} = 2\vec{AB}$), por lo que tienen la misma dirección y comparten el punto $A$.</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: Sí están alineados (pertenecen a la misma recta).
+              </div>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">Estudia la posición relativa de la recta $r: \frac{x-1}{2} = \frac{y+2}{-1} = \frac{z}{3}$ y el plano $\pi: x + 2y + 0z + 3 = 0$. Si se cortan, halla el punto de corte.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Vector de la recta $\vec{v}_r = (2, -1, 3)$ y vector normal del plano $\vec{n} = (1, 2, 0)$.</p>
+              <p>2. Producto escalar: $\vec{v}_r \cdot \vec{n} = 2(1) + (-1)(2) + 3(0) = 2 - 2 = 0$. Como el producto es $0$, la recta es paralela al plano o está contenida en él.</p>
+              <p>3. Tomamos un punto de la recta: $A(1, -2, 0)$ y comprobamos si está en $\pi$: $1 + 2(-2) + 3 = 1 - 4 + 3 = 0$. Satisface la ecuación.</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: La recta $r$ está <strong>totalmente contenida</strong> en el plano $\pi$ ($r \subset \pi$).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Determina la posición relativa de las rectas:
+            $$r: \frac{x-1}{2} = \frac{y}{1} = \frac{z-3}{-1} \quad \text{y} \quad s: \begin{cases} x = 2 + 4t \\ y = 1 + 2t \\ z = 1 - 2t \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Vectores directores: $\vec{u}_r = (2, 1, -1)$ y $\vec{v}_s = (4, 2, -2)$. Observamos que $\vec{v}_s = 2 \vec{u}_r$, por lo que son paralelos.</p>
+              <p>2. Tomamos un punto de $r$: $A(1, 0, 3)$ y comprobamos si pertenece a $s$:</p>
+              <p>$$1 = 2 + 4t \implies t = -1/4$$</p>
+              <p>$$0 = 1 + 2(-1/4) = 1/2 \neq 0$$</p>
+              <p>3. Como no coinciden en ningún punto, las rectas no son coincidentes.</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: Las rectas $r$ y $s$ son <strong>paralelas no coincidentes</strong>.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Estudia la posición relativa de las rectas:
+            $$r: \frac{x}{1} = \frac{y-1}{2} = \frac{z-2}{3} \quad \text{y} \quad s: \frac{x-1}{2} = \frac{y-2}{2} = \frac{z-5}{1}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Puntos y vectores: $A(0, 1, 2), \vec{u} = (1, 2, 3)$ y $B(1, 2, 5), \vec{v} = (2, 2, 1)$.</p>
+              <p>2. Vector $\vec{AB} = (1-0, 2-1, 5-2) = (1, 1, 3)$.</p>
+              <p>3. Calculamos el producto mixto $[\vec{u}, \vec{v}, \vec{AB}]$:</p>
+              <p>$$\begin{vmatrix} 1 & 2 & 3 \\ 2 & 2 & 1 \\ 1 & 1 & 3 \end{vmatrix} = 1(6 - 1) - 2(6 - 1) + 3(2 - 2) = 5 - 10 + 0 = -5 \neq 0$$</p>
+              <p>4. Al ser $[\vec{u}, \vec{v}, \vec{AB}] \neq 0$, los tres vectores son linealmente independientes y no son coplanarios.</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: Las rectas $r$ y $s$ <strong>se cruzan en el espacio</strong> (no son paralelas ni se cortan).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Halla la ecuación del plano mediador del segmento de extremos $A(2, 4, -1)$ y $B(0, 2, 3)$ (plano perpendicular al segmento en su punto medio).</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Punto medio $M$: $M = \left(\frac{2+0}{2}, \frac{4+2}{2}, \frac{-1+3}{2}\right) = (1, 3, 1)$.</p>
+              <p>2. Vector normal del plano $\vec{n} = \vec{AB} = (0 - 2, 2 - 4, 3 - (-1)) = (-2, -2, 4)$, o simplificando dividiendo entre $-2$: $\vec{n}' = (1, 1, -2)$.</p>
+              <p>3. Ecuación del plano con normal $(1, 1, -2)$ por $M(1, 3, 1)$:</p>
+              <p>$$1(x - 1) + 1(y - 3) - 2(z - 1) = 0 \implies x + y - 2z - 2 = 0$$</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: Plano mediador $\pi: x + y - 2z - 2 = 0$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Calcula la distancia del punto $P(1, 2, 3)$ a la recta $r: \begin{cases} x = 1 + t \\ y = 2 - t \\ z = 3t \end{cases}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Punto de $r$: $A(1, 2, 0)$ y vector director $\vec{v} = (1, -1, 3)$.</p>
+              <p>2. Vector $\vec{AP} = (1 - 1, 2 - 2, 3 - 0) = (0, 0, 3)$.</p>
+              <p>3. Producto vectorial $\vec{AP} \times \vec{v}$:</p>
+              <p>$$\vec{AP} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 0 & 0 & 3 \\ 1 & -1 & 3 \end{vmatrix} = \vec{i}(0 - (-3)) - \vec{j}(0 - 3) + \vec{k}(0) = (3, 3, 0)$$</p>
+              <p>4. Módulos: $|\vec{AP} \times \vec{v}| = \sqrt{3^2 + 3^2 + 0} = \sqrt{18} = 3\sqrt{2}$, y $|\vec{v}| = \sqrt{1^2 + (-1)^2 + 3^2} = \sqrt{11}$.</p>
+              <p>5. Distancia: $d(P, r) = \frac{3\sqrt{2}}{\sqrt{11}} = \frac{3\sqrt{22}}{11} \approx 1{,}28$ u.</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: $d(P, r) = \frac{3\sqrt{22}}{11} \approx 1{,}28$ u.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Halla la recta perpendicular al plano $\pi: 3x - y + 2z - 14 = 0$ que pasa por el origen $O(0, 0, 0)$ y calcula el punto donde la recta corta al plano (proyección ortogonal del origen).</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Como la recta es perpendicular a $\pi$, su vector director es el vector normal del plano: $\vec{v}_r = \vec{n} = (3, -1, 2)$.</p>
+              <p>2. Pasando por el origen, sus paramétricas son: $x = 3t, \; y = -t, \; z = 2t$.</p>
+              <p>3. Intersección con $\pi$: sustituimos las ecuaciones en el plano:</p>
+              <p>$$3(3t) - (-t) + 2(2t) - 14 = 0 \implies 9t + t + 4t - 14 = 0 \implies 14t = 14 \implies t = 1$$</p>
+              <p>4. Para $t=1$, obtenemos el punto: $x = 3(1) = 3$, $y = -1$, $z = 2(1) = 2$.</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: Recta $r: \frac{x}{3} = \frac{y}{-1} = \frac{z}{2}$, punto de intersección $M(3, -1, 2)$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Halla el área del triángulo de vértices $A(1, 1, 1)$, $B(2, 3, 4)$ y $C(1, 0, 2)$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Vectores desde $A$: $\vec{AB} = (1, 2, 3)$ y $\vec{AC} = (0, -1, 1)$.</p>
+              <p>2. Producto vectorial $\vec{AB} \times \vec{AC}$:</p>
+              <p>$$\vec{AB} \times \vec{AC} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 1 & 2 & 3 \\ 0 & -1 & 1 \end{vmatrix} = \vec{i}(2 - (-3)) - \vec{j}(1 - 0) + \vec{k}(-1 - 0) = (5, -1, -1)$$</p>
+              <p>3. El área del triángulo es la mitad del módulo del producto vectorial:</p>
+              <p>$$\text{Área} = \frac{1}{2} |\vec{AB} \times \vec{AC}| = \frac{1}{2} \sqrt{5^2 + (-1)^2 + (-1)^2} = \frac{\sqrt{27}}{2} = \frac{3\sqrt{3}}{2} \approx 2{,}60 \text{ u}^2$$</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: $\text{Área} = \frac{3\sqrt{3}}{2} \approx 2{,}60 \text{ u}^2$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">El plano $\pi: 2x + 3y + 4z - 12 = 0$ corta a los ejes coordenados $OX$, $OY$ y $OZ$ en los puntos $A$, $B$ y $C$. Halla las coordenadas de dichos puntos y el volumen del tetraedro $OABC$, donde $O$ es el origen.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Puntos de corte con los ejes:</p>
+              <p>&bull; Eje $OX$ ($y=0, z=0$): $2x - 12 = 0 \implies x = 6 \implies A(6, 0, 0)$.</p>
+              <p>&bull; Eje $OY$ ($x=0, z=0$): $3y - 12 = 0 \implies y = 4 \implies B(0, 4, 0)$.</p>
+              <p>&bull; Eje $OZ$ ($x=0, y=0$): $4z - 12 = 0 \implies z = 3 \implies C(0, 0, 3)$.</p>
+              <p>2. Al ser los tres ejes perpendiculares entre sí, el volumen es $\frac{1}{6}$ del producto de las tres aristas:</p>
+              <p>$$V = \frac{1}{6} |[\vec{OA}, \vec{OB}, \vec{OC}]| = \frac{1}{6} (6 \cdot 4 \cdot 3) = \frac{72}{6} = 12 \text{ u}^3$$</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: Puntos $A(6,0,0)$, $B(0,4,0)$, $C(0,0,3)$ y Volumen $= 12 \text{ u}^3$.
+              </div>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Halla las coordenadas del punto simétrico $P'$ del punto $P(1, 0, 2)$ respecto al plano $\pi: 2x - y + z - 1 = 0$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Trazamos la recta perpendicular $r$ a $\pi$ que pasa por $P(1,0,2)$ con vector $\vec{n}=(2, -1, 1)$:</p>
+              <p>$$x = 1 + 2t, \quad y = -t, \quad z = 2 + t$$</p>
+              <p>2. Hallamos el punto de corte $M = r \cap \pi$ sustituyendo en la ecuación del plano:</p>
+              <p>$$2(1 + 2t) - (-t) + (2 + t) - 1 = 0 \implies 2 + 4t + t + 2 + t - 1 = 0 \implies 6t + 3 = 0 \implies t = -1/2$$</p>
+              <p>3. Coordenadas de $M$: $x_M = 1 + 2(-1/2) = 0$, $y_M = 1/2$, $z_M = 2 - 1/2 = 3/2 \implies M(0, 1/2, 3/2)$.</p>
+              <p>4. $M$ es el punto medio entre $P$ y su simétrico $P'$. Por tanto, $P' = 2M - P$:</p>
+              <p>$$P' = 2(0, 1/2, 3/2) - (1, 0, 2) = (0, 1, 3) - (1, 0, 2) = (-1, 1, 1)$$</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: El punto simétrico es $P'(-1, 1, 1)$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Halla el punto simétrico de $P(2, -1, 3)$ respecto a la recta $r: \frac{x-1}{1} = \frac{y+1}{2} = \frac{z}{1}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Construimos un plano $\pi$ perpendicular a la recta $r$ que pase por $P$. Su vector normal es el de la recta: $\vec{n} = \vec{v}_r = (1, 2, 1)$.</p>
+              <p>2. Ecuación de $\pi$: $1(x - 2) + 2(y + 1) + 1(z - 3) = 0 \implies x + 2y + z - 3 = 0$.</p>
+              <p>3. Intersección $M = r \cap \pi$: sustituimos las paramétricas de $r$ ($x = 1+t, y = -1+2t, z = t$):</p>
+              <p>$$(1+t) + 2(-1+2t) + t - 3 = 0 \implies 6t - 4 = 0 \implies t = 2/3$$</p>
+              <p>4. Coordenadas de la proyección $M$: $M\left(1 + \frac{2}{3}, -1 + \frac{4}{3}, \frac{2}{3}\right) = M\left(\frac{5}{3}, \frac{1}{3}, \frac{2}{3}\right)$.</p>
+              <p>5. Simétrico: $P' = 2M - P = 2\left(\frac{5}{3}, \frac{1}{3}, \frac{2}{3}\right) - (2, -1, 3) = \left(\frac{10}{3} - 2, \frac{2}{3} + 1, \frac{4}{3} - 3\right) = \left(\frac{4}{3}, \frac{5}{3}, -\frac{5}{3}\right)$.</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: $P'\left(\frac{4}{3}, \frac{5}{3}, -\frac{5}{3}\right)$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Dadas las rectas $r: \frac{x-1}{1} = \frac{y}{2} = \frac{z}{-1}$ y $s: \frac{x}{2} = \frac{y-1}{-1} = \frac{z-2}{1}$, comprueba que se cruzan y halla la distancia mínima entre ellas.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Elementos: $A(1, 0, 0), \vec{u} = (1, 2, -1)$ y $B(0, 1, 2), \vec{v} = (2, -1, 1)$.</p>
+              <p>2. Vector $\vec{AB} = (-1, 1, 2)$.</p>
+              <p>3. Producto vectorial $\vec{u} \times \vec{v}$:</p>
+              <p>$$\vec{u} \times \vec{v} = \begin{vmatrix} \vec{i} & \vec{j} & \vec{k} \\ 1 & 2 & -1 \\ 2 & -1 & 1 \end{vmatrix} = \vec{i}(2 - 1) - \vec{j}(1 - (-2)) + \vec{k}(-1 - 4) = (1, -3, -5)$$</p>
+              <p>4. Módulo del producto vectorial: $|\vec{u} \times \vec{v}| = \sqrt{1^2 + (-3)^2 + (-5)^2} = \sqrt{1 + 9 + 25} = \sqrt{35}$.</p>
+              <p>5. Producto mixto $[\vec{u}, \vec{v}, \vec{AB}] = (1, -3, -5) \cdot (-1, 1, 2) = -1 - 3 - 10 = -14 \neq 0 \implies$ Se cruzan.</p>
+              <p>6. Distancia mínima: $d(r, s) = \frac{|-14|}{\sqrt{35}} = \frac{14}{\sqrt{35}} = \frac{14\sqrt{35}}{35} = \frac{2\sqrt{35}}{5} \approx 2{,}37$ u.</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: $d(r, s) = \frac{2\sqrt{35}}{5} \approx 2{,}37$ u.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">Discute la posición relativa de los planos $\pi_1: mx + y + z = 1$ y $\pi_2: x + my + z = m$ según los diferentes valores del parámetro $m \in \mathbb{R}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Comparamos los coeficientes: $\frac{m}{1} = \frac{1}{m} = \frac{1}{1} = \frac{1}{m}$.</p>
+              <p>2. De $\frac{m}{1} = 1$ se deduce que $m = 1$.</p>
+              <p>&bull; <strong>Si $m = 1$:</strong> Los dos planos son $x + y + z = 1$ y $x + y + z = 1$. Todos los coeficientes y términos independientes coinciden $\implies$ Son <strong>planos coincidentes</strong>.</p>
+              <p>&bull; <strong>Si $m = -1$:</strong> $\vec{n}_1 = (-1, 1, 1)$ y $\vec{n}_2 = (1, -1, 1)$. No son proporcionales $\implies$ Se cortan en una recta.</p>
+              <p>&bull; <strong>Si $m \neq 1$:</strong> Los vectores normales no son proporcionales, por lo que los planos se cortan según una recta común (son secantes).</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: Si $m = 1$, planos coincidentes; si $m \neq 1$, planos secantes (se cortan en una recta).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Halla la ecuación de la recta $t$ que pasa por el punto exterior $P(1, 1, 0)$ y se apoya (corta) a las dos rectas $r: x = y = z$ y $s: \begin{cases} x = 2 \\ y = -1 \end{cases}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. La recta buscada $t$ es la intersección de dos planos: $\pi_1$ (que contiene a $P$ y a $r$) y $\pi_2$ (que contiene a $P$ y a $s$).</p>
+              <p>2. Para $\pi_1$: recta $r$ pasa por $O(0,0,0)$ con $\vec{u}_r=(1,1,1)$. Vector $\vec{OP} = (1,1,0)$. Normal $\vec{n}_1 = (1,1,1) \times (1,1,0) = (-1, 1, 0) \implies \pi_1: -x + y = 0 \iff x - y = 0$.</p>
+              <p>3. Para $\pi_2$: recta $s$ pasa por $Q(2, -1, 0)$ con $\vec{v}_s=(0,0,1)$. Vector $\vec{QP} = (1-2, 1-(-1), 0-0) = (-1, 2, 0)$. Normal $\vec{n}_2 = (0,0,1) \times (-1, 2, 0) = (-2, -1, 0) \implies \pi_2: 2x + y - 3 = 0$.</p>
+              <p>4. Por tanto, la recta $t$ en forma implícita es:</p>
+              <p>$$t: \begin{cases} x - y = 0 \\ 2x + y - 3 = 0 \end{cases}$$</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: $t \equiv \begin{cases} x - y = 0 \\ 2x + y = 3 \end{cases}$ (en paramétricas: $x = 1, y = 1, z = \lambda$).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Considera la recta $r \equiv \begin{cases} x - y + z = 1 \\ 2x + y - z = 2 \end{cases}$. Halla la ecuación del plano que contiene a la recta $r$ y es perpendicular al plano $\pi: x + 2y - z = 4$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-purple-100">
+              <p>1. Planteamos el haz de planos secantes en la recta $r$:</p>
+              <p>$$(x - y + z - 1) + \lambda(2x + y - z - 2) = 0 \implies (1 + 2\lambda)x + (-1 + \lambda)y + (1 - \lambda)z - (1 + 2\lambda) = 0$$</p>
+              <p>2. El vector normal de cualquier plano del haz es $\vec{n}_\lambda = (1 + 2\lambda, \; \lambda - 1, \; 1 - \lambda)$.</p>
+              <p>3. Condición de perpendicularidad con $\pi$ ($\vec{n}_\pi = (1, 2, -1)$): $\vec{n}_\lambda \cdot \vec{n}_\pi = 0$:</p>
+              <p>$$1(1 + 2\lambda) + 2(\lambda - 1) - 1(1 - \lambda) = 0 \implies 1 + 2\lambda + 2\lambda - 2 - 1 + \lambda = 0 \implies 5\lambda - 2 = 0 \implies \lambda = \frac{2}{5}$$</p>
+              <p>4. Sustituimos $\lambda = 2/5$ en el haz:</p>
+              <p>$$5(x - y + z - 1) + 2(2x + y - z - 2) = 0 \implies (5x + 4x) + (-5y + 2y) + (5z - 2z) - 5 - 4 = 0$$</p>
+              <p>$$9x - 3y + 3z - 9 = 0 \implies 3x - y + z - 3 = 0$$</p>
+              <div class="p-2 bg-purple-50 text-purple-900 font-bold rounded mt-2">
+                Resultado: Plano buscado $\pi': 3x - y + z - 3 = 0$.
+              </div>
+            </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

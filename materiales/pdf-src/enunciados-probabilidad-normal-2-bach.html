@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Probabilidad y Distribución Normal | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Probabilidad y Distribución Normal</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Sean $A$ y $B$ dos sucesos con $P(A) = 0{,}6$, $P(B) = 0{,}4$ y $P(A \cap B) = 0{,}25$. Calcula: a) $P(A \cup B)$, b) $P(\bar{A})$, c) $P(A \cap \bar{B})$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $0{,}75$; b) $0{,}40$; c) $0{,}35$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Con los datos del ejercicio anterior ($P(A)=0{,}6$, $P(B)=0{,}4$, $P(A \cup B)=0{,}75$, $P(A \cap B)=0{,}25$), calcula: a) $P(\bar{A} \cap \bar{B})$, b) $P(\bar{A} \cup \bar{B})$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $P(\bar{A} \cap \bar{B}) = 0{,}25$; b) $P(\bar{A} \cup \bar{B}) = 0{,}75$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Dados $P(A) = 0{,}5$, $P(B) = 0{,}3$ y $P(A \cup B) = 0{,}65$: ¿Son $A$ y $B$ incompatibles? ¿Son independientes? Justifica ambas respuestas.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> No son incompatibles ($P(A \cap B)=0{,}15 \neq 0$), pero sí son independientes ($P(A \cap B) = P(A)P(B)$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">En un grupo, el 40% lee el periódico digital, el 25% escucha el podcast matutino y el 15% hace ambas cosas. Si elegimos al azar a una persona que escucha el podcast, ¿cuál es la probabilidad de que también lea el periódico?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $P(D|P) = 0{,}60$ (60%).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Una urna contiene 6 bolas blancas y 4 bolas negras. Se extraen dos bolas consecutivamente sin reemplazamiento. Halla la probabilidad de que: a) Ambas sean blancas; b) Sean de distinto color.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $1/3 \approx 0{,}333$; b) $8/15 \approx 0{,}533$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Si $Z \sim N(0, 1)$, calcula utilizando la tabla: a) $P(Z \le 1{,}64)$, b) $P(Z > 1{,}64)$, c) $P(0{,}5 \le Z \le 1{,}8)$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $0{,}9495$; b) $0{,}0505$; c) $0{,}2726$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Para $Z \sim N(0, 1)$, calcula: a) $P(Z \le -1{,}28)$, b) $P(Z \ge -0{,}75)$, c) $P(-1 \le Z \le 1)$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $0{,}1003$; b) $0{,}7734$; c) $0{,}6826$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">El peso de los paquetes de café sigue una distribución normal $X \sim N(250\text{ g}, 10\text{ g})$. Halla la probabilidad de que un paquete pese: a) Menos de 265 g; b) Más de 235 g.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $0{,}9332$; b) $0{,}9332$.</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">En una factoría automotriz, tres máquinas $A$, $B$ y $C$ producen el 50%, 30% y 20% de las piezas, con porcentajes de defectuosas del 2%, 3% y 5% respectivamente. Si se elige una pieza al azar, ¿cuál es la probabilidad de que sea defectuosa?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> La probabilidad de pieza defectuosa es $0{,}029$ ($2{,}9\%$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Con los datos del problema anterior, si una pieza elegida al azar resulta ser <strong>defectuosa</strong>, ¿cuál es la probabilidad de que proceda de la máquina $C$?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $P(C|D) = \frac{10}{29} \approx 0{,}3448$ ($34{,}48\%$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">En un centro escolar con 200 alumnos de 2º de Bachillerato, 120 son chicas y 80 son chicos. Estudian Francés 50 personas, de las cuales 35 son chicas. Se elige un alumno al azar. a) Probabilidad de que no estudie Francés; b) Si es chico, probabilidad de que estudie Francés.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $0{,}75$ ($75\%$); b) $0{,}1875$ ($18{,}75\%$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Una enfermedad rara afecta al 1% de la población ($P(E) = 0{,}01$). Existe un test diagnóstico con sensibilidad del 95% ($P(+|E) = 0{,}95$) y tasa de falsos positivos del 2% ($P(+|\bar{E}) = 0{,}02$). Si a una persona el test le da positivo, ¿cuál es la probabilidad real de que esté enferma?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $P(E|+) \approx 0{,}3242$ ($32{,}42\%$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">Un examen tipo test consta de 6 preguntas con 4 respuestas posibles cada una, de las que sólo una es correcta. Si un alumno responde todas al azar, calcula la probabilidad de acertar: a) Exactamente 4 preguntas; b) Ninguna pregunta.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $P(X=4) \approx 0{,}0330$; b) $P(X=0) \approx 0{,}1780$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Las calificaciones de una oposición se distribuyen según una normal $X \sim N(\mu=60, \sigma=12)$. Si sólo el 10% de los mejores opositores obtienen plaza directa, ¿cuál es la nota de corte mínima necesaria?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> La nota de corte es $k \approx 75{,}38$ puntos.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">El tiempo de espera en la caja de un supermercado sigue una distribución $N(8\text{ min}, 3\text{ min})$. Si se toma una muestra aleatoria de 36 clientes, calcula la probabilidad de que la media del tiempo de espera de la muestra sea superior a 8,5 minutos.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $P(\bar{X} > 8{,}5) = 0{,}1587$ ($15{,}87\%$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Se lanza una moneda correcta 100 veces. Calcula mediante la aproximación normal la probabilidad de obtener entre 45 y 55 caras (ambos incluidos).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Probabilidad $\approx 0{,}7286$ ($72{,}86\%$).</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Se lanza un dado de 6 caras. Si sale un número menor o igual que 2, se acude a la Urna $A$ (3 bolas rojas y 2 verdes); si sale 3 o más, se acude a la Urna $B$ (2 bolas rojas y 4 verdes). Se extrae una bola: a) Probabilidad de que sea roja; b) Si fue verde, ¿cuál es la probabilidad de que proceda de la Urna $A$?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $P(R) = 19/45 \approx 0{,}422$; b) $P(A|V) = 3/13 \approx 0{,}2308$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Un circuito eléctrico consta de dos relés $R_1$ y $R_2$ conectados en paralelo, que a su vez están en serie con un tercer relé $R_3$. La probabilidad de fallo independiente de cada relé es 0,10 para $R_1$ y $R_2$, y 0,05 para $R_3$. Halla la probabilidad de que el circuito funcione.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Probabilidad de funcionamiento $= 0{,}9405$ ($94{,}05\%$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">En una variable aleatoria $X \sim N(\mu, \sigma)$ se sabe que el 15,87% de los valores son inferiores a 30 ($P(X < 30) = 0{,}1587$) y el 2,28% son superiores a 60 ($P(X > 60) = 0{,}0228$). Halla los parámetros $\mu$ y $\sigma$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Media $\mu = 40$ y desviación típica $\sigma = 10$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">En un sondeo electoral sobre una muestra de 400 ciudadanos, 160 manifestaron su intención de votar a un candidato. Construye un intervalo de confianza al 95% para la proporción verdadera de votantes.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $IC_{95\%} = (0{,}3520, \; 0{,}4480)$, es decir, entre el 35,2% y el 44,8%.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">Se desea estimar la media de una población con desviación típica $\sigma = 5$. ¿Cuántas observaciones deben incluirse en la muestra para que, con un 99% de confianza, el error cometido no supere 0,5 unidades?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Tamaño muestral mínimo necesario: $n = 664$ observaciones.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Una empresa de paquetería urgente sabe que el 90% de sus envíos llegan a tiempo. Se realiza un seguimiento de 10 paquetes enviados hoy: a) Probabilidad de que lleguen a tiempo al menos 9 paquetes; b) Si se envían 400 paquetes en la semana, halla la probabilidad de que se retrasen más de 48 paquetes mediante aproximación Normal.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $P(X \ge 9) = 0{,}7361$; b) Probabilidad de retraso $> 48$ paquetes $\approx 0{,}0778$ ($7{,}78\%$).</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

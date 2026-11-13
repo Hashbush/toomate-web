@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Ondas, Óptica y Física Cuántica | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Ondas, Óptica y Física Cuántica</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Una onda transversal en una cuerda viene dada en el S.I. por: $y(x, t) = 0{,}04 \sin(10\pi t - 2\pi x)$.
+            Determina su amplitud, frecuencia, longitud de onda y velocidad de propagación.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $A = 0{,}04\text{ m}$, $f = 5\text{ Hz}$, $\lambda = 1\text{ m}$, $v = 5\text{ m/s}$ (hacia $+x$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Para la onda del ejercicio anterior, calcula la velocidad máxima y la aceleración máxima de oscilación de una partícula de la cuerda.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $v_{\text{max}} \approx 1{,}26\text{ m/s}$ y $a_{\text{max}} \approx 39{,}5\text{ m/s}^2$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Una onda armónica de frecuencia $200\text{ Hz}$ se propaga por el aire a $340\text{ m/s}$. Halla la diferencia de fase en radianes entre dos puntos separados una distancia de $85\text{ cm}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\Delta\varphi = \pi\text{ rad}$ (oposición de fase).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">Un rayo de luz viaja por el aire ($n_1 = 1$) e incide sobre la superficie del agua ($n_2 = 1{,}33$) con un ángulo de incidencia de $45^\circ$. Calcula el ángulo de refracción.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Ángulo de refracción $\theta_2 \approx 32{,}1^\circ$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Calcula el ángulo límite para la superficie de separación entre un vidrio de índice $n_1 = 1{,}50$ y el aire ($n_2 = 1$). ¿Qué sucede si la luz incide desde el vidrio a un ángulo de $45^\circ$?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Ángulo límite $\theta_l \approx 41{,}8^\circ$. Con $45^\circ$ se produce reflexión total interna.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Un objeto luminoso se coloca a $30\text{ cm}$ delante de una lente delgada convergente de distancia focal $f' = +10\text{ cm}$. Halla la posición de la imagen y calcula el aumento lateral.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Posición $s' = +15\text{ cm}$, aumento $m = -0{,}5$ (real, invertida y menor).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Calcula la energía de un fotón de luz verde con una longitud de onda de $500\text{ nm}$ en el vacío. Expresa el resultado en Julios y en electrón-voltios ($\text{eV}$). ($h = 6{,}63 \cdot 10^{-34}\text{ J}\cdot\text{s}$, $c = 3 \cdot 10^8\text{ m/s}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $E \approx 3{,}98 \cdot 10^{-19}\text{ J} = 2{,}49\text{ eV}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Halla la longitud de onda de materia asociada a un electrón ($m = 9{,}1 \cdot 10^{-31}\text{ kg}$) que viaja a una velocidad no relativista de $2 \cdot 10^6\text{ m/s}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\lambda \approx 3{,}64 \cdot 10^{-10}\text{ m} = 0{,}364\text{ nm} = 3{,}64\text{ Å}$.</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">El trabajo de extracción de una placa de cesio es $W_0 = 2{,}14\text{ eV}$. Si se ilumina con luz ultravioleta de longitud de onda $\lambda = 300\text{ nm}$, halla: a) La frecuencia umbral; b) La energía cinética máxima de los fotoelectrones emitidos.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $f_0 \approx 5{,}16 \cdot 10^{14}\text{ Hz}$; b) $E_{c,\text{max}} = 2{,}00\text{ eV} = 3{,}2 \cdot 10^{-19}\text{ J}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Con los datos del ejercicio anterior ($E_{c,\text{max}} = 2{,}00\text{ eV}$), ¿qué potencial de frenado $V_0$ debe aplicarse para anular completamente la fotocorriente?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $V_0 = 2{,}00\text{ V}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">La ecuación de una onda estacionaria en una cuerda es $y(x, t) = 0{,}06 \sin(5\pi x) \cos(40\pi t)$ (en el S.I.).
+            Halla la amplitud de las ondas viajeras componentes, la distancia entre dos nodos consecutivos y la velocidad de propagación de las ondas viajeras.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Amplitud $A = 3\text{ cm}$, distancia entre nodos $20\text{ cm}$ y velocidad $v = 8\text{ m/s}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Un objeto de $4\text{ cm}$ de altura se sitúa a $20\text{ cm}$ de una lente delgada divergente de distancia focal $f' = -20\text{ cm}$. Halla la posición, el tamaño y la naturaleza de la imagen formada.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $s' = -10\text{ cm}$, altura $y' = 2\text{ cm}$ (virtual, derecha y menor).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">Un vehículo de bomberos con una sirena que emite a $680\text{ Hz}$ se desplaza a $34\text{ m/s}$ ($122{,}4\text{ km/h}$). Si la velocidad del sonido en el aire es $340\text{ m/s}$, halla la frecuencia percibida por un observador en reposo: a) Cuando el vehículo se acerca; b) Cuando se aleja.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $f' \approx 755{,}6\text{ Hz}$ (más aguda); b) $f'' \approx 618{,}2\text{ Hz}$ (más grave).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Un electrón se acelera desde el reposo mediante una diferencia de potencial de $150\text{ V}$. Deduce la fórmula de su longitud de onda de De Broglie y calcula su valor numérico.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\lambda \approx 1{,}00 \cdot 10^{-10}\text{ m} = 1\text{ Å}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">Para observar un detalle botánico, se utiliza una lente convergente de potencia $P = +20\text{ dioptrías}$ como lupa, colocándola a $3\text{ cm}$ del ejemplar. Halla la posición de la imagen y el aumento obtenido.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $s' = -7{,}5\text{ cm}$ (imagen virtual derecha aumentada 2,5 veces).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">El nivel de intensidad sonora de una conversación normal a 1 metro de distancia es de $60\text{ dB}$.
+            a) Halla la intensidad física $I$ en $\text{W/m}^2$. ($I_0 = 10^{-12}\text{ W/m}^2$).
+            b) ¿Cuál será el nivel en $\text{dB}$ si 10 personas conversan simultáneamente al mismo volumen?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $I = 10^{-6}\text{ W/m}^2$; b) $\beta_{\text{total}} = 70\text{ dB}$.</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">En un experimento fotoeléctrico se miden los potenciales de frenado correspondientes a dos frecuencias lumínicas distintas: para $f_1 = 6 \cdot 10^{14}\text{ Hz}$ se obtiene $V_{0,1} = 0{,}80\text{ V}$, y para $f_2 = 8 \cdot 10^{14}\text{ Hz}$ se mide $V_{0,2} = 1{,}63\text{ V}$. Determina el valor experimental de la constante de Planck y el trabajo de extracción del metal.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $h \approx 6{,}64 \cdot 10^{-34}\text{ J}\cdot\text{s}$ y $W_0 \approx 1{,}69\text{ eV}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Un objeto de $2\text{ cm}$ se sitúa a $30\text{ cm}$ delante de una primera lente convergente $L_1$ con $f'_1 = +20\text{ cm}$. A $50\text{ cm}$ detrás de $L_1$ se coloca una segunda lente convergente $L_2$ con $f'_2 = +10\text{ cm}$. Halla la posición final y el tamaño de la imagen definitiva producida por el sistema.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Imagen final a $+5\text{ cm}$ detrás de $L_2$, tamaño $2\text{ cm}$ (invertida y real).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">El núcleo del átomo de Helio-4 ($^4_2\text{He}$) tiene una masa medida de $4{,}0015\text{ u}$. Sabiendo que la masa del protón libre es $m_p = 1{,}0073\text{ u}$ y la del neutrón $m_n = 1{,}0087\text{ u}$, calcula el defecto de masa $\Delta m$ y la energía de enlace por nucleón en $\text{MeV}$. ($1\text{ u} \equiv 931{,}5\text{ MeV}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\Delta m = 0{,}0305\text{ u}$ y $E_b/A \approx 7{,}10\text{ MeV/nucleón}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">El periodo de semidesintegración del Carbono-14 es $T_{1/2} = 5.730\text{ años}$. En un fragmento de madera arqueológica se detecta una actividad del 25% respecto a la de la madera viva actual. ¿Qué antigüedad tiene el yacimiento?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> La muestra tiene una antigüedad de $11.460\text{ años}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">Un muón creado en la alta atmósfera viaja hacia la superficie terrestre a una velocidad $v = 0{,}998\,c$. En reposo, la vida media del muón es $\tau_0 = 2{,}2\,\mu\text{s}$. ¿Cuál es su vida media medida por los científicos en la Tierra y qué distancia recorre antes de desintegrarse?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Vida media en la Tierra $\approx 34{,}8\,\mu\text{s}$; distancia recorrida $\approx 10{,}4\text{ km}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Una onda armónica se propaga en el sentido positivo del eje $X$ con una velocidad de $40\text{ m/s}$. El foco emisor situado en el origen $x = 0$ vibra con una frecuencia de $20\text{ Hz}$ y una amplitud de $5\text{ cm}$. Sabiendo que en $t = 0$ la elongación en el origen es nula ($y(0, 0) = 0$) y la velocidad es positiva ($v_y(0,0) > 0$):
+            a) Escribe la ecuación completa de la onda $y(x, t)$.
+            b) Halla la elongación y la velocidad de un punto situado a $2\text{ metros}$ del foco en el instante $t = 0{,}1\text{ s}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $y(x, t) = 0{,}05 \sin(40\pi t - \pi x)$; b) $y = 0\text{ m}$ y $v_y = 2\pi \approx 6{,}28\text{ m/s}$.</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Ondas, Óptica y Física Cuántica | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Ondas, Óptica y Física Cuántica</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Una onda transversal en una cuerda viene dada en el S.I. por: $y(x, t) = 0{,}04 \sin(10\pi t - 2\pi x)$.
+            Determina su amplitud, frecuencia, longitud de onda y velocidad de propagación.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>Comparando con la forma general $y(x, t) = A \sin(\omega t - k x)$:</p>
+              <p>&bull; <strong>Amplitud:</strong> $A = 0{,}04\text{ m} = 4\text{ cm}$.</p>
+              <p>&bull; <strong>Frecuencia angular:</strong> $\omega = 10\pi\text{ rad/s} \implies f = \frac{\omega}{2\pi} = \frac{10\pi}{2\pi} = 5\text{ Hz}$.</p>
+              <p>&bull; <strong>Número de onda:</strong> $k = 2\pi\text{ rad/m} \implies \lambda = \frac{2\pi}{k} = \frac{2\pi}{2\pi} = 1\text{ m}$.</p>
+              <p>&bull; <strong>Velocidad de propagación:</strong> $v = \lambda \cdot f = 1 \cdot 5 = 5\text{ m/s}$ (o $v = \frac{\omega}{k} = \frac{10\pi}{2\pi} = 5\text{ m/s}$).</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: $A = 0{,}04\text{ m}$, $f = 5\text{ Hz}$, $\lambda = 1\text{ m}$, $v = 5\text{ m/s}$ (hacia $+x$).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Para la onda del ejercicio anterior, calcula la velocidad máxima y la aceleración máxima de oscilación de una partícula de la cuerda.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. Velocidad transversal: $v_y(x, t) = \frac{\partial y}{\partial t} = A \omega \cos(\omega t - kx)$.</p>
+              <p>$$v_{y,\text{max}} = A \omega = (0{,}04\text{ m})(10\pi\text{ rad/s}) = 0{,}4\pi\text{ m/s} \approx 1{,}26\text{ m/s}$$</p>
+              <p>2. Aceleración transversal: $a_y(x, t) = \frac{\partial^2 y}{\partial t^2} = -A \omega^2 \sin(\omega t - kx)$.</p>
+              <p>$$a_{y,\text{max}} = A \omega^2 = (0{,}04)(10\pi)^2 = 4\pi^2\text{ m/s}^2 \approx 39{,}48\text{ m/s}^2$$</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: $v_{\text{max}} \approx 1{,}26\text{ m/s}$ y $a_{\text{max}} \approx 39{,}5\text{ m/s}^2$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Una onda armónica de frecuencia $200\text{ Hz}$ se propaga por el aire a $340\text{ m/s}$. Halla la diferencia de fase en radianes entre dos puntos separados una distancia de $85\text{ cm}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. Longitud de onda: $\lambda = \frac{v}{f} = \frac{340\text{ m/s}}{200\text{ Hz}} = 1{,}70\text{ m}$.</p>
+              <p>2. Diferencia de fase: $\Delta\varphi = k \Delta x = \frac{2\pi}{\lambda} \Delta x$.</p>
+              <p>$$\Delta\varphi = \frac{2\pi}{1{,}70\text{ m}} (0{,}85\text{ m}) = \frac{2\pi}{2} = \pi\text{ radianes} \quad (180^\circ)$$</p>
+              <p>Observación: Los dos puntos oscilan exactamente en oposición de fase.</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: $\Delta\varphi = \pi\text{ rad}$ (oposición de fase).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Un rayo de luz viaja por el aire ($n_1 = 1$) e incide sobre la superficie del agua ($n_2 = 1{,}33$) con un ángulo de incidencia de $45^\circ$. Calcula el ángulo de refracción.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. Ley de Snell: $n_1 \sin \theta_1 = n_2 \sin \theta_2$.</p>
+              <p>$$1 \cdot \sin(45^\circ) = 1{,}33 \sin \theta_2 \implies 0{,}7071 = 1{,}33 \sin \theta_2$$</p>
+              <p>2. $\sin \theta_2 = \frac{0{,}7071}{1{,}33} \approx 0{,}5317 \implies \theta_2 = \arcsin(0{,}5317) \approx 32{,}12^\circ$.</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: Ángulo de refracción $\theta_2 \approx 32{,}1^\circ$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Calcula el ángulo límite para la superficie de separación entre un vidrio de índice $n_1 = 1{,}50$ y el aire ($n_2 = 1$). ¿Qué sucede si la luz incide desde el vidrio a un ángulo de $45^\circ$?</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. Ángulo límite: $\sin \theta_l = \frac{n_2}{n_1} = \frac{1}{1{,}50} = \frac{2}{3} \approx 0{,}6667$.</p>
+              <p>$$\theta_l = \arcsin(0{,}6667) \approx 41{,}81^\circ$$</p>
+              <p>2. Si incide con $\theta = 45^\circ$, como $45^\circ > 41{,}81^\circ$, la luz no se refracta al aire, sino que experimenta <strong>reflexión total interna</strong>, reflejándose íntegramente hacia el interior del vidrio con un ángulo de reflexión de $45^\circ$.</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: Ángulo límite $\theta_l \approx 41{,}8^\circ$. Con $45^\circ$ se produce reflexión total interna.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Un objeto luminoso se coloca a $30\text{ cm}$ delante de una lente delgada convergente de distancia focal $f' = +10\text{ cm}$. Halla la posición de la imagen y calcula el aumento lateral.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>Criterio de signos DIN: $s = -30\text{ cm}$, $f' = +10\text{ cm}$.</p>
+              <p>1. Ecuación de las lentes: $\frac{1}{s'} - \frac{1}{s} = \frac{1}{f'}$:</p>
+              <p>$$\frac{1}{s'} - \frac{1}{-30} = \frac{1}{10} \implies \frac{1}{s'} + \frac{1}{30} = \frac{1}{10} \implies \frac{1}{s'} = \frac{3}{30} - \frac{1}{30} = \frac{2}{30} = \frac{1}{15}$$</p>
+              <p>$$s' = +15\text{ cm}$$</p>
+              <p>2. Aumento lateral: $m = \frac{s'}{s} = \frac{+15}{-30} = -0{,}5$.</p>
+              <p>La imagen es <strong>real</strong> (se forma detrás de la lente), <strong>invertida</strong> ($m < 0$) y de <strong>la mitad de tamaño</strong> que el objeto.</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: Posición $s' = +15\text{ cm}$, aumento $m = -0{,}5$ (real, invertida y menor).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Calcula la energía de un fotón de luz verde con una longitud de onda de $500\text{ nm}$ en el vacío. Expresa el resultado en Julios y en electrón-voltios ($\text{eV}$). ($h = 6{,}63 \cdot 10^{-34}\text{ J}\cdot\text{s}$, $c = 3 \cdot 10^8\text{ m/s}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. Frecuencia: $f = \frac{c}{\lambda} = \frac{3 \cdot 10^8\text{ m/s}}{500 \cdot 10^{-9}\text{ m}} = 6 \cdot 10^{14}\text{ Hz}$.</p>
+              <p>2. Energía de Planck: $E = h f = (6{,}63 \cdot 10^{-34}\text{ J}\cdot\text{s})(6 \cdot 10^{14}\text{ s}^{-1}) = 3{,}978 \cdot 10^{-19}\text{ J}$.</p>
+              <p>3. En electrón-voltios: $E = \frac{3{,}978 \cdot 10^{-19}\text{ J}}{1{,}6 \cdot 10^{-19}\text{ J/eV}} \approx 2{,}49\text{ eV}$.</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: $E \approx 3{,}98 \cdot 10^{-19}\text{ J} = 2{,}49\text{ eV}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Halla la longitud de onda de materia asociada a un electrón ($m = 9{,}1 \cdot 10^{-31}\text{ kg}$) que viaja a una velocidad no relativista de $2 \cdot 10^6\text{ m/s}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. Hipótesis de De Broglie: $\lambda = \frac{h}{p} = \frac{h}{m v}$.</p>
+              <p>$$\lambda = \frac{6{,}63 \cdot 10^{-34}\text{ J}\cdot\text{s}}{(9{,}1 \cdot 10^{-31}\text{ kg})(2 \cdot 10^6\text{ m/s})} = \frac{6{,}63 \cdot 10^{-34}}{1{,}82 \cdot 10^{-24}} \approx 3{,}64 \cdot 10^{-10}\text{ m} = 0{,}364\text{ nm}$$</p>
+              <p>Observación: Esta longitud de onda es del orden del tamaño interatómico de una red cristalina, lo que permite difractar electrones como si fueran rayos X.</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: $\lambda \approx 3{,}64 \cdot 10^{-10}\text{ m} = 0{,}364\text{ nm} = 3{,}64\text{ Å}$.
+              </div>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">El trabajo de extracción de una placa de cesio es $W_0 = 2{,}14\text{ eV}$. Si se ilumina con luz ultravioleta de longitud de onda $\lambda = 300\text{ nm}$, halla: a) La frecuencia umbral; b) La energía cinética máxima de los fotoelectrones emitidos.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. Trabajo en Julios: $W_0 = 2{,}14 \times 1{,}6 \cdot 10^{-19}\text{ J} = 3{,}424 \cdot 10^{-19}\text{ J}$.</p>
+              <p>a) Frecuencia umbral: $f_0 = \frac{W_0}{h} = \frac{3{,}424 \cdot 10^{-19}}{6{,}63 \cdot 10^{-34}} \approx 5{,}16 \cdot 10^{14}\text{ Hz}$.</p>
+              <p>b) Energía del fotón incidente: $E_{\text{fotón}} = \frac{h c}{\lambda} = \frac{(6{,}63 \cdot 10^{-34})(3 \cdot 10^8)}{300 \cdot 10^{-9}} = 6{,}63 \cdot 10^{-19}\text{ J} \approx 4{,}14\text{ eV}$.</p>
+              <p>Energía cinética máxima: $E_{c,\text{max}} = E_{\text{fotón}} - W_0 = 4{,}14\text{ eV} - 2{,}14\text{ eV} = 2{,}00\text{ eV} = 3{,}2 \cdot 10^{-19}\text{ J}$.</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: a) $f_0 \approx 5{,}16 \cdot 10^{14}\text{ Hz}$; b) $E_{c,\text{max}} = 2{,}00\text{ eV} = 3{,}2 \cdot 10^{-19}\text{ J}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Con los datos del ejercicio anterior ($E_{c,\text{max}} = 2{,}00\text{ eV}$), ¿qué potencial de frenado $V_0$ debe aplicarse para anular completamente la fotocorriente?</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. El potencial de frenado cumple la relación: $E_{c,\text{max}} = e \cdot V_0$.</p>
+              <p>2. Como la energía cinética ya está en electrón-voltios ($2{,}00\text{ eV}$), el potencial de frenado en voltios es numéricamente igual a su valor en $\text{eV}$:</p>
+              <p>$$V_0 = \frac{3{,}2 \cdot 10^{-19}\text{ J}}{1{,}6 \cdot 10^{-19}\text{ C}} = 2{,}00\text{ Voltios}$$</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: $V_0 = 2{,}00\text{ V}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">La ecuación de una onda estacionaria en una cuerda es $y(x, t) = 0{,}06 \sin(5\pi x) \cos(40\pi t)$ (en el S.I.).
+            Halla la amplitud de las ondas viajeras componentes, la distancia entre dos nodos consecutivos y la velocidad de propagación de las ondas viajeras.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. La onda estacionaria proviene de la superposición de dos ondas viajeras de amplitud $A$: $2A = 0{,}06 \implies A = 0{,}03\text{ m} = 3\text{ cm}$.</p>
+              <p>2. Número de onda: $k = 5\pi\text{ rad/m} \implies \lambda = \frac{2\pi}{5\pi} = \frac{2}{5} = 0{,}40\text{ m}$.</p>
+              <p>La distancia entre dos nodos consecutivos es media longitud de onda: $d = \frac{\lambda}{2} = \frac{0{,}40}{2} = 0{,}20\text{ m} = 20\text{ cm}$.</p>
+              <p>3. Velocidad de las ondas viajeras: $v = \frac{\omega}{k} = \frac{40\pi}{5\pi} = 8\text{ m/s}$.</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: Amplitud $A = 3\text{ cm}$, distancia entre nodos $20\text{ cm}$ y velocidad $v = 8\text{ m/s}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Un objeto de $4\text{ cm}$ de altura se sitúa a $20\text{ cm}$ de una lente delgada divergente de distancia focal $f' = -20\text{ cm}$. Halla la posición, el tamaño y la naturaleza de la imagen formada.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>Datos DIN: $s = -20\text{ cm}$, $f' = -20\text{ cm}$, $y = 4\text{ cm}$.</p>
+              <p>1. Posición de la imagen: $\frac{1}{s'} - \frac{1}{-20} = \frac{1}{-20} \implies \frac{1}{s'} + \frac{1}{20} = -\frac{1}{20} \implies \frac{1}{s'} = -\frac{2}{20} = -\frac{1}{10}$.</p>
+              <p>$$s' = -10\text{ cm}$$</p>
+              <p>2. Aumento lateral: $m = \frac{s'}{s} = \frac{-10}{-20} = +0{,}5$.</p>
+              <p>3. Tamaño de la imagen: $y' = m \cdot y = 0{,}5 \times 4\text{ cm} = 2\text{ cm}$.</p>
+              <p>Naturaleza: Al ser $s' < 0$, la imagen es <strong>virtual</strong> (se forma delante de la lente); al ser $m > 0$ es <strong>derecha</strong>; y al ser $|m| < 1$ es <strong>de menor tamaño</strong>.</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: $s' = -10\text{ cm}$, altura $y' = 2\text{ cm}$ (virtual, derecha y menor).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Un vehículo de bomberos con una sirena que emite a $680\text{ Hz}$ se desplaza a $34\text{ m/s}$ ($122{,}4\text{ km/h}$). Si la velocidad del sonido en el aire es $340\text{ m/s}$, halla la frecuencia percibida por un observador en reposo: a) Cuando el vehículo se acerca; b) Cuando se aleja.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>Ecuación de Doppler con observador en reposo ($v_O = 0$): $f' = f \frac{v}{v \mp v_F}$.</p>
+              <p>a) Acercándose (signo menos, tono más agudo):</p>
+              <p>$$f' = 680 \frac{340}{340 - 34} = 680 \frac{340}{306} \approx 755{,}56\text{ Hz}$$</p>
+              <p>b) Alejándose (signo más, tono más grave):</p>
+              <p>$$f'' = 680 \frac{340}{340 + 34} = 680 \frac{340}{374} \approx 618{,}18\text{ Hz}$$</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: a) $f' \approx 755{,}6\text{ Hz}$ (más aguda); b) $f'' \approx 618{,}2\text{ Hz}$ (más grave).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Un electrón se acelera desde el reposo mediante una diferencia de potencial de $150\text{ V}$. Deduce la fórmula de su longitud de onda de De Broglie y calcula su valor numérico.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. Energía cinética: $E_c = e V = \frac{p^2}{2m} \implies p = \sqrt{2m e V}$.</p>
+              <p>2. De Broglie: $\lambda = \frac{h}{p} = \frac{h}{\sqrt{2m e V}}$.</p>
+              <p>3. Sustituimos valores con $V = 150\text{ V}$:</p>
+              <p>$$\lambda = \frac{6{,}63 \cdot 10^{-34}}{\sqrt{2(9{,}1 \cdot 10^{-31})(1{,}6 \cdot 10^{-19})(150)}} = \frac{6{,}63 \cdot 10^{-34}}{\sqrt{4{,}368 \cdot 10^{-47}}} \approx 1{,}00 \cdot 10^{-10}\text{ m} = 0{,}10\text{ nm} = 1\text{ Å}$$</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: $\lambda \approx 1{,}00 \cdot 10^{-10}\text{ m} = 1\text{ Å}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Para observar un detalle botánico, se utiliza una lente convergente de potencia $P = +20\text{ dioptrías}$ como lupa, colocándola a $3\text{ cm}$ del ejemplar. Halla la posición de la imagen y el aumento obtenido.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. Distancia focal: $f' = \frac{1}{P} = \frac{1}{20}\text{ m} = 0{,}05\text{ m} = +5\text{ cm}$.</p>
+              <p>2. Objeto dentro del foco: $s = -3\text{ cm}$.</p>
+              <p>3. $\frac{1}{s'} - \frac{1}{-3} = \frac{1}{5} \implies \frac{1}{s'} = \frac{1}{5} - \frac{1}{3} = \frac{3 - 5}{15} = -\frac{2}{15} \implies s' = -7{,}5\text{ cm}$.</p>
+              <p>4. Aumento: $m = \frac{s'}{s} = \frac{-7{,}5}{-3} = +2{,}5$.</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: $s' = -7{,}5\text{ cm}$ (imagen virtual derecha aumentada 2,5 veces).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">El nivel de intensidad sonora de una conversación normal a 1 metro de distancia es de $60\text{ dB}$.
+            a) Halla la intensidad física $I$ en $\text{W/m}^2$. ($I_0 = 10^{-12}\text{ W/m}^2$).
+            b) ¿Cuál será el nivel en $\text{dB}$ si 10 personas conversan simultáneamente al mismo volumen?</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>a) Escala logarítmica: $\beta = 10 \log_{10}\left(\frac{I}{I_0}\right)$:</p>
+              <p>$$60 = 10 \log_{10}\left(\frac{I}{10^{-12}}\right) \implies 6 = \log_{10}\left(\frac{I}{10^{-12}}\right) \implies \frac{I}{10^{-12}} = 10^6 \implies I = 10^{-6}\text{ W/m}^2$$</p>
+              <p>b) Para 10 personas, la intensidad física se multiplica por 10: $I_{\text{total}} = 10 \times 10^{-6} = 10^{-5}\text{ W/m}^2$.</p>
+              <p>$$\beta_{\text{total}} = 10 \log_{10}\left(\frac{10^{-5}}{10^{-12}}\right) = 10 \log_{10}(10^7) = 10 \times 7 = 70\text{ dB}$$</p>
+              <p>Propiedad: Multiplicar la intensidad sonora por 10 siempre suma exactamente $10\text{ dB}$.</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: a) $I = 10^{-6}\text{ W/m}^2$; b) $\beta_{\text{total}} = 70\text{ dB}$.
+              </div>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">En un experimento fotoeléctrico se miden los potenciales de frenado correspondientes a dos frecuencias lumínicas distintas: para $f_1 = 6 \cdot 10^{14}\text{ Hz}$ se obtiene $V_{0,1} = 0{,}80\text{ V}$, y para $f_2 = 8 \cdot 10^{14}\text{ Hz}$ se mide $V_{0,2} = 1{,}63\text{ V}$. Determina el valor experimental de la constante de Planck y el trabajo de extracción del metal.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. Ecuación de Einstein con potencial de frenado: $e V_0 = h f - W_0$.</p>
+              <p>2. Restamos ambas ecuaciones: $e (V_{0,2} - V_{0,1}) = h (f_2 - f_1)$:</p>
+              <p>$$h = \frac{e (V_{0,2} - V_{0,1})}{f_2 - f_1} = \frac{(1{,}6 \cdot 10^{-19}\text{ C})(1{,}63 - 0{,}80)\text{ V}}{(8 - 6) \cdot 10^{14}\text{ s}^{-1}} = \frac{1{,}6 \cdot 10^{-19} \times 0{,}83}{2 \cdot 10^{14}} = 6{,}64 \cdot 10^{-34}\text{ J}\cdot\text{s}$$</p>
+              <p>3. Calculamos $W_0$: $W_0 = h f_1 - e V_{0,1} = (6{,}64 \cdot 10^{-34})(6 \cdot 10^{14}) - (1{,}6 \cdot 10^{-19})(0{,}80)$:</p>
+              <p>$$W_0 = 3{,}984 \cdot 10^{-19} - 1{,}28 \cdot 10^{-19} = 2{,}704 \cdot 10^{-19}\text{ J} \approx 1{,}69\text{ eV}$$</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: $h \approx 6{,}64 \cdot 10^{-34}\text{ J}\cdot\text{s}$ y $W_0 \approx 1{,}69\text{ eV}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Un objeto de $2\text{ cm}$ se sitúa a $30\text{ cm}$ delante de una primera lente convergente $L_1$ con $f'_1 = +20\text{ cm}$. A $50\text{ cm}$ detrás de $L_1$ se coloca una segunda lente convergente $L_2$ con $f'_2 = +10\text{ cm}$. Halla la posición final y el tamaño de la imagen definitiva producida por el sistema.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. <strong>Primera lente $L_1$:</strong> $s_1 = -30\text{ cm}$, $f'_1 = +20\text{ cm}$:</p>
+              <p>$$\frac{1}{s'_1} - \frac{1}{-30} = \frac{1}{20} \implies \frac{1}{s'_1} = \frac{3}{60} - \frac{2}{60} = \frac{1}{60} \implies s'_1 = +60\text{ cm}$$</p>
+              <p>Aumento 1: $m_1 = \frac{s'_1}{s_1} = \frac{+60}{-30} = -2$.</p>
+              <p>2. <strong>Segunda lente $L_2$:</strong> Está situada a $50\text{ cm}$ de $L_1$. Como la primera imagen se forma a $+60\text{ cm}$, se encuentra $10\text{ cm}$ DETRÁS de $L_2$. Actúa como objeto virtual para $L_2$ con $s_2 = +10\text{ cm}$.</p>
+              <p>$$\frac{1}{s'_2} - \frac{1}{+10} = \frac{1}{10} \implies \frac{1}{s'_2} = \frac{1}{10} + \frac{1}{10} = \frac{2}{10} = \frac{1}{5} \implies s'_2 = +5\text{ cm}$$</p>
+              <p>Aumento 2: $m_2 = \frac{s'_2}{s_2} = \frac{+5}{+10} = +0{,}5$.</p>
+              <p>3. <strong>Aumento total:</strong> $m_{\text{total}} = m_1 \cdot m_2 = (-2) \cdot (0{,}5) = -1$.</p>
+              <p>Tamaño final: $y'_2 = -1 \times 2\text{ cm} = -2\text{ cm}$ (mismo tamaño pero invertida, formada a $5\text{ cm}$ a la derecha de $L_2$).</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: Imagen final a $+5\text{ cm}$ detrás de $L_2$, tamaño $2\text{ cm}$ (invertida y real).
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">El núcleo del átomo de Helio-4 ($^4_2\text{He}$) tiene una masa medida de $4{,}0015\text{ u}$. Sabiendo que la masa del protón libre es $m_p = 1{,}0073\text{ u}$ y la del neutrón $m_n = 1{,}0087\text{ u}$, calcula el defecto de masa $\Delta m$ y la energía de enlace por nucleón en $\text{MeV}$. ($1\text{ u} \equiv 931{,}5\text{ MeV}$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. Composición: 2 protones y $4 - 2 = 2$ neutrones.</p>
+              <p>Masa de los nucleones separados: $M_{\text{teórica}} = 2(1{,}0073) + 2(1{,}0087) = 2{,}0146 + 2{,}0174 = 4{,}0320\text{ u}$.</p>
+              <p>2. Defecto de masa: $\Delta m = 4{,}0320\text{ u} - 4{,}0015\text{ u} = 0{,}0305\text{ u}$.</p>
+              <p>3. Energía de enlace total ($E = \Delta m \cdot c^2$):</p>
+              <p>$$E_b = 0{,}0305\text{ u} \times 931{,}5\text{ MeV/u} \approx 28{,}41\text{ MeV}$$</p>
+              <p>4. Energía de enlace por nucleón ($A = 4$): $\frac{E_b}{A} = \frac{28{,}41}{4} \approx 7{,}10\text{ MeV/nucleón}$.</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: $\Delta m = 0{,}0305\text{ u}$ y $E_b/A \approx 7{,}10\text{ MeV/nucleón}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">El periodo de semidesintegración del Carbono-14 es $T_{1/2} = 5.730\text{ años}$. En un fragmento de madera arqueológica se detecta una actividad del 25% respecto a la de la madera viva actual. ¿Qué antigüedad tiene el yacimiento?</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. Constante de desintegración: $\lambda = \frac{\ln 2}{T_{1/2}} = \frac{0{,}693}{5.730}\text{ años}^{-1}$.</p>
+              <p>2. La actividad sigue la ley exponencial: $A(t) = A_0 e^{-\lambda t} \implies \frac{A(t)}{A_0} = 0{,}25 = \frac{1}{4}$.</p>
+              <p>3. Observamos que $\frac{1}{4} = \left(\frac{1}{2}\right)^2$, por lo que han transcurrido exactamente dos periodos de semidesintegración:</p>
+              <p>$$t = 2 \cdot T_{1/2} = 2 \times 5.730 = 11.460\text{ años}$$</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: La muestra tiene una antigüedad de $11.460\text{ años}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Un muón creado en la alta atmósfera viaja hacia la superficie terrestre a una velocidad $v = 0{,}998\,c$. En reposo, la vida media del muón es $\tau_0 = 2{,}2\,\mu\text{s}$. ¿Cuál es su vida media medida por los científicos en la Tierra y qué distancia recorre antes de desintegrarse?</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>1. Factor de Lorentz $\gamma$:</p>
+              <p>$$\gamma = \frac{1}{\sqrt{1 - (v/c)^2}} = \frac{1}{\sqrt{1 - (0{,}998)^2}} = \frac{1}{\sqrt{1 - 0{,}996004}} = \frac{1}{\sqrt{0{,}003996}} \approx 15{,}82$$</p>
+              <p>2. Dilatación del tiempo: $\tau = \gamma \cdot \tau_0 = 15{,}82 \times 2{,}2\,\mu\text{s} \approx 34{,}8\mu\text{s}$.</p>
+              <p>3. Distancia recorrida respecto al observador terrestre:</p>
+              <p>$$d = v \cdot \tau = (0{,}998 \times 3 \cdot 10^8\text{ m/s})(34{,}8 \cdot 10^{-6}\text{ s}) \approx 10.420\text{ m} \approx 10{,}4\text{ km}$$</p>
+              <p>(Sin relatividad sólo recorrería $0{,}66\text{ km}$ y jamás llegaría al suelo).</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: Vida media en la Tierra $\approx 34{,}8\,\mu\text{s}$; distancia recorrida $\approx 10{,}4\text{ km}$.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Una onda armónica se propaga en el sentido positivo del eje $X$ con una velocidad de $40\text{ m/s}$. El foco emisor situado en el origen $x = 0$ vibra con una frecuencia de $20\text{ Hz}$ y una amplitud de $5\text{ cm}$. Sabiendo que en $t = 0$ la elongación en el origen es nula ($y(0, 0) = 0$) y la velocidad es positiva ($v_y(0,0) > 0$):
+            a) Escribe la ecuación completa de la onda $y(x, t)$.
+            b) Halla la elongación y la velocidad de un punto situado a $2\text{ metros}$ del foco en el instante $t = 0{,}1\text{ s}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="p-4 bg-white text-xs sm:text-sm text-slate-700 space-y-2 border-t border-indigo-100">
+              <p>a) Parámetros:</p>
+              <p>&bull; $A = 0{,}05\text{ m}$.</p>
+              <p>&bull; $\omega = 2\pi f = 2\pi(20) = 40\pi\text{ rad/s}$.</p>
+              <p>&bull; Longitud de onda: $\lambda = \frac{v}{f} = \frac{40}{20} = 2\text{ m}$.</p>
+              <p>&bull; Número de onda: $k = \frac{2\pi}{\lambda} = \frac{2\pi}{2} = \pi\text{ rad/m}$.</p>
+              <p>&bull; Fase inicial: $y(0, 0) = A \sin(\varphi_0) = 0 \implies \varphi_0 = 0$ o $\pi$. Como la velocidad $v_y(0,0) = A \omega \cos(\varphi_0) > 0$, tomamos $\varphi_0 = 0$.</p>
+              <p>Ecuación: $y(x, t) = 0{,}05 \sin(40\pi t - \pi x)$ (en metros y segundos).</p>
+              <p>b) Para $x = 2\text{ m}$ y $t = 0{,}1\text{ s}$:</p>
+              <p>&bull; Fase: $\theta = 40\pi(0{,}1) - \pi(2) = 4\pi - 2\pi = 2\pi\text{ rad}$.</p>
+              <p>&bull; Elongación: $y(2; \; 0{,}1) = 0{,}05 \sin(2\pi) = 0\text{ metros}$.</p>
+              <p>&bull; Velocidad: $v_y(2; \; 0{,}1) = 0{,}05 (40\pi) \cos(2\pi) = 2\pi (1) \approx 6{,}28\text{ m/s}$.</p>
+              <div class="p-2 bg-indigo-50 text-indigo-900 font-bold rounded mt-2">
+                Resultado: a) $y(x, t) = 0{,}05 \sin(40\pi t - \pi x)$; b) $y = 0\text{ m}$ y $v_y = 2\pi \approx 6{,}28\text{ m/s}$.
+              </div>
+            </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

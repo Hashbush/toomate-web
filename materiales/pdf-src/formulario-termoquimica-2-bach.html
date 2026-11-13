@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Termoquímica: Ley de Hess, Entropía y Gibbs | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11.2pt;
+      line-height: 1.45;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    section, .rounded-xl, .rounded-2xl {
+      break-inside: avoid;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eff6ff;
+      border: 2.5px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #93c5fd;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.35em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Termoquímica: Ley de Hess, Entropía y Gibbs</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Química 2º Bachillerato</span>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    
+    
+    
+
+    <!-- RESUMEN CLAVE -->
+    <section class="mb-10 bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-2xl p-6">
+      <h2 class="text-lg font-bold text-emerald-950 flex items-center gap-2 mb-3">
+        <i data-lucide="flame" class="w-5 h-5 text-emerald-600"></i>
+        Fórmulas Fundamentales de Termoquímica
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Entalpía de reacción desde $\Delta H_f^\circ$:</p>
+          <div class="text-slate-700">$$\Delta H_r^\circ = \sum n_p \Delta H_f^\circ(\text{prod}) - \sum n_r \Delta H_f^\circ(\text{react})$$</div>
+          <p class="text-sm text-slate-500 mt-1">Para elementos puros en estado estándar: $\Delta H_f^\circ = 0$.</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Entalpía por Energías de Enlace:</p>
+          <div class="text-slate-700">$$\Delta H_r^\circ = \sum E_{\text{enlaces rotos (react)}} - \sum E_{\text{enlaces formados (prod)}}$$</div>
+          <p class="text-sm text-slate-500 mt-1">Romper enlaces requiere energía ($>0$); formar enlaces libera energía ($<0$).</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Entropía estándar de reacción:</p>
+          <div class="text-slate-700">$$\Delta S_r^\circ = \sum n_p S^\circ(\text{prod}) - \sum n_r S^\circ(\text{react})$$</div>
+          <p class="text-sm text-slate-500 mt-1">Unidades: $\text{J}/(\text{mol}\cdot\text{K})$. ¡Atención a no mezclar J con kJ!</p>
+        </div>
+        <div class="bg-white/80 p-3.5 rounded-xl border border-emerald-100">
+          <p class="font-bold text-slate-800 mb-1">Criterio de Gibbs y Espontaneidad:</p>
+          <div class="text-slate-700">$$\Delta G^\circ = \Delta H^\circ - T \Delta S^\circ; \quad \Delta G < 0 \iff \text{Espontánea}$$</div>
+          <p class="text-sm text-slate-500 mt-1">Temperatura de equilibrio (inversión de espontaneidad): $T_{\text{eq}} = \frac{\Delta H^\circ}{\Delta S^\circ}$.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 1: LEY DE HESS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        1. Ley de Hess y Combinación de Ecuaciones Termoquímicas
+      </h2>
+      <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+        <p>
+          La entalpía es una <strong>función de estado</strong>: su variación neta sólo depende de los estados inicial y final, y no del camino intermedio seguido.
+        </p>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <h4 class="font-bold text-slate-900 mb-2">Reglas operativas de la Ley de Hess:</h4>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>Si se invierte el sentido de una ecuación, el signo de su $\Delta H^\circ$ cambia.</li>
+            <li>Si los coeficientes de una ecuación se multiplican o dividen por un factor $n$, su $\Delta H^\circ$ se multiplica o divide por ese mismo factor $n$.</li>
+            <li>Al sumar varias reacciones intermedias miembro a miembro, la entalpía global es la suma algebraica directa de las entalpías individuales: $\Delta H_{\text{global}}^\circ = \sum \Delta H_i^\circ$.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: CRITERIO DE ESPONTANEIDAD -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-4">
+        2. Tabla de Espontaneidad según los Signos de $\Delta H$ y $\Delta S$
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-slate-200 text-base">
+          <thead>
+            <tr class="bg-slate-100 text-slate-900 font-bold">
+              <th class="p-3 border border-slate-200">$\Delta H$</th>
+              <th class="p-3 border border-slate-200">$\Delta S$</th>
+              <th class="p-3 border border-slate-200">$\Delta G = \Delta H - T \Delta S$</th>
+              <th class="p-3 border border-slate-200">Espontaneidad</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr>
+              <td class="p-3 font-semibold text-emerald-700">$< 0$ (Exotérmica)</td>
+              <td class="p-3 font-semibold text-emerald-700">$> 0$ (Aumenta desorden)</td>
+              <td class="p-3 text-emerald-700 font-bold">Siempre $< 0$</td>
+              <td class="p-3 font-bold text-emerald-600">Espontánea a cualquier temperatura</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-rose-700">$> 0$ (Endotérmica)</td>
+              <td class="p-3 font-semibold text-rose-700">$< 0$ (Disminuye desorden)</td>
+              <td class="p-3 text-rose-700 font-bold">Siempre $> 0$</td>
+              <td class="p-3 font-bold text-rose-600">No espontánea a ninguna temperatura</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-emerald-700">$< 0$ (Exotérmica)</td>
+              <td class="p-3 font-semibold text-rose-700">$< 0$ (Disminuye desorden)</td>
+              <td class="p-3">$< 0$ a bajas $T$</td>
+              <td class="p-3 font-semibold text-amber-700">Espontánea sólo a bajas temperaturas ($T < \frac{\Delta H}{\Delta S}$)</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-rose-700">$> 0$ (Endotérmica)</td>
+              <td class="p-3 font-semibold text-emerald-700">$> 0$ (Aumenta desorden)</td>
+              <td class="p-3">$< 0$ a altas $T$</td>
+              <td class="p-3 font-semibold text-amber-700">Espontánea sólo a altas temperaturas ($T > \frac{\Delta H}{\Delta S}$)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.lucide) lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Campo Magnético e Inducción Electromagnética | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Campo Magnético e Inducción Electromagnética</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Un protón ($q = +1{,}6 \cdot 10^{-19}\text{ C}$) penetra perpendicularmente en un campo magnético uniforme $B = 0{,}5\text{ T}$ con una velocidad de $2 \cdot 10^6\text{ m/s}$. Calcula el módulo de la fuerza magnética que experimenta.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $F = 1{,}6 \cdot 10^{-13}\text{ N}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Halla el radio de la circunferencia que describe un electrón ($m = 9{,}1 \cdot 10^{-31}\text{ kg}$, $e = 1{,}6 \cdot 10^{-19}\text{ C}$) que se mueve a $10^7\text{ m/s}$ en un campo perpendicular $B = 0{,}02\text{ T}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $R \approx 2{,}84\text{ mm}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Calcula el periodo $T$ de revolución del electrón del ejercicio anterior y comprueba si varía al duplicar su velocidad.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $T \approx 1{,}79\text{ ns}$ (independiente de la velocidad).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">Un hilo conductor recto de $40\text{ cm}$ de longitud por el que circula una corriente de $5\text{ A}$ se encuentra inmerso en un campo magnético uniforme $B = 0{,}2\text{ T}$ formando un ángulo de $30^\circ$ con las líneas de campo. Calcula la fuerza magnética sobre el conductor.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $F = 0{,}20\text{ N}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Calcula la intensidad del campo magnético a una distancia de $5\text{ cm}$ de un hilo rectilíneo infinitamente largo por el que circula una corriente de $10\text{ A}$. ($\mu_0 = 4\pi \cdot 10^{-7}\text{ T}\cdot\text{m/A}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $B = 4 \cdot 10^{-5}\text{ T}$ ($40\,\mu\text{T}$, comparable al campo magnético terrestre).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Un solenoide de $25\text{ cm}$ de longitud está formado por $500$ espiras apretadas de hilo de cobre y transporta una corriente de $2\text{ A}$. Halla el campo magnético en su interior.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $B \approx 5{,}03 \cdot 10^{-3}\text{ T}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Una espira circular de radio $R = 10\text{ cm}$ se encuentra en un campo magnético uniforme $B = 0{,}4\text{ T}$. Calcula el flujo magnético que la atraviesa cuando el vector normal a la espira forma un ángulo de: a) $0^\circ$; b) $60^\circ$; c) $90^\circ$ con el campo magnético.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $0{,}0126\text{ Wb}$; b) $0{,}0063\text{ Wb}$; c) $0\text{ Wb}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Una bobina de 100 espiras está atravesada por un flujo magnético inicial de $0{,}05\text{ Wb}$. Si el campo magnético se anula en un intervalo de tiempo de $0{,}1\text{ segundos}$, halla la fuerza electromotriz media inducida en la bobina.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\varepsilon_m = 50\text{ V}$.</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">En un selector de velocidades de Thomson, un haz de iones atraviesa una región con un campo eléctrico $E = 10^5\text{ V/m}$ perpendicular a un campo magnético $B = 0{,}2\text{ T}$. ¿Qué velocidad deben tener los iones para atravesar la región en línea recta sin desviarse?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $v = 5 \cdot 10^5\text{ m/s}$ ($500\text{ km/s}$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Dos cables rectilíneos muy largos y paralelos están separados $20\text{ cm}$ en el vacío y transportan corrientes en el mismo sentido de $8\text{ A}$ y $12\text{ A}$ respectivamente. Calcula la fuerza por unidad de longitud entre ellos e indica si se atraen o se repelen.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Fuerza de atracción de $9{,}6 \cdot 10^{-5}\text{ N/m}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">Por dos conductores paralelos separados $30\text{ cm}$ circulan corrientes de $2\text{ A}$ y $4\text{ A}$ en sentidos opuestos. Halla la posición donde el campo magnético total se anula.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> A $30\text{ cm}$ del cable de $2\text{ A}$ (en el lado opuesto al cable de $4\text{ A}$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Una varilla metálica de $20\text{ cm}$ de longitud se desplaza a una velocidad constante $v = 4\text{ m/s}$ sobre dos raíles paralelos conectados a una resistencia $R = 2\,\Omega$ en un campo magnético uniforme perpendicular al plano de los raíles $B = 0{,}5\text{ T}$. Calcula: a) La f.e.m. inducida; b) La corriente inducida; c) La fuerza mecánica externa necesaria para mantener constante la velocidad.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $\varepsilon = 0{,}40\text{ V}$; b) $I = 0{,}20\text{ A}$; c) $F_{\text{ext}} = 0{,}02\text{ N}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">Una espira circular de área $S = 50\text{ cm}^2$ está situada perpendicularmente a un campo magnético que varía en el tiempo según la ley $B(t) = 2t^3 - 4t + 1$ (en Teslas y segundos). Halla la f.e.m. inducida instantánea en el instante $t = 2\text{ s}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\varepsilon = -0{,}10\text{ V}$ (el signo menos indica el sentido de oposición según Lenz).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Una bobina plana formada por 200 espiras cuadradas de $10\text{ cm}$ de lado gira a una velocidad constante de 50 revoluciones por segundo ($50\text{ Hz}$) en un campo magnético uniforme $B = 0{,}2\text{ T}$. Escribe la ecuación temporal de la f.e.m. alterna generada y calcula su valor pico o amplitud máxima.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\varepsilon(t) = 125{,}66 \sin(100\pi t)\text{ V}$, con amplitud pico $\varepsilon_0 \approx 125{,}7\text{ V}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">El polo Norte de un imán recto se acerca frontalmente a una espira circular fija. Explica razonadamente el sentido de la corriente inducida observada desde la posición del imán y la fuerza mutua que se genera entre el imán y la espira.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Sentido antihorario y fuerza de repulsión mutua.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Dos iones monovalentes positivos de Litio ($^6\text{Li}^+$ de masa $6\text{ u}$ y $^7\text{Li}^+$ de masa $7\text{ u}$) se aceleran desde el reposo con el mismo potencial de $1.000\text{ V}$ y penetran en una cámara con campo $B = 0{,}1\text{ T}$ perpendicular. Calcula la distancia que separa los puntos donde impactan tras describir una semicircunferencia. ($1\text{ u} = 1{,}66 \cdot 10^{-27}\text{ kg}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Impactan a una distancia de $1{,}78\text{ cm}$ entre sí.</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Un protón ingresa en un campo magnético uniforme $B = 0{,}1\text{ T}\,\vec{k}$ con velocidad $\vec{v} = (3 \cdot 10^5\,\vec{i} + 4 \cdot 10^5\,\vec{k})\text{ m/s}$. Describe el tipo de trayectoria que sigue y calcula el radio de la hélice y la distancia que avanza en cada vuelta (paso de hélice).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Trayectoria helicoidal de radio $R \approx 3{,}13\text{ cm}$ y paso de hélice $p \approx 26{,}2\text{ cm}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Una espira cuadrada de lado $L = 10\text{ cm}$ y resistencia $R = 0{,}5\,\Omega$ entra a velocidad constante $v = 2\text{ m/s}$ perpendicularmente a una región con campo uniforme $B = 0{,}8\text{ T}$. Calcula la f.e.m. inducida y la fuerza externa requerida durante el proceso de entrada.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\varepsilon = 0{,}16\text{ V}$, corriente $I = 0{,}32\text{ A}$ y fuerza exterior $F = 0{,}0256\text{ N}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">Dos espiras circulares del mismo radio $R = 5\text{ cm}$ tienen el mismo centro y están dispuestas en planos perpendiculares entre sí (una en el plano $XY$ y otra en el plano $XZ$). Circulan corrientes $I_1 = 3\text{ A}$ e $I_2 = 4\text{ A}$ respectivamente. Halla el módulo del vector campo magnético total en el centro común.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $B_{\text{total}} = 2\pi \cdot 10^{-5}\text{ T} \approx 62{,}8\,\mu\text{T}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">El primario de un transformador ideal conectado a la red eléctrica de $230\text{ V}$ consta de 800 espiras. Se desea obtener en el secundario una tensión de $11{,}5\text{ V}$ para alimentar un dispositivo de $46\text{ W}$ de potencia. Calcula: a) El número de espiras del secundario; b) La intensidad en el secundario; c) La intensidad que absorbe del primario.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> a) $N_s = 40$ espiras; b) $I_s = 4\text{ A}$; c) $I_p = 0{,}20\text{ A}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">En un extremo del brazo de una balanza cuelga una espira rectangular de ancho $L = 5\text{ cm}$. El lado inferior está sumergido perpendicularmente en un campo magnético uniforme horizontal $B = 0{,}4\text{ T}$. Cuando circula una corriente $I$ por la espira, se deben añadir $4\text{ g}$ en el otro platillo para restablecer el equilibrio horizontal. Halla el valor de la intensidad $I$. ($g = 9{,}8\text{ m/s}^2$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> La intensidad de corriente es $I = 1{,}96\text{ A}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Por un hilo recto indefinido circula una corriente $I_1 = 20\text{ A}$. Paralela al hilo y en su mismo plano se encuentra una espira rectangular de dimensiones $a = 20\text{ cm}$ (longitud paralela) y $b = 10\text{ cm}$ (anchura perpendicular) por la que circula una corriente $I_2 = 5\text{ A}$ en sentido horario. Si el lado más próximo de la espira dista $d = 2\text{ cm}$ del hilo, calcula la fuerza neta que el hilo ejerce sobre la espira e indica si es atractiva o repulsiva.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Fuerza neta de atracción hacia el hilo de $1{,}67 \cdot 10^{-4}\text{ N}$.</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

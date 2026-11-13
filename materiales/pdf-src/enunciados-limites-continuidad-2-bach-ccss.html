@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Límites, Continuidad y Asíntotas | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Límites, Continuidad y Asíntotas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Calcula el límite: $\lim_{x \to 2} \frac{x^2 - 5x + 6}{x^2 - 4}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Denominador: $x^2 - 4 = (x - 2)(x + 2)$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Halla los siguientes límites en el infinito:<br>
+            a) $\lim_{x \to +\infty} \frac{3x^3 - 2x + 1}{5x^3 + 4x^2 - 7}$<br>
+            b) $\lim_{x \to +\infty} \frac{2x^2 + 5}{x^3 - 1}$<br>
+            c) $\lim_{x \to +\infty} \frac{x^4 - 1}{4x^2 + 3}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> c) Grado numerador ($4$) $>$ Grado denominador ($2$) $\implies +\infty$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Calcula los límites laterales de $f(x) = \frac{2x + 1}{x - 3}$ cuando $x \to 3$ y determina si existe $\lim_{x \to 3} f(x)$. ¿Qué tipo de discontinuidad presenta?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $3$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">Calcula el límite: $\lim_{x \to 0} \frac{\sqrt{x + 4} - 2}{x}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\left[\frac{0}{0}\right]$. Multiplicamos y dividimos por el conjugado $(\sqrt{x + 4} + 2)$:</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Dada la función $f(x) = \frac{3x - 6}{x + 1}$, halla sus asíntotas verticales y horizontales justificándolas mediante límites.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $x = -1$ ; $y = 3$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Estudia la continuidad en $x = 1$ de la función:
+            $$f(x) = \begin{cases} 2x + 3 & \text{si } x \le 1 \\ x^2 + 4 & \text{si } x > 1 \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $1$ (y por tanto continua en todo $\mathbb{R}$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Estudia la continuidad en $x = 2$ de la función y calcula la amplitud del salto:
+            $$f(x) = \begin{cases} 3x - 1 & \text{si } x < 2 \\ 8 - x^2 & \text{si } x \ge 2 \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $1$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Calcula el límite: $\lim_{x \to +\infty} \left( \frac{x + 3}{x + 1} \right)^{2x}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $e^4$</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">Determina el valor de $a$ para que la siguiente función sea continua en todo $\mathbb{R}$:
+            $$f(x) = \begin{cases} a x^2 - 3x + 1 & \text{si } x \le 2 \\ \frac{x^2 - 4}{x - 2} & \text{si } x > 2 \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a = \frac{9}{4} = 2{,}25$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Calcula los valores de $a$ y $b$ para que la siguiente función sea continua en todo $\mathbb{R}$:
+            $$f(x) = \begin{cases} x + 2 & \text{si } x \le 0 \\ a x + b & \text{si } 0 < x < 3 \\ x^2 - 1 & \text{si } x \ge 3 \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\mathbf{a = 2, \quad b = 2}$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">Determina la ecuación de la asíntota oblicua $y = m x + n$ de la función $f(x) = \frac{x^2 + 2x - 1}{x - 1}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $y = x + 3$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Demuestra que la ecuación $x^3 - 3x - 1 = 0$ tiene al menos una solución real en el intervalo $[1, 2]$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $0$, lo que demuestra que la ecuación tiene solución en dicho intervalo.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">Calcula el límite: $\lim_{x \to 1} \left( \frac{1}{x - 1} - \frac{2}{x^2 - 1} \right)$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $(x - 1)(x + 1)$):</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">El coste total (en miles de euros) de una empresa para producir $x$ miles de unidades viene dado por $C(x) = \frac{50x + 200}{x + 10}$. Calcula el coste inicial para $x = 0$ y analiza el comportamiento del coste medio cuando la producción crece indefinidamente ($\lim_{x \to +\infty}$).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $50$ (50.000 €). El coste unitario tiende a $0$ a gran escala.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">La función $f(x) = \frac{x^2 - 9}{x - 3}$ no está definida en $x = 3$. ¿Es posible redefinir el valor de $f(3)$ para que la función sea continua en todo $\mathbb{R}$?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $f(3) = 6$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Calcula aplicando la regla de L'Hôpital: $\lim_{x \to 0} \frac{e^x - x - 1}{x^2}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Derivamos de nuevo por L'Hôpital (2ª vez):</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Se considera la función:
+            $$f(x) = \begin{cases} \frac{a x + 1}{x - 1} & \text{si } x \le 0 \\ x^2 + b x - 1 & \text{si } x > 0 \end{cases}$$
+            a) Demuestra que $f(x)$ es continua en $x = 0$ para cualesquiera valores de $a$ y $b$.<br>
+            b) Halla el valor de $a$ sabiendo que la recta $y = 3$ es una asíntota horizontal hacia $-\infty$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a = 3$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Halla los valores de $a$ y $b$ para que la función sea derivable en $x = 1$:
+            $$f(x) = \begin{cases} a x^2 + b & \text{si } x \le 1 \\ 4x - 1 & \text{si } x > 1 \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a = 2$ ; $b = 1$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">La función de beneficios de una empresa viene dada por $B(x) = x^3 - 4x^2 + 2x + 1$ (en miles de euros), donde $x$ son las decenas de miles de unidades vendidas. Demuestra que existe un nivel de ventas entre 1 y 2 (es decir, entre 10.000 y 20.000 unidades) para el cual el beneficio es exactamente cero (punto muerto o umbral de rentabilidad).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Por tanto, en $[3, 4]$, como $B(3) 0$, por el Teorema de Bolzano existe al menos un punto donde $B(c) = 0$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">Determina todas las asíntotas (verticales, horizontales y oblicuas) de la función:
+            $$f(x) = \frac{2x^2}{x^2 - 9}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $x = 3$ ; $x = -3$ ; $y = 2$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">Halla los puntos de discontinuidad de la función $f(x) = \frac{x^2 - x - 2}{x^2 - 4}$ y clasifica cada uno de ellos justificándolo mediante límites.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> En $x = -2$ hay una discontinuidad no evitable de salto infinito (Asíntota vertical $x = -2$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">El número de socios (en cientos) de un club deportivo $t$ años después de su inauguración sigue el modelo:
+            $$N(t) = \begin{cases} t^2 - 4t + 8 & \text{si } 0 \le t \le 3 \\ \frac{10t - 5}{t + 2} & \text{si } t > 3 \end{cases}$$
+            a) ¿Ha variado de forma continua el número de socios a lo largo del tiempo?<br>
+            b) ¿Cuál será el número de socios a muy largo plazo?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> A largo plazo, el número de socios se estabiliza con una asíntota horizontal en $10$ (es decir, en 1.000 socios).</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Tema 1: Números Reales & Radicales | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Tema 1: Números Reales & Radicales</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Indica a cuál o cuáles de los conjuntos numéricos ($\mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R}$) pertenecen los siguientes números:
+            a) $-5$ &nbsp;&bull;&nbsp; b) $\sqrt{16}$ &nbsp;&bull;&nbsp; c) $\frac{7}{4}$ &nbsp;&bull;&nbsp; d) $\sqrt{7}$ &nbsp;&bull;&nbsp; e) $3,141592...$ ($\pi$) &nbsp;&bull;&nbsp; f) $2,\widehat{35}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> &bull; f) $2,\widehat{35}$: Periódico puro (fracción $\frac{233}{99}$): Racional: $2,\widehat{35} \in \mathbb{...</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Escribe en forma de intervalo y representa en la recta real los siguientes conjuntos de números:<br>
+            <strong>a)</strong> $\{ x \in \mathbb{R} \mid -2 < x \le 5 \}$ &nbsp;&bull;&nbsp;
+            <strong>b)</strong> $\{ x \in \mathbb{R} \mid x \ge -1 \}$ &nbsp;&bull;&nbsp;
+            <strong>c)</strong> $\{ x \in \mathbb{R} \mid x < 4 \}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> &bull; c) Semirrecta abierta hacia la izquierda: $(-\infty, 4)$. Desde $-\infty$ hasta punto blanco en $4$.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Dados los intervalos $A = [-3, 2)$ y $B = (0, 5]$, calcula y expresa en forma de intervalo: a) $A \cap B$ (intersección) y b) $A \cup B$ (unión).</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $A \cup B = [-3, 5]$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">Calcula y simplifica expresando el resultado como una fracción irreducible:
+            a) $2^{-3}$ &nbsp;&bull;&nbsp; b) $\left( \frac{3}{5} \right)^{-2}$ &nbsp;&bull;&nbsp; c) $\frac{3^{-2} \cdot 2^{-3}}{6^{-2}}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\frac{1}{8}$ ; $\frac{25}{9}$ ; $\frac{1}{2}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Escribe en forma de raíz las siguientes potencias y calcula su valor exacto:
+            a) $16^{1/2}$ &nbsp;&bull;&nbsp; b) $27^{2/3}$ &nbsp;&bull;&nbsp; c) $8^{-4/3}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $4$ ; $9$ ; $\frac{1}{16}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Descompón en factores primos y extrae todos los factores posibles de los siguientes radicales:
+            a) $\sqrt{180}$ &nbsp;&bull;&nbsp; b) $\sqrt[3]{250}$ &nbsp;&bull;&nbsp; c) $\sqrt{x^5 y^6 z^3}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $6\sqrt{5}$ ; $5\sqrt[3]{2}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Simplifica al máximo extrayendo factores comunes: &nbsp; $E = 2\sqrt{12} - 3\sqrt{75} + \sqrt{27} + \sqrt{300}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $2\sqrt{3}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Reduce a índice común y simplifica en una sola raíz: &nbsp; $P = \sqrt{2} \cdot \sqrt[3]{4} \cdot \sqrt[6]{8}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $2\sqrt[3]{4}$</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">Introduce el factor dentro del radical y simplifica en una sola raíz: &nbsp; $R = \sqrt{2 \cdot \sqrt[3]{2 \cdot \sqrt{2}}}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\sqrt[4]{8}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Racionaliza y simplifica las siguientes fracciones:
+            a) $\frac{10}{\sqrt{5}}$ &nbsp;&bull;&nbsp; b) $\frac{6}{\sqrt[3]{2}}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $2\sqrt{5}$ ; $3\sqrt[3]{4}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">Racionaliza mediante el producto por el conjugado: &nbsp; $F = \frac{4}{\sqrt{7} - \sqrt{3}}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\sqrt{7} + \sqrt{3}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Efectúa la operación y expresa el resultado final en notación científica: &nbsp; $\frac{(3,2 \cdot 10^5) \cdot (1,5 \cdot 10^{-2})}{2,4 \cdot 10^{-4}}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $2 \cdot 10^7$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">Resuelve y expresa en forma de intervalo: &nbsp; $|x - 3| \le 4$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> &nbsp; $[-1, 7]$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Aproximamos la fracción $\frac{5}{7}$ por el valor decimal $0,71$. Calcula el error absoluto y el error relativo porcentual cometido.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $0,00428$ ; $0,6\%$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">Desarrolla y simplifica al máximo: &nbsp; $K = (\sqrt{5} - 2\sqrt{2})^2 - (\sqrt{5} + 2\sqrt{2})^2$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $-8\sqrt{10}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Racionaliza y simplifica: &nbsp; $\frac{\sqrt{3} + 1}{\sqrt{3} - 1}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $2 + \sqrt{3}$</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Calcula el valor exacto de la expresión: &nbsp; $S = \frac{1}{1 + \sqrt{2}} + \frac{1}{1 - \sqrt{2}}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $-2$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Aplica la definición de logaritmo ($\log_a(x) = y \iff a^y = x$) para calcular:
+            a) $\log_2(64)$ &nbsp;&bull;&nbsp; b) $\log_3\left( \frac{1}{27} \right)$ &nbsp;&bull;&nbsp; c) $\log_{10}(0,001)$ &nbsp;&bull;&nbsp; d) $\ln(e^5)$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $y = 6$ ; $y = -3$ ; $y = -3$ ; $5$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">Resuelve la siguiente ecuación expresando ambos miembros como potencias de la misma base: &nbsp; $2^{x - 1} = \sqrt[3]{16}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\frac{7}{3}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">Escribe como una única potencia de base $a$: &nbsp; $E = \frac{\sqrt{a \cdot \sqrt[3]{a^2}}}{\sqrt[4]{a^3}}$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a^{1/12}$ ; $\sqrt[12]{a}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">Calcula la longitud exacta de la diagonal de un cubo de arista $l = \sqrt{3} + 1\text{ cm}$. Racionaliza y simplifica el resultado final.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $3 + \sqrt{3}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Realiza la siguiente operación combinada, racionalizando y simplificando al máximo:
+            $$M = \frac{3}{\sqrt{2}} - \frac{\sqrt{8}}{2} + \frac{2}{2 - \sqrt{2}}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> 4) Sumamos todo: $\frac{\sqrt{2}}{2} + 2 + \sqrt{2} = 2 + \frac{3\sqrt{2}}{2} = \mathbf{\frac{4 + 3\sqrt{2}}{2}}$.</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

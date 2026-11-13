@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Probabilidad y Distribución Normal | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11.2pt;
+      line-height: 1.45;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    section, .rounded-xl, .rounded-2xl {
+      break-inside: avoid;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eff6ff;
+      border: 2.5px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #93c5fd;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.35em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Probabilidad y Distribución Normal</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Matemáticas 2º Bachillerato</span>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    
+
+    <!-- SECCIÓN 1: REGLAS FUNDAMENTALES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-600 text-white inline-flex items-center justify-center text-sm font-bold">1</span>
+        Axiomas y Leyes de Morgan
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-base">
+          <p><strong>Unión de Sucesos:</strong></p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center">
+            $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+          </div>
+          <p><strong>Sucesos Incompatibles:</strong> $A \cap B = \emptyset \implies P(A \cap B) = 0 \implies P(A \cup B) = P(A) + P(B)$.</p>
+          <p><strong>Suceso Contrario:</strong> $P(\bar{A}) = 1 - P(A)$.</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-base">
+          <p><strong>Leyes de De Morgan (¡Clave en EvAU!):</strong></p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center">
+            $$P(\bar{A} \cap \bar{B}) = P(\overline{A \cup B}) = 1 - P(A \cup B)$$
+            $$P(\bar{A} \cup \bar{B}) = P(\overline{A \cap B}) = 1 - P(A \cap B)$$
+          </div>
+          <p><strong>Diferencia:</strong> $P(A \setminus B) = P(A \cap \bar{B}) = P(A) - P(A \cap B)$.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: CONDICIONADA, TOTAL Y BAYES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-600 text-white inline-flex items-center justify-center text-sm font-bold">2</span>
+        Probabilidad Condicionada, Probabilidad Total y Bayes
+      </h2>
+
+      <div class="space-y-4">
+        <div class="p-4 bg-amber-50/50 border border-amber-200 rounded-2xl">
+          <h4 class="font-bold text-amber-900 text-sm mb-1">Probabilidad Condicionada e Independencia</h4>
+          <p class="text-base text-slate-700 mb-2">
+            La probabilidad de que ocurra $A$ sabiendo que ya ocurrió $B$ se define como:
+          </p>
+          <div class="p-2 bg-white rounded border border-amber-200 font-mono text-center text-sm font-bold text-amber-950">
+            $$P(A|B) = \frac{P(A \cap B)}{P(B)} \iff P(A \cap B) = P(B) \cdot P(A|B)$$
+          </div>
+          <p class="text-sm text-slate-600 mt-2">
+            Dos sucesos son <strong>independientes</strong> si el resultado de uno no afecta al otro:
+            $$A \text{ y } B \text{ independientes} \iff P(A|B) = P(A) \iff P(A \cap B) = P(A) \cdot P(B)$$
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+            <h5 class="font-bold text-slate-800 text-sm mb-1 uppercase tracking-wider text-amber-700">Teorema de la Probabilidad Total</h5>
+            <p class="text-sm text-slate-600 mb-2">Para una partición del espacio muestral $A_1, A_2, \dots, A_n$:</p>
+            <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center text-sm">
+              $$P(B) = \sum_{i=1}^n P(A_i) \cdot P(B|A_i)$$
+            </div>
+            <p class="text-sm text-slate-500 mt-1">Es la suma de todos los caminos del árbol que terminan en $B$.</p>
+          </div>
+
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+            <h5 class="font-bold text-slate-800 text-sm mb-1 uppercase tracking-wider text-amber-700">Teorema de Bayes</h5>
+            <p class="text-sm text-slate-600 mb-2">Calcula la probabilidad a posteriori (hacia atrás en el árbol):</p>
+            <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center text-sm">
+              $$P(A_k|B) = \frac{P(A_k) \cdot P(B|A_k)}{P(B)}$$
+            </div>
+            <p class="text-sm text-slate-500 mt-1">El numerador es el camino favorable y el denominador es la suma total calculada con el teorema anterior.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: DISTRIBUCIÓN NORMAL Y TIPIFICACIÓN -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-amber-600 text-white inline-flex items-center justify-center text-sm font-bold">3</span>
+        Distribución Normal y Manejo de la Tabla $N(0, 1)$
+      </h2>
+
+      <div class="p-5 bg-blue-50/50 border border-blue-200 rounded-2xl mb-4">
+        <h4 class="font-bold text-blue-900 text-sm mb-2">Fórmula de Tipificación</h4>
+        <p class="text-base text-slate-700 mb-2">
+          Cualquier variable aleatoria con distribución normal $X \sim N(\mu, \sigma)$ se transforma en la normal estándar $Z \sim N(0, 1)$ mediante el cambio de variable:
+        </p>
+        <div class="p-3 bg-white border border-blue-200 rounded-xl font-mono text-center text-base font-bold text-blue-900">
+          $$Z = \frac{X - \mu}{\sigma}$$
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <p class="font-bold text-slate-800">Reglas para buscar en la tabla $\Phi(z) = P(Z \le z)$:</p>
+          <ul class="list-disc list-inside space-y-1 text-slate-600">
+            <li>$P(Z \le 1{,}45) = \Phi(1{,}45)$ (directo en la tabla).</li>
+            <li>$P(Z \ge 1{,}45) = 1 - P(Z \le 1{,}45) = 1 - \Phi(1{,}45)$.</li>
+            <li>$P(Z \le -1{,}45) = P(Z \ge 1{,}45) = 1 - \Phi(1{,}45)$ (por simetría).</li>
+            <li>$P(a \le Z \le b) = \Phi(b) - \Phi(a)$.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <p class="font-bold text-slate-800">Aproximación de Binomial a Normal:</p>
+          <p class="text-slate-600 text-sm">
+            Si $X \sim B(n, p)$ con $n \cdot p \ge 5$ y $n(1-p) \ge 5$, se aproxima por:
+          </p>
+          <div class="p-2 bg-white rounded border border-slate-200 text-center font-mono text-sm font-bold">
+            $$X \approx N(\mu = np, \; \sigma = \sqrt{np(1-p)})$$
+          </div>
+          <p class="text-sm text-amber-700 font-semibold">Corrección de Yates: $P(X = k) = P(k - 0{,}5 \le X \le k + 0{,}5)$.</p>
+        </div>
+      </div>
+    </section>
+
+  
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.lucide) lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

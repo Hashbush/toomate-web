@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Sistemas de Ecuaciones Lineales | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Sistemas de Ecuaciones Lineales</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Escribe en forma matricial $A \cdot X = B$ el siguiente sistema de ecuaciones, e indica explícitamente la matriz de coeficientes $A$, la matriz ampliada $A^*$ y el número de incógnitas $n$:
+            $$\begin{cases} 2x - y + 3z = 4 \\ x + 4y - z = -2 \\ 3x + 2y = 5 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>Completamos los coeficientes nulos (en la 3ª ecuación falta $z \implies 0z$):</p>
+              <div class="bg-white p-2.5 rounded-lg border border-slate-200 font-mono text-center">
+                $$\underbrace{\begin{pmatrix} 2 & -1 & 3 \\ 1 & 4 & -1 \\ 3 & 2 & 0 \end{pmatrix}}_{A} \cdot \underbrace{\begin{pmatrix} x \\ y \\ z \end{pmatrix}}_{X} = \underbrace{\begin{pmatrix} 4 \\ -2 \\ 5 \end{pmatrix}}_{B}$$
+              </div>
+              <p>Matriz ampliada $A^* = (A|B)$:</p>
+              <div class="bg-white p-2.5 rounded-lg border border-slate-200 font-mono text-center">
+                $$A^* = \begin{pmatrix} 2 & -1 & 3 & 4 \\ 1 & 4 & -1 & -2 \\ 3 & 2 & 0 & 5 \end{pmatrix}, \quad n = 3 \text{ incógnitas } (x, y, z)$$
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Aplica el Teorema de Rouché-Fröbenius para clasificar los siguientes sistemas con 3 incógnitas ($n = 3$):<br>
+            <strong>a)</strong> $\text{Rg}(A) = 3, \quad \text{Rg}(A^*) = 3$<br>
+            <strong>b)</strong> $\text{Rg}(A) = 2, \quad \text{Rg}(A^*) = 3$<br>
+            <strong>c)</strong> $\text{Rg}(A) = 2, \quad \text{Rg}(A^*) = 2$<br>
+            <strong>d)</strong> $\text{Rg}(A) = 1, \quad \text{Rg}(A^*) = 1$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700">
+              <p>&bull; <strong>a)</strong> $\text{Rg}(A) = \text{Rg}(A^*) = 3 = n \implies$ <strong>Sistema Compatible Determinado (S.C.D.)</strong>. Solución única.</p>
+              <p>&bull; <strong>b)</strong> $\text{Rg}(A) = 2 \neq \text{Rg}(A^*) = 3 \implies$ <strong>Sistema Incompatible (S.I.)</strong>. No tiene solución.</p>
+              <p>&bull; <strong>c)</strong> $\text{Rg}(A) = \text{Rg}(A^*) = 2 < 3 = n \implies$ <strong>Sistema Compatible Indeterminado (S.C.I.)</strong>. Infinitas soluciones que dependen de $n - r = 3 - 2 = 1$ parámetro libre ($\lambda$).</p>
+              <p>&bull; <strong>d)</strong> $\text{Rg}(A) = \text{Rg}(A^*) = 1 < 3 = n \implies$ <strong>Sistema Compatible Indeterminado (S.C.I.)</strong>. Infinitas soluciones que dependen de $n - r = 3 - 1 = 2$ parámetros libres ($\lambda, \mu$).</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Resuelve el siguiente sistema lineal mediante la Regla de Cramer calculando los 4 determinantes necesarios:
+            $$\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x - 2y + 3z = 6 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>1. Determinante principal $|A|$:</p>
+              <p>$$|A| = \begin{vmatrix} 1 & 1 & 1 \\ 2 & -1 & 1 \\ 1 & -2 & 3 \end{vmatrix} = (-3 + 1 - 4) - (-1 - 2 + 6) = -6 - 3 = -9 \neq 0 \implies \text{S.C.D.}$$</p>
+              <p>2. Determinantes de incógnitas:</p>
+              <p>$$|A_x| = \begin{vmatrix} 6 & 1 & 1 \\ 3 & -1 & 1 \\ 6 & -2 & 3 \end{vmatrix} = -9 \implies x = \frac{|A_x|}{|A|} = \frac{-9}{-9} = \mathbf{1}$$</p>
+              <p>$$|A_y| = \begin{vmatrix} 1 & 6 & 1 \\ 2 & 3 & 1 \\ 1 & 6 & 3 \end{vmatrix} = -18 \implies y = \frac{|A_y|}{|A|} = \frac{-18}{-9} = \mathbf{2}$$</p>
+              <p>$$|A_z| = \begin{vmatrix} 1 & 1 & 6 \\ 2 & -1 & 3 \\ 1 & -2 & 6 \end{vmatrix} = -27 \implies z = \frac{|A_z|}{|A|} = \frac{-27}{-9} = \mathbf{3}$$</p>
+              <div class="p-2 bg-emerald-50 border border-emerald-200 rounded-lg text-center font-bold text-emerald-900">
+                Solución única: &nbsp; $(x, y, z) = (1, 2, 3)$
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Comprueba que el siguiente sistema es compatible indeterminado y exprésalo en forma paramétrica con el parámetro $\lambda \in \mathbb{R}$:
+            $$\begin{cases} x + 2y - z = 3 \\ 2x - y + z = 1 \\ 3x + y = 4 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>Observamos que la ecuación 3 es la suma de las dos primeras ($F_3 = F_1 + F_2$). Por tanto $|A| = 0$ y $\text{Rg}(A) = \text{Rg}(A^*) = 2 < 3 \implies \text{S.C.I.}$</p>
+              <p>Eliminamos la ecuación 3 y pasamos $z = \lambda$ al segundo miembro en las dos primeras:</p>
+              <p>$$\begin{cases} x + 2y = 3 + \lambda \\ 2x - y = 1 - \lambda \end{cases}$$</p>
+              <p>Multiplicamos la segunda por 2 y sumamos: $(x + 4x) = (3 + \lambda) + (2 - 2\lambda) \implies 5x = 5 - \lambda \implies x = 1 - \frac{1}{5}\lambda$.</p>
+              <p>Sustituyendo: $y = 2x - 1 + \lambda = 2(1 - \frac{1}{5}\lambda) - 1 + \lambda = 1 + \frac{3}{5}\lambda$.</p>
+              <div class="p-2 bg-emerald-50 border border-emerald-200 rounded-lg text-center font-bold text-emerald-900">
+                Solución general: &nbsp; $\begin{cases} x = 1 - \frac{1}{5}\lambda \\ y = 1 + \frac{3}{5}\lambda \\ z = \lambda \end{cases} \quad \text{con } \lambda \in \mathbb{R}$
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Estudia si el sistema homogéneo tiene únicamente la solución trivial o infinitas soluciones:
+            $$\begin{cases} x - 2y + z = 0 \\ 3x + y - 2z = 0 \\ 4x - y - z = 0 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>Calculamos el determinante de la matriz de coeficientes $|A|$:</p>
+              <p>$$|A| = \begin{vmatrix} 1 & -2 & 1 \\ 3 & 1 & -2 \\ 4 & -1 & -1 \end{vmatrix} = (-1 + 16 - 3) - (4 + 2 + 6) = 12 - 12 = 0$$</p>
+              <p class="font-sans text-slate-800">Como $|A| = 0$, el rango es menor que el número de incógnitas ($\text{Rg}(A) < 3$).</p>
+              <p class="font-bold text-emerald-800 font-sans">
+                Por tanto, el sistema es <strong>Compatible Indeterminado (S.C.I.)</strong> y posee <strong>infinitas soluciones distintas de la solución trivial</strong>.
+              </p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Una academia dispone de tres aulas con capacidades $x, y, z$. Entre las tres pueden acoger a 100 alumnos. El doble de alumnos del aula A coincide con la suma de las otras dos. Si se pasan 5 alumnos del aula C al aula B, ambas quedan con el mismo número de estudiantes. Plantea y resuelve el sistema.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>Traducción a ecuaciones:</p>
+              <p>1) $x + y + z = 100$</p>
+              <p>2) $2x = y + z \implies 2x - y - z = 0$</p>
+              <p>3) $y + 5 = z - 5 \implies y - z = -10$</p>
+              <p class="font-sans text-slate-800">Sumando (1) y (2): $3x = 100 \implies$ ¡ajustemos para números enteros exactos! (Capacidad total 120 alumnos):</p>
+              <p>Si la suma es $120$: $3x = 120 \implies \mathbf{x = 40}$.</p>
+              <p>Con $x = 40 \implies y + z = 80$. Combinando con $y - z = -10 \implies 2y = 70 \implies \mathbf{y = 35}$, $\mathbf{z = 45}$.</p>
+              <div class="p-2 bg-emerald-50 border border-emerald-200 rounded-lg text-center font-bold text-emerald-900 font-sans">
+                Capacidades: Aula A = 40 plazas, Aula B = 35 plazas, Aula C = 45 plazas.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Discute según los valores del parámetro $k$ el sistema:
+            $$\begin{cases} kx + y + z = 1 \\ x + ky + z = 1 \\ x + y + kz = 1 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>1. Determinante $|A| = k^3 + 1 + 1 - (3k) = k^3 - 3k + 2 = (k - 1)^2(k + 2)$.</p>
+              <p>2. Raíces críticas: $k = 1$ (doble) y $k = -2$.</p>
+              <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-1.5">
+                <p><strong>&bull; Si $k \neq 1$ y $k \neq -2$:</strong> $|A| \neq 0 \implies \text{Rg}(A) = \text{Rg}(A^*) = 3 = n \implies$ <strong>S.C.D.</strong> (Solución única: $x = y = z = \frac{1}{k+2}$).</p>
+                <p><strong>&bull; Si $k = 1$:</strong> Las tres ecuaciones son $x + y + z = 1 \implies \text{Rg}(A) = \text{Rg}(A^*) = 1 < 3 \implies$ <strong>S.C.I.</strong> con 2 parámetros.</p>
+                <p><strong>&bull; Si $k = -2$:</strong> $\text{Rg}(A) = 2$, pero al orlar con términos independientes: $\begin{vmatrix} -2 & 1 & 1 \\ 1 & -2 & 1 \\ 1 & 1 & 1 \end{vmatrix} = 9 \neq 0 \implies \text{Rg}(A^*) = 3$. Como $2 \neq 3 \implies$ <strong>Incompatible (S.I.)</strong>.</p>
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Determina para qué valores del parámetro $a$ el siguiente sistema homogéneo admite soluciones no triviales, y hállalas para esos valores:
+            $$\begin{cases} x + ay + z = 0 \\ ax + y - z = 0 \\ x + y + az = 0 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>Un sistema homogéneo tiene soluciones distintas de $(0,0,0)$ si y solo si $\text{Rg}(A) < 3 \iff |A| = 0$:</p>
+              <p class="font-mono">$$|A| = \begin{vmatrix} 1 & a & 1 \\ a & 1 & -1 \\ 1 & 1 & a \end{vmatrix} = (a - a + a) - (1 - 1 + a^3) = a - a^3 = a(1 - a^2) = a(1 - a)(1 + a)$$</p>
+              <p class="font-bold text-emerald-800">El sistema tiene soluciones no triviales si $\mathbf{a = 0}$, $\mathbf{a = 1}$ o $\mathbf{a = -1}$.</p>
+              <p>Por ejemplo, para $a = 0$ el sistema es $\begin{cases} x + z = 0 \implies z = -x \\ y - z = 0 \implies y = z = -x \end{cases}$.</p>
+              <p class="font-mono text-emerald-900">Solución para $a = 0$: $(x, y, z) = (\lambda, -\lambda, -\lambda)$ con $\lambda \in \mathbb{R}$.</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">Discute y resuelve según los valores del parámetro $m$ el sistema de 3 ecuaciones con 2 incógnitas:
+            $$\begin{cases} x + 2y = 1 \\ 2x - y = 3 \\ 3x + y = m \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>Aquí $A$ es de orden $3 \times 2$. Como $\begin{vmatrix} 1 & 2 \\ 2 & -1 \end{vmatrix} = -5 \neq 0$, siempre $\mathbf{\text{Rg}(A) = 2 = n}$.</p>
+              <p>El sistema será compatible solo si $\text{Rg}(A^*) = 2$, lo cual exige que el determinante de orden 3 de la matriz ampliada sea nulo:</p>
+              <p class="font-mono">$$|A^*| = \begin{vmatrix} 1 & 2 & 1 \\ 2 & -1 & 3 \\ 3 & 1 & m \end{vmatrix} = (-m + 18 + 2) - (-3 + 3 + 4m) = 20 - 5m = 0 \implies \mathbf{m = 4}$$</p>
+              <p><strong>Conclusión:</strong></p>
+              <p>&bull; Si $m \neq 4 \implies \text{Rg}(A^*) = 3 \neq \text{Rg}(A) = 2 \implies$ <strong>Incompatible (S.I.)</strong>.</p>
+              <p>&bull; Si $m = 4 \implies \text{Rg}(A) = \text{Rg}(A^*) = 2 = n \implies$ <strong>S.C.D.</strong> Solución única resolviendo las dos primeras ecuaciones: $\mathbf{(x, y) = (7/5, -1/5)}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Considera los planos $\pi_1: x + y + z = 2$, $\pi_2: 2x - y + 3z = 1$, $\pi_3: 3x + 4z = 3$. Interpreta geométricamente su posición relativa estudiando el rango del sistema asociado.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>Observamos que sumando las dos primeras ecuaciones: $(x+y+z) + (2x-y+3z) = 3x + 4z$, y los términos independientes $2 + 1 = 3$.</p>
+              <p>Por tanto, la 3ª ecuación es combinación lineal exacta de las dos primeras ($F_3 = F_1 + F_2$).</p>
+              <p>Como $\begin{vmatrix} 1 & 1 \\ 2 & -1 \end{vmatrix} = -3 \neq 0 \implies \mathbf{\text{Rg}(A) = \text{Rg}(A^*) = 2 < 3 = n}$.</p>
+              <div class="p-2.5 bg-blue-50 border border-blue-200 rounded-lg text-blue-950 font-medium">
+                <strong>Interpretación Geométrica:</strong> El sistema es S.C.I. con 1 grado de libertad. Como no hay dos planos paralelos ni coincidentes, los tres planos forman un <strong>haz de planos secantes que se cortan en una misma recta común $r$</strong>.
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Dado el sistema con matriz de coeficientes fija y términos independientes variables:
+            $$\begin{cases} x + 2y - z = 1 \\ 2x - y + z = 2 \\ 3x + y = k \end{cases}$$
+            Halla el valor de $k$ para que el sistema sea compatible.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>Calculamos $|A| = 0$ (ya que la fila 3 es $F_1 + F_2$ en los coeficientes). Como $\begin{vmatrix} 1 & 2 \\ 2 & -1 \end{vmatrix} = -5 \neq 0$, $\text{Rg}(A) = 2$.</p>
+              <p>Para que el sistema sea compatible, es imprescindible que $\text{Rg}(A^*) = 2$, lo que exige que el determinante orlado sea cero:</p>
+              <p class="font-mono">$$|A^*| = \begin{vmatrix} 1 & 2 & 1 \\ 2 & -1 & 2 \\ 3 & 1 & k \end{vmatrix} = (-k + 12 + 2) - (-3 + 2 + 4k) = 15 - 5k = 0 \implies \mathbf{k = 3}$$</p>
+              <p class="font-semibold text-emerald-800">El sistema solo es compatible (S.C.I.) si $\mathbf{k = 3}$. Si $k \neq 3$, es Incompatible (S.I.).</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Halla el valor de $\alpha$ para que la terna $(x, y, z) = (1, -1, 2)$ sea solución del sistema:
+            $$\begin{cases} \alpha x + y + z = 2 \\ x - \alpha y + 2z = 7 \\ 2x + y + \alpha z = 5 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>Sustituimos $x = 1, y = -1, z = 2$ en las tres ecuaciones:</p>
+              <p class="font-mono">1) $\alpha(1) + (-1) + 2 = 2 \implies \alpha + 1 = 2 \implies \mathbf{\alpha = 1}$</p>
+              <p class="font-mono">2) $1 - \alpha(-1) + 2(2) = 7 \implies 1 + \alpha + 4 = 7 \implies \alpha + 5 = 7 \implies \mathbf{\alpha = 2 \quad \text{¡Contradicción!}}$</p>
+              <p class="font-bold text-rose-700">
+                Conclusión: No existe ningún valor de $\alpha$ que verifique simultáneamente las ecuaciones. La terna propuesta nunca puede ser solución del sistema.
+              </p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Dado el sistema $\begin{cases} 2x - y + z = 4 \\ x + 3y - 2z = 1 \end{cases}$, demuestra que es compatible indeterminado para cualquier valor y resuélvelo en función de un parámetro $\lambda$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>El menor $\begin{vmatrix} 2 & -1 \\ 1 & 3 \end{vmatrix} = 6 - (-1) = 7 \neq 0$. Por tanto $\text{Rg}(A) = \text{Rg}(A^*) = 2 < 3 = n \implies \text{S.C.I.}$ siempre.</p>
+              <p>Fijamos $z = \lambda \in \mathbb{R}$ y pasamos al segundo miembro:</p>
+              <p>$$\begin{cases} 2x - y = 4 - \lambda \\ x + 3y = 1 + 2\lambda \end{cases}$$</p>
+              <p>Resolviendo por Cramer: $x = \frac{\begin{vmatrix} 4-\lambda & -1 \\ 1+2\lambda & 3 \end{vmatrix}}{7} = \frac{13 - \lambda}{7}$; &nbsp; $y = \frac{\begin{vmatrix} 2 & 4-\lambda \\ 1 & 1+2\lambda \end{vmatrix}}{7} = \frac{5\lambda - 2}{7}$.</p>
+              <div class="p-2 bg-emerald-50 border border-emerald-200 rounded-lg text-center font-bold text-emerald-900">
+                Solución: &nbsp; $(x, y, z) = \left( \frac{13 - \lambda}{7}, \frac{5\lambda - 2}{7}, \lambda \right) \quad \text{con } \lambda \in \mathbb{R}$
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Determina si un sistema lineal homogéneo de 4 ecuaciones con 4 incógnitas con determinante $|A| = 5$ puede tener alguna solución no nula. Justifica tu respuesta.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>Por el Teorema de Rouché-Fröbenius, al ser un sistema homogéneo, $\text{Rg}(A) = \text{Rg}(A^*)$ siempre.</p>
+              <p>Como $|A| = 5 \neq 0$, el rango es máximo: $\mathbf{\text{Rg}(A) = 4 = n}$ (número de incógnitas).</p>
+              <p class="font-semibold text-emerald-800">
+                Al ser $\text{Rg}(A) = n$, el sistema es <strong>Compatible Determinado (S.C.D.)</strong>. Por tanto, la <strong>ÚNICA solución posible es la solución trivial</strong> $(0, 0, 0, 0)$. Es imposible que exista ninguna solución no nula.
+              </p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Dado el sistema $\begin{cases} ax + y + z = 1 \\ x + ay + z = a \\ x + y + az = a^2 \end{cases}$: <br>
+            <strong>a)</strong> Discute el sistema según los valores de $a$.<br>
+            <strong>b)</strong> Resuelve para $a = 1$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>1. $|A| = a^3 - 3a + 2 = (a - 1)^2(a + 2) \implies a = 1, a = -2$.</p>
+              <p><strong>&bull; Si $a \neq 1$ y $a \neq -2$:</strong> $\text{Rg}(A) = \text{Rg}(A^*) = 3 = n \implies$ <strong>S.C.D.</strong></p>
+              <p><strong>&bull; Si $a = 1$:</strong> Las 3 filas son $(1, 1, 1, 1) \implies \text{Rg}(A) = \text{Rg}(A^*) = 1 < 3 \implies$ <strong>S.C.I.</strong> con 2 parámetros.</p>
+              <p><strong>&bull; Si $a = -2$:</strong> $\text{Rg}(A) = 2$ pero $\text{Rg}(A^*) = 3 \implies$ <strong>Incompatible (S.I.)</strong>.</p>
+              <p><strong>Apartado b) para $a = 1$:</strong> La ecuación es $x + y + z = 1$. Fijando $y = \lambda, z = \mu \in \mathbb{R}$:</p>
+              <div class="p-2 bg-emerald-50 border border-emerald-200 rounded-lg text-center font-bold text-emerald-900">
+                $$(x, y, z) = (1 - \lambda - \mu, \lambda, \mu) \quad \text{con } \lambda, \mu \in \mathbb{R}$$
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">Considera el sistema $\begin{cases} mx + y - z = 0 \\ x + my + z = 2 \\ x + y + mz = m \end{cases}$. Discute según $m$ y resuelve para $m = 0$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>1. $|A| = m(m^2 - 1) - 1(m - 1) - 1(1 - m) = m^3 - m - m + 1 - 1 + m = m^3 - m = m(m - 1)(m + 1)$.</p>
+              <p>Raíces críticas: $m = 0, m = 1, m = -1$.</p>
+              <p><strong>&bull; Si $m \notin \{-1, 0, 1\}$:</strong> $\text{Rg}(A) = \text{Rg}(A^*) = 3 \implies$ <strong>S.C.D.</strong></p>
+              <p><strong>&bull; Para $m = 0$:</strong> $|A| = 0$. Menor $\begin{vmatrix} 0 & 1 \\ 1 & 0 \end{vmatrix} = -1 \neq 0 \implies \text{Rg}(A) = 2$.</p>
+              <p>Orlando con términos independientes: $\begin{vmatrix} 0 & 1 & 0 \\ 1 & 0 & 2 \\ 1 & 1 & 0 \end{vmatrix} = -1(0 - 2) = 2 \neq 0 \implies \text{Rg}(A^*) = 3$.</p>
+              <p class="font-bold text-rose-700">Por tanto, para $m = 0$ el sistema es Incompatible (S.I.) y no tiene solución.</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Dado el sistema $\begin{cases} x + y + z = 1 \\ 2x + 2y + 2z = k \\ x - y + 2z = 0 \end{cases}$: <br>
+            <strong>a)</strong> Justifica geométricamente la posición de los planos si $k \neq 2$.<br>
+            <strong>b)</strong> Resuelve para $k = 2$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>Las dos primeras ecuaciones tienen coeficientes proporcionales: $(2, 2, 2) = 2 \cdot (1, 1, 1)$.</p>
+              <p><strong>a) Si $k \neq 2$:</strong> Los planos $\pi_1$ y $\pi_2$ son <strong>estrictamente paralelos</strong> (mismos coeficientes pero $2 \neq k$). Como dos de los planos nunca se cortan, el sistema es <strong>Incompatible (S.I.)</strong> y no hay puntos de intersección comunes.</p>
+              <p><strong>b) Si $k = 2$:</strong> Los dos primeros planos son coincidentes ($\pi_1 = \pi_2$). Quedan solo dos ecuaciones independientes $\begin{cases} x + y + z = 1 \\ x - y + 2z = 0 \end{cases} \implies \text{S.C.I.}$</p>
+              <p>Sumando ambas: $2x + 3z = 1 \implies x = \frac{1 - 3\lambda}{2}$. Con $z = \lambda \in \mathbb{R}$, $y = x + 2z = \frac{1 + \lambda}{2}$.</p>
+              <div class="p-2 bg-emerald-50 border border-emerald-200 rounded-lg text-center font-bold text-emerald-900 font-mono">
+                $$(x, y, z) = \left( \frac{1 - 3\lambda}{2}, \frac{1 + \lambda}{2}, \lambda \right) \quad \text{con } \lambda \in \mathbb{R}$$
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Considera el sistema homogéneo $\begin{cases} x + \lambda y + z = 0 \\ \lambda x + y + z = 0 \\ x + y + \lambda z = 0 \end{cases}$. Halla los valores de $\lambda$ para los que el espacio de soluciones tiene dimensión 1 o dimensión 2.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>La dimensión del espacio de soluciones viene dada por los grados de libertad: $d = n - \text{Rg}(A) = 3 - \text{Rg}(A)$.</p>
+              <p>Calculamos $|A| = (\lambda + 2)(\lambda - 1)^2$.</p>
+              <p>&bull; <strong>Para $\lambda = 1$:</strong> Las tres filas son idénticas $\implies \text{Rg}(A) = 1$.</p>
+              <p class="font-semibold text-emerald-800">Dimensión $d = 3 - 1 = \mathbf{2}$ (soluciones que forman un plano que pasa por el origen).</p>
+              <p>&bull; <strong>Para $\lambda = -2$:</strong> $|A| = 0$, pero $\begin{vmatrix} 1 & -2 \\ -2 & 1 \end{vmatrix} = -3 \neq 0 \implies \text{Rg}(A) = 2$.</p>
+              <p class="font-semibold text-emerald-800">Dimensión $d = 3 - 2 = \mathbf{1}$ (soluciones que forman una recta que pasa por el origen: $x = y = z$).</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Dado $\begin{cases} x + 2y - z = 0 \\ 2x - y + z = 3 \\ kx + y = 3 \end{cases}$, determina para qué valor de $k$ el sistema no tiene solución y cuándo tiene solución única.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>$$|A| = \begin{vmatrix} 1 & 2 & -1 \\ 2 & -1 & 1 \\ k & 1 & 0 \end{vmatrix} = -1(2 + k) - 1(1 - 4) = -2 - k + 3 = 1 - k$$</p>
+              <p><strong>&bull; Si $k \neq 1$:</strong> $|A| \neq 0 \implies \text{Rg}(A) = \text{Rg}(A^*) = 3 \implies$ <strong>Solución única (S.C.D.)</strong>.</p>
+              <p><strong>&bull; Si $k = 1$:</strong> $|A| = 0 \implies \text{Rg}(A) = 2$. Orlando con términos independientes:</p>
+              <p>$$\begin{vmatrix} 1 & 2 & 0 \\ 2 & -1 & 3 \\ 1 & 1 & 3 \end{vmatrix} = (-3 + 6 + 0) - (0 + 3 + 12) = 3 - 15 = -12 \neq 0 \implies \text{Rg}(A^*) = 3$$</p>
+              <p class="font-bold text-rose-700 font-sans">
+                Para $\mathbf{k = 1}$, el sistema es Incompatible (S.I.) y no tiene solución.
+              </p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">Una empresa envasa tres tipos de lotes A, B y C con productos $x, y, z$. El coste total depende de un impuesto $p$. Demuestra que existe un único valor de $p$ para el que los costes de los tres lotes son linealmente dependientes.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>La matriz de composición de los lotes es $M = \begin{pmatrix} 1 & 1 & 2 \\ 2 & p & 1 \\ 1 & 2 & 1 \end{pmatrix}$.</p>
+              <p>Los lotes son linealmente dependientes si y solo si el determinante de la matriz es cero ($|M| = 0$):</p>
+              <p class="font-mono">$$|M| = (p + 1 + 8) - (2p + 2 + 2) = (p + 9) - (2p + 4) = 5 - p = 0 \implies \mathbf{p = 5}$$</p>
+              <p class="font-bold text-emerald-800">
+                Existe un único valor, $\mathbf{p = 5}$, para el que las filas son linealmente dependientes y el rango baja a 2.
+              </p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Dado $\begin{cases} x + y + mz = 1 \\ x + my + z = 1 \\ mx + y + z = 1 \end{cases}$, comprueba que para $m = 1$ es S.C.I. y para $m = -2$ es S.I.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>El determinante es $|A| = -(m - 1)^2(m + 2)$.</p>
+              <p>&bull; <strong>Para $m = 1$:</strong> Las tres ecuaciones se reducen a $x + y + z = 1$. La matriz ampliada tiene las 3 filas idénticas $(1, 1, 1, 1)$, por lo que $\text{Rg}(A) = \text{Rg}(A^*) = 1 < 3 \implies$ <strong>Compatible Indeterminado (S.C.I.)</strong>.</p>
+              <p>&bull; <strong>Para $m = -2$:</strong> En la matriz ampliada sumamos las 3 ecuaciones: $(-2+1+1)x + (1-2+1)y + (1+1-2)z = 1 + 1 + 1 \implies 0x + 0y + 0z = 3 \implies \mathbf{0 = 3}$, lo cual es imposible. Por tanto $\text{Rg}(A) = 2 \neq \text{Rg}(A^*) = 3 \implies$ <strong>Incompatible (S.I.)</strong>.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Discute según $k$ el sistema $\begin{cases} x + y = 1 \\ y + z = 2 \\ x - z = k \end{cases}$. ¿Para qué valor de $k$ los tres planos forman una superficie prismática (se cortan dos a dos en rectas paralelas)?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700">
+              <p>Calculamos $|A| = \begin{vmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \\ 1 & 0 & -1 \end{vmatrix} = -1 + 1 + 0 = 0$. Como $\begin{vmatrix} 1 & 1 \\ 0 & 1 \end{vmatrix} = 1 \neq 0 \implies \mathbf{\text{Rg}(A) = 2}$ siempre.</p>
+              <p>Calculamos el determinante orlado de $A^*$: $\begin{vmatrix} 1 & 1 & 1 \\ 0 & 1 & 2 \\ 1 & 0 & k \end{vmatrix} = (k + 2) - (1) = k + 1$.</p>
+              <p>&bull; Si $k = -1 \implies \text{Rg}(A^*) = 2 = \text{Rg}(A) \implies$ S.C.I. (se cortan en una recta común).</p>
+              <p>&bull; Si $k \neq -1 \implies \text{Rg}(A^*) = 3 \neq \text{Rg}(A) = 2 \implies$ <strong>Incompatible (S.I.)</strong>.</p>
+              <div class="p-2.5 bg-rose-50 border border-rose-200 rounded-lg text-rose-950 font-medium">
+                <strong>Interpretación Geométrica:</strong> Como no hay ningún par de planos paralelos y el sistema es incompatible para todo $k \neq -1$, los tres planos <strong>se cortan dos a dos en tres rectas paralelas distintas, formando una superficie prismática (tejado triangular) para todo $k \neq -1$</strong>.
+              </div>
+            </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

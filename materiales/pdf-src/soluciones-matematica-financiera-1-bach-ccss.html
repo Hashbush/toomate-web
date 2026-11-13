@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Aritmética y Matemática Financiera | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Aritmética y Matemática Financiera</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Depositamos $5.000$ € en una cuenta bancaria a un interés simple anual del $4\%$ durante 3 años.
+            <br>a) ¿Qué interés se genera? &emsp; b) ¿Cuál es el capital final acumulado?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>a) $I = C_0 \cdot r \cdot t = 5.000 \cdot 0.04 \cdot 3 = \mathbf{600\text{ €}}$.</p>
+              <p>b) $C_f = C_0 + I = 5.000 + 600 = \mathbf{5.600\text{ €}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Invertimos $8.000$ € al $3.5\%$ de interés simple anual durante 8 meses. ¿Cuánto dinero retiraremos?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>El tiempo en años es $t = \frac{8}{12} = \frac{2}{3}\text{ años}$.</p>
+              <p>$$I = 8.000 \cdot 0.035 \cdot \frac{8}{12} = 186.67\text{ €}$$</p>
+              <p>Capital final acumulado: $C_f = 8.000 + 186.67 = \mathbf{8.186.67\text{ €}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">¿Cuántos años debe permanecer invertido un capital de $2.000$ € al $5\%$ de interés simple para generar $300$ € de intereses?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$I = C_0 \cdot r \cdot t \implies t = \frac{I}{C_0 \cdot r}$$</p>
+              <p>$$t = \frac{300}{2.000 \cdot 0.05} = \frac{300}{100} = \mathbf{3\text{ años}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Ingresamos $6.000$ € a plazo fijo durante 5 años al $3\%$ anual compuesto con reinversión anual de intereses. Calcula el capital final y los intereses totales ganados.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$C_f = C_0(1 + r)^t = 6.000 \cdot (1 + 0.03)^5 = 6.000 \cdot (1.03)^5 = 6.000 \cdot 1.159274 = \mathbf{6.955.64\text{ €}}$$</p>
+              <p>Intereses ganados: $I = C_f - C_0 = 6.955.64 - 6.000 = \mathbf{955.64\text{ €}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Un depósito de $10.000$ € ofrece un interés nominal del $4\%$ anual con liquidación trimestral de intereses durante 4 años. ¿Cuál es el capital final?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Al año hay $k = 4$ trimestres. Número total de periodos: $4 \cdot 4 = 16$.</p>
+              <p>$$C_f = C_0 \left(1 + \frac{0.04}{4}\right)^{4 \cdot 4} = 10.000 \cdot (1 + 0.01)^{16} = 10.000 \cdot (1.01)^{16} = \mathbf{11.725.79\text{ €}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Colocamos $4.000$ € al $6\%$ anual compuesto liquidable mensualmente durante 2 años. Calcula el capital final.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$k = 12$ meses/año. Periodos totales: $12 \cdot 2 = 24$.</p>
+              <p>$$C_f = 4.000 \left(1 + \frac{0.06}{12}\right)^{24} = 4.000 (1.005)^{24} = 4.000 \cdot 1.127160 = \mathbf{4.508.64\text{ €}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Un banco promociona un depósito con un interés nominal del $5\%$ anual con liquidación mensual de intereses. Halla su Tasa Anual Equivalente (TAE).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Fórmula de la TAE: $\text{TAE} = \left(1 + \frac{r}{k}\right)^k - 1$. Con $r = 0.05$ y $k = 12$:</p>
+              <p>$$\text{TAE} = \left(1 + \frac{0.05}{12}\right)^{12} - 1 = (1.004167)^{12} - 1 = 1.05116 - 1 = 0.05116 \implies \mathbf{5.116\%}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Para una inversión a 1 año, ¿qué opción es más rentable?:
+            <br>Banco A: $4.2\%$ anual liquidable al final del año.
+            <br>Banco B: $4.1\%$ anual nominal liquidable mensualmente.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Comparamos la TAE de ambos bancos:</p>
+              <p>&bull; Banco A: $\text{TAE}_A = 4.2\%$.</p>
+              <p>&bull; Banco B: $\text{TAE}_B = \left(1 + \frac{0.041}{12}\right)^{12} - 1 = (1.003417)^{12} - 1 = 0.04178 \implies 4.178\%$.</p>
+              <p>Conclusión: Es más rentable el <strong>Banco A</strong> ($4.2\% > 4.178\%$).</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">¿Qué capital debemos ingresar hoy a plazo fijo al $3.5\%$ anual compuesto para disponer de $15.000$ € dentro de 6 años?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$C_0 = \frac{C_f}{(1 + r)^t} = \frac{15.000}{(1.035)^6} = \frac{15.000}{1.229255} = \mathbf{12.202.51\text{ €}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">¿Cuántos años se tarda en duplicar un capital inicial si se invierte al $4\%$ de interés anual compuesto?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Condición: $C_f = 2C_0 \implies 2C_0 = C_0 (1.04)^t \implies 1.04^t = 2$.</p>
+              <p>Tomamos logaritmos en ambos lados:</p>
+              <p>$$\ln(1.04^t) = \ln(2) \implies t \cdot \ln(1.04) = \ln(2)$$</p>
+              <p>$$t = \frac{\ln 2}{\ln 1.04} = \frac{0.693147}{0.039221} \approx \mathbf{17.67\text{ años}} \quad (\approx 17\text{ años y } 8\text{ meses})$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Para crear un fondo de ahorro, ingresamos $1.200$ € a principios de cada año durante 10 años en una cuenta al $4\%$ anual compuesto. ¿Cuánto dinero habrá acumulado al término de los 10 años?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Fórmula de anualidad de capitalización anticipada:</p>
+              <p>$$C_f = \frac{a(1 + r)[(1 + r)^t - 1]}{r}$$</p>
+              <p>$$C_f = \frac{1.200 \cdot 1.04 \cdot [(1.04)^{10} - 1]}{0.04} = \frac{1.248 \cdot [1.480244 - 1]}{0.04} = \frac{1.248 \cdot 0.480244}{0.04} = \mathbf{14.983.62\text{ €}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Ingresamos $150$ € a primeros de cada mes durante 5 años en un fondo con un interés nominal del $3\%$ ($0.25\%$ mensual). ¿Qué capital final obtendremos?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Periodos mensuales: $t = 5 \cdot 12 = 60\text{ meses}$. Interés mensual: $i = 0.03 / 12 = 0.0025$.</p>
+              <p>$$C_f = \frac{150 \cdot (1.0025) \cdot [(1.0025)^{60} - 1]}{0.0025} = \frac{150.375 \cdot [1.161617 - 1]}{0.0025} = \mathbf{9.720.61\text{ €}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Calcula la anualidad constante $a$ para amortizar un préstamo de $30.000$ € en 5 años a un interés anual del $5\%$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Fórmula de amortización (sistema francés):</p>
+              <p>$$a = \frac{C_0 \cdot r \cdot (1 + r)^t}{(1 + r)^t - 1}$$</p>
+              <p>$$a = \frac{30.000 \cdot 0.05 \cdot (1.05)^5}{(1.05)^5 - 1} = \frac{1.500 \cdot 1.276282}{1.276282 - 1} = \frac{1.914.42}{0.276282} = \mathbf{6.929.24\text{ € / año}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Solicitamos un préstamo de $18.000$ € para comprar un coche a devolver en 4 años mediante cuotas mensuales constantes al $6\%$ anual nominal. ¿Cuál será la cuota mensual?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$n = 4 \cdot 12 = 48\text{ meses}$. Interés mensual: $i = 0.06 / 12 = 0.005$.</p>
+              <p>$$m = \frac{C_0 \cdot i \cdot (1 + i)^n}{(1 + i)^n - 1} = \frac{18.000 \cdot 0.005 \cdot (1.005)^{48}}{(1.005)^{48} - 1}$$</p>
+              <p>$$m = \frac{90 \cdot 1.270489}{0.270489} = \mathbf{422.73\text{ € / mes}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">En el préstamo del ejercicio 13 ($C_0 = 30.000$ €, $a = 6.929.24$ €, al $5\%$), desglosa la primera anualidad en su cuota de interés y su cuota de amortización de capital.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>1º Interés del primer año: $I_1 = C_0 \cdot r = 30.000 \cdot 0.05 = \mathbf{1.500\text{ €}}$.</p>
+              <p>2º Amortización de capital del primer año: $A_1 = a - I_1 = 6.929.24 - 1.500 = \mathbf{5.429.24\text{ €}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">¿Cuál es el capital vivo (deuda pendiente) que queda tras pagar la primera cuota en el préstamo anterior?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>El capital pendiente disminuye solo en la cuantía de la amortización de capital ($A_1$):</p>
+              <p>$$C_1 = C_0 - A_1 = 30.000 - 5.429.24 = \mathbf{24.570.76\text{ €}}$$</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Para comprar un piso, una familia pide una hipoteca de $150.000$ € a 25 años al $3\%$ nominal anual.
+            <br>a) Calcula la cuota mensual.
+            <br>b) ¿Cuánto pagará en total la familia al banco al terminar los 25 años?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Datos: $C_0 = 150.000$ €, $n = 25 \cdot 12 = 300\text{ meses}$, $i = 0.03 / 12 = 0.0025$.</p>
+              <p>$$m = \frac{150.000 \cdot 0.0025 \cdot (1.0025)^{300}}{(1.0025)^{300} - 1} = \frac{375 \cdot 2.115014}{1.115014} = \mathbf{711.32\text{ € / mes}}$$</p>
+              <p>b) Coste total pagado: $300 \cdot 711.32 = \mathbf{213.396\text{ €}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">En la hipoteca del ejercicio anterior, ¿cuántos euros son puros intereses para el banco?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$\text{Intereses Totales} = \text{Total Pagado} - \text{Capital Prestado}$$</p>
+              <p>$$\text{Intereses Totales} = 213.396 - 150.000 = \mathbf{63.396\text{ €}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Si en un préstamo resta un capital de $50.000$ € por pagar a 10 años al $4\%$ nominal y amortizamos anticipadamente $10.000$ € reduciendo cuota, ¿cuál será la nueva cuota mensual?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Nuevo capital pendiente: $C_0' = 50.000 - 10.000 = 40.000$ €.</p>
+              <p>$n = 10 \cdot 12 = 120\text{ meses}$, $i = 0.04 / 12 = 0.003333$.</p>
+              <p>$$m' = \frac{40.000 \cdot 0.003333 \cdot (1.003333)^{120}}{(1.003333)^{120} - 1} = \frac{133.33 \cdot 1.490833}{0.490833} = \mathbf{404.98\text{ € / mes}}$$</p>
+              <p><em>(La cuota anterior era de $506.23$ €, ahorrando más de $101$ € cada mes).</em></p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">¿Qué cantidad constante anual debemos aportar al principio de cada año a un plan de pensiones al $4.5\%$ anual para acumular $100.000$ € en 15 años?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$a = \frac{C_f \cdot r}{(1 + r)[(1 + r)^t - 1]} = \frac{100.000 \cdot 0.045}{1.045 \cdot [(1.045)^{15} - 1]}$$</p>
+              <p>$$a = \frac{4.500}{1.045 \cdot [1.935282 - 1]} = \frac{4.500}{1.045 \cdot 0.935282} = \frac{4.500}{0.977370} = \mathbf{4.604.20\text{ € / año}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Nos conceden un préstamo de $10.000$ € a devolver en 1 solo pago dentro de 1 año con un interés del $4\%$, pero el banco cobra una comisión de apertura del $1.5\%$ sobre el capital prestado. Halla el coste efectivo anual (TAE real).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Capital realmente recibido: $10.000 - 150 = 9.850$ €.</p>
+              <p>Capital devuelto al cabo del año: $10.000 \cdot (1 + 0.04) = 10.400$ €.</p>
+              <p>$$\text{TAE} = \frac{10.400 - 9.850}{9.850} = \frac{550}{9.850} = 0.05584 \implies \mathbf{5.584\%}$$</p>
+              <p><em>(La comisión de apertura eleva el coste del 4% nominal al 5.58% real).</em></p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Explica y justifica matemáticamente por qué, al realizar una amortización anticipada en una hipoteca, reducir el plazo ahorra muchos más intereses totales que reducir la cuota mensual.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Los intereses generados en un periodo dependen de $I = C_{\text{pendiente}} \cdot i$.</p>
+              <p>Al reducir el <strong>plazo</strong>, eliminamos directamente los últimos años de la hipoteca, acelerando la amortización de capital en los años iniciales. Como el capital pendiente decrece mucho más rápido, la base sobre la que se calculan los intereses se reduce exponencialmente.</p>
+              <p>En cambio, al reducir la <strong>cuota</strong> manteniendo los 25 o 30 años, el banco sigue devengando intereses durante todos y cada uno de esos años.</p>
+              <p><strong>Conclusión:</strong> Reducir plazo es financieramente la opción más eficiente para minimizar los intereses totales pagados.</p>
+            </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

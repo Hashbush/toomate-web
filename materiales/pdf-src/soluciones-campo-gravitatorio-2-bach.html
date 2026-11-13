@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Campo Gravitatorio y Satélites | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Campo Gravitatorio y Satélites</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Calcula la fuerza de atracción gravitatoria mutua entre la Tierra ($M_T = 5.97 \times 10^{24}\text{ kg}$) y la Luna ($M_L = 7.35 \times 10^{22}\text{ kg}$) si la distancia media entre sus centros es de $3.84 \times 10^8\text{ m}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$F_g = G \frac{M_T \cdot M_L}{r^2} = (6.674 \times 10^{-11}) \frac{(5.97 \times 10^{24}) \cdot (7.35 \times 10^{22})}{(3.84 \times 10^8)^2}$$</p>
+              <p>$$F_g = \frac{2.928 \times 10^{37}}{1.4746 \times 10^{17}} = \mathbf{1.986 \times 10^{20}\text{ N}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Sabiendo que en la superficie de la Tierra la aceleración de la gravedad es $g_0 = 9.81\text{ m/s}^2$ y el radio terrestre es $R_T = 6.37 \times 10^6\text{ m}$, calcula el valor de la masa de la Tierra.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$g_0 = G \frac{M_T}{R_T^2} \implies M_T = \frac{g_0 \cdot R_T^2}{G}$$</p>
+              <p>$$M_T = \frac{9.81 \cdot (6.37 \times 10^6)^2}{6.674 \times 10^{-11}} = \frac{3.9806 \times 10^{14}}{6.674 \times 10^{-11}} = \mathbf{5.964 \times 10^{24}\text{ kg}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Demuestra teóricamente y calcula el valor de $g$ a una altura sobre la superficie terrestre igual al radio de la Tierra ($h = R_T$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>La distancia al centro de la Tierra es $r = R_T + h = R_T + R_T = 2R_T$.</p>
+              <p>$$g(h) = G \frac{M_T}{(2R_T)^2} = G \frac{M_T}{4R_T^2} = \frac{1}{4} \cdot \left(G \frac{M_T}{R_T^2}\right) = \frac{g_0}{4}$$</p>
+              <p>$$g = \frac{9.81}{4} = \mathbf{2.45\text{ m/s}^2}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Un astronauta tiene una masa de $80\text{ kg}$ en la Tierra.
+            <br>a) ¿Cuál es su peso en la superficie de la Tierra ($g_0 = 9.8\text{ m/s}^2$)?
+            <br>b) ¿Cuál es su masa y su peso en la Luna ($g_L = 1.62\text{ m/s}^2$)?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>a) $P_T = m \cdot g_0 = 80 \cdot 9.8 = \mathbf{784\text{ N}}$.</p>
+              <p>b) La masa es invariable en cualquier lugar del universo: $\mathbf{m = 80\text{ kg}}$.</p>
+              <p>Su peso en la Luna: $P_L = m \cdot g_L = 80 \cdot 1.62 = \mathbf{129.6\text{ N}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Dos masas $M_1 = 100\text{ kg}$ y $M_2 = 400\text{ kg}$ están separadas una distancia fija de $6\text{ metros}$. ¿A qué distancia de $M_1$ en el segmento que las une el campo gravitatorio total es nulo?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Sea $x$ la distancia desde $M_1$. La distancia desde $M_2$ es $6 - x$.</p>
+              <p>Condición: $g_1 = g_2 \implies G \frac{M_1}{x^2} = G \frac{M_2}{(6 - x)^2} \implies \frac{100}{x^2} = \frac{400}{(6 - x)^2}$.</p>
+              <p>Tomamos la raíz cuadrada a ambos lados:</p>
+              <p>$$\frac{10}{x} = \frac{20}{6 - x} \implies 10(6 - x) = 20x \implies 60 - 10x = 20x \implies 30x = 60 \implies \mathbf{x = 2\text{ metros}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Halla el potencial gravitatorio en un punto situado a $10.000\text{ km}$ del centro de la Tierra.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Distancia en metros: $r = 10.000\text{ km} = 10^7\text{ m}$.</p>
+              <p>$$V = -G \frac{M_T}{r} = -(6.674 \times 10^{-11}) \frac{5.97 \times 10^{24}}{10^7} = \mathbf{-3.98 \times 10^7\text{ J/kg}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Calcula el trabajo que debe realizar una fuerza exterior para llevar una masa de $500\text{ kg}$ desde la superficie terrestre hasta el infinito.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$W_{\text{ext}} = \Delta E_p = E_p(\infty) - E_p(R_T) = 0 - \left(-G \frac{M_T \cdot m}{R_T}\right) = G \frac{M_T \cdot m}{R_T}$$</p>
+              <p>$$W_{\text{ext}} = (6.674 \times 10^{-11}) \frac{5.97 \times 10^{24} \cdot 500}{6.37 \times 10^6} = \mathbf{3.127 \times 10^{10}\text{ J}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Demuestra que para cualquier satélite en órbita circular se cumple $E_m = \frac{1}{2} E_p = -E_c$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>En órbita circular $F_g = F_c \implies G \frac{Mm}{r^2} = m \frac{v^2}{r} \implies m v^2 = G \frac{Mm}{r}$.</p>
+              <p>Energía cinética: $E_c = \frac{1}{2} m v^2 = \frac{1}{2} G \frac{Mm}{r}$.</p>
+              <p>Energía potencial: $E_p = -G \frac{Mm}{r}$. Por tanto, $E_c = -\frac{1}{2} E_p$.</p>
+              <p>Energía mecánica total: $E_m = E_c + E_p = \frac{1}{2} G \frac{Mm}{r} - G \frac{Mm}{r} = \mathbf{-\frac{1}{2} G \frac{Mm}{r} = \frac{1}{2}E_p = -E_c}$. (Q.E.D.)</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">La Estación Espacial Internacional orbita a $h = 400\text{ km}$ sobre la superficie de la Tierra. Calcula su velocidad orbital en $\text{m/s}$ y en $\text{km/h}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Radio de la órbita: $r = R_T + h = 6.37 \times 10^6 + 0.40 \times 10^6 = 6.77 \times 10^6\text{ m}$.</p>
+              <p>$$v_{\text{orb}} = \sqrt{\frac{G M_T}{r}} = \sqrt{\frac{(6.674 \times 10^{-11}) \cdot (5.97 \times 10^{24})}{6.77 \times 10^6}} = \sqrt{5.885 \times 10^7} \approx \mathbf{7.671\text{ m/s}}$$</p>
+              <p>En $\text{km/h}$: $7.671 \cdot 3.6 \approx \mathbf{27.616\text{ km/h}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Con los datos del ejercicio anterior, calcula cuánto tarda la ISS en dar una vuelta completa a la Tierra y cuántas vueltas da en un día de $24\text{ horas}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$T = \frac{2\pi r}{v} = \frac{2 \pi \cdot 6.77 \times 10^6}{7.671} \approx \mathbf{5.545\text{ s}} \approx \mathbf{92.4\text{ minutos}} \quad (\approx 1\text{h } 32\text{min})$$</p>
+              <p>Vueltas en un día: $\frac{24 \cdot 3600}{5.545} = \frac{86.400}{5.545} \approx \mathbf{15.6\text{ órbitas / día}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Un satélite geoestacionario permanece inmóvil respecto a un observador en la superficie terrestre, por lo que su periodo orbital es de 1 día sideral ($T = 86.400\text{ s}$). Calcula la altura $h$ sobre la superficie a la que debe situarse.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>De la 3ª Ley de Kepler: $T^2 = \frac{4\pi^2}{GM_T} r^3 \implies r = \sqrt[3]{\frac{G M_T T^2}{4\pi^2}}$.</p>
+              <p>$$r = \sqrt[3]{\frac{(6.674 \times 10^{-11}) \cdot (5.97 \times 10^{24}) \cdot (86.400)^2}{4\pi^2}} = \sqrt[3]{7.537 \times 10^{22}} \approx \mathbf{4.224 \times 10^7\text{ m}} = 42.240\text{ km}$$</p>
+              <p>Altura sobre la superficie: $h = r - R_T = 42.240 - 6.370 \approx \mathbf{35.870\text{ km}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Deduce por consideraciones energéticas y calcula la velocidad de escape desde la superficie de la Tierra.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Para llegar al infinito con velocidad nula: $E_m(\text{sup}) = E_m(\infty) \implies \frac{1}{2}m v_{\text{esc}}^2 - G\frac{M_T m}{R_T} = 0$.</p>
+              <p>$$v_{\text{esc}} = \sqrt{\frac{2 G M_T}{R_T}} = \sqrt{2 g_0 R_T}$$</p>
+              <p>$$v_{\text{esc}} = \sqrt{\frac{2 \cdot (6.674 \times 10^{-11}) \cdot (5.97 \times 10^{24})}{6.37 \times 10^6}} = \sqrt{1.251 \times 10^8} \approx \mathbf{11.185\text{ m/s}} \approx \mathbf{11.2\text{ km/s}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Sabiendo que $M_L = 7.35 \times 10^{22}\text{ kg}$ y $R_L = 1.74 \times 10^6\text{ m}$, calcula la velocidad de escape de la Luna y explica por qué carece de atmósfera permanente.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$v_{\text{esc}} = \sqrt{\frac{2 G M_L}{R_L}} = \sqrt{\frac{2 \cdot (6.674 \times 10^{-11}) \cdot (7.35 \times 10^{22})}{1.74 \times 10^6}} \approx \mathbf{2.375\text{ m/s}} \approx \mathbf{2.38\text{ km/s}}$$</p>
+              <p>La velocidad cuadrática media de agitación térmica de los gases a temperaturas solares supera esta baja velocidad de escape, por lo que las moléculas de gas escaparon al espacio.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Halla la energía mínima suministrada por el cohete lanzador para poner en órbita circular a $h = 600\text{ km}$ un satélite meteorológico de $m = 1.200\text{ kg}$ desde la superficie terrestre.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Energía en la superficie (en reposo): $E_1 = -G \frac{M_T m}{R_T}$.</p>
+              <p>Energía mecánica en órbita ($r = 6.97 \times 10^6\text{ m}$): $E_2 = -\frac{1}{2} G \frac{M_T m}{r}$.</p>
+              <p>$$E_{\text{lanzamiento}} = E_2 - E_1 = G M_T m \left(\frac{1}{R_T} - \frac{1}{2r}\right)$$</p>
+              <p>$$= (6.674 \times 10^{-11}) (5.97 \times 10^{24}) (1.200) \left(\frac{1}{6.37 \times 10^6} - \frac{1}{13.94 \times 10^6}\right) = \mathbf{4.07 \times 10^{10}\text{ J}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Un satélite de $500\text{ kg}$ pasa de una órbita circular de radio $r_1 = 7.000\text{ km}$ a otra superior de radio $r_2 = 8.500\text{ km}$. ¿Aumenta o disminuye su velocidad? ¿Qué energía debe aportar su motor?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Como $v = \sqrt{GM/r}$, al ser $r_2 > r_1$, <strong>su velocidad disminuye</strong>.</p>
+              <p>Energía aportada $\Delta E_m = E_{m2} - E_{m1} = -\frac{1}{2} G M_T m \left(\frac{1}{r_2} - \frac{1}{r_1}\right) = \frac{1}{2} G M_T m \left(\frac{1}{r_1} - \frac{1}{r_2}\right)$.</p>
+              <p>$$\Delta E = \frac{1}{2} (6.674 \times 10^{-11})(5.97 \times 10^{24})(500) \left(\frac{1}{7 \times 10^6} - \frac{1}{8.5 \times 10^6}\right) = \mathbf{2.51 \times 10^9\text{ J}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">Sabiendo que la Tierra tarda $1\text{ año}$ ($3.156 \times 10^7\text{ s}$) en describir su órbita alrededor del Sol con radio medio $r = 1.496 \times 10^{11}\text{ m}$, determina la masa del Sol.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$T^2 = \frac{4\pi^2}{G M_S} r^3 \implies M_S = \frac{4\pi^2 r^3}{G T^2}$$</p>
+              <p>$$M_S = \frac{4\pi^2 (1.496 \times 10^{11})^3}{(6.674 \times 10^{-11})(3.156 \times 10^7)^2} = \frac{1.322 \times 10^{35}}{6.647 \times 10^4} \approx \mathbf{1.989 \times 10^{30}\text{ kg}}$$</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Tres masas iguales de $M = 2\text{ kg}$ se colocan en los vértices $(0, 0)$, $(4, 0)$ y $(2, 2\sqrt{3})$ en metros. Halla el vector campo gravitatorio $\vec{g}$ y el potencial $V$ en el baricentro del triángulo.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Por simetría, los tres vectores $\vec{g}_1, \vec{g}_2, \vec{g}_3$ tienen el mismo módulo y forman ángulos de $120^\circ$ entre sí:</p>
+              <p>$$\mathbf{\vec{g}_{\text{total}} = \vec{0}\text{ N/kg}}$$</p>
+              <p>Distancia de cada vértice al baricentro: $d = \frac{2}{3} \cdot 2\sqrt{3} = \frac{4\sqrt{3}}{3}\text{ m} \approx 2.309\text{ m}$.</p>
+              <p>El potencial es un escalar y se suma directamente:</p>
+              <p>$$V = 3 \cdot \left(-G \frac{M}{d}\right) = -3 \cdot \frac{(6.674 \times 10^{-11}) \cdot 2}{2.309} = \mathbf{-1.735 \times 10^{-10}\text{ J/kg}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Desde la superficie de la Tierra se lanza verticalmente un proyectil con velocidad $v_0 = 5.000\text{ m/s}$. Despreciando el rozamiento del aire, calcula la altura máxima $h$ alcanzada sobre la superficie.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>En el punto más alto $v = 0$:</p>
+              <p>$$\frac{1}{2}m v_0^2 - G\frac{M_T m}{R_T} = -G\frac{M_T m}{R_T + h}$$</p>
+              <p>Dividimos entre $m$: $\frac{1}{2}(5.000)^2 - \frac{3.98 \times 10^{14}}{6.37 \times 10^6} = -\frac{3.98 \times 10^{14}}{R_T + h}$</p>
+              <p>$$1.25 \times 10^7 - 6.248 \times 10^7 = -4.998 \times 10^7 = -\frac{3.98 \times 10^{14}}{R_T + h}$$</p>
+              <p>$$R_T + h = \frac{3.98 \times 10^{14}}{4.998 \times 10^7} = 7.963 \times 10^6\text{ m}$$</p>
+              <p>$$h = 7.963 \times 10^6 - 6.37 \times 10^6 = \mathbf{1.593 \times 10^6\text{ m}} = \mathbf{1.593\text{ km}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Una sonda se lanza desde la Tierra con una velocidad de $15\text{ km/s}$ (superior a la de escape $v_{\text{esc}} = 11.2\text{ km/s}$). ¿Con qué velocidad residual continuará moviéndose cuando escape completamente de la gravedad terrestre ($r \to \infty$)?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Conservación de $E_m$: $\frac{1}{2}m v_0^2 - G\frac{M_T m}{R_T} = \frac{1}{2}m v_\infty^2 + 0$.</p>
+              <p>Como $\frac{2GM_T}{R_T} = v_{\text{esc}}^2$, tenemos:</p>
+              <p>$$v_\infty = \sqrt{v_0^2 - v_{\text{esc}}^2} = \sqrt{15^2 - 11.2^2} = \sqrt{225 - 125.44} = \sqrt{99.56} \approx \mathbf{9.98\text{ km/s}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">El cometa Halley describe una órbita elíptica alrededor del Sol con distancia en el perihelio $r_p = 8.78 \times 10^{10}\text{ m}$ y velocidad $v_p = 54.6\text{ km/s}$. Sabiendo que en el afelio su distancia es $r_a = 5.28 \times 10^{12}\text{ m}$, halla su velocidad en el afelio $v_a$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Al ser la gravedad una fuerza central ($\vec{M}_0 = \vec{r} \times \vec{F} = \vec{0}$), el momento angular $\vec{L}$ se conserva constante:</p>
+              <p>$$L_p = L_a \implies m \cdot r_p \cdot v_p = m \cdot r_a \cdot v_a \implies v_a = v_p \frac{r_p}{r_a}$$</p>
+              <p>$$v_a = 54.6 \cdot \frac{8.78 \times 10^{10}}{5.28 \times 10^{12}} = \mathbf{0.908\text{ km/s}} = \mathbf{908\text{ m/s}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Un telescopio detecta un planeta extrasolar cuyo radio es el doble del terrestre ($R_P = 2R_T$) y cuya gravedad en la superficie es la mitad que en la Tierra ($g_P = \frac{1}{2}g_0$).
+            <br>a) ¿Cuál es la masa del planeta respecto a la terrestre?
+            <br>b) ¿Cuál es la velocidad de escape en ese planeta?</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>a) $g_P = G \frac{M_P}{R_P^2} = G \frac{M_P}{(2R_T)^2} = \frac{1}{4} G \frac{M_P}{R_T^2}$.</p>
+              <p>Como $g_P = \frac{1}{2} g_0 \implies \frac{1}{4} G \frac{M_P}{R_T^2} = \frac{1}{2} G \frac{M_T}{R_T^2} \implies \mathbf{M_P = 2 M_T}$.</p>
+              <p>b) $v_{\text{esc}} = \sqrt{\frac{2 G M_P}{R_P}} = \sqrt{\frac{2 G (2M_T)}{2R_T}} = \sqrt{\frac{2 G M_T}{R_T}} = \mathbf{v_{\text{esc, T}} = 11.2\text{ km/s}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Justifica razonadamente si las siguientes afirmaciones son verdaderas o falsas:
+            <br>a) "Un astronauta en la ISS flota porque allí no hay gravedad ($g = 0$)".
+            <br>b) "El trabajo realizado por el campo gravitatorio para desplazar una masa a lo largo de una línea equipotencial cerrada es siempre cero".</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p><strong>a) FALSA:</strong> A $400\text{ km}$ de altura, $g \approx 8.7\text{ m/s}^2$ (casi el $90\%$ de la gravedad terrestre). El astronauta flota debido a la <em>ingravidez aparente</em> producida por estar en un estado continuo de caída libre orbital ($F_g$ actúa íntegramente como aceleración centrípeta).</p>
+              <p><strong>b) VERDADERA:</strong> Por definición de campo conservativo, $W = -m \Delta V$. Si los puntos pertenecen a una superficie o línea equipotencial, $\Delta V = 0 \implies W = 0$. Además, en cualquier trayectoria cerrada en un campo conservativo el trabajo total es siempre nulo ($\oint \vec{F}\cdot d\vec{r} = 0$).</p>
+            </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

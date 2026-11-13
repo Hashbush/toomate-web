@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Sistemas de Ecuaciones Lineales | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 9mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      font-size: 10.8pt;
+      line-height: 1.4;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0fdf4;
+      border: 2.5px solid #bbf7d0;
+      border-radius: 18px;
+      padding: 10px 16px;
+      margin-bottom: 12px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #86efac;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 13px;
+      border-radius: 11px;
+      margin: 10px 0 7px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 11.8pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .ex-card-full {
+      background: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 13px;
+      padding: 7px 11px;
+      margin-bottom: 6px;
+      break-inside: avoid;
+    }
+    .ex-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #66bb6a;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-text {
+      flex: 1;
+      color: #1e293b;
+    }
+    .sol-row-end {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3px;
+    }
+    .sol-mini {
+      font-size: 9.2pt;
+      color: #475569;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 7px;
+      padding: 1.5px 8px;
+      display: inline-block;
+      max-width: 92%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Sistemas de Ecuaciones Lineales</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Escribe en forma matricial $A \cdot X = B$ el siguiente sistema de ecuaciones, e indica explícitamente la matriz de coeficientes $A$, la matriz ampliada $A^*$ y el número de incógnitas $n$:
+            $$\begin{cases} 2x - y + 3z = 4 \\ x + 4y - z = -2 \\ 3x + 2y = 5 \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $3 \text{ incógnitas } (x, y, z)$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Aplica el Teorema de Rouché-Fröbenius para clasificar los siguientes sistemas con 3 incógnitas ($n = 3$):<br>
+            <strong>a)</strong> $\text{Rg}(A) = 3, \quad \text{Rg}(A^*) = 3$<br>
+            <strong>b)</strong> $\text{Rg}(A) = 2, \quad \text{Rg}(A^*) = 3$<br>
+            <strong>c)</strong> $\text{Rg}(A) = 2, \quad \text{Rg}(A^*) = 2$<br>
+            <strong>d)</strong> $\text{Rg}(A) = 1, \quad \text{Rg}(A^*) = 1$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $2$ parámetros libres ($\lambda, \mu$).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Resuelve el siguiente sistema lineal mediante la Regla de Cramer calculando los 4 determinantes necesarios:
+            $$\begin{cases} x + y + z = 6 \\ 2x - y + z = 3 \\ x - 2y + 3z = 6 \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $1$ ; $2$ ; $3$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">Comprueba que el siguiente sistema es compatible indeterminado y exprésalo en forma paramétrica con el parámetro $\lambda \in \mathbb{R}$:
+            $$\begin{cases} x + 2y - z = 3 \\ 2x - y + z = 1 \\ 3x + y = 4 \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\lambda \end{cases} \quad \text{con } \lambda \in \mathbb{R}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Estudia si el sistema homogéneo tiene únicamente la solución trivial o infinitas soluciones:
+            $$\begin{cases} x - 2y + z = 0 \\ 3x + y - 2z = 0 \\ 4x - y - z = 0 \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Por tanto, el sistema es Compatible Indeterminado (S.C.I.) y posee infinitas soluciones distintas de la soluci...</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Una academia dispone de tres aulas con capacidades $x, y, z$. Entre las tres pueden acoger a 100 alumnos. El doble de alumnos del aula A coincide con la suma de las otras dos. Si se pasan 5 alumnos del aula C al aula B, ambas quedan con el mismo número de estudiantes. Plantea y resuelve el sistema.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $x = 40$ ; $y = 35$ ; $z = 45$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Discute según los valores del parámetro $k$ el sistema:
+            $$\begin{cases} kx + y + z = 1 \\ x + ky + z = 1 \\ x + y + kz = 1 \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $3$. Como $2 \neq 3 \implies$ Incompatible (S.I.).</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Determina para qué valores del parámetro $a$ el siguiente sistema homogéneo admite soluciones no triviales, y hállalas para esos valores:
+            $$\begin{cases} x + ay + z = 0 \\ ax + y - z = 0 \\ x + y + az = 0 \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $a = 0$ ; $a = 1$ ; $a = -1$</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">Discute y resuelve según los valores del parámetro $m$ el sistema de 3 ecuaciones con 2 incógnitas:
+            $$\begin{cases} x + 2y = 1 \\ 2x - y = 3 \\ 3x + y = m \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\text{Rg}(A) = 2 = n$ ; $m = 4$ ; $(x, y) = (7/5, -1/5)$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Considera los planos $\pi_1: x + y + z = 2$, $\pi_2: 2x - y + 3z = 1$, $\pi_3: 3x + 4z = 3$. Interpreta geométricamente su posición relativa estudiando el rango del sistema asociado.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\text{Rg}(A) = \text{Rg}(A^*) = 2 < 3 = n$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">Dado el sistema con matriz de coeficientes fija y términos independientes variables:
+            $$\begin{cases} x + 2y - z = 1 \\ 2x - y + z = 2 \\ 3x + y = k \end{cases}$$
+            Halla el valor de $k$ para que el sistema sea compatible.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $k = 3$ ; $k = 3$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Halla el valor de $\alpha$ para que la terna $(x, y, z) = (1, -1, 2)$ sea solución del sistema:
+            $$\begin{cases} \alpha x + y + z = 2 \\ x - \alpha y + 2z = 7 \\ 2x + y + \alpha z = 5 \end{cases}$$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\alpha = 1$ ; $\alpha = 2 \quad \text{¡Contradicción!}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">Dado el sistema $\begin{cases} 2x - y + z = 4 \\ x + 3y - 2z = 1 \end{cases}$, demuestra que es compatible indeterminado para cualquier valor y resuélvelo en función de un parámetro $\lambda$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> &nbsp; $(x, y, z) = \left( \frac{13 - \lambda}{7}, \frac{5\lambda - 2}{7}, \lambda \right) \quad \text{con } \lambda \in \mathbb{R}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Determina si un sistema lineal homogéneo de 4 ecuaciones con 4 incógnitas con determinante $|A| = 5$ puede tener alguna solución no nula. Justifica tu respuesta.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\text{Rg}(A) = 4 = n$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">Dado el sistema $\begin{cases} ax + y + z = 1 \\ x + ay + z = a \\ x + y + az = a^2 \end{cases}$: <br>
+            <strong>a)</strong> Discute el sistema según los valores de $a$.<br>
+            <strong>b)</strong> Resuelve para $a = 1$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $(x, y, z) = (1 - \lambda - \mu, \lambda, \mu) \quad \text{con } \lambda, \mu \in \mathbb{R}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Considera el sistema $\begin{cases} mx + y - z = 0 \\ x + my + z = 2 \\ x + y + mz = m \end{cases}$. Discute según $m$ y resuelve para $m = 0$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Por tanto, para $m = 0$ el sistema es Incompatible (S.I.) y no tiene solución.</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">Dado el sistema $\begin{cases} x + y + z = 1 \\ 2x + 2y + 2z = k \\ x - y + 2z = 0 \end{cases}$: <br>
+            <strong>a)</strong> Justifica geométricamente la posición de los planos si $k \neq 2$.<br>
+            <strong>b)</strong> Resuelve para $k = 2$.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\left( \frac{1 - 3\lambda}{2}, \frac{1 + \lambda}{2}, \lambda \right) \quad \text{con } \lambda \in \mathbb{R}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">Considera el sistema homogéneo $\begin{cases} x + \lambda y + z = 0 \\ \lambda x + y + z = 0 \\ x + y + \lambda z = 0 \end{cases}$. Halla los valores de $\lambda$ para los que el espacio de soluciones tiene dimensión 1 o dimensión 2.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $2$ ; $1$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">Dado $\begin{cases} x + 2y - z = 0 \\ 2x - y + z = 3 \\ kx + y = 3 \end{cases}$, determina para qué valor de $k$ el sistema no tiene solución y cuándo tiene solución única.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $k = 1$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">Una empresa envasa tres tipos de lotes A, B y C con productos $x, y, z$. El coste total depende de un impuesto $p$. Demuestra que existe un único valor de $p$ para el que los costes de los tres lotes son linealmente dependientes.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $p = 5$ ; $p = 5$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">Dado $\begin{cases} x + y + mz = 1 \\ x + my + z = 1 \\ mx + y + z = 1 \end{cases}$, comprueba que para $m = 1$ es S.C.I. y para $m = -2$ es S.I.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $0 = 3$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Discute según $k$ el sistema $\begin{cases} x + y = 1 \\ y + z = 2 \\ x - z = k \end{cases}$. ¿Para qué valor de $k$ los tres planos forman una superficie prismática (se cortan dos a dos en rectas paralelas)?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $\text{Rg}(A) = 2$</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

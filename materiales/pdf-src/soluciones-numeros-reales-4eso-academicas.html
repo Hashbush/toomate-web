@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Tema 1: Números Reales & Radicales | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Tema 1: Números Reales & Radicales</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Indica a cuál o cuáles de los conjuntos numéricos ($\mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R}$) pertenecen los siguientes números:
+            a) $-5$ &nbsp;&bull;&nbsp; b) $\sqrt{16}$ &nbsp;&bull;&nbsp; c) $\frac{7}{4}$ &nbsp;&bull;&nbsp; d) $\sqrt{7}$ &nbsp;&bull;&nbsp; e) $3,141592...$ ($\pi$) &nbsp;&bull;&nbsp; f) $2,\widehat{35}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1 text-xs text-slate-700">
+              <p>&bull; <strong>a) $-5$:</strong> Entero y Racional: $-5 \in \mathbb{Z}, \mathbb{Q}, \mathbb{R}$.</p>
+              <p>&bull; <strong>b) $\sqrt{16} = 4$:</strong> Natural, Entero y Racional: $4 \in \mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R}$.</p>
+              <p>&bull; <strong>c) $\frac{7}{4} = 1,75$:</strong> Racional: $\frac{7}{4} \in \mathbb{Q}, \mathbb{R}$.</p>
+              <p>&bull; <strong>d) $\sqrt{7}$:</strong> Decimal no periódico: Irracional: $\sqrt{7} \in \mathbb{I}, \mathbb{R}$.</p>
+              <p>&bull; <strong>e) $\pi$:</strong> Constante irracional: $\pi \in \mathbb{I}, \mathbb{R}$.</p>
+              <p>&bull; <strong>f) $2,\widehat{35}$:</strong> Periódico puro (fracción $\frac{233}{99}$): Racional: $2,\widehat{35} \in \mathbb{Q}, \mathbb{R}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Escribe en forma de intervalo y representa en la recta real los siguientes conjuntos de números:<br>
+            <strong>a)</strong> $\{ x \in \mathbb{R} \mid -2 < x \le 5 \}$ &nbsp;&bull;&nbsp;
+            <strong>b)</strong> $\{ x \in \mathbb{R} \mid x \ge -1 \}$ &nbsp;&bull;&nbsp;
+            <strong>c)</strong> $\{ x \in \mathbb{R} \mid x < 4 \}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700">
+              <p>&bull; <strong>a)</strong> Abierto en $-2$ y cerrado en $5$: <strong>$(-2, 5]$</strong>. En la recta: punto blanco en $-2$ y punto relleno en $5$.</p>
+              <p>&bull; <strong>b)</strong> Semirrecta cerrada hacia la derecha: <strong>$[-1, +\infty)$</strong>. Punto relleno en $-1$ extendido hacia $+\infty$.</p>
+              <p>&bull; <strong>c)</strong> Semirrecta abierta hacia la izquierda: <strong>$(-\infty, 4)$</strong>. Desde $-\infty$ hasta punto blanco en $4$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Dados los intervalos $A = [-3, 2)$ y $B = (0, 5]$, calcula y expresa en forma de intervalo: a) $A \cap B$ (intersección) y b) $A \cup B$ (unión).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700">
+              <p>&bull; <strong>Intersección $A \cap B$ (elementos comunes a ambos):</strong> Los puntos que están simultáneamente en $[-3, 2)$ y en $(0, 5]$ son los comprendidos entre $0$ (abierto) y $2$ (abierto):</p>
+              <div class="p-2 bg-white rounded border border-slate-200 font-mono font-bold text-emerald-800 text-center">$$A \cap B = (0, 2)$$</div>
+              <p>&bull; <strong>Unión $A \cup B$ (todos los elementos que están en $A$ o en $B$):</strong> Empieza en el extremo inferior $-3$ (cerrado) y llega hasta $5$ (cerrado):</p>
+              <div class="p-2 bg-white rounded border border-slate-200 font-mono font-bold text-emerald-800 text-center">$$A \cup B = [-3, 5]$$</div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Calcula y simplifica expresando el resultado como una fracción irreducible:
+            a) $2^{-3}$ &nbsp;&bull;&nbsp; b) $\left( \frac{3}{5} \right)^{-2}$ &nbsp;&bull;&nbsp; c) $\frac{3^{-2} \cdot 2^{-3}}{6^{-2}}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>&bull; <strong>a)</strong> $2^{-3} = \frac{1}{2^3} = \mathbf{\frac{1}{8}}$</p>
+              <p>&bull; <strong>b)</strong> $\left( \frac{3}{5} \right)^{-2} = \left( \frac{5}{3} \right)^2 = \mathbf{\frac{25}{9}}$</p>
+              <p>&bull; <strong>c)</strong> Como $6^{-2} = (2 \cdot 3)^{-2} = 2^{-2} \cdot 3^{-2}$:</p>
+              <p>$$\frac{3^{-2} \cdot 2^{-3}}{2^{-2} \cdot 3^{-2}} = 2^{-3 - (-2)} \cdot 3^{-2 - (-2)} = 2^{-1} \cdot 3^0 = \frac{1}{2} \cdot 1 = \mathbf{\frac{1}{2}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Escribe en forma de raíz las siguientes potencias y calcula su valor exacto:
+            a) $16^{1/2}$ &nbsp;&bull;&nbsp; b) $27^{2/3}$ &nbsp;&bull;&nbsp; c) $8^{-4/3}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>&bull; <strong>a)</strong> $16^{1/2} = \sqrt{16} = \mathbf{4}$</p>
+              <p>&bull; <strong>b)</strong> $27^{2/3} = \sqrt[3]{27^2} = (\sqrt[3]{27})^2 = 3^2 = \mathbf{9}$</p>
+              <p>&bull; <strong>c)</strong> $8^{-4/3} = \frac{1}{8^{4/3}} = \frac{1}{(\sqrt[3]{8})^4} = \frac{1}{2^4} = \mathbf{\frac{1}{16}}$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Descompón en factores primos y extrae todos los factores posibles de los siguientes radicales:
+            a) $\sqrt{180}$ &nbsp;&bull;&nbsp; b) $\sqrt[3]{250}$ &nbsp;&bull;&nbsp; c) $\sqrt{x^5 y^6 z^3}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>&bull; <strong>a)</strong> $180 = 2^2 \cdot 3^2 \cdot 5 \implies \sqrt{2^2 \cdot 3^2 \cdot 5} = 2 \cdot 3 \sqrt{5} = \mathbf{6\sqrt{5}}$</p>
+              <p>&bull; <strong>b)</strong> $250 = 2 \cdot 5^3 \implies \sqrt[3]{5^3 \cdot 2} = \mathbf{5\sqrt[3]{2}}$</p>
+              <p>&bull; <strong>c)</strong> Dividiendo exponentes entre el índice 2:</p>
+              <p>$$\sqrt{x^5 y^6 z^3} = x^2 y^3 z \sqrt{x z}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Simplifica al máximo extrayendo factores comunes: &nbsp; $E = 2\sqrt{12} - 3\sqrt{75} + \sqrt{27} + \sqrt{300}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>Extraemos factores de cada raíz:</p>
+              <p>&bull; $2\sqrt{12} = 2\sqrt{2^2 \cdot 3} = 2 \cdot 2\sqrt{3} = 4\sqrt{3}$</p>
+              <p>&bull; $3\sqrt{75} = 3\sqrt{5^2 \cdot 3} = 3 \cdot 5\sqrt{3} = 15\sqrt{3}$</p>
+              <p>&bull; $\sqrt{27} = \sqrt{3^3} = 3\sqrt{3}$</p>
+              <p>&bull; $\sqrt{300} = \sqrt{10^2 \cdot 3} = 10\sqrt{3}$</p>
+              <p class="font-bold text-emerald-800">
+                $$E = (4 - 15 + 3 + 10)\sqrt{3} = \mathbf{2\sqrt{3}}$$
+              </p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Reduce a índice común y simplifica en una sola raíz: &nbsp; $P = \sqrt{2} \cdot \sqrt[3]{4} \cdot \sqrt[6]{8}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>1. Expresamos en base 2: $\sqrt{2} \cdot \sqrt[3]{2^2} \cdot \sqrt[6]{2^3}$.</p>
+              <p>2. El índice común es el $\text{m.c.m.}(2, 3, 6) = 6$:</p>
+              <p>$$\sqrt[6]{2^3} \cdot \sqrt[6]{(2^2)^2} \cdot \sqrt[6]{2^3} = \sqrt[6]{2^3 \cdot 2^4 \cdot 2^3} = \sqrt[6]{2^{10}}$$</p>
+              <p>3. Simplificamos dividiendo índice y exponente entre 2: $\sqrt[3]{2^5} = 2\sqrt[3]{2^2} = \mathbf{2\sqrt[3]{4}}$.</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">Introduce el factor dentro del radical y simplifica en una sola raíz: &nbsp; $R = \sqrt{2 \cdot \sqrt[3]{2 \cdot \sqrt{2}}}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>Método con exponentes fraccionarios:</p>
+              <p>$$R = \left[ 2 \cdot (2 \cdot 2^{1/2})^{1/3} \right]^{1/2} = \left[ 2 \cdot (2^{3/2})^{1/3} \right]^{1/2} = \left[ 2 \cdot 2^{1/2} \right]^{1/2} = [2^{3/2}]^{1/2} = 2^{3/4}$$</p>
+              <div class="p-2 bg-white rounded border border-slate-200 font-bold text-emerald-800 text-center">
+                $$R = \sqrt[4]{2^3} = \mathbf{\sqrt[4]{8}}$$
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Racionaliza y simplifica las siguientes fracciones:
+            a) $\frac{10}{\sqrt{5}}$ &nbsp;&bull;&nbsp; b) $\frac{6}{\sqrt[3]{2}}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>&bull; <strong>a)</strong> Multiplicamos por $\sqrt{5}$:</p>
+              <p>$$\frac{10}{\sqrt{5}} = \frac{10\sqrt{5}}{\sqrt{5}\sqrt{5}} = \frac{10\sqrt{5}}{5} = \mathbf{2\sqrt{5}}$$</p>
+              <p>&bull; <strong>b)</strong> Como el índice es 3 y dentro hay $2^1$, multiplicamos por $\sqrt[3]{2^2}$ para completar $2^3$:</p>
+              <p>$$\frac{6}{\sqrt[3]{2}} = \frac{6\sqrt[3]{2^2}}{\sqrt[3]{2} \cdot \sqrt[3]{2^2}} = \frac{6\sqrt[3]{4}}{\sqrt[3]{2^3}} = \frac{6\sqrt[3]{4}}{2} = \mathbf{3\sqrt[3]{4}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Racionaliza mediante el producto por el conjugado: &nbsp; $F = \frac{4}{\sqrt{7} - \sqrt{3}}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>El conjugado del denominador es $\sqrt{7} + \sqrt{3}$:</p>
+              <p>$$F = \frac{4(\sqrt{7} + \sqrt{3})}{(\sqrt{7} - \sqrt{3})(\sqrt{7} + \sqrt{3})} = \frac{4(\sqrt{7} + \sqrt{3})}{(\sqrt{7})^2 - (\sqrt{3})^2}$$</p>
+              <p>$$F = \frac{4(\sqrt{7} + \sqrt{3})}{7 - 3} = \frac{4(\sqrt{7} + \sqrt{3})}{4} = \mathbf{\sqrt{7} + \sqrt{3}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Efectúa la operación y expresa el resultado final en notación científica: &nbsp; $\frac{(3,2 \cdot 10^5) \cdot (1,5 \cdot 10^{-2})}{2,4 \cdot 10^{-4}}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>Multiplicamos los coeficientes y sumamos exponentes en el numerador:</p>
+              <p>$$(3,2 \cdot 1,5) \cdot 10^{5 + (-2)} = 4,8 \cdot 10^3$$</p>
+              <p>Dividimos entre el denominador:</p>
+              <p>$$\frac{4,8 \cdot 10^3}{2,4 \cdot 10^{-4}} = \left( \frac{4,8}{2,4} \right) \cdot 10^{3 - (-4)} = 2 \cdot 10^7$$</p>
+              <div class="p-2 bg-white rounded border border-slate-200 font-bold text-emerald-800 text-center">
+                $$\mathbf{2 \cdot 10^7}$$
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Resuelve y expresa en forma de intervalo: &nbsp; $|x - 3| \le 4$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>La condición $|u| \le k$ equivale a la doble desigualdad $-k \le u \le k$:</p>
+              <p>$$-4 \le x - 3 \le 4$$</p>
+              <p>Sumamos 3 a toda la desigualdad: &nbsp; $-4 + 3 \le x \le 4 + 3 \implies -1 \le x \le 7$.</p>
+              <div class="p-2 bg-white rounded border border-slate-200 font-bold text-emerald-800 text-center">
+                Solución: &nbsp; <strong>$[-1, 7]$</strong>
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Aproximamos la fracción $\frac{5}{7}$ por el valor decimal $0,71$. Calcula el error absoluto y el error relativo porcentual cometido.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>&bull; <strong>Error Absoluto ($E_a$):</strong></p>
+              <p>$$E_a = |V_{real} - V_{aprox}| = \left| \frac{5}{7} - \frac{71}{100} \right| = \left| \frac{500 - 497}{700} \right| = \frac{3}{700} \approx \mathbf{0,00428}$$</p>
+              <p>&bull; <strong>Error Relativo ($E_r$):</strong></p>
+              <p>$$E_r = \frac{E_a}{V_{real}} = \frac{3/700}{5/7} = \frac{3 \cdot 7}{700 \cdot 5} = \frac{3}{500} = 0,006 \implies \mathbf{0,6\%}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Desarrolla y simplifica al máximo: &nbsp; $K = (\sqrt{5} - 2\sqrt{2})^2 - (\sqrt{5} + 2\sqrt{2})^2$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>Desarrollamos cada binomio al cuadrado:</p>
+              <p>1) $(\sqrt{5} - 2\sqrt{2})^2 = 5 - 2(\sqrt{5})(2\sqrt{2}) + 4(2) = 5 - 4\sqrt{10} + 8 = 13 - 4\sqrt{10}$</p>
+              <p>2) $(\sqrt{5} + 2\sqrt{2})^2 = 13 + 4\sqrt{10}$</p>
+              <p>Restamos: $(13 - 4\sqrt{10}) - (13 + 4\sqrt{10}) = -8\sqrt{10}$.</p>
+              <div class="p-2 bg-white rounded border border-slate-200 font-bold text-emerald-800 text-center">
+                $$K = \mathbf{-8\sqrt{10}}$$
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">Racionaliza y simplifica: &nbsp; $\frac{\sqrt{3} + 1}{\sqrt{3} - 1}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>Multiplicamos por el conjugado del denominador $(\sqrt{3} + 1)$:</p>
+              <p>$$\frac{(\sqrt{3} + 1)(\sqrt{3} + 1)}{(\sqrt{3} - 1)(\sqrt{3} + 1)} = \frac{(\sqrt{3} + 1)^2}{(\sqrt{3})^2 - 1^2} = \frac{3 + 2\sqrt{3} + 1}{3 - 1}$$</p>
+              <p>$$\frac{4 + 2\sqrt{3}}{2} = \mathbf{2 + \sqrt{3}}$$</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Calcula el valor exacto de la expresión: &nbsp; $S = \frac{1}{1 + \sqrt{2}} + \frac{1}{1 - \sqrt{2}}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>Podemos sumar sacando denominador común (que son conjugados):</p>
+              <p>$$S = \frac{(1 - \sqrt{2}) + (1 + \sqrt{2})}{(1 + \sqrt{2})(1 - \sqrt{2})} = \frac{2}{1^2 - (\sqrt{2})^2} = \frac{2}{1 - 2} = \frac{2}{-1} = \mathbf{-2}$$</p>
+              <p class="font-sans text-emerald-800 font-bold">¡Todas las raíces desaparecen mágicamente y el resultado es el número entero -2!</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Aplica la definición de logaritmo ($\log_a(x) = y \iff a^y = x$) para calcular:
+            a) $\log_2(64)$ &nbsp;&bull;&nbsp; b) $\log_3\left( \frac{1}{27} \right)$ &nbsp;&bull;&nbsp; c) $\log_{10}(0,001)$ &nbsp;&bull;&nbsp; d) $\ln(e^5)$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs text-slate-700 font-mono">
+              <p>&bull; <strong>a)</strong> $2^y = 64 = 2^6 \implies \mathbf{y = 6}$</p>
+              <p>&bull; <strong>b)</strong> $3^y = \frac{1}{27} = 3^{-3} \implies \mathbf{y = -3}$</p>
+              <p>&bull; <strong>c)</strong> $10^y = 0,001 = 10^{-3} \implies \mathbf{y = -3}$</p>
+              <p>&bull; <strong>d)</strong> $\ln(e^5) = \mathbf{5}$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Resuelve la siguiente ecuación expresando ambos miembros como potencias de la misma base: &nbsp; $2^{x - 1} = \sqrt[3]{16}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>Descomponemos $16 = 2^4 \implies \sqrt[3]{16} = 2^{4/3}$.</p>
+              <p>$$2^{x - 1} = 2^{4/3}$$</p>
+              <p>Como las bases coinciden, igualamos los exponentes:</p>
+              <p>$$x - 1 = \frac{4}{3} \implies x = 1 + \frac{4}{3} = \mathbf{\frac{7}{3}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">Escribe como una única potencia de base $a$: &nbsp; $E = \frac{\sqrt{a \cdot \sqrt[3]{a^2}}}{\sqrt[4]{a^3}}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>Pasamos todo a potencias con fracciones:</p>
+              <p>&bull; Numerador: $\sqrt{a \cdot a^{2/3}} = \sqrt{a^{5/3}} = (a^{5/3})^{1/2} = a^{5/6}$</p>
+              <p>&bull; Denominador: $\sqrt[4]{a^3} = a^{3/4}$</p>
+              <p>Dividimos restando los exponentes: $a^{\frac{5}{6} - \frac{3}{4}} = a^{\frac{10 - 9}{12}} = \mathbf{a^{1/12}} = \mathbf{\sqrt[12]{a}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Calcula la longitud exacta de la diagonal de un cubo de arista $l = \sqrt{3} + 1\text{ cm}$. Racionaliza y simplifica el resultado final.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>La diagonal espacial de un cubo de arista $l$ es $D = \sqrt{l^2 + l^2 + l^2} = \sqrt{3l^2} = l\sqrt{3}$.</p>
+              <p>Sustituyendo $l = \sqrt{3} + 1$:</p>
+              <p>$$D = (\sqrt{3} + 1)\sqrt{3} = \sqrt{3}\sqrt{3} + 1\sqrt{3} = \mathbf{3 + \sqrt{3}}\text{ cm}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Realiza la siguiente operación combinada, racionalizando y simplificando al máximo:
+            $$M = \frac{3}{\sqrt{2}} - \frac{\sqrt{8}}{2} + \frac{2}{2 - \sqrt{2}}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-xs text-slate-700 font-mono">
+              <p>1) Primer término: $\frac{3}{\sqrt{2}} = \frac{3\sqrt{2}}{2}$</p>
+              <p>2) Segundo término: $\frac{\sqrt{8}}{2} = \frac{2\sqrt{2}}{2} = \sqrt{2} = \frac{2\sqrt{2}}{2}$</p>
+              <p>Restamos los dos primeros: $\frac{3\sqrt{2}}{2} - \frac{2\sqrt{2}}{2} = \frac{\sqrt{2}}{2}$</p>
+              <p>3) Tercer término (racionalizando con conjugado $2 + \sqrt{2}$):</p>
+              <p>$$\frac{2(2 + \sqrt{2})}{(2 - \sqrt{2})(2 + \sqrt{2})} = \frac{2(2 + \sqrt{2})}{4 - 2} = \frac{2(2 + \sqrt{2})}{2} = 2 + \sqrt{2}$$</p>
+              <p>4) Sumamos todo: $\frac{\sqrt{2}}{2} + 2 + \sqrt{2} = 2 + \frac{3\sqrt{2}}{2} = \mathbf{\frac{4 + 3\sqrt{2}}{2}}$.</p>
+            </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

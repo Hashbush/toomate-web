@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Tema 3: Ecuaciones, Inecuaciones y Sistemas | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Tema 3: Ecuaciones, Inecuaciones y Sistemas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Resuelve la siguiente ecuación de segundo grado aplicando la fórmula cuadrática:
+            $$2x^2 - 5x + 2 = 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Identificamos los coeficientes: $a = 2$, $b = -5$, $c = 2$.</p>
+              <p>$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-(-5) \pm \sqrt{(-5)^2 - 4(2)(2)}}{2(2)}$$</p>
+              <p>$$x = \frac{5 \pm \sqrt{25 - 16}}{4} = \frac{5 \pm \sqrt{9}}{4} = \frac{5 \pm 3}{4}$$</p>
+              <p>$$x_1 = \frac{5 + 3}{4} = \frac{8}{4} = \mathbf{2}, \qquad x_2 = \frac{5 - 3}{4} = \frac{2}{4} = \mathbf{\frac{1}{2}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Resuelve directamente sin usar la fórmula larga:
+            $$3x^2 - 48 = 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Despejamos $x^2$ directamente:</p>
+              <p>$$3x^2 = 48 \implies x^2 = \frac{48}{3} = 16$$</p>
+              <p>Extraemos la raíz cuadrada a ambos lados recordando el doble signo:</p>
+              <p>$$x = \pm \sqrt{16} \implies \mathbf{x_1 = 4, \quad x_2 = -4}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Resuelve mediante extracción de factor común:
+            $$5x^2 - 15x = 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Sacamos factor común $5x$:</p>
+              <p>$$5x(x - 3) = 0$$</p>
+              <p>Un producto es 0 si cualquiera de sus factores es 0:</p>
+              <p>1. $5x = 0 \implies \mathbf{x_1 = 0}$</p>
+              <p>2. $x - 3 = 0 \implies \mathbf{x_2 = 3}$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Encuentra todas las soluciones reales de la ecuación bicuadrada:
+            $$x^4 - 13x^2 + 36 = 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Hacemos el cambio de variable $z = x^2$ (por tanto $x^4 = z^2$):</p>
+              <p>$$z^2 - 13z + 36 = 0$$</p>
+              <p>$$z = \frac{13 \pm \sqrt{169 - 144}}{2} = \frac{13 \pm \sqrt{25}}{2} = \frac{13 \pm 5}{2}$$</p>
+              <p>$$z_1 = \frac{18}{2} = 9, \qquad z_2 = \frac{8}{2} = 4$$</p>
+              <p>Deshacemos el cambio $x = \pm \sqrt{z}$:</p>
+              <p>Para $z_1 = 9 \implies x = \pm \sqrt{9} = \mathbf{\pm 3}$</p>
+              <p>Para $z_2 = 4 \implies x = \pm \sqrt{4} = \mathbf{\pm 2}$</p>
+              <p>Soluciones: $\mathbf{x \in \{-3, -2, 2, 3\}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Halla las soluciones reales de:
+            $$x^4 - 3x^2 - 4 = 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Hacemos el cambio $z = x^2$:</p>
+              <p>$$z^2 - 3z - 4 = 0 \implies z = \frac{3 \pm \sqrt{9 - 4(1)(-4)}}{2} = \frac{3 \pm 5}{2}$$</p>
+              <p>$$z_1 = \frac{8}{2} = 4, \qquad z_2 = \frac{-2}{2} = -1$$</p>
+              <p>Deshacemos el cambio:</p>
+              <p>Para $z_1 = 4 \implies x^2 = 4 \implies x = \pm \sqrt{4} = \mathbf{\pm 2}$</p>
+              <p>Para $z_2 = -1 \implies x^2 = -1 \implies x = \pm \sqrt{-1} \notin \mathbb{R}$ (se descarta, no es real).</p>
+              <p>Las únicas soluciones reales son: $\mathbf{x_1 = 2, \quad x_2 = -2}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Resuelve sin desarrollar los paréntesis:
+            $$(x - 5)(2x + 3)(x^2 - 1) = 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Igualamos cada factor independiente a cero:</p>
+              <p>1. $x - 5 = 0 \implies \mathbf{x = 5}$</p>
+              <p>2. $2x + 3 = 0 \implies 2x = -3 \implies \mathbf{x = -\frac{3}{2}}$</p>
+              <p>3. $x^2 - 1 = 0 \implies x^2 = 1 \implies \mathbf{x = \pm 1}$</p>
+              <p>Soluciones: $\mathbf{x \in \{-3/2, -1, 1, 5\}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Resuelve la inecuación y expresa la solución en forma de intervalo:
+            $$-3x + 7 < 1$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Transponemos el término libre:</p>
+              <p>$$-3x < 1 - 7 \implies -3x < -6$$</p>
+              <p>Dividimos entre $-3$. Al dividir entre un número negativo, <strong>invertimos el sentido de la desigualdad</strong> (de $<$ a $>$):</p>
+              <p>$$x > \frac{-6}{-3} \implies \mathbf{x > 2}$$</p>
+              <p>Expresión en forma de intervalo abierto: $$\mathbf{x \in (2, +\infty)}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Resuelve la inecuación:
+            $$\frac{2x - 1}{3} - \frac{x + 2}{2} \le 1$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Multiplicamos toda la inecuación por el $\text{m.c.m.}(3, 2) = 6$ (como $6 > 0$, el sentido no cambia):</p>
+              <p>$$2(2x - 1) - 3(x + 2) \le 6 \cdot 1$$</p>
+              <p>$$4x - 2 - 3x - 6 \le 6$$</p>
+              <p>$$x - 8 \le 6 \implies \mathbf{x \le 14}$$</p>
+              <p>Solución en intervalo semiabierto: $$\mathbf{x \in (-\infty, 14]}$$</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">Resuelve comprobando que no anule ningún denominador:
+            $$\frac{3}{x} + \frac{2}{x + 1} = 2$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Restricciones: $x \neq 0$ y $x \neq -1$.</p>
+              <p>Multiplicamos por el $\text{m.c.m.} = x(x + 1)$:</p>
+              <p>$$3(x + 1) + 2x = 2x(x + 1)$$</p>
+              <p>$$3x + 3 + 2x = 2x^2 + 2x \implies 5x + 3 = 2x^2 + 2x$$</p>
+              <p>$$2x^2 - 3x - 3 = 0$$</p>
+              <p>$$x = \frac{3 \pm \sqrt{9 - 4(2)(-3)}}{4} = \frac{3 \pm \sqrt{9 + 24}}{4} = \mathbf{\frac{3 \pm \sqrt{33}}{4}}$$</p>
+              <p>Ninguna de estas dos soluciones anula los denominadores, ambas son válidas.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Resuelve y explica la validez de la solución obtenida:
+            $$\frac{x}{x - 2} - \frac{2}{x - 2} = 3$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Agrupamos las fracciones con el mismo denominador:</p>
+              <p>$$\frac{x - 2}{x - 2} = 3$$</p>
+              <p>Para cualquier $x \neq 2$, $\frac{x-2}{x-2} = 1$. Llegamos a:</p>
+              <p>$$1 = 3 \quad \text{(Igualdad falsa / absurda)}$$</p>
+              <p>Si intentamos multiplicar por $(x - 2)$: $x - 2 = 3(x - 2) \implies x - 2 = 3x - 6 \implies 2x = 4 \implies x = 2$.</p>
+              <p><strong>Comprobación:</strong> Si $x = 2$, el denominador se anula ($2 - 2 = 0$). Como la división entre cero no existe, $x = 2$ <strong>no es solución</strong>.</p>
+              <p>Conclusión: La ecuación <strong>no tiene solución</strong> ($\nexists \text{ sol}$).</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Resuelve la ecuación con raíz cuadrada y verifica la solución:
+            $$\sqrt{2x + 7} = x + 2$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Elevamos al cuadrado ambos miembros:</p>
+              <p>$$(\sqrt{2x + 7})^2 = (x + 2)^2$$</p>
+              <p>$$2x + 7 = x^2 + 4x + 4$$</p>
+              <p>Pasamos todo a la derecha: $x^2 + 2x - 3 = 0$.</p>
+              <p>$$x = \frac{-2 \pm \sqrt{4 - 4(1)(-3)}}{2} = \frac{-2 \pm 4}{2} \implies x_1 = 1, \quad x_2 = -3$$</p>
+              <p><strong>Comprobación obligatoria:</strong></p>
+              <p>&bull; Para $x = 1$: $\sqrt{2(1) + 7} = \sqrt{9} = 3$; por otro lado $1 + 2 = 3$. ($3 = 3$, <strong>Válida</strong>).</p>
+              <p>&bull; Para $x = -3$: $\sqrt{2(-3) + 7} = \sqrt{1} = 1$; por otro lado $-3 + 2 = -1$. ($1 \neq -1$, <strong>Falsa / Extraña</strong>).</p>
+              <p>Única solución válida: $\mathbf{x = 1}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Resuelve aislando el radical:
+            $$\sqrt{3x + 1} = x - 3$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Elevamos al cuadrado: $3x + 1 = (x - 3)^2 = x^2 - 6x + 9$.</p>
+              <p>$$x^2 - 9x + 8 = 0$$</p>
+              <p>$$x = \frac{9 \pm \sqrt{81 - 32}}{2} = \frac{9 \pm 7}{2} \implies x_1 = 8, \quad x_2 = 1$$</p>
+              <p><strong>Comprobación:</strong></p>
+              <p>&bull; $x = 8$: $\sqrt{3(8) + 1} = \sqrt{25} = 5$ y $8 - 3 = 5$. ($5 = 5$, <strong>Válida</strong>).</p>
+              <p>&bull; $x = 1$: $\sqrt{3(1) + 1} = \sqrt{4} = 2$ y $1 - 3 = -2$. ($2 \neq -2$, <strong>Falsa</strong>).</p>
+              <p>Solución: $\mathbf{x = 8}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Resuelve la inecuación de segundo grado:
+            $$x^2 - 4x - 5 \le 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>1. Raíces de la ecuación asociada $x^2 - 4x - 5 = 0$:</p>
+              <p>$$x = \frac{4 \pm \sqrt{16 + 20}}{2} = \frac{4 \pm 6}{2} \implies x_1 = 5, \quad x_2 = -1$$</p>
+              <p>2. Intervalos de prueba: $(-\infty, -1)$, $(-1, 5)$, $(5, +\infty)$.</p>
+              <p>&bull; En $x = -2$: $(-2)^2 - 4(-2) - 5 = 4 + 8 - 5 = +7 > 0$ (Positivo)</p>
+              <p>&bull; En $x = 0$: $0 - 0 - 5 = -5 < 0$ (Negativo)</p>
+              <p>&bull; En $x = 6$: $36 - 24 - 5 = +7 > 0$ (Positivo)</p>
+              <p>Como pide $\le 0$, nos quedamos con el intervalo central incluyendo las raíces:</p>
+              <p>$$\mathbf{x \in [-1, 5]}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Halla los intervalos que satisfacen:
+            $$x^2 - 9 > 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Raíces de $x^2 - 9 = 0 \implies x = \pm 3$.</p>
+              <p>La parábola abre hacia arriba ($a = 1 > 0$). Es estrictamente positiva fuera de las raíces:</p>
+              <p>$$\mathbf{x \in (-\infty, -3) \cup (3, +\infty)}$$</p>
+              <p><em>(Intervalos abiertos porque la desigualdad es estricta $> 0$).</em></p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Resuelve el sistema hallando la intersección de intervalos:
+            $$\begin{cases} 2x - 4 \ge 0 \\ x + 3 < 8 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>1ª inecuación: $2x \ge 4 \implies x \ge 2 \implies x \in [2, +\infty)$.</p>
+              <p>2ª inecuación: $x < 8 - 3 \implies x < 5 \implies x \in (-\infty, 5)$.</p>
+              <p>Intersección de ambas soluciones: $[2, +\infty) \cap (-\infty, 5)$:</p>
+              <p>$$\mathbf{x \in [2, 5)}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">Resuelve el sistema por reducción:
+            $$\begin{cases} 3x - 2y = 7 \\ 2x + 3y = 9 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Multiplicamos la 1ª ecuación por 3 y la 2ª por 2 para eliminar $y$:</p>
+              <p>$$3 \cdot (3x - 2y = 7) \implies 9x - 6y = 21$$</p>
+              <p>$$2 \cdot (2x + 3y = 9) \implies 4x + 6y = 18$$</p>
+              <p>Sumamos miembro a miembro: $13x = 39 \implies \mathbf{x = 3}$.</p>
+              <p>Sustituimos $x = 3$ en la primera ecuación:</p>
+              <p>$$3(3) - 2y = 7 \implies 9 - 2y = 7 \implies 2y = 2 \implies \mathbf{y = 1}$$</p>
+              <p>Solución única: $\mathbf{(x, y) = (3, 1)}$.</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Resuelve aislando primero el radical:
+            $$2x - \sqrt{x - 1} = 3$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Aislamos la raíz: $2x - 3 = \sqrt{x - 1}$.</p>
+              <p>Elevamos al cuadrado ambos miembros:</p>
+              <p>$$(2x - 3)^2 = x - 1 \implies 4x^2 - 12x + 9 = x - 1$$</p>
+              <p>$$4x^2 - 13x + 10 = 0$$</p>
+              <p>$$x = \frac{13 \pm \sqrt{169 - 160}}{8} = \frac{13 \pm 3}{8} \implies x_1 = 2, \quad x_2 = \frac{10}{8} = \frac{5}{4}$$</p>
+              <p><strong>Comprobación:</strong></p>
+              <p>&bull; $x = 2$: $2(2) - \sqrt{2-1} = 4 - 1 = 3$ (Válida).</p>
+              <p>&bull; $x = 5/4$: $2(5/4) - \sqrt{5/4 - 1} = 5/2 - \sqrt{1/4} = 5/2 - 1/2 = 4/2 = 2 \neq 3$ (Falsa).</p>
+              <p>Única solución real: $\mathbf{x = 2}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Halla las soluciones válidas de:
+            $$\frac{1}{x - 1} + \frac{2}{x + 1} = \frac{6}{x^2 - 1}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Común denominador: $\text{m.c.m.} = (x - 1)(x + 1) = x^2 - 1$.</p>
+              <p>Condiciones de validez: $x \neq 1$ y $x \neq -1$.</p>
+              <p>Multiplicamos toda la ecuación por $(x - 1)(x + 1)$:</p>
+              <p>$$(x + 1) + 2(x - 1) = 6$$</p>
+              <p>$$x + 1 + 2x - 2 = 6 \implies 3x - 1 = 6 \implies 3x = 7 \implies \mathbf{x = \frac{7}{3}}$$</p>
+              <p>Como $\frac{7}{3} \neq \pm 1$, es perfectamente válida.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Resuelve:
+            $$4x^4 - 37x^2 + 9 = 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Cambio $z = x^2 \implies 4z^2 - 37z + 9 = 0$.</p>
+              <p>$$z = \frac{37 \pm \sqrt{1369 - 144}}{8} = \frac{37 \pm \sqrt{1225}}{8} = \frac{37 \pm 35}{8}$$</p>
+              <p>$$z_1 = \frac{72}{8} = 9, \qquad z_2 = \frac{2}{8} = \frac{1}{4}$$</p>
+              <p>Despejamos $x = \pm \sqrt{z}$:</p>
+              <p>Para $z_1 = 9 \implies \mathbf{x = \pm 3}$</p>
+              <p>Para $z_2 = 1/4 \implies \mathbf{x = \pm \frac{1}{2}}$</p>
+              <p>Las 4 soluciones reales son: $\mathbf{x \in \{-3, -1/2, 1/2, 3\}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">Halla los puntos de corte geométricos resolviendo el sistema:
+            $$\begin{cases} y = x^2 - 4x + 3 \\ x + y = 3 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>De la 2ª ecuación despejamos $y = 3 - x$ e igualamos con la 1ª:</p>
+              <p>$$x^2 - 4x + 3 = 3 - x$$</p>
+              <p>$$x^2 - 3x = 0 \implies x(x - 3) = 0 \implies x_1 = 0, \quad x_2 = 3$$</p>
+              <p>Calculamos los valores de $y$ con $y = 3 - x$:</p>
+              <p>Para $x_1 = 0 \implies y_1 = 3 - 0 = 3 \implies \mathbf{P_1(0, 3)}$</p>
+              <p>Para $x_2 = 3 \implies y_2 = 3 - 3 = 0 \implies \mathbf{P_2(3, 0)}$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Encuentra dos números cuya suma sea 7 y cuyo producto sea 12:
+            $$\begin{cases} x + y = 7 \\ x \cdot y = 12 \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Despejamos $y = 7 - x$ y sustituimos en el producto:</p>
+              <p>$$x(7 - x) = 12 \implies 7x - x^2 = 12 \implies x^2 - 7x + 12 = 0$$</p>
+              <p>$$x = \frac{7 \pm \sqrt{49 - 48}}{2} = \frac{7 \pm 1}{2} \implies x_1 = 4, \quad x_2 = 3$$</p>
+              <p>Si $x = 4 \implies y = 7 - 4 = 3 \implies \mathbf{(4, 3)}$</p>
+              <p>Si $x = 3 \implies y = 7 - 3 = 4 \implies \mathbf{(3, 4)}$</p>
+              <p>Los dos números buscados son el <strong>3</strong> y el <strong>4</strong>.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Resuelve la inecuación fraccionaria mediante estudio de signos (preparatoria para 1º Bachillerato):
+            $$\frac{x - 3}{x + 2} \ge 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Puntos críticos (donde cambian de signo los factores):</p>
+              <p>&bull; Numerador se anula en $x - 3 = 0 \implies x = 3$ (puede incluirse porque es $\ge 0$).</p>
+              <p>&bull; Denominador se anula en $x + 2 = 0 \implies x = -2$ (¡NUNCA se incluye porque anula el denominador!).</p>
+              <p>Dividimos la recta en 3 intervalos:</p>
+              <div class="bg-white p-2.5 rounded border border-slate-200 text-center font-mono">
+                1) $(-\infty, -2)$: $x = -3 \implies \frac{-6}{-1} = +6 > 0$ [SIGNO +]
+                <br>2) $(-2, 3)$: $x = 0 \implies \frac{-3}{+2} = -1.5 < 0$ [SIGNO −]
+                <br>3) $(3, +\infty)$: $x = 4 \implies \frac{+1}{+6} = +0.16 > 0$ [SIGNO +]
+              </div>
+              <p>Como buscamos $\ge 0$, unimos los intervalos positivos respetando el corchete en el numerador y el paréntesis en el denominador:</p>
+              <p>$$\mathbf{x \in (-\infty, -2) \cup [3, +\infty)}$$</p>
+            </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Trigonometría Plana y Ecuaciones Trigonométricas | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11pt;
+      line-height: 1.42;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff1f2;
+      border: 2.5px solid #fecdd3;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #fda4af;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .level-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 14px;
+      border-radius: 12px;
+      margin: 11px 0 8px 0;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 12pt;
+    }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+
+    .sol-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 9px 12px;
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+    .ex-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .ex-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      background: #e57373;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 10.8pt;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ex-statement {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 11pt;
+      flex: 1;
+    }
+    .steps-list {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 6px 10px;
+      color: #334155;
+      font-size: 10.6pt;
+    }
+    .steps-list > div {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      font-size: 10.6pt !important;
+    }
+    .steps-list p {
+      margin: 2.5px 0;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.3em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Trigonometría Plana y Ecuaciones Trigonométricas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">a) Convierte a radianes exactos en función de $\pi$: $120^\circ$ y $315^\circ$.
+            <br>b) Pasa a grados sexagesimales: $\frac{5\pi}{6}\text{ rad}$ y $\frac{4\pi}{3}\text{ rad}$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Relación fundamental: $180^\circ = \pi\text{ rad}$.</p>
+              <p><strong>a)</strong> $120^\circ = 120 \cdot \frac{\pi}{180} = \mathbf{\frac{2\pi}{3}\text{ rad}}$ &emsp; | &emsp; $315^\circ = 315 \cdot \frac{\pi}{180} = \mathbf{\frac{7\pi}{4}\text{ rad}}$</p>
+              <p><strong>b)</strong> $\frac{5\pi}{6} = \frac{5 \cdot 180^\circ}{6} = \mathbf{150^\circ}$ &emsp; | &emsp; $\frac{4\pi}{3} = \frac{4 \cdot 180^\circ}{3} = \mathbf{240^\circ}$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Sabiendo que $\sin\alpha = \frac{3}{5}$ y que $\alpha \in \text{II Cuadrante}$ ($\frac{\pi}{2} < \alpha < \pi$), calcula exactamente $\cos\alpha$ y $\tan\alpha$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Aplicamos $\sin^2\alpha + \cos^2\alpha = 1$:</p>
+              <p>$$\left(\frac{3}{5}\right)^2 + \cos^2\alpha = 1 \implies \frac{9}{25} + \cos^2\alpha = 1 \implies \cos^2\alpha = \frac{16}{25}$$</p>
+              <p>En el II cuadrante el coseno es estrictamente <strong>negativo</strong>:</p>
+              <p>$$\cos\alpha = -\sqrt{\frac{16}{25}} = \mathbf{-\frac{4}{5}}$$</p>
+              <p>Calculamos la tangente:</p>
+              <p>$$\tan\alpha = \frac{\sin\alpha}{\cos\alpha} = \frac{3/5}{-4/5} = \mathbf{-\frac{3}{4}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Halla el valor exacto sin calculadora reduciendo al 1º cuadrante:
+            <br>a) $\sin(150^\circ)$ &emsp; b) $\cos(225^\circ)$ &emsp; c) $\tan(300^\circ)$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p><strong>a)</strong> $150^\circ = 180^\circ - 30^\circ$ (II cuad., seno positivo):</p>
+              <p>$$\sin(150^\circ) = \sin(30^\circ) = \mathbf{\frac{1}{2}}$$</p>
+              <p><strong>b)</strong> $225^\circ = 180^\circ + 45^\circ$ (III cuad., coseno negativo):</p>
+              <p>$$\cos(225^\circ) = -\cos(45^\circ) = \mathbf{-\frac{\sqrt{2}}{2}}$$</p>
+              <p><strong>c)</strong> $300^\circ = 360^\circ - 60^\circ$ (IV cuad., tangente negativa):</p>
+              <p>$$\tan(300^\circ) = -\tan(60^\circ) = \mathbf{-\sqrt{3}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Calcula el valor exacto de $\sin(75^\circ)$ descomponiéndolo como suma de ángulos notables ($45^\circ + 30^\circ$).</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$\sin(75^\circ) = \sin(45^\circ + 30^\circ) = \sin 45^\circ \cos 30^\circ + \cos 45^\circ \sin 30^\circ$$</p>
+              <p>$$= \left(\frac{\sqrt{2}}{2}\right) \cdot \left(\frac{\sqrt{3}}{2}\right) + \left(\frac{\sqrt{2}}{2}\right) \cdot \left(\frac{1}{2}\right)$$</p>
+              <p>$$= \frac{\sqrt{6}}{4} + \frac{\sqrt{2}}{4} = \mathbf{\frac{\sqrt{6} + \sqrt{2}}{4}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Halla el valor exacto de $\cos(15^\circ)$ aplicando $\cos(45^\circ - 30^\circ)$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>$$\cos(45^\circ - 30^\circ) = \cos 45^\circ \cos 30^\circ + \sin 45^\circ \sin 30^\circ$$</p>
+              <p>$$= \frac{\sqrt{2}}{2} \cdot \frac{\sqrt{3}}{2} + \frac{\sqrt{2}}{2} \cdot \frac{1}{2} = \mathbf{\frac{\sqrt{6} + \sqrt{2}}{4}}$$</p>
+              <p><em>(Coincide con $\sin 75^\circ$ porque son ángulos complementarios).</em></p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Si $\sin\alpha = \frac{4}{5}$ con $\alpha$ en el primer cuadrante, calcula $\sin(2\alpha)$ y $\cos(2\alpha)$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>1º hallamos $\cos\alpha$: $\cos\alpha = \sqrt{1 - (4/5)^2} = \sqrt{9/25} = 3/5$.</p>
+              <p>2º $\sin(2\alpha) = 2\sin\alpha \cos\alpha = 2 \cdot \frac{4}{5} \cdot \frac{3}{5} = \mathbf{\frac{24}{25}}$</p>
+              <p>3º $\cos(2\alpha) = \cos^2\alpha - \sin^2\alpha = \left(\frac{3}{5}\right)^2 - \left(\frac{4}{5}\right)^2 = \frac{9 - 16}{25} = \mathbf{-\frac{7}{25}}$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Halla el valor exacto de $\cos(22.5^\circ)$ aplicando la fórmula del ángulo mitad con $\alpha = 45^\circ$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Como $22.5^\circ$ está en el primer cuadrante, elegimos el signo positivo:</p>
+              <p>$$\cos(22.5^\circ) = \sqrt{\frac{1 + \cos 45^\circ}{2}} = \sqrt{\frac{1 + \frac{\sqrt{2}}{2}}{2}} = \sqrt{\frac{\frac{2 + \sqrt{2}}{2}}{2}} = \mathbf{\frac{\sqrt{2 + \sqrt{2}}}{2}}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Demuestra la identidad trigonométrica:
+            $$\frac{\sin(2x)}{1 + \cos(2x)} = \tan x$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Sustituimos el numerador por $\sin(2x) = 2\sin x \cos x$.</p>
+              <p>En el denominador usamos $\cos(2x) = 2\cos^2 x - 1$:</p>
+              <p>$$1 + \cos(2x) = 1 + (2\cos^2 x - 1) = 2\cos^2 x$$</p>
+              <p>Sustituimos en la fracción y simplificamos:</p>
+              <p>$$\frac{2\sin x \cos x}{2\cos^2 x} = \frac{\sin x}{\cos x} = \mathbf{\tan x} \quad \text{(Q.E.D.)}$$</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">Demuestra:
+            $$\tan x + \cot x = \frac{2}{\sin(2x)}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Escribimos todo en senos y cosenos:</p>
+              <p>$$\tan x + \cot x = \frac{\sin x}{\cos x} + \frac{\cos x}{\sin x} = \frac{\sin^2 x + \cos^2 x}{\sin x \cos x} = \frac{1}{\sin x \cos x}$$</p>
+              <p>Multiplicamos y dividimos por 2:</p>
+              <p>$$= \frac{2}{2\sin x \cos x} = \mathbf{\frac{2}{\sin(2x)}} \quad \text{(Demostrado)}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Halla todas las soluciones reales de:
+            $$\sin x = \frac{1}{2}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>En la primera vuelta $[0, 360^\circ)$, el seno vale $1/2$ en el I y II cuadrante:</p>
+              <p>1º cuadrante: $x_1 = 30^\circ = \frac{\pi}{6}\text{ rad}$</p>
+              <p>2º cuadrante: $x_2 = 180^\circ - 30^\circ = 150^\circ = \frac{5\pi}{6}\text{ rad}$</p>
+              <p>Soluciones generales ($k \in \mathbb{Z}$):</p>
+              <p>$$\mathbf{x = \frac{\pi}{6} + 2k\pi} \quad \text{y} \quad \mathbf{x = \frac{5\pi}{6} + 2k\pi}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Resuelve en radianes:
+            $$\cos x = -\frac{\sqrt{2}}{2}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>El coseno es negativo en el II y III cuadrante, con ángulo de referencia $45^\circ = \pi/4$:</p>
+              <p>II Cuadrante: $x_1 = \pi - \frac{\pi}{4} = \mathbf{\frac{3\pi}{4} + 2k\pi}$</p>
+              <p>III Cuadrante: $x_2 = \pi + \frac{\pi}{4} = \mathbf{\frac{5\pi}{4} + 2k\pi}$ ($k \in \mathbb{Z}$)</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Resuelve en $[0, 2\pi)$:
+            $$2\sin^2 x - \sin x - 1 = 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Hacemos el cambio $t = \sin x$:</p>
+              <p>$$2t^2 - t - 1 = 0 \implies t = \frac{1 \pm \sqrt{1 + 8}}{4} = \frac{1 \pm 3}{4} \implies t_1 = 1, \quad t_2 = -\frac{1}{2}$$</p>
+              <p>&bull; Para $\sin x = 1 \implies \mathbf{x = \frac{\pi}{2}}$</p>
+              <p>&bull; Para $\sin x = -1/2 \implies \mathbf{x = \frac{7\pi}{6}, \quad x = \frac{11\pi}{6}}$</p>
+              <p>Soluciones en la 1ª vuelta: $\mathbf{x \in \{\pi/2, 7\pi/6, 11\pi/6\}}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">Resuelve:
+            $$\cos(2x) + \cos x = 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Sustituimos $\cos(2x) = 2\cos^2 x - 1$:</p>
+              <p>$$2\cos^2 x + \cos x - 1 = 0$$</p>
+              <p>Cambio $t = \cos x \implies 2t^2 + t - 1 = 0 \implies t = \frac{-1 \pm 3}{4} \implies t_1 = \frac{1}{2}, \quad t_2 = -1$.</p>
+              <p>&bull; $\cos x = 1/2 \implies \mathbf{x = \pm \frac{\pi}{3} + 2k\pi}$</p>
+              <p>&bull; $\cos x = -1 \implies \mathbf{x = \pi + 2k\pi}$ ($k \in \mathbb{Z}$).</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Resuelve sin perder soluciones:
+            $$\sin(2x) = \cos x$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>¡Cuidado! Nunca dividas entre $\cos x$ porque perderías las soluciones donde $\cos x = 0$.</p>
+              <p>$$2\sin x \cos x - \cos x = 0 \implies \cos x (2\sin x - 1) = 0$$</p>
+              <p>1. $\cos x = 0 \implies \mathbf{x = \frac{\pi}{2} + k\pi}$</p>
+              <p>2. $2\sin x - 1 = 0 \implies \sin x = 1/2 \implies \mathbf{x = \frac{\pi}{6} + 2k\pi} \quad \text{y} \quad \mathbf{x = \frac{5\pi}{6} + 2k\pi}$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">En un triángulo conocemos $a = 8\text{ cm}$, $A = 45^\circ$ y $B = 60^\circ$. Halla la longitud exacta del lado $b$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Por el Teorema del Seno:</p>
+              <p>$$\frac{a}{\sin A} = \frac{b}{\sin B} \implies b = a \cdot \frac{\sin B}{\sin A}$$</p>
+              <p>$$b = 8 \cdot \frac{\sin 60^\circ}{\sin 45^\circ} = 8 \cdot \frac{\frac{\sqrt{3}}{2}}{\frac{\sqrt{2}}{2}} = 8 \cdot \frac{\sqrt{3}}{\sqrt{2}} = 8 \cdot \frac{\sqrt{6}}{2} = \mathbf{4\sqrt{6}\text{ cm}} \approx 9.80\text{ cm}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">En un triángulo se conocen dos lados $b = 5\text{ m}$, $c = 8\text{ m}$ y el ángulo comprendido entre ellos $A = 60^\circ$. Halla el tercer lado $a$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Aplicamos el Teorema del Coseno:</p>
+              <p>$$a^2 = b^2 + c^2 - 2bc \cos A$$</p>
+              <p>$$a^2 = 5^2 + 8^2 - 2(5)(8) \cos 60^\circ = 25 + 64 - 80 \cdot \frac{1}{2} = 89 - 40 = 49$$</p>
+              <p>$$a = \sqrt{49} = \mathbf{7\text{ m}}$$</p>
+            </div>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">Resuelve en $[0, 2\pi)$ la ecuación:
+            $$\tan^2 x + 2\tan x - 3 = 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Cambio $t = \tan x \implies t^2 + 2t - 3 = 0 \implies (t + 3)(t - 1) = 0$.</p>
+              <p>&bull; $\tan x = 1 \implies \mathbf{x = \frac{\pi}{4}, \quad x = \frac{5\pi}{4}}$</p>
+              <p>&bull; $\tan x = -3 \implies x = \arctan(-3) \approx -71.57^\circ \implies \mathbf{108.43^\circ \text{ y } 288.43^\circ}$.</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Resuelve dividiendo por $\cos^2 x$:
+            $$\sin^2 x - 3\sin x \cos x + 2\cos^2 x = 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Dividimos entre $\cos^2 x$ (comprobando que $\cos x \neq 0$):</p>
+              <p>$$\tan^2 x - 3\tan x + 2 = 0$$</p>
+              <p>$$(\tan x - 1)(\tan x - 2) = 0$$</p>
+              <p>1. $\tan x = 1 \implies \mathbf{x = \frac{\pi}{4} + k\pi}$</p>
+              <p>2. $\tan x = 2 \implies \mathbf{x = \arctan(2) + k\pi \approx 1.107\text{ rad} + k\pi}$ ($k \in \mathbb{Z}$).</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Halla las soluciones generales de:
+            $$2\cos^2 x + 3\sin x = 0$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Sustituimos $\cos^2 x = 1 - \sin^2 x$:</p>
+              <p>$$2(1 - \sin^2 x) + 3\sin x = 0 \implies 2 - 2\sin^2 x + 3\sin x = 0$$</p>
+              <p>$$2\sin^2 x - 3\sin x - 2 = 0 \implies \sin x = \frac{3 \pm \sqrt{9 + 16}}{4} = \frac{3 \pm 5}{4}$$</p>
+              <p>&bull; $\sin x = 8/4 = 2$ (Imposible, $-1 \le \sin x \le 1$).</p>
+              <p>&bull; $\sin x = -2/4 = -1/2 \implies \mathbf{x = \frac{7\pi}{6} + 2k\pi} \quad \text{y} \quad \mathbf{x = \frac{11\pi}{6} + 2k\pi}$ ($k \in \mathbb{Z}$).</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">Desde un punto en el suelo vemos la cúspide de una torre bajo un ángulo de $30^\circ$. Si nos acercamos $20\text{ metros}$ en línea recta hacia ella, el ángulo de elevación pasa a ser de $45^\circ$. Calcula la altura de la torre.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Sea $h$ la altura y $x$ la distancia desde la segunda posición hasta la base de la torre:</p>
+              <p>1ª posición: $\tan 30^\circ = \frac{h}{x + 20} \implies h = (x + 20) \tan 30^\circ$</p>
+              <p>2ª posición: $\tan 45^\circ = \frac{h}{x} \implies 1 = \frac{h}{x} \implies h = x$</p>
+              <p>Igualamos: $h = (h + 20) \frac{\sqrt{3}}{3} \implies 3h = \sqrt{3}h + 20\sqrt{3}$</p>
+              <p>$$h(3 - \sqrt{3}) = 20\sqrt{3} \implies h = \frac{20\sqrt{3}}{3 - \sqrt{3}} = \mathbf{10(\sqrt{3} + 1)\text{ m}} \approx 27.32\text{ metros}$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Halla el área exacta de una parcela triangular cuyos lados miden $a = 10\text{ m}$, $b = 14\text{ m}$ y forman un ángulo comprendido de $C = 45^\circ$.</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>Aplicamos la fórmula del área mediante seno:</p>
+              <p>$$\text{Área} = \frac{1}{2} a b \sin C = \frac{1}{2} \cdot 10 \cdot 14 \cdot \sin 45^\circ$$</p>
+              <p>$$= 70 \cdot \frac{\sqrt{2}}{2} = \mathbf{35\sqrt{2}\text{ m}^2} \approx 49.50\text{ m}^2$$</p>
+            </div>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Resuelve en la primera vuelta $[0, 2\pi)$ el sistema de ecuaciones:
+            $$\begin{cases} \sin x + \cos y = 1 \\ x + y = \frac{\pi}{2} \end{cases}$$</div>
+    </div>
+    <div class="steps-list">
+      <div class="mt-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100 text-xs text-slate-700 space-y-2">
+              <p>De la 2ª ecuación: $y = \frac{\pi}{2} - x$.</p>
+              <p>Por ángulos complementarios: $\cos y = \cos\left(\frac{\pi}{2} - x\right) = \sin x$.</p>
+              <p>Sustituimos en la 1ª ecuación:</p>
+              <p>$$\sin x + \sin x = 1 \implies 2\sin x = 1 \implies \sin x = \frac{1}{2}$$</p>
+              <p>En $[0, 2\pi)$:</p>
+              <p>&bull; Si $x_1 = \frac{\pi}{6} \implies y_1 = \frac{\pi}{2} - \frac{\pi}{6} = \frac{\pi}{3} \implies \mathbf{(x_1, y_1) = \left(\frac{\pi}{6}, \frac{\pi}{3}\right)}$</p>
+              <p>&bull; Si $x_2 = \frac{5\pi}{6} \implies y_2 = \frac{\pi}{2} - \frac{5\pi}{6} = -\frac{\pi}{3} \equiv \frac{5\pi}{3} \implies \mathbf{(x_2, y_2) = \left(\frac{5\pi}{6}, \frac{5\pi}{3}\right)}$</p>
+            </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

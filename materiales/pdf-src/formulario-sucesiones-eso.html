@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Sucesiones: Progresiones Aritméticas y Geométricas | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11.2pt;
+      line-height: 1.45;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    section, .rounded-xl, .rounded-2xl {
+      break-inside: avoid;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eff6ff;
+      border: 2.5px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #93c5fd;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.35em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Sucesiones: Progresiones Aritméticas y Geométricas</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Matemáticas ESO</span>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    
+
+    <!-- 1: PROGRESIONES ARITMÉTICAS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white inline-flex items-center justify-center text-sm font-bold">1</span>
+        Progresiones Aritméticas (P.A.)
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-base">
+          <h4 class="font-bold text-emerald-800">Diferencia Constante y Término General</h4>
+          <p class="text-slate-600">Cada término se obtiene sumando al anterior una constante $d$:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$d = a_{n} - a_{n-1}$$
+            $$a_n = a_1 + (n - 1)d$$
+          </div>
+          <p class="text-sm text-slate-500">Si conocemos $a_k$: $a_n = a_k + (n - k)d$.</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-base">
+          <h4 class="font-bold text-emerald-800">Suma de los $n$ Primeros Términos</h4>
+          <p class="text-slate-600">Famosa fórmula descubierta por Gauss al sumar pares simétricos:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$S_n = \frac{a_1 + a_n}{2} \cdot n$$
+          </div>
+          <p class="text-sm text-slate-500">Ejemplo: $1 + 2 + \dots + 100 = \frac{1 + 100}{2} \cdot 100 = 5.050$.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2: PROGRESIONES GEOMÉTRICAS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white inline-flex items-center justify-center text-sm font-bold">2</span>
+        Progresiones Geométricas (P.G.)
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-base">
+          <h4 class="font-bold text-emerald-800">Razón y Término General</h4>
+          <p class="text-slate-600">Cada término se obtiene multiplicando el anterior por la razón $r$:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$r = \frac{a_{n}}{a_{n-1}}$$
+            $$a_n = a_1 \cdot r^{n-1}$$
+          </div>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2 text-base">
+          <h4 class="font-bold text-emerald-800">Suma de $n$ Términos y Suma Infinita</h4>
+          <p class="text-slate-600">Para sumar $n$ términos:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold mb-1">
+            $$S_n = \frac{a_1(r^n - 1)}{r - 1}$$
+          </div>
+          <p class="text-sm text-emerald-800 font-semibold">Si $|r| < 1$, la suma de infinitos términos converge:</p>
+          <div class="p-2 bg-emerald-50 rounded border border-emerald-200 font-mono text-center font-bold text-sm">
+            $$S_\infty = \frac{a_1}{1 - r}$$
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.lucide) lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

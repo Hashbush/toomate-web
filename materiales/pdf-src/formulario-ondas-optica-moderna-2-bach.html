@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Ondas, Óptica y Física Cuántica | Toomate.es</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600;
+      font-size: 11.2pt;
+      line-height: 1.45;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      background: #ffffff !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif !important;
+    }
+    section, .rounded-xl, .rounded-2xl {
+      break-inside: avoid;
+    }
+    .header-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eff6ff;
+      border: 2.5px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 11px 16px;
+      margin-bottom: 14px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      border: 2.5px solid #93c5fd;
+      object-fit: cover;
+      background: white;
+      flex-shrink: 0;
+    }
+    .badge-top {
+      display: inline-block;
+      background: #5c9ce6;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 2px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .main-title {
+      font-size: 17pt;
+      font-weight: 900;
+      color: #0f172a;
+      margin: 0;
+      line-height: 1.15;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin: 0.35em 0 !important;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Ondas, Óptica y Física Cuántica</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Física 2º Bachillerato</span>
+    </div>
+  </div>
+
+  <div class="space-y-4">
+    
+
+    <!-- 1: ONDAS ARMÓNICAS -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white inline-flex items-center justify-center text-sm font-bold">1</span>
+        Ecuación de la Onda Armónica Unidimensional
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-indigo-800">Ecuación General de Propagación</h4>
+          <p class="text-slate-600">Para una onda que se propaga hacia la derecha ($+x$):</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$y(x, t) = A \sin(\omega t - k x + \varphi_0)$$
+          </div>
+          <p class="text-sm text-slate-500">Si se propaga hacia la izquierda ($-x$), el signo de $k x$ es positivo ($+$).</p>
+        </div>
+
+        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+          <h4 class="font-bold text-indigo-800">Relaciones Fundamentales de Onda</h4>
+          <p class="text-slate-600">Velocidad de propagación y número de onda:</p>
+          <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+            $$v = \frac{\lambda}{T} = \lambda \cdot f = \frac{\omega}{k}, \quad k = \frac{2\pi}{\lambda}, \quad \omega = 2\pi f$$
+          </div>
+          <p class="text-sm text-slate-500">Diferencia de fase entre dos puntos: $\Delta\varphi = k \cdot \Delta x = \frac{2\pi}{\lambda} \Delta x$.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2: ÓPTICA GEOMÉTRICA Y LENTES -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white inline-flex items-center justify-center text-sm font-bold">2</span>
+        Óptica Geométrica: Ley de Snell y Lentes Delgadas
+      </h2>
+
+      <div class="space-y-4 text-base">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+            <h4 class="font-bold text-indigo-800">Refracción y Ángulo Límite (Snell)</h4>
+            <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+              $$n_1 \sin \theta_1 = n_2 \sin \theta_2$$
+              $$\sin \theta_{\text{límite}} = \frac{n_2}{n_1} \quad (n_1 > n_2)$$
+            </div>
+            <p class="text-sm text-slate-600">Para ángulos de incidencia $\theta_1 > \theta_{\text{límite}}$ se produce reflexión total interna (fibra óptica).</p>
+          </div>
+
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+            <h4 class="font-bold text-indigo-800">Fórmula de las Lentes Delgadas</h4>
+            <div class="p-2 bg-white rounded border border-slate-200 font-mono text-center font-bold">
+              $$\frac{1}{s'} - \frac{1}{s} = \frac{1}{f'} = P \quad (\text{Dioptrías})$$
+              $$m = \frac{y'}{y} = \frac{s'}{s} \quad (\text{Aumento Lateral})$$
+            </div>
+            <p class="text-sm text-slate-600">Criterio DIN: la luz viaja de izquierda a derecha; $s < 0$. Si $f' > 0$ es convergente; si $f' < 0$ es divergente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3: FÍSICA CUÁNTICA Y MODERNA -->
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2">
+        <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white inline-flex items-center justify-center text-sm font-bold">3</span>
+        Efecto Fotoeléctrico y Longitud de Onda de De Broglie
+      </h2>
+
+      <div class="p-5 bg-indigo-50/50 border border-indigo-200 rounded-2xl space-y-3 text-base">
+        <h4 class="font-bold text-indigo-900">Ecuación del Efecto Fotoeléctrico de Einstein</h4>
+        <p class="text-slate-700">
+          La energía del fotón incidente ($h f$) se emplea en vencer el trabajo de extracción ($W_0$) y el resto se convierte en energía cinética máxima del fotoelectrón:
+        </p>
+        <div class="p-3 bg-white rounded-xl border border-indigo-300 font-mono text-center font-bold text-indigo-950 text-base">
+          $$E_{\text{fotón}} = W_0 + E_{c,\text{max}} \implies h f = h f_0 + e V_0 = h f_0 + \frac{1}{2} m v^2$$
+        </div>
+        <p class="text-slate-600 text-sm">
+          Donde $f_0 = \frac{W_0}{h}$ es la frecuencia umbral por debajo de la cual no se emiten electrones (sea cual sea la intensidad lumínica), y $V_0$ es el potencial de frenado. Constante de Planck: $h = 6{,}63 \cdot 10^{-34}\text{ J}\cdot\text{s}$.
+        </p>
+
+        <div class="p-3 bg-white rounded-xl border border-indigo-200 text-center font-mono text-sm font-bold text-indigo-900">
+          $$\text{Hipótesis de De Broglie: } \lambda = \frac{h}{p} = \frac{h}{m v}$$
+        </div>
+      </div>
+    </section>
+
+  
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.lucide) lucide.createIcons();
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>
