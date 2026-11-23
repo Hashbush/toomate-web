@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Ecuaciones | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page { size: A4; margin: 10mm 12mm; }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 11.2pt; line-height: 1.42; color: #1e293b; margin: 0; padding: 0; background: #ffffff; }
+    h1, h2, h3, .font-title { font-family: 'Outfit', sans-serif; }
+    .header-box { display: flex; align-items: center; justify-content: space-between; background: #eff6ff; border: 2.5px solid #bfdbfe; border-radius: 18px; padding: 10px 16px; margin-bottom: 12px; }
+    .header-left { display: flex; align-items: center; gap: 12px; }
+    .logo-img { width: 52px; height: 52px; border-radius: 14px; border: 2.5px solid #93c5fd; object-fit: cover; background: white; }
+    .badge-top { display: inline-block; background: #5c9ce6; color: white; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 9pt; padding: 2px 10px; border-radius: 999px; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 2px; }
+    .main-title { font-size: 17pt; font-weight: 900; color: #0f172a; margin: 0; line-height: 1.15; }
+    .section-card { border: 2px solid #e2e8f0; border-radius: 18px; padding: 11px 14px; margin-bottom: 10px; break-inside: avoid; background: #ffffff; }
+    .section-title { display: flex; align-items: center; gap: 9px; font-size: 13pt; font-weight: 900; color: #0f172a; margin: 0 0 8px 0; padding-bottom: 5px; border-bottom: 2px solid #f1f5f9; }
+    .num-circle { width: 26px; height: 26px; border-radius: 8px; background: #5c9ce6; color: white; display: inline-flex; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 12pt; flex-shrink: 0; }
+    .steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    .three-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; }
+    .step-box { background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 13px; padding: 8px 11px; }
+    .step-header { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 11.4pt; color: #1d4ed8; margin-bottom: 3px; display: block; }
+    .formula-big { background: #fffbeb; border: 2px solid #fde047; border-radius: 13px; padding: 7px 11px; text-align: center; font-size: 12.5pt; margin: 6px 0; }
+    .example-pill { background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 10px; padding: 5px 9px; margin-top: 5px; font-size: 10.4pt; color: #1e3a8a; }
+    .alert-tip { background: #fef2f2; border: 1.5px solid #fecaca; border-radius: 11px; padding: 6px 11px; margin-top: 7px; color: #991b1b; font-size: 10.4pt; }
+    .katex-display { margin: 0.25em 0 !important; }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Ecuaciones</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Matemáticas 3º y 4º ESO</span>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2 class="section-title"><span class="num-circle">1</span><span>Ecuaciones de 1º y 2º Grado (Completas e Incompletas)</span></h2>
+    <div class="steps-grid">
+      <div class="step-box">
+        <span class="step-header">👉 1º Grado con Paréntesis y Fracciones</span>
+        <div><strong>1.</strong> Quita paréntesis multiplicando (¡cuidado con el signo $-$ delante!).<br><strong>2.</strong> Haz el <strong>m.c.m.</strong> de los denominadores: divide entre el de abajo y multiplica por el de arriba.<br><strong>3.</strong> Pasa las $x$ a un lado y los números al otro.</div>
+        <div class="example-pill">$\dfrac{x-1}{2} - \dfrac{x-3}{3} = 1 \xrightarrow{\text{mcm}=6} 3(x-1) - 2(x-3) = 6 \rightarrow \mathbf{x = 3}$</div>
+      </div>
+      <div class="step-box">
+        <span class="step-header">⭐ 2º Grado ($ax^2 + bx + c = 0$)</span>
+        <div class="formula-big">$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$</div>
+        <div>&bull; <strong>Falta la $x$ ($ax^2+c=0$):</strong> Despeja $x^2$ y haz $\pm\sqrt{\dots}$<br>&bull; <strong>Falta el número ($ax^2+bx=0$):</strong> Saca $x$ factor común ($x=0$ siempre es solución).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2 class="section-title"><span class="num-circle">2</span><span>Ecuaciones Bicuadradas y de Grado Superior (Ruffini)</span></h2>
+    <div class="steps-grid">
+      <div class="step-box">
+        <span class="step-header">🔄 Ecuaciones Bicuadradas ($ax^4 + bx^2 + c = 0$)</span>
+        <div>No tienen $x^3$ ni $x$. Se resuelven en <strong>3 pasos</strong>:</div>
+        <div><strong>Paso 1:</strong> Haz el cambio $\mathbf{t = x^2}$ (así $x^4 = t^2$).<br><strong>Paso 2:</strong> Resuelve $at^2 + bt + c = 0$ con la fórmula.<br><strong>Paso 3:</strong> Deshaz el cambio: $\mathbf{x = \pm\sqrt{t}}$ (por cada $t > 0$ salen 2 soluciones).</div>
+        <div class="example-pill">Si $t_1 = 4 \rightarrow x = \pm\sqrt{4} = \mathbf{\pm 2}$. Si $t_2 = -1 \rightarrow$ No da solución real.</div>
+      </div>
+      <div class="step-box">
+        <span class="step-header">🧩 Grado 3 o más ($P(x) = 0$)</span>
+        <div><strong>1.</strong> Si todos llevan $x$, saca <strong>factor común</strong> ($x = 0$).<br><strong>2.</strong> Busca las raíces enteras entre los divisores del término independiente aplicando la <strong>Regla de Ruffini</strong> hasta bajar a grado 2.</div>
+        <div class="example-pill">$x^3 - 6x^2 + 11x - 6 = 0 \rightarrow (x-1)(x-2)(x-3) = 0$<br>Soluciones: $\mathbf{x_1 = 1, \ x_2 = 2, \ x_3 = 3}$.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card" style="margin-bottom: 0;">
+    <h2 class="section-title"><span class="num-circle">3</span><span>Ecuaciones Racionales (con $x$ abajo) e Irracionales (con Raíces)</span></h2>
+    <div class="steps-grid">
+      <div class="step-box">
+        <span class="step-header">➗ Racionales ($x$ en el denominador)</span>
+        <div><strong>Paso 1:</strong> Factoriza los denominadores y halla su <strong>m.c.m.</strong><br><strong>Paso 2:</strong> Multiplica toda la ecuación por el m.c.m. para quitar denominadores.<br><strong>Paso 3:</strong> <strong>¡Comprueba!</strong> Si una solución hace cero algún denominador inicial, se descarta.</div>
+        <div class="example-pill">$\dfrac{2}{x-1} + \dfrac{1}{x+1} = 1 \xrightarrow{\text{mcm}=(x-1)(x+1)} 2(x+1)+(x-1) = x^2-1$</div>
+      </div>
+      <div class="step-box">
+        <span class="step-header">√ Irracionales (con $x$ dentro de una raíz)</span>
+        <div><strong>Paso 1:</strong> Deja la raíz <strong>totalmente sola</strong> en un lado.<br><strong>Paso 2:</strong> Eleva ambos lados al cuadrado (usa $(a\pm b)^2 = a^2 \pm 2ab + b^2$).<br><strong>Paso 3:</strong> <strong>¡OBLIGATORIO COMPROBAR!</strong> Sustituye en la original porque al elevar al cuadrado pueden aparecer soluciones falsas.</div>
+        <div class="example-pill">$\sqrt{x+4} = x - 2 \rightarrow x+4 = (x-2)^2 \rightarrow x_1=0\text{ (No vale)}, \ \mathbf{x_2=5\text{ (Sí)}}$</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

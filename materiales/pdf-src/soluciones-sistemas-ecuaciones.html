@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios con Solución: Sistemas de Ecuaciones | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page { size: A4; margin: 10mm 12mm; }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { font-family: 'Nunito', sans-serif !important; font-weight: 600; font-size: 11pt; line-height: 1.42; color: #1e293b; margin: 0; padding: 0; background: #ffffff !important; }
+    h1, h2, h3 { font-family: 'Outfit', sans-serif !important; }
+    .header-box { display: flex; align-items: center; justify-content: space-between; background: #fff1f2; border: 2.5px solid #fecdd3; border-radius: 18px; padding: 11px 16px; margin-bottom: 14px; }
+    .header-left { display: flex; align-items: center; gap: 12px; }
+    .logo-img { width: 52px; height: 52px; border-radius: 14px; border: 2.5px solid #fda4af; object-fit: cover; background: white; flex-shrink: 0; }
+    .badge-top { display: inline-block; background: #e57373; color: white; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 9pt; padding: 2px 10px; border-radius: 999px; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 2px; }
+    .main-title { font-size: 17pt; font-weight: 900; color: #0f172a; margin: 0; line-height: 1.15; }
+    .level-banner { display: flex; align-items: center; gap: 10px; padding: 7px 14px; border-radius: 12px; margin: 11px 0 8px 0; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 12pt; }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+    .sol-card { background: #ffffff; border: 2px solid #cbd5e1; border-radius: 14px; padding: 9px 12px; break-inside: avoid; margin-bottom: 8px; }
+    .ex-header { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; padding-bottom: 5px; border-bottom: 1.5px solid #e2e8f0; }
+    .ex-num { width: 24px; height: 24px; border-radius: 7px; background: #e57373; color: white; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 10.8pt; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .ex-statement { font-weight: 700; color: #0f172a; font-size: 11pt; flex: 1; }
+    .steps-list { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 6px 10px; color: #334155; font-size: 10.6pt; }
+    .steps-list p { margin: 2.5px 0; }
+    .res-badge { display: inline-block; background: #dcfce7; color: #166534; border: 1.5px solid #86efac; border-radius: 8px; padding: 2px 9px; font-weight: 800; margin-top: 4px; }
+    .katex-display { overflow-x: auto; overflow-y: hidden; margin: 0.3em 0 !important; max-width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">✅ Ejercicios con Solución Paso a Paso</span>
+        <h1 class="main-title">Sistemas de Ecuaciones</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #e11d48; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Enunciados + Solución</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">1</span>
+      <div class="ex-statement">Resuelve por el método de sustitución: $\begin{cases} x + 2y = 7 \\ 3x - y = 7 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Despejamos $x$ en la 1ª ecuación: $x = 7 - 2y$</p><p>2. Sustituimos en la 2ª: $3(7 - 2y) - y = 7 \implies 21 - 6y - y = 7 \implies 7y = 14 \implies y = 2$</p><p>3. Calculamos $x$: $x = 7 - 2(2) = 3$</p><span class="res-badge">Solución: $x = 3, \ y = 2$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">2</span>
+      <div class="ex-statement">Resuelve por el método de reducción: $\begin{cases} 2x + 3y = 12 \\ 5x - 3y = 9 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Sumamos directamente ambas ecuaciones porque la $y$ ya tiene coeficientes opuestos ($+3y$ y $-3y$):</p><p>$$7x = 21 \implies x = 3$$</p><p>2. Sustituimos $x = 3$ en la 1ª ecuación: $2(3) + 3y = 12 \implies 3y = 6 \implies y = 2$</p><span class="res-badge">Solución: $x = 3, \ y = 2$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">3</span>
+      <div class="ex-statement">Resuelve por el método de igualación: $\begin{cases} x + y = 5 \\ 2x - y = 4 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Despejamos $y$ en ambas ecuaciones: $y = 5 - x$ e $y = 2x - 4$</p><p>2. Igualamos: $5 - x = 2x - 4 \implies 3x = 9 \implies x = 3$</p><p>3. Sustituimos en la primera: $y = 5 - 3 = 2$</p><span class="res-badge">Solución: $x = 3, \ y = 2$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">4</span>
+      <div class="ex-statement">Resuelve por reducción doble: $\begin{cases} 3x + 2y = 7 \\ 4x - 3y = -2 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Multiplicamos la 1ª ecuación por $3$ y la 2ª por $2$: $\begin{cases} 9x + 6y = 21 \\ 8x - 6y = -4 \end{cases}$</p><p>2. Sumamos: $17x = 17 \implies x = 1$</p><p>3. Sustituimos en la 1ª: $3(1) + 2y = 7 \implies 2y = 4 \implies y = 2$</p><span class="res-badge">Solución: $x = 1, \ y = 2$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">5</span>
+      <div class="ex-statement">Resuelve el sistema quitando antes los paréntesis: $\begin{cases} 2(x + 1) - y = 3 \\ 3x + 2(y - 1) = 10 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Quitamos paréntesis y ordenamos: $\begin{cases} 2x - y = 1 \\ 3x + 2y = 12 \end{cases}$</p><p>2. Multiplicamos la 1ª por $2$ y sumamos con la 2ª: $4x + 3x = 2 + 12 \implies 7x = 14 \implies x = 2$</p><p>3. Sustituimos en la 1ª: $2(2) - y = 1 \implies y = 3$.</p><span class="res-badge">Solución: $x = 2, \ y = 3$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">6</span>
+      <div class="ex-statement">Resuelve el sistema con denominadores: $\begin{cases} \dfrac{x}{2} + \dfrac{y}{3} = 4 \\ x - y = 3 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Multiplicamos la 1ª ecuación por $\text{m.c.m.}(2, 3) = 6$: $\begin{cases} 3x + 2y = 24 \\ x - y = 3 \end{cases}$</p><p>2. Multiplicamos la 2ª por $2$ y sumamos: $5x = 30 \implies x = 6$</p><p>3. De $x - y = 3 \implies 6 - y = 3 \implies y = 3$</p><span class="res-badge">Solución: $x = 6, \ y = 3$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">7</span>
+      <div class="ex-statement">Clasifica y resuelve, si es posible, el sistema: $\begin{cases} 2x - y = 4 \\ 4x - 2y = 5 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Multiplicamos la 1ª ecuación por $-2$: $-4x + 2y = -8$</p><p>2. Sumamos con la 2ª ecuación: $0x + 0y = -3 \implies 0 = -3$ (Contradicción).</p><p>3. Es un <strong>Sistema Incompatible (S.I.)</strong>: representa dos rectas paralelas y no tiene solución.</p><span class="res-badge">Solución: Sistema Incompatible (Sin solución)</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">8</span>
+      <div class="ex-statement">Clasifica y resuelve el sistema: $\begin{cases} x - 3y = 2 \\ 2x - 6y = 4 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Multiplicamos la 1ª ecuación por $-2$ y sumamos: $0 = 0$.</p><p>2. Como ambas ecuaciones son proporcionales, es un <strong>Sistema Compatible Indeterminado (S.C.I.)</strong> con infinitas soluciones: $y = \lambda, \ x = 2 + 3\lambda \ (\lambda \in \mathbb{R})$.</p><span class="res-badge">Solución: S.C.I. ($x = 2 + 3\lambda, \ y = \lambda$)</span>
+    </div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">9</span>
+      <div class="ex-statement">Resuelve el sistema con fracciones y paréntesis: $\begin{cases} \dfrac{x + 1}{3} + \dfrac{y - 1}{2} = 3 \\ \dfrac{2x - y}{3} = 1 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Quitamos denominadores: en la 1ª ($\text{m.c.m.}=6$): $2(x+1)+3(y-1)=18 \implies 2x + 3y = 19$. En la 2ª: $2x - y = 3$.</p><p>2. Restamos ambas ecuaciones: $4y = 16 \implies y = 4$. Entonces $2x = 3 + 4 = 7 \implies x = 7/2$.</p><span class="res-badge">Solución: $x = \dfrac{7}{2}, \ y = 4$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">10</span>
+      <div class="ex-statement">Resuelve el sistema lineal: $\begin{cases} \dfrac{x + y}{2} - \dfrac{x - y}{3} = 3 \\ \dfrac{x}{2} + y = 5 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. En la 1ª ($\text{m.c.m.}=6$): $3(x+y) - 2(x-y) = 18 \implies x + 5y = 18$. En la 2ª ($\text{m.c.m.}=2$): $x + 2y = 10$.</p><p>2. Restamos la 1ª menos la 2ª: $3y = 8 \implies y = 8/3, \ x = 14/3$.</p><span class="res-badge">Solución: $x = \dfrac{14}{3}, \ y = \dfrac{8}{3}$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">11</span>
+      <div class="ex-statement">Determina el valor del parámetro $k$ para que el sistema sea incompatible: $\begin{cases} 3x + ky = 5 \\ 6x - 4y = 7 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Un sistema lineal de 2 incógnitas es incompatible cuando los coeficientes son proporcionales pero los términos independientes no:</p><p>$$\frac{3}{6} = \frac{k}{-4} \neq \frac{5}{7} \implies 6k = -12 \implies k = -2$$</p><span class="res-badge">Solución: $k = -2$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">12</span>
+      <div class="ex-statement">Halla el valor de $m$ para que el sistema tenga infinitas soluciones (S.C.I.): $\begin{cases} 2x - 3y = 5 \\ 4x + my = 10 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Para que sea Compatible Indeterminado debe cumplirse la triple proporción:</p><p>$$\frac{2}{4} = \frac{-3}{m} = \frac{5}{10} \implies \frac{1}{2} = \frac{-3}{m} \implies m = -6$$</p><span class="res-badge">Solución: $m = -6$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">13</span>
+      <div class="ex-statement">En un test de 30 preguntas se obtienen $0{,}75$ puntos por cada respuesta correcta y se restan $0{,}25$ puntos por cada error. Si un alumno contestó a todas y obtuvo $10{,}5$ puntos, ¿cuántos aciertos y fallos tuvo?</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Llamamos $x$ a los aciertos e $y$ a los fallos: $\begin{cases} x + y = 30 \\ 0{,}75x - 0{,}25y = 10{,}5 \end{cases}$</p><p>2. Multiplicamos la 2ª ecuación por $4$: $3x - y = 42$.</p><p>3. Sumamos con la 1ª ($x + y = 30$): $4x = 72 \implies x = 18$ aciertos e $y = 30 - 18 = 12$ fallos.</p><span class="res-badge">Solución: $18$ aciertos y $12$ fallos</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">14</span>
+      <div class="ex-statement">Un comerciante mezcla café de Colombia a $12\text{ €/kg}$ con café de Brasil a $8\text{ €/kg}$ para obtener $40\text{ kg}$ de mezcla a $9{,}50\text{ €/kg}$. ¿Cuántos kilos de cada tipo ha utilizado?</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Planteamos el sistema: $\begin{cases} x + y = 40 \\ 12x + 8y = 40 \cdot 9{,}50 = 380 \end{cases}$</p><p>2. Multiplicamos la 1ª por $-8$ y sumamos: $4x = 380 - 320 = 60 \implies x = 15\text{ kg}$ y $y = 40 - 15 = 25\text{ kg}$.</p><span class="res-badge">Solución: $15\text{ kg}$ y $25\text{ kg}$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">15</span>
+      <div class="ex-statement">Hace $5$ años la edad de un padre era el triple que la de su hijo, y dentro de $10$ años será el doble. Calcula las edades actuales de ambos.</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Llamamos $x$ a la edad actual del padre e $y$ a la del hijo: $\begin{cases} x - 5 = 3(y - 5) \\ x + 10 = 2(y + 10) \end{cases} \implies \begin{cases} x - 3y = -10 \\ x - 2y = 10 \end{cases}$</p><p>2. Restamos la 2ª menos la 1ª: $y = 20$ años. Sustituyendo: $x = 10 + 2(20) = 50$ años.</p><span class="res-badge">Solución: Padre $50$ años, Hijo $20$ años</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">16</span>
+      <div class="ex-statement">El perímetro de un rectángulo es de $28\text{ cm}$. Si la base disminuye en $2\text{ cm}$ y la altura aumenta en $1\text{ cm}$, el área no varía. Calcula las dimensiones del rectángulo.</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Sistema con base $x$ y altura $y$: $\begin{cases} 2x + 2y = 28 \implies x + y = 14 \\ (x - 2)(y + 1) = x \cdot y \end{cases}$</p><p>2. Desarrollamos la 2ª ecuación: $xy + x - 2y - 2 = xy \implies x - 2y = 2$</p><p>3. Restamos $(x + y = 14) - (x - 2y = 2) \implies 3y = 12 \implies y = 4\text{ cm}, \ x = 10\text{ cm}$.</p><span class="res-badge">Solución: Base $10\text{ cm}$ y Altura $4\text{ cm}$</span>
+    </div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Enunciados + Solución Paso a Paso)</span></div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">17</span>
+      <div class="ex-statement">La suma de las dos cifras de un número es $11$. Si invertimos el orden de sus cifras, el número resultante supera al original en $27$ unidades. ¿De qué número se trata?</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Sea $x$ la cifra de las decenas e $y$ la de las unidades. El número vale $10x + y$: $\begin{cases} x + y = 11 \\ (10y + x) - (10x + y) = 27 \end{cases}$</p><p>2. Simplificamos la 2ª: $9y - 9x = 27 \implies -x + y = 3$.</p><p>3. Sumamos con $x + y = 11$: $2y = 14 \implies y = 7, \ x = 4$. El número es el $47$.</p><span class="res-badge">Solución: $47$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">18</span>
+      <div class="ex-statement">Por unos pantalones y unas zapatillas que costaban juntos $110\text{ €}$ hemos pagado $90\text{ €}$ gracias a que los pantalones tenían un $20\%$ de descuento y las zapatillas un $15\%$ de descuento. ¿Cuál era el precio inicial de cada artículo?</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Con descuentos del $20\%$ y $15\%$ pagamos el $80\%$ ($0{,}80x$) y el $85\%$ ($0{,}85y$): $\begin{cases} x + y = 110 \\ 0{,}80x + 0{,}85y = 90 \end{cases}$</p><p>2. Multiplicamos la 1ª por $-0{,}80$ y sumamos: $0{,}05y = 90 - 88 = 2 \implies y = 40\text{ €}, \ x = 70\text{ €}$.</p><span class="res-badge">Solución: Pantalones $70\text{ €}$, Zapatillas $40\text{ €}$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">19</span>
+      <div class="ex-statement">Resuelve el sistema mediante el cambio de variable $u = \dfrac{1}{x}, \ v = \dfrac{1}{y}$: $\begin{cases} \dfrac{2}{x} + \dfrac{3}{y} = 2 \\ \dfrac{4}{x} - \dfrac{9}{y} = -1 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Con $u = 1/x$ y $v = 1/y$: $\begin{cases} 2u + 3v = 2 \\ 4u - 9v = -1 \end{cases}$</p><p>2. Multiplicamos la 1ª por $3$ y sumamos: $10u = 5 \implies u = \dfrac{1}{2} \implies x = 2$</p><p>3. Sustituimos: $2(1/2) + 3v = 2 \implies 3v = 1 \implies v = \dfrac{1}{3} \implies y = 3$</p><span class="res-badge">Solución: $x = 2, \ y = 3$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">20</span>
+      <div class="ex-statement">Discute el sistema según los valores del parámetro $a$: $\begin{cases} ax + 2y = 4 \\ 2x + ay = 4 \end{cases}$</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Igualamos proporciones de coeficientes: $\dfrac{a}{2} = \dfrac{2}{a} \implies a^2 = 4 \implies a = 2$ o $a = -2$.</p><p>&bull; Si $a \neq 2$ y $a \neq -2$: <strong>S.C.D.</strong> (solución única).</p><p>&bull; Si $a = 2$: $\dfrac{2}{2} = \dfrac{2}{2} = \dfrac{4}{4} \implies$ <strong>S.C.I.</strong> (infinitas soluciones).</p><p>&bull; Si $a = -2$: $\dfrac{-2}{2} = \dfrac{2}{-2} \neq \dfrac{4}{4} \implies$ <strong>S.I.</strong> (sin solución).</p><span class="res-badge">Solución: $a \neq \pm 2$ S.C.D. | $a = 2$ S.C.I. | $a = -2$ S.I.</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">21</span>
+      <div class="ex-statement">Dos coches salen a la vez de dos ciudades $A$ y $B$ distantes $300\text{ km}$. Si van uno al encuentro del otro, se cruzan a las $2\text{ horas}$. Si van en el mismo sentido, el más rápido alcanza al otro en $6\text{ horas}$. Calcula sus velocidades.</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Cuando van al encuentro, sus velocidades se suman; en el mismo sentido, se restan: $\begin{cases} 2(v_1 + v_2) = 300 \\ 6(v_1 - v_2) = 300 \end{cases} \implies \begin{cases} v_1 + v_2 = 150 \\ v_1 - v_2 = 50 \end{cases}$</p><p>2. Sumamos ambas ecuaciones: $2v_1 = 200 \implies v_1 = 100\text{ km/h}$ y $v_2 = 50\text{ km/h}$.</p><span class="res-badge">Solución: $v_1 = 100\text{ km/h}, \ v_2 = 50\text{ km/h}$</span>
+    </div>
+  </div>
+  <div class="sol-card">
+    <div class="ex-header">
+      <span class="ex-num">22</span>
+      <div class="ex-statement">Un joyero tiene dos lingotes de oro: el primero con un $80\%$ de pureza y el segundo con un $50\%$ de pureza. ¿Cuántos gramos debe fundir de cada uno para obtener un lingote de $120\text{ g}$ con un $70\%$ de pureza?</div>
+    </div>
+    <div class="steps-list">
+      <p>1. Planteamos el sistema de masa total y masa de oro puro: $\begin{cases} x + y = 120 \\ 0{,}80x + 0{,}50y = 0{,}70 \cdot 120 = 84 \end{cases}$</p><p>2. Multiplicamos la 2ª por $10$: $8x + 5y = 840$. Multiplicamos la 1ª por $-5$: $-5x - 5y = -600$.</p><p>3. Sumamos: $3x = 240 \implies x = 80\text{ g}$ y $y = 120 - 80 = 40\text{ g}$.</p><span class="res-badge">Solución: $80\text{ g}$ y $40\text{ g}$</span>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios (Enunciados): Sistemas de 3 Incógnitas (Método de Gauss) | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page { size: A4; margin: 9mm 12mm; }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 10.8pt; line-height: 1.4; color: #1e293b; margin: 0; padding: 0; background: #ffffff; }
+    h1, h2, h3 { font-family: 'Outfit', sans-serif; }
+    .header-box { display: flex; align-items: center; justify-content: space-between; background: #f0fdf4; border: 2.5px solid #bbf7d0; border-radius: 18px; padding: 10px 16px; margin-bottom: 12px; }
+    .header-left { display: flex; align-items: center; gap: 12px; }
+    .logo-img { width: 52px; height: 52px; border-radius: 14px; border: 2.5px solid #86efac; object-fit: cover; background: white; flex-shrink: 0; }
+    .badge-top { display: inline-block; background: #66bb6a; color: white; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 9pt; padding: 2px 10px; border-radius: 999px; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 2px; }
+    .main-title { font-size: 17pt; font-weight: 900; color: #0f172a; margin: 0; line-height: 1.15; }
+    .level-banner { display: flex; align-items: center; gap: 10px; padding: 6px 13px; border-radius: 11px; margin: 10px 0 7px 0; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 11.8pt; }
+    .level-1 { background: #ecfdf5; color: #065f46; border: 2px solid #a7f3d0; }
+    .level-2 { background: #fffbeb; color: #92400e; border: 2px solid #fde68a; }
+    .level-3 { background: #f5f3ff; color: #5b21b6; border: 2px solid #ddd6fe; }
+    .ex-card-full { background: #f8fafc; border: 1.8px solid #e2e8f0; border-radius: 13px; padding: 7px 11px; margin-bottom: 6px; break-inside: avoid; }
+    .ex-top { display: flex; align-items: flex-start; gap: 9px; }
+    .ex-num { width: 24px; height: 24px; border-radius: 7px; background: #66bb6a; color: white; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 10.8pt; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .ex-text { flex: 1; color: #1e293b; }
+    .sol-row-end { display: flex; justify-content: flex-end; margin-top: 3px; }
+    .sol-mini { font-size: 9.2pt; color: #475569; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 7px; padding: 1.5px 8px; display: inline-block; max-width: 92%; }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📄 Hoja de Ejercicios para Practicar</span>
+        <h1 class="main-title">Sistemas de 3 Incógnitas (Método de Gauss)</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #16a34a; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">22 Ejercicios con solución final</span>
+    </div>
+  </div>
+
+<div class="level-banner level-1"><span>🟢 NIVEL 1: Para calentar (Ejercicios 1 al 8)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">1</span>
+      <div class="ex-text">Resuelve el siguiente sistema ya escalonado: $\begin{cases} x + y + z = 6 \\ 2y - z = 1 \\ 3z = 9 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $(1, 2, 3)$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">2</span>
+      <div class="ex-text">Resuelve el sistema escalonado: $\begin{cases} 2x - y + z = 5 \\ y + 2z = 4 \\ -2z = -2 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $(3, 2, 1)$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">3</span>
+      <div class="ex-text">Resuelve por el método de Gauss: $\begin{cases} x + y + z = 6 \\ x - y + 2z = 5 \\ x + y - z = 0 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $(1, 2, 3)$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">4</span>
+      <div class="ex-text">Resuelve por el método de Gauss: $\begin{cases} x + y + z = 2 \\ 2x + 3y + 5z = 11 \\ x - 5y + 6z = 29 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $(1, -2, 3)$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">5</span>
+      <div class="ex-text">Resuelve por el método de Gauss: $\begin{cases} x - y + z = 2 \\ 2x + y - z = 1 \\ x + 2y + z = 8 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $(1, 2, 3)$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">6</span>
+      <div class="ex-text">Resuelve por Gauss intercambiando filas para tener pivote $1$: $\begin{cases} 2x + y - z = 2 \\ x + y + z = 6 \\ 3x - y + 2z = 11 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $(2, 1, 3)$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">7</span>
+      <div class="ex-text">Clasifica y resuelve por el método de Gauss: $\begin{cases} x + y - z = 1 \\ 2x + 3y + z = 3 \\ 3x + 4y = 4 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> S.C.I. ($x = 4\lambda, \ y = 1 - 3\lambda, \ z = \lambda$)</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #66bb6a;">8</span>
+      <div class="ex-text">Clasifica por el método de Gauss el sistema: $\begin{cases} x + 2y - z = 3 \\ 2x - y + z = 1 \\ 3x + y = 7 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Sistema Incompatible (S.I., sin solución)</span></div>
+  </div>
+<div class="level-banner level-2"><span>🟡 NIVEL 2: Nivel Examen (Ejercicios 9 al 16)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">9</span>
+      <div class="ex-text">Resuelve por el método de Gauss: $\begin{cases} x + 2y + z = 4 \\ 2x - y + 3z = 4 \\ 3x + y - z = 3 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $(1, 1, 1)$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">10</span>
+      <div class="ex-text">Resuelve por el método de Gauss: $\begin{cases} 2x + y + z = 7 \\ x - 2y + z = 0 \\ 3x + 2y - z = 4 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $(1, 2, 3)$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">11</span>
+      <div class="ex-text">Resuelve el sistema homogéneo por el método de Gauss: $\begin{cases} x + y - 2z = 0 \\ 2x - y + z = 0 \\ x - 2y + 3z = 0 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> S.C.I. ($x = \lambda/3, \ y = 5\lambda/3, \ z = \lambda$)</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">12</span>
+      <div class="ex-text">Clasifica y resuelve por Gauss: $\begin{cases} x - y + 2z = 3 \\ 2x + y - z = 0 \\ 4x - y + 3z = 6 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> S.C.I. ($x = 1 - \lambda/3, \ y = -2 + 5\lambda/3, \ z = \lambda$)</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">13</span>
+      <div class="ex-text">Resuelve por Gauss quitando antes denominadores: $\begin{cases} \dfrac{x}{2} + \dfrac{y}{3} + z = 5 \\ x - y + z = 2 \\ 2x + y - z = 4 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $(2, 3, 3)$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">14</span>
+      <div class="ex-text">Halla el valor del parámetro $k$ para que el sistema sea compatible indeterminado (S.C.I.): $\begin{cases} x + y + z = 2 \\ 2x + 3y + z = 5 \\ 3x + 4y + 2z = k \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $k = 7$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">15</span>
+      <div class="ex-text">Discute por el método de Gauss según los valores de $m$: $\begin{cases} x + y + z = 1 \\ 2x + y + 3z = 2 \\ 3x + 2y + mz = 3 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Si $m \neq 4$: S.C.D.; Si $m = 4$: S.C.I.</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #f59e0b;">16</span>
+      <div class="ex-text">Discute según el parámetro $a$ aplicando Gauss: $\begin{cases} x - y + z = 1 \\ 2x + y + z = 2 \\ 3x + az = 5 \end{cases}$</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Si $a \neq 2$: S.C.D.; Si $a = 2$: S.I.</span></div>
+  </div>
+<div class="level-banner level-3"><span>🟣 NIVEL 3: Retos para Sacar un 10 (Ejercicios 17 al 22)</span></div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">17</span>
+      <div class="ex-text">La suma de tres números es $12$. El primero más el doble del segundo menos el tercero vale $6$, y el triple del primero menos el segundo más el tercero vale $10$. Calcula los tres números por Gauss.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $x = 3, \ y = 4, \ z = 5$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">18</span>
+      <div class="ex-text">En una tienda, $1$ cuaderno, $1$ bolígrafo y $1$ carpeta cuestan $10\text{ €}$. Además, $2$ cuadernos, $3$ bolígrafos y $1$ carpeta cuestan $17\text{ €}$, y $1$ cuaderno, $2$ bolígrafos y $2$ carpetas cuestan $17\text{ €}$. Calcula el precio de cada artículo por Gauss.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Cuaderno $3\text{ €}$, Bolígrafo $2\text{ €}$, Carpeta $5\text{ €}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">19</span>
+      <div class="ex-text">Un número de tres cifras suma $12$ entre sus tres dígitos. La cifra de las centenas más la de las unidades es igual al doble de la de las decenas, y si se invierte el orden de las cifras el número aumenta en $198$ unidades. Halla el número por Gauss.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> El número es $345$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">20</span>
+      <div class="ex-text">La suma de las edades de un padre, una madre y su hijo es de $80$ años. El padre tiene $2$ años más que la madre, y dentro de $11$ años la edad del padre será el doble que la que tendrá el hijo. Calcula sus edades actuales por Gauss.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> Padre $35$ años, Madre $33$ años, Hijo $12$ años</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">21</span>
+      <div class="ex-text">Un inversor reparte $10\,000\text{ €}$ en tres fondos $A, B$ y $C$ que rinden un $4\%, 5\%$ y $6\%$ anual respectivamente, obteniendo un beneficio total de $520\text{ €}$. Si en el fondo $C$ invirtió la suma de lo invertido en $A$ y $B$, ¿cuánto invirtió en cada fondo?</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $A = 3\,000\text{ €}, \ B = 2\,000\text{ €}, \ C = 5\,000\text{ €}$</span></div>
+  </div>
+  <div class="ex-card-full">
+    <div class="ex-top">
+      <span class="ex-num" style="background: #8b5cf6;">22</span>
+      <div class="ex-text">Halla la ecuación de la parábola $y = ax^2 + bx + c$ cuya gráfica pasa por los puntos $A(1, 2), \ B(-1, 6)$ y $C(2, 3)$ resolviendo el sistema resultante por Gauss.</div>
+    </div>
+    <div class="sol-row-end"><span class="sol-mini"><strong>Sol:</strong> $y = x^2 - 2x + 3$</span></div>
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

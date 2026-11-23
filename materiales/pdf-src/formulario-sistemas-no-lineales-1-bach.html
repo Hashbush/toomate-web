@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Sistemas de Ecuaciones No Lineales | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page { size: A4; margin: 10mm 12mm; }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 11.2pt; line-height: 1.42; color: #1e293b; margin: 0; padding: 0; background: #ffffff; }
+    h1, h2, h3, .font-title { font-family: 'Outfit', sans-serif; }
+    .header-box { display: flex; align-items: center; justify-content: space-between; background: #eff6ff; border: 2.5px solid #bfdbfe; border-radius: 18px; padding: 10px 16px; margin-bottom: 12px; }
+    .header-left { display: flex; align-items: center; gap: 12px; }
+    .logo-img { width: 52px; height: 52px; border-radius: 14px; border: 2.5px solid #93c5fd; object-fit: cover; background: white; }
+    .badge-top { display: inline-block; background: #5c9ce6; color: white; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 9pt; padding: 2px 10px; border-radius: 999px; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 2px; }
+    .main-title { font-size: 17pt; font-weight: 900; color: #0f172a; margin: 0; line-height: 1.15; }
+    .section-card { border: 2px solid #e2e8f0; border-radius: 18px; padding: 11px 14px; margin-bottom: 10px; break-inside: avoid; background: #ffffff; }
+    .section-title { display: flex; align-items: center; gap: 9px; font-size: 13pt; font-weight: 900; color: #0f172a; margin: 0 0 8px 0; padding-bottom: 5px; border-bottom: 2px solid #f1f5f9; }
+    .num-circle { width: 26px; height: 26px; border-radius: 8px; background: #5c9ce6; color: white; display: inline-flex; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 12pt; flex-shrink: 0; }
+    .steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    .three-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; }
+    .step-box { background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 13px; padding: 8px 11px; }
+    .step-header { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 11.4pt; color: #1d4ed8; margin-bottom: 3px; display: block; }
+    .formula-big { background: #fffbeb; border: 2px solid #fde047; border-radius: 13px; padding: 7px 11px; text-align: center; font-size: 12.5pt; margin: 6px 0; }
+    .example-pill { background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 10px; padding: 5px 9px; margin-top: 5px; font-size: 10.4pt; color: #1e3a8a; }
+    .alert-tip { background: #fef2f2; border: 1.5px solid #fecaca; border-radius: 11px; padding: 6px 11px; margin-top: 7px; color: #991b1b; font-size: 10.4pt; }
+    .katex-display { margin: 0.25em 0 !important; }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Sistemas de Ecuaciones No Lineales</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Matemáticas 1º Bachillerato</span>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2 class="section-title"><span class="num-circle">1</span><span>La Regla de Oro de los Sistemas No Lineales</span></h2>
+    <div class="steps-grid">
+      <div class="step-box">
+        <span class="step-header">⭐ Caso 1: Una ecuación lineal y otra de 2º grado</span>
+        <div>Es el caso más frecuente de examen. <strong>Se hace SIEMPRE por Sustitución:</strong></div>
+        <div><strong>1.</strong> Despeja una letra en la ecuación <strong>lineal</strong> (la que no tiene cuadrados ni productos).<br><strong>2.</strong> Sustitúyela <strong>entre paréntesis</strong> en la ecuación no lineal.<br><strong>3.</strong> Desarrolla los productos notables $(a\pm b)^2 = a^2 \pm 2ab + b^2$ y resuelve.<br><strong>4.</strong> Calcula la pareja $y$ para <strong>cada</strong> valor de $x$.</div>
+      </div>
+      <div class="step-box">
+        <span class="step-header">⚡ Caso 2:Las dos ecuaciones tienen $x^2$ e $y^2$</span>
+        <div>Si ambas ecuaciones solo tienen términos con $x^2$ e $y^2$, <strong>aplica Reducción directamente:</strong></div>
+        <div class="example-pill">$$\begin{cases} x^2 + y^2 = 25 \\ x^2 - y^2 = 7 \end{cases} \xrightarrow{\text{Sumamos}} 2x^2 = 32 \rightarrow x = \pm 4$$<br>Para cada $x$, sustituye para hallar $y = \pm 3$ (¡salen 4 puntos de corte!).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card" style="margin-bottom: 0;">
+    <h2 class="section-title"><span class="num-circle">2</span><span>Sistemas con Raíces, Exponenciales y Logaritmos</span></h2>
+    <div class="three-cols">
+      <div class="step-box">
+        <span class="step-header">√ Sistemas con Raíces</span>
+        <div>Si aparece $\sqrt{x}$ o $\sqrt{y}$, despeja la raíz o haz el cambio $u = \sqrt{x}, \ v = \sqrt{y}$.</div>
+        <div class="example-pill"><strong>¡Recuerda!</strong> Al elevar al cuadrado es obligatorio comprobar las parejas $(x,y)$ al final.</div>
+      </div>
+      <div class="step-box">
+        <span class="step-header">🚀 Sistemas Exponenciales</span>
+        <div>&bull; <strong>Por cambio de variable:</strong> Llama $u = a^x$ y $v = b^y$.<br>&bull; <strong>Igualando bases:</strong> Usa $a^x \cdot a^y = a^{x+y}$ y $\dfrac{a^x}{a^y} = a^{x-y}$.</div>
+        <div class="example-pill">Si $u = 2^x = 8 \rightarrow 2^x = 2^3 \rightarrow \mathbf{x = 3}$.</div>
+      </div>
+      <div class="step-box">
+        <span class="step-header">📐 Sistemas Logarítmicos</span>
+        <div>Usa las propiedades para quitar los logaritmos:</div>
+        <div class="example-pill">&bull; $\log x + \log y = \log(x \cdot y)$<br>&bull; $\log x - \log y = \log(x / y)$<br><strong>¡Ojo!</strong> Solo valen soluciones con $x > 0$ e $y > 0$.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario y Cómo Resolver: Sistemas de Ecuaciones | Toomate.es</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <style>
+    @page { size: A4; margin: 10mm 12mm; }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 11.2pt; line-height: 1.42; color: #1e293b; margin: 0; padding: 0; background: #ffffff; }
+    h1, h2, h3, .font-title { font-family: 'Outfit', sans-serif; }
+    .header-box { display: flex; align-items: center; justify-content: space-between; background: #eff6ff; border: 2.5px solid #bfdbfe; border-radius: 18px; padding: 10px 16px; margin-bottom: 12px; }
+    .header-left { display: flex; align-items: center; gap: 12px; }
+    .logo-img { width: 52px; height: 52px; border-radius: 14px; border: 2.5px solid #93c5fd; object-fit: cover; background: white; }
+    .badge-top { display: inline-block; background: #5c9ce6; color: white; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 9pt; padding: 2px 10px; border-radius: 999px; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 2px; }
+    .main-title { font-size: 17pt; font-weight: 900; color: #0f172a; margin: 0; line-height: 1.15; }
+    .section-card { border: 2px solid #e2e8f0; border-radius: 18px; padding: 11px 14px; margin-bottom: 10px; break-inside: avoid; background: #ffffff; }
+    .section-title { display: flex; align-items: center; gap: 9px; font-size: 13pt; font-weight: 900; color: #0f172a; margin: 0 0 8px 0; padding-bottom: 5px; border-bottom: 2px solid #f1f5f9; }
+    .num-circle { width: 26px; height: 26px; border-radius: 8px; background: #5c9ce6; color: white; display: inline-flex; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 12pt; flex-shrink: 0; }
+    .steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    .three-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; }
+    .step-box { background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 13px; padding: 8px 11px; }
+    .step-header { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 11.4pt; color: #1d4ed8; margin-bottom: 3px; display: block; }
+    .formula-big { background: #fffbeb; border: 2px solid #fde047; border-radius: 13px; padding: 7px 11px; text-align: center; font-size: 12.5pt; margin: 6px 0; }
+    .example-pill { background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 10px; padding: 5px 9px; margin-top: 5px; font-size: 10.4pt; color: #1e3a8a; }
+    .alert-tip { background: #fef2f2; border: 1.5px solid #fecaca; border-radius: 11px; padding: 6px 11px; margin-top: 7px; color: #991b1b; font-size: 10.4pt; }
+    .katex-display { margin: 0.25em 0 !important; }
+  </style>
+</head>
+<body>
+  <div class="header-box">
+    <div class="header-left">
+      <img src="../../logo-tomate.jpg" class="logo-img" alt="Toomate">
+      <div>
+        <span class="badge-top">📋 Formulario y Cómo Resolver</span>
+        <h1 class="main-title">Sistemas de Ecuaciones</h1>
+      </div>
+    </div>
+    <div style="text-align: right; font-family: 'Outfit', sans-serif; font-weight: 800; color: #2563eb; font-size: 12pt; flex-shrink: 0;">
+      Toomate.es<br>
+      <span style="font-size: 9.5pt; color: #64748b;">Matemáticas 4º ESO y 1º Bachillerato</span>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2 class="section-title"><span class="num-circle">1</span><span>Los 3 Métodos para Resolver Sistemas Lineales ($x, y$)</span></h2>
+    <div class="three-cols">
+      <div class="step-box">
+        <span class="step-header">1. Sustitución</span>
+        <div><strong>¿Cuándo elegirlo?</strong> Cuando una incógnita tenga coeficiente $1$ o $-1$.</div>
+        <div class="example-pill"><strong>1.</strong> Despeja esa letra en una ecuación.<br><strong>2.</strong> Sustitúyela entre paréntesis en la otra.<br><strong>3.</strong> Resuelve y calcula la primera letra.</div>
+      </div>
+      <div class="step-box">
+        <span class="step-header">2. Igualación</span>
+        <div><strong>¿Cuándo elegirlo?</strong> Cuando sea fácil despejar la misma letra en las dos ecuaciones.</div>
+        <div class="example-pill"><strong>1.</strong> Despeja la misma letra (ej. $y$) en ambas.<br><strong>2.</strong> Iguala las dos expresiones: $y = y$.<br><strong>3.</strong> Multiplica en cruz si hay fracciones.</div>
+      </div>
+      <div class="step-box">
+        <span class="step-header">3. Reducción (¡El más rápido!)</span>
+        <div><strong>¿Cuándo elegirlo?</strong> Siempre que todas las letras tengan números delante.</div>
+        <div class="example-pill"><strong>1.</strong> Multiplica las ecuaciones para que una letra quede con el <strong>mismo número y distinto signo</strong>.<br><strong>2.</strong> Suma en vertical para eliminarla.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2 class="section-title"><span class="num-circle">2</span><span>Cómo Limpiar el Sistema Antes de Empezar y Clasificación</span></h2>
+    <div class="steps-grid">
+      <div class="step-box">
+        <span class="step-header">🧹 Si hay Paréntesis o Denominadores</span>
+        <div><strong>¡Nunca apliques los métodos sin ordenar antes!</strong> En cada ecuación por separado:<br><strong>1.</strong> Quita paréntesis.<br><strong>2.</strong> Quita denominadores con el <strong>m.c.m.</strong><br><strong>3.</strong> Déjalo ordenado: $\begin{cases} ax + by = c \\ a'x + b'y = c' \end{cases}$</div>
+      </div>
+      <div class="step-box">
+        <span class="step-header">📊 Tipos de Sistemas según sus Soluciones</span>
+        <div>&bull; <strong>S.C.D. (Compatible Determinado):</strong> <strong>1 solución única</strong> $(x, y)$. Rectas que se cortan ($\dfrac{a}{a'} \neq \dfrac{b}{b'}$).<br>&bull; <strong>S.C.I. (Compatible Indeterminado):</strong> Sale $0 = 0$. <strong>Infinitas soluciones</strong> ($\dfrac{a}{a'} = \dfrac{b}{b'} = \dfrac{c}{c'}$).<br>&bull; <strong>S.I. (Incompatible):</strong> Sale $0 = k \neq 0$. <strong>Sin solución</strong> ($\dfrac{a}{a'} = \dfrac{b}{b'} \neq \dfrac{c}{c'}$).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card" style="margin-bottom: 0;">
+    <h2 class="section-title"><span class="num-circle">3</span><span>Chuleta para Plantear Problemas de Sistemas en Exámenes</span></h2>
+    <div class="steps-grid">
+      <div class="step-box">
+        <span class="step-header">🧪 Problemas de Mezclas y Precios</span>
+        <div>Si mezclamos $x\text{ kg}$ de precio $p_1$ con $y\text{ kg}$ de precio $p_2$:</div>
+        <div class="example-pill">$$\begin{cases} x + y = \text{Peso total} \\ p_1 \cdot x + p_2 \cdot y = \text{Coste total} \end{cases}$$</div>
+      </div>
+      <div class="step-box">
+        <span class="step-header">🔢 Problemas de Cifras y Descuentos</span>
+        <div>&bull; Un número de dos cifras $xy$ vale $\mathbf{10x + y}$ (y al invertir sus cifras vale $\mathbf{10y + x}$).<br>&bull; Subir un $10\%$ es multiplicar por $1{,}10$; rebajar un $20\%$ es multiplicar por $0{,}80$.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>
